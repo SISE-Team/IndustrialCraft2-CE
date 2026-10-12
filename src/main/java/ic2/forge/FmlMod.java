@@ -44,14 +44,16 @@ public final class FmlMod {
       NeoForge.EVENT_BUS.register(new EventHandlerForge());
       if (Boolean.getBoolean("ic2.verifyMigration")) {
          try {
-            String verification = Boolean.getBoolean("ic2.verifyAllMachines")
+            String verification = Boolean.getBoolean("ic2.verifyCables") ? "ic2.verification.CableVerification" : Boolean.getBoolean("ic2.verifyAllMachines")
                ? "ic2.verification.AllMachinesVerification" : "ic2.verification.MigrationVerification";
             NeoForge.EVENT_BUS.register(Class.forName(verification).getConstructor().newInstance());
             if (Boolean.getBoolean("ic2.verifyExtended")) {
                NeoForge.EVENT_BUS.register(Class.forName("ic2.verification.ExtendedValidation").getConstructor().newInstance());
             }
             if (FMLEnvironment.getDist().isClient()) {
-               NeoForge.EVENT_BUS.register(Class.forName("ic2.verification.ClientUiVerification").getConstructor().newInstance());
+               String clientVerification = Boolean.getBoolean("ic2.verifyCables")
+                  ? "ic2.verification.CableVerification$Client" : "ic2.verification.ClientUiVerification";
+               NeoForge.EVENT_BUS.register(Class.forName(clientVerification).getConstructor().newInstance());
                if (Boolean.getBoolean("ic2.verifyDedicated")) {
                   NeoForge.EVENT_BUS.register(Class.forName("ic2.verification.RemoteClientProbe").getConstructor().newInstance());
                }

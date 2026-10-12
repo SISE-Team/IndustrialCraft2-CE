@@ -1,6 +1,6 @@
 # IndustrialCraft2-CE porting and verification
 
-This document describes the Minecraft 26.1.2 / NeoForge 26.1.2.114 port and the verification completed on 2026-10-12. The current project version is `2.9.40-alpha.4`, built with Java 25.
+This document describes the Minecraft 26.1.2 / NeoForge 26.1.2.114 port and verification on 2026-10-12. The current project version is `2.9.40-alpha.5`, built with Java 25.
 
 ## Provenance
 
@@ -19,7 +19,7 @@ The `ic2` registry, resource, and API namespaces remain unchanged. The normal ar
 
 ## Completed validation
 
-The full behavior verification used an isolated dedicated NeoForge server and two real clients, one in Simplified Chinese and one in English, with JEI and an existing independent native-window guard. The game installation, public libraries, assets, metadata, and original native libraries were left unchanged: 4,864 protected fixed files matched their baseline hashes.
+The alpha.4 behavior candidate's full verification used an isolated dedicated NeoForge server and two real clients, one in Simplified Chinese and one in English, with JEI and an existing independent native-window guard. The game installation, public libraries, assets, metadata, and original native libraries were left unchanged: 4,864 protected fixed files matched their baseline hashes.
 
 | Area | Recorded coverage | Result |
 | --- | --- | --- |
@@ -53,13 +53,29 @@ The run checks all 104 machine entities, valid energy, real processing, item/flu
 
 After normal shutdown, read-only region parsing confirmed all 104 saved entities, finite nonnegative energy, valid inventory counts, five boxes containing 13 ingots each, and four tanks containing 2,000 mB coolant each. The same world was then reloaded using the normal artifact without verification classes or JVM flags. Vanilla read commands confirmed 104 machine types and 16 state checks. Both clients opened localized advanced-upgrade menus; the enabled damage filter survived restart. Offline-account/Realms request errors were recorded separately from mod/runtime failures.
 
-## Project branding rebuild
+## Project branding rebuild (alpha.4)
 
 The public repository uses `IndustrialCraft2-CE` for the project, artifact names, display name, and build coordinates. Personal attribution is limited to author credits. This is a metadata, packaging, documentation, and build-dependency change after the behavior verification above; every game class and asset/data entry is compared against that verified candidate before publication. The project now resolves its pinned JEI dependency from Maven rather than a machine-specific `mods` path.
 
 The final artifact is built from an exported clean Git source tree without the build cache. A clean compile changes debugger local-variable names in 26 anonymous classes relative to the older incremental compile. All 1,290 class models compare equal after normalizing only those debugger variable names and rebuilding constant-pool references; instructions, members, signatures, annotations, source lines, and other attributes are retained. Assets and data are byte-identical. This comparison does not modify the shipped class files.
 
 The detailed behavior evidence is retained in the maintainer's local validation archives. The public `validation/project-release-audit.json` records the project-branding build hash and comparison against the behavior-tested candidate. It does not claim a second two-hour test of different game logic.
+
+## Cable selection fix (alpha.5)
+
+Legacy `PipeBlock` constructors took a radius in block units. The current constructor takes the full width in model pixels, where one block is 16 pixels. Passing the legacy `thickness / 2` value made the cable selection and collision boxes 32 times too thin. A ray aimed at a visible cable could therefore hit the floor behind it. The migrated constructor now passes `thickness * 16`.
+
+The pre-fix verification recorded model/shape mismatches for all 14 ordinary cable variants and reproduced a client ray missing a visible cable. The targeted suite derives the expected core dimensions from the actual model JSON and checks selection and collision shapes for all connection, color, waterlogging, and detector/splitter power states. It also places cable items and sends real client mining actions to an integrated server in a disposable world, for isolated cores and connected arms in both creative and survival modes. Drop counts, the backing floor, neighboring cables and connections, and energy-network registration/removal are checked after deferred server updates settle.
+
+The test also exposed an incorrect tool requirement introduced by the migrated metal-material factory. The original decompiled cable registration uses `Properties.of(Material.METAL)` without `requiresCorrectToolForDrops`, and the original pickaxe tag contains no cables. Cable registrations now use fresh metal-colored properties without that additional requirement, restoring the original bare-hand drops while retaining hardness and sound settings.
+
+The cable constructor, cable registration properties, and property-gated verification dispatch change executable behavior from alpha.4. Assets and data remain byte-identical. The alpha.4 endurance run above has not been repeated for alpha.5; this release uses targeted cable regression evidence, recorded separately in `validation/cable-fix-audit.json`.
+
+The final targeted run passed **14 ordinary cable variants, 17,408 shape states, 60 actual mining scenarios, and 696 checks**, with **zero failures**. Both redstone states of the splitter cable are included. Each survival case yielded exactly one cable item; each creative case yielded none. The normal release and verification artifact contain byte-identical copies of all 1,290 main classes.
+
+A separate source copy restored only the legacy width argument and ran the final, unchanged harness. It reproduced shape mismatches for all 14 variants and a missed visible cable with matching client/server actor positions. This negative control is recorded in `validation/cable-legacy-width-control.json`; its expected failures are separate from the passing release results.
+
+Build the verification artifact and launch it in an isolated instance with `-Dic2.verifyMigration=true -Dic2.verifyCables=true`. The instance needs a disposable existing world. Its real client runs the cable suite in the background, writes `ic2-cable-verification.json` to its game directory, and shuts down normally after completion. The test fixture is excluded from the normal artifact.
 
 ## Reproduction and limits
 

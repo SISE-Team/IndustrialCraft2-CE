@@ -1,0 +1,35 @@
+{
+  "checks": 31,
+  "shapeStates": 17408,
+  "cases": [
+    {
+      "serverDestroyedCable": false,
+      "mode": "creative",
+      "clientPickedCable": false,
+      "clientDiagnostics": "position\u003d(64.5, 101.0, 62.5) creative\u003dtrue state\u003dBlock{ic2:copper_cable}[down\u003dfalse,east\u003dfalse,north\u003dfalse,south\u003dfalse,up\u003dfalse,waterlogged\u003dfalse,west\u003dfalse]",
+      "miningPacketSent": false,
+      "cable": "ic2:copper_cable",
+      "serverPosition": "(64.5, 101.0, 62.5)",
+      "layout": "isolated_core_edge"
+    }
+  ],
+  "failures": [
+    "ic2:copper_cable: model/selection/collision mismatch in 256 of 128 states",
+    "ic2:detector_cable: model/selection/collision mismatch in 512 of 256 states",
+    "ic2:double_insulated_gold_cable: model/selection/collision mismatch in 4096 of 2048 states",
+    "ic2:double_insulated_iron_cable: model/selection/collision mismatch in 4096 of 2048 states",
+    "ic2:glass_fibre_cable: model/selection/collision mismatch in 4096 of 2048 states",
+    "ic2:gold_cable: model/selection/collision mismatch in 256 of 128 states",
+    "ic2:insulated_copper_cable: model/selection/collision mismatch in 4096 of 2048 states",
+    "ic2:insulated_gold_cable: model/selection/collision mismatch in 4096 of 2048 states",
+    "ic2:insulated_iron_cable: model/selection/collision mismatch in 4096 of 2048 states",
+    "ic2:insulated_tin_cable: model/selection/collision mismatch in 4096 of 2048 states",
+    "ic2:iron_cable: model/selection/collision mismatch in 256 of 128 states",
+    "ic2:splitter_cable: model/selection/collision mismatch in 512 of 256 states",
+    "ic2:tin_cable: model/selection/collision mismatch in 256 of 128 states",
+    "ic2:triple_insulated_iron_cable: model/selection/collision mismatch in 4096 of 2048 states",
+    "client cannot mine visible cable: ic2:copper_cable creative\u003dtrue"
+  ],
+  "complete": true,
+  "miningActions": []
+}

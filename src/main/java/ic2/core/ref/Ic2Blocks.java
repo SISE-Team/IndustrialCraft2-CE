@@ -1170,7 +1170,7 @@ public final class Ic2Blocks {
          false
       )
    );
-   private static final Properties cableSettings = IC2Material.metal().strength(0.5F, 5.0F).sound(SoundType.METAL);
+   private static final Properties cableSettings = Properties.of().mapColor(MapColor.METAL).strength(0.5F, 5.0F).sound(SoundType.METAL);
    private static final Properties insulatedCableSettings = IC2Material.wool().strength(0.5F, 5.0F).sound(SoundType.WOOL);
    public static final FoamCableBlock COPPER_FOAM_CABLE = register("copper_foam_cable", FoamCableBlock.create(withId(cableSettings, "copper_foam_cable"), CableType.copper, 0));
    public static final Block COPPER_CABLE = register("copper_cable", CableBlock.create(withId(cableSettings, "copper_cable"), CableType.copper, 0, COPPER_FOAM_CABLE));

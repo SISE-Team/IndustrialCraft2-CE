@@ -1,0 +1,2110 @@
+{
+  "checks": 696,
+  "shapeStates": 17408,
+  "cases": [
+    {
+      "ticks": 41,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:copper_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:copper_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "connected_arm",
+      "cable": "ic2:copper_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "connected_arm",
+      "cable": "ic2:copper_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:detector_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:detector_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "connected_arm",
+      "cable": "ic2:detector_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "connected_arm",
+      "cable": "ic2:detector_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:double_insulated_gold_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:double_insulated_gold_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "connected_arm",
+      "cable": "ic2:double_insulated_gold_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "connected_arm",
+      "cable": "ic2:double_insulated_gold_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:double_insulated_iron_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:double_insulated_iron_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "connected_arm",
+      "cable": "ic2:double_insulated_iron_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "connected_arm",
+      "cable": "ic2:double_insulated_iron_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:glass_fibre_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:glass_fibre_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "connected_arm",
+      "cable": "ic2:glass_fibre_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "connected_arm",
+      "cable": "ic2:glass_fibre_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:gold_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:gold_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "connected_arm",
+      "cable": "ic2:gold_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "connected_arm",
+      "cable": "ic2:gold_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:insulated_copper_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:insulated_copper_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "connected_arm",
+      "cable": "ic2:insulated_copper_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "connected_arm",
+      "cable": "ic2:insulated_copper_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:insulated_gold_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:insulated_gold_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "connected_arm",
+      "cable": "ic2:insulated_gold_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "connected_arm",
+      "cable": "ic2:insulated_gold_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:insulated_iron_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:insulated_iron_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "connected_arm",
+      "cable": "ic2:insulated_iron_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "connected_arm",
+      "cable": "ic2:insulated_iron_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:insulated_tin_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:insulated_tin_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "connected_arm",
+      "cable": "ic2:insulated_tin_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "connected_arm",
+      "cable": "ic2:insulated_tin_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:iron_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:iron_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "connected_arm",
+      "cable": "ic2:iron_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "connected_arm",
+      "cable": "ic2:iron_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:splitter_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:splitter_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "connected_arm",
+      "cable": "ic2:splitter_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "connected_arm",
+      "cable": "ic2:splitter_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:tin_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:tin_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "connected_arm",
+      "cable": "ic2:tin_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "connected_arm",
+      "cable": "ic2:tin_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:triple_insulated_iron_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:triple_insulated_iron_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "connected_arm",
+      "cable": "ic2:triple_insulated_iron_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "connected_arm",
+      "cable": "ic2:triple_insulated_iron_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": false,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:splitter_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": true,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "isolated_core_edge",
+      "cable": "ic2:splitter_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": true,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 41,
+      "layout": "connected_arm",
+      "cable": "ic2:splitter_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": true,
+      "drops": 0,
+      "mode": "creative",
+      "clientPickedCable": true
+    },
+    {
+      "ticks": 61,
+      "layout": "connected_arm",
+      "cable": "ic2:splitter_cable",
+      "serverDestroyedCable": true,
+      "miningPacketSent": true,
+      "powered": true,
+      "drops": 1,
+      "mode": "survival",
+      "clientPickedCable": true
+    }
+  ],
+  "failures": [],
+  "complete": true,
+  "miningActions": [
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 0,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 0,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 1,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 1,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 1,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 1,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 2,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 2,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 3,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 3,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 3,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 3,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 4,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 4,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 5,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 5,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 5,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 5,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 6,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 6,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 7,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 7,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 7,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 7,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 8,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 8,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 9,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 9,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 9,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 9,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 10,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 10,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 11,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 11,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 11,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 11,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 12,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 12,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 13,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 13,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 13,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 13,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 14,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 14,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 15,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 15,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 15,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 15,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 16,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 16,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 17,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 17,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 17,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 17,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 18,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 18,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 19,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 19,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 19,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 19,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 20,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 20,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 21,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 21,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 21,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 21,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 22,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 22,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 23,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 23,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 23,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 23,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 24,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 24,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 25,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 25,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 25,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 25,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 26,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 26,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 27,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 27,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 27,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 27,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 28,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 28,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 29,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 29,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 29,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 29,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 30,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 30,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 31,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 31,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 31,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 31,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 32,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 32,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 33,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 33,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 33,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 33,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 34,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 34,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 35,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 35,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 35,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 35,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 36,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 36,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 37,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 37,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 37,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 37,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 38,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 38,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 39,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 39,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 39,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 39,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 40,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 40,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 41,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 41,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 41,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 41,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 42,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 42,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 43,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 43,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 43,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 43,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 44,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 44,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 45,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 45,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 45,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 45,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 46,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 46,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 47,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 47,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 47,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 47,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 48,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 48,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 49,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 49,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 49,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 49,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 50,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 50,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 51,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 51,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 51,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 51,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 52,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 52,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 53,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 53,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 53,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 53,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 54,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 54,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 55,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 55,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 55,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 55,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 56,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 56,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 57,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 57,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 57,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 57,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 58,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 58,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "client",
+      "heldItem": "0 minecraft:air",
+      "case": 59,
+      "canceled": false
+    },
+    {
+      "action": "START",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 59,
+      "canceled": false
+    },
+    {
+      "action": "ABORT",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 59,
+      "canceled": false
+    },
+    {
+      "action": "STOP",
+      "position": "(64.5, 101.0, 62.5)",
+      "side": "server",
+      "heldItem": "0 minecraft:air",
+      "case": 59,
+      "canceled": false
+    }
+  ]
+}

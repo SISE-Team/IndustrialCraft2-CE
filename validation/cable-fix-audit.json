@@ -1,0 +1,94 @@
+{
+  "project": "IndustrialCraft2-CE",
+  "version": "2.9.40-alpha.5",
+  "date": "2026-10-12",
+  "minecraft": "26.1.2",
+  "neoforge": "26.1.2.114",
+  "java": 25,
+  "releaseFile": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.5.jar",
+  "releaseSHA256": "ee8a9af66423e46b8064a9cfdeec5a3be72d969bfb8c13158afb217111b4429d",
+  "sourcesFile": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.5-sources.jar",
+  "sourcesSHA256": "9cfc79c48324698e5bbbcab724bbde9e14088c36d43df5fd494d3a1e14c10926",
+  "fixes": [
+    "Convert cable thickness to the full model-pixel width required by PipeBlock.",
+    "Restore upstream tool-independent cable drops without changing hardness or sound."
+  ],
+  "verification": {
+    "variantCount": 14,
+    "shapeStates": 17408,
+    "outlineAndCollisionComparisons": 34816,
+    "actualMiningCases": 60,
+    "checks": 696,
+    "failures": [],
+    "complete": true,
+    "modes": [
+      "creative",
+      "survival"
+    ],
+    "layouts": [
+      "isolated_core_edge",
+      "connected_arm"
+    ],
+    "splitterCases": 8,
+    "splitterPoweredStates": [
+      false,
+      true
+    ],
+    "survivalCases": 30,
+    "exactOneItemSurvivalDrops": 30,
+    "creativeCases": 30,
+    "creativeDrops": 0,
+    "realClientAndIntegratedServer": true,
+    "uncanceledServerMiningActionsCheckedPerCase": true,
+    "neighborAndEnergyLifecycleChecked": true,
+    "normalReleaseClassBytesMatchVerification": true,
+    "results": "cable-fix-results.json",
+    "verificationSHA256": "524324853c03dad4a16857eefbd903a9dd4e605e7c548c341fef6a8a378a8a7a"
+  },
+  "legacyWidthControl": {
+    "description": "Source copy of alpha.5 with only the cable constructor width argument restored to thickness / 2; final harness unchanged.",
+    "complete": true,
+    "shapeStates": 17408,
+    "variantsWithExpectedShapeMismatches": 14,
+    "expectedFailureCount": 15,
+    "clientPickedVisibleCable": false,
+    "serverDestroyedCable": false,
+    "clientAndServerActorPositionsMatch": true,
+    "controlSHA256": "17905b4b6c35cf289e56f63dbfe4ccb8d239bc471fdaeba3fae02e16524b78b2",
+    "results": "cable-legacy-width-control.json"
+  },
+  "comparisonWithAlpha4": {
+    "baselineSHA256": "9bdfd61eef93da3c01519122c425f563ee9d7b855add959b3cc13d80ac5a3d1b",
+    "classModelsCompared": 1290,
+    "changedExecutableClasses": [
+      "ic2/core/block/wiring/AbstractCableBlock.class",
+      "ic2/core/ref/Ic2Blocks.class",
+      "ic2/forge/FmlMod.class"
+    ],
+    "sourceLineOnlyClasses": [
+      "ic2/core/block/wiring/AbstractCableBlock$Conductor.class"
+    ],
+    "debugLocalNameDifferences": 3,
+    "resourcesCompared": 6009,
+    "changedResources": [],
+    "method": "ASM reconstruction preserves instructions and class attributes, normalizes debugger local-variable names, and separately verifies the conductor class differs only in source line numbers."
+  },
+  "releaseAudits": {
+    "authorAttributionPreserved": true,
+    "personalNamesInArtifactNamesOrCodeIdentifiers": false,
+    "verificationClassesInNormalRelease": false,
+    "originalSpritesPreserved": 1537,
+    "protectedGameFilesUnchanged": 4864,
+    "missingModelReferences": 0
+  },
+  "priorEnduranceEvidence": {
+    "audit": "project-release-audit.json",
+    "version": "2.9.40-alpha.4",
+    "elapsedSeconds": 7200.0429703,
+    "repeatedForAlpha5": false
+  },
+  "limits": [
+    "Targeted regression covers the recorded cable states and mining scenarios.",
+    "The previous full machine, multiplayer, and endurance results remain alpha.4 evidence."
+  ]
+}

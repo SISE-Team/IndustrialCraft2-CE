@@ -110,7 +110,8 @@ public abstract class AbstractCableBlock extends PipeBlock implements ChunkLoadA
    }
 
    protected AbstractCableBlock(Properties settings, CableType type, int insulation) {
-      super(type.getThickness(insulation) / 2.0F, settings);
+      // PipeBlock takes the full width in model pixels (16 per block).
+      super(type.getThickness(insulation) * 16.0F, settings);
       if (insulation > type.maxInsulation) {
          throw new IllegalArgumentException("invalid insulation " + insulation + " for type " + type);
       } else {
