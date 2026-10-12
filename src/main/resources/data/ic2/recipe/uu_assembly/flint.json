@@ -1,0 +1,18 @@
+{
+  "type": "ic2:shaped",
+  "assemblyMask": 182,
+  "pattern": [
+    " U ",
+    "UU ",
+    "UU "
+  ],
+  "key": {
+    "U": {
+      "item": "ic2:uu_matter"
+    }
+  },
+  "result": {
+    "item": "minecraft:flint",
+    "count": 32
+  }
+}

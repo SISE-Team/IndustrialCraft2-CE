@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "group": "copper_ingot",
+  "ingredient": "ic2:silver_dust",
+  "result": {
+    "id": "ic2:silver_ingot"
+  },
+  "experience": 0.0,
+  "cookingtime": 200
+}

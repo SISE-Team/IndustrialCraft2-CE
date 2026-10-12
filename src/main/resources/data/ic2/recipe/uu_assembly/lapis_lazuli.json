@@ -1,0 +1,18 @@
+{
+  "type": "ic2:shaped",
+  "assemblyMask": 147,
+  "pattern": [
+    " U ",
+    " U ",
+    " UU"
+  ],
+  "key": {
+    "U": {
+      "item": "ic2:uu_matter"
+    }
+  },
+  "result": {
+    "item": "minecraft:lapis_lazuli",
+    "count": 9
+  }
+}

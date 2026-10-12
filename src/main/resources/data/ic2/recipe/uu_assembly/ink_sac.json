@@ -1,0 +1,18 @@
+{
+  "type": "ic2:shaped",
+  "assemblyMask": 218,
+  "pattern": [
+    " UU",
+    " UU",
+    " U "
+  ],
+  "key": {
+    "U": {
+      "item": "ic2:uu_matter"
+    }
+  },
+  "result": {
+    "item": "minecraft:ink_sac",
+    "count": 48
+  }
+}

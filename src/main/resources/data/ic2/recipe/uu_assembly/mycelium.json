@@ -1,0 +1,18 @@
+{
+  "type": "ic2:shaped",
+  "assemblyMask": 47,
+  "pattern": [
+    "   ",
+    "U U",
+    "UUU"
+  ],
+  "key": {
+    "U": {
+      "item": "ic2:uu_matter"
+    }
+  },
+  "result": {
+    "item": "minecraft:mycelium",
+    "count": 24
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "group": "lead_ingot",
+  "ingredient": "ic2:lead_dust",
+  "result": {
+    "id": "ic2:lead_ingot"
+  },
+  "experience": 0.0,
+  "cookingtime": 200
+}

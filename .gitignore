@@ -1,0 +1,40 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+logs
+build
+.gradle
+.cache
+
+# other
+eclipse
+run
+classes
+
+# Local migration inputs, machine-specific tooling, and validation evidence
+/original/
+/build-*
+/err*.txt
+__pycache__/
+*.pyc
+/tools/*
+!/tools/project_artifacts.py
+!/tools/check_release_branding.py
+!/tools/ClassEquivalenceProbe.java
+!/tools/audit_localization.py
+!/tools/LanguageFormatProbe.java
+!/tools/migrate_assets_2612.py
+

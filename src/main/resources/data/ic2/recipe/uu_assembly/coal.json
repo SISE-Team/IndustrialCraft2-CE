@@ -1,0 +1,18 @@
+{
+  "type": "ic2:shaped",
+  "assemblyMask": 97,
+  "pattern": [
+    "  U",
+    "U  ",
+    "  U"
+  ],
+  "key": {
+    "U": {
+      "item": "ic2:uu_matter"
+    }
+  },
+  "result": {
+    "item": "minecraft:coal",
+    "count": 20
+  }
+}

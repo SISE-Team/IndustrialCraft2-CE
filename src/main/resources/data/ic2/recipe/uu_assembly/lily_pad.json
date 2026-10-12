@@ -1,0 +1,18 @@
+{
+  "type": "ic2:shaped",
+  "assemblyMask": 338,
+  "pattern": [
+    "U U",
+    " U ",
+    " U "
+  ],
+  "key": {
+    "U": {
+      "item": "ic2:uu_matter"
+    }
+  },
+  "result": {
+    "item": "minecraft:lily_pad",
+    "count": 64
+  }
+}

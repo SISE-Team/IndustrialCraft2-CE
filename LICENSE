@@ -1,0 +1,12 @@
+IndustrialCraft2-CE
+
+All rights reserved.
+
+The upstream IndustrialCraft 2 input declares "All rights reserved" in its
+META-INF/mods.toml. Original code, assets, names, and other materials retain
+their respective copyright and license status. This community port does not
+grant additional rights to upstream material or replace its license.
+
+Third-party components retain their own notices and licenses. See NOTICE and
+the licenses directory. No blanket open-source license is applied to this
+repository.

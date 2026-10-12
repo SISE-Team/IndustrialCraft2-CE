@@ -1,0 +1,6 @@
+{
+ "model": {
+  "type": "minecraft:model",
+  "model": "ic2:block/generator/kinetic/steam_kinetic_generator"
+ }
+}

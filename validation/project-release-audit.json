@@ -1,0 +1,149 @@
+{
+  "project": "IndustrialCraft2-CE",
+  "version": "2.9.40-alpha.4",
+  "date": "2026-10-12",
+  "minecraft": "26.1.2",
+  "neoforge": "26.1.2.114",
+  "java": 25,
+  "releaseFile": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.4.jar",
+  "releaseSHA256": "9bdfd61eef93da3c01519122c425f563ee9d7b855add959b3cc13d80ac5a3d1b",
+  "sourcesFile": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.4-sources.jar",
+  "sourcesSHA256": "752e39071fc5623c4a327289d734ce468c40b85b36438b39ead352620f06f088",
+  "authorAttributionPreserved": true,
+  "personalNamesInArtifactNamesOrCodeIdentifiers": false,
+  "comparison": {
+    "verifiedCandidateSHA256": "342e2aa67776a11133d46743fa557350a14d59139557b28ca3f658d938dd3063",
+    "gameplayEntriesCompared": 7299,
+    "changedGameplayEntries": [],
+    "method": "All entries compared; ASM reconstruction preserves instructions, fields, signatures, annotations, line numbers and other attributes, normalizing only debugger local-variable names and constant-pool references",
+    "byteDifferentClassCount": 26,
+    "classModelsCompared": 1290,
+    "changedExecutableClasses": 0,
+    "changedResourceEntries": []
+  },
+  "resources": {
+    "roots": 764,
+    "reachableModels": 1154,
+    "missingReferences": 0,
+    "originalSpritesPreserved": 1537,
+    "protectedGameFilesUnchanged": 4864,
+    "verificationClassesInNormalRelease": false
+  },
+  "behaviorValidation": {
+    "allMachines": {
+      "types": 104,
+      "behaviorCases": 219,
+      "actualGuiTypes": 98,
+      "checks": 1361
+    },
+    "regression": {
+      "checks": 3600,
+      "actualGuiTypes": 14,
+      "craftingAndUURecipes": 407,
+      "machineRecipes": 335,
+      "sourceFluids": 17
+    },
+    "upgrades": {
+      "types": 11,
+      "capableMachines": 38.0,
+      "globalVariants": 171,
+      "appliedCases": 2123,
+      "functionalCases": 16,
+      "advancedFilterCases": 24
+    },
+    "reactors": {
+      "componentTypes": 29,
+      "pairScenarios": 5220,
+      "functionalCases": 16
+    },
+    "multiplayer": {
+      "clients": 2,
+      "sharedPickupHost": 13,
+      "sharedPickupGuest": 0,
+      "nativeClicks": [
+        1,
+        1
+      ],
+      "syncedRecipeTypes": {
+        "ic2:blast_furnace": 5.0,
+        "ic2:block_cutter": 17.0,
+        "ic2:canner_bottle": 41.0,
+        "ic2:canner_enrich": 4.0,
+        "ic2:centrifuge": 26.0,
+        "ic2:compressor": 63.0,
+        "ic2:extractor": 24.0,
+        "ic2:macerator": 116.0,
+        "ic2:matter_fabricator": 2.0,
+        "ic2:metal_former_cutting": 5.0,
+        "ic2:metal_former_extruding": 10.0,
+        "ic2:metal_former_rolling": 14.0,
+        "ic2:ore_washing": 8.0,
+        "ic2:uu_assembly": 41.0
+      }
+    },
+    "soak": {
+      "startedAt": "2026-10-12T06:33:05.488559+00:00",
+      "completedAt": "2026-10-12T08:33:05.531529+00:00",
+      "elapsedSeconds": 7200.0429703,
+      "worldTicks": 144001,
+      "averageTPS": 20.000019526827906,
+      "samples": 120,
+      "checks": 278938,
+      "lastSampleOutputs": {
+        "maceratorOutput": 2519,
+        "furnaceOutput": 2878,
+        "deliveredFluidMB": 1439000
+      },
+      "serverHeapMinMiB": 697.6874542236328,
+      "serverHeapMaxMiB": 2327.733039855957,
+      "clientHeartbeatsHealthyAtEverySample": true
+    },
+    "localization": {
+      "languages": 23,
+      "entries": 26563,
+      "runtime": {
+        "zh_cn": {
+          "runtimeKeys": 1102,
+          "creativeVariants": 91,
+          "cropCards": 37,
+          "items": 508,
+          "chatChecks": 5
+        },
+        "en_us": {
+          "runtimeKeys": 1102,
+          "creativeVariants": 91,
+          "cropCards": 37,
+          "items": 508,
+          "chatChecks": 5
+        }
+      },
+      "failures": []
+    },
+    "saveAndReload": {
+      "savedMachineTypes": 104,
+      "loadedReleaseMachineTypes": 104,
+      "persistedRuntimeChecks": 16,
+      "verificationClassesPresent": false,
+      "realChineseEnglishGuiPassed": true,
+      "damageToggleRestored": true,
+      "unexpectedLogErrors": []
+    },
+    "scope": [
+      "All 104 registered machine types and their recorded behavior cases",
+      "All 11 upgrade types, recorded singles/pairs/control-presence/quantity boundaries",
+      "All 29 reactor component pairs across heat/orientation/wear dimensions plus representative full 54-slot cases",
+      "Two real clients on an isolated NeoForge server with JEI and the existing native window guard",
+      "Arbitrary 54-slot permutations and arbitrary other-modpack interactions are not exhaustively enumerated"
+    ]
+  },
+  "complete": true,
+  "failures": [],
+  "cleanSourceBuild": {
+    "success": true,
+    "buildCacheEnabled": false,
+    "tasksExecuted": 8,
+    "independentCleanBuildExecutableContentMatches": true,
+    "deliveredArtifactBuiltFromExportedGitSource": true,
+    "compilerDebugVariableNamesCanDependOnSourceDiscoveryOrder": true
+  }
+}

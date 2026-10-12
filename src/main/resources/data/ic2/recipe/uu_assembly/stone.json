@@ -1,0 +1,18 @@
+{
+  "type": "ic2:shaped",
+  "assemblyMask": 16,
+  "pattern": [
+    "   ",
+    " U ",
+    "   "
+  ],
+  "key": {
+    "U": {
+      "item": "ic2:uu_matter"
+    }
+  },
+  "result": {
+    "item": "minecraft:stone",
+    "count": 16
+  }
+}

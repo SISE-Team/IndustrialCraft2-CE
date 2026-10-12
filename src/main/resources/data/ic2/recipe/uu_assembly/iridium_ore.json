@@ -1,0 +1,18 @@
+{
+  "type": "ic2:shaped",
+  "assemblyMask": 471,
+  "pattern": [
+    "UUU",
+    " U ",
+    "UUU"
+  ],
+  "key": {
+    "U": {
+      "item": "ic2:uu_matter"
+    }
+  },
+  "result": {
+    "item": "ic2:iridium_ore",
+    "count": 1
+  }
+}

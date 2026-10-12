@@ -1,0 +1,53 @@
+# IndustrialCraft2-CE
+
+IndustrialCraft2-CE is a community port of IndustrialCraft 2 for modern Minecraft and NeoForge. It retains the `ic2` mod ID, resource namespace, and public API packages.
+
+| Component | Version |
+| --- | --- |
+| Minecraft | 26.1.2 |
+| NeoForge | 26.1.2.114 |
+| Java | 25 |
+| IndustrialCraft2-CE | 2.9.40-alpha.4 |
+| JEI used for development and verification | 29.43.0.107 |
+
+The port covers machines, EU/HU/KU networks, nuclear reactors, crops, fluids, upgrades, storage, and UU processing. Modern item and fluid rendering, crafting-book placement, machine menus, persistence, dedicated-server startup, and multiplayer recipe synchronization have been migrated.
+
+## Build
+
+Install JDK 25, then run:
+
+```sh
+./gradlew build
+```
+
+On Windows, use `gradlew.bat build`. The Gradle wrapper resolves NeoForge and the pinned JEI dependency; no external Minecraft installation or manually copied JEI JAR is needed to compile.
+
+Artifacts are written to `build/libs/`:
+
+- `IndustrialCraft2-CE-26.1.2-2.9.40-alpha.4.jar`
+- `IndustrialCraft2-CE-26.1.2-2.9.40-alpha.4-sources.jar`
+
+Install the normal JAR in the `mods` directory of a Minecraft 26.1.2 / NeoForge instance. JEI is optional for normal play and provides machine recipe browsing when installed.
+
+## Verification
+
+The migration validation completed 104 machine types, 219 behavior cases, 98 actual menu entry points, 2,123 upgrade applications, and 5,220 reactor component-pair scenarios. Two real clients then ran continuously for two hours at an average 20 TPS: 144,001 world ticks, 278,938 checks, and zero recorded failures. Chinese and English runtime localization checks and normal-JAR save/reload checks also passed.
+
+See [PORTING.md](PORTING.md) for the test dimensions, evidence provenance, and limits. These results cover the recorded scenarios; arbitrary 54-slot layouts and arbitrary interactions with other modpacks have not been exhaustively enumerated. This release remains alpha.
+
+The verification harness is a separate build target:
+
+```sh
+./gradlew migrationVerificationJar
+python tools/check_release_branding.py
+```
+
+The verification JAR creates destructive test fixtures and must be installed only in an isolated disposable instance. Do not install it together with the normal JAR. It is excluded from the regular release and runtime classpath.
+
+## Credits and notices
+
+Original IndustrialCraft 2 credits are retained in the mod metadata. The community port is maintained by SISE-Team, with port author **Viking602**.
+
+The original input identifies its license as **All rights reserved**. This repository preserves that designation rather than applying a blanket open-source license to upstream code or assets. See [LICENSE](LICENSE) and [NOTICE](NOTICE) for provenance and third-party notices.
+
+Report reproducible problems through [GitHub Issues](https://github.com/SISE-Team/IndustrialCraft2-CE/issues), including the game/loader version, mod version, relevant logs, and reproduction steps.

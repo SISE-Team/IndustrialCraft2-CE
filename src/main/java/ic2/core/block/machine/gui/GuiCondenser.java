@@ -1,0 +1,38 @@
+package ic2.core.block.machine.gui;
+
+import com.google.common.base.Supplier;
+import ic2.core.Ic2Gui;
+import ic2.core.block.machine.container.ContainerCondenser;
+import ic2.core.gui.EnergyGauge;
+import ic2.core.gui.Gauge;
+import ic2.core.gui.LinkedGauge;
+import ic2.core.gui.SlotGrid;
+import ic2.core.gui.TankGauge;
+import ic2.core.init.Localization;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.player.Inventory;
+
+public class GuiCondenser extends Ic2Gui<ContainerCondenser> {
+   private static final Identifier BACKGROUND = Identifier.fromNamespaceAndPath("ic2", "textures/gui/guicondenser.png");
+
+   public GuiCondenser(ContainerCondenser container, Inventory playerInventory, Component title) {
+      super(container, playerInventory, title, 184);
+      Supplier<String> ventTooltipSupplier = new Supplier<String>() {
+         public String get() {
+            return Localization.translate("ic2.Condenser.gui.tooltipvent", (short)2);
+         }
+      };
+      this.addElement(new SlotGrid(this, 25, 25, 1, 2, SlotGrid.SlotStyle.Normal).withTooltip(ventTooltipSupplier));
+      this.addElement(new SlotGrid(this, 133, 25, 1, 2, SlotGrid.SlotStyle.Normal).withTooltip(ventTooltipSupplier));
+      this.addElement(EnergyGauge.asBolt(this, 12, 26, container.base));
+      this.addElement(TankGauge.createPlain(this, 46, 27, 84, 33, container.base.getInputTank()));
+      this.addElement(TankGauge.createPlain(this, 46, 74, 84, 15, container.base.getOutputTank()));
+      this.addElement(new LinkedGauge(this, 47, 63, container.base, "progress", Gauge.GaugeStyle.ProgressCondenser));
+   }
+
+   @Override
+   protected Identifier getTexture() {
+      return BACKGROUND;
+   }
+}

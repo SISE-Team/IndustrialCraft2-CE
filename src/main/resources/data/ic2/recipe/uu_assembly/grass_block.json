@@ -1,0 +1,18 @@
+{
+  "type": "ic2:shaped",
+  "assemblyMask": 36,
+  "pattern": [
+    "   ",
+    "U  ",
+    "U  "
+  ],
+  "key": {
+    "U": {
+      "item": "ic2:uu_matter"
+    }
+  },
+  "result": {
+    "item": "minecraft:grass_block",
+    "count": 16
+  }
+}

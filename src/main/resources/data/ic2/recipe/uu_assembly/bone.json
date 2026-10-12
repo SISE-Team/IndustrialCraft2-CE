@@ -1,0 +1,18 @@
+{
+  "type": "ic2:shaped",
+  "assemblyMask": 308,
+  "pattern": [
+    "U  ",
+    "UU ",
+    "U  "
+  ],
+  "key": {
+    "U": {
+      "item": "ic2:uu_matter"
+    }
+  },
+  "result": {
+    "item": "minecraft:bone",
+    "count": 32
+  }
+}

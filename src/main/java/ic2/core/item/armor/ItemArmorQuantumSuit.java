@@ -1,0 +1,154 @@
+package ic2.core.item.armor;
+
+import ic2.api.item.ElectricItem;
+import ic2.api.item.HudMode;
+import ic2.api.item.IHazmatLike;
+import ic2.api.item.IItemHudProvider;
+import ic2.core.item.armor.jetpack.IJetpack;
+import ic2.core.util.StackUtil;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.equipment.ArmorMaterial;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.Item.Properties;
+
+public class ItemArmorQuantumSuit extends ItemArmorElectric implements IJetpack, IHazmatLike, IItemHudProvider {
+   public static final int[] CHARGED_PROTECTION = new int[]{3, 6, 8, 3};
+   private static final int defaultColor = -1;
+
+   public ItemArmorQuantumSuit(ArmorMaterial material, EquipmentSlot armorType, Properties settings) {
+      super(material, armorType, settings, 1.0E7, 12000.0, 4);
+   }
+
+   @Override
+   public int getEnergyPerDamage() {
+      return 20000;
+   }
+
+   public boolean hasCustomColor(ItemStack stack) {
+      return this.getColor(stack) != -1;
+   }
+
+   public void clearColor(ItemStack stack) {
+      CompoundTag nbt = this.getDisplayNbt(stack, false);
+      if (nbt != null && nbt.contains("color")) {
+         nbt.remove("color");
+         if (nbt.isEmpty()) {
+            assert ic2.core.util.StackTag.get(stack) != null;
+
+            ic2.core.util.StackTag.update(stack, ic2Data -> { ic2Data.remove("display"); return ic2Data; });
+         }
+      }
+   }
+
+   public int getColor(ItemStack stack) {
+      CompoundTag nbt = this.getDisplayNbt(stack, false);
+      return nbt != null && nbt.contains("color") ? nbt.getIntOr("color", 0) : -1;
+   }
+
+   public void setColor(ItemStack stack, int color) {
+      CompoundTag nbt = this.getDisplayNbt(stack, true);
+
+      assert nbt != null;
+
+      nbt.putInt("color", color);
+   }
+
+   private CompoundTag getDisplayNbt(ItemStack stack, boolean create) {
+      CompoundTag nbt = ic2.core.util.StackTag.get(stack);
+      if (nbt == null) {
+         if (!create) {
+            return null;
+         }
+
+         nbt = new CompoundTag();
+         ic2.core.util.StackTag.set(stack, nbt);
+      }
+
+      CompoundTag ret;
+      if (!nbt.contains("display")) {
+         if (!create) {
+            return null;
+         }
+
+         ret = new CompoundTag();
+         nbt.put("display", ret);
+         ic2.core.util.StackTag.set(stack, nbt);
+      } else {
+         ret = nbt.getCompoundOrEmpty("display");
+      }
+
+      return ret;
+   }
+
+   @Override
+   public boolean addsProtection(LivingEntity entity, EquipmentSlot slot, ItemStack stack) {
+      return ElectricItem.manager.getCharge(stack) > 0.0;
+   }
+
+   public boolean absorbFall(ItemStack stack, LivingEntity entity, float distance) {
+      int fallDamage = Math.max((int)distance - 10, 0);
+      double energyCost = this.getEnergyPerDamage() * fallDamage;
+      if (energyCost > ElectricItem.manager.getCharge(stack)) {
+         return false;
+      } else {
+         ElectricItem.manager.discharge(stack, energyCost, Integer.MAX_VALUE, true, false, false);
+         return true;
+      }
+   }
+
+   public Rarity getRarity(ItemStack stack) {
+      return Rarity.RARE;
+   }
+
+   public int getEnchantmentValue() {
+      return 0;
+   }
+
+   @Override
+   public boolean drainEnergy(ItemStack pack, int amount) {
+      return ElectricItem.manager.discharge(pack, amount + 6, Integer.MAX_VALUE, true, false, false) > 0.0;
+   }
+
+   @Override
+   public float getPower(ItemStack stack) {
+      return 1.0F;
+   }
+
+   @Override
+   public float getDropPercentage(ItemStack stack) {
+      return 0.05F;
+   }
+
+   @Override
+   public double getChargeLevel(ItemStack stack) {
+      return ElectricItem.manager.getCharge(stack) / this.getMaxCharge(stack);
+   }
+
+   @Override
+   public boolean isJetpackActive(ItemStack stack) {
+      return true;
+   }
+
+   @Override
+   public float getHoverMultiplier(ItemStack stack, boolean upwards) {
+      return 0.1F;
+   }
+
+   @Override
+   public float getWorldHeightDivisor(ItemStack stack) {
+      return 0.9F;
+   }
+
+   @Override
+   public boolean doesProvideHUD(ItemStack stack) {
+      return this.slot == EquipmentSlot.HEAD && ElectricItem.manager.getCharge(stack) > 0.0;
+   }
+
+   @Override
+   public HudMode getHudMode(ItemStack stack) {
+      return HudMode.getFromID(StackUtil.getOrCreateNbtData(stack).getShortOr("HudMode", (short)0));
+   }
+}

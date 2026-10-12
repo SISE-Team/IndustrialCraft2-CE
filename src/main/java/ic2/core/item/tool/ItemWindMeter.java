@@ -1,0 +1,116 @@
+package ic2.core.item.tool;
+
+import net.minecraft.world.item.Item;
+import ic2.api.item.ElectricItem;
+import ic2.core.IC2;
+import ic2.core.block.generator.tileentity.TileEntityWindGenerator;
+import ic2.core.block.kineticgenerator.tileentity.TileEntityWindKineticGenerator;
+import ic2.core.event.WorldData;
+import ic2.core.init.Localization;
+import ic2.core.item.PriorityUsableItem;
+import ic2.core.profile.NotClassic;
+import ic2.core.util.StackUtil;
+import java.util.List;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.Item.Properties;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+
+@NotClassic
+public class ItemWindMeter extends ItemElectricTool implements PriorityUsableItem {
+   public ItemWindMeter(Properties settings) {
+      super(settings, 50);
+      this.maxCharge = 10000;
+      this.transferLimit = 100;
+      this.tier = 1;
+   }
+
+   @Override
+   public void appendHoverText(ItemStack stack, Item.TooltipContext world, net.minecraft.world.item.component.TooltipDisplay tooltipDisplay, java.util.function.Consumer<Component> tooltip, TooltipFlag advanced) {
+      tooltip.accept(Component.translatable("ic2.wind_meter.tooltipA"));
+      tooltip.accept(Component.translatable("ic2.wind_meter.tooltipB"));
+   }
+
+   @Override
+   public InteractionResult onItemUseFirst(ItemStack stack, UseOnContext context) {
+      Player player = context.getPlayer();
+      Level world = context.getLevel();
+      BlockPos pos = context.getClickedPos();
+      if (world.isClientSide() || player == null || player.isShiftKeyDown()) {
+         return InteractionResult.PASS;
+      } else if (!ElectricItem.manager.canUse(stack, this.operationEnergyCost)) {
+         return InteractionResult.PASS;
+      } else {
+         BlockEntity te = world.getBlockEntity(pos);
+         if (te instanceof TileEntityWindKineticGenerator windyTE) {
+            if (!windyTE.getActive()) {
+               if (windyTE.hasRotor()) {
+                  IC2.sideProxy.messagePlayer(player, "ic2.wind_meter.info.rotor.blocked");
+               } else {
+                  IC2.sideProxy.messagePlayer(player, "ic2.wind_meter.info.rotor.none");
+               }
+
+               return InteractionResult.FAIL;
+            } else {
+               this.consumeEnergy(stack, this.operationEnergyCost, player);
+               if (windyTE.getObstructions() >= 0) {
+                  float displayWind = roundWind(windyTE.calcWindStrength());
+                  if (displayWind <= 0.0F) {
+                     IC2.sideProxy.messagePlayer(player, "ic2.wind_meter.info.obstructed", windyTE.getObstructions());
+                  } else {
+                     IC2.sideProxy.messagePlayer(player, "ic2.wind_meter.info.effective", displayWind);
+                  }
+               } else {
+                  IC2.sideProxy.messagePlayer(player, "ic2.wind_meter.info.blocked", windyTE.getRotorDiameter() * 3);
+               }
+
+               return InteractionResult.SUCCESS;
+            }
+         } else if (te instanceof TileEntityWindGenerator) {
+            this.consumeEnergy(stack, this.operationEnergyCost, player);
+            TileEntityWindGenerator windyTEx = (TileEntityWindGenerator)te;
+            double obstructiveFactor = windyTEx.getObstructions() / 567.0;
+            double wind = obstructiveFactor >= 1.0 ? 0.0 : WorldData.get(world).windSim.getWindAt(pos.getY()) * (1.0 - obstructiveFactor);
+            float displayWind = roundWind(wind);
+            if (displayWind <= 0.0F) {
+               IC2.sideProxy.messagePlayer(player, "ic2.wind_meter.info.obstructed", windyTEx.getObstructions());
+            } else {
+               IC2.sideProxy.messagePlayer(player, "ic2.wind_meter.info.effective", displayWind);
+            }
+
+            return InteractionResult.SUCCESS;
+         } else {
+            return InteractionResult.PASS;
+         }
+      }
+   }
+
+   @Override
+   public InteractionResult use(Level world, Player player, InteractionHand hand) {
+      ItemStack stack = StackUtil.get(player, hand);
+      if (!IC2.sideProxy.isSimulating()) {
+         return InteractionResult.PASS;
+      } else if (!this.consumeEnergy(stack, this.operationEnergyCost, player)) {
+         return InteractionResult.PASS;
+      } else {
+         double windStrength = WorldData.get(world).windSim.getWindAt(player.getY());
+         if (windStrength < 0.0) {
+            windStrength = 0.0;
+         }
+
+         IC2.sideProxy.messagePlayer(player, "ic2.wind_meter.info", roundWind(windStrength));
+         return InteractionResult.SUCCESS.heldItemTransformedTo(stack);
+      }
+   }
+
+   private static float roundWind(double windStrength) {
+      return (float)Math.round(windStrength * 100.0) / 100.0F;
+   }
+}

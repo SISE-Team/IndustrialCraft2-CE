@@ -1,0 +1,18 @@
+{
+  "type": "ic2:shaped",
+  "assemblyMask": 146,
+  "pattern": [
+    " U ",
+    " U ",
+    " U "
+  ],
+  "key": {
+    "U": {
+      "item": "ic2:uu_matter"
+    }
+  },
+  "result": {
+    "item": "ic2:lava_sheet",
+    "count": 1
+  }
+}

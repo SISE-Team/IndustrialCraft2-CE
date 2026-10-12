@@ -1,0 +1,18 @@
+{
+  "type": "ic2:shaped",
+  "assemblyMask": 41,
+  "pattern": [
+    "   ",
+    "U U",
+    "  U"
+  ],
+  "key": {
+    "U": {
+      "item": "ic2:uu_matter"
+    }
+  },
+  "result": {
+    "item": "ic2:tin_dust",
+    "count": 10
+  }
+}

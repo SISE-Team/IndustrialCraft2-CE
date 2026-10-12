@@ -1,0 +1,70 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+
+version = minecraft_version + '-' + mod_version
+group = mod_group_id
+base { archivesName = mod_archive_name }
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+java.withSourcesJar()
+
+neoForge {
+    version = project.neo_version
+    runs {
+        client { client() }
+        server { server(); programArgument '--nogui' }
+        gameTestServer { type = 'gameTestServer' }
+    }
+    mods { "${mod_id}" { sourceSet sourceSets.main } }
+}
+
+repositories {
+    maven { url = 'https://maven.blamejared.com/' }
+}
+
+dependencies {
+    implementation "mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}"
+}
+
+tasks.withType(ProcessResources).configureEach {
+    def props = [minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
+        neo_version: neo_version, neo_version_range: neo_version_range, loader_version_range: loader_version_range,
+        mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: project.version,
+        mod_authors: mod_authors, mod_description: mod_description]
+    inputs.properties props
+    filesMatching('META-INF/neoforge.mods.toml') { expand props }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-Xmaxerrs', '5000']
+    options.fork = true
+    options.forkOptions.jvmArgs += ['-Duser.language=en', '-Duser.country=US', '-Dfile.encoding=UTF-8']
+}
+
+sourceSets.main.java {
+    exclude 'ic2/data/**'
+}
+
+tasks.withType(Jar).configureEach {
+    from(['LICENSE', 'NOTICE']) { into 'META-INF/licenses' }
+    from('licenses') { into 'META-INF/licenses' }
+}
+
+// Verification fixtures are compiled only into the explicitly requested test
+// artifact, never into the release jar or its normal runtime classpath.
+sourceSets {
+    migrationVerification {
+        java.srcDir 'src/verification/java'
+        resources.srcDir 'src/verification/resources'
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    }
+}
+tasks.register('migrationVerificationJar', Jar) {
+    dependsOn tasks.named('migrationVerificationClasses')
+    archiveClassifier = 'verification'
+    from(sourceSets.main.output) { exclude 'data/forge/tags/fluid/steam.json' }
+    from sourceSets.migrationVerification.output
+}

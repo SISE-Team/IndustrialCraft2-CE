@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "group": "gold_ingot",
+  "ingredient": "ic2:purified_gold",
+  "result": {
+    "id": "minecraft:gold_ingot"
+  },
+  "experience": 0.0,
+  "cookingtime": 200
+}

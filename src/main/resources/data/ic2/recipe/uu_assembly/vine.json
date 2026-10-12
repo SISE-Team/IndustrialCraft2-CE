@@ -1,0 +1,18 @@
+{
+  "type": "ic2:shaped",
+  "assemblyMask": 292,
+  "pattern": [
+    "U  ",
+    "U  ",
+    "U  "
+  ],
+  "key": {
+    "U": {
+      "item": "ic2:uu_matter"
+    }
+  },
+  "result": {
+    "item": "minecraft:vine",
+    "count": 24
+  }
+}

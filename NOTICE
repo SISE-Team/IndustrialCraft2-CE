@@ -1,0 +1,22 @@
+IndustrialCraft2-CE
+
+This is a community port of IndustrialCraft 2, maintained by SISE-Team.
+The original authors credited by the input mod are retained in the mod
+metadata. Port authorship is separately recorded there and in README.md.
+
+Migration input:
+  industrialcraft-2-2.9.40+ex119-1.19.2-forge.jar
+  SHA-256: 5d06ca9146041043132a72bad9b5612e260e77a84a2f3773a3da9b0167ea1d3d
+  Declared license: All rights reserved
+
+The input JAR, decompiler caches, game installations, and local runtime logs
+are development inputs and are not part of the source checkout.
+
+The org.ejml source tree contains a small compatibility implementation of
+the EJML API used by the IC2 energy network. Its existing source headers
+identify Apache License 2.0. A copy is included in licenses/Apache-2.0.txt.
+EJML project: https://github.com/lessthanoptimal/ejml
+
+Minecraft, NeoForge, JEI, and their dependencies retain their respective
+licenses. They are resolved as development dependencies and are not bundled
+as game/library class files in the normal mod JAR.

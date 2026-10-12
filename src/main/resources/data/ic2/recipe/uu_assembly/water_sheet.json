@@ -1,0 +1,18 @@
+{
+  "type": "ic2:shaped",
+  "assemblyMask": 18,
+  "pattern": [
+    "   ",
+    " U ",
+    " U "
+  ],
+  "key": {
+    "U": {
+      "item": "ic2:uu_matter"
+    }
+  },
+  "result": {
+    "item": "ic2:water_sheet",
+    "count": 1
+  }
+}

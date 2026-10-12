@@ -1,0 +1,18 @@
+{
+  "type": "ic2:shaped",
+  "assemblyMask": 422,
+  "pattern": [
+    "UU ",
+    "U  ",
+    "UU "
+  ],
+  "key": {
+    "U": {
+      "item": "ic2:uu_matter"
+    }
+  },
+  "result": {
+    "item": "minecraft:clay_ball",
+    "count": 48
+  }
+}

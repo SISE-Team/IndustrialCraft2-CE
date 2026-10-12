@@ -1,0 +1,18 @@
+{
+  "type": "ic2:shaped",
+  "assemblyMask": 189,
+  "pattern": [
+    " U ",
+    "UUU",
+    "U U"
+  ],
+  "key": {
+    "U": {
+      "item": "ic2:uu_matter"
+    }
+  },
+  "result": {
+    "item": "minecraft:cactus",
+    "count": 48
+  }
+}

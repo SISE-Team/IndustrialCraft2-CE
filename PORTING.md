@@ -1,0 +1,78 @@
+# IndustrialCraft2-CE porting and verification
+
+This document describes the Minecraft 26.1.2 / NeoForge 26.1.2.114 port and the verification completed on 2026-10-12. The current project version is `2.9.40-alpha.4`, built with Java 25.
+
+## Provenance
+
+The migration input was `industrialcraft-2-2.9.40+ex119-1.19.2-forge.jar`, SHA-256 `5d06ca9146041043132a72bad9b5612e260e77a84a2f3773a3da9b0167ea1d3d`. The original input and complete decompilation were retained locally and used to compare behavior. They are not required to compile the checked-in source.
+
+The `ic2` registry, resource, and API namespaces remain unchanged. The normal artifact contains neither Minecraft/LWJGL classes nor the verification harness. Original authors and licensing metadata are retained separately from project branding.
+
+## Migration changes
+
+- **Rendering:** migrate legacy block/item texture paths, replace obsolete model-loader declarations with valid models, add modern item definitions and battery charge dispatch, and register IC2 fluid models. The resource graph covers 764 roots and 1,154 reachable models with zero missing references. All 1,537 original PNG/mcmeta files retain their original bytes.
+- **Recipes:** migrate shaped/shapeless crafting, placement/display metadata, tool remainders, charge transfer, UU recipes, and JEI categories. Crafting recipes support the vanilla recipe book; machine-only recipes retain their special placement behavior.
+- **Dedicated server and multiplayer:** guard client-only initialization, synchronize the complete current recipe map, initialize client crop/fluid data after synchronization, fix machine-recipe network encoding, and clear connection-specific recipe state on disconnect.
+- **Machines and persistence:** restore energy/fluid/item capabilities, modern entity collision callbacks, machine menus and network buttons, source-fluid pumping, storage drops, chunk-loader persistence, UU scanning/replication, and recipe processing. Inventory, stored energy, fluids, modes, owner profiles, and tool damage use current NBT/component APIs.
+- **Upgrades:** prevent capacity and remote-range overflow, honor stack count, and restore advanced damage/charge/NBT filtering. Lossless real item/fluid transfers are checked separately from configuration calculations.
+- **Localization:** complete primary English and Chinese catalogs, dynamic item/container/fluid names, crop cards, handheld menus, tooltips, and local chat messages. Existing translations in other locales are retained with English fallback.
+
+## Completed validation
+
+The full behavior verification used an isolated dedicated NeoForge server and two real clients, one in Simplified Chinese and one in English, with JEI and an existing independent native-window guard. The game installation, public libraries, assets, metadata, and original native libraries were left unchanged: 4,864 protected fixed files matched their baseline hashes.
+
+| Area | Recorded coverage | Result |
+| --- | --- | --- |
+| Machine types | 104 types, 219 behavior cases, 98 actual menu entry points, 1,361 checks | 0 failures |
+| Basic regression | 3,600 checks, 14 actual GUI cycles | 0 failures |
+| Recipe registration | 407 crafting/UU recipes, 335 machine recipes, 17 source fluids | Passed |
+| Upgrade applications | 11 variants, 38 capable machine types, 171 global conditions, 2,123 accepted applications | Passed |
+| Upgrade behavior | 16 real processing/transfer/power cases, 24 advanced-filter transfers | Passed |
+| Reactor component pairs | 29 component types, 5,220 placed scenarios | Passed |
+| Additional reactor behavior | 16 cases including fuel exhaustion, breeding, fluid mode, full grids, and save/restore | Passed |
+| Localization | 23 catalogs, 26,563 entries; real Java format checks | 0 errors |
+| Runtime localization | Each client: 1,102 keys, 508 items, 91 creative variants, 37 crop cards, 5 chat checks | Passed |
+| Multiplayer inventory | One native click per client; shared 13 ingots became 13 + 0 | No duplication or loss |
+| Normal-artifact reload | 104/104 machine entities plus 16 persisted-state checks | Passed |
+
+Upgrade dimensions include suitability, stack counts 1/2/64, legal unordered pairs and both insertion orders, high-count overclock/storage/transformer combinations, and all nonempty presence combinations of four control upgrades. Reactor pair dimensions include horizontal/vertical adjacency, initial heat 0/5000/9000, and fresh/90%-worn components. Full 54-slot cooling and overload cases are also covered. Test reactors are spaced 256 blocks apart to prevent upstream nuclear ray propagation from contaminating neighboring scenarios.
+
+The upstream remote-interface API has no machine declaring `RemotelyAccessible`; tests cover rejection by unsuitable machines and the range API. The upstream NBT-selector button is visible only in development mode; release GUI behavior retains that design, while NBT filtering is covered by transfer tests. Steam repressurizer conversion uses a verification-only external `forge:steam` target. The normal artifact retains the upstream empty target tag and requires an external steam provider for that conversion.
+
+## Continuous two-hour run
+
+The final behavior candidate ran from **06:33:05 to 08:33:05 UTC** on 2026-10-12 (14:33:05 to 16:33:05 UTC+8):
+
+- Actual elapsed time: **7,200.04 seconds**.
+- Normal world ticks: **144,001**, average **20 TPS**.
+- Extended checks: **278,938**, **zero failures**.
+- Samples: **120**; both actual clients remained connected with fresh heartbeats and matching recipe counts at every sample.
+- Last sampled totals: **2,519 macerator outputs**, **2,878 furnace ingots**, **1,439,000 mB coolant delivered**.
+
+The run checks all 104 machine entities, valid energy, real processing, item/fluid conservation, safe reactor production, client connectivity, TPS, and heap use. All machine types undergo typed NBT roundtrip checks every ten minutes. Accelerated setup/matrix ticks are excluded from the two-hour duration. Passed baseline/pair matrices from the earlier completed round were retained in the saved world; subsequent changed-filter, deep-reactor, multiplayer, and endurance checks were rerun. Failed exploratory rounds were archived rather than counted as passes.
+
+After normal shutdown, read-only region parsing confirmed all 104 saved entities, finite nonnegative energy, valid inventory counts, five boxes containing 13 ingots each, and four tanks containing 2,000 mB coolant each. The same world was then reloaded using the normal artifact without verification classes or JVM flags. Vanilla read commands confirmed 104 machine types and 16 state checks. Both clients opened localized advanced-upgrade menus; the enabled damage filter survived restart. Offline-account/Realms request errors were recorded separately from mod/runtime failures.
+
+## Project branding rebuild
+
+The public repository uses `IndustrialCraft2-CE` for the project, artifact names, display name, and build coordinates. Personal attribution is limited to author credits. This is a metadata, packaging, documentation, and build-dependency change after the behavior verification above; every game class and asset/data entry is compared against that verified candidate before publication. The project now resolves its pinned JEI dependency from Maven rather than a machine-specific `mods` path.
+
+The final artifact is built from an exported clean Git source tree without the build cache. A clean compile changes debugger local-variable names in 26 anonymous classes relative to the older incremental compile. All 1,290 class models compare equal after normalizing only those debugger variable names and rebuilding constant-pool references; instructions, members, signatures, annotations, source lines, and other attributes are retained. Assets and data are byte-identical. This comparison does not modify the shipped class files.
+
+The detailed behavior evidence is retained in the maintainer's local validation archives. The public `validation/project-release-audit.json` records the project-branding build hash and comparison against the behavior-tested candidate. It does not claim a second two-hour test of different game logic.
+
+## Reproduction and limits
+
+Build the normal and separate verification artifacts with:
+
+```sh
+./gradlew build migrationVerificationJar
+python tools/check_release_branding.py
+python tools/migrate_assets_2612.py
+python tools/audit_localization.py --output build/localization-audit
+java tools/LanguageFormatProbe.java build/localization-audit/localization-format-input.tsv
+```
+
+Use the verification artifact only in isolated disposable instances. The harness source is in `src/verification`; startup properties select migration, all-machine, dedicated, and extended scenarios. A dedicated extended run needs two actual clients and their probe report paths. Full runtime evidence requires the game, test worlds, and client interactions in addition to compilation.
+
+All registered machine types and the listed type/pair/boundary/representative layouts are covered. Arbitrary 54-slot permutations, arbitrary filter values, and arbitrary other-modpack interactions are not exhaustively enumerated. The release therefore remains alpha.

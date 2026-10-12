@@ -1,0 +1,121 @@
+package ic2.core.item.armor;
+
+import ic2.api.item.ElectricItem;
+import ic2.api.item.HudMode;
+import ic2.api.item.IItemHudProvider;
+import ic2.core.IC2;
+import ic2.core.init.Localization;
+import ic2.core.util.StackUtil;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.equipment.ArmorMaterial;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.Item.Properties;
+import net.minecraft.world.level.Level;
+
+public class ItemArmorNanoSuit extends ItemArmorElectric implements IItemHudProvider {
+   public static final int[] CHARGED_PROTECTION = new int[]{3, 6, 8, 3};
+
+   public ItemArmorNanoSuit(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
+      super(material, slot, settings, 1000000.0, 1600.0, 3);
+   }
+
+   @Override
+   public int getEnergyPerDamage() {
+      return 5000;
+   }
+
+   public boolean absorbFall(ItemStack stack, LivingEntity entity, float distance) {
+      int fallDamage = Math.max((int)distance - 3, 0);
+      if (fallDamage >= 8) {
+         return false;
+      } else {
+         double energyCost = this.getEnergyPerDamage() * fallDamage;
+         if (energyCost > ElectricItem.manager.getCharge(stack)) {
+            return false;
+         } else {
+            ElectricItem.manager.discharge(stack, energyCost, Integer.MAX_VALUE, true, false, false);
+            return true;
+         }
+      }
+   }
+
+   public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel world, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
+      super.inventoryTick(stack, world, entity, slot);
+      if (entity instanceof Player player) {
+         CompoundTag nbtData = StackUtil.getOrCreateNbtData(stack);
+         byte toggleTimer = nbtData.getByteOr("toggleTimer", (byte)0);
+         boolean ret = false;
+         if (slot == EquipmentSlot.HEAD) {
+            boolean isNightVisionEnabled = nbtData.getBooleanOr("Nightvision", false);
+            short hubmode = nbtData.getShortOr("HudMode", (short)0);
+            if (IC2.keyboard.isAltKeyDown(player) && IC2.keyboard.isModeSwitchKeyDown(player) && toggleTimer == 0) {
+               toggleTimer = 10;
+               isNightVisionEnabled = !isNightVisionEnabled;
+               if (IC2.sideProxy.isSimulating()) {
+                  nbtData.putBoolean("Nightvision", isNightVisionEnabled);
+                  ic2.core.util.StackTag.set(stack, nbtData);
+                  if (isNightVisionEnabled) {
+                     IC2.sideProxy.messagePlayer(player, "ic2.nightvision.enabled");
+                  } else {
+                     IC2.sideProxy.messagePlayer(player, "ic2.nightvision.disabled");
+                  }
+               }
+            }
+
+            if (IC2.keyboard.isAltKeyDown(player) && IC2.keyboard.isHudModeKeyDown(player) && toggleTimer == 0) {
+               toggleTimer = 10;
+               if (hubmode == HudMode.getMaxMode()) {
+                  hubmode = 0;
+               } else {
+                  hubmode++;
+               }
+
+               if (IC2.sideProxy.isSimulating()) {
+                  nbtData.putShort("HudMode", hubmode);
+                  ic2.core.util.StackTag.set(stack, nbtData);
+                  IC2.sideProxy.messagePlayer(player, HudMode.getFromID(hubmode).getTranslationKey());
+               }
+            }
+
+            if (IC2.sideProxy.isSimulating() && toggleTimer > 0) {
+               nbtData.putByte("toggleTimer", --toggleTimer);
+               ic2.core.util.StackTag.set(stack, nbtData);
+            }
+
+            if (isNightVisionEnabled && IC2.sideProxy.isSimulating()) {
+               int skylight = player.level().getMaxLocalRawBrightness(player.blockPosition());
+               if (skylight <= 8 && ElectricItem.manager.use(stack, 1.0, player)) {
+                  player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 300, 0, true, true));
+                  return;
+               }
+            }
+
+            if (IC2.sideProxy.isSimulating()) {
+               player.removeEffect(MobEffects.NIGHT_VISION);
+            }
+         }
+      }
+   }
+
+   public Rarity getRarity(ItemStack stack) {
+      return Rarity.UNCOMMON;
+   }
+
+   @Override
+   public boolean doesProvideHUD(ItemStack stack) {
+      return this.slot == EquipmentSlot.HEAD && ElectricItem.manager.getCharge(stack) > 0.0;
+   }
+
+   @Override
+   public HudMode getHudMode(ItemStack stack) {
+      return HudMode.getFromID(StackUtil.getOrCreateNbtData(stack).getShortOr("HudMode", (short)0));
+   }
+}
