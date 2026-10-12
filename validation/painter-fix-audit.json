@@ -1,0 +1,81 @@
+{
+  "project": "IndustrialCraft2-CE",
+  "version": "2.9.40-alpha.6",
+  "date": "2026-10-12",
+  "minecraft": "26.1.2",
+  "neoforge": "26.1.2.114",
+  "java": 25,
+  "releaseFile": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.6.jar",
+  "releaseSHA256": "660e6d91f9a82e2f6c14f0cfea8d58c5908c1a09af7f2217ae275d142caf9256",
+  "sourcesFile": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.6-sources.jar",
+  "sourcesSHA256": "e7532fb96a52fc708e4aadc16f0dba5a6a491ca67abbd8bca0cf66fad7abe954",
+  "fixes": [
+    "Guard painter durability/refill mutations to server players.",
+    "Preserve brush identity and prevent entity cleanup from clearing an exhausted/refilled brush.",
+    "Use the actual interaction hand when painting sheep."
+  ],
+  "verification": {
+    "colors": 16,
+    "hands": [
+      "MAIN_HAND",
+      "OFF_HAND"
+    ],
+    "targets": [
+      "wool",
+      "sheep"
+    ],
+    "actualClientScenarios": 80,
+    "survivalColorHandTargetScenarios": 64,
+    "representativeCreativeScenarios": 4,
+    "representativeFinalUseScenarios": 12,
+    "actualClientActions": 148,
+    "checks": 400,
+    "failures": [],
+    "clientError": "",
+    "complete": true,
+    "sameColorDoesNotChargeDurability": true,
+    "durabilityChargedOnlyOnce": true,
+    "unusedHandPreserved": true,
+    "exhaustionAndRefillChecked": true,
+    "realClientAndIntegratedServer": true,
+    "results": "painter-fix-results.json",
+    "verificationSHA256": "7bac3f9c1309f722e56e565de4d5c303d26d52021c2ac2effa700cd13c371c11",
+    "all1290MainClassBytesMatchNormalRelease": true
+  },
+  "crashControl": {
+    "version": "2.9.40-alpha.5",
+    "sameHarness": true,
+    "reproducedException": "ClientLevel cannot be cast to ServerLevel in ItemToolPainter.damagePainter",
+    "expectedFailure": true,
+    "results": "painter-crash-control.json",
+    "verificationSHA256": "1d7492b4cb8e0a4a92a5405f6fa168d06638c813008237e4788e69cac0bbd9c6"
+  },
+  "comparisonWithAlpha5": {
+    "baselineSHA256": "ee8a9af66423e46b8064a9cfdeec5a3be72d969bfb8c13158afb217111b4429d",
+    "classModelsCompared": 1290,
+    "changedExecutableClasses": [
+      "ic2/core/item/tool/ItemToolPainter.class",
+      "ic2/forge/FmlMod.class"
+    ],
+    "debugLocalNameDifferences": 0,
+    "resourcesCompared": 6009,
+    "changedResources": [],
+    "method": "ASM reconstruction compares instructions, members, signatures, annotations, source lines and attributes, normalizing only debugger local-variable names and constant-pool references."
+  },
+  "releaseAudits": {
+    "authorAttributionPreserved": true,
+    "personalNamesInArtifactNamesOrCodeIdentifiers": false,
+    "verificationClassesInNormalRelease": false,
+    "originalSpritesPreserved": 1537,
+    "protectedGameFilesUnchanged": 4864,
+    "missingModelReferences": 0
+  },
+  "previousEvidence": [
+    "project-release-audit.json (alpha.4 machine/multiplayer/endurance)",
+    "cable-fix-audit.json (alpha.5 cable regression)"
+  ],
+  "limits": [
+    "Tests cover the listed wool/sheep scenarios, rather than every source-to-target recolor permutation or arbitrary modded blocks.",
+    "Previous endurance and cable results remain evidence for their recorded versions."
+  ]
+}

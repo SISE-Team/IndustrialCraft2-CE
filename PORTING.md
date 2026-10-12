@@ -1,6 +1,6 @@
 # IndustrialCraft2-CE porting and verification
 
-This document describes the Minecraft 26.1.2 / NeoForge 26.1.2.114 port and verification on 2026-10-12. The current project version is `2.9.40-alpha.5`, built with Java 25.
+This document describes the Minecraft 26.1.2 / NeoForge 26.1.2.114 port and verification on 2026-10-12. The current project version is `2.9.40-alpha.6`, built with Java 25.
 
 ## Provenance
 
@@ -76,6 +76,18 @@ The final targeted run passed **14 ordinary cable variants, 17,408 shape states,
 A separate source copy restored only the legacy width argument and ran the final, unchanged harness. It reproduced shape mismatches for all 14 variants and a missed visible cable with matching client/server actor positions. This negative control is recorded in `validation/cable-legacy-width-control.json`; its expected failures are separate from the passing release results.
 
 Build the verification artifact and launch it in an isolated instance with `-Dic2.verifyMigration=true -Dic2.verifyCables=true`. The instance needs a disposable existing world. Its real client runs the cable suite in the background, writes `ic2-cable-verification.json` to its game directory, and shuts down normally after completion. The test fixture is excluded from the normal artifact.
+
+## Painter interaction fix (alpha.6)
+
+The painter attempted to cast the client's `ClientLevel` to `ServerLevel` while charging durability, crashing during wool painting. A background real-client test using the alpha.5 painter reproduced the same `ClassCastException` reported from the full modpack.
+
+Durability, conversion to an empty brush, and inventory refill now run only for a server player. The modern durability operation consumes a depleted stack, while vanilla entity-interaction cleanup clears the used hand if its original stack becomes empty. Damage is therefore evaluated on a copy before updating the held stack or installing its replacement, preserving the original item's identity for refill selection and preventing the returned brush from being cleared. Sheep painting uses the actual interaction hand.
+
+The separate `PainterVerification` fixture sends real client block/entity interaction packets to an integrated server. It covers all 16 brush colors on wool and sheep with both hands, repeated same-color actions, creative durability immunity, and final-use behavior with refill disabled, no reserve, and one reserve. The client runs in the background, writes `ic2-painter-verification.json`, and shuts down normally. Build the verification artifact and select this suite with `-Dic2.verifyMigration=true -Dic2.verifyPainter=true` in a disposable instance with an existing test world.
+
+The final painter run passed **80 actual client scenarios and 400 checks with zero failures**: 64 survival color/hand/target combinations, four representative creative cases, and 12 representative final-use/refill cases.
+
+The alpha.4 machine/endurance and alpha.5 cable results remain separate historical evidence. The normal painter release shares all main class bytes with the tested verification artifact; only the painter and property-gated verification dispatch change class models from alpha.5. Painter results are recorded separately in `validation/painter-fix-audit.json`.
 
 ## Reproduction and limits
 

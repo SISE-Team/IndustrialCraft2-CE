@@ -185,7 +185,7 @@ public class ItemToolPainter extends ItemToolCrafting implements IBoxable {
          return InteractionResult.PASS;
       } else if (entity instanceof Sheep sheep && sheep.getColor() != this.color.dyeColor) {
          sheep.setColor(this.color.dyeColor);
-         this.damagePainter(stack, user, user.getUsedItemHand(), this.color);
+         this.damagePainter(stack, user, hand, this.color);
          return InteractionResult.SUCCESS;
       } else {
          return InteractionResult.PASS;
@@ -213,22 +213,31 @@ public class ItemToolPainter extends ItemToolCrafting implements IBoxable {
 
    public void damagePainter(ItemStack stack, Player player, InteractionHand hand, Ic2Color color) {
       assert color != null;
+      if (!(player instanceof ServerPlayer serverPlayer)) {
+         return;
+      }
 
-      stack.hurtAndBreak(1, (net.minecraft.server.level.ServerLevel)player.level(), player instanceof ServerPlayer serverPlayer ? serverPlayer : null, broken -> {});
-      if (stack.getDamageValue() >= stack.getMaxDamage()) {
-         CompoundTag nbtData = StackUtil.getOrCreateNbtData(stack);
-         if (!nbtData.getBooleanOr("autoRefill", false)) {
-            player.setItemInHand(hand, new ItemStack(Ic2Items.PAINTER, 1));
-            return;
-         }
+      // Keep the interaction's held stack nonempty while returning/reloading the
+      // brush: Player.interactOn otherwise overwrites a replacement with EMPTY.
+      ItemStack damaged = stack.copy();
+      damaged.hurtAndBreak(1, serverPlayer.level(), serverPlayer, broken -> {});
+      if (!damaged.isEmpty()) {
+         stack.setDamageValue(damaged.getDamageValue());
+         return;
+      }
 
-         ItemStack consumedStack = StackUtil.consumeFromPlayerInventoryAndGet(player, StackUtil.sameItem(stack.getItem()), 1, true);
-         if (consumedStack.isEmpty()) {
-            player.setItemInHand(hand, new ItemStack(Ic2Items.PAINTER, 1));
-         } else {
-            player.setItemInHand(hand, consumedStack);
-            StackUtil.addToPlayerInventory(player, new ItemStack(Ic2Items.PAINTER, 1));
-         }
+      CompoundTag nbtData = StackUtil.getOrCreateNbtData(stack);
+      if (!nbtData.getBooleanOr("autoRefill", false)) {
+         player.setItemInHand(hand, new ItemStack(Ic2Items.PAINTER, 1));
+         return;
+      }
+
+      ItemStack consumedStack = StackUtil.consumeFromPlayerInventoryAndGet(player, StackUtil.sameItem(stack.getItem()), 1, true);
+      if (consumedStack.isEmpty()) {
+         player.setItemInHand(hand, new ItemStack(Ic2Items.PAINTER, 1));
+      } else {
+         player.setItemInHand(hand, consumedStack);
+         StackUtil.addToPlayerInventory(player, new ItemStack(Ic2Items.PAINTER, 1));
       }
    }
 

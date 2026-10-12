@@ -1,0 +1,9 @@
+{
+  "checks": 1,
+  "cases": [],
+  "failures": [
+    "case 0: client interaction threw java.lang.ClassCastException: class net.minecraft.client.multiplayer.ClientLevel cannot be cast to class net.minecraft.server.level.ServerLevel (net.minecraft.client.multiplayer.ClientLevel and net.minecraft.server.level.ServerLevel are in module minecraft@26.1.2 of loader \u0027TRANSFORMER\u0027 @5d332969)"
+  ],
+  "complete": true,
+  "clientError": "java.lang.ClassCastException: class net.minecraft.client.multiplayer.ClientLevel cannot be cast to class net.minecraft.server.level.ServerLevel (net.minecraft.client.multiplayer.ClientLevel and net.minecraft.server.level.ServerLevel are in module minecraft@26.1.2 of loader \u0027TRANSFORMER\u0027 @5d332969)"
+}
