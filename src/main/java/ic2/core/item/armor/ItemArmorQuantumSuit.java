@@ -32,55 +32,35 @@ public class ItemArmorQuantumSuit extends ItemArmorElectric implements IJetpack,
    }
 
    public void clearColor(ItemStack stack) {
-      CompoundTag nbt = this.getDisplayNbt(stack, false);
-      if (nbt != null && nbt.contains("color")) {
-         nbt.remove("color");
-         if (nbt.isEmpty()) {
-            assert ic2.core.util.StackTag.get(stack) != null;
-
-            ic2.core.util.StackTag.update(stack, ic2Data -> { ic2Data.remove("display"); return ic2Data; });
+      CompoundTag nbt = ic2.core.util.StackTag.get(stack);
+      if (nbt != null) {
+         CompoundTag display = nbt.getCompoundOrEmpty("display");
+         if (display.contains("color")) {
+            display.remove("color");
+            if (display.isEmpty()) nbt.remove("display");
+            else nbt.put("display", display);
+            ic2.core.util.StackTag.set(stack, nbt.isEmpty() ? null : nbt);
          }
       }
    }
 
    public int getColor(ItemStack stack) {
-      CompoundTag nbt = this.getDisplayNbt(stack, false);
+      CompoundTag nbt = this.getDisplayNbt(stack);
       return nbt != null && nbt.contains("color") ? nbt.getIntOr("color", 0) : -1;
    }
 
    public void setColor(ItemStack stack, int color) {
-      CompoundTag nbt = this.getDisplayNbt(stack, true);
-
-      assert nbt != null;
-
-      nbt.putInt("color", color);
+      ic2.core.util.StackTag.update(stack, nbt -> {
+         CompoundTag display = nbt.getCompoundOrEmpty("display");
+         display.putInt("color", color);
+         nbt.put("display", display);
+         return nbt;
+      });
    }
 
-   private CompoundTag getDisplayNbt(ItemStack stack, boolean create) {
+   private CompoundTag getDisplayNbt(ItemStack stack) {
       CompoundTag nbt = ic2.core.util.StackTag.get(stack);
-      if (nbt == null) {
-         if (!create) {
-            return null;
-         }
-
-         nbt = new CompoundTag();
-         ic2.core.util.StackTag.set(stack, nbt);
-      }
-
-      CompoundTag ret;
-      if (!nbt.contains("display")) {
-         if (!create) {
-            return null;
-         }
-
-         ret = new CompoundTag();
-         nbt.put("display", ret);
-         ic2.core.util.StackTag.set(stack, nbt);
-      } else {
-         ret = nbt.getCompoundOrEmpty("display");
-      }
-
-      return ret;
+      return nbt != null && nbt.contains("display") ? nbt.getCompoundOrEmpty("display") : null;
    }
 
    @Override

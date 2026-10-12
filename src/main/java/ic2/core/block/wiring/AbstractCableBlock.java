@@ -254,7 +254,7 @@ public abstract class AbstractCableBlock extends PipeBlock implements ChunkLoadA
          ItemStack stack = player.getMainHandItem();
          Item item = stack.getItem();
          if (item instanceof ItemToolCutter) {
-            ((ItemToolCutter)item).removeInsulation(player, player.getUsedItemHand(), state, world, pos);
+            ((ItemToolCutter)item).removeInsulation(player, net.minecraft.world.InteractionHand.MAIN_HAND, state, world, pos);
          }
       }
    }

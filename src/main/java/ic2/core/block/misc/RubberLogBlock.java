@@ -75,10 +75,10 @@ public class RubberLogBlock extends RotatedPillarBlock {
             (BlockState)Ic2Blocks.STRIPPED_RUBBER_LOG.defaultBlockState().setValue(RotatedPillarBlock.AXIS, (Axis)state.getValue(RotatedPillarBlock.AXIS))
          );
          RubberLogBlock.RubberWoodState resinState = (RubberLogBlock.RubberWoodState)state.getValue(stateProperty);
-         if (resinState == RubberLogBlock.RubberWoodState.wet_north
+         if (!world.isClientSide() && (resinState == RubberLogBlock.RubberWoodState.wet_north
             || resinState == RubberLogBlock.RubberWoodState.wet_south
             || resinState == RubberLogBlock.RubberWoodState.wet_west
-            || resinState == RubberLogBlock.RubberWoodState.wet_east) {
+            || resinState == RubberLogBlock.RubberWoodState.wet_east)) {
             this.dropResin(world, pos, world.getRandom().nextInt(2) + 1);
          }
 

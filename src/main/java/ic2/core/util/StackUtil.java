@@ -509,7 +509,7 @@ public final class StackUtil {
             } else if (!request.test(stack)) {
                return emptyStack;
             } else if (!player.getAbilities().instabuild && stack.isDamageableItem()) {
-               stack.hurtAndBreak(amount, (net.minecraft.server.level.ServerLevel)player.level(), player, broken -> player.onEquippedItemBroken(broken, hand == net.minecraft.world.InteractionHand.MAIN_HAND ? net.minecraft.world.entity.EquipmentSlot.MAINHAND : net.minecraft.world.entity.EquipmentSlot.OFFHAND));
+               stack.hurtAndBreak(amount, player, hand);
                ItemStack ret;
                if (isEmpty(stack)) {
                   ret = stack;

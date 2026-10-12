@@ -62,7 +62,7 @@ public class ItemToolCrowbar extends Item implements IEnhancedOverlayProvider, P
                if (!world.isClientSide()) {
                   target.removeCover(world, pos, selectedFacing);
                   if (player != null) {
-                     stack.hurtAndBreak(1, (net.minecraft.server.level.ServerLevel)player.level(), player, broken -> player.onEquippedItemBroken(broken, net.minecraft.world.entity.EquipmentSlot.MAINHAND));
+                     stack.hurtAndBreak(1, player, hand);
                   }
                } else {
                   IC2.soundManager.playOnce(Ic2SoundEvents.ITEM_CROWBAR_USE, SoundSource.BLOCKS, 1.0F, 1.0F, player);

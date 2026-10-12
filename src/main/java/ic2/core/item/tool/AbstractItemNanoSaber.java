@@ -44,8 +44,7 @@ public abstract class AbstractItemNanoSaber extends ItemElectricTool implements 
    @Override
    public boolean consumeEnergy(ItemStack stack, double amount, LivingEntity entity) {
       if (!super.consumeEnergy(stack, amount, entity)) {
-         CompoundTag nbt = StackUtil.getOrCreateNbtData(stack);
-         setActive(nbt, false);
+         if (entity == null || !entity.level().isClientSide()) setActive(stack, false);
          return false;
       } else {
          return true;
@@ -89,9 +88,9 @@ public abstract class AbstractItemNanoSaber extends ItemElectricTool implements 
                      }
 
                      if (amount > 0.0) {
-                        this.consumeEnergy(armor, amount, null);
+                        ItemElectricTool.consumeEnergy(armor, amount, Integer.MAX_VALUE, null);
                         if (!ElectricItem.manager.canUse(armor, 1.0)) {
-                           target.setItemSlot(slot, null);
+                           target.setItemSlot(slot, ItemStack.EMPTY);
                         }
 
                         this.consumeEnergy(stack, 2000.0, source);
@@ -129,10 +128,10 @@ public abstract class AbstractItemNanoSaber extends ItemElectricTool implements 
       } else {
          CompoundTag nbt = StackUtil.getOrCreateNbtData(stack);
          if (isActive(nbt)) {
-            setActive(nbt, false);
+            setActive(stack, false);
             return InteractionResult.SUCCESS.heldItemTransformedTo(stack);
          } else if (ElectricItem.manager.canUse(stack, 16.0)) {
-            setActive(nbt, true);
+            setActive(stack, true);
             return InteractionResult.SUCCESS.heldItemTransformedTo(stack);
          } else {
             return super.use(world, player, hand);
@@ -175,8 +174,8 @@ public abstract class AbstractItemNanoSaber extends ItemElectricTool implements 
       return nbt.getBooleanOr("active", false);
    }
 
-   private static void setActive(CompoundTag nbt, boolean active) {
-      nbt.putBoolean("active", active);
+   private static void setActive(ItemStack stack, boolean active) {
+      ic2.core.util.StackTag.update(stack, nbt -> { nbt.putBoolean("active", active); return nbt; });
    }
 
    @Override

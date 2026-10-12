@@ -82,6 +82,7 @@ public class ItemObscurator extends BaseElectricItem implements PriorityUsableIt
             }
          } else {
             clear(nbt);
+            ic2.core.util.StackTag.set(stack, nbt);
             return InteractionResult.PASS;
          }
       } else if (player.isShiftKeyDown() && world.isClientSide() && ElectricItem.manager.canUse(stack, 20000.0)) {
@@ -192,6 +193,7 @@ public class ItemObscurator extends BaseElectricItem implements PriorityUsableIt
       nbt.remove("refVariant");
       nbt.remove("refSide");
       nbt.remove("refColorMul");
+      nbt.remove("refColorMuls");
    }
 
    public static ItemObscurator.ObscuredRenderInfo getRenderInfo(BlockState state, Direction side) {

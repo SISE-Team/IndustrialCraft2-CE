@@ -1,0 +1,129 @@
+{
+  "project": "IndustrialCraft2-CE",
+  "version": "2.9.40-alpha.7",
+  "date": "2026-10-12",
+  "minecraft": "26.1.2",
+  "neoforge": "26.1.2.114",
+  "java": 25,
+  "releaseFile": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.7.jar",
+  "releaseSHA256": "5d53b4c1c75abba2582c0e94b1cc7c489b6a38ce29861f82c8b4219db81d90d0",
+  "sourcesFile": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.7-sources.jar",
+  "sourcesSHA256": "46cfed1f7c002ae7c9c45ccea241391f09180076a39f5f53340ff4d879b1927c",
+  "originalIC2SHA256": "5d06ca9146041043132a72bad9b5612e260e77a84a2f3773a3da9b0167ea1d3d",
+  "fixes": [
+    "Use the current guarded owner/hand durability overload for shared StackUtil and reject client entities in DamageHandler.",
+    "Use the actual attack/strip hand and preserve the crowbar interaction hand in break callbacks.",
+    "Keep tool charge, shutdown packets, shearing, and stripping drops server-authoritative.",
+    "Check shear readiness before charging energy and use the supplied chainsaw stack in either hand.",
+    "Persist nano-saber activation/shutdown, clear exhausted armor with ItemStack.EMPTY, and accept the armor tier for its declared discharge cost.",
+    "Persist quantum-armor color edits/washing while preserving charge and unrelated item data.",
+    "Save obscurator invalid-reference cleanup, including both legacy/current tint keys."
+  ],
+  "verification": {
+    "scenarios": 74,
+    "executionKinds": {
+      "real_client_packet": 54,
+      "client_api": 4,
+      "server_api": 16
+    },
+    "operationCounts": {
+      "treetap": 6,
+      "cutter_add": 6,
+      "chainsaw_sheep": 12,
+      "electric_treetap": 6,
+      "client_damage_api": 2,
+      "client_energy_api": 2,
+      "server_damage_api": 4,
+      "nano_on": 2,
+      "nano_off": 2,
+      "nano_empty": 2,
+      "nano_shutdown_api": 2,
+      "obscurator_reset": 4,
+      "cutter_remove": 4,
+      "chainsaw_leaf": 4,
+      "machine_damage_api": 2,
+      "axe_strip": 6,
+      "armor_color_api": 4,
+      "nano_armor_api": 4
+    },
+    "checks": 514,
+    "failures": [],
+    "clientExceptions": 0,
+    "serverExceptions": 0,
+    "complete": true,
+    "realClientAndIntegratedServer": true,
+    "verificationSHA256": "e2be0db812635c0bce7059b2097aa32e6efa4ac1b2752616359bc2537b5e8696",
+    "all1290MainClassBytesMatchNormalRelease": true,
+    "results": "tool-interaction-fix-results.json",
+    "harnessSourceSHA256": "b3900837e74433a358bc107258f138a2400cd8b5048777e1c37ba7f43df71f00",
+    "fixtureClassBytesMatchControl": true,
+    "fixtureCorrections": [
+      "Final-use assertions count remaining tools because dropped resin/rubber may be collected into the vacated slot.",
+      "Creative entity interaction uses a vanilla item copy and preserves the original charge.",
+      "Obscurator probes start at 10,000 EU, above the 5,000 EU entry threshold."
+    ]
+  },
+  "negativeControl": {
+    "results": "tool-interaction-control.json",
+    "version": "2.9.40-alpha.6",
+    "verificationSHA256": "86537eae4355b3204075b35c63db17cd778e9ce3971b7034e508344e7451f4ec",
+    "sameHarness": true,
+    "expectedFailure": true,
+    "completedScenarios": 70,
+    "complete": false,
+    "caughtClientExceptions": 16,
+    "fatalServerException": "NullPointerException after legacy nano-saber removal installs null armor"
+  },
+  "comparisonWithAlpha6": {
+    "baselineSHA256": "660e6d91f9a82e2f6c14f0cfea8d58c5908c1a09af7f2217ae275d142caf9256",
+    "classModelsCompared": 1290,
+    "changedExecutableClasses": [
+      "ic2/core/block/misc/RubberLogBlock.class",
+      "ic2/core/block/wiring/AbstractCableBlock.class",
+      "ic2/core/item/DamageHandler.class",
+      "ic2/core/item/armor/ItemArmorQuantumSuit.class",
+      "ic2/core/item/tool/AbstractItemNanoSaber.class",
+      "ic2/core/item/tool/ItemElectricTool.class",
+      "ic2/core/item/tool/ItemElectricToolChainsaw.class",
+      "ic2/core/item/tool/ItemObscurator.class",
+      "ic2/core/item/tool/ItemToolCrowbar.class",
+      "ic2/core/util/StackUtil.class",
+      "ic2/core/util/WorldUtil.class",
+      "ic2/forge/FmlMod.class"
+    ],
+    "debugLocalNameDifferences": 8,
+    "sourceLineOnlyDifferences": [
+      "ic2/core/item/tool/ItemObscurator$ObscuredRenderInfo.class"
+    ],
+    "resourcesCompared": 6009,
+    "resourceFilesCompared": 5761,
+    "changedResources": [],
+    "method": "ASM reconstruction preserves instructions, members, signatures, annotations, source lines and attributes, normalizing debugger variable names and constant-pool references. Only the listed ObscuredRenderInfo class is separately proven equal with source-line numbers removed."
+  },
+  "releaseAudits": {
+    "authorAttributionPreserved": true,
+    "personalNamesInArtifactNamesOrCodeIdentifiers": false,
+    "verificationClassesInNormalRelease": false,
+    "originalSpritesPreserved": 1537,
+    "protectedGameFilesUnchanged": 4864,
+    "missingModelReferences": 0
+  },
+  "reviewedServerContexts": [
+    "Rubber-boots durability is reached through the client-guarded fall event.",
+    "Wrench removal and debug acceleration return before server-only work on a client.",
+    "Terraformer, miner/loot, and chunk-loader casts remain in server call chains.",
+    "NetworkManager.getPlayersInRange checks ServerLevel before its cast.",
+    "ItemComparableItemStack intentionally edits a detached comparison copy."
+  ],
+  "previousEvidence": [
+    "project-release-audit.json (alpha.4 machine/multiplayer/endurance)",
+    "cable-fix-audit.json (alpha.5)",
+    "painter-fix-audit.json (alpha.6)"
+  ],
+  "limits": [
+    "These focused checks do not enumerate arbitrary modded shearable entities, cover implementations, or complete combat layouts.",
+    "No bundled block implements ICoverHolder; the crowbar change is reviewed against the native durability API.",
+    "Quantum color and nano/quantum armor exhaustion are labeled API probes, not visual armor or complete combat tests.",
+    "Previous two-hour, machine, cable, and painter runs remain evidence for their recorded versions."
+  ]
+}

@@ -52,7 +52,7 @@ public class WorldUtil {
       }
 
       world.setBlock(pos, strippedBlockState, 11);
-      mainHandItem.hurtAndBreak(1, player, player.getUsedItemHand());
+      mainHandItem.hurtAndBreak(1, player, net.minecraft.world.InteractionHand.MAIN_HAND);
    }
 
    public interface ITileEntityResultHandler {

@@ -103,6 +103,8 @@ public class ItemElectricToolChainsaw extends ItemElectricTool implements IHitSo
       ItemStack stack = player.getItemInHand(hand);
       if (!this.isShearMode(stack) || !Util.canShear(state)) {
          return InteractionResult.PASS;
+      } else if (world.isClientSide()) {
+         return this.canUse(stack) ? InteractionResult.SUCCESS : InteractionResult.PASS;
       } else if (this.consumeEnergy(stack, this.operationEnergyCost, player)) {
          this.handleVanillaBlockBreakLogic(player, world, pos, state);
          StackUtil.dropAsEntity(world, pos, new ItemStack(state.getBlock().asItem()));
@@ -117,14 +119,19 @@ public class ItemElectricToolChainsaw extends ItemElectricTool implements IHitSo
    public InteractionResult interactLivingEntity(ItemStack stack, Player user, LivingEntity entity, InteractionHand hand) {
       if (entity instanceof Shearable shearable
          && !StackUtil.getOrCreateNbtData(stack).getBooleanOr("disableShear", false)
-         && this.consumeEnergy(stack, this.operationEnergyCost, user)
-         && shearable.readyForShearing()) {
-         shearable.shear((net.minecraft.server.level.ServerLevel)user.level(), SoundSource.PLAYERS, user.getMainHandItem());
-         this.playUsingSound(user);
-         return InteractionResult.SUCCESS;
-      } else {
-         return InteractionResult.PASS;
+         && shearable.readyForShearing()
+         && this.canUse(stack)) {
+         if (user.level().isClientSide()) {
+            this.playUsingSound(user);
+            return InteractionResult.SUCCESS;
+         }
+         if (user.level() instanceof net.minecraft.server.level.ServerLevel serverLevel
+            && this.consumeEnergy(stack, this.operationEnergyCost, user)) {
+            shearable.shear(serverLevel, SoundSource.PLAYERS, stack);
+            return InteractionResult.SUCCESS;
+         }
       }
+      return InteractionResult.PASS;
    }
 
    public void playUsingSound(LivingEntity user) {

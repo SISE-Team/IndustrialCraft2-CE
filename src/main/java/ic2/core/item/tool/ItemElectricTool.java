@@ -81,6 +81,8 @@ public abstract class ItemElectricTool extends Item implements IElectricItem, IN
       } else if (!ElectricItem.manager.canUse(stack, amount)) {
          return false;
       } else {
+         // The server owns charge changes and shutdown packets.
+         if (entity != null && entity.level().isClientSide()) return true;
          boolean isConsumed;
          if (entity == null) {
             isConsumed = Util.isSimilar(ElectricItem.manager.discharge(stack, amount, tier, true, false, false), amount);

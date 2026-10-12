@@ -89,6 +89,28 @@ The final painter run passed **80 actual client scenarios and 400 checks with ze
 
 The alpha.4 machine/endurance and alpha.5 cable results remain separate historical evidence. The normal painter release shares all main class bytes with the tested verification artifact; only the painter and property-gated verification dispatch change class models from alpha.5. Painter results are recorded separately in `validation/painter-fix-audit.json`.
 
+## Related tool and item-state fixes (alpha.7)
+
+A follow-up audit traced client-reachable durability and world casts, stale hand selection, electric-tool charge changes, and mutations of copied item tags. It compared the migrated code with the original decompiled JAR and the current Minecraft item-interaction code. Guarded server-only calls, including the rubber-boots fall handler, wrench removal, debug acceleration, terraformers, chunk loading, and loot generation, retain their existing behavior.
+
+Shared hand durability now uses the current living-entity/hand overload. `DamageHandler` rejects client entities before accessing a server level. Cable attacks and rubber-log stripping explicitly damage the main-hand tool; crowbar break callbacks use the interaction hand. Stripping resin drops only on the server. Chainsaw shearing checks readiness before consuming energy, uses the supplied stack for either hand, and keeps world, drop, and charge changes on the server. The shared electric-tool helper simulates availability on the client and leaves charge and shutdown packets to the server.
+
+Nano-saber activation and shutdown now write the modified item data component. Exhausted armor is replaced with `ItemStack.EMPTY`, avoiding a null equipment entry that crashes entity ticking and saving. Armor discharge accepts the armor's own tier rather than the saber's tier, retaining the declared 48,000 EU nano and 300,000 EU quantum costs. Quantum-armor color changes and washing save the copied display compound while preserving charge and unrelated data. The obscurator saves invalid-reference cleanup and removes both legacy and current tint keys.
+
+`ToolInteractionVerification` runs a background real client against an integrated server in a disposable world. The final run passed **74 scenarios and 514 checks with zero failures**:
+
+- **54 real client packet scenarios:** treetaps and electric treetaps, cable insulation and removal, chainsaw sheep/leaf shearing, rubber-log stripping, nano-saber switches, and invalid obscurator scan resets. The suite covers both hands where the action permits it, ordinary/final durability, creative behavior, empty/exact charge, already-shorn sheep, disabled shearing, and stale offhand-use state.
+- **Four client API probes:** durability and charge simulation without local item mutation.
+- **16 server API probes:** ordinary/final durability, machine-owned wear without double consumption, saber shutdown, nano/quantum armor exhaustion, and all four quantum armor pieces' color, replacement, washing, codec roundtrip, and charge/data preservation.
+
+Assertions allow collected resin or rubber to occupy a slot after its tool breaks, while requiring the tool itself to be consumed. Creative entity interactions operate on a vanilla item copy, so the original charge remains unchanged. These fixture corrections are documented separately from production fixes; failed exploratory runs are retained locally and are not counted as release passes.
+
+The final alpha.6 control uses the same fixture source and byte-identical fixture classes. Only its property-gated verification dispatch differs from published alpha.6 main code. It reproduces client cast errors and copied-tag failures before the nano-armor probe installs a null equipment stack and crashes the integrated server. That control is an expected failure and does not complete the full suite. See `validation/tool-interaction-control.json` for its completed cases and fatal error.
+
+The normal release shares all 1,290 main class bytes with the passing verification artifact. Assets and data remain byte-identical to alpha.6; the class audit accounts for the changed tool/item helpers and verification dispatch. Results and hashes are recorded in `validation/tool-interaction-fix-audit.json` and `validation/tool-interaction-fix-results.json`.
+
+Select this separate suite with `-Dic2.verifyMigration=true -Dic2.verifyTools=true`. Quantum color and armor-exhaustion checks are explicitly API probes; they do not claim a visual armor-rendering test or a complete combat matrix. No bundled block implements `ICoverHolder`, so the crowbar hand correction is reviewed against the native durability API rather than exercised on an invented cover block. Earlier machine, cable, painter, multiplayer, and two-hour results remain evidence for their recorded versions.
+
 ## Reproduction and limits
 
 Build the normal and separate verification artifacts with:

@@ -34,6 +34,7 @@ public class DamageHandler {
    }
 
    public static boolean damage(ItemStack stack, int damage, LivingEntity src, InteractionHand hand) {
+      if (src != null && !(src.level() instanceof net.minecraft.server.level.ServerLevel)) return false;
       return damage(stack, damage, src == null ? null : (net.minecraft.server.level.ServerLevel)src.level(), src, hand);
    }
 
@@ -42,7 +43,8 @@ public class DamageHandler {
       if (item == null) {
          return false;
       } else if (src != null) {
-         stack.hurtAndBreak(damage, (net.minecraft.server.level.ServerLevel)src.level(), src, brokenItem -> {
+         if (!(src.level() instanceof net.minecraft.server.level.ServerLevel serverLevel)) return false;
+         stack.hurtAndBreak(damage, serverLevel, src, brokenItem -> {
             if (hand != null) {
                src.onEquippedItemBroken(brokenItem, hand == net.minecraft.world.InteractionHand.MAIN_HAND ? net.minecraft.world.entity.EquipmentSlot.MAINHAND : net.minecraft.world.entity.EquipmentSlot.OFFHAND);
             }
