@@ -35,7 +35,7 @@ public abstract class AbstractItemNanoSaber extends ItemElectricTool implements 
    public static final int ANIMATION_FRAME = 4;
 
    public AbstractItemNanoSaber(Properties settings) {
-      super(settings, 10, ToolMaterial.DIAMOND, Collections.emptyList());
+      super(settings.rarity(Rarity.UNCOMMON), 10, ToolMaterial.DIAMOND, Collections.emptyList(), false);
       this.maxCharge = 160000;
       this.transferLimit = 500;
       this.tier = 3;
@@ -143,16 +143,16 @@ public abstract class AbstractItemNanoSaber extends ItemElectricTool implements 
    public void inventoryTick(ItemStack stack, net.minecraft.server.level.ServerLevel world, Entity entity, net.minecraft.world.entity.EquipmentSlot slot) {
       super.inventoryTick(stack, world, entity, slot);
       CompoundTag nbt = StackUtil.getOrCreateNbtData(stack);
-      if (!isActive(nbt)) {
-         ticker = 0;
-      } else {
-         ticker++;
-         if (ticker % 16 == 0 && entity instanceof ServerPlayer) {
-            if (slot == EquipmentSlot.MAINHAND) {
-               this.consumeEnergy(stack, 64.0, (Player)entity);
-            } else if (ticker % 64 == 0) {
-               this.consumeEnergy(stack, 16.0, (Player)entity);
-            }
+      if (isActive(nbt)) {
+         // Each owner's clock is independent of other sabers in any inventory.
+         ticker = entity.tickCount;
+         boolean hotbar = slot == EquipmentSlot.MAINHAND || entity instanceof Player owner
+            && java.util.stream.IntStream.range(0, 9).anyMatch(index -> owner.getInventory().getItem(index) == stack);
+         int interval = hotbar ? 16 : 64;
+         double cost = hotbar ? 64.0 : 16.0;
+         if (entity.tickCount % interval == 0 && entity instanceof ServerPlayer player
+            && !this.consumeEnergy(stack, cost, player)) {
+            setActive(stack, false);
          }
       }
    }

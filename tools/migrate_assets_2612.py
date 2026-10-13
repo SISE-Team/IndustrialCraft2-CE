@@ -82,7 +82,27 @@ def migrate():
                 "entries": [{"threshold": e["predicate"]["ic2:charge"], "model": {
                     "type": "minecraft:model", "model": e["model"]}} for e in charge]}})
             ranges += 1
-    print(json.dumps({"rewritten_files": changed, "legacy_model_aliases": aliases, "charge_models": ranges}))
+    # Every remaining legacy override has a single IC2 numeric predicate.
+    # Preserve ordering by grouping one property's thresholds, nesting groups.
+    states = 0
+    for path in (ASSETS / "models/item").glob("*.json"):
+        data = json.loads(path.read_text("utf-8"))
+        overrides = data.get("overrides", [])
+        if not overrides or any("ic2:charge" in e.get("predicate", {}) for e in overrides):
+            continue
+        groups = {}
+        for entry in overrides:
+            assert len(entry["predicate"]) == 1, path
+            key, threshold = next(iter(entry["predicate"].items()))
+            assert key.startswith("ic2:"), key
+            groups.setdefault(key, []).append((threshold, entry["model"]))
+        model = {"type": "minecraft:model", "model": "ic2:item/" + path.stem}
+        for key, entries in groups.items():
+            model = {"type": "minecraft:range_dispatch", "property": "ic2:state", "kind": key[4:],
+                     "fallback": model, "entries": [{"threshold": t, "model": {"type": "minecraft:model", "model": m}} for t, m in sorted(entries)]}
+        write(ASSETS / "items" / path.name, {"model": model})
+        states += 1
+    print(json.dumps({"rewritten_files": changed, "legacy_model_aliases": aliases, "charge_models": ranges, "state_models": states}))
     # Seven source fluids never had a 1.19.2 bucket sprite. Use NeoForge's
     # current fluid container renderer and its bundled mask for those items.
     for name in ("air", "hydrogen", "oxygen", "steam", "superheated_steam", "biogas", "distilled_water"):

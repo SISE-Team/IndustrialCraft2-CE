@@ -19,7 +19,7 @@ public class ItemArmorQuantumSuit extends ItemArmorElectric implements IJetpack,
    private static final int defaultColor = -1;
 
    public ItemArmorQuantumSuit(ArmorMaterial material, EquipmentSlot armorType, Properties settings) {
-      super(material, armorType, settings, 1.0E7, 12000.0, 4);
+      super(material, armorType, settings.rarity(Rarity.RARE), 1.0E7, 12000.0, 4);
    }
 
    @Override
@@ -32,6 +32,7 @@ public class ItemArmorQuantumSuit extends ItemArmorElectric implements IJetpack,
    }
 
    public void clearColor(ItemStack stack) {
+      stack.remove(net.minecraft.core.component.DataComponents.DYED_COLOR);
       CompoundTag nbt = ic2.core.util.StackTag.get(stack);
       if (nbt != null) {
          CompoundTag display = nbt.getCompoundOrEmpty("display");
@@ -45,11 +46,14 @@ public class ItemArmorQuantumSuit extends ItemArmorElectric implements IJetpack,
    }
 
    public int getColor(ItemStack stack) {
+      var dyed = stack.get(net.minecraft.core.component.DataComponents.DYED_COLOR);
+      if (dyed != null) return dyed.rgb();
       CompoundTag nbt = this.getDisplayNbt(stack);
       return nbt != null && nbt.contains("color") ? nbt.getIntOr("color", 0) : -1;
    }
 
    public void setColor(ItemStack stack, int color) {
+      stack.set(net.minecraft.core.component.DataComponents.DYED_COLOR, new net.minecraft.world.item.component.DyedItemColor(color));
       ic2.core.util.StackTag.update(stack, nbt -> {
          CompoundTag display = nbt.getCompoundOrEmpty("display");
          display.putInt("color", color);

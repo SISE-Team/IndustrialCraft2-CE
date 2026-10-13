@@ -101,7 +101,7 @@ public class ItemScanner extends BaseElectricItem implements IBoxable, IHandHeld
                if (!state.isAir()) {
                   ItemStack blockItemStack = new ItemStack(state.getBlock().asItem(), 1);
                   if (StackUtil.isOreStack(blockItemStack)) {
-                     ItemStack pickStack = state.getBlock().getCloneItemStack(world, center, state, true, null);
+                     ItemStack pickStack = state.getBlock().getCloneItemStack(world, tmpPos, state, true, null);
                      ItemComparableItemStack key = new ItemComparableItemStack(pickStack, true);
                      Integer count = ret.get(key);
                      if (count == null) {

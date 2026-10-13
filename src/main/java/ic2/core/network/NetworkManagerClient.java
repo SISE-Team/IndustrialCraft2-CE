@@ -310,7 +310,7 @@ public class NetworkManagerClient extends NetworkManager {
                      @Override
                      public void run() {
                         Level world = Minecraft.getInstance().level;
-                        if (Util.getDimId(world).equals(dimensionId)) {
+                        if (world != null && Util.getDimId(world).equals(dimensionId)) {
                            BlockEntity teRaw = world.getBlockEntity(pos);
                            if (teRaw instanceof Ic2TileEntity) {
                               TileEntityComponent component = ((Ic2TileEntity)teRaw).getComponent(componentCls);

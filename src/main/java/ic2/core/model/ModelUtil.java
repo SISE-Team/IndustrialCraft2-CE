@@ -34,10 +34,8 @@ public class ModelUtil {
    @Nullable
    public static List<BakedQuad> getQuads(BlockState state, @Nullable Direction side, RandomSource rand) {
       Minecraft mc = Minecraft.getInstance();
-      BlockModelResolver resolver = new BlockModelResolver(mc.getModelManager());
-      BlockModelRenderState renderState = new BlockModelRenderState();
-      resolver.update(renderState, state, net.minecraft.client.renderer.block.model.BlockDisplayContext.create());
-      List<BlockStateModelPart> parts = renderState.setupModel(new org.joml.Matrix4f(), false);
+      List<BlockStateModelPart> parts = new ArrayList<>();
+      mc.getModelManager().getBlockStateModelSet().get(state).collectParts(rand, parts);
       if (parts.isEmpty()) {
          return null;
       } else {

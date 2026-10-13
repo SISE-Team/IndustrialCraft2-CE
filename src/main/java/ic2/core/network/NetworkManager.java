@@ -328,7 +328,7 @@ public class NetworkManager implements INetworkManager {
 
          buffer.flip();
          if (!this.isClient()) {
-            if (container.getPlayer() != null && String.valueOf(container.getPlayer()).startsWith("ServerPlayerEntity")) {
+            if (container.getPlayer() instanceof ServerPlayer) {
                this.sendS2CPacket((ServerPlayer)container.getPlayer(), buffer, false);
             }
          } else {
@@ -344,10 +344,8 @@ public class NetworkManager implements INetworkManager {
       buffer.writeString(event);
       buffer.flip();
       if (!this.isClient()) {
-         for (ContainerListener listener : container.getListeners()) {
-            if (listener instanceof ServerPlayer) {
-               this.sendS2CPacket((ServerPlayer)listener, buffer, false);
-            }
+         if (container.getPlayer() instanceof ServerPlayer actor) {
+            this.sendS2CPacket(actor, buffer, false);
          }
       } else {
          this.sendC2SPacket(buffer);
@@ -372,10 +370,8 @@ public class NetworkManager implements INetworkManager {
 
          buffer.flip();
          if (!this.isClient()) {
-            for (ContainerListener listener : container.getListeners()) {
-               if (listener instanceof ServerPlayer) {
-                  this.sendS2CPacket((ServerPlayer)listener, buffer, false);
-               }
+            if (container.getPlayer() instanceof ServerPlayer actor) {
+               this.sendS2CPacket(actor, buffer, false);
             }
          } else {
             this.sendC2SPacket(buffer);
@@ -529,7 +525,7 @@ public class NetworkManager implements INetworkManager {
                subData[i] = DataEncoder.decode(is);
             }
 
-            if (slot >= 0 && slot < 9) {
+            if (slot >= 0 && slot < 9 || slot == 40) {
                IC2.sideProxy.requestTick(simulating, new Runnable() {
                   @Override
                   public void run() {

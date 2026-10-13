@@ -1,0 +1,836 @@
+{
+  "project": "IndustrialCraft2-CE",
+  "version": "2.9.40-alpha.8",
+  "recordedAt": "2026-10-13T00:52:25.018612+00:00",
+  "complete": true,
+  "failures": [],
+  "release": {
+    "filename": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.8.jar",
+    "sha256": "cb5fa2845fc41005ae907dc851bf2ba57125227353927c88b7bf0f817d442ecc",
+    "sourcesFilename": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.8-sources.jar",
+    "sourcesSha256": "96afd676e42e15c7408e8fc4f5e0a124d075636f973165f2b00c776c0a8d2b5b",
+    "normalMainClasses": 1293,
+    "allMainClassesMatchEnduranceCandidate": true,
+    "enduranceCandidateSha256": "6feec697f670c9906cbdbc461a49ffb7a6120cb8af07268f50a1844fc5274d29",
+    "verificationOnlyExternalSteamTag": [
+      "data/forge/tags/fluid/steam.json"
+    ],
+    "localizedTooltipCorrections": {
+      "complete": true,
+      "corrections": [
+        {
+          "file": "src/main/resources/assets/ic2/lang/zh_cn.json",
+          "key": "ic2.tooltip.mode.boxable",
+          "beforeSha256": "9a002cfa0d6c890712ebedef4e29fd62825a0a23404d8f0a5a07a468480c8cd1",
+          "afterSha256": "e9cda23ae88cabe7cf5b70a99dd7297c473be18da221f897986a683f9add75ff",
+          "originalText": "只有箱子处于禁用状态",
+          "correctedText": "仅在停用状态下可放入工具箱"
+        },
+        {
+          "file": "src/main/resources/assets/ic2/lang_ic2/zh_cn.properties",
+          "key": "ic2.tooltip.mode.boxable",
+          "beforeSha256": "c64825e82f12520345a56fbb4d0d5b727431e853ef800da05b6c33300af4dafa",
+          "afterSha256": "6582e9fbc973af79bd4ae39651d06010e5d39387eeb1bc050f6aa469d45a39d0",
+          "originalText": "只有箱子处于禁用状态",
+          "correctedText": "仅在停用状态下可放入工具箱"
+        },
+        {
+          "file": "src/main/resources/assets/ic2/lang/zh_tw.json",
+          "key": "ic2.tooltip.mode.boxable",
+          "beforeSha256": "9a6c1e1dc9c5c2a0e17514be8ac7a1d55f1ad57f08c6d48f27d6f1eaf80bd42d",
+          "afterSha256": "b9f03b28bad387356eeb744f2946fc9e3adc40c5587a639b90b10f423f79257a",
+          "originalText": "Only boxable in disabled state",
+          "correctedText": "僅在停用狀態下可放入工具箱"
+        },
+        {
+          "file": "src/main/resources/assets/ic2/lang_ic2/zh_tw.properties",
+          "key": "ic2.tooltip.mode.boxable",
+          "beforeSha256": "3dc6d6d89c2c5bba8482d2c32f221c738eabec08f79681738a18999266faf041",
+          "afterSha256": "8cb8d042c16de7a0c720c03d65b191ab51295ae4bde658d97877ef922fff6e70",
+          "originalText": "Only boxable in disabled state",
+          "correctedText": "僅在停用狀態下可放入工具箱"
+        }
+      ],
+      "changedGameplayClasses": 0,
+      "sameEnglishLongTextKeysAfterCorrection": {
+        "zh_cn": [],
+        "zh_tw": []
+      },
+      "scope": "One toolbox tooltip: fix simplified Chinese meaning and replace traditional Chinese English text. JSON and retained properties agree."
+    },
+    "allOtherRuntimeResourcesMatch": true,
+    "verificationClassesInRelease": false,
+    "bundledMinecraftClasses": false,
+    "verificationClassBoundary": {
+      "complete": true,
+      "compiledVerificationClassNames": 56,
+      "presentInNormalArtifact": [],
+      "forgeTransferFixtureExcluded": true
+    },
+    "identityUsesProjectName": true,
+    "authorCreditOnlyInMetadata": true
+  },
+  "sourcesArchive": {
+    "complete": true,
+    "sourceJarSha256": "96afd676e42e15c7408e8fc4f5e0a124d075636f973165f2b00c776c0a8d2b5b",
+    "auditedRuntimeJavaFiles": 876,
+    "inventoriedJavaFiles": 916,
+    "excludedHistoricalGeneratorSources": [
+      "src/main/java/ic2/data/Ic2DataGenerators.java",
+      "src/main/java/ic2/data/lang/NewLangGenerator.java",
+      "src/main/java/ic2/data/lang/OldToNewLangConverter.java",
+      "src/main/java/ic2/data/loot_tables/BlockLootTableProvider.java",
+      "src/main/java/ic2/data/loot_tables/generator/CableLootTableGenerator.java",
+      "src/main/java/ic2/data/loot_tables/generator/EnergyBlockLootTableGenerator.java",
+      "src/main/java/ic2/data/loot_tables/generator/Ic2BlockLootTableGenerator.java",
+      "src/main/java/ic2/data/loot_tables/Ic2LootTableProvider.java",
+      "src/main/java/ic2/data/recipe/BlastFurnaceRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/BlockCutterRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/CannerRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/CentrifugeRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/CompressorRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/ExtractorRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/helper/AdvShapedRecipeGenerator.java",
+      "src/main/java/ic2/data/recipe/helper/AdvShapelessRecipeGenerator.java",
+      "src/main/java/ic2/data/recipe/helper/BasicMachineRecipeGenerator.java",
+      "src/main/java/ic2/data/recipe/helper/builder/AdvShapedRecipeBuilder.java",
+      "src/main/java/ic2/data/recipe/helper/builder/AdvShapelessRecipeBuilder.java",
+      "src/main/java/ic2/data/recipe/helper/builder/Ic2RecipeBuilder.java",
+      "src/main/java/ic2/data/recipe/helper/builder/ShapelessRecipeBuilder.java",
+      "src/main/java/ic2/data/recipe/helper/CannerBottleRecipeGenerator.java",
+      "src/main/java/ic2/data/recipe/helper/CannerEnrichRecipeGenerator.java",
+      "src/main/java/ic2/data/recipe/helper/Ic2RecipeProvider.java",
+      "src/main/java/ic2/data/recipe/helper/json/AdvShapedRecipeJsonProvider.java",
+      "src/main/java/ic2/data/recipe/helper/json/AdvShapelessRecipeJsonProvider.java",
+      "src/main/java/ic2/data/recipe/helper/json/Ic2RecipeJsonProvider.java",
+      "src/main/java/ic2/data/recipe/helper/json/ShapelessRecipeJsonProvider.java",
+      "src/main/java/ic2/data/recipe/helper/MatterFabricRecipeGenerator.java",
+      "src/main/java/ic2/data/recipe/helper/ShapelessRecipeGenerator.java",
+      "src/main/java/ic2/data/recipe/helper/WeightedMachineRecipeGenerator.java",
+      "src/main/java/ic2/data/recipe/MaceratorRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/MatterFabricatorRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/MetalFormerRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/OreWasherRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/ShapedRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/ShapelessRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/SmeltingProvider.java",
+      "src/main/java/ic2/data/tag/Ic2BlockTagProvider.java",
+      "src/main/java/ic2/data/tag/Ic2ItemTagProvider.java"
+    ],
+    "byteDifferentSources": [],
+    "unexpectedMissingSources": [],
+    "verificationSourcesExcluded": true,
+    "postTestLocalizationCorrections": {
+      "complete": true,
+      "corrections": [
+        {
+          "file": "src/main/resources/assets/ic2/lang/zh_cn.json",
+          "key": "ic2.tooltip.mode.boxable",
+          "beforeSha256": "9a002cfa0d6c890712ebedef4e29fd62825a0a23404d8f0a5a07a468480c8cd1",
+          "afterSha256": "e9cda23ae88cabe7cf5b70a99dd7297c473be18da221f897986a683f9add75ff",
+          "originalText": "只有箱子处于禁用状态",
+          "correctedText": "仅在停用状态下可放入工具箱"
+        },
+        {
+          "file": "src/main/resources/assets/ic2/lang_ic2/zh_cn.properties",
+          "key": "ic2.tooltip.mode.boxable",
+          "beforeSha256": "c64825e82f12520345a56fbb4d0d5b727431e853ef800da05b6c33300af4dafa",
+          "afterSha256": "6582e9fbc973af79bd4ae39651d06010e5d39387eeb1bc050f6aa469d45a39d0",
+          "originalText": "只有箱子处于禁用状态",
+          "correctedText": "仅在停用状态下可放入工具箱"
+        },
+        {
+          "file": "src/main/resources/assets/ic2/lang/zh_tw.json",
+          "key": "ic2.tooltip.mode.boxable",
+          "beforeSha256": "9a6c1e1dc9c5c2a0e17514be8ac7a1d55f1ad57f08c6d48f27d6f1eaf80bd42d",
+          "afterSha256": "b9f03b28bad387356eeb744f2946fc9e3adc40c5587a639b90b10f423f79257a",
+          "originalText": "Only boxable in disabled state",
+          "correctedText": "僅在停用狀態下可放入工具箱"
+        },
+        {
+          "file": "src/main/resources/assets/ic2/lang_ic2/zh_tw.properties",
+          "key": "ic2.tooltip.mode.boxable",
+          "beforeSha256": "3dc6d6d89c2c5bba8482d2c32f221c738eabec08f79681738a18999266faf041",
+          "afterSha256": "8cb8d042c16de7a0c720c03d65b191ab51295ae4bde658d97877ef922fff6e70",
+          "originalText": "Only boxable in disabled state",
+          "correctedText": "僅在停用狀態下可放入工具箱"
+        }
+      ],
+      "changedGameplayClasses": 0,
+      "sameEnglishLongTextKeysAfterCorrection": {
+        "zh_cn": [],
+        "zh_tw": []
+      },
+      "scope": "One toolbox tooltip: fix simplified Chinese meaning and replace traditional Chinese English text. JSON and retained properties agree."
+    }
+  },
+  "sourceReview": {
+    "coverage": "Full-tree static inventory and compiled native-API audit, with targeted source review and independent runtime scenarios. This is not a claim that every line was manually read.",
+    "javaFiles": 916,
+    "lines": 90910,
+    "compiledClasses": 1293,
+    "intentionalDescriptorOverloads": [
+      "ItemCropSeed stack-specific name helper",
+      "DynamicGui event-sender helper overload",
+      "Fluids directional tank helper",
+      "InvSlotProcessable recipe-result consumer",
+      "IEmptyFluidContainerRecipeManager API overload",
+      "IFillFluidContainerRecipeManager API overload"
+    ],
+    "reviewedAreas": [
+      "Minecraft/NeoForge callbacks and constructor components",
+      "item use, selected hand, energy, durability, repair and rarity",
+      "transactional transfers and sided vanilla inventories",
+      "server/client ownership, GUI fields, chunk ordering and tile reconstruction",
+      "crop placement, growth, environmental state, ground and biome edits",
+      "recipe matching, remainders, crafting-book placement and processing",
+      "reactor, upgrade and energy-network state transitions",
+      "native item, fluid, equipment and wall models",
+      "localization retention, formats, archive boundaries and project identity",
+      "Per-slot IC2 component capacities, exact transaction rollback, and full-slot routing across three actual machines"
+    ],
+    "remainingApiLimitation": "Raw Enchantment objects in the old DataEncoder enum are unsupported by the original custom protocol port. Current ItemStack enchantment components use the native stack codec and do not call those legacy branches.",
+    "compiledRuntimeJavaFiles": 876,
+    "excludedHistoricalDataGeneratorJavaFiles": [
+      "src/main/java/ic2/data/Ic2DataGenerators.java",
+      "src/main/java/ic2/data/lang/NewLangGenerator.java",
+      "src/main/java/ic2/data/lang/OldToNewLangConverter.java",
+      "src/main/java/ic2/data/loot_tables/BlockLootTableProvider.java",
+      "src/main/java/ic2/data/loot_tables/generator/CableLootTableGenerator.java",
+      "src/main/java/ic2/data/loot_tables/generator/EnergyBlockLootTableGenerator.java",
+      "src/main/java/ic2/data/loot_tables/generator/Ic2BlockLootTableGenerator.java",
+      "src/main/java/ic2/data/loot_tables/Ic2LootTableProvider.java",
+      "src/main/java/ic2/data/recipe/BlastFurnaceRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/BlockCutterRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/CannerRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/CentrifugeRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/CompressorRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/ExtractorRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/helper/AdvShapedRecipeGenerator.java",
+      "src/main/java/ic2/data/recipe/helper/AdvShapelessRecipeGenerator.java",
+      "src/main/java/ic2/data/recipe/helper/BasicMachineRecipeGenerator.java",
+      "src/main/java/ic2/data/recipe/helper/builder/AdvShapedRecipeBuilder.java",
+      "src/main/java/ic2/data/recipe/helper/builder/AdvShapelessRecipeBuilder.java",
+      "src/main/java/ic2/data/recipe/helper/builder/Ic2RecipeBuilder.java",
+      "src/main/java/ic2/data/recipe/helper/builder/ShapelessRecipeBuilder.java",
+      "src/main/java/ic2/data/recipe/helper/CannerBottleRecipeGenerator.java",
+      "src/main/java/ic2/data/recipe/helper/CannerEnrichRecipeGenerator.java",
+      "src/main/java/ic2/data/recipe/helper/Ic2RecipeProvider.java",
+      "src/main/java/ic2/data/recipe/helper/json/AdvShapedRecipeJsonProvider.java",
+      "src/main/java/ic2/data/recipe/helper/json/AdvShapelessRecipeJsonProvider.java",
+      "src/main/java/ic2/data/recipe/helper/json/Ic2RecipeJsonProvider.java",
+      "src/main/java/ic2/data/recipe/helper/json/ShapelessRecipeJsonProvider.java",
+      "src/main/java/ic2/data/recipe/helper/MatterFabricRecipeGenerator.java",
+      "src/main/java/ic2/data/recipe/helper/ShapelessRecipeGenerator.java",
+      "src/main/java/ic2/data/recipe/helper/WeightedMachineRecipeGenerator.java",
+      "src/main/java/ic2/data/recipe/MaceratorRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/MatterFabricatorRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/MetalFormerRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/OreWasherRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/ShapedRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/ShapelessRecipeProvider.java",
+      "src/main/java/ic2/data/recipe/SmeltingProvider.java",
+      "src/main/java/ic2/data/tag/Ic2BlockTagProvider.java",
+      "src/main/java/ic2/data/tag/Ic2ItemTagProvider.java"
+    ],
+    "dataGeneratorDisposition": "The existing Gradle main source set explicitly excludes ic2/data/**. These legacy generator sources are inventoried but not compiled or shipped; current migrated resources and Python migration tools provide the port data."
+  },
+  "items": {
+    "registered": 508,
+    "used": 508,
+    "unused": [],
+    "nativeBlockItemPlacements": 186,
+    "nativeCraftingResultOperations": 372,
+    "tagAlternativeCraftingCases": 6,
+    "vanillaCraftingBookCases": 366,
+    "functionalCases": 237,
+    "additionalCases": 163,
+    "additionalFunctionalChecks": 254,
+    "plainMaterialUse": "Consumed by actual powered recycler ticks, independently of crafting/processing use.",
+    "usageDefinition": "Actual native interaction, input consumption, machine component behavior, radioactive inventory effects, material recycling, or intentional rejection; enumeration and produced outputs alone do not count.",
+    "ledger": "item-usage-ledger.json",
+    "ledgerSha256": "5520f9fdf1fc17bd3cf320a5a9e528f05fff27b9f98a09455877fa52890da0b8",
+    "placementReportCompletion": "Placement/crafting report is partial; the merged usage ledger completes every registered item."
+  },
+  "machines": {
+    "registeredTypes": 104,
+    "behaviorCases": 219,
+    "actualClientGuiEntryPoints": 98,
+    "machineOwnedGuis": 96,
+    "delegatedReactorGuiEntryPoints": 2,
+    "minimumIntegratedClientGuiTicks": 15,
+    "guiTimingDefinition": "Integrated cases count client ticks; multiplayer shared-menu cases count actual rendered frames.",
+    "unverifiedBehavior": [],
+    "checks": 1361
+  },
+  "processing": {
+    "standardRecipeCases": 289,
+    "standardChecks": 290,
+    "optionalProviderIngredientsUnavailable": [
+      {
+        "reason": "ingredient has no registered item in this isolated mod set",
+        "recipe": "ic2:macerator/ores_silver_to_crushed_silver",
+        "input": "ic2.core.recipe.v2.LazyRecipeInput@195bd3c5"
+      }
+    ],
+    "solidCanningRecipes": 41,
+    "finiteCoalWorkflowStagesIncludingNativeCrafting": 12,
+    "finiteCoalWorkflowTicks": 15773,
+    "finiteCoalWorkflowChecks": 66,
+    "coalRemainingOf64": 24,
+    "coalPoweredCableVariants": 14,
+    "timing": "Normal machine tick callbacks; separate isolated worlds may sprint. These ticks are excluded from endurance wall time."
+  },
+  "matrices": {
+    "upgradeTypes": 11,
+    "upgradeCapableMachineTypes": 38,
+    "upgradeGlobalVariants": 171,
+    "acceptedUpgradeApplications": 2123,
+    "reactorComponentTypes": 29,
+    "reactorPairScenarios": 5220,
+    "retainedPassingMatrixReportSha256": "609df3ce1da8421753f33962793d18d8d0d598e832395a5d93c14e0a229c4d37",
+    "matrixVerificationArtifactSha256": "d08206aee91b830e29838e211ac54f385238431545aeb266b80f9846fd3b57ed",
+    "provenance": "Passed finite r3 matrices retained in the same world. Relevant upgrade/reactor logic was reviewed; changed filter, deep-reactor, networking and endurance cases were rerun in r14.",
+    "freshAdvancedFilterCases": 24,
+    "freshDeepReactorCases": 16
+  },
+  "multiplayerEndurance": {
+    "reportSha256": "63a3e74901c96192ae374f1821d1160ef119d27b62ca1a52365633f21df30b38",
+    "startedAt": "2026-10-12T22:46:31.462177200Z",
+    "elapsedSeconds": 7200.0394115,
+    "worldTicks": 144001,
+    "checksIncludingRetainedMatrices": 278932,
+    "samples": 120,
+    "minimumSampleAverageTPS": 19.999724748232673,
+    "finalAverageTPS": 20.000032491441672,
+    "actualClients": 2,
+    "twoConnectedLiveClientsInEverySample": true,
+    "sharedNativeClickCounts": [
+      1,
+      1
+    ],
+    "maximumClientHeartbeatClockDeltaSeconds": 0.701086181640625,
+    "sharedIngotsAfterCompetingPickup": [
+      13,
+      0
+    ],
+    "sharedIngotsConserved": 13,
+    "failures": 0,
+    "acceleratedTicksExcluded": true
+  },
+  "localization": {
+    "catalogs": 23,
+    "entriesFormattedWithJava": 26563,
+    "literalSourceKeys": 212,
+    "failures": 0,
+    "en_us": {
+      "entries": 1768,
+      "originalEntries": 863
+    },
+    "zh_cn": {
+      "entries": 1769,
+      "originalEntries": 835
+    },
+    "zh_tw": {
+      "entries": 1770,
+      "originalEntries": 777
+    },
+    "runtimeClients": {
+      "host": {
+        "reportSha256": "4b2d1d01a9df4644b3e9cffe3135e9e5ffb826b6055543641bc2f062edb921cf",
+        "report": "dedicated-r14-host-language-final.json",
+        "result": {
+          "language": "zh_cn",
+          "runtimeKeys": 1102,
+          "creativeVariants": 91,
+          "remoteCrystalMemoryRoundtrip": true,
+          "cropCards": 37,
+          "complete": true
+        },
+        "items": 508,
+        "clientChatChecks": 5
+      },
+      "guest": {
+        "reportSha256": "4abedd343cf0e30dd2863fde2fc47df8f7bc88bcd052059f57dcaa2246275ca9",
+        "report": "dedicated-r14-guest-language-final.json",
+        "result": {
+          "language": "en_us",
+          "runtimeKeys": 1102,
+          "creativeVariants": 91,
+          "remoteCrystalMemoryRoundtrip": true,
+          "cropCards": 37,
+          "complete": true
+        },
+        "items": 508,
+        "clientChatChecks": 5
+      }
+    },
+    "otherLanguagesMayUseEnglishFallback": true,
+    "correctedChineseTooltip": {
+      "complete": true,
+      "corrections": [
+        {
+          "file": "src/main/resources/assets/ic2/lang/zh_cn.json",
+          "key": "ic2.tooltip.mode.boxable",
+          "beforeSha256": "9a002cfa0d6c890712ebedef4e29fd62825a0a23404d8f0a5a07a468480c8cd1",
+          "afterSha256": "e9cda23ae88cabe7cf5b70a99dd7297c473be18da221f897986a683f9add75ff",
+          "originalText": "只有箱子处于禁用状态",
+          "correctedText": "仅在停用状态下可放入工具箱"
+        },
+        {
+          "file": "src/main/resources/assets/ic2/lang_ic2/zh_cn.properties",
+          "key": "ic2.tooltip.mode.boxable",
+          "beforeSha256": "c64825e82f12520345a56fbb4d0d5b727431e853ef800da05b6c33300af4dafa",
+          "afterSha256": "6582e9fbc973af79bd4ae39651d06010e5d39387eeb1bc050f6aa469d45a39d0",
+          "originalText": "只有箱子处于禁用状态",
+          "correctedText": "仅在停用状态下可放入工具箱"
+        },
+        {
+          "file": "src/main/resources/assets/ic2/lang/zh_tw.json",
+          "key": "ic2.tooltip.mode.boxable",
+          "beforeSha256": "9a6c1e1dc9c5c2a0e17514be8ac7a1d55f1ad57f08c6d48f27d6f1eaf80bd42d",
+          "afterSha256": "b9f03b28bad387356eeb744f2946fc9e3adc40c5587a639b90b10f423f79257a",
+          "originalText": "Only boxable in disabled state",
+          "correctedText": "僅在停用狀態下可放入工具箱"
+        },
+        {
+          "file": "src/main/resources/assets/ic2/lang_ic2/zh_tw.properties",
+          "key": "ic2.tooltip.mode.boxable",
+          "beforeSha256": "3dc6d6d89c2c5bba8482d2c32f221c738eabec08f79681738a18999266faf041",
+          "afterSha256": "8cb8d042c16de7a0c720c03d65b191ab51295ae4bde658d97877ef922fff6e70",
+          "originalText": "Only boxable in disabled state",
+          "correctedText": "僅在停用狀態下可放入工具箱"
+        }
+      ],
+      "changedGameplayClasses": 0,
+      "sameEnglishLongTextKeysAfterCorrection": {
+        "zh_cn": [],
+        "zh_tw": []
+      },
+      "scope": "One toolbox tooltip: fix simplified Chinese meaning and replace traditional Chinese English text. JSON and retained properties agree."
+    },
+    "runtimeCatalogProvenance": "The endurance clients use the pre-correction catalogs. The single corrected Chinese toolbox tooltip and matching legacy properties were subsequently checked statically and with Java formatting; executable classes and other localization entries are identical."
+  },
+  "resourcesAndBoundaries": {
+    "original_ic2_sha256": "5d06ca9146041043132a72bad9b5612e260e77a84a2f3773a3da9b0167ea1d3d",
+    "release_sha256": "cb5fa2845fc41005ae907dc851bf2ba57125227353927c88b7bf0f817d442ecc",
+    "original_sprites_preserved": 1537,
+    "protected_game_files_unchanged": 4864,
+    "release_contains_no_verification_classes": true,
+    "legacy_model_loaders_removed": true,
+    "equipmentAndSignAliases": 14,
+    "aliasesByteIdenticalToOriginal": true,
+    "nativeItemModelStateChecks": 578,
+    "nativeBakedRegisteredItemModels": 508,
+    "nativeDirectionalModelCases": 36,
+    "nativeFluidSourceAndFlowingModels": 26,
+    "nativeInventoryEquipmentTransactionChecks": 239,
+    "componentSlotCapacityFixtures": 3,
+    "componentSlotCapacityChecksAndRouting": "Actual electric heat generator, electric kinetic generator and liquid heat exchanger; one-item limits, native capability commit/rollback, source conservation and full-slot traversal."
+  },
+  "normalReleaseReload": {
+    "complete": true,
+    "artifact": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.8.jar",
+    "sha256": "cb5fa2845fc41005ae907dc851bf2ba57125227353927c88b7bf0f817d442ecc",
+    "verificationJvmFlags": false,
+    "verificationClassesPresent": false,
+    "loadedMachineTypes": 104,
+    "persistedRuntimeChecks": [
+      "wooden_storage_box: 13 ingots",
+      "iron_storage_box: 13 ingots",
+      "bronze_storage_box: 13 ingots",
+      "steel_storage_box: 13 ingots",
+      "iridium_storage_box: 13 ingots",
+      "bronze_tank: 2000 mB coolant",
+      "iron_tank: 2000 mB coolant",
+      "steel_tank: 2000 mB coolant",
+      "iridium_tank: 2000 mB coolant",
+      "lv_transformer: manual step-down",
+      "mv_transformer: manual step-down",
+      "hv_transformer: manual step-down",
+      "ev_transformer: manual step-down",
+      "fluid regulator: per-tick 100 mB, 63 mB remaining",
+      "batch crafter: iron plate and damaged offset hammer",
+      "personal chest: ownership and ten diamonds"
+    ],
+    "method": "Vanilla commands read all 104 actual loaded block entities after regular JAR reload; only command storage is written",
+    "closedWorld": "D:\\MC26\\.minecraft\\versions\\project02\\.work\\test-ic2-review-dedicated-20261013\\world",
+    "serverExitCode": 0,
+    "failures": [],
+    "uniqueRunId": "IndustrialCraft2-CE-alpha.8-r14-7dd67101-30e5-45f5-8131-d1a4b81975e5",
+    "executedAtWorldGameTime": 662917,
+    "commandStorageSha256": "7a731ad90bdee3f97a54fbc49039f7631756ec714e1b086f4e4d881539235c55",
+    "historicalCommandStorageExcluded": true
+  },
+  "closedWorldAfterEndurance": {
+    "complete": true,
+    "savedMachineTypes": 104,
+    "readChunks": 104,
+    "finiteStoredEnergy": true,
+    "inventoryCountsValid": true,
+    "retainedBoxes": 5,
+    "retainedTanks": 4,
+    "world": "D:\\MC26\\.minecraft\\versions\\project02\\.work\\test-ic2-review-dedicated-20261013\\world",
+    "failures": []
+  },
+  "cleanBuild": {
+    "classes": 1293,
+    "debugLocalNameDifferences": 23,
+    "executableClassDifferences": 0,
+    "buildCacheUsed": false,
+    "resourcesChanged": false,
+    "note": "23 debugger-local-name differences; executable class models are identical."
+  },
+  "regressions": {
+    "tools-final-r2": {
+      "run": "tools-final-r2",
+      "report": "ic2-tool-interaction-verification.json",
+      "reportSha256": "65bd134911cbc54943ecd9d36fe0deea8b8a880e9ca594e27275118bd49f4bf2",
+      "verificationArtifactSha256": "6feec697f670c9906cbdbc461a49ffb7a6120cb8af07268f50a1844fc5274d29",
+      "checks": 514,
+      "failures": 0,
+      "complete": true,
+      "recordedScenarios": 74,
+      "comparedMainClasses": 1293,
+      "mainClassDifferences": []
+    },
+    "painter-final-r2": {
+      "run": "painter-final-r2",
+      "report": "ic2-painter-verification.json",
+      "reportSha256": "3e984ea7479a8b1acf5fa556ca29b79e62e1c00f200f4f3dafa46dbde3d97dd6",
+      "verificationArtifactSha256": "6feec697f670c9906cbdbc461a49ffb7a6120cb8af07268f50a1844fc5274d29",
+      "checks": 400,
+      "failures": 0,
+      "complete": true,
+      "recordedScenarios": 80,
+      "comparedMainClasses": 1293,
+      "mainClassDifferences": []
+    },
+    "cables-final-r2": {
+      "run": "cables-final-r2",
+      "report": "ic2-cable-verification.json",
+      "reportSha256": "ed5fea414bc1b6aa9daaae0c14c5b433f1dac5095de88beb4089ebd13e47ea6c",
+      "verificationArtifactSha256": "6feec697f670c9906cbdbc461a49ffb7a6120cb8af07268f50a1844fc5274d29",
+      "checks": 696,
+      "failures": 0,
+      "complete": true,
+      "recordedScenarios": 60,
+      "shapeStates": 17408,
+      "comparedMainClasses": 1293,
+      "mainClassDifferences": []
+    }
+  },
+  "evidenceProvenance": [
+    {
+      "run": "items-final-r5",
+      "report": "ic2-all-items-verification.json",
+      "reportSha256": "c816f421dfc7b3bbe33de015b7084f8eafe99cf9c294c01d4258ca22a90a5367",
+      "verificationArtifactSha256": "6feec697f670c9906cbdbc461a49ffb7a6120cb8af07268f50a1844fc5274d29",
+      "checks": 3527,
+      "failures": 0,
+      "complete": false,
+      "comparedMainClasses": 1293,
+      "mainClassDifferences": []
+    },
+    {
+      "run": "items-final-r5",
+      "report": "ic2-all-machines-verification.json",
+      "reportSha256": "944d04cef3579ed75e0873ef2325e84c95a999b58cb101eac6fd27aea334a31e",
+      "verificationArtifactSha256": "6feec697f670c9906cbdbc461a49ffb7a6120cb8af07268f50a1844fc5274d29",
+      "checks": 1361,
+      "failures": 0,
+      "complete": true,
+      "comparedMainClasses": 1293,
+      "mainClassDifferences": []
+    },
+    {
+      "run": "functions-final-r5",
+      "report": "ic2-item-functions-verification.json",
+      "reportSha256": "a220c725e882844b2c40af1f7a267c4cd5338e931fb6379bcfa146b069889ae7",
+      "verificationArtifactSha256": "6feec697f670c9906cbdbc461a49ffb7a6120cb8af07268f50a1844fc5274d29",
+      "checks": 810,
+      "failures": 0,
+      "complete": true,
+      "comparedMainClasses": 1293,
+      "mainClassDifferences": []
+    },
+    {
+      "run": "extra-final-r3",
+      "report": "ic2-additional-items-verification.json",
+      "reportSha256": "b99056a9ea8590ef31e95c037d7a6af67fd177f559fc82ddb1d839b28d864e89",
+      "verificationArtifactSha256": "6feec697f670c9906cbdbc461a49ffb7a6120cb8af07268f50a1844fc5274d29",
+      "checks": 1327,
+      "failures": 0,
+      "complete": true,
+      "comparedMainClasses": 1293,
+      "mainClassDifferences": []
+    },
+    {
+      "run": "extra-final-r3",
+      "report": "ic2-canning-recipes-verification.json",
+      "reportSha256": "12e33b171b99b4c90d9b395ef1385db3113021cf8f41217a41062667a86e41a8",
+      "verificationArtifactSha256": "6feec697f670c9906cbdbc461a49ffb7a6120cb8af07268f50a1844fc5274d29",
+      "checks": 41,
+      "failures": 0,
+      "complete": true,
+      "comparedMainClasses": 1293,
+      "mainClassDifferences": []
+    },
+    {
+      "run": "extra-final-r3",
+      "report": "ic2-item-functions-verification.json",
+      "reportSha256": "1ad2d2b43aae4e7ecfa8e1c86ff07ea5a7c1703f42df6fac891b80ef3f2de72d",
+      "verificationArtifactSha256": "6feec697f670c9906cbdbc461a49ffb7a6120cb8af07268f50a1844fc5274d29",
+      "checks": 254,
+      "failures": 0,
+      "complete": true,
+      "comparedMainClasses": 1293,
+      "mainClassDifferences": []
+    },
+    {
+      "run": "component-capacity-final-r1",
+      "report": "ic2-item-model-states.json",
+      "reportSha256": "61e3a07e3a51a8e3d204c2c80776e44aa4e463ad28d5c1aab359d1192fdb0030",
+      "verificationArtifactSha256": "6feec697f670c9906cbdbc461a49ffb7a6120cb8af07268f50a1844fc5274d29",
+      "checks": 578,
+      "failures": 0,
+      "complete": true,
+      "comparedMainClasses": 1293,
+      "mainClassDifferences": []
+    },
+    {
+      "run": "component-capacity-final-r1",
+      "report": "ic2-review-inventory-probe.json",
+      "reportSha256": "7b2c4348ae062d26270b9c93142312f7aa256c31713c56bc5da00880bbe8bf4a",
+      "verificationArtifactSha256": "6feec697f670c9906cbdbc461a49ffb7a6120cb8af07268f50a1844fc5274d29",
+      "checks": 239,
+      "failures": 0,
+      "complete": true,
+      "comparedMainClasses": 1293,
+      "mainClassDifferences": []
+    },
+    {
+      "run": "processing-final-r2",
+      "report": "ic2-processing-recipes-verification.json",
+      "reportSha256": "09986595fcf9c63e4529d153278e054a57178bf7bbf291153355420d0045f217",
+      "verificationArtifactSha256": "6feec697f670c9906cbdbc461a49ffb7a6120cb8af07268f50a1844fc5274d29",
+      "checks": 290,
+      "failures": 0,
+      "complete": true,
+      "comparedMainClasses": 1293,
+      "mainClassDifferences": []
+    },
+    {
+      "run": "coupled-final-r2",
+      "report": "ic2-coupled-workflow-verification.json",
+      "reportSha256": "c37c134138d033e5a37362235bfd02dbeb8c2b18ac01eed6929376b2ab138c70",
+      "verificationArtifactSha256": "6feec697f670c9906cbdbc461a49ffb7a6120cb8af07268f50a1844fc5274d29",
+      "checks": 66,
+      "failures": 0,
+      "complete": true,
+      "comparedMainClasses": 1293,
+      "mainClassDifferences": []
+    },
+    {
+      "run": "crowbar-final-r2",
+      "report": "ic2-item-functions-verification.json",
+      "reportSha256": "c26f0c5c00e803d26679e28e2430630e647c31393999dcfd7bc88305441a2a20",
+      "verificationArtifactSha256": "6feec697f670c9906cbdbc461a49ffb7a6120cb8af07268f50a1844fc5274d29",
+      "checks": 54,
+      "failures": 0,
+      "complete": true,
+      "comparedMainClasses": 1293,
+      "mainClassDifferences": []
+    }
+  ],
+  "freshRuntimeReports": {
+    "count": 14,
+    "checks": 10157,
+    "failures": 0,
+    "mainClassesMatchRelease": true,
+    "excludedFromEnduranceCheckCount": true
+  },
+  "componentSlotNegativeControls": {
+    "report": "component-slot-limit-audit.json",
+    "reportSha256": "c47593eb1c76938088f8a4c90fb9670dc3a8e8f08128e6607232a74829462556",
+    "controlFailureCounts": [
+      5,
+      3
+    ],
+    "fixedChecks": 239,
+    "fixedFailures": []
+  },
+  "freshRuntimeLogReview": {
+    "runs": {
+      "items-final-r5": {
+        "sha256": "e0dede118ee9b69406890cb2093935600ba648e4a0a96e5e23c29c996b781a1e",
+        "errorOrStackLines": [
+          "[1310月2026 06:46:38.539] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+          "Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401",
+          "[1310月2026 06:46:39.183] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags"
+        ],
+        "ic2Exceptions": 0,
+        "classification": "Only offline fake-account/Realms/Yggdrasil service requests; no IC2 runtime exception."
+      },
+      "functions-final-r5": {
+        "sha256": "d71a98f19e1d80b419adff0432056e8ab88019a81308fecf8baaccf143a13861",
+        "errorOrStackLines": [
+          "[1310月2026 06:46:37.591] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+          "Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401",
+          "[1310月2026 06:46:38.528] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags"
+        ],
+        "ic2Exceptions": 0,
+        "classification": "Only offline fake-account/Realms/Yggdrasil service requests; no IC2 runtime exception."
+      },
+      "extra-final-r3": {
+        "sha256": "bb3aa76f02429f374bae93e2246396c196e248b0b9b7ec66f65d695af4906273",
+        "errorOrStackLines": [
+          "[1310月2026 06:54:55.086] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags",
+          "[1310月2026 06:54:56.281] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+          "Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401"
+        ],
+        "ic2Exceptions": 0,
+        "classification": "Only offline fake-account/Realms/Yggdrasil service requests; no IC2 runtime exception."
+      },
+      "component-capacity-final-r1": {
+        "sha256": "377253eed771f10bce4ca73f6c73d1305ffe65e0a5c41a68ecf6ea95d68d79cf",
+        "errorOrStackLines": [
+          "[1310月2026 06:36:38.498] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags",
+          "[1310月2026 06:36:39.927] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+          "Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401",
+          "[1310月2026 06:37:27.749] [Netty Local IO #1/ERROR] [net.minecraft.network.Connection/]: Exception caught in connection"
+        ],
+        "ic2Exceptions": 0,
+        "classification": "Offline fake-account/Realms service errors and one vanilla ClosedChannelException during intentional client shutdown; no IC2 runtime exception.",
+        "shutdownConnectionException": {
+          "type": "java.nio.channels.ClosedChannelException",
+          "stage": "after successful report and intentional client shutdown",
+          "ic2StackFrames": 0
+        }
+      },
+      "tools-final-r2": {
+        "sha256": "b869e87485a03e1cd5ab5cb8e79c5368946ebb926a766aae0fc532fee6222fd6",
+        "errorOrStackLines": [
+          "[1310月2026 06:54:52.852] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+          "Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401",
+          "[1310月2026 06:54:54.191] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags"
+        ],
+        "ic2Exceptions": 0,
+        "classification": "Only offline fake-account/Realms/Yggdrasil service requests; no IC2 runtime exception."
+      },
+      "painter-final-r2": {
+        "sha256": "7c0e6e44b41cc6f2c8a3c61b8b4981c9907b5637ec5fae5e33bae3aeacfdf4d1",
+        "errorOrStackLines": [
+          "[1310月2026 06:58:24.305] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+          "Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401",
+          "[1310月2026 06:58:26.177] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags"
+        ],
+        "ic2Exceptions": 0,
+        "classification": "Only offline fake-account/Realms/Yggdrasil service requests; no IC2 runtime exception."
+      },
+      "cables-final-r2": {
+        "sha256": "18e5229589dab77fd03f480c858c75d8abe57b1a1887ff44e84ef5556cfbfdfc",
+        "errorOrStackLines": [
+          "[1310月2026 06:58:26.274] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+          "Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401",
+          "[1310月2026 06:58:26.771] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags"
+        ],
+        "ic2Exceptions": 0,
+        "classification": "Only offline fake-account/Realms/Yggdrasil service requests; no IC2 runtime exception."
+      },
+      "crowbar-final-r2": {
+        "sha256": "5e9164eb3cf261b1877a0533ed6d226af8e8beaccd65da547e958232b75cea31",
+        "errorOrStackLines": [
+          "[1310月2026 06:58:23.508] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+          "Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401",
+          "[1310月2026 06:58:24.510] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags"
+        ],
+        "ic2Exceptions": 0,
+        "classification": "Only offline fake-account/Realms/Yggdrasil service requests; no IC2 runtime exception."
+      },
+      "processing-final-r2": {
+        "sha256": "2bd89c8bd63ba434ebbc02bf40d2b1e977bc7ccbbec70b67ef7445acf80026ef",
+        "errorOrStackLines": [
+          "[1310月2026 06:53:26.361] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+          "Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401",
+          "[1310月2026 06:53:27.514] [Download-2/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags"
+        ],
+        "ic2Exceptions": 0,
+        "classification": "Only offline fake-account/Realms/Yggdrasil service requests; no IC2 runtime exception."
+      },
+      "coupled-final-r2": {
+        "sha256": "8090999745fb512cfc7c1e7824e1323953b9ab8ec59b20ea5719de8bf726a22a",
+        "errorOrStackLines": [
+          "[1310月2026 06:53:25.958] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+          "Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401",
+          "[1310月2026 06:53:26.866] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags"
+        ],
+        "ic2Exceptions": 0,
+        "classification": "Only offline fake-account/Realms/Yggdrasil service requests; no IC2 runtime exception."
+      }
+    },
+    "noIC2RuntimeExceptions": true,
+    "shutdownChannelCloseSeparatedFromOfflineServiceErrors": true
+  },
+  "enduranceAndReloadLogReview": {
+    "complete": true,
+    "logs": {
+      "dedicated-r14": {
+        "sha256": "bb879d92e344d68131428db708b682f050da559350c791895b72b0279c841f72",
+        "archive": "dedicated-r14-closed-runtime.log",
+        "ic2StackFrames": 0,
+        "fatalRuntimeErrors": 0,
+        "errorLines": [
+          "2026-10-12T22:44:36.997571Z Server thread ERROR An exception occurred processing Appender DebugFile",
+          "2026-10-12T22:44:37.001074500Z Server thread ERROR An exception occurred processing Appender DebugFile"
+        ],
+        "classification": "Official server Netty platform probing and Log4j DebugFile rendering diagnostics for kqueue/epoll on Windows; no IC2 frame, startup succeeds, native TCP multiplayer runs, server saves and exits normally."
+      },
+      "normal-release-reload-r14": {
+        "sha256": "7761eb7f3e702bae5077eda240ba2a8f259397f9e2297073d4cf020ac6912f74",
+        "archive": "normal-release-reload-r14-closed-runtime.log",
+        "ic2StackFrames": 0,
+        "fatalRuntimeErrors": 0,
+        "errorLines": [
+          "2026-10-13T00:47:54.471804900Z Server thread ERROR An exception occurred processing Appender DebugFile",
+          "2026-10-13T00:47:54.475813300Z Server thread ERROR An exception occurred processing Appender DebugFile"
+        ],
+        "classification": "Official server Netty platform probing and Log4j DebugFile rendering diagnostics for kqueue/epoll on Windows; no IC2 frame, startup succeeds, native TCP multiplayer runs, server saves and exits normally."
+      },
+      "host-r14": {
+        "sha256": "72d5fed2d4e80f06138ba5b25006f2ce5e3afcdbdf93719b8a73162af4669669",
+        "archive": "host-r14-closed-runtime.log",
+        "ic2StackFrames": 0,
+        "fatalRuntimeErrors": 0,
+        "errorLines": [
+          "[1310月2026 06:45:36.257] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags",
+          "[1310月2026 06:45:40.041] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+          "[1310月2026 06:45:40.041] [Yggdrasil Key Fetcher/ERROR] [com.mojang.authlib.yggdrasil.YggdrasilServicesKeyInfo/]: Failed to request yggdrasil public key",
+          "[1310月2026 06:45:41.811] [Download-2/ERROR] [net.minecraft.client.multiplayer.AccountProfileKeyPairManager/]: Failed to retrieve profile key pair"
+        ],
+        "classification": "Offline test-account/Realms service errors; both real clients stop normally after the server closes."
+      },
+      "guest-r14": {
+        "sha256": "3e4a6b542b97902ee03ae214ca78d857ea85fd7397c370ecf2ea84beb64416e5",
+        "archive": "guest-r14-closed-runtime.log",
+        "ic2StackFrames": 0,
+        "fatalRuntimeErrors": 0,
+        "errorLines": [
+          "[1310月2026 06:45:34.046] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+          "[1310月2026 06:45:35.905] [Download-2/ERROR] [net.minecraft.client.multiplayer.AccountProfileKeyPairManager/]: Failed to retrieve profile key pair",
+          "[1310月2026 06:45:36.354] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags"
+        ],
+        "classification": "Offline test-account/Realms service errors; both real clients stop normally after the server closes."
+      }
+    },
+    "normalServerExitCode": 0,
+    "enduranceServerExitCode": 0
+  },
+  "limits": [
+    "Full-tree automated review and targeted source inspection; no claim that every source line was manually read.",
+    "Type/pair/stack/boundary and representative layouts are finite coverage; arbitrary reactor permutations and third-party modpacks are not exhausted.",
+    "Upstream has no compatible RemotelyAccessible machine or ICoverHolder implementation; actual rejection preserves items/world state.",
+    "Legacy raw-Enchantment custom protocol branches remain unsupported; native ItemStack enchantment components use the native codec.",
+    "Only isolated IC2 fixtures were operated. The existing user client and Minecraft binaries/assets/libraries were not modified."
+  ]
+}

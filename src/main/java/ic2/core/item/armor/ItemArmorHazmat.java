@@ -11,7 +11,7 @@ import net.minecraft.world.item.Item.Properties;
 
 public class ItemArmorHazmat extends ItemArmorUtility implements IHazmatLike {
    public ItemArmorHazmat(EquipmentSlot type, Properties settings) {
-      super(Ic2ArmorMaterials.HAZMAT, settings, type);
+      super(type == EquipmentSlot.FEET ? Ic2ArmorMaterials.RUBBER_BOOTS : Ic2ArmorMaterials.HAZMAT, settings, type);
    }
 
    @Override

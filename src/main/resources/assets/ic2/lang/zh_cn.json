@@ -793,7 +793,7 @@
 	"ic2.reactoritem.durability": "耐久:",
 	"ic2.tooltip.mode": "模式: %1$s",
 	"ic2.tooltip.mode.3x3": "3x3",
-	"ic2.tooltip.mode.boxable": "只有箱子处于禁用状态",
+	"ic2.tooltip.mode.boxable": "仅在停用状态下可放入工具箱",
 	"ic2.tooltip.mode.disabled": "禁用",
 	"ic2.tooltip.mode.enabled": "启用",
 	"ic2.tooltip.mode.explosive": "爆破模式",

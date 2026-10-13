@@ -6,6 +6,7 @@ import java.util.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.locale.Language;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -18,9 +19,11 @@ import net.neoforged.neoforge.client.event.RenderFrameEvent;
 public final class RemoteClientProbe {
    private final Map<Integer,Integer> menuFrames=new LinkedHashMap<>();
    private final Map<Integer,String> menuTitles=new LinkedHashMap<>();
+   private final Map<Integer,Object> menuStates=new LinkedHashMap<>();
    private final Map<Integer,Integer> menuClicks=new LinkedHashMap<>();
    private int ticks;
-   private boolean languageAudited;
+   private final java.util.Set<Integer> automaticClicks = new java.util.HashSet<>();
+   private boolean languageAudited, wasConnected;
    @SubscribeEvent public void click(net.neoforged.neoforge.client.event.InputEvent.MouseButton.Post event) {
       var mc=Minecraft.getInstance();
       if(event.getButton()==0&&event.getAction()==1&&mc.screen instanceof net.minecraft.client.gui.screens.inventory.AbstractContainerScreen<?> screen)
@@ -31,17 +34,29 @@ public final class RemoteClientProbe {
       if(mc.screen instanceof net.minecraft.client.gui.screens.inventory.AbstractContainerScreen<?> screen){
          menuFrames.merge(screen.getMenu().containerId,1,Integer::sum);
          menuTitles.put(screen.getMenu().containerId,screen.getTitle().getString());
+         if(screen.getMenu() instanceof ic2.core.ContainerBase<?> menu&&menu.base instanceof BlockEntity tile&&mc.player!=null&&mc.level!=null)menuStates.put(menu.containerId,Map.of("removed",tile.isRemoved(),"valid",menu.stillValid(mc.player),"position",tile.getBlockPos().toString(),"worldObjectMatches",mc.level.getBlockEntity(tile.getBlockPos())==tile));
       }
    }
    @SubscribeEvent public void tick(ClientTickEvent.Post event) {
       var mc=Minecraft.getInstance();ticks++;
+      if(Boolean.getBoolean("ic2.silentRemoteProbe")){
+         org.lwjgl.glfw.GLFW.glfwHideWindow(mc.getWindow().handle());
+         if(mc.player!=null)wasConnected=true;else if(wasConnected){mc.stop();return;}
+         if(mc.player!=null&&mc.gameMode!=null&&mc.screen instanceof net.minecraft.client.gui.screens.inventory.AbstractContainerScreen<?> screen
+            &&screen.getMenu() instanceof ic2.core.ContainerBase<?> menu&&menu.base instanceof net.minecraft.world.level.block.entity.BlockEntity tile
+            &&tile.getBlockPos().equals(new BlockPos(152,181,152))&&menuFrames.getOrDefault(menu.containerId,0)>=20&&automaticClicks.add(menu.containerId)){
+            int slot=-1;for(int i=0;i<menu.slots.size();i++)if(menu.getSlot(i).getItem().is(net.minecraft.world.item.Items.IRON_INGOT)){slot=i;break;}
+            mc.gameMode.handleContainerInput(menu.containerId,slot<0?0:slot,0,net.minecraft.world.inventory.ContainerInput.QUICK_MOVE,mc.player);
+            menuClicks.merge(menu.containerId,1,Integer::sum);
+         }
+      }
       if(mc.player==null||mc.level==null||ticks%10!=0)return;
       if(!languageAudited){auditLanguage(mc);languageAudited=true;}
       Map<String,Object> result=new LinkedHashMap<>();
       result.put("updatedAt",System.currentTimeMillis());result.put("player",mc.player.getName().getString());
-      result.put("connected",true);result.put("language",mc.options.languageCode);
+      result.put("connected",true);result.put("alive",mc.player.isAlive());result.put("health",mc.player.getHealth());result.put("screen",mc.screen==null?"none":mc.screen.getClass().getName());result.put("currentMenu",mc.player.containerMenu.getClass().getName());result.put("currentMenuId",mc.player.containerMenu.containerId);result.put("language",mc.options.languageCode);
       result.put("menuFrames",menuFrames);result.put("menuTitles",menuTitles);
-      result.put("menuClicks",menuClicks);
+      result.put("menuClicks",menuClicks);result.put("menuStates",menuStates);
       List<String> loaded=new ArrayList<>();
       for(int i=0;i<104;i++){
          var pos=new BlockPos(168+(i%12)*16,181,168+(i/12)*16);

@@ -79,7 +79,12 @@ public interface ClientEnvProxy {
 
          @Override
          public float[] uvs() {
-            return new float[8];
+            float[] values = new float[8];
+            for (int i = 0; i < 4; i++) {
+               values[i * 2] = net.minecraft.client.model.geom.builders.UVPair.unpackU(quad.packedUV(i));
+               values[i * 2 + 1] = net.minecraft.client.model.geom.builders.UVPair.unpackV(quad.packedUV(i));
+            }
+            return values;
          }
 
          @Override

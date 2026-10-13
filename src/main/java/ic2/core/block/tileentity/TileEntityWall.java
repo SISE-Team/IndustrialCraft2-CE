@@ -17,6 +17,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
 public class TileEntityWall extends Ic2TileEntity {
+   public static final net.neoforged.neoforge.model.data.ModelProperty<WallRenderState> MODEL_STATE = new net.neoforged.neoforge.model.data.ModelProperty<>();
+
+   @Override
+   public net.neoforged.neoforge.model.data.ModelData getModelData() {
+      var snapshot = this.renderState;
+      return snapshot == null ? net.neoforged.neoforge.model.data.ModelData.EMPTY : net.neoforged.neoforge.model.data.ModelData.of(MODEL_STATE, snapshot);
+   }
    protected final Obscuration obscuration;
    private DyeColor color = WallBlock.DEFAULT_COLOR;
    private volatile TileEntityWall.WallRenderState renderState;
@@ -100,6 +107,7 @@ public class TileEntityWall extends Ic2TileEntity {
          return false;
       } else {
          this.renderState = state;
+         this.requestModelDataUpdate();
          return true;
       }
    }

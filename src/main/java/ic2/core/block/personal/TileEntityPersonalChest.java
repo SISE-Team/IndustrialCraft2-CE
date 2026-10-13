@@ -105,7 +105,8 @@ public class TileEntityPersonalChest extends TileEntityInventory implements IPer
    }
 
    @Override
-   public void startOpen(Player player) {
+   public void startOpen(net.minecraft.world.entity.ContainerUser user) {
+      if (!(user instanceof Player player)) return;
       if (!this.getLevel().isClientSide()) {
          this.usingPlayers.add(player);
          this.updateUsingPlayerCount();
@@ -113,7 +114,8 @@ public class TileEntityPersonalChest extends TileEntityInventory implements IPer
    }
 
    @Override
-   public void stopOpen(Player player) {
+   public void stopOpen(net.minecraft.world.entity.ContainerUser user) {
+      if (!(user instanceof Player player)) return;
       if (!this.getLevel().isClientSide()) {
          this.usingPlayers.remove(player);
          this.updateUsingPlayerCount();

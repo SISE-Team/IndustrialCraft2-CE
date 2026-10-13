@@ -26,9 +26,9 @@ public class ItemTerraWart extends Item {
       MobEffectInstance effect = player.getEffect(Ic2Potion.radiationHolder());
       if (effect != null) {
          if (effect.getDuration() <= 600) {
-            player.removeEffect(net.minecraft.core.Holder.direct(Ic2Potion.radiation));
+            player.removeEffect(Ic2Potion.radiationHolder());
          } else {
-            player.removeEffect(net.minecraft.core.Holder.direct(Ic2Potion.radiation));
+            player.removeEffect(Ic2Potion.radiationHolder());
             Ic2Potion.radiation.applyTo(player, effect.getDuration() - 600, effect.getAmplifier());
          }
       }

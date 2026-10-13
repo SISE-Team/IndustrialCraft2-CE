@@ -62,7 +62,8 @@ public class ScaffoldBlock extends Block {
       this.maxDistance = maxDistance;
    }
 
-   public void entityInside(BlockState state, Level world, BlockPos pos, Entity rawEntity) {
+   @Override
+   public void entityInside(BlockState state, Level world, BlockPos pos, Entity rawEntity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
       if (rawEntity instanceof LivingEntity entity) {
          entity.fallDistance = 0.0F;
          double limit = 0.15;
@@ -181,7 +182,8 @@ public class ScaffoldBlock extends Block {
       return super.canSurvive(state, world, pos) && this.hasSupport(world, pos, this);
    }
 
-   public void neighborChanged(BlockState state, Level world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
+   @Override
+   public void neighborChanged(BlockState state, Level world, BlockPos pos, Block block, @org.jetbrains.annotations.Nullable net.minecraft.world.level.redstone.Orientation orientation, boolean notify) {
       this.checkSupport(world, pos);
    }
 

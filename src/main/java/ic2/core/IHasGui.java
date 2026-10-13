@@ -28,6 +28,24 @@ public interface IHasGui extends Container {
    }
 
    default boolean openManagedBe(Player player, InteractionHand hand) {
+      BlockEntity target = (BlockEntity)this;
+      if (!player.isAlive() || target.isRemoved() || target.getLevel() != player.level()) return false;
+      if (player instanceof net.minecraft.server.level.ServerPlayer actor) {
+         // Menus may open immediately after teleporting, before the chunk sender
+         // finishes its batch. Deliver the target chunk before the menu payload
+         // so the client factory can resolve its block entity deterministically.
+         var level = actor.level();
+         var chunk = level.getChunkAt(target.getBlockPos());
+         var chunkPos = chunk.getPos();
+         boolean pending = actor.connection.chunkSender.isPending(chunkPos.pack());
+         if (pending) actor.connection.chunkSender.dropChunk(actor, chunkPos);
+         actor.connection.send(chunk.getAuxLightManager(chunkPos).sendLightDataTo(
+            new net.minecraft.network.protocol.game.ClientboundLevelChunkWithLightPacket(chunk, level.getLightEngine(), null, null)));
+         if (pending) {
+            level.debugSynchronizers().startTrackingChunk(actor, chunkPos);
+            net.neoforged.neoforge.event.EventHooks.fireChunkSent(actor, chunk, level);
+         }
+      }
       GrowingBuffer buffer = new GrowingBuffer(50);
 
       try {

@@ -26,6 +26,7 @@ public class ItemBatterySU extends Item implements IBoxable, IItemHudInfo {
    }
 
    public InteractionResult use(Level world, Player player, InteractionHand hand) {
+      if (world.isClientSide()) return InteractionResult.SUCCESS;
       ItemStack stack = StackUtil.get(player, hand);
       double energy = this.capacity;
 

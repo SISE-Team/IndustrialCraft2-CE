@@ -188,7 +188,7 @@ public final class EnvProxyForge implements EnvProxy {
 
    @Override
    public WoodType registerSignType(String name) {
-      return new WoodType(name, net.minecraft.world.level.block.state.properties.BlockSetType.OAK);
+      return WoodType.register(new WoodType(ic2.core.IC2.getIdentifier(name).toString(), net.minecraft.world.level.block.state.properties.BlockSetType.OAK));
    }
 
    @Override
@@ -332,12 +332,25 @@ public final class EnvProxyForge implements EnvProxy {
 
    @Override
    public boolean biomeHasType(Holder<Biome> biome, EnvProxy.BiomeType type) {
-      return false;
+      String tag = switch (type) {
+         case DENSE -> "is_dense_vegetation";
+         case SPARSE -> "is_sparse_vegetation";
+         case CONIFEROUS -> "is_tree/coniferous";
+         case HILLS -> "is_hill";
+         case MESA -> "is_badlands";
+         default -> "is_" + type.name().toLowerCase(java.util.Locale.ROOT);
+      };
+      if (type == EnvProxy.BiomeType.WATER) return biome.is(net.neoforged.neoforge.common.Tags.Biomes.IS_OCEAN)
+         || biome.is(net.neoforged.neoforge.common.Tags.Biomes.IS_RIVER);
+      return biome.is(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.BIOME,
+         Identifier.fromNamespaceAndPath("c", tag)));
    }
 
    @Override
    public Collection<EnvProxy.BiomeType> getBiomeTypes(Holder<Biome> biome) {
-      return Collections.emptySet();
+      var result = java.util.EnumSet.noneOf(EnvProxy.BiomeType.class);
+      for (var type : EnvProxy.BiomeType.values()) if (this.biomeHasType(biome, type)) result.add(type);
+      return result;
    }
 
    @Override

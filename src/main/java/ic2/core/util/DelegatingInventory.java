@@ -53,11 +53,13 @@ public class DelegatingInventory implements Container {
       return this.parent.stillValid(player);
    }
 
-   public void startOpen(Player player) {
+   @Override
+   public void startOpen(net.minecraft.world.entity.ContainerUser player) {
       this.parent.startOpen(player);
    }
 
-   public void stopOpen(Player player) {
+   @Override
+   public void stopOpen(net.minecraft.world.entity.ContainerUser player) {
       this.parent.stopOpen(player);
    }
 

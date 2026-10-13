@@ -58,6 +58,7 @@ public class ItemCropSeed extends Item implements ICropSeed {
    public InteractionResult useOn(UseOnContext context) {
       if (context.getLevel().getBlockEntity(context.getClickedPos()) instanceof TileEntityCrop crop) {
          ItemStack stack = context.getItemInHand();
+         if (context.getLevel().isClientSide()) return Crops.instance.getCropCard(stack) != null ? InteractionResult.SUCCESS : InteractionResult.PASS;
          if (crop.tryPlantIn(
             Crops.instance.getCropCard(stack),
             0,
@@ -68,7 +69,7 @@ public class ItemCropSeed extends Item implements ICropSeed {
          )) {
             Player player = context.getPlayer();
             if (!player.getAbilities().instabuild) {
-               ic2.core.util.Util.playerMainItems(player).set(player.getInventory().getSelectedSlot(), StackUtil.emptyStack);
+               stack.shrink(1);
             }
 
             return InteractionResult.SUCCESS;

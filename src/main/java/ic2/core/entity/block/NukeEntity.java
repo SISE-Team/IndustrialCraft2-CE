@@ -21,7 +21,8 @@ public class NukeEntity extends ExplosiveEntity {
       this(world, 0.0, 0.0, 0.0, 1.0F, 1);
    }
 
-   public InteractionResult interact(Player player, InteractionHand hand) {
+   @Override
+   public InteractionResult interact(Player player, InteractionHand hand, net.minecraft.world.phys.Vec3 location) {
       ItemStack stack = StackUtil.get(player, hand);
       if (!StackUtil.isEmpty(stack) && stack.getItem() instanceof ItemToolWrench) {
          ItemToolWrench wrench = (ItemToolWrench)stack.getItem();

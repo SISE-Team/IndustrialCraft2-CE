@@ -155,6 +155,16 @@ public class TileEntityCrop extends Ic2TileEntity implements ICropTile {
    }
 
    @Override
+   protected void onLoaded() {
+      super.onLoaded();
+      if (!this.getLevel().isClientSide()) {
+         this.updateTerrainHumidity();
+         this.updateTerrainNutrients();
+         this.updateTerrainAirQuality();
+      }
+   }
+
+   @Override
    public void updateEntityServer() {
       if (this.getLevel().getGameTime() % tickRate == 0L) {
          this.performTick();
@@ -315,9 +325,9 @@ public class TileEntityCrop extends Ic2TileEntity implements ICropTile {
 
             BlockPos soilPos = dstPos.below();
             Block block = world.getBlockState(soilPos).getBlock();
-            if (block == Blocks.DIRT || block == Blocks.SHORT_GRASS || block == Blocks.FARMLAND) {
-               world.setBlock(soilPos, Blocks.SHORT_GRASS.defaultBlockState(), 7);
-               world.setBlock(dstPos, Blocks.TALL_GRASS.defaultBlockState(), 7);
+            if (block == Blocks.DIRT || block == Blocks.GRASS_BLOCK || block == Blocks.FARMLAND) {
+               world.setBlock(soilPos, Blocks.GRASS_BLOCK.defaultBlockState(), 7);
+               world.setBlock(dstPos, Blocks.SHORT_GRASS.defaultBlockState(), 7);
             }
          }
       }
@@ -523,7 +533,8 @@ public class TileEntityCrop extends Ic2TileEntity implements ICropTile {
    public void updateTerrainHumidity() {
       Level world = this.getLevel();
       int humidity = Crops.instance.getHumidityBiomeBonus(BiomeUtil.getBiome(world, this.worldPosition));
-      if ((Integer)world.getBlockState(this.worldPosition.below()).getValue(FarmlandBlock.MOISTURE) >= 7) {
+      BlockState soil = world.getBlockState(this.worldPosition.below());
+      if (soil.hasProperty(FarmlandBlock.MOISTURE) && soil.getValue(FarmlandBlock.MOISTURE) >= 7) {
          humidity += 2;
       }
 
@@ -557,7 +568,7 @@ public class TileEntityCrop extends Ic2TileEntity implements ICropTile {
       TileEntityCrop tileEntityCrop = this.transformCropBlock(crop.getCropBlock());
       tileEntityCrop.updateTerrainHumidity();
       tileEntityCrop.updateTerrainNutrients();
-      tileEntityCrop.updateTerrainNutrients();
+      tileEntityCrop.updateTerrainAirQuality();
    }
 
    @Override
@@ -925,7 +936,18 @@ public class TileEntityCrop extends Ic2TileEntity implements ICropTile {
          }
 
          this.getLevel().setBlockAndUpdate(this.worldPosition, newState);
-         return (TileEntityCrop)this.getLevel().getBlockEntity(this.worldPosition);
+         TileEntityCrop result = (TileEntityCrop)this.getLevel().getBlockEntity(this.worldPosition);
+         if (result != null) {
+            result.setStorageWater(this.getStorageWater());
+            result.setStorageNutrients(this.getStorageNutrients());
+            result.setStorageWeedEX(this.getStorageWeedEX());
+            if (!this.getLevel().isClientSide()) {
+               result.updateTerrainHumidity();
+               result.updateTerrainNutrients();
+               result.updateTerrainAirQuality();
+            }
+         }
+         return result;
       } else {
          return null;
       }
@@ -941,7 +963,18 @@ public class TileEntityCrop extends Ic2TileEntity implements ICropTile {
          }
 
          this.getLevel().setBlockAndUpdate(this.worldPosition, newState);
-         return (TileEntityCrop)this.getLevel().getBlockEntity(this.worldPosition);
+         TileEntityCrop result = (TileEntityCrop)this.getLevel().getBlockEntity(this.worldPosition);
+         if (result != null) {
+            result.setStorageWater(this.getStorageWater());
+            result.setStorageNutrients(this.getStorageNutrients());
+            result.setStorageWeedEX(this.getStorageWeedEX());
+            if (!this.getLevel().isClientSide()) {
+               result.updateTerrainHumidity();
+               result.updateTerrainNutrients();
+               result.updateTerrainAirQuality();
+            }
+         }
+         return result;
       } else {
          return null;
       }

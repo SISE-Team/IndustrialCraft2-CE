@@ -61,18 +61,35 @@ public abstract class ItemElectricTool extends Item implements IElectricItem, IN
    }
 
    protected ItemElectricTool(Properties settings, int operationEnergyCost, ToolMaterial material, Collection<TagKey<Block>> effectiveBlocks) {
-      this(settings, 2.0F, -3.0F, operationEnergyCost, material, effectiveBlocks);
+      this(settings, 2.0F, -3.0F, operationEnergyCost, material, effectiveBlocks, true);
+   }
+
+   protected ItemElectricTool(Properties settings, int operationEnergyCost, ToolMaterial material, Collection<TagKey<Block>> effectiveBlocks, boolean canMineCreative) {
+      this(settings, 2.0F, -3.0F, operationEnergyCost, material, effectiveBlocks, canMineCreative);
    }
 
    private ItemElectricTool(
-      Properties settings, float attackDamage, float attackSpeed, int operationEnergyCost, ToolMaterial material, Collection<TagKey<Block>> effectiveBlocks
+      Properties settings, float attackDamage, float attackSpeed, int operationEnergyCost, ToolMaterial material, Collection<TagKey<Block>> effectiveBlocks, boolean canMineCreative
    ) {
       // 26.1.2 removed DiggerItem; tool behavior comes from item components.
-      super(material.applyToolProperties(settings, effectiveBlocks.isEmpty() ? Ic2BlockTags.EMPTY : effectiveBlocks.iterator().next(), attackDamage, attackSpeed, 0.0F));
+      super(electricToolProperties(settings, material, effectiveBlocks, attackDamage, attackSpeed, canMineCreative));
       this.operationEnergyCost = operationEnergyCost;
       this.effectiveBlocks = effectiveBlocks;
       this.material = material;
       this.speed = material.speed();
+   }
+
+   private static Properties electricToolProperties(Properties settings, ToolMaterial material, Collection<TagKey<Block>> effectiveBlocks, float attackDamage, float attackSpeed, boolean canMineCreative) {
+      var lookup = net.minecraft.core.registries.BuiltInRegistries.acquireBootstrapRegistrationLookup(net.minecraft.core.registries.BuiltInRegistries.BLOCK);
+      var rules = new java.util.ArrayList<net.minecraft.world.item.component.Tool.Rule>();
+      rules.add(net.minecraft.world.item.component.Tool.Rule.deniesDrops(lookup.getOrThrow(material.incorrectBlocksForDrops())));
+      for (var tag : effectiveBlocks) rules.add(net.minecraft.world.item.component.Tool.Rule.minesAndDrops(lookup.getOrThrow(tag), material.speed()));
+      return settings.stacksTo(1)
+         .component(net.minecraft.core.component.DataComponents.WEAPON, new net.minecraft.world.item.component.Weapon(0))
+         .component(net.minecraft.core.component.DataComponents.TOOL, new net.minecraft.world.item.component.Tool(rules, 1.0F, 0, canMineCreative))
+         .attributes(net.minecraft.world.item.component.ItemAttributeModifiers.builder()
+            .add(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE, new net.minecraft.world.entity.ai.attributes.AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID, attackDamage + material.attackDamageBonus(), net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_VALUE), net.minecraft.world.entity.EquipmentSlotGroup.MAINHAND)
+            .add(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_SPEED, new net.minecraft.world.entity.ai.attributes.AttributeModifier(Item.BASE_ATTACK_SPEED_ID, attackSpeed, net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_VALUE), net.minecraft.world.entity.EquipmentSlotGroup.MAINHAND).build());
    }
 
    public static boolean consumeEnergy(ItemStack stack, double amount, int tier, LivingEntity entity) {
@@ -129,7 +146,8 @@ public abstract class ItemElectricTool extends Item implements IElectricItem, IN
       return this.isEffective(state) && ElectricItem.manager.canUse(stack, this.operationEnergyCost) ? this.speed : 1.0F;
    }
 
-   public boolean isCorrectToolForDrops(BlockState state) {
+   @Override
+   public boolean isCorrectToolForDrops(ItemStack stack, BlockState state) {
       return !state.is(this.material.incorrectBlocksForDrops()) ? this.isEffective(state)
          : false;
    }

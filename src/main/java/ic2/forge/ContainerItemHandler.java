@@ -47,14 +47,20 @@ final class ContainerItemHandler implements ResourceHandler<ItemResource> {
       this.side = side;
    }
 
+   private boolean accessible(int slot) {
+      if (!(this.container instanceof WorldlyContainer sided) || this.side == null) return true;
+      for (int exposed : sided.getSlotsForFace(this.side)) if (exposed == slot) return true;
+      return false;
+   }
+
    private boolean canInsert(int slot, ItemStack stack) {
-      return !(this.container instanceof WorldlyContainer sided && this.side != null
+      return this.accessible(slot) && !(this.container instanceof WorldlyContainer sided && this.side != null
          && !sided.canPlaceItemThroughFace(slot, stack, this.side))
          && this.container.canPlaceItem(slot, stack);
    }
 
    private boolean canExtract(int slot, ItemStack stack) {
-      return !(this.container instanceof WorldlyContainer sided && this.side != null
+      return this.accessible(slot) && !(this.container instanceof WorldlyContainer sided && this.side != null
          && !sided.canTakeItemThroughFace(slot, stack, this.side));
    }
 
@@ -75,13 +81,15 @@ final class ContainerItemHandler implements ResourceHandler<ItemResource> {
 
    @Override
    public long getCapacityAsLong(int index, ItemResource resource) {
-      return this.container.getMaxStackSize();
+      int limit = this.container instanceof ic2.core.block.tileentity.TileEntityInventory inventory
+         ? inventory.getSlotLimit(index) : this.container.getMaxStackSize();
+      return Math.min(limit, resource.getMaxStackSize());
    }
 
    @Override
    public boolean isValid(int index, ItemResource resource) {
       ItemStack stack = resource.toStack();
-      return this.container.canPlaceItem(index, stack) && this.canInsert(index, stack);
+      return !resource.isEmpty() && this.container.canPlaceItem(index, stack) && this.canInsert(index, stack);
    }
 
    @Override
@@ -90,7 +98,7 @@ final class ContainerItemHandler implements ResourceHandler<ItemResource> {
          return 0;
       }
       ItemStack current = this.container.getItem(index);
-      int max = Math.min(this.container.getMaxStackSize(), resource.getMaxStackSize());
+      int max = (int)this.getCapacityAsLong(index, resource);
       if (!current.isEmpty()) {
          if (!ItemResource.of(current).equals(resource)) {
             return 0;

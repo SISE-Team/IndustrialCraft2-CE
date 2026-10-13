@@ -194,7 +194,8 @@ public abstract class AbstractCableBlock extends PipeBlock implements ChunkLoadA
       return ret;
    }
 
-   public VoxelShape getOcclusionShape(BlockState state, BlockGetter world, BlockPos pos) {
+   @Override
+   public VoxelShape getOcclusionShape(BlockState state) {
       if (!this.isFoam()) {
          return super.getOcclusionShape(state);
       } else {
@@ -223,12 +224,13 @@ public abstract class AbstractCableBlock extends PipeBlock implements ChunkLoadA
       }
    }
 
-   public boolean canPlaceLiquid(BlockGetter world, BlockPos pos, BlockState state, Fluid fluid) {
+   @Override
+   public boolean canPlaceLiquid(@org.jetbrains.annotations.Nullable net.minecraft.world.entity.LivingEntity user, BlockGetter world, BlockPos pos, BlockState state, Fluid fluid) {
       return !this.isFoam() && !(Boolean)state.getValue(WATERLOGGED) && fluid == Fluids.WATER;
    }
 
    public boolean placeLiquid(LevelAccessor world, BlockPos pos, BlockState state, FluidState fluidState) {
-      if (!this.canPlaceLiquid(world, pos, state, fluidState.getType())) {
+      if (!this.canPlaceLiquid(null, world, pos, state, fluidState.getType())) {
          return false;
       } else {
          if (!world.isClientSide()) {
@@ -240,7 +242,8 @@ public abstract class AbstractCableBlock extends PipeBlock implements ChunkLoadA
       }
    }
 
-   public ItemStack pickupBlock(LevelAccessor world, BlockPos pos, BlockState state) {
+   @Override
+   public ItemStack pickupBlock(@org.jetbrains.annotations.Nullable net.minecraft.world.entity.LivingEntity user, LevelAccessor world, BlockPos pos, BlockState state) {
       if (!this.isFoam() && (Boolean)state.getValue(WATERLOGGED)) {
          world.setBlock(pos, (BlockState)state.setValue(WATERLOGGED, false), 3);
          return new ItemStack(Items.WATER_BUCKET);

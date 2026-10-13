@@ -17,7 +17,7 @@ public class Desertification extends TerraformerBase {
       } else {
          BlockState sand = Blocks.SAND.defaultBlockState();
          if (!TileEntityTerra.switchGround(world, pos, Blocks.DIRT, sand, false)
-            && !TileEntityTerra.switchGround(world, pos, Blocks.SHORT_GRASS, sand, false)
+            && !TileEntityTerra.switchGround(world, pos, Blocks.GRASS_BLOCK, sand, false)
             && !TileEntityTerra.switchGround(world, pos, Blocks.FARMLAND, sand, false)) {
             BlockState state = world.getBlockState(pos);
             Block block = state.getBlock();

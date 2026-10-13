@@ -1,0 +1,285 @@
+{
+  "version": "2.9.40-alpha.8",
+  "controls": [
+    {
+      "run": "slot-limit-control-r1",
+      "problem": "one-item capacity incorrectly treated as whole-inventory capacity",
+      "artifactSha256": "64dc07c057bdc4e9467cf429f4f6a1529fba89c5bb71b063ed95d9170279c528",
+      "reportSha256": "124ecd794934dd6fca88ccfaeacad561abb07e08259c8f77e9e14559fa017461",
+      "checks": 212,
+      "failures": [
+        "native capability reports the coil slot's one-item capacity",
+        "native capability accepts one coil rather than sixty-four commit=false",
+        "native capability accepts one coil rather than sixty-four commit=true",
+        "coil commit/rollback respects its actual slot limit",
+        "adjacent item adapter fills only one available coil slot"
+      ],
+      "componentCases": [
+        {
+          "stored": 0,
+          "kind": "placed_component_slot_capacity",
+          "commit": false,
+          "limit": 1,
+          "accepted": 64
+        },
+        {
+          "stored": 64,
+          "kind": "placed_component_slot_capacity",
+          "commit": true,
+          "limit": 1,
+          "accepted": 64
+        },
+        {
+          "accepted": 64,
+          "stored": 64,
+          "kind": "placed_component_slot_deposit",
+          "limit": 1
+        }
+      ]
+    },
+    {
+      "run": "slot-prefix-control-r1",
+      "problem": "full limited slot blocks subsequent empty slots",
+      "artifactSha256": "23f2ccfa8a90a5a1a10b7926affe73f1d6749f4c22e2d9a8b7ab9adfe1833c2d",
+      "reportSha256": "68f16cbd94d74a4e9922a267ff74ec5335b9b7aa345287b78b9c7d96a51388f9",
+      "checks": 239,
+      "failures": [
+        "multi-slot component transfer fills every one-item slot exactly once: CoilSlot",
+        "multi-slot component transfer fills every one-item slot exactly once: slotMotor",
+        "multi-slot component transfer fills every one-item slot exactly once: heatExchanger"
+      ],
+      "componentCases": [
+        {
+          "accepted": 1,
+          "stored": 0,
+          "commit": false,
+          "limit": 1,
+          "slot": "CoilSlot",
+          "kind": "placed_component_slot_capacity"
+        },
+        {
+          "accepted": 1,
+          "stored": 1,
+          "commit": true,
+          "limit": 1,
+          "slot": "CoilSlot",
+          "kind": "placed_component_slot_capacity"
+        },
+        {
+          "accepted": 1,
+          "slot": "CoilSlot",
+          "stored": 1,
+          "kind": "placed_component_slot_deposit",
+          "limit": 1
+        },
+        {
+          "accepted": 1,
+          "slot": "CoilSlot",
+          "stored": 1,
+          "kind": "placed_component_slot_transfer",
+          "sourceRemaining": 63
+        },
+        {
+          "accepted": 1,
+          "slot": "CoilSlot",
+          "stored": 1,
+          "kind": "repeated_component_slot_transfer",
+          "sourceRemaining": 63
+        },
+        {
+          "accepted": 1,
+          "stored": 0,
+          "commit": false,
+          "limit": 1,
+          "slot": "slotMotor",
+          "kind": "placed_component_slot_capacity"
+        },
+        {
+          "accepted": 1,
+          "stored": 1,
+          "commit": true,
+          "limit": 1,
+          "slot": "slotMotor",
+          "kind": "placed_component_slot_capacity"
+        },
+        {
+          "accepted": 1,
+          "slot": "slotMotor",
+          "stored": 1,
+          "kind": "placed_component_slot_deposit",
+          "limit": 1
+        },
+        {
+          "accepted": 1,
+          "slot": "slotMotor",
+          "stored": 1,
+          "kind": "placed_component_slot_transfer",
+          "sourceRemaining": 63
+        },
+        {
+          "accepted": 1,
+          "slot": "slotMotor",
+          "stored": 1,
+          "kind": "repeated_component_slot_transfer",
+          "sourceRemaining": 63
+        },
+        {
+          "accepted": 1,
+          "stored": 0,
+          "commit": false,
+          "limit": 1,
+          "slot": "heatExchanger",
+          "kind": "placed_component_slot_capacity"
+        },
+        {
+          "accepted": 1,
+          "stored": 1,
+          "commit": true,
+          "limit": 1,
+          "slot": "heatExchanger",
+          "kind": "placed_component_slot_capacity"
+        },
+        {
+          "accepted": 1,
+          "slot": "heatExchanger",
+          "stored": 1,
+          "kind": "placed_component_slot_deposit",
+          "limit": 1
+        },
+        {
+          "accepted": 1,
+          "slot": "heatExchanger",
+          "stored": 1,
+          "kind": "placed_component_slot_transfer",
+          "sourceRemaining": 63
+        },
+        {
+          "accepted": 1,
+          "slot": "heatExchanger",
+          "stored": 1,
+          "kind": "repeated_component_slot_transfer",
+          "sourceRemaining": 63
+        }
+      ]
+    }
+  ],
+  "fixedRun": "component-capacity-final-r1",
+  "fixedArtifactSha256": "6feec697f670c9906cbdbc461a49ffb7a6120cb8af07268f50a1844fc5274d29",
+  "fixedChecks": 239,
+  "fixedFailures": [],
+  "fixedComponentCases": [
+    {
+      "slot": "CoilSlot",
+      "kind": "placed_component_slot_capacity",
+      "accepted": 1,
+      "stored": 0,
+      "commit": false,
+      "limit": 1
+    },
+    {
+      "slot": "CoilSlot",
+      "kind": "placed_component_slot_capacity",
+      "accepted": 1,
+      "stored": 1,
+      "commit": true,
+      "limit": 1
+    },
+    {
+      "accepted": 1,
+      "slot": "CoilSlot",
+      "stored": 1,
+      "kind": "placed_component_slot_deposit",
+      "limit": 1
+    },
+    {
+      "accepted": 1,
+      "slot": "CoilSlot",
+      "stored": 1,
+      "kind": "placed_component_slot_transfer",
+      "sourceRemaining": 63
+    },
+    {
+      "accepted": 10,
+      "slot": "CoilSlot",
+      "stored": 10,
+      "kind": "repeated_component_slot_transfer",
+      "sourceRemaining": 54
+    },
+    {
+      "slot": "slotMotor",
+      "kind": "placed_component_slot_capacity",
+      "accepted": 1,
+      "stored": 0,
+      "commit": false,
+      "limit": 1
+    },
+    {
+      "slot": "slotMotor",
+      "kind": "placed_component_slot_capacity",
+      "accepted": 1,
+      "stored": 1,
+      "commit": true,
+      "limit": 1
+    },
+    {
+      "accepted": 1,
+      "slot": "slotMotor",
+      "stored": 1,
+      "kind": "placed_component_slot_deposit",
+      "limit": 1
+    },
+    {
+      "accepted": 1,
+      "slot": "slotMotor",
+      "stored": 1,
+      "kind": "placed_component_slot_transfer",
+      "sourceRemaining": 63
+    },
+    {
+      "accepted": 10,
+      "slot": "slotMotor",
+      "stored": 10,
+      "kind": "repeated_component_slot_transfer",
+      "sourceRemaining": 54
+    },
+    {
+      "slot": "heatExchanger",
+      "kind": "placed_component_slot_capacity",
+      "accepted": 1,
+      "stored": 0,
+      "commit": false,
+      "limit": 1
+    },
+    {
+      "slot": "heatExchanger",
+      "kind": "placed_component_slot_capacity",
+      "accepted": 1,
+      "stored": 1,
+      "commit": true,
+      "limit": 1
+    },
+    {
+      "accepted": 1,
+      "slot": "heatExchanger",
+      "stored": 1,
+      "kind": "placed_component_slot_deposit",
+      "limit": 1
+    },
+    {
+      "accepted": 1,
+      "slot": "heatExchanger",
+      "stored": 1,
+      "kind": "placed_component_slot_transfer",
+      "sourceRemaining": 63
+    },
+    {
+      "accepted": 10,
+      "slot": "heatExchanger",
+      "stored": 10,
+      "kind": "repeated_component_slot_transfer",
+      "sourceRemaining": 54
+    }
+  ],
+  "complete": true,
+  "method": "Placed native machines; capability transactions plus real inventory transfers. Each invocation may fill one slot; repeated invocations must reach subsequent empty slots and conserve all items."
+}

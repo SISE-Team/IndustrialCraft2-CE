@@ -81,14 +81,16 @@ public class Ic2SheetBlock extends Block {
       return state.isCollisionShapeFullBlock(world, pos);
    }
 
-   public void neighborChanged(BlockState state, Level world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
+   @Override
+   public void neighborChanged(BlockState state, Level world, BlockPos pos, Block block, @org.jetbrains.annotations.Nullable net.minecraft.world.level.redstone.Orientation orientation, boolean notify) {
       if (!this.isValidPosition(world, pos, state)) {
          Block.dropResources(state, world, pos, null);
          world.removeBlock(pos, false);
       }
    }
 
-   public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
+   @Override
+   public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity, net.minecraft.world.entity.InsideBlockEffectApplier effects, boolean precise) {
       if (state.getBlock() == Ic2Blocks.RESIN_SHEET) {
          entity.fallDistance = (float)(entity.fallDistance * 0.75);
          entity.setDeltaMovement(entity.getDeltaMovement().x() * 0.6, entity.getDeltaMovement().y() * 0.85, entity.getDeltaMovement().z() * 0.6);
@@ -117,9 +119,9 @@ public class Ic2SheetBlock extends Block {
             } else {
                entity.setDeltaMovement(entity.getDeltaMovement().x(), entity.getDeltaMovement().y() * -0.8, entity.getDeltaMovement().z());
             }
-         } else if (state.getBlock() == Ic2Blocks.WOOL_SHEET) {
-            entity.fallDistance = (float)(entity.fallDistance * 0.95);
          }
+      } else if (state.getBlock() == Ic2Blocks.WOOL_SHEET) {
+         entity.fallDistance = (float)(entity.fallDistance * 0.95);
       }
    }
 

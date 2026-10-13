@@ -17,7 +17,7 @@ public class CropPotato extends Ic2CropCard {
 
    @Override
    public Block getCropBlock() {
-      return Ic2Blocks.CARROTS_CROP;
+      return Ic2Blocks.POTATO_CROP;
    }
 
    @Override
@@ -32,7 +32,7 @@ public class CropPotato extends Ic2CropCard {
 
    @Override
    public boolean canGrow(ICropTile crop) {
-      return crop.getCurrentAge() < 4 && crop.getLightLevel() >= 9;
+      return crop.getCurrentAge() < this.getMaxAge() && crop.getLightLevel() >= 9;
    }
 
    @Override

@@ -142,14 +142,16 @@ public class TileEntityReactorChamberElectric extends Ic2TileEntity implements C
       return reactor != null ? reactor.stillValid(player) : false;
    }
 
-   public void startOpen(Player player) {
+   @Override
+   public void startOpen(net.minecraft.world.entity.ContainerUser player) {
       TileEntityNuclearReactorElectric reactor = this.getReactor();
       if (reactor != null) {
          reactor.startOpen(player);
       }
    }
 
-   public void stopOpen(Player player) {
+   @Override
+   public void stopOpen(net.minecraft.world.entity.ContainerUser player) {
       TileEntityNuclearReactorElectric reactor = this.getReactor();
       if (reactor != null) {
          reactor.stopOpen(player);

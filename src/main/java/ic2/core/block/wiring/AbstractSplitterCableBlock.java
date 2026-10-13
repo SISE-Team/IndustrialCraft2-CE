@@ -29,7 +29,8 @@ public abstract class AbstractSplitterCableBlock extends AbstractCableBlock {
       return (BlockState)super.getStateForPlacement(ctx).setValue(active, ctx.getLevel().hasNeighborSignal(ctx.getClickedPos()));
    }
 
-   public void neighborChanged(BlockState state, Level world, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
+   @Override
+   public void neighborChanged(BlockState state, Level world, BlockPos pos, Block block, @org.jetbrains.annotations.Nullable net.minecraft.world.level.redstone.Orientation orientation, boolean notify) {
       if (!world.isClientSide()) {
          boolean newActive = world.hasNeighborSignal(pos);
          if ((Boolean)state.getValue(active) != newActive) {

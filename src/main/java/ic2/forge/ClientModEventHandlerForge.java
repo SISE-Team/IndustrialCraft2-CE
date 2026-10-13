@@ -75,7 +75,18 @@ public final class ClientModEventHandlerForge {
    }
 
    @SubscribeEvent
+   public void onBakeWallModel(ModelEvent.ModifyBakingResult event) {
+      var models = event.getBakingResult().blockStateModels();
+      var references = java.util.Map.copyOf(models);
+      for (var state : ic2.core.ref.Ic2Blocks.OBSCURED_WALL.getStateDefinition().getPossibleStates()) {
+         var fallback = models.get(state);
+         if (fallback != null) models.put(state, new ic2.forge.model.ObscuredWallModel(fallback, references));
+      }
+   }
+
+   @SubscribeEvent
    public void onRegisterChargeProperty(net.neoforged.neoforge.client.event.RegisterRangeSelectItemModelPropertyEvent event) {
       event.register(ic2.core.IC2.getIdentifier("charge"), ic2.forge.model.ChargeProperty.CODEC);
+      event.register(ic2.core.IC2.getIdentifier("state"), ic2.forge.model.StateProperty.CODEC);
    }
 }

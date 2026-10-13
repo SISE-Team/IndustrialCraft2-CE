@@ -107,7 +107,7 @@ public class ItemObscurator extends BaseElectricItem implements PriorityUsableIt
             int[] colorMultipliers = new int[renderInfo.tints.length];
 
             for (int i = 0; i < renderInfo.tints.length; i++) {
-               net.minecraft.client.color.block.BlockTintSource tintSource = SideProxyClient.mc.getBlockColors().getTintSource(state, renderInfo.tints[i]);
+               net.minecraft.client.color.block.BlockTintSource tintSource = renderInfo.tints[i] < 0 ? null : SideProxyClient.mc.getBlockColors().getTintSource(state, renderInfo.tints[i]);
                colorMultipliers[i] = tintSource != null ? tintSource.colorInWorld(state, (net.minecraft.client.renderer.block.BlockAndTintGetter)world, pos) : -1;
             }
 
@@ -115,7 +115,7 @@ public class ItemObscurator extends BaseElectricItem implements PriorityUsableIt
             if (getState(nbt) == state && variant.equals(getVariant(nbt)) && getSide(nbt) == side && Arrays.equals(getColorMultipliers(nbt), colorMultipliers)) {
                return false;
             } else {
-               IC2.network.get(false).sendPlayerItemData(player, player.getInventory().getSelectedSlot(), state.getBlock(), variant, side, colorMultipliers);
+               IC2.network.get(false).sendPlayerItemData(player, player.getOffhandItem() == stack ? 40 : player.getInventory().getSelectedSlot(), state.getBlock(), variant, side.ordinal(), colorMultipliers);
                return true;
             }
          }
@@ -124,7 +124,7 @@ public class ItemObscurator extends BaseElectricItem implements PriorityUsableIt
 
    @Override
    public void onPlayerItemNetworkData(Player player, int slot, Object... data) {
-      if (data[0] instanceof Block) {
+      if (data.length == 4 && data[0] instanceof Block) {
          if (data[1] instanceof String) {
             if (data[2] instanceof Integer) {
                if (data[3] instanceof int[]) {
@@ -197,12 +197,12 @@ public class ItemObscurator extends BaseElectricItem implements PriorityUsableIt
    }
 
    public static ItemObscurator.ObscuredRenderInfo getRenderInfo(BlockState state, Direction side) {
-      if (state.canOcclude()) {
+      if (state.isAir()) {
          return null;
       } else {
          RandomSource rand = RandomSource.create(42L);
          List<BakedQuad> faceQuads = ModelUtil.getQuads(state, side, rand);
-         if (faceQuads == null || faceQuads.isEmpty()) {
+         if (faceQuads == null || faceQuads.isEmpty() || faceQuads.stream().anyMatch(quad -> quad.materialInfo().layer().translucent())) {
             return null;
          } else {
                float[] uvs = new float[faceQuads.size() * 4];
@@ -241,7 +241,7 @@ public class ItemObscurator extends BaseElectricItem implements PriorityUsableIt
                            Vector3 v3 = new Vector3(positions[9] - positions[6], positions[10] - positions[7], positions[11] - positions[8]);
                            if (Util.isSimilar(v3.copy().add(v1).lengthSquared(), 0.0)) {
                               Vector3 normal = v1.copy().cross(v4);
-                              if (Util.isSimilar(normal.copy().sub(dx, dy, dz).lengthSquared(), 0.0)) {
+                              if (faceQuad.direction() == side) {
                                  tints[uvsOffset / 4] = data.tint();
                                  sprites[uvsOffset / 4] = data.sprite();
                                  float[] uvsIn = data.uvs();

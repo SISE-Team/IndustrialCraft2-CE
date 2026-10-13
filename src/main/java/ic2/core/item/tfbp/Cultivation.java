@@ -25,12 +25,12 @@ public class Cultivation extends TerraformerBase {
 
    @Override
    void init() {
-      plants.add(Blocks.TALL_GRASS.defaultBlockState());
-      plants.add(Blocks.TALL_GRASS.defaultBlockState());
+      plants.add(Blocks.SHORT_GRASS.defaultBlockState());
+      plants.add(Blocks.SHORT_GRASS.defaultBlockState());
       plants.add(Blocks.FERN.defaultBlockState());
       plants.add(Blocks.POPPY.defaultBlockState());
       plants.add(Blocks.DANDELION.defaultBlockState());
-      plants.add(Blocks.TALL_GRASS.defaultBlockState());
+      plants.add(Blocks.SHORT_GRASS.defaultBlockState());
       plants.add(Blocks.ROSE_BUSH.defaultBlockState());
       plants.add(Blocks.SUNFLOWER.defaultBlockState());
 
@@ -66,10 +66,10 @@ public class Cultivation extends TerraformerBase {
 
          Block block = world.getBlockState(pos).getBlock();
          if (block == Blocks.DIRT) {
-            world.setBlockAndUpdate(pos, Blocks.SHORT_GRASS.defaultBlockState());
+            world.setBlockAndUpdate(pos, Blocks.GRASS_BLOCK.defaultBlockState());
             return true;
          } else {
-            return block == Blocks.SHORT_GRASS ? growPlantsOn(world, pos) : false;
+            return block == Blocks.GRASS_BLOCK ? growPlantsOn(world, pos) : false;
          }
       }
    }
@@ -78,7 +78,7 @@ public class Cultivation extends TerraformerBase {
       BlockPos above = pos.above();
       BlockState state = world.getBlockState(above);
       Block block = state.getBlock();
-      if (state.isAir() || block == Blocks.TALL_GRASS && world.getRandom().nextInt(4) == 0) {
+      if (state.isAir() || block == Blocks.SHORT_GRASS && world.getRandom().nextInt(4) == 0) {
          BlockState plant = pickRandomPlant(world.getRandom());
          if (plant.hasProperty(DirectionalBlock.FACING)) {
             plant = (BlockState)plant.setValue(DirectionalBlock.FACING, Util.HORIZONTAL_DIRS[world.getRandom().nextInt(Util.HORIZONTAL_DIRS.length)]);

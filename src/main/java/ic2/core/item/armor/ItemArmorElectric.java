@@ -57,7 +57,7 @@ public abstract class ItemArmorElectric extends ItemArmorIC2 implements IElectri
             damage = 1.0F;
          }
 
-         for (EquipmentSlot slot : EquipmentSlot.values()) {
+         for (EquipmentSlot slot : ic2.core.slot.ArmorSlot.getAll()) {
             ItemStack stack = entity.getItemBySlot(slot);
             if (stack.getItem() instanceof ItemArmorElectric electricArmor) {
                electricArmor.damageArmor(entity, stack, source, damage, slot);
@@ -116,7 +116,6 @@ public abstract class ItemArmorElectric extends ItemArmorIC2 implements IElectri
       return Mth.hsvToRgb((float)(ElectricItem.manager.getChargeLevel(stack) / 3.0), 1.0F, 1.0F);
    }
 
-   // NOTE: charge-dependent armor protection (nano/quantum CHARGED_PROTECTION) is
-   // not ported yet; 26.1.2 keeps attributes in the ATTRIBUTE_MODIFIERS component.
-   // The static material attributes apply; revisit during runtime verification.
+   // Charge-dependent protection is added by EventHandlerForge's attribute event,
+   // since a default ATTRIBUTE_MODIFIERS component bypasses the legacy item hook.
 }

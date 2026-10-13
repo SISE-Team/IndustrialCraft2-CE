@@ -36,7 +36,7 @@ public class Mushroom extends TerraformerBase {
                      Block block = state.getBlock();
                      if (dependancy == Blocks.MYCELIUM) {
                         if (block != dependancy && block != Blocks.BROWN_MUSHROOM_BLOCK && block != Blocks.RED_MUSHROOM_BLOCK) {
-                           if (!state.isAir() && (block == Blocks.DIRT || block == Blocks.SHORT_GRASS)) {
+                           if (!state.isAir() && (block == Blocks.DIRT || block == Blocks.GRASS_BLOCK)) {
                               BlockPos dstPos = cPos.immutable();
                               world.setBlockAndUpdate(dstPos, dependancy.defaultBlockState());
                               BiomeUtil.setBiome(world, dstPos, world.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.BIOME).getOrThrow(Biomes.MUSHROOM_FIELDS));
@@ -80,7 +80,7 @@ public class Mushroom extends TerraformerBase {
          BlockPos above = pos.above();
          BlockState state = world.getBlockState(above);
          Block block = state.getBlock();
-         if (!state.isAir() && block != Blocks.TALL_GRASS) {
+         if (!state.isAir() && block != Blocks.SHORT_GRASS) {
             return false;
          } else {
             Block shroom = world.getRandom().nextBoolean() ? Blocks.BROWN_MUSHROOM : Blocks.RED_MUSHROOM;

@@ -40,7 +40,7 @@ public class ItemToolWrench extends Item implements PriorityUsableItem, IBoxable
    public static final int wrenchUsePass = -2;
 
    public ItemToolWrench(Properties settings) {
-      super(settings);
+      super(settings.repairable(Ic2ItemTags.BRONZE_INGOTS));
    }
 
    public boolean canTakeDamage(ItemStack stack, int amount) {

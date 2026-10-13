@@ -7,7 +7,7 @@ IndustrialCraft2-CE is a community port of IndustrialCraft 2 for modern Minecraf
 | Minecraft | 26.1.2 |
 | NeoForge | 26.1.2.114 |
 | Java | 25 |
-| IndustrialCraft2-CE | 2.9.40-alpha.7 |
+| IndustrialCraft2-CE | 2.9.40-alpha.8 |
 | JEI used for development and verification | 29.43.0.107 |
 
 The port covers machines, EU/HU/KU networks, nuclear reactors, crops, fluids, upgrades, storage, and UU processing. Modern item and fluid rendering, crafting-book placement, machine menus, persistence, dedicated-server startup, and multiplayer recipe synchronization have been migrated.
@@ -24,12 +24,35 @@ On Windows, use `gradlew.bat build`. The Gradle wrapper resolves NeoForge and th
 
 Artifacts are written to `build/libs/`:
 
-- `IndustrialCraft2-CE-26.1.2-2.9.40-alpha.7.jar`
-- `IndustrialCraft2-CE-26.1.2-2.9.40-alpha.7-sources.jar`
+- `IndustrialCraft2-CE-26.1.2-2.9.40-alpha.8.jar`
+- `IndustrialCraft2-CE-26.1.2-2.9.40-alpha.8-sources.jar`
 
 Install the normal JAR in the `mods` directory of a Minecraft 26.1.2 / NeoForge instance. JEI is optional for normal play and provides machine recipe browsing when installed.
 
 ## Verification
+
+Alpha.8 restores native equipment assets, damage, rarity and repair components; moves vanilla block/item tags to current paths; repairs sided and transactional inventory/fluid transfers; fixes crop seeds, potato growth, ground and biome changes; and restores scanner results, cable callbacks, coffee and radiation callbacks, and stateful item/wall rendering. Component transfers respect one-item coil/motor/conductor slots and continue past full slots.
+
+The final artifact passed 14 fresh runtime reports with **10,157 checks and zero failures**. Its 1,293 main classes match the tested artifact byte-for-byte. Current coverage includes:
+
+| Scope | Passed coverage |
+| --- | --- |
+| Registered items | 508/508 with explicit actual-use evidence |
+| Block-item placement | 186 native placements |
+| Machines | 104 types, 219 behavior cases, 98 actual GUI entry points |
+| Crafting | 372 native result operations; 366 vanilla recipe-book cases |
+| Machine processing | 289 applicable standard recipes; 41 solid-canning recipes |
+| Functional item scenarios | 237 primary cases, plus separate material, crop, tool and component suites |
+| Cable mining | 14 variants, 17,408 shape states, 60 native mining scenarios |
+| Coupled power/processing | Finite coal supply through generation, cables, storage, processing and crafting; all 14 ordinary cable variants deliver EU |
+
+The [item usage ledger](validation/item-usage-ledger.json) distinguishes native client packets, server menu operations, capability transactions, processing and intentional rejection. Spawning an item or receiving a recipe output alone does not count as use. [Current machine results](validation/full-review-machine-results.json), [the full review](validation/full-review-audit.json), [source inventory](validation/full-review-source-inventory.json) and [component-slot controls](validation/component-slot-limit-audit.json) preserve the measured coverage and artifact provenance.
+
+Two actual clients also completed a fresh continuous two-hour run on the final executable code: 7,200.039 real seconds, 144,001 world ticks, 278,932 checks including the retained finite matrices, approximately 20.00 TPS, and zero failures. Both clients were connected and alive in every recorded sample. The same normally closed world then passed a normal-JAR reload for all 104 machine types and 16 persisted-state checks, using a fresh run marker to exclude historical command-storage results.
+
+All 23 localization catalogs passed key-retention and format checks; Java formatted 26,563 entries without errors. English, simplified Chinese and traditional Chinese catalogs are complete. A remaining traditional-Chinese English toolbox tooltip and the corresponding simplified-Chinese mistranslation were corrected separately, without changing the tested executable code.
+
+Earlier release results are retained separately:
 
 The alpha.4 behavior candidate completed 104 machine types, 219 behavior cases, 98 actual menu entry points, 2,123 upgrade applications, and 5,220 reactor component-pair scenarios. Two real clients then ran continuously for two hours at an average 20 TPS: 144,001 world ticks, 278,938 checks, and zero recorded failures. Chinese and English runtime localization checks and normal-JAR save/reload checks also passed.
 

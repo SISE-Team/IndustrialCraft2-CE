@@ -67,7 +67,8 @@ public abstract class ExplosiveEntity extends Entity {
       builder.define(FUSE, 80);
    }
 
-   public boolean canBeCollidedWith() {
+   @Override
+   public boolean canBeCollidedWith(@org.jetbrains.annotations.Nullable Entity other) {
       return !this.isRemoved();
    }
 
@@ -140,8 +141,9 @@ public abstract class ExplosiveEntity extends Entity {
       this.setFuse(input.getShortOr("Fuse", (short)0));
    }
 
-   protected float getEyeHeight(Pose pose, EntityDimensions dimensions) {
-      return 0.15F;
+   @Override
+   public EntityDimensions getDimensions(Pose pose) {
+      return super.getDimensions(pose).withEyeHeight(0.15F);
    }
 
    public void setFuse(int fuse) {

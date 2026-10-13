@@ -222,8 +222,12 @@ class TeUpdate {
                   IC2.log.info(LogCategory.Network, "Instantiating %s with %s.", Util.formatPosition(world, update.pos), update.teType.getTeClass().getName());
                }
 
+               if (!(state.getBlock() instanceof net.minecraft.world.level.block.EntityBlock provider)) return;
+               te = provider.newBlockEntity(update.pos, state);
+               if (te == null) return;
+               te.setLevel(world);
+               world.setBlockEntity(te);
                assert !te.isRemoved();
-
                assert te.getLevel() == world;
             } else {
                if (te == null) {
@@ -247,6 +251,13 @@ class TeUpdate {
                }
             }
 
+            applyFields(update, te);
+
+         }
+      }
+   }
+
+   private static void applyFields(TeUpdateDataClient.TeData update, BlockEntity te) {
             for (TeUpdateDataClient.FieldData fieldUpdate : update.getFields()) {
                Object value = DataEncoder.getValue(fieldUpdate.value, null);
                if (fieldUpdate.field != null) {
@@ -259,7 +270,5 @@ class TeUpdate {
                   ((INetworkUpdateListener)te).onNetworkUpdate(fieldUpdate.name);
                }
             }
-         }
-      }
    }
 }

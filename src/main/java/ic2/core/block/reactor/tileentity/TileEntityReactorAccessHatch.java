@@ -66,14 +66,16 @@ public class TileEntityReactorAccessHatch extends TileEntityReactorVessel implem
       return reactor != null ? reactor.stillValid(player) : false;
    }
 
-   public void startOpen(Player player) {
+   @Override
+   public void startOpen(net.minecraft.world.entity.ContainerUser player) {
       TileEntityNuclearReactorElectric reactor = this.getReactorInstance();
       if (reactor != null) {
          reactor.startOpen(player);
       }
    }
 
-   public void stopOpen(Player player) {
+   @Override
+   public void stopOpen(net.minecraft.world.entity.ContainerUser player) {
       TileEntityNuclearReactorElectric reactor = this.getReactorInstance();
       if (reactor != null) {
          reactor.stopOpen(player);

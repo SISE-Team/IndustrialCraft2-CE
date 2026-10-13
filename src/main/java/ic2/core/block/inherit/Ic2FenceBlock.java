@@ -45,9 +45,10 @@ public class Ic2FenceBlock extends FenceBlock {
       return this.getActualState((BlockState)this.defaultBlockState().setValue(WATERLOGGED, fluidState.is(Fluids.WATER)), ctx.getLevel(), ctx.getClickedPos());
    }
 
-   public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor world, BlockPos pos, BlockPos neighborPos) {
+   @Override
+   public BlockState updateShape(BlockState state, net.minecraft.world.level.LevelReader world, net.minecraft.world.level.ScheduledTickAccess ticks, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, net.minecraft.util.RandomSource random) {
       if ((Boolean)state.getValue(WATERLOGGED)) {
-         world.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
+         ticks.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(world));
       }
 
       return this.getActualState(state, world, pos);

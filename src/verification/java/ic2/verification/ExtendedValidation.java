@@ -60,6 +60,11 @@ public final class ExtendedValidation {
          if(phase.startsWith("WAITING")){
             if(s.machines.isEmpty()){if(ticks%100==0)save();return;}
             guest=s.level.getServer().getPlayerList().getPlayers().stream().filter(p->p.getScoreboardName().equals("IC2Guest")).findFirst().orElse(null);
+            if (guest != null) {
+               if (!guest.isAlive()) guest=s.level.getServer().getPlayerList().respawn(guest,false,net.minecraft.world.entity.Entity.RemovalReason.KILLED);
+               guest.setGameMode(net.minecraft.world.level.GameType.CREATIVE);guest.setInvulnerable(true);guest.setHealth(guest.getMaxHealth());
+               s.player.setInvulnerable(true);s.player.setHealth(s.player.getMaxHealth());
+            }
             if(!s.finishedCoreAndGui()){phase="WAITING_FOR_BASE_MACHINE_SUITE";if(ticks%100==0)save();return;}
             for(String client:List.of("ic2.remoteHostReport","ic2.remoteGuestReport")){
                var observation=readClient(client);
@@ -70,6 +75,7 @@ public final class ExtendedValidation {
                }
             }
             failures.addAll(s.failureList());if(!failures.isEmpty()){change("FAILED_BASE_SUITE");return;}
+            check("both network actors are alive",s.player.isAlive()&&guest.isAlive());
             check("two distinct actual network players connected",guest!=null&&s.player!=guest&&!s.player.getUUID().equals(guest.getUUID()));
             details.put("hostUUID",s.player.getUUID().toString());details.put("guestUUID",guest.getUUID().toString());
             var expectedRecipes=new TreeMap<String,Integer>();

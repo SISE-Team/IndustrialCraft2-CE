@@ -64,10 +64,11 @@ public class ItemClassicCell extends Ic2BucketItem implements Ic2FluidItem {
       BlockEntity be;
       return (this == Ic2Items.WATER_CELL || this == Ic2Items.WEED_EX_CELL || this == Ic2Items.HYDRATION_CELL)
          && (be = context.getLevel().getBlockEntity(context.getClickedPos())) instanceof TileEntityCrop
-         && this.useOnCrop(context.getItemInHand(), (TileEntityCrop)be, true);
+         && (context.getLevel().isClientSide() || this.useOnCrop(context.getItemInHand(), (TileEntityCrop)be, true));
    }
 
    public boolean useOnCrop(ItemStack stack, TileEntityCrop crop, boolean manual) {
+      if (crop.getLevel().isClientSide()) return false;
       if (this == Ic2Items.WATER_CELL) {
          if (crop.getStorageWater() < 10) {
             crop.setStorageWater(10);

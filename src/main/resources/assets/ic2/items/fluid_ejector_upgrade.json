@@ -1,6 +1,90 @@
 {
- "model": {
-  "type": "minecraft:model",
-  "model": "ic2:item/fluid_ejector_upgrade"
- }
+  "model": {
+    "type": "minecraft:range_dispatch",
+    "property": "ic2:state",
+    "kind": "east",
+    "fallback": {
+      "type": "minecraft:range_dispatch",
+      "property": "ic2:state",
+      "kind": "west",
+      "fallback": {
+        "type": "minecraft:range_dispatch",
+        "property": "ic2:state",
+        "kind": "south",
+        "fallback": {
+          "type": "minecraft:range_dispatch",
+          "property": "ic2:state",
+          "kind": "north",
+          "fallback": {
+            "type": "minecraft:range_dispatch",
+            "property": "ic2:state",
+            "kind": "up",
+            "fallback": {
+              "type": "minecraft:range_dispatch",
+              "property": "ic2:state",
+              "kind": "down",
+              "fallback": {
+                "type": "minecraft:model",
+                "model": "ic2:item/fluid_ejector_upgrade"
+              },
+              "entries": [
+                {
+                  "threshold": 1,
+                  "model": {
+                    "type": "minecraft:model",
+                    "model": "ic2:item/upgrade/fluid_ejector_down"
+                  }
+                }
+              ]
+            },
+            "entries": [
+              {
+                "threshold": 1,
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "ic2:item/upgrade/fluid_ejector_up"
+                }
+              }
+            ]
+          },
+          "entries": [
+            {
+              "threshold": 1,
+              "model": {
+                "type": "minecraft:model",
+                "model": "ic2:item/upgrade/fluid_ejector_north"
+              }
+            }
+          ]
+        },
+        "entries": [
+          {
+            "threshold": 1,
+            "model": {
+              "type": "minecraft:model",
+              "model": "ic2:item/upgrade/fluid_ejector_south"
+            }
+          }
+        ]
+      },
+      "entries": [
+        {
+          "threshold": 1,
+          "model": {
+            "type": "minecraft:model",
+            "model": "ic2:item/upgrade/fluid_ejector_west"
+          }
+        }
+      ]
+    },
+    "entries": [
+      {
+        "threshold": 1,
+        "model": {
+          "type": "minecraft:model",
+          "model": "ic2:item/upgrade/fluid_ejector_east"
+        }
+      }
+    ]
+  }
 }

@@ -44,7 +44,7 @@ public class ItemToolMiningLaser extends ItemElectricTool implements INetworkIte
    private static final int EventShot3x3 = 7;
 
    public ItemToolMiningLaser(Properties settings) {
-      super(settings, 100);
+      super(settings.rarity(Rarity.UNCOMMON), 100);
       this.maxCharge = 300000;
       this.transferLimit = 512;
       this.tier = 3;

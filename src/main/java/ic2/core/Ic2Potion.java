@@ -12,15 +12,18 @@ public class Ic2Potion extends MobEffect {
       super(type, liquidColor);
    }
 
-   public void applyEffectTick(LivingEntity entity, int amplifier) {
+   @Override
+   public boolean applyEffectTick(net.minecraft.server.level.ServerLevel world, LivingEntity entity, int amplifier) {
       if (this == radiation) {
-         entity.hurt(Ic2DamageSource.radiation(), amplifier / 100 + 0.5F);
+         entity.hurtServer(world, Ic2DamageSource.radiation(), amplifier / 100 + 0.5F);
       }
+      return true;
    }
 
-   public boolean isDurationEffectTick(int duration, int amplifier) {
+   @Override
+   public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
       if (this == radiation) {
-         int rate = 25 >> amplifier;
+         int rate = amplifier >= 5 ? 0 : 25 >> Math.max(0, amplifier);
          return rate > 0 ? duration % rate == 0 : true;
       } else {
          return false;

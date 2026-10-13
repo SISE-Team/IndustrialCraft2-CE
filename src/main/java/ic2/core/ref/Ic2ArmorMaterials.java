@@ -24,28 +24,32 @@ public final class Ic2ArmorMaterials {
    private Ic2ArmorMaterials() {}
 
    private static ArmorMaterial material(
-      int durability, int helmet, int chest, int legs, int boots,
+      String asset, int durability, int helmet, int chest, int legs, int boots,
       int enchantability, Holder<SoundEvent> sound, float toughness, float knockback
    ) {
       return new ArmorMaterial(
          durability,
          Map.of(ArmorType.HELMET, helmet, ArmorType.CHESTPLATE, chest, ArmorType.LEGGINGS, legs, ArmorType.BOOTS, boots),
-         enchantability, sound, toughness, knockback, NO_REPAIR, EquipmentAssets.IRON
+         enchantability, sound, toughness, knockback,
+         asset.equals("bronze") || asset.equals("alloy") ? TagKey.create(Registries.ITEM, IC2.getIdentifier(asset.equals("bronze") ? "bronze_ingot" : "alloy")) : NO_REPAIR,
+         net.minecraft.resources.ResourceKey.create(EquipmentAssets.ROOT_ID, IC2.getIdentifier(asset))
       );
    }
 
-   private static ArmorMaterial soundOnly(Holder<SoundEvent> sound) {
-      return material(0, 0, 0, 0, 0, 0, sound, 0.0F, 0.0F);
+   private static ArmorMaterial soundOnly(String asset, Holder<SoundEvent> sound) {
+      return material(asset, 0, 0, 0, 0, 0, 0, sound, 0.0F, 0.0F);
    }
 
-   public static final ArmorMaterial BRONZE = material(15, 2, 5, 6, 2, 9, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F);
-   public static final ArmorMaterial ALLOY = material(50, 4, 7, 9, 4, 12, SoundEvents.ARMOR_EQUIP_IRON, 2.0F, 0.0F);
-   public static final ArmorMaterial NANO_SUIT = material(0, 0, 0, 0, 0, 0, SoundEvents.ARMOR_EQUIP_IRON, 2.0F, 0.0F);
-   public static final ArmorMaterial QUANTUM_SUIT = material(0, 0, 0, 0, 0, 0, SoundEvents.ARMOR_EQUIP_IRON, 2.0F, 0.0F);
-   public static final ArmorMaterial NIGHT_VISION_GOGGLES = material(0, 3, 0, 0, 0, 0, SoundEvents.ARMOR_EQUIP_IRON, 2.0F, 0.0F);
-   public static final ArmorMaterial HAZMAT = soundOnly(SoundEvents.ARMOR_EQUIP_LEATHER);
-   public static final ArmorMaterial CF_PACK = soundOnly(SoundEvents.ARMOR_EQUIP_IRON);
-   public static final ArmorMaterial JET_PACK = soundOnly(SoundEvents.ARMOR_EQUIP_IRON);
+   public static final ArmorMaterial BRONZE = material("bronze", 15, 2, 5, 6, 2, 9, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F);
+   public static final ArmorMaterial ALLOY = material("alloy", 50, 4, 7, 9, 4, 12, SoundEvents.ARMOR_EQUIP_IRON, 2.0F, 0.0F);
+   public static final ArmorMaterial NANO_SUIT = material("nano_suit", 0, 0, 0, 0, 0, 0, SoundEvents.ARMOR_EQUIP_IRON, 2.0F, 0.0F);
+   public static final ArmorMaterial QUANTUM_SUIT = material("quantum_suit", 0, 0, 0, 0, 0, 0, SoundEvents.ARMOR_EQUIP_IRON, 2.0F, 0.0F);
+   public static final ArmorMaterial NIGHT_VISION_GOGGLES = material("night_vision", 0, 3, 0, 0, 0, 0, SoundEvents.ARMOR_EQUIP_IRON, 2.0F, 0.0F);
+   public static final ArmorMaterial HAZMAT = soundOnly("hazmat", SoundEvents.ARMOR_EQUIP_LEATHER);
+   public static final ArmorMaterial CF_PACK = soundOnly("cf_pack", SoundEvents.ARMOR_EQUIP_IRON);
+   public static final ArmorMaterial JET_PACK = soundOnly("jetpack", SoundEvents.ARMOR_EQUIP_IRON);
+
+   public static final ArmorMaterial RUBBER_BOOTS = soundOnly("rubber_boots", SoundEvents.ARMOR_EQUIP_LEATHER);
 
    public static ArmorType typeFor(EquipmentSlot slot) {
       return switch (slot) {

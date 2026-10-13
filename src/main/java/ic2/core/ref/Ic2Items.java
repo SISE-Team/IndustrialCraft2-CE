@@ -967,6 +967,12 @@ public final class Ic2Items {
    public static final Item FILLED_FUEL_CAN = register(
       "filled_fuel_can", new Item(new Properties().setId(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ITEM, ic2.core.IC2.getIdentifier("filled_fuel_can"))).stacksTo(1)) {
          @Override
+         public int getBurnTime(net.minecraft.world.item.ItemStack stack, net.minecraft.world.item.crafting.RecipeType<?> recipeType, net.minecraft.world.level.block.entity.FuelValues fuelValues) {
+            var data = ic2.core.util.StackTag.get(stack);
+            return data == null ? 0 : Math.max(0, data.getIntOr("value", 0));
+         }
+
+         @Override
          public net.minecraft.world.item.ItemStackTemplate getCraftingRemainder(net.minecraft.world.item.ItemInstance instance) {
             return new net.minecraft.world.item.ItemStackTemplate(EMPTY_FUEL_CAN);
          }

@@ -15,7 +15,7 @@ import net.minecraft.world.level.Level;
 
 public class ItemToolbox extends Item implements IHandHeldInventory {
    public ItemToolbox(Properties settings) {
-      super(settings);
+      super(settings.rarity(Rarity.UNCOMMON));
    }
 
    public InteractionResult use(Level world, Player player, InteractionHand hand) {

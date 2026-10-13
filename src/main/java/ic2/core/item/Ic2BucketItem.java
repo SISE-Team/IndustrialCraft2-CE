@@ -55,6 +55,13 @@ public abstract class Ic2BucketItem extends BucketItem {
          user,
          this.fluid == Fluids.EMPTY ? net.minecraft.world.level.ClipContext.Fluid.SOURCE_ONLY : net.minecraft.world.level.ClipContext.Fluid.NONE
       );
+      if (this.fluid == null) {
+         if (blockHitResult.getType() == HitResult.Type.BLOCK
+            && world.mayInteract(user, blockHitResult.getBlockPos())
+            && user.mayUseItemAt(blockHitResult.getBlockPos(), blockHitResult.getDirection(), itemStack)
+            && this.bucketUseOnBlock(new UseOnContext(user, hand, blockHitResult))) return InteractionResult.SUCCESS;
+         return InteractionResult.PASS;
+      }
       if (blockHitResult.getType() == HitResult.Type.MISS) {
          return InteractionResult.PASS;
       } else if (blockHitResult.getType() != HitResult.Type.BLOCK) {
@@ -87,7 +94,7 @@ public abstract class Ic2BucketItem extends BucketItem {
             BlockState blockState = world.getBlockState(blockPos);
             BlockPos fluidDrainablePos = this.canBlockContainFluid(world, blockPos, blockState) ? blockPos : blockPos1;
             if (this.bucketUseOnBlock(new UseOnContext(user, hand, blockHitResult))) {
-               return InteractionResult.PASS;
+               return InteractionResult.SUCCESS;
             } else if (this.emptyContents(user, world, fluidDrainablePos, blockHitResult)) {
                this.checkExtraContent(user, world, itemStack, fluidDrainablePos);
                if (user instanceof ServerPlayer) {

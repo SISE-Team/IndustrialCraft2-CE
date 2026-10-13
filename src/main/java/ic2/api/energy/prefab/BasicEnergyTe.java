@@ -13,6 +13,20 @@ public class BasicEnergyTe<T extends BasicEnergyTile> extends BlockEntity {
       super(type, pos, state);
    }
 
+   @Override
+   protected void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
+      super.loadAdditional(input);
+      this.load(input.read("ic2", CompoundTag.CODEC).orElseGet(CompoundTag::new));
+   }
+
+   @Override
+   protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput output) {
+      super.saveAdditional(output);
+      CompoundTag data = new CompoundTag();
+      this.saveAdditional(data);
+      output.store("ic2", CompoundTag.CODEC, data);
+   }
+
    public T getEnergyBuffer() {
       return this.energyBuffer;
    }

@@ -24,7 +24,7 @@ public class ItemArmorNanoSuit extends ItemArmorElectric implements IItemHudProv
    public static final int[] CHARGED_PROTECTION = new int[]{3, 6, 8, 3};
 
    public ItemArmorNanoSuit(ArmorMaterial material, EquipmentSlot slot, Properties settings) {
-      super(material, slot, settings, 1000000.0, 1600.0, 3);
+      super(material, slot, settings.rarity(Rarity.UNCOMMON), 1000000.0, 1600.0, 3);
    }
 
    @Override

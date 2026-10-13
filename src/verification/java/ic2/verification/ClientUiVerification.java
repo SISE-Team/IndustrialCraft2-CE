@@ -12,6 +12,7 @@ public final class ClientUiVerification {
    @SubscribeEvent
    public void clientTick(ClientTickEvent.Post event) {
       var minecraft=Minecraft.getInstance();
+      if(Boolean.getBoolean("ic2.reviewShutdown")){org.lwjgl.glfw.GLFW.glfwHideWindow(minecraft.getWindow().handle());if(AllMachinesVerification.ACTIVE!=null&&AllMachinesVerification.ACTIVE.finishedCoreAndGui()){minecraft.stop();return;}}
       if(Boolean.getBoolean("ic2.verifyAllMachines")&&AllMachinesVerification.ACTOR_ENERGY_BLOCK_POS!=null&&minecraft.player!=null&&minecraft.level!=null){
          var tile=minecraft.level.getBlockEntity(AllMachinesVerification.ACTOR_ENERGY_BLOCK_POS);
          var data=AllMachinesVerification.ACTOR_CLIENT_STATE;

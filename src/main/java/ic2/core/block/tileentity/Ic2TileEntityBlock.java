@@ -363,13 +363,9 @@ public final class Ic2TileEntityBlock extends Block implements EntityBlock, IWre
       }
    }
 
-   public VoxelShape getOcclusionShape(BlockState state, BlockGetter world, BlockPos pos) {
-      Ic2TileEntity be = getTe(world, pos);
-      if (be == null) {
-         return !this.hasCollision ? Shapes.empty() : Shapes.block();
-      } else {
-         return be.getCullingShape();
-      }
+   @Override
+   public VoxelShape getOcclusionShape(BlockState state) {
+      return !this.hasCollision ? Shapes.empty() : Shapes.block();
    }
 
    public InteractionResult useWithoutItem(BlockState state, Level world, BlockPos pos, Player player, BlockHitResult hit) {

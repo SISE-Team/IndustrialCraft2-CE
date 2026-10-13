@@ -27,7 +27,7 @@ public final class BiomeUtil {
    }
 
    public static Holder<Biome> getOriginalBiome(LevelReader world, BlockPos pos) {
-      return world.getUncachedNoiseBiome(pos.getX(), pos.getY(), pos.getZ());
+      return world.getUncachedNoiseBiome(pos.getX() >> 2, pos.getY() >> 2, pos.getZ() >> 2);
    }
 
    public static Holder<Biome> getBiome(LevelReader world, BlockPos pos) {
@@ -44,10 +44,11 @@ public final class BiomeUtil {
          @SuppressWarnings("unchecked")
          PalettedContainer<Holder<Biome>> biomeContainer = (PalettedContainer<Holder<Biome>>)section.getBiomes();
 
-         for (int y = 0; y < 3; y++) {
-            biomeContainer.set(x >> 2, y, z >> 2, biome);
+         for (int y = 0; y < 4; y++) {
+            biomeContainer.set((pos.getX() & 15) >> 2, y, (pos.getZ() & 15) >> 2, biome);
          }
       }
+      chunk.markUnsaved();
    }
 
    public static void setBiomeAndNotify(Level world, BlockPos pos, Holder<Biome> biome) {
@@ -55,9 +56,7 @@ public final class BiomeUtil {
       ChunkSource chunkManager = world.getChunkSource();
       if (chunkManager instanceof ServerChunkCache) {
          LevelChunk chunk = world.getChunkAt(pos);
-         ClientboundLevelChunkWithLightPacket packet = new ClientboundLevelChunkWithLightPacket(
-            chunk, ((ServerLevel)world).getChunkSource().getLightEngine(), null, null
-         );
+         var packet = net.minecraft.network.protocol.game.ClientboundChunksBiomesPacket.forChunks(java.util.List.of(chunk));
          ((ServerChunkCache)chunkManager).chunkMap.getPlayers(chunk.getPos(), false).forEach(player -> player.connection.send(packet));
          chunk.markUnsaved();
       } else {

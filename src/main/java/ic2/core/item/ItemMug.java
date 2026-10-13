@@ -89,7 +89,7 @@ public class ItemMug extends Item implements ItemLike {
 
          newDur += extraDuration;
 
-         assert potion.value() == eff.getEffect();
+         assert potion.equals(eff.getEffect());
 
          player.addEffect(new MobEffectInstance(potion, newDur, newAmp));
          return newAmp;
@@ -99,7 +99,7 @@ public class ItemMug extends Item implements ItemLike {
       }
    }
 
-   public int getUseDuration(ItemStack stack) {
+   public int getUseDuration(ItemStack stack, LivingEntity user) {
       ItemMug.MugType type = this.getType(stack);
       return type != null && type != ItemMug.MugType.empty ? 32 : 0;
    }
@@ -113,6 +113,7 @@ public class ItemMug extends Item implements ItemLike {
       ItemMug.MugType type = this.getType(StackUtil.get(player, hand));
       if (type != null && type != ItemMug.MugType.empty) {
          player.startUsingItem(hand);
+         return InteractionResult.CONSUME;
       }
 
       return super.use(world, player, hand);

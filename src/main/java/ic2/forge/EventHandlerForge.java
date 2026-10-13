@@ -259,4 +259,28 @@ public final class EventHandlerForge {
          EnergyNet.instance.removeTile(event.tile);
       }
    }
+   @SubscribeEvent
+   public void onItemAttributeModifiers(net.neoforged.neoforge.event.ItemAttributeModifierEvent event) {
+      var stack = event.getItemStack();
+      if (stack.getItem() instanceof ic2.core.item.armor.ItemArmorElectric armor
+         && ic2.api.item.ElectricItem.manager.canUse(stack, armor.getEnergyPerDamage())) {
+         int[] protection = armor instanceof ic2.core.item.armor.ItemArmorNanoSuit ? ic2.core.item.armor.ItemArmorNanoSuit.CHARGED_PROTECTION
+            : armor instanceof ic2.core.item.armor.ItemArmorQuantumSuit ? ic2.core.item.armor.ItemArmorQuantumSuit.CHARGED_PROTECTION : null;
+         if (protection != null) {
+            var slot = armor.getArmorSlot();
+            event.replaceModifier(net.minecraft.world.entity.ai.attributes.Attributes.ARMOR,
+               new net.minecraft.world.entity.ai.attributes.AttributeModifier(IC2.getIdentifier("charged_armor/" + slot.getName()),
+                  protection[slot.getIndex()], net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_VALUE),
+               net.minecraft.world.entity.EquipmentSlotGroup.bySlot(slot));
+         }
+      }
+      if (stack.getItem() instanceof ic2.core.item.tool.ItemNanoSaber saber) {
+         event.removeModifier(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE, net.minecraft.world.item.Item.BASE_ATTACK_DAMAGE_ID);
+         event.removeModifier(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_SPEED, net.minecraft.world.item.Item.BASE_ATTACK_SPEED_ID);
+         for (var entry : saber.getDefaultAttributeModifiers(stack).modifiers()) {
+            event.replaceModifier(entry.attribute(), entry.modifier(), entry.slot());
+         }
+      }
+   }
+
 }

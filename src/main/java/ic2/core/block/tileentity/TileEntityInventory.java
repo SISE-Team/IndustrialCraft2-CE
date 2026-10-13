@@ -147,14 +147,22 @@ public abstract class TileEntityInventory extends Ic2TileEntity implements World
       return max;
    }
 
+   /** Capacity of the logical slot, independent of larger slots in this machine. */
+   public int getSlotLimit(int index) {
+      InvSlot slot = this.getInventorySlot(index);
+      return slot == null ? 0 : Math.max(0, slot.getStackSizeLimit());
+   }
+
    public boolean stillValid(Player player) {
       return !this.isRemoved() && player.distanceToSqr(this.worldPosition.getX() + 0.5, this.worldPosition.getY() + 0.5, this.worldPosition.getZ() + 0.5) <= 64.0;
    }
 
-   public void startOpen(Player player) {
+   @Override
+   public void startOpen(net.minecraft.world.entity.ContainerUser player) {
    }
 
-   public void stopOpen(Player player) {
+   @Override
+   public void stopOpen(net.minecraft.world.entity.ContainerUser player) {
    }
 
    public boolean canPlaceItem(int index, ItemStack stack) {

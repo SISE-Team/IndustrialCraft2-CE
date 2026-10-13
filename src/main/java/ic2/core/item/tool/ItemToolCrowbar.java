@@ -34,7 +34,7 @@ import net.neoforged.api.distmarker.Dist;
 
 public class ItemToolCrowbar extends Item implements IEnhancedOverlayProvider, PriorityUsableItem {
    public ItemToolCrowbar(net.minecraft.world.item.ToolMaterial material, Properties settings) {
-      super(settings.durability(material.durability()));
+      super(settings.durability(material.durability()).repairable(Ic2ItemTags.BRONZE_INGOTS));
    }
 
    public boolean canTakeDamage(ItemStack stack, int amount) {

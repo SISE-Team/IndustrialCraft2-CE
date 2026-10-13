@@ -66,7 +66,8 @@ public abstract class AbstractDetectorCableBlock extends AbstractCableBlock {
       return true;
    }
 
-   public int getAnalogOutputSignal(BlockState state, Level world, BlockPos pos) {
+   @Override
+   public int getAnalogOutputSignal(BlockState state, Level world, BlockPos pos, Direction direction) {
       if (!(Boolean)state.getValue(active)) {
          return 0;
       } else {

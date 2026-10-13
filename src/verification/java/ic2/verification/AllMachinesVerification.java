@@ -43,8 +43,9 @@ import net.neoforged.neoforge.event.tick.ServerTickEvent;
 /** Actual placed-machine tests. Setup supplies inputs; normal world ticks do all work. */
 public final class AllMachinesVerification {
    public static volatile AllMachinesVerification ACTIVE;
-   public AllMachinesVerification(){ACTIVE=this;}
-   public boolean finishedCoreAndGui(){return coreFinished&&guiFinished;}
+   public AllMachinesVerification(){ACTIVE=this;if(Boolean.getBoolean("ic2.verifyWorkflow")){net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(new CoupledWorkflowVerification());if(net.neoforged.fml.loading.FMLEnvironment.getDist().isClient())net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(new CoupledWorkflowVerification.Client());}if(Boolean.getBoolean("ic2.verifyProcessingRecipes"))net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(new ProcessingRecipeVerification());if(Boolean.getBoolean("ic2.verifyItemFunctions")){net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(new AllItemFunctions());if(System.getProperty("ic2.itemFunctionSubset","all").equals("extra")){net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(new AdditionalItemUsage());net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(new CanningRecipeVerification());}if(net.neoforged.fml.loading.FMLEnvironment.getDist().isClient())net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(new AllItemFunctions.Client());}if(Boolean.getBoolean("ic2.verifyAllItems")){net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(new AllItemsVerification());if(net.neoforged.fml.loading.FMLEnvironment.getDist().isClient())net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(new AllItemsVerification.Client());}if(Boolean.getBoolean("ic2.inventoryProbeOnly")){net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(new ReviewInventoryProbe());if(net.neoforged.fml.loading.FMLEnvironment.getDist().isClient())net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(new ReviewInventoryProbe.Client());}}
+   public boolean baseFinished(){return coreFinished&&guiFinished;}
+   public boolean finishedCoreAndGui(){return baseFinished()&&(!Boolean.getBoolean("ic2.verifyProcessingRecipes")||ProcessingRecipeVerification.finished); }
    public List<String> failureList(){return List.copyOf(failures);}
    public Map<String,Object> remoteHost=new LinkedHashMap<>();
    public static volatile String CLIENT_GUI_CASE;
@@ -73,12 +74,14 @@ public final class AllMachinesVerification {
    @SubscribeEvent public void serverStarted(ServerStartedEvent event) { level = event.getServer().overworld(); }
 
    @SubscribeEvent public void login(PlayerEvent.PlayerLoggedInEvent event) {
+      if(Boolean.getBoolean("ic2.verifyWorkflow")||Boolean.getBoolean("ic2.verifyItemFunctions")||Boolean.getBoolean("ic2.inventoryProbeOnly")||(Boolean.getBoolean("ic2.verifyAllItems")&&!AllItemsVerification.completed))return;
       if (started || !(event.getEntity() instanceof ServerPlayer actual)) return;
       if(Boolean.getBoolean("ic2.verifyDedicated")){
          if(level.getServer().getPlayerList().getPlayers().size()<2)return;
          actual=level.getServer().getPlayerList().getPlayers().stream().filter(p->p.getScoreboardName().equals("IC2Test")).findFirst().orElseThrow();
       }
       started = true; player = actual;
+      if(Boolean.getBoolean("ic2.processingOnly")){coreFinished=guiFinished=true;return;}
       if(Boolean.getBoolean("ic2.resumeExtendedAfterMatrix")) {
          restorePassedWorld();return;
       }

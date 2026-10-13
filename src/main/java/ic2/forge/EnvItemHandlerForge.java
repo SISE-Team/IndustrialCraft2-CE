@@ -31,7 +31,7 @@ final class EnvItemHandlerForge implements EnvItemHandler {
       } else if (target instanceof RandomizableContainerBlockEntity containerBlockEntity) {
          return containerBlockEntity;
       } else {
-         return target instanceof TileEntityInventory tileEntityInventory ? tileEntityInventory : null;
+         return target instanceof Container inventory ? inventory : null;
       }
    }
 
@@ -39,7 +39,8 @@ final class EnvItemHandlerForge implements EnvItemHandler {
    private static EnvItemHandlerForge.HandlerForge getStorage(BlockEntity source, Direction dir, @Nullable Set<Container> personalInventories) {
       BlockEntity target = source.getLevel().getBlockEntity(source.getBlockPos().relative(dir));
       GameProfile profile = source instanceof IPersonalBlock ? ((IPersonalBlock)source).getOwner() : null;
-      return EnvItemHandlerForge.HandlerForge.ofNullable(getStorage(target, dir.getOpposite(), profile, personalInventories), dir);
+      Container inventory = getStorage(target, dir.getOpposite(), profile, personalInventories);
+      return inventory == null ? null : new HandlerForge(inventory, dir, dir.getOpposite());
    }
 
    private ItemStack extractItemFrom(EnvItemHandlerForge.HandlerForge storage, int amount, boolean simulate) {
@@ -69,7 +70,8 @@ final class EnvItemHandlerForge implements EnvItemHandler {
          ItemStack itemStack = storage.getStackInSlot(i);
          if (storage.canInsertItem(i, stack) && (itemStack.isEmpty() || ItemStack.isSameItemSameComponents(itemStack, stack) && itemStack.getCount() < itemStack.getMaxStackSize())) {
             ItemStack remainStack = storage.insertItem(i, stack, simulate);
-            return stack.getCount() - remainStack.getCount();
+            int inserted = stack.getCount() - remainStack.getCount();
+            if (inserted > 0) return inserted;
          }
       }
 
@@ -157,39 +159,52 @@ final class EnvItemHandlerForge implements EnvItemHandler {
 
    @Override
    public int transfer(EnvItemHandler.AdjacentInventory from, EnvItemHandler.AdjacentInventory to, int maxAmount) {
-      EnvItemHandlerForge.HandlerForge fromStorage = (EnvItemHandlerForge.HandlerForge)from;
-      EnvItemHandlerForge.HandlerForge toStorage = (EnvItemHandlerForge.HandlerForge)to;
-      ItemStack extractedItemStack = this.extractItemFrom(fromStorage, maxAmount, true);
-      if (extractedItemStack.getCount() > 0 && this.insertItemTo(toStorage, extractedItemStack, true) > 0) {
-         this.extractItemFrom(fromStorage, maxAmount, false);
-         this.insertItemTo(toStorage, extractedItemStack, false);
-         return extractedItemStack.getCount();
-      } else {
-         return 0;
-      }
+      return this.transfer(from, to, maxAmount, stack -> true);
    }
 
    @Override
    public int transfer(EnvItemHandler.AdjacentInventory from, EnvItemHandler.AdjacentInventory to, int maxAmount, Predicate<ItemStack> filter) {
-      EnvItemHandlerForge.HandlerForge fromStorage = (EnvItemHandlerForge.HandlerForge)from;
-      EnvItemHandlerForge.HandlerForge toStorage = (EnvItemHandlerForge.HandlerForge)to;
-      ItemStack extractedItemStack = this.extractItemFrom(fromStorage, maxAmount, filter, true);
-      if (extractedItemStack.getCount() > 0 && this.insertItemTo(toStorage, extractedItemStack, true) > 0) {
-         this.extractItemFrom(fromStorage, maxAmount, filter, false);
-         this.insertItemTo(toStorage, extractedItemStack, false);
-         return extractedItemStack.getCount();
-      } else {
-         return 0;
+      HandlerForge source = (HandlerForge)from;
+      HandlerForge target = (HandlerForge)to;
+      if (maxAmount <= 0 || source.inventory == target.inventory) return 0;
+      int moved = 0;
+      for (int slot = 0; slot < source.getSlots() && moved < maxAmount; slot++) {
+         ItemStack current = source.getStackInSlot(slot);
+         if (current.isEmpty() || !source.canExtractItem(slot, current) || !filter.test(current)) continue;
+         ItemStack offered = source.extractItem(slot, maxAmount - moved, true);
+         int accepted = this.insertItemTo(target, offered, true);
+         if (accepted <= 0) continue;
+         ItemStack before = current.copy();
+         ItemStack extracted = source.extractItem(slot, accepted, false);
+         int inserted = this.insertItemTo(target, extracted, false);
+         if (inserted < extracted.getCount()) {
+            before.setCount(before.getCount() - inserted);
+            source.inventory.setItem(slot, before);
+         }
+         moved += inserted;
       }
+      return moved;
    }
 
    private static class HandlerForge implements EnvItemHandler.AdjacentInventory {
       final Direction side;
+      final Direction accessSide;
       Container inventory;
 
       private HandlerForge(Container inventory, Direction side) {
+         this(inventory, side, side);
+      }
+
+      private HandlerForge(Container inventory, Direction side, Direction accessSide) {
          this.side = side;
+         this.accessSide = accessSide;
          this.inventory = inventory;
+      }
+
+      private boolean accessible(int slot) {
+         if (!(this.inventory instanceof WorldlyContainer sided) || this.accessSide == null) return true;
+         for (int exposed : sided.getSlotsForFace(this.accessSide)) if (exposed == slot) return true;
+         return false;
       }
 
       public int getSlots() {
@@ -205,7 +220,8 @@ final class EnvItemHandlerForge implements EnvItemHandler {
             return stack;
          }
          ItemStack current = this.inventory.getItem(slot);
-         int max = Math.min(this.inventory.getMaxStackSize(), stack.getMaxStackSize());
+         int limit = this.inventory instanceof TileEntityInventory machine ? machine.getSlotLimit(slot) : this.inventory.getMaxStackSize();
+         int max = Math.min(limit, stack.getMaxStackSize());
          int space;
          if (current.isEmpty()) {
             space = Math.min(max, stack.getCount());
@@ -255,12 +271,12 @@ final class EnvItemHandlerForge implements EnvItemHandler {
       }
 
       public boolean canInsertItem(int slot, ItemStack stack) {
-         return this.inventory.canPlaceItem(slot, stack)
-            && !(this.inventory instanceof WorldlyContainer sidedInventory && !sidedInventory.canPlaceItemThroughFace(slot, stack, this.side));
+         return this.accessible(slot) && this.inventory.canPlaceItem(slot, stack)
+            && !(this.inventory instanceof WorldlyContainer sidedInventory && !sidedInventory.canPlaceItemThroughFace(slot, stack, this.accessSide));
       }
 
       public boolean canExtractItem(int slot, ItemStack stack) {
-         return !(this.inventory instanceof WorldlyContainer sidedInventory && !sidedInventory.canTakeItemThroughFace(slot, stack, this.side));
+         return this.accessible(slot) && !(this.inventory instanceof WorldlyContainer sidedInventory && !sidedInventory.canTakeItemThroughFace(slot, stack, this.accessSide));
       }
 
       @Override

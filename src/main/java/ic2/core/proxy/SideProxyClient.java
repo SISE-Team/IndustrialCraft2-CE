@@ -183,7 +183,7 @@ public final class SideProxyClient implements SideProxy {
       envProxy.registerEntityRenderer(Ic2Entities.RUBBER_BOAT, context -> new BoatEntityRenderer(context, IC2.getIdentifier("textures/entity/boat/boat_rubber.png"), false));
       envProxy.registerEntityRenderer(Ic2Entities.ELECTRIC_BOAT, context -> new BoatEntityRenderer(context, IC2.getIdentifier("textures/entity/boat/boat_electric.png"), false));
       envProxy.registerEntityRenderer(Ic2Entities.CARBON_BOAT, context -> new BoatEntityRenderer(context, IC2.getIdentifier("textures/entity/boat/boat_carbon.png"), false));
-      // vanilla sign renderer is registered automatically in 26.1.2
+      envProxy.registerBlockEntityRenderer(Ic2BlockEntities.SIGN, net.minecraft.client.renderer.blockentity.StandingSignRenderer::new);
    }
 
    @Override

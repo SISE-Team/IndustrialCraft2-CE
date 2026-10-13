@@ -26,9 +26,14 @@ public class ItemArmorIC2 extends Item implements IMetalArmor {
 
    private static Properties applyArmorComponents(Properties settings, ArmorMaterial material, EquipmentSlot slot) {
       ItemAttributeModifiers attributes = material.createAttributes(Ic2ArmorMaterials.typeFor(slot));
-      Properties result = settings.equippable(slot).component(DataComponents.ATTRIBUTE_MODIFIERS, attributes);
+      Properties result = settings.stacksTo(1)
+         .component(DataComponents.EQUIPPABLE, net.minecraft.world.item.equipment.Equippable.builder(slot)
+            .setEquipSound(material.equipSound()).setAsset(material.assetId()).build())
+         .component(DataComponents.ATTRIBUTE_MODIFIERS, attributes);
       if (material.durability() > 0) {
-         result = result.durability(material.durability());
+         result = result.durability(Ic2ArmorMaterials.typeFor(slot).getDurability(material.durability()))
+            .repairable(material.repairIngredient());
+         if (material.enchantmentValue() > 0) result = result.enchantable(material.enchantmentValue());
       }
       return result;
    }
