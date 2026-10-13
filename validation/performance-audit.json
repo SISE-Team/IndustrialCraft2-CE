@@ -1,0 +1,1701 @@
+{
+  "project": "IndustrialCraft2-CE",
+  "version": "2.9.40-alpha.9",
+  "complete": true,
+  "failures": [],
+  "comparison": {
+    "complete": true,
+    "failures": [],
+    "baselineVersion": "2.9.40-alpha.8",
+    "optimizedVersion": "2.9.40-alpha.9",
+    "java": "25.0.2+10-LTS",
+    "cpu": "AMD Ryzen 7 9800X3D (8 cores / 16 logical processors)",
+    "physicalMemoryBytes": 100517539840,
+    "heap": "4 GiB initial and maximum",
+    "garbageCollector": "G1",
+    "compactObjectHeadersEnabled": false,
+    "pairedSequence": [
+      "baseline",
+      "optimized",
+      "optimized",
+      "baseline",
+      "optimized",
+      "baseline",
+      "baseline",
+      "optimized"
+    ],
+    "independentJVMForks": 8,
+    "warmupTicksPerStressPhase": 600,
+    "measuredTicksPerStressPhase": 1600,
+    "totalMeasuredStressTicks": 38400,
+    "nativeMachineCounts": [
+      256,
+      1024,
+      2048
+    ],
+    "cableBlockCounts": [
+      512,
+      2048,
+      4096
+    ],
+    "nativeTransactionsPerTick": 512,
+    "artifacts": {
+      "baseline": {
+        "artifact": "IndustrialCraft2-CE-baseline-verification.jar",
+        "sha256": "20669fef44840f249256ebeaa474b83698290dfd15b33876470f809147b1c727",
+        "mainClassesByteIdenticalToRelease": 1293
+      },
+      "optimized": {
+        "artifact": "IndustrialCraft2-CE-optimized-verification.jar",
+        "sha256": "42a65f27a2e9d83294bec83b9674af5ab78212e5a5a9ce552fdc6578efc2b2fe",
+        "mainClassesByteIdenticalToRelease": 1295
+      },
+      "fixtureClasses": 61,
+      "identicalFixtureBytes": true
+    },
+    "productionChanges": [
+      {
+        "file": "src/main/java/ic2/core/block/tileentity/Ic2TileEntityBlock.java",
+        "beforeSha256": "ee6b35bc6ae8cf582f5be30242bd4292b944c64601ca0edddf795b1284a9d6b7",
+        "afterSha256": "02695ca3af35312ceb04d6226021d318139c7099abe682423a48909ec3cd4748"
+      },
+      {
+        "file": "src/main/java/ic2/core/network/DataEncoder.java",
+        "beforeSha256": "6c51f41c8f9b1ed46dda8641f209ad84b271136949e0f309bfb912b119a3ba8c",
+        "afterSha256": "ca14999e43b4b9bc5b7cb64d562828fd9b021c1d7dcbac3db2e3a092f880be8f"
+      },
+      {
+        "file": "src/main/java/ic2/forge/ContainerItemHandler.java",
+        "beforeSha256": "7f7015ff2cad50bfb4d4dfaf9ea5ddc72173831a46ba7ddca1fed5bac7ec881f",
+        "afterSha256": "bcb09c3d1b14d831d18fd6249b5f4900a54afaa93b319e772645ce67a83203a7"
+      },
+      {
+        "file": "src/main/java/ic2/core/block/wiring/AbstractCableBlock.java",
+        "beforeSha256": "4bacef3fb71223413dcf96551a98f6f4d611e138359c5963ff0fcd13f8ba342c",
+        "afterSha256": "2dfb1132b4d9d93a8e53ca11517722b92290c8b4856ff4358842b7e6f322730a"
+      },
+      {
+        "file": "src/main/java/ic2/core/energy/grid/EnergyNetLocal.java",
+        "beforeSha256": "eedce692d3d44663f020a3cb27edc453b7b6fac99b9c95e58dabaf94859741b1",
+        "afterSha256": "b4ced1f994ce7868edec1599377a9ce66d1d9e5423e3fc2eecdf1fc287f89cc2",
+        "purpose": "Correct pending-removal visibility exposed by same-tick cable replacement."
+      }
+    ],
+    "registryStateFingerprint": "628ff80827b8783f14285881455e20154760ac27bdab2bc6a8e4d5175a9a4ba6",
+    "cableShapeFingerprint": "bd2a67bfb0c6c03a0f06e5b76fe1c0b5326af11fb6a904bea90d2324ef5cf9bb",
+    "cableStatesCompared": 165376,
+    "codecWireDigestPerWorker": "1e7606047111f13e5e7711f8fd24f57d7f9f0fb156ea33eb5be6dbf4e9e58d4c",
+    "codecMeasurement": "Actual production encoding of homogeneous enum collections and a mutable block position, plus a bulk SHA-256 output sink. Platform workers; no socket/network-bandwidth claim.",
+    "stressMeasurement": "Same native pre/post tick boundary. Includes fixture-driven capability transactions and actual placed-machine/energy callbacks. Input/output maintenance after the boundary is excluded. Sprinting removes the 20 TPS ceiling.",
+    "metrics": [
+      {
+        "metric": "stress_128_meanMSPT",
+        "baseline": {
+          "median": 1.487679,
+          "min": 1.4388231875,
+          "max": 1.8980615625,
+          "q1": 1.448331453125,
+          "q3": 1.798171609375,
+          "samples": [
+            1.4388231875,
+            1.47685625,
+            1.49850175,
+            1.8980615625
+          ]
+        },
+        "optimized": {
+          "median": 0.85675396875,
+          "min": 0.80840625,
+          "max": 0.857345875,
+          "q1": 0.820399515625,
+          "q3": 0.8572915625,
+          "samples": [
+            0.80840625,
+            0.857345875,
+            0.8563793125,
+            0.857128625
+          ]
+        },
+        "medianReductionPercent": 42.41002469282688,
+        "speedup": 1.736413316147828,
+        "pairedReductionPercent": [
+          43.81476076955425,
+          41.947913007782574,
+          42.850963470679964,
+          54.841895440364574
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          41.947913007782574,
+          54.841895440364574
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "stress_128_p95MSPT",
+        "baseline": {
+          "median": 1.98345,
+          "min": 1.9688,
+          "max": 2.3429,
+          "q1": 1.970625,
+          "q3": 2.254875,
+          "samples": [
+            1.9761,
+            1.9688,
+            1.9908,
+            2.3429
+          ]
+        },
+        "optimized": {
+          "median": 1.1237,
+          "min": 1.1047,
+          "max": 1.1469,
+          "q1": 1.1058,
+          "q3": 1.1447500000000002,
+          "samples": [
+            1.1047,
+            1.1383,
+            1.1091,
+            1.1469
+          ]
+        },
+        "medianReductionPercent": 43.34618971993244,
+        "speedup": 1.765106345109905,
+        "pairedReductionPercent": [
+          44.096958655938465,
+          42.183055668427464,
+          44.288728149487646,
+          51.04784668573136
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          42.183055668427464,
+          51.04784668573136
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "stress_128_p99MSPT",
+        "baseline": {
+          "median": 2.15265,
+          "min": 2.0941,
+          "max": 3.2483,
+          "q1": 2.09765,
+          "q3": 2.985475,
+          "samples": [
+            2.0941,
+            2.1083,
+            2.197,
+            3.2483
+          ]
+        },
+        "optimized": {
+          "median": 1.3226499999999999,
+          "min": 1.2238,
+          "max": 1.3581,
+          "q1": 1.239725,
+          "q3": 1.358025,
+          "samples": [
+            1.2238,
+            1.3578,
+            1.2875,
+            1.3581
+          ]
+        },
+        "medianReductionPercent": 38.557127261747155,
+        "speedup": 1.6275280686500586,
+        "pairedReductionPercent": [
+          41.55961988443723,
+          35.59740074941896,
+          41.39736003641329,
+          58.19043807530092
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          35.59740074941896,
+          58.19043807530092
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "stress_128_meanServerThreadCpuMS",
+        "baseline": {
+          "median": 1.4453125,
+          "min": 1.416015625,
+          "max": 1.796875,
+          "q1": 1.41845703125,
+          "q3": 1.7138671875,
+          "samples": [
+            1.416015625,
+            1.42578125,
+            1.46484375,
+            1.796875
+          ]
+        },
+        "optimized": {
+          "median": 0.8349609375,
+          "min": 0.791015625,
+          "max": 0.83984375,
+          "q1": 0.80078125,
+          "q3": 0.83984375,
+          "samples": [
+            0.791015625,
+            0.830078125,
+            0.83984375,
+            0.83984375
+          ]
+        },
+        "medianReductionPercent": 42.22972972972973,
+        "speedup": 1.7309941520467835,
+        "pairedReductionPercent": [
+          44.13793103448276,
+          41.78082191780822,
+          42.66666666666667,
+          53.2608695652174
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          41.78082191780822,
+          53.2608695652174
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "stress_128_serverThreadAllocatedBytesPerTick",
+        "baseline": {
+          "median": 2449494.34,
+          "min": 2449243.105,
+          "max": 2449572.28,
+          "q1": 2449289.80375,
+          "q3": 2449568.905,
+          "samples": [
+            2449572.28,
+            2449243.105,
+            2449429.9,
+            2449558.78
+          ]
+        },
+        "optimized": {
+          "median": 579059.3525,
+          "min": 578953.18,
+          "max": 579119.14,
+          "q1": 578974.8375,
+          "q3": 579109.07875,
+          "samples": [
+            579119.14,
+            579078.895,
+            578953.18,
+            579039.81
+          ]
+        },
+        "medianReductionPercent": 76.36004529408302,
+        "speedup": 4.230126548210789,
+        "pairedReductionPercent": [
+          76.35835673320078,
+          76.35682248863573,
+          76.3637579503704,
+          76.3614649818691
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          76.35682248863573,
+          76.3637579503704
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "stress_512_meanMSPT",
+        "baseline": {
+          "median": 2.69207496875,
+          "min": 2.602144625,
+          "max": 2.867069125,
+          "q1": 2.6176836875,
+          "q3": 2.830264109375,
+          "samples": [
+            2.602144625,
+            2.7198490625,
+            2.867069125,
+            2.664300875
+          ]
+        },
+        "optimized": {
+          "median": 1.90726578125,
+          "min": 1.897954,
+          "max": 1.934549125,
+          "q1": 1.8981062031249998,
+          "q3": 1.92990403125,
+          "samples": [
+            1.91596875,
+            1.8985628125,
+            1.934549125,
+            1.897954
+          ]
+        },
+        "medianReductionPercent": 29.15257548954542,
+        "speedup": 1.4114839133671475,
+        "pairedReductionPercent": [
+          26.369628667353574,
+          30.196023055966908,
+          32.52520114944909,
+          28.763526003796404
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          26.369628667353574,
+          32.52520114944909
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "stress_512_p95MSPT",
+        "baseline": {
+          "median": 3.58695,
+          "min": 3.3618,
+          "max": 3.8188,
+          "q1": 3.410825,
+          "q3": 3.7681,
+          "samples": [
+            3.3618,
+            3.616,
+            3.8188,
+            3.5579
+          ]
+        },
+        "optimized": {
+          "median": 2.5416999999999996,
+          "min": 2.5064,
+          "max": 2.5987,
+          "q1": 2.5093,
+          "q3": 2.590375,
+          "samples": [
+            2.5654,
+            2.518,
+            2.5987,
+            2.5064
+          ]
+        },
+        "medianReductionPercent": 29.140356012768514,
+        "speedup": 1.4112405083212025,
+        "pairedReductionPercent": [
+          23.68969004699864,
+          30.36504424778762,
+          31.949827170839008,
+          29.55395036397875
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          23.68969004699864,
+          31.949827170839008
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "stress_512_p99MSPT",
+        "baseline": {
+          "median": 3.8724000000000003,
+          "min": 3.6516,
+          "max": 4.7515,
+          "q1": 3.6701750000000004,
+          "q3": 4.568350000000001,
+          "samples": [
+            3.6516,
+            4.0189,
+            4.7515,
+            3.7259
+          ]
+        },
+        "optimized": {
+          "median": 2.775,
+          "min": 2.6655,
+          "max": 2.936,
+          "q1": 2.6865250000000005,
+          "q3": 2.9021,
+          "samples": [
+            2.7496,
+            2.8004,
+            2.936,
+            2.6655
+          ]
+        },
+        "medianReductionPercent": 28.339014564611105,
+        "speedup": 1.3954594594594596,
+        "pairedReductionPercent": [
+          24.701500712016653,
+          30.319241583517893,
+          38.20898663579923,
+          28.460237794895193
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          24.701500712016653,
+          38.20898663579923
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "stress_512_meanServerThreadCpuMS",
+        "baseline": {
+          "median": 2.6171875,
+          "min": 2.568359375,
+          "max": 2.724609375,
+          "q1": 2.568359375,
+          "q3": 2.7099609375,
+          "samples": [
+            2.568359375,
+            2.666015625,
+            2.724609375,
+            2.568359375
+          ]
+        },
+        "optimized": {
+          "median": 1.8798828125,
+          "min": 1.796875,
+          "max": 1.89453125,
+          "q1": 1.81640625,
+          "q3": 1.89208984375,
+          "samples": [
+            1.884765625,
+            1.796875,
+            1.89453125,
+            1.875
+          ]
+        },
+        "medianReductionPercent": 28.171641791044777,
+        "speedup": 1.3922077922077922,
+        "pairedReductionPercent": [
+          26.61596958174905,
+          32.6007326007326,
+          30.46594982078853,
+          26.996197718631176
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          26.61596958174905,
+          32.6007326007326
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "stress_512_serverThreadAllocatedBytesPerTick",
+        "baseline": {
+          "median": 3386132.505,
+          "min": 3331433.22,
+          "max": 3396591.695,
+          "q1": 3343089.27875,
+          "q3": 3395995.6599999997,
+          "samples": [
+            3394207.555,
+            3331433.22,
+            3396591.695,
+            3378057.455
+          ]
+        },
+        "optimized": {
+          "median": 1490000.1475,
+          "min": 1472329.94,
+          "max": 1510513.035,
+          "q1": 1474004.92625,
+          "q3": 1508127.37875,
+          "samples": [
+            1472329.94,
+            1500970.41,
+            1479029.885,
+            1510513.035
+          ]
+        },
+        "medianReductionPercent": 55.996992282497814,
+        "speedup": 2.272571926037343,
+        "pairedReductionPercent": [
+          56.62227733153461,
+          54.9452049349499,
+          56.4554701356296,
+          55.28456649651626
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          54.9452049349499,
+          56.62227733153461
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "stress_1024_meanMSPT",
+        "baseline": {
+          "median": 6.15206440625,
+          "min": 5.815881625,
+          "max": 6.731757875,
+          "q1": 5.84828596875,
+          "q3": 6.638475859374999,
+          "samples": [
+            6.3586298125,
+            5.815881625,
+            6.731757875,
+            5.945499
+          ]
+        },
+        "optimized": {
+          "median": 4.89420096875,
+          "min": 4.8146161875,
+          "max": 5.0715294375,
+          "q1": 4.82572428125,
+          "q3": 5.035985421874999,
+          "samples": [
+            5.0715294375,
+            4.8590485625,
+            4.8146161875,
+            4.929353375
+          ]
+        },
+        "medianReductionPercent": 20.446200729337498,
+        "speedup": 1.2570109902579796,
+        "pairedReductionPercent": [
+          20.24178813601913,
+          16.45207251789621,
+          28.47906480148024,
+          17.09100657488968
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          16.45207251789621,
+          28.47906480148024
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "stress_1024_p95MSPT",
+        "baseline": {
+          "median": 8.4014,
+          "min": 7.0458,
+          "max": 10.8161,
+          "q1": 7.148175,
+          "q3": 10.44895,
+          "samples": [
+            10.8161,
+            7.0458,
+            9.3475,
+            7.4553
+          ]
+        },
+        "optimized": {
+          "median": 6.00525,
+          "min": 6.0028,
+          "max": 6.3164,
+          "q1": 6.003374999999999,
+          "q3": 6.23865,
+          "samples": [
+            6.3164,
+            6.0054,
+            6.0051,
+            6.0028
+          ]
+        },
+        "medianReductionPercent": 28.520841764467832,
+        "speedup": 1.3990092002830856,
+        "pairedReductionPercent": [
+          41.60187128447407,
+          14.766243719662778,
+          35.75715431933673,
+          19.48278405966226
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          14.766243719662778,
+          41.60187128447407
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "stress_1024_p99MSPT",
+        "baseline": {
+          "median": 10.717500000000001,
+          "min": 7.8912,
+          "max": 12.213,
+          "q1": 8.2652,
+          "q3": 12.1717,
+          "samples": [
+            12.213,
+            7.8912,
+            12.0478,
+            9.3872
+          ]
+        },
+        "optimized": {
+          "median": 6.8485,
+          "min": 6.5869,
+          "max": 7.1719,
+          "q1": 6.59585,
+          "q3": 7.1475,
+          "samples": [
+            7.0743,
+            7.1719,
+            6.6227,
+            6.5869
+          ]
+        },
+        "medianReductionPercent": 36.09983671565198,
+        "speedup": 1.564941228006133,
+        "pairedReductionPercent": [
+          42.075657086710876,
+          9.115216950527175,
+          45.02979797141387,
+          29.831046531447075
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          9.115216950527175,
+          45.02979797141387
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "stress_1024_meanServerThreadCpuMS",
+        "baseline": {
+          "median": 5.9521484375,
+          "min": 5.595703125,
+          "max": 6.533203125,
+          "q1": 5.62255859375,
+          "q3": 6.4501953125,
+          "samples": [
+            6.201171875,
+            5.595703125,
+            6.533203125,
+            5.703125
+          ]
+        },
+        "optimized": {
+          "median": 4.7265625,
+          "min": 4.677734375,
+          "max": 4.86328125,
+          "q1": 4.68505859375,
+          "q3": 4.833984375,
+          "samples": [
+            4.86328125,
+            4.677734375,
+            4.70703125,
+            4.74609375
+          ]
+        },
+        "medianReductionPercent": 20.59064807219032,
+        "speedup": 1.259297520661157,
+        "pairedReductionPercent": [
+          21.5748031496063,
+          16.404886561954623,
+          27.95216741405082,
+          16.78082191780822
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          16.404886561954623,
+          27.95216741405082
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "stress_1024_serverThreadAllocatedBytesPerTick",
+        "baseline": {
+          "median": 6268956.55,
+          "min": 6250301.89,
+          "max": 6344629.785,
+          "q1": 6251254.015,
+          "q3": 6329423.01625,
+          "samples": [
+            6283802.71,
+            6254110.39,
+            6250301.89,
+            6344629.785
+          ]
+        },
+        "optimized": {
+          "median": 4315177.8875,
+          "min": 4088973.65,
+          "max": 4465216.175,
+          "q1": 4118271.0475,
+          "q3": 4454960.265,
+          "samples": [
+            4465216.175,
+            4206163.24,
+            4088973.65,
+            4424192.535
+          ]
+        },
+        "medianReductionPercent": 31.1659308358103,
+        "speedup": 1.4527689734783846,
+        "pairedReductionPercent": [
+          28.94085984122185,
+          32.74561883772569,
+          34.5795815632195,
+          30.268704638059507
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          28.94085984122185,
+          34.5795815632195
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "inventory_126_nsPerOperation",
+        "baseline": {
+          "median": 3018.91375,
+          "min": 2906.86,
+          "max": 3794.18,
+          "q1": 2926.2200000000003,
+          "q3": 3609.016875,
+          "samples": [
+            2906.86,
+            3053.5275,
+            2984.3,
+            3794.18
+          ]
+        },
+        "optimized": {
+          "median": 800.9512500000001,
+          "min": 755.04,
+          "max": 859.645,
+          "q1": 766.01875,
+          "q3": 845.4706249999999,
+          "samples": [
+            859.645,
+            755.04,
+            802.9475,
+            798.955
+          ]
+        },
+        "medianReductionPercent": 73.46889257766969,
+        "speedup": 3.76916042018787,
+        "pairedReductionPercent": [
+          70.42702434929787,
+          75.27318814060132,
+          73.09427671480748,
+          78.94261737714078
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          70.42702434929787,
+          78.94261737714078
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "entity_factory_nsPerOperation",
+        "baseline": {
+          "median": 963.8062500000001,
+          "min": 922.1725,
+          "max": 989.6175,
+          "q1": 928.9918749999999,
+          "q3": 986.75375,
+          "samples": [
+            949.45,
+            978.1625,
+            989.6175,
+            922.1725
+          ]
+        },
+        "optimized": {
+          "median": 865.6837499999999,
+          "min": 844.7,
+          "max": 907.16875,
+          "q1": 849.0471875000001,
+          "q3": 897.6962500000001,
+          "samples": [
+            907.16875,
+            844.7,
+            862.08875,
+            869.27875
+          ]
+        },
+        "medianReductionPercent": 10.180728751240217,
+        "speedup": 1.1133468197826286,
+        "pairedReductionPercent": [
+          4.45323608404866,
+          13.644205333980802,
+          12.886670860206085,
+          5.735776115639977
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          4.45323608404866,
+          13.644205333980802
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "inventory_126_allocatedBytesPerOperation",
+        "baseline": {
+          "median": 7952.0016,
+          "min": 7952.0016,
+          "max": 7952.0016,
+          "q1": 7952.0016,
+          "q3": 7952.0016,
+          "samples": [
+            7952.0016,
+            7952.0016,
+            7952.0016,
+            7952.0016
+          ]
+        },
+        "optimized": {
+          "median": 408.0016,
+          "min": 408.0016,
+          "max": 408.0016,
+          "q1": 408.0016,
+          "q3": 408.0016,
+          "samples": [
+            408.0016,
+            408.0016,
+            408.0016,
+            408.0016
+          ]
+        },
+        "medianReductionPercent": 94.86919620338105,
+        "speedup": 19.49012356814287,
+        "pairedReductionPercent": [
+          94.86919620338105,
+          94.86919620338105,
+          94.86919620338105,
+          94.86919620338105
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          94.86919620338105,
+          94.86919620338105
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "entity_factory_allocatedBytesPerOperation",
+        "baseline": {
+          "median": 893.90485,
+          "min": 893.5036,
+          "max": 895.0199,
+          "q1": 893.602875,
+          "q3": 894.742175,
+          "samples": [
+            893.9007,
+            895.0199,
+            893.909,
+            893.5036
+          ]
+        },
+        "optimized": {
+          "median": 762.5672,
+          "min": 761.6253,
+          "max": 762.9752,
+          "q1": 761.78995,
+          "q3": 762.944025,
+          "samples": [
+            762.8505,
+            762.9752,
+            761.6253,
+            762.2839
+          ]
+        },
+        "medianReductionPercent": 14.692576061087493,
+        "speedup": 1.1722309194520826,
+        "pairedReductionPercent": [
+          14.66048745682826,
+          14.753269731767979,
+          14.798340770704844,
+          14.68597328539023
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          14.66048745682826,
+          14.798340770704844
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "codec_1_nsPerOperation",
+        "baseline": {
+          "median": 651.83,
+          "min": 637.786,
+          "max": 663.8,
+          "q1": 640.0062499999999,
+          "q3": 662.09825,
+          "samples": [
+            663.8,
+            646.667,
+            637.786,
+            656.993
+          ]
+        },
+        "optimized": {
+          "median": 572.062,
+          "min": 560.011,
+          "max": 594.252,
+          "q1": 562.6355,
+          "q3": 589.09275,
+          "samples": [
+            594.252,
+            573.615,
+            570.509,
+            560.011
+          ]
+        },
+        "medianReductionPercent": 12.237546599573513,
+        "speedup": 1.1394394313903038,
+        "pairedReductionPercent": [
+          10.47725218439289,
+          11.296695207889071,
+          10.548522545179722,
+          14.76149669783393
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          10.47725218439289,
+          14.76149669783393
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "codec_4_nsPerOperation",
+        "baseline": {
+          "median": 833.446,
+          "min": 808.78125,
+          "max": 847.166,
+          "q1": 813.6186250000001,
+          "q3": 845.0648125,
+          "samples": [
+            828.13075,
+            847.166,
+            808.78125,
+            838.76125
+          ]
+        },
+        "optimized": {
+          "median": 162.37687499999998,
+          "min": 147.7645,
+          "max": 194.0115,
+          "q1": 148.37687499999998,
+          "q3": 189.1435625,
+          "samples": [
+            174.53975,
+            194.0115,
+            150.214,
+            147.7645
+          ]
+        },
+        "medianReductionPercent": 80.51740904629693,
+        "speedup": 5.1327875351708805,
+        "pairedReductionPercent": [
+          78.92364822825381,
+          77.09876222605723,
+          81.4271164174491,
+          82.38300827559691
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          77.09876222605723,
+          82.38300827559691
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      },
+      {
+        "metric": "codec_8_nsPerOperation",
+        "baseline": {
+          "median": 994.9770000000001,
+          "min": 990.709125,
+          "max": 1034.98175,
+          "q1": 991.488375,
+          "q3": 1025.26828125,
+          "samples": [
+            990.709125,
+            996.127875,
+            993.826125,
+            1034.98175
+          ]
+        },
+        "optimized": {
+          "median": 95.195875,
+          "min": 80.632,
+          "max": 101.897125,
+          "q1": 83.9965,
+          "q3": 100.49828124999999,
+          "samples": [
+            96.30175,
+            101.897125,
+            80.632,
+            94.09
+          ]
+        },
+        "medianReductionPercent": 90.43235421522307,
+        "speedup": 10.451891954352014,
+        "pairedReductionPercent": [
+          90.27951317194136,
+          89.77067828766462,
+          91.88670955897842,
+          90.90901844404502
+        ],
+        "pairedBootstrapMedian95PercentInterval": [
+          89.77067828766462,
+          91.88670955897842
+        ],
+        "intervalCaution": "Four pairs, one workstation; bootstrap describes these samples and is not proof of general modpack performance."
+      }
+    ],
+    "runs": [
+      {
+        "index": 1,
+        "kind": "baseline",
+        "label": "baseline-v2-r1",
+        "wallSeconds": 40.23586940765381,
+        "exitCode": 0,
+        "complete": true,
+        "failures": [],
+        "phases": [
+          {
+            "circuits": 128,
+            "nativeMachines": 256,
+            "cableBlocks": 512,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 1.4388231875,
+            "p50MSPT": 1.2986,
+            "p95MSPT": 1.9761,
+            "p99MSPT": 2.0941,
+            "meanServerThreadCpuMS": 1.416015625,
+            "serverThreadAllocatedBytesPerTick": 2449572.28,
+            "processedItems": 26880,
+            "poweredMachines": 128,
+            "transactionsPerTick": 512
+          },
+          {
+            "circuits": 512,
+            "nativeMachines": 1024,
+            "cableBlocks": 2048,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 2.602144625,
+            "p50MSPT": 2.4291,
+            "p95MSPT": 3.3618,
+            "p99MSPT": 3.6516,
+            "meanServerThreadCpuMS": 2.568359375,
+            "serverThreadAllocatedBytesPerTick": 3394207.555,
+            "processedItems": 114608,
+            "poweredMachines": 512,
+            "transactionsPerTick": 512
+          },
+          {
+            "circuits": 1024,
+            "nativeMachines": 2048,
+            "cableBlocks": 4096,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 6.3586298125,
+            "p50MSPT": 5.59,
+            "p95MSPT": 10.8161,
+            "p99MSPT": 12.213,
+            "meanServerThreadCpuMS": 6.201171875,
+            "serverThreadAllocatedBytesPerTick": 6283802.71,
+            "processedItems": 206880,
+            "poweredMachines": 1024,
+            "transactionsPerTick": 512
+          }
+        ],
+        "reportSha256": "91881819bd1411a8000be6c88a3855e1d2bd1389bc39a6c8f7a51d88bcce9c5d",
+        "registryStateFingerprint": "628ff80827b8783f14285881455e20154760ac27bdab2bc6a8e4d5175a9a4ba6",
+        "cableShapeFingerprint": "bd2a67bfb0c6c03a0f06e5b76fe1c0b5326af11fb6a904bea90d2324ef5cf9bb"
+      },
+      {
+        "index": 2,
+        "kind": "optimized",
+        "label": "optimized-v2-r2",
+        "wallSeconds": 30.694746017456055,
+        "exitCode": 0,
+        "complete": true,
+        "failures": [],
+        "phases": [
+          {
+            "circuits": 128,
+            "nativeMachines": 256,
+            "cableBlocks": 512,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 0.80840625,
+            "p50MSPT": 0.7485,
+            "p95MSPT": 1.1047,
+            "p99MSPT": 1.2238,
+            "meanServerThreadCpuMS": 0.791015625,
+            "serverThreadAllocatedBytesPerTick": 579119.14,
+            "processedItems": 26896,
+            "poweredMachines": 128,
+            "transactionsPerTick": 512
+          },
+          {
+            "circuits": 512,
+            "nativeMachines": 1024,
+            "cableBlocks": 2048,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 1.91596875,
+            "p50MSPT": 1.7629,
+            "p95MSPT": 2.5654,
+            "p99MSPT": 2.7496,
+            "meanServerThreadCpuMS": 1.884765625,
+            "serverThreadAllocatedBytesPerTick": 1472329.94,
+            "processedItems": 114720,
+            "poweredMachines": 512,
+            "transactionsPerTick": 512
+          },
+          {
+            "circuits": 1024,
+            "nativeMachines": 2048,
+            "cableBlocks": 4096,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 5.0715294375,
+            "p50MSPT": 4.7984,
+            "p95MSPT": 6.3164,
+            "p99MSPT": 7.0743,
+            "meanServerThreadCpuMS": 4.86328125,
+            "serverThreadAllocatedBytesPerTick": 4465216.175,
+            "processedItems": 206944,
+            "poweredMachines": 1024,
+            "transactionsPerTick": 512
+          }
+        ],
+        "reportSha256": "ff1bd9426b2fb64ec74bfaeaa2624834cae148c4503b06df87022088208ed06a",
+        "registryStateFingerprint": "628ff80827b8783f14285881455e20154760ac27bdab2bc6a8e4d5175a9a4ba6",
+        "cableShapeFingerprint": "bd2a67bfb0c6c03a0f06e5b76fe1c0b5326af11fb6a904bea90d2324ef5cf9bb"
+      },
+      {
+        "index": 3,
+        "kind": "optimized",
+        "label": "optimized-v2-r3",
+        "wallSeconds": 30.461315155029297,
+        "exitCode": 0,
+        "complete": true,
+        "failures": [],
+        "phases": [
+          {
+            "circuits": 128,
+            "nativeMachines": 256,
+            "cableBlocks": 512,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 0.857345875,
+            "p50MSPT": 0.8111,
+            "p95MSPT": 1.1383,
+            "p99MSPT": 1.3578,
+            "meanServerThreadCpuMS": 0.830078125,
+            "serverThreadAllocatedBytesPerTick": 579078.895,
+            "processedItems": 26944,
+            "poweredMachines": 128,
+            "transactionsPerTick": 512
+          },
+          {
+            "circuits": 512,
+            "nativeMachines": 1024,
+            "cableBlocks": 2048,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 1.8985628125,
+            "p50MSPT": 1.7669,
+            "p95MSPT": 2.518,
+            "p99MSPT": 2.8004,
+            "meanServerThreadCpuMS": 1.796875,
+            "serverThreadAllocatedBytesPerTick": 1500970.41,
+            "processedItems": 114544,
+            "poweredMachines": 512,
+            "transactionsPerTick": 512
+          },
+          {
+            "circuits": 1024,
+            "nativeMachines": 2048,
+            "cableBlocks": 4096,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 4.8590485625,
+            "p50MSPT": 4.5714,
+            "p95MSPT": 6.0054,
+            "p99MSPT": 7.1719,
+            "meanServerThreadCpuMS": 4.677734375,
+            "serverThreadAllocatedBytesPerTick": 4206163.24,
+            "processedItems": 207184,
+            "poweredMachines": 1024,
+            "transactionsPerTick": 512
+          }
+        ],
+        "reportSha256": "b72bc7ad195018fe19676c199ba92953225dcd48fbd6bd2d651657bdf88c4ccf",
+        "registryStateFingerprint": "628ff80827b8783f14285881455e20154760ac27bdab2bc6a8e4d5175a9a4ba6",
+        "cableShapeFingerprint": "bd2a67bfb0c6c03a0f06e5b76fe1c0b5326af11fb6a904bea90d2324ef5cf9bb"
+      },
+      {
+        "index": 4,
+        "kind": "baseline",
+        "label": "baseline-v2-r4",
+        "wallSeconds": 39.224292278289795,
+        "exitCode": 0,
+        "complete": true,
+        "failures": [],
+        "phases": [
+          {
+            "circuits": 128,
+            "nativeMachines": 256,
+            "cableBlocks": 512,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 1.47685625,
+            "p50MSPT": 1.3548,
+            "p95MSPT": 1.9688,
+            "p99MSPT": 2.1083,
+            "meanServerThreadCpuMS": 1.42578125,
+            "serverThreadAllocatedBytesPerTick": 2449243.105,
+            "processedItems": 26848,
+            "poweredMachines": 128,
+            "transactionsPerTick": 512
+          },
+          {
+            "circuits": 512,
+            "nativeMachines": 1024,
+            "cableBlocks": 2048,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 2.7198490625,
+            "p50MSPT": 2.515,
+            "p95MSPT": 3.616,
+            "p99MSPT": 4.0189,
+            "meanServerThreadCpuMS": 2.666015625,
+            "serverThreadAllocatedBytesPerTick": 3331433.22,
+            "processedItems": 114464,
+            "poweredMachines": 512,
+            "transactionsPerTick": 512
+          },
+          {
+            "circuits": 1024,
+            "nativeMachines": 2048,
+            "cableBlocks": 4096,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 5.815881625,
+            "p50MSPT": 5.5155,
+            "p95MSPT": 7.0458,
+            "p99MSPT": 7.8912,
+            "meanServerThreadCpuMS": 5.595703125,
+            "serverThreadAllocatedBytesPerTick": 6254110.39,
+            "processedItems": 206896,
+            "poweredMachines": 1024,
+            "transactionsPerTick": 512
+          }
+        ],
+        "reportSha256": "139fe53caaed49628ab527b356dd3ca8721e3c54a6e0423b8b1ff5f2c6b34fc2",
+        "registryStateFingerprint": "628ff80827b8783f14285881455e20154760ac27bdab2bc6a8e4d5175a9a4ba6",
+        "cableShapeFingerprint": "bd2a67bfb0c6c03a0f06e5b76fe1c0b5326af11fb6a904bea90d2324ef5cf9bb"
+      },
+      {
+        "index": 5,
+        "kind": "optimized",
+        "label": "optimized-v2-r5",
+        "wallSeconds": 30.215847730636597,
+        "exitCode": 0,
+        "complete": true,
+        "failures": [],
+        "phases": [
+          {
+            "circuits": 128,
+            "nativeMachines": 256,
+            "cableBlocks": 512,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 0.8563793125,
+            "p50MSPT": 0.8188,
+            "p95MSPT": 1.1091,
+            "p99MSPT": 1.2875,
+            "meanServerThreadCpuMS": 0.83984375,
+            "serverThreadAllocatedBytesPerTick": 578953.18,
+            "processedItems": 26912,
+            "poweredMachines": 128,
+            "transactionsPerTick": 512
+          },
+          {
+            "circuits": 512,
+            "nativeMachines": 1024,
+            "cableBlocks": 2048,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 1.934549125,
+            "p50MSPT": 1.7736,
+            "p95MSPT": 2.5987,
+            "p99MSPT": 2.936,
+            "meanServerThreadCpuMS": 1.89453125,
+            "serverThreadAllocatedBytesPerTick": 1479029.885,
+            "processedItems": 114544,
+            "poweredMachines": 512,
+            "transactionsPerTick": 512
+          },
+          {
+            "circuits": 1024,
+            "nativeMachines": 2048,
+            "cableBlocks": 4096,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 4.8146161875,
+            "p50MSPT": 4.5228,
+            "p95MSPT": 6.0051,
+            "p99MSPT": 6.6227,
+            "meanServerThreadCpuMS": 4.70703125,
+            "serverThreadAllocatedBytesPerTick": 4088973.65,
+            "processedItems": 206784,
+            "poweredMachines": 1024,
+            "transactionsPerTick": 512
+          }
+        ],
+        "reportSha256": "c5d8aa90a35678afd628104c6185fe05dc4752fdcd39aef36c9edb53e22cdf14",
+        "registryStateFingerprint": "628ff80827b8783f14285881455e20154760ac27bdab2bc6a8e4d5175a9a4ba6",
+        "cableShapeFingerprint": "bd2a67bfb0c6c03a0f06e5b76fe1c0b5326af11fb6a904bea90d2324ef5cf9bb"
+      },
+      {
+        "index": 6,
+        "kind": "baseline",
+        "label": "baseline-v2-r6",
+        "wallSeconds": 42.75858950614929,
+        "exitCode": 0,
+        "complete": true,
+        "failures": [],
+        "phases": [
+          {
+            "circuits": 128,
+            "nativeMachines": 256,
+            "cableBlocks": 512,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 1.49850175,
+            "p50MSPT": 1.3689,
+            "p95MSPT": 1.9908,
+            "p99MSPT": 2.197,
+            "meanServerThreadCpuMS": 1.46484375,
+            "serverThreadAllocatedBytesPerTick": 2449429.9,
+            "processedItems": 26880,
+            "poweredMachines": 128,
+            "transactionsPerTick": 512
+          },
+          {
+            "circuits": 512,
+            "nativeMachines": 1024,
+            "cableBlocks": 2048,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 2.867069125,
+            "p50MSPT": 2.6729,
+            "p95MSPT": 3.8188,
+            "p99MSPT": 4.7515,
+            "meanServerThreadCpuMS": 2.724609375,
+            "serverThreadAllocatedBytesPerTick": 3396591.695,
+            "processedItems": 114496,
+            "poweredMachines": 512,
+            "transactionsPerTick": 512
+          },
+          {
+            "circuits": 1024,
+            "nativeMachines": 2048,
+            "cableBlocks": 4096,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 6.731757875,
+            "p50MSPT": 6.2083,
+            "p95MSPT": 9.3475,
+            "p99MSPT": 12.0478,
+            "meanServerThreadCpuMS": 6.533203125,
+            "serverThreadAllocatedBytesPerTick": 6250301.89,
+            "processedItems": 206960,
+            "poweredMachines": 1024,
+            "transactionsPerTick": 512
+          }
+        ],
+        "reportSha256": "f99bc97995c399dda7a947ae0452eb76dae675e5afd9f1546d614a77d31d3261",
+        "registryStateFingerprint": "628ff80827b8783f14285881455e20154760ac27bdab2bc6a8e4d5175a9a4ba6",
+        "cableShapeFingerprint": "bd2a67bfb0c6c03a0f06e5b76fe1c0b5326af11fb6a904bea90d2324ef5cf9bb"
+      },
+      {
+        "index": 7,
+        "kind": "baseline",
+        "label": "baseline-v2-r7",
+        "wallSeconds": 41.38102912902832,
+        "exitCode": 0,
+        "complete": true,
+        "failures": [],
+        "phases": [
+          {
+            "circuits": 128,
+            "nativeMachines": 256,
+            "cableBlocks": 512,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 1.8980615625,
+            "p50MSPT": 1.9274,
+            "p95MSPT": 2.3429,
+            "p99MSPT": 3.2483,
+            "meanServerThreadCpuMS": 1.796875,
+            "serverThreadAllocatedBytesPerTick": 2449558.78,
+            "processedItems": 26896,
+            "poweredMachines": 128,
+            "transactionsPerTick": 512
+          },
+          {
+            "circuits": 512,
+            "nativeMachines": 1024,
+            "cableBlocks": 2048,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 2.664300875,
+            "p50MSPT": 2.491,
+            "p95MSPT": 3.5579,
+            "p99MSPT": 3.7259,
+            "meanServerThreadCpuMS": 2.568359375,
+            "serverThreadAllocatedBytesPerTick": 3378057.455,
+            "processedItems": 114400,
+            "poweredMachines": 512,
+            "transactionsPerTick": 512
+          },
+          {
+            "circuits": 1024,
+            "nativeMachines": 2048,
+            "cableBlocks": 4096,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 5.945499,
+            "p50MSPT": 5.5289,
+            "p95MSPT": 7.4553,
+            "p99MSPT": 9.3872,
+            "meanServerThreadCpuMS": 5.703125,
+            "serverThreadAllocatedBytesPerTick": 6344629.785,
+            "processedItems": 207264,
+            "poweredMachines": 1024,
+            "transactionsPerTick": 512
+          }
+        ],
+        "reportSha256": "27160e172ddb524c8e42ba2b9cf157d843b737474350500f3a1b50d3dae7be47",
+        "registryStateFingerprint": "628ff80827b8783f14285881455e20154760ac27bdab2bc6a8e4d5175a9a4ba6",
+        "cableShapeFingerprint": "bd2a67bfb0c6c03a0f06e5b76fe1c0b5326af11fb6a904bea90d2324ef5cf9bb"
+      },
+      {
+        "index": 8,
+        "kind": "optimized",
+        "label": "optimized-v2-r8",
+        "wallSeconds": 30.743550300598145,
+        "exitCode": 0,
+        "complete": true,
+        "failures": [],
+        "phases": [
+          {
+            "circuits": 128,
+            "nativeMachines": 256,
+            "cableBlocks": 512,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 0.857128625,
+            "p50MSPT": 0.8123,
+            "p95MSPT": 1.1469,
+            "p99MSPT": 1.3581,
+            "meanServerThreadCpuMS": 0.83984375,
+            "serverThreadAllocatedBytesPerTick": 579039.81,
+            "processedItems": 26992,
+            "poweredMachines": 128,
+            "transactionsPerTick": 512
+          },
+          {
+            "circuits": 512,
+            "nativeMachines": 1024,
+            "cableBlocks": 2048,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 1.897954,
+            "p50MSPT": 1.7705,
+            "p95MSPT": 2.5064,
+            "p99MSPT": 2.6655,
+            "meanServerThreadCpuMS": 1.875,
+            "serverThreadAllocatedBytesPerTick": 1510513.035,
+            "processedItems": 114832,
+            "poweredMachines": 512,
+            "transactionsPerTick": 512
+          },
+          {
+            "circuits": 1024,
+            "nativeMachines": 2048,
+            "cableBlocks": 4096,
+            "warmupTicks": 600,
+            "measuredTicks": 1600,
+            "meanMSPT": 4.929353375,
+            "p50MSPT": 4.6487,
+            "p95MSPT": 6.0028,
+            "p99MSPT": 6.5869,
+            "meanServerThreadCpuMS": 4.74609375,
+            "serverThreadAllocatedBytesPerTick": 4424192.535,
+            "processedItems": 207088,
+            "poweredMachines": 1024,
+            "transactionsPerTick": 512
+          }
+        ],
+        "reportSha256": "a7d7a99c36af2d4cade13d4861490cd02632eb64090e7c56ad3f8d8ad6389b38",
+        "registryStateFingerprint": "628ff80827b8783f14285881455e20154760ac27bdab2bc6a8e4d5175a9a4ba6",
+        "cableShapeFingerprint": "bd2a67bfb0c6c03a0f06e5b76fe1c0b5326af11fb6a904bea90d2324ef5cf9bb"
+      }
+    ],
+    "limits": [
+      "One workstation with ordinary OS/background activity; paired order and per-fork ranges are reported.",
+      "Synthetic automation load in an isolated IC2 server, not a measured FPS gain for the full modpack.",
+      "Shape/factory/type-cache changes do not alter recipe, voltage, loss or reactor arithmetic.",
+      "Exploratory invalid-codec and same-position-before-unregister runs are excluded from passing pressure statistics."
+    ]
+  },
+  "targetedRegression": {
+    "machines": {
+      "checks": 1361,
+      "failures": 0,
+      "artifactSha256": "ecc6a65356214665ab741524d60067b4839795494139f250551d45391a169bc2",
+      "releaseGameClassesByteIdentical": 1295,
+      "report": "alpha9-items-alpha9-ic2-all-machines-verification.json",
+      "sha256": "6c97b795d852ed4030eadfb20ec274821df2b0f5b463655bc93779b9c9420680",
+      "complete": true,
+      "registeredMachineTypes": 104,
+      "behaviorCases": 219,
+      "actualClientGuiEntryPoints": 98
+    },
+    "blockItemPlacement": {
+      "checks": 3527,
+      "failures": 0,
+      "artifactSha256": "ecc6a65356214665ab741524d60067b4839795494139f250551d45391a169bc2",
+      "releaseGameClassesByteIdentical": 1295,
+      "report": "alpha9-items-alpha9-ic2-all-items-verification.json",
+      "sha256": "462233f06978db8bc936d2c1e760add72957186c66d9f38c6da4509e06611891",
+      "complete": true,
+      "nativeSurvivalPlacements": 186,
+      "scope": "Placement-only subledger; aggregate item-use completion remains false by design. The alpha.8 508-item all-function ledger is historical evidence."
+    },
+    "cableMining": {
+      "checks": 696,
+      "failures": 0,
+      "artifactSha256": "ecc6a65356214665ab741524d60067b4839795494139f250551d45391a169bc2",
+      "releaseGameClassesByteIdentical": 1295,
+      "report": "alpha9-cables-alpha9-ic2-cable-verification.json",
+      "sha256": "62a48a8bae4e1e2860f4f8834f57f2d575c11cd24711c9f4c75e33bb009d0129",
+      "complete": true
+    },
+    "inventory": {
+      "checks": 239,
+      "failures": 0,
+      "artifactSha256": "ecc6a65356214665ab741524d60067b4839795494139f250551d45391a169bc2",
+      "releaseGameClassesByteIdentical": 1295,
+      "report": "alpha9-inventory-alpha9-ic2-review-inventory-probe.json",
+      "sha256": "7376651f54f5e2b90122e212c07df3c94c9e05c2064affd4c861bd100fe1ee95",
+      "complete": true
+    },
+    "itemModels": {
+      "checks": 578,
+      "failures": 0,
+      "artifactSha256": "ecc6a65356214665ab741524d60067b4839795494139f250551d45391a169bc2",
+      "releaseGameClassesByteIdentical": 1295,
+      "report": "alpha9-inventory-alpha9-ic2-item-model-states.json",
+      "sha256": "7983ed0a0b9935c445fb0c8a4480fa32ae625b6449fe692e8faa557dc5cd2324",
+      "complete": true
+    },
+    "coupledWorkflow": {
+      "checks": 66,
+      "failures": 0,
+      "artifactSha256": "ecc6a65356214665ab741524d60067b4839795494139f250551d45391a169bc2",
+      "releaseGameClassesByteIdentical": 1295,
+      "report": "alpha9-workflow-alpha9-ic2-coupled-workflow-verification.json",
+      "sha256": "ed97298a8b6b66c7309d8f3200c090b786626a71552039345dffb5042136831e",
+      "complete": true
+    }
+  },
+  "sameTickReplacementControl": {
+    "baseline": {
+      "checks": 1289,
+      "failures": 56,
+      "continuedEuCases": 28,
+      "complete": false,
+      "report": "baseline-same-tick-replacement.json",
+      "sha256": "e04f906665dd06bd7fe48ef33509941c1525d1ad330bdb1f101c7a008a1877ef"
+    },
+    "optimized": {
+      "checks": 1289,
+      "failures": 0,
+      "continuedEuCases": 28,
+      "complete": true,
+      "report": "optimized-same-tick-replacement.json",
+      "sha256": "d9c6ca70409a7488ac8ce28a9c82813b47565e24b293b3f8d6da181f83e7990a"
+    },
+    "sameFixtureBytes": true,
+    "fixtureClasses": 63,
+    "interpretation": "Alpha.8 has 56 expected immediate public-lookup failures after removal. Its later EU-continuation checks can recover. Alpha.9 passes both immediate lookup and actual EU continuation.",
+    "artifacts": {
+      "baseline": "c1197bff10014c4b3ea05527306858ebb2e113b97f1974d9af079f6a546ac1c3",
+      "optimized": "ecc6a65356214665ab741524d60067b4839795494139f250551d45391a169bc2"
+    }
+  },
+  "sustainedStability": {
+    "complete": true,
+    "failures": 0,
+    "includedInPairedStatistics": false,
+    "measuredTransactions": 51200000,
+    "transactionsIncludingWarmup": 51814400,
+    "exitCode": 0,
+    "processRealSecondsIncludingStartup": 265.9094021320343,
+    "circuits": 1024,
+    "nativeMachines": 2048,
+    "cableBlocks": 4096,
+    "warmupTicks": 1200,
+    "measuredTicks": 100000,
+    "meanMSPT": 2.489025804,
+    "p50MSPT": 2.3877,
+    "p95MSPT": 3.2089,
+    "p99MSPT": 3.6857,
+    "meanServerThreadCpuMS": 2.36,
+    "serverThreadAllocatedBytesPerTick": 1559864.6588,
+    "processedItems": 12111664,
+    "poweredMachines": 1024,
+    "transactionsPerTick": 512,
+    "phaseStartUtc": "2026-10-13T02:37:43.035986400Z",
+    "phaseEndUtc": "2026-10-13T02:41:54.174334700Z",
+    "measuredPhaseRealSeconds": 251.1383483,
+    "garbageCollections": 62,
+    "gcPauseMilliseconds": 253.8519,
+    "maximumGcPauseMilliseconds": 37.913,
+    "afterGcHeapSamples": 62,
+    "minimumAfterGcHeapBytes": 353173096,
+    "maximumAfterGcHeapBytes": 367953264,
+    "firstAfterGcHeapBytes": 353173096,
+    "lastAfterGcHeapBytes": 363248928,
+    "interpretation": "Only events inside the sustained measured stress phase; finite GC heap samples do not prove absence of all memory leaks.",
+    "report": "optimized-sustained-report.json",
+    "sha256": "03ff0957e817b3485958e6891b13b1309247c675a73996d5d941f40e3ba0ac95",
+    "jfrSha256": "4bfd1e710b550a58359ca896f22b5c31d08495ea4737d031940b33c6e82fc7f9"
+  },
+  "releaseBoundary": {
+    "releaseSha256": "8ebdd1b87a02ee10476c2480dcb320c92b2c65b16fe8b3656c65565f249fdf82",
+    "sourcesSha256": "82308d215f1f45dcd58ac068c525d932dcba581bd3472d4f2207917c67ddba60",
+    "mainClassesByteIdenticalToMeasuredCandidate": 1295,
+    "currentCompiledFixtureClassesExcluded": 63,
+    "unchangedAssetDataEntriesFromAlpha8": 5786,
+    "sourceFilesByteIdenticalToReviewedTree": 876,
+    "cleanSourceBuild": {
+      "artifactSha256": "b0d18e95d2ec6c3fac639cb6fbc52fcc168a50180b1110047606d17c80b5bebc",
+      "classes": 1295,
+      "debugLocalNameDifferences": 17,
+      "executableClassDifferences": 0,
+      "nonClassEntriesByteIdentical": 5792,
+      "sourceExportFiles": 7326,
+      "buildCacheUsed": false
+    },
+    "packaging": {
+      "original_ic2_sha256": "5d06ca9146041043132a72bad9b5612e260e77a84a2f3773a3da9b0167ea1d3d",
+      "release_sha256": "8ebdd1b87a02ee10476c2480dcb320c92b2c65b16fe8b3656c65565f249fdf82",
+      "original_sprites_preserved": 1537,
+      "protected_game_files_unchanged": 4864,
+      "release_contains_no_verification_classes": true,
+      "legacy_model_loaders_removed": true
+    }
+  },
+  "runtimeLogClassification": [
+    {
+      "run": "items-alpha9",
+      "logSha256": "ce47a0d18942327cb4fcd32b76c11a69d0c3cf935854ce5b4f59d7f882028dab",
+      "fatalOrIc2StackLines": 0,
+      "classifiedOfflineAccountRealmErrors": 2
+    },
+    {
+      "run": "cables-alpha9",
+      "logSha256": "36ea68f33488efd0f4d1de733fd0ee5257c750a0ccdf632de9cd9a4a14ba010b",
+      "fatalOrIc2StackLines": 0,
+      "classifiedOfflineAccountRealmErrors": 2
+    },
+    {
+      "run": "inventory-alpha9",
+      "logSha256": "3b1a238b5b95c48bb94e5f9f79fce4787369cad0623435b7bc81d37985c651d5",
+      "fatalOrIc2StackLines": 0,
+      "classifiedOfflineAccountRealmErrors": 2
+    },
+    {
+      "run": "workflow-alpha9",
+      "logSha256": "293841e22d5328914537efd8c88fd52630641e2db08df4c46db49dfd971365ba",
+      "fatalOrIc2StackLines": 0,
+      "classifiedOfflineAccountRealmErrors": 2
+    }
+  ],
+  "historicalEvidence": {
+    "alpha8FullReview": "validation/full-review-audit.json",
+    "alpha8ItemLedger": "validation/item-usage-ledger.json",
+    "note": "The previous 508-item ledger and two-hour/two-client run remain alpha.8 evidence. Alpha.9 reruns the recorded targeted suites and finite native performance workload."
+  }
+}

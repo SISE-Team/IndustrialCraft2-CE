@@ -7,7 +7,7 @@ IndustrialCraft2-CE is a community port of IndustrialCraft 2 for modern Minecraf
 | Minecraft | 26.1.2 |
 | NeoForge | 26.1.2.114 |
 | Java | 25 |
-| IndustrialCraft2-CE | 2.9.40-alpha.8 |
+| IndustrialCraft2-CE | 2.9.40-alpha.9 |
 | JEI used for development and verification | 29.43.0.107 |
 
 The port covers machines, EU/HU/KU networks, nuclear reactors, crops, fluids, upgrades, storage, and UU processing. Modern item and fluid rendering, crafting-book placement, machine menus, persistence, dedicated-server startup, and multiplayer recipe synchronization have been migrated.
@@ -24,16 +24,24 @@ On Windows, use `gradlew.bat build`. The Gradle wrapper resolves NeoForge and th
 
 Artifacts are written to `build/libs/`:
 
-- `IndustrialCraft2-CE-26.1.2-2.9.40-alpha.8.jar`
-- `IndustrialCraft2-CE-26.1.2-2.9.40-alpha.8-sources.jar`
+- `IndustrialCraft2-CE-26.1.2-2.9.40-alpha.9.jar`
+- `IndustrialCraft2-CE-26.1.2-2.9.40-alpha.9-sources.jar`
 
 Install the normal JAR in the `mods` directory of a Minecraft 26.1.2 / NeoForge instance. JEI is optional for normal play and provides machine recipe browsing when installed.
 
 ## Verification
 
+Alpha.9 uses Java 25 constructor prologues, cached entity factories, class-dependent network type caching, sparse journals for the five bundled storage boxes, and reusable cable geometry. It also fixes immediate energy-tile lookup after same-tick cable replacement. Voltage, loss and reactor arithmetic retain their existing execution model.
+
+Eight independent JVM forks compare alpha.8 and alpha.9 on the same Java 25 runtime, in paired ABBA / BAAB order. At the largest native workload—2,048 machines, 4,096 cables and 512 committed inventory transactions per tick—the median mean tick cost falls from **6.152 to 4.894 ms (20.4%)**, and P99 falls from **10.718 to 6.849 ms (36.1%)**. Allocation for a 126-slot box transaction falls from 7,952 to 408 bytes. See [PERFORMANCE.md](PERFORMANCE.md) and [the performance audit](validation/performance-audit.json) for all metrics, fork variability, methodology and reproduction.
+
+The comparison passes 38,400 measured stress ticks. A separate sustained run passes 100,000 measured ticks and 51.2 million measured transactions at the largest workload, collects actual processing output and records positive EU in all 1,024 macerators at completion; the measured phase lasts 251.1 real seconds with sprinting enabled. This is separate from the paired statistics and from the earlier two-hour run. Alpha.9 also passes 7,756 targeted regression checks covering all 104 machine types, 219 behavior cases, 98 client GUI entry points, 186 survival placements, cable mining, models, inventory transactions, a coal-powered workflow and immediate cable replacement. Its 1,295 release classes match the tested executable code byte-for-byte; an independent clean source build has zero executable differences. These are finite isolated IC2 workloads, not a complete-modpack FPS measurement.
+
+### Historical alpha.8 full review
+
 Alpha.8 restores native equipment assets, damage, rarity and repair components; moves vanilla block/item tags to current paths; repairs sided and transactional inventory/fluid transfers; fixes crop seeds, potato growth, ground and biome changes; and restores scanner results, cable callbacks, coffee and radiation callbacks, and stateful item/wall rendering. Component transfers respect one-item coil/motor/conductor slots and continue past full slots.
 
-The final artifact passed 14 fresh runtime reports with **10,157 checks and zero failures**. Its 1,293 main classes match the tested artifact byte-for-byte. Current coverage includes:
+The alpha.8 artifact passed 14 fresh runtime reports with **10,157 checks and zero failures**. Its 1,293 main classes match its tested artifact byte-for-byte. Alpha.8 recorded coverage includes:
 
 | Scope | Passed coverage |
 | --- | --- |
@@ -46,9 +54,9 @@ The final artifact passed 14 fresh runtime reports with **10,157 checks and zero
 | Cable mining | 14 variants, 17,408 shape states, 60 native mining scenarios |
 | Coupled power/processing | Finite coal supply through generation, cables, storage, processing and crafting; all 14 ordinary cable variants deliver EU |
 
-The [item usage ledger](validation/item-usage-ledger.json) distinguishes native client packets, server menu operations, capability transactions, processing and intentional rejection. Spawning an item or receiving a recipe output alone does not count as use. [Current machine results](validation/full-review-machine-results.json), [the full review](validation/full-review-audit.json), [source inventory](validation/full-review-source-inventory.json) and [component-slot controls](validation/component-slot-limit-audit.json) preserve the measured coverage and artifact provenance.
+The [alpha.8 item usage ledger](validation/item-usage-ledger.json) distinguishes native client packets, server menu operations, capability transactions, processing and intentional rejection. Spawning an item or receiving a recipe output alone does not count as use. [Alpha.8 machine results](validation/full-review-machine-results.json), [the full review](validation/full-review-audit.json), [source inventory](validation/full-review-source-inventory.json) and [component-slot controls](validation/component-slot-limit-audit.json) preserve that measured coverage and artifact provenance.
 
-Two actual clients also completed a fresh continuous two-hour run on the final executable code: 7,200.039 real seconds, 144,001 world ticks, 278,932 checks including the retained finite matrices, approximately 20.00 TPS, and zero failures. Both clients were connected and alive in every recorded sample. The same normally closed world then passed a normal-JAR reload for all 104 machine types and 16 persisted-state checks, using a fresh run marker to exclude historical command-storage results.
+Two actual clients also completed a fresh continuous two-hour run on the final alpha.8 executable code: 7,200.039 real seconds, 144,001 world ticks, 278,932 checks including the retained finite matrices, approximately 20.00 TPS, and zero failures. Both clients were connected and alive in every recorded sample. The same normally closed world then passed a normal-JAR reload for all 104 machine types and 16 persisted-state checks, using a fresh run marker to exclude historical command-storage results.
 
 All 23 localization catalogs passed key-retention and format checks; Java formatted 26,563 entries without errors. English, simplified Chinese and traditional Chinese catalogs are complete. A remaining traditional-Chinese English toolbox tooltip and the corresponding simplified-Chinese mistranslation were corrected separately, without changing the tested executable code.
 

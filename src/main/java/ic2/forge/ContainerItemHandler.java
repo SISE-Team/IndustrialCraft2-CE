@@ -12,6 +12,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import ic2.core.block.storage.box.*;
 
 /**
  * Exposes a vanilla {@link Container} (IC2 machines implement Container and
@@ -20,7 +22,10 @@ import java.util.List;
  * Replaces the old IItemHandler capability wrappers.
  */
 final class ContainerItemHandler implements ResourceHandler<ItemResource> {
+   private static final Set<Class<?>> independentStorageTypes = Set.of(TileEntityWoodenStorageBox.class,
+      TileEntityIronStorageBox.class, TileEntityBronzeStorageBox.class, TileEntitySteelStorageBox.class, TileEntityIridiumStorageBox.class);
    private final Container container;
+   private final SlotJournal[] slotJournals;
    @Nullable
    private final Direction side;
 
@@ -45,6 +50,30 @@ final class ContainerItemHandler implements ResourceHandler<ItemResource> {
    ContainerItemHandler(Container container, @Nullable Direction side) {
       this.container = container;
       this.side = side;
+      this.slotJournals = independentStorageTypes.contains(container.getClass()) ? new SlotJournal[container.getContainerSize()] : null;
+   }
+
+   private void updateSnapshot(int index, TransactionContext transaction) {
+      if (this.slotJournals == null) {
+         // Unknown/custom containers may have cross-slot side effects.
+         this.journal.updateSnapshots(transaction);
+      } else {
+         SlotJournal slot = this.slotJournals[index];
+         if (slot == null) this.slotJournals[index] = slot = new SlotJournal(index);
+         slot.updateSnapshots(transaction);
+      }
+   }
+
+   private final class SlotJournal extends SnapshotJournal<ItemStack> {
+      private final int index;
+
+      SlotJournal(int index) { this.index = index; }
+
+      @Override
+      protected ItemStack createSnapshot() { return container.getItem(this.index).copy(); }
+
+      @Override
+      protected void revertToSnapshot(ItemStack snapshot) { container.setItem(this.index, snapshot); }
    }
 
    private boolean accessible(int slot) {
@@ -110,7 +139,7 @@ final class ContainerItemHandler implements ResourceHandler<ItemResource> {
       if (toInsert <= 0 || !this.canInsert(index, resource.toStack())) {
          return 0;
       }
-      this.journal.updateSnapshots(transaction);
+      this.updateSnapshot(index, transaction);
       if (current.isEmpty()) {
          ItemStack inserted = resource.toStack();
          inserted.setCount(toInsert);
@@ -135,7 +164,7 @@ final class ContainerItemHandler implements ResourceHandler<ItemResource> {
       if (toExtract <= 0 || !this.canExtract(index, current)) {
          return 0;
       }
-      this.journal.updateSnapshots(transaction);
+      this.updateSnapshot(index, transaction);
       current.setCount(current.getCount() - toExtract);
       if (current.getCount() <= 0) {
          this.container.setItem(index, ItemStack.EMPTY);

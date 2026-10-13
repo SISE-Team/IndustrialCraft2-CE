@@ -9,6 +9,10 @@ import ic2.core.block.comp.Obscuration;
 import ic2.core.crop.Ic2CropType;
 import ic2.core.crop.TileEntityCrop;
 import ic2.core.util.Util;
+import java.lang.invoke.MethodHandle;
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.MethodType;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -57,9 +61,19 @@ public final class Ic2TileEntityBlock extends Block implements EntityBlock, IWre
    public static final Property<Direction> verticalFacingProperty = EnumProperty.create("facing", Direction.class, java.util.List.copyOf(Util.verticalFacings));
    public static final BooleanProperty CROSSING_BASE = BooleanProperty.create("crossing_base");
    private static final Map<Integer, IntegerProperty> ageProperties = new HashMap<>();
-   private int cropMaxAge = -1;
+   private int cropMaxAge;
    private Ic2CropType cropType;
-   private static final ThreadLocal<Ic2TileEntityBlock.InitData> pendingInitData = new ThreadLocal<>();
+   private static final ClassValue<MethodHandle> entityFactories = new ClassValue<>() {
+      @Override
+      protected MethodHandle computeValue(Class<?> type) {
+         try {
+            return MethodHandles.publicLookup().findConstructor(type, MethodType.methodType(void.class, BlockPos.class, BlockState.class))
+               .asType(MethodType.methodType(Ic2TileEntity.class, BlockPos.class, BlockState.class));
+         } catch (ReflectiveOperationException error) {
+            throw new RuntimeException(error);
+         }
+      }
+   };
    private final Class<? extends Ic2TileEntity> teClass;
    private final boolean canActive;
    private final Ic2TileEntityBlock.DefaultDrop defaultDrop;
@@ -78,11 +92,7 @@ public final class Ic2TileEntityBlock extends Block implements EntityBlock, IWre
       Set<Direction> supportedFacings,
       boolean allowWrenchRotating
    ) {
-      Ic2TileEntityBlock.InitData data = new Ic2TileEntityBlock.InitData(supportedFacings, canActive, teClass, null, -1);
-      pendingInitData.set(data);
-      Ic2TileEntityBlock ret = new Ic2TileEntityBlock(settings, teClass, canActive, data, defaultDrop, allowWrenchRotating);
-      pendingInitData.remove();
-      return ret;
+      return new Ic2TileEntityBlock(settings, teClass, canActive, supportedFacings, defaultDrop, allowWrenchRotating, null, -1);
    }
 
    public static Ic2TileEntityBlock create(
@@ -94,46 +104,32 @@ public final class Ic2TileEntityBlock extends Block implements EntityBlock, IWre
       boolean allowWrenchRotating,
       Ic2CropType cropType
    ) {
-      Ic2TileEntityBlock.InitData data = new Ic2TileEntityBlock.InitData(supportedFacings, canActive, teClass, cropType, cropType.getMaxAge());
-      pendingInitData.set(data);
-      Ic2TileEntityBlock ret = new Ic2TileEntityBlock(settings, teClass, canActive, data, defaultDrop, allowWrenchRotating, cropType);
-      pendingInitData.remove();
-      return ret;
+      return new Ic2TileEntityBlock(settings, teClass, canActive, supportedFacings, defaultDrop, allowWrenchRotating, cropType, cropType.getMaxAge());
    }
 
    private Ic2TileEntityBlock(
       Properties settings,
       Class<? extends Ic2TileEntity> teClass,
       boolean canActive,
-      Ic2TileEntityBlock.InitData data,
+      Set<Direction> supportedFacings,
       Ic2TileEntityBlock.DefaultDrop defaultDrop,
       boolean allowWrenchRotating,
-      Ic2CropType cropType
+      Ic2CropType cropType,
+      int maxAge
    ) {
-      this(settings, teClass, canActive, data, defaultDrop, allowWrenchRotating);
-      if (teClass.equals(TileEntityCrop.class)) {
-         this.cropMaxAge = cropType.getMaxAge();
-         this.cropType = cropType;
-      }
-   }
-
-   private Ic2TileEntityBlock(
-      Properties settings,
-      Class<? extends Ic2TileEntity> teClass,
-      boolean canActive,
-      Ic2TileEntityBlock.InitData data,
-      Ic2TileEntityBlock.DefaultDrop defaultDrop,
-      boolean allowWrenchRotating
-   ) {
+      // Java 25 constructor prologue: Block invokes our state-definition callback.
+      this.supportedFacings = supportedFacings;
+      this.canActive = canActive;
+      this.cropType = cropType;
+      this.cropMaxAge = maxAge;
       super(settings);
 
-      assert data == pendingInitData.get();
-
       this.teClass = teClass;
-      this.canActive = canActive;
       this.defaultDrop = defaultDrop;
       this.allowWrenchRotating = allowWrenchRotating;
-      this.supportedFacings = data.supportedFacings;
+      // Retain the original persistent crop API for exact TileEntityCrop registrations.
+      this.cropType = teClass == TileEntityCrop.class ? cropType : null;
+      this.cropMaxAge = teClass == TileEntityCrop.class ? maxAge : -1;
       this.facingProperty = this.supportedFacings.size() > 1 ? (Property<Direction>)this.stateDefinition.getProperty("facing") : null;
       this.dummyTe = Suppliers.memoize(() -> this.createBlockEntity(BlockPos.ZERO, this.defaultBlockState()));
    }
@@ -198,10 +194,11 @@ public final class Ic2TileEntityBlock extends Block implements EntityBlock, IWre
    }
 
    public Ic2TileEntity createBlockEntity(BlockPos pos, BlockState state) {
+      MethodHandle factory = entityFactories.get(this.teClass);
       try {
-         return this.teClass.getConstructor(BlockPos.class, BlockState.class).newInstance(pos, state);
-      } catch (ReflectiveOperationException var4) {
-         throw new RuntimeException(var4);
+         return (Ic2TileEntity)factory.invokeExact(pos, state);
+      } catch (Throwable error) {
+         throw new RuntimeException(new InvocationTargetException(error));
       }
    }
 
@@ -210,8 +207,7 @@ public final class Ic2TileEntityBlock extends Block implements EntityBlock, IWre
    }
 
    protected void createBlockStateDefinition(Builder<Block, BlockState> builder) {
-      Ic2TileEntityBlock.InitData data = pendingInitData.get();
-      Set<Direction> facings = data.supportedFacings;
+      Set<Direction> facings = this.supportedFacings;
       if (facings.size() > 1) {
          if (facings.equals(Util.allFacings)) {
             builder.add(new Property[]{anyFacingProperty});
@@ -224,15 +220,15 @@ public final class Ic2TileEntityBlock extends Block implements EntityBlock, IWre
          }
       }
 
-      if (data.canActive) {
+      if (this.canActive) {
          builder.add(new Property[]{ACTIVE});
       }
 
-      if (data.cropType != null) {
-         if (data.cropType == Ic2CropType.none) {
+      if (this.cropType != null) {
+         if (this.cropType == Ic2CropType.none) {
             builder.add(new Property[]{CROSSING_BASE});
          } else {
-            builder.add(new Property[]{this.getAgeProperty(data.maxAge)});
+            builder.add(new Property[]{this.getAgeProperty(this.cropMaxAge)});
          }
       }
    }
@@ -459,6 +455,4 @@ public final class Ic2TileEntityBlock extends Block implements EntityBlock, IWre
       AdvMachine;
    }
 
-   private record InitData(Set<Direction> supportedFacings, boolean canActive, Class<?> teClass, Ic2CropType cropType, int maxAge) {
-   }
 }

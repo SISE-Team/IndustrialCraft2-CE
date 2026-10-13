@@ -20,6 +20,7 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,8 +46,18 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.core.registries.BuiltInRegistries;
 
 public final class DataEncoder {
-   private static final Map<Class<?>, DataEncoder.EncodedType> classToTypeCache = Collections.synchronizedMap(new IdentityHashMap<>());
-   private static final Map<Class<?>, INetworkCustomEncoder> classToAddonType = Collections.synchronizedMap(new IdentityHashMap<>());
+   private static final ClassValue<DataEncoder.EncodedType> classToTypeCache = new ClassValue<>() {
+      @Override
+      protected DataEncoder.EncodedType computeValue(Class<?> cls) {
+         INetworkCustomEncoder encoder = classToAddonType.get(cls);
+         if (encoder != null) return encoder.isThreadSafe() ? EncodedType.Addon : EncodedType.UnSafeAddon;
+         for (EncodedType type : EncodedType.types) {
+            if (type.cls != null && type.cls.isAssignableFrom(cls)) return type;
+         }
+         throw new IllegalStateException("unmatched " + cls);
+      }
+   };
+   private static final Map<Class<?>, INetworkCustomEncoder> classToAddonType = new ConcurrentHashMap<>();
 
    public static void encode(GrowingBuffer os, Object o) throws IOException {
       try {
@@ -721,26 +732,7 @@ public final class DataEncoder {
          if (ret != null) {
             return ret;
          } else {
-            ret = classToTypeCache.get(cls);
-            if (ret != null) {
-               return ret;
-            } else {
-               INetworkCustomEncoder ince = classToAddonType.get(cls);
-               if (ince != null) {
-                  ret = ince.isThreadSafe() ? DataEncoder.EncodedType.Addon : DataEncoder.EncodedType.UnSafeAddon;
-                  classToTypeCache.put(cls, ret);
-                  return ret;
-               } else {
-                  for (DataEncoder.EncodedType type : DataEncoder.EncodedType.types) {
-                     if (type.cls != null && type.cls.isAssignableFrom(cls)) {
-                        classToTypeCache.put(cls, type);
-                        return type;
-                     }
-                  }
-
-                  throw new IllegalStateException("unmatched " + cls);
-               }
-            }
+            return classToTypeCache.get(cls);
          }
       }
    }

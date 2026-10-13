@@ -19,6 +19,7 @@ import it.unimi.dsi.fastutil.ints.Int2ReferenceMap;
 import it.unimi.dsi.fastutil.ints.Int2ReferenceOpenHashMap;
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.function.Function;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
@@ -61,6 +62,7 @@ public abstract class AbstractCableBlock extends PipeBlock implements ChunkLoadA
    private static final Map<CableType, Int2ReferenceMap<AbstractCableBlock>> types = new EnumMap<>(CableType.class);
    private static boolean pendingHasColor;
    private boolean hasColor;
+   private boolean pipeShapesReady;
    final CableType type;
    final int insulation;
 
@@ -112,6 +114,7 @@ public abstract class AbstractCableBlock extends PipeBlock implements ChunkLoadA
    protected AbstractCableBlock(Properties settings, CableType type, int insulation) {
       // PipeBlock takes the full width in model pixels (16 per block).
       super(type.getThickness(insulation) * 16.0F, settings);
+      this.pipeShapesReady = true;
       if (insulation > type.maxInsulation) {
          throw new IllegalArgumentException("invalid insulation " + insulation + " for type " + type);
       } else {
@@ -128,6 +131,22 @@ public abstract class AbstractCableBlock extends PipeBlock implements ChunkLoadA
             types.computeIfAbsent(type, t -> new Int2ReferenceOpenHashMap(t.maxInsulation + 1)).put(insulation, this);
          }
       }
+   }
+
+   @Override
+   protected Function<BlockState, VoxelShape> getShapeForEachState(Function<BlockState, VoxelShape> calculator) {
+      if (this.pipeShapesReady) return super.getShapeForEachState(calculator);
+      // PipeBlock's constructor calculator depends only on these six flags.
+      // Keep the native per-state lookup, but build each immutable shape once.
+      VoxelShape[] byConnections = new VoxelShape[64];
+      return super.getShapeForEachState(state -> {
+         int mask = (state.getValue(DOWN) ? 1 : 0) | (state.getValue(UP) ? 2 : 0)
+            | (state.getValue(NORTH) ? 4 : 0) | (state.getValue(SOUTH) ? 8 : 0)
+            | (state.getValue(WEST) ? 16 : 0) | (state.getValue(EAST) ? 32 : 0);
+         VoxelShape shape = byConnections[mask];
+         if (shape == null) byConnections[mask] = shape = calculator.apply(state);
+         return shape;
+      });
    }
 
    protected void createBlockStateDefinition(Builder<Block, BlockState> builder) {

@@ -52,7 +52,7 @@ public class EnergyNetLocal {
 
    IEnergyTile getIoTile(BlockPos pos) {
       Tile tile = this.getTile(pos);
-      if (tile != null) {
+      if (tile != null && !tile.isDisabled()) {
          return tile.getMainTile();
       } else {
          IEnergyTile ret = null;
@@ -69,7 +69,7 @@ public class EnergyNetLocal {
 
    IEnergyTile getSubTile(BlockPos pos) {
       Tile tile = this.getTile(pos);
-      if (tile != null) {
+      if (tile != null && !tile.isDisabled()) {
          return tile.getSubTileAt(pos);
       } else {
          IEnergyTile ret = null;
