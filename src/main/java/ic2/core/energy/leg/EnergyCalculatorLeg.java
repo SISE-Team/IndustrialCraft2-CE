@@ -543,10 +543,11 @@ public class EnergyCalculatorLeg implements IEnergyCalculator {
 
    private static void applyCableEffects(Collection<EnergyPath> eventPaths, Level world) {
       if (MainConfig.get().get("misc/enableEnetCableMeltdown").getBool()) {
-         Set<Tile> cablesToRemove = Collections.newSetFromMap(new IdentityHashMap<>());
-         Set<Tile> cablesToStrip = Collections.newSetFromMap(new IdentityHashMap<>());
-         Map<Tile, MutableDouble> sinksToExplode = new IdentityHashMap<>();
-         Map<LivingEntity, MutableDouble> shockEnergyMap = new IdentityHashMap<>();
+         // Most paths have no actual cable, sink or entity effect. Allocate only on demand.
+         Set<Tile> cablesToRemove = null;
+         Set<Tile> cablesToStrip = null;
+         Map<Tile, MutableDouble> sinksToExplode = null;
+         Map<LivingEntity, MutableDouble> shockEnergyMap = null;
 
          for (EnergyPath path : eventPaths) {
             double amount = path.maxPacketConducted;
@@ -558,8 +559,10 @@ public class EnergyCalculatorLeg implements IEnergyCalculator {
                   Tile tile = node.getTile();
                   IEnergyConductor conductor = (IEnergyConductor)tile.getMainTile();
                   if (amount > conductor.getConductorBreakdownEnergy()) {
+                     if (cablesToRemove == null) cablesToRemove = Collections.newSetFromMap(new IdentityHashMap<>());
                      cablesToRemove.add(tile);
                   } else if (amount > conductor.getInsulationBreakdownEnergy()) {
+                     if (cablesToStrip == null) cablesToStrip = Collections.newSetFromMap(new IdentityHashMap<>());
                      cablesToStrip.add(tile);
                   }
                }
@@ -609,6 +612,7 @@ public class EnergyCalculatorLeg implements IEnergyCalculator {
                   }
 
                   for (Entry<LivingEntity, MutableDouble> entry : localShockEnergyMap.entrySet()) {
+                     if (shockEnergyMap == null) shockEnergyMap = new IdentityHashMap<>();
                      MutableDouble prev = shockEnergyMap.get(entry.getKey());
                      if (prev == null) {
                         shockEnergyMap.put(entry.getKey(), entry.getValue());
@@ -622,6 +626,7 @@ public class EnergyCalculatorLeg implements IEnergyCalculator {
             Tile sinkTile = path.target.getTile();
             IEnergySink sink = (IEnergySink)sinkTile.getMainTile();
             if (conductorOverload || amount > EnergyNet.instance.getPowerFromTier(sink.getSinkTier())) {
+               if (sinksToExplode == null) sinksToExplode = new IdentityHashMap<>();
                MutableDouble prev = sinksToExplode.get(sinkTile);
                if (prev == null) {
                   sinksToExplode.put(sinkTile, new MutableDouble(amount));
@@ -631,21 +636,21 @@ public class EnergyCalculatorLeg implements IEnergyCalculator {
             }
          }
 
-         cablesToStrip.removeAll(cablesToRemove);
+         if (cablesToStrip != null && cablesToRemove != null) cablesToStrip.removeAll(cablesToRemove);
 
-         for (Tile tile : cablesToRemove) {
+         if (cablesToRemove != null) for (Tile tile : cablesToRemove) {
             ((IEnergyConductor)tile.getMainTile()).removeConductor();
          }
 
-         for (Tile tile : cablesToStrip) {
+         if (cablesToStrip != null) for (Tile tile : cablesToStrip) {
             ((IEnergyConductor)tile.getMainTile()).removeInsulation();
          }
 
-         for (Entry<Tile, MutableDouble> entryx : sinksToExplode.entrySet()) {
+         if (sinksToExplode != null) for (Entry<Tile, MutableDouble> entryx : sinksToExplode.entrySet()) {
             explodeTile(world, entryx.getKey(), entryx.getValue().doubleValue());
          }
 
-         for (Entry<LivingEntity, MutableDouble> entryx : shockEnergyMap.entrySet()) {
+         if (shockEnergyMap != null) for (Entry<LivingEntity, MutableDouble> entryx : shockEnergyMap.entrySet()) {
             LivingEntity target = entryx.getKey();
             int damage = (int)Math.ceil(entryx.getValue().doubleValue() / 64.0);
             if (target.isAlive() && damage > 0) {

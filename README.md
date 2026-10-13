@@ -7,7 +7,7 @@ IndustrialCraft2-CE is a community port of IndustrialCraft 2 for modern Minecraf
 | Minecraft | 26.1.2 |
 | NeoForge | 26.1.2.114 |
 | Java | 25 |
-| IndustrialCraft2-CE | 2.9.40-alpha.9 |
+| IndustrialCraft2-CE | 2.9.40-alpha.10 |
 | JEI used for development and verification | 29.43.0.107 |
 
 The port covers machines, EU/HU/KU networks, nuclear reactors, crops, fluids, upgrades, storage, and UU processing. Modern item and fluid rendering, crafting-book placement, machine menus, persistence, dedicated-server startup, and multiplayer recipe synchronization have been migrated.
@@ -24,12 +24,20 @@ On Windows, use `gradlew.bat build`. The Gradle wrapper resolves NeoForge and th
 
 Artifacts are written to `build/libs/`:
 
-- `IndustrialCraft2-CE-26.1.2-2.9.40-alpha.9.jar`
-- `IndustrialCraft2-CE-26.1.2-2.9.40-alpha.9-sources.jar`
+- `IndustrialCraft2-CE-26.1.2-2.9.40-alpha.10.jar`
+- `IndustrialCraft2-CE-26.1.2-2.9.40-alpha.10-sources.jar`
 
 Install the normal JAR in the `mods` directory of a Minecraft 26.1.2 / NeoForge instance. JEI is optional for normal play and provides machine recipe browsing when installed.
 
 ## Verification
+
+Alpha.10 indexes safe deferred recipe candidates, reuses parsed configuration paths and allocates cable-effect collections only when needed. It also fixes three recipe-replacement paths that could loop indefinitely. Native tag reloads, custom matching order, concurrent reads and voltage/shock behavior have dedicated regressions.
+
+Eight independent Java 25 forks compare alpha.9 with alpha.10 using 2,000 warmup and 5,000 measured ticks per tier. With 2,048 machines, 4,096 cables and 512 committed inventory transactions per tick, median mean tick cost falls by **26.4%**, P99 by **26.0%**, and server-thread allocation by **28.4%**. All 120,000 paired measured ticks and a separate 100,000-tick sustained run pass. See [the alpha.10 report](PERFORMANCE_ALPHA10.md) and [audit](validation/performance-alpha10-audit.json) for absolute values, per-fork ranges, artifact hashes and reproduction.
+
+The final alpha.10 code passes 2,728 targeted checks, including all 104 machine types, 219 behavior cases, 98 actual GUIs, 289 applicable processing recipes, the coal-powered workflow, all 14 ordinary cable variants and 33 energy-effect scenarios. The optional external silver-ore recipe has no ingredient in the isolated mod set and is explicitly unavailable. A clean source build has zero executable class differences; verification fixtures are excluded from the release. These finite native workloads do not measure full-modpack FPS. Earlier all-item and two-hour multiplayer results remain historical evidence below.
+
+### Historical alpha.9 performance review
 
 Alpha.9 uses Java 25 constructor prologues, cached entity factories, class-dependent network type caching, sparse journals for the five bundled storage boxes, and reusable cable geometry. It also fixes immediate energy-tile lookup after same-tick cable replacement. Voltage, loss and reactor arithmetic retain their existing execution model.
 

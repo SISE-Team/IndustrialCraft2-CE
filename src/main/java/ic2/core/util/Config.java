@@ -36,6 +36,17 @@ public class Config {
    private final Map<String, Config> sections = new LinkedHashMap<>();
    private final Map<String, Config.Value> values = new LinkedHashMap<>();
    private static final String lineSeparator = System.getProperty("line.separator");
+   private volatile ParsedPath lastParsedPath;
+
+   private record ParsedPath(String key, List<String> parts) {}
+
+   private List<String> parsePath(String key) {
+      ParsedPath cached = this.lastParsedPath;
+      if (cached != null && cached.key().equals(key)) return cached.parts();
+      List<String> parts = List.copyOf(split(key, '/'));
+      this.lastParsedPath = new ParsedPath(key, parts);
+      return parts;
+   }
 
    public Config(String name) {
       this(null, name, "");
@@ -79,7 +90,7 @@ public class Config {
    }
 
    public Config.Value get(String key) {
-      List<String> parts = split(key, '/');
+      List<String> parts = this.parsePath(key);
       Config config = this.getSub(parts, parts.size() - 1, false);
       return config == null ? null : config.values.get(parts.get(parts.size() - 1));
    }

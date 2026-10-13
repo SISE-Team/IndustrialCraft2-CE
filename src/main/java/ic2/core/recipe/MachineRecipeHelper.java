@@ -7,6 +7,7 @@ import ic2.api.recipe.MachineRecipeResult;
 import ic2.core.IC2;
 import ic2.core.recipe.input.RecipeInputIngredient;
 import ic2.core.recipe.input.RecipeInputItemStack;
+import ic2.core.recipe.v2.LazyRecipeInput;
 import ic2.core.util.LogCategory;
 import ic2.core.util.StackUtil;
 import java.util.ArrayList;
@@ -18,6 +19,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import net.minecraft.core.HolderSet;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
@@ -25,6 +28,13 @@ public abstract class MachineRecipeHelper<RI, RO> implements IMachineRecipeManag
    protected final Map<RI, MachineRecipe<RI, RO>> recipes = new HashMap<>();
    private final Map<Item, List<MachineRecipe<RI, RO>>> recipeCache = new IdentityHashMap<>();
    private final List<MachineRecipe<RI, RO>> uncacheableRecipes = new ArrayList<>();
+   private final Map<Item, List<MachineRecipe<RI, RO>>> deferredCandidates = new IdentityHashMap<>();
+   private static volatile Object tagEpoch = new Object();
+   private Object candidateTagEpoch = tagEpoch;
+
+   public static void invalidateTagCandidates() {
+      tagEpoch = new Object();
+   }
 
    protected abstract IRecipeInput getForInput(RI var1);
 
@@ -116,7 +126,7 @@ public abstract class MachineRecipeHelper<RI, RO> implements IMachineRecipeManag
             }
          }
 
-         for (MachineRecipe<RI, RO> recipex : this.uncacheableRecipes) {
+         for (MachineRecipe<RI, RO> recipex : this.getDeferredCandidates(input)) {
             if (this.getForRecipe(recipex).matches(input)) {
                return recipex;
             }
@@ -126,7 +136,40 @@ public abstract class MachineRecipeHelper<RI, RO> implements IMachineRecipeManag
       }
    }
 
-   protected void addToCache(MachineRecipe<RI, RO> recipe) {
+   private synchronized List<MachineRecipe<RI, RO>> getDeferredCandidates(ItemStack input) {
+      Object currentTagEpoch = tagEpoch;
+      if (this.candidateTagEpoch != currentTagEpoch) {
+         this.deferredCandidates.clear();
+         this.candidateTagEpoch = currentTagEpoch;
+      }
+      Item item = input.getItem();
+      List<MachineRecipe<RI, RO>> candidates = this.deferredCandidates.get(item);
+      if (candidates == null) {
+         candidates = new ArrayList<>();
+         for (MachineRecipe<RI, RO> recipe : this.uncacheableRecipes) {
+            IRecipeInput recipeInput = this.getForRecipe(recipe);
+            if (recipeInput instanceof LazyRecipeInput lazy) recipeInput = lazy.resolvedInput();
+            // Only a resolved vanilla Ingredient is known to depend solely on item identity.
+            // Keep custom, component-sensitive and unresolved inputs in their original order.
+            if (recipeInput == null || recipeInput.getClass() != RecipeInputIngredient.class
+               || !hasVanillaItemMembership(recipeInput.getIngredient()) || recipeInput.matches(input)) {
+               candidates.add(recipe);
+            }
+         }
+         this.deferredCandidates.put(item, candidates);
+      }
+      return candidates;
+   }
+
+   private static boolean hasVanillaItemMembership(Ingredient ingredient) {
+      if (ingredient.isCustom()) return false;
+      Class<?> values = ingredient.getValues().getClass();
+      // Custom holder sets may change independently of a vanilla tag reload.
+      return values == HolderSet.Direct.class || values == HolderSet.Named.class;
+   }
+
+   protected synchronized void addToCache(MachineRecipe<RI, RO> recipe) {
+      this.deferredCandidates.clear();
       Collection<Item> items = this.getItemsFromRecipe(recipe.getInput());
       if (items != null) {
          for (Item item : items) {
@@ -149,7 +192,8 @@ public abstract class MachineRecipeHelper<RI, RO> implements IMachineRecipeManag
       }
    }
 
-   protected void removeCachedRecipes(RI input) {
+   protected synchronized void removeCachedRecipes(RI input) {
+      this.deferredCandidates.clear();
       Collection<Item> items = this.getItemsFromRecipe(input);
       if (items != null) {
          for (Item item : items) {

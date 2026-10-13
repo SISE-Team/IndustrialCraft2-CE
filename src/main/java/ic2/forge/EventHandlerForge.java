@@ -46,6 +46,11 @@ public final class EventHandlerForge {
    public EventHandlerForge() {}
 
    @SubscribeEvent
+   public void onTagsUpdated(net.neoforged.neoforge.event.TagsUpdatedEvent event) {
+      ic2.core.recipe.MachineRecipeHelper.invalidateTagCandidates();
+   }
+
+   @SubscribeEvent
    public void syncMachineRecipes(net.neoforged.neoforge.event.OnDatapackSyncEvent event) {
       event.sendRecipes(net.minecraft.world.item.crafting.RecipeType.CRAFTING, net.minecraft.world.item.crafting.RecipeType.SMELTING);
       event.sendRecipes(net.minecraft.core.registries.BuiltInRegistries.RECIPE_TYPE.entrySet().stream()

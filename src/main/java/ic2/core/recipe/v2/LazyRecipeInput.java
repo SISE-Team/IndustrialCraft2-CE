@@ -30,6 +30,11 @@ public final class LazyRecipeInput implements IRecipeInput {
       this.placementIngredient = placementIngredient;
    }
 
+   /** Returns an already parsed input without forcing deferred registry access. */
+   public IRecipeInput resolvedInput() {
+      return this.delegate;
+   }
+
    /** Forces (and returns) the parsed delegate. */
    public IRecipeInput unwrap() {
       if (this.delegate == null) {

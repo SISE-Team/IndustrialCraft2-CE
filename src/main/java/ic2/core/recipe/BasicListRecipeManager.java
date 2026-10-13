@@ -54,8 +54,8 @@ public class BasicListRecipeManager extends MachineRecipeHelper<IRecipeInput, Ob
             }
 
             while (true) {
-               this.recipes.remove(input);
-               this.removeCachedRecipes(input);
+               this.recipes.remove(recipe.getInput());
+               this.removeCachedRecipes(recipe.getInput());
                recipe = this.getRecipe(is);
                if (recipe == null) {
                   break;
