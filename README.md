@@ -67,6 +67,10 @@ The verification artifact is destructive test tooling for disposable instances. 
 
 ## Credits and licensing
 
-Original IndustrialCraft authors and their notices remain credited. Viking602 is credited for the IndustrialCraft2-CE work; distribution filenames, build coordinates and code identifiers use the project name. Original material licenses remain in `LICENSE`, `NOTICE` and `licenses/`; independently written code does not change the permissions governing reused materials.
+IndustrialCraft2-CE is an independent reimplementation of IndustrialCraft gameplay, rewritten with the original IC2 source code used as a reference for behavior and compatibility.
+
+The original IC2 textures, visual assets and sound effects used in this project remain the property of the official IndustrialCraft 2 (IC2) project and their respective original copyright holders. IndustrialCraft2-CE does not claim ownership of these materials. Original copyright notices and author credits are retained.
+
+Viking602 is credited for the IndustrialCraft2-CE work; distribution filenames, build coordinates and code identifiers use the project name. Original licensing terms remain in [LICENSE](LICENSE), [NOTICE](NOTICE) and [licenses/](licenses/); the rewrite does not grant additional rights to original IC2 code or reused materials.
 
 Report reproducible issues through [GitHub Issues](https://github.com/SISE-Team/IndustrialCraft2-CE/issues), including game, loader and mod versions, relevant logs and reproduction steps. [Earlier release documentation](docs/history/README_ALPHA10.md) preserves the alpha.8–alpha.10 validation history.
