@@ -1,0 +1,8 @@
+{
+  "original_ic2_sha256": "5d06ca9146041043132a72bad9b5612e260e77a84a2f3773a3da9b0167ea1d3d",
+  "release_sha256": "f4fd450a0a7345625554bcea233d751e73aac8e08fb26a4ac6651f3d84185f05",
+  "original_sprites_preserved": 1537,
+  "protected_game_files_unchanged": 4864,
+  "release_contains_no_verification_classes": true,
+  "legacy_model_loaders_removed": true
+}

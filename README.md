@@ -7,14 +7,14 @@
 >
 > **本项目为社区粉丝作品，并非 IC2 官方项目或官方正式延续。**
 
-IndustrialCraft2-CE implements IndustrialCraft gameplay for Minecraft 26.1.2, NeoForge 26.1.2.114 and Java 25. Version 1.0.0 starts the project's own version sequence and carries forward the independently rewritten runtime and crop scheduling improvements from the previous alpha.12 build. Existing IC2 materials, registry IDs and save fields are retained.
+IndustrialCraft2-CE implements IndustrialCraft gameplay for Minecraft 26.1.2, NeoForge 26.1.2.114 and Java 25. Version 1.0.1 fixes localized fluid names in wearable tooltips and HUDs. The project's own version sequence began at 1.0.0, carrying forward the independently rewritten runtime and crop scheduling improvements from alpha.12. Existing IC2 materials, registry IDs and save fields are retained.
 
 | Component | Version |
 | --- | --- |
 | Minecraft | 26.1.2 |
 | NeoForge | 26.1.2.114 |
 | Java | 25 |
-| IndustrialCraft2-CE | 1.0.0 |
+| IndustrialCraft2-CE | 1.0.1 |
 | Optional JEI | 29.43.0.107 |
 
 Java packages use `ic2ce`, and game integration uses `ic2ce.neoforge`. Addons must recompile against `ic2ce.api`. The mod ID and resource namespace remain `ic2`, preserving existing items, recipes, models and saved block entities.
@@ -45,18 +45,20 @@ On Windows, use `gradlew.bat build`. The wrapper resolves the pinned NeoForge an
 
 The distribution is written to `build/libs/`:
 
-- `IndustrialCraft2-CE-26.1.2-1.0.0.jar`
-- `IndustrialCraft2-CE-26.1.2-1.0.0-sources.jar`
+- `IndustrialCraft2-CE-26.1.2-1.0.1.jar`
+- `IndustrialCraft2-CE-26.1.2-1.0.1-sources.jar`
 
 Place the normal JAR in a compatible instance's `mods` directory. JEI is optional and adds machine recipe browsing. Craftable IC2 recipes support the vanilla recipe book; machine-only processing uses the actual machine inventories.
 
-The mod metadata and manifest report `1.0.0`; `26.1.2` in the filename identifies the compatible Minecraft version. Both release archives include the full copyright and license texts under `META-INF/licenses/`.
+The mod metadata and manifest report `1.0.1`; `26.1.2` in the filename identifies the compatible Minecraft version. Both release archives include the full copyright and license texts under `META-INF/licenses/`.
 
-The [1.0.0 archive audit](validation/release-1.0.0-notices.json) verifies the MIT text, IC2 material notices, original author credits and version metadata in both archives, with exact code and resource parity against alpha.12. Historical gameplay and performance reports below retain their original artifact attribution.
+The [1.0.1 archive audit](validation/fluid-tooltip-1.0.1-notices.json) verifies the MIT text, IC2 material notices, original author credits and version metadata in both archives. The [1.0.0 audit](validation/release-1.0.0-notices.json) retains its exact code and resource parity against alpha.12. Historical gameplay and performance reports below retain their original artifact attribution.
 
 ## Acceptance and performance
 
-The [source inventory](validation/rewrite-source-inventory.json) audits 912 runtime Java files: 756 independently written implementations and 156 reviewed declarations. Declarations include public signatures, markers, data constants and registration membership; they are explicitly excluded from implementation counts. No retained business implementation remains. [Declaration review](validation/rewrite-declaration-review.json) fingerprints every remaining declaration, and [ownership](validation/rewrite-ownership.json) records implementation and naming changes separately.
+Version 1.0.1 passes [187 real-client fluid display checks](validation/fluid-tooltip-1.0.1-client.json), including 24 empty, partial and full wearable cases, actual item tooltips and HUDs, and English-to-Chinese-to-English resource reloads. The biogas jetpack displays `Biogas` / `沼气`; the construction foam backpack uses its localized fluid name. All 1,283 production classes match the tested verification artifact; only the wearable display implementation changes from 1.0.0.
+
+The alpha.12 [source inventory](validation/rewrite-source-inventory.json) audits 912 runtime Java files: 756 independently written implementations and 156 reviewed declarations. Declarations include public signatures, markers, data constants and registration membership; they are explicitly excluded from implementation counts. No retained business implementation remains. [Declaration review](validation/rewrite-declaration-review.json) fingerprints every remaining declaration, and [ownership](validation/rewrite-ownership.json) records implementation and naming changes separately.
 
 The alpha.11 whole-runtime acceptance passed all 23 native report gates: 508 actually used items, 186 survival placements, 366 vanilla recipe-book placements, 104 machine types, 223 behavior cases, 98 actual GUI entry points, JEI navigation and 289 available processing recipes. The external silver-ore recipe is unavailable in the isolated mod set and is excluded from that recipe count. Cable, painter, tool, lifecycle and coupled workflow suites passed. A normal JAR reload verified all 104 machines and 16 persisted states. [Acceptance evidence](validation/rewrite-acceptance.json) binds each gate to the exact artifact.
 
@@ -71,7 +73,7 @@ For isolated verification:
 ```sh
 ./gradlew build migrationVerificationJar
 python tools/check_release_branding.py
-python tools/audit_release_notices.py --output validation/release-1.0.0-notices.json
+python tools/audit_release_notices.py --output validation/fluid-tooltip-1.0.1-notices.json
 python tools/audit_localization.py --output validation/localization
 ```
 

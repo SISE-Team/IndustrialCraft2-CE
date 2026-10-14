@@ -104,6 +104,10 @@ public final class ClientUiVerification {
   @SubscribeEvent
   public void clientTick(ClientTickEvent.Post event) {
     var minecraft = Minecraft.getInstance();
+    if (Boolean.getBoolean("ic2.verifyFluidTooltip")) {
+      FluidTooltipVerification.tick(minecraft);
+      return;
+    }
     if (Boolean.getBoolean("ic2.reviewShutdown")) WorkbenchNavigationProbe.Client.tick();
     if (Boolean.getBoolean("ic2.reviewShutdown")
         && !widgetContractsDone

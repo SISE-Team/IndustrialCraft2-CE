@@ -42,6 +42,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--verification", action="store_true")
     parser.add_argument("--gui-cycle", action="store_true")
+    parser.add_argument("--fluid-tooltips", action="store_true")
     parser.add_argument("--all-machines", action="store_true")
     parser.add_argument("--inventory-probe-only", action="store_true")
     parser.add_argument("--all-items", action="store_true")
@@ -94,6 +95,10 @@ if __name__ == "__main__":
     command = [str(java), "-Xms1G", "-Xmx6G"]
     if args.verification:
         command += ["-Dic2.verifyMigration=true", "-Dic2.comp.energy.debugload=true"]
+    if args.fluid_tooltips:
+        if not args.verification:
+            parser.error("--fluid-tooltips requires --verification")
+        command += ["-Dic2.verifyFluidTooltip=true", "-Dfml.earlyWindowControl=false"]
     if args.all_machines:
         command += ["-Dic2.verifyAllMachines=true"]
     if args.crop_audience:
@@ -143,4 +148,9 @@ if __name__ == "__main__":
         command += ["--quickPlayMultiplayer", args.server]
     elif args.world:
         command += ["--quickPlaySingleplayer", args.world]
-    raise SystemExit(subprocess.call(command, cwd=game))
+    startup = None
+    if args.fluid_tooltips:
+        startup = subprocess.STARTUPINFO()
+        startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+        startup.wShowWindow = subprocess.SW_HIDE
+    raise SystemExit(subprocess.call(command, cwd=game, startupinfo=startup))

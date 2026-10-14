@@ -1,6 +1,6 @@
 # Provenance and verification
 
-The current version is 1.0.0 and targets Minecraft 26.1.2 / NeoForge 26.1.2.114 on Java 25. It starts the project's own version sequence from the previous alpha.12 build. Runtime behavior is independently rewritten under `ic2ce` Java packages with IC2 code as a reference, while reusing IC2 materials and preserving `ic2` registry/resource IDs and persistence fields. Addons must recompile against `ic2ce.api`.
+The current version is 1.0.1 and targets Minecraft 26.1.2 / NeoForge 26.1.2.114 on Java 25. The project's own version sequence began at 1.0.0 from the previous alpha.12 build. Runtime behavior is independently rewritten under `ic2ce` Java packages with IC2 code as a reference, while reusing IC2 materials and preserving `ic2` registry/resource IDs and persistence fields. Addons must recompile against `ic2ce.api`.
 
 ## Reference material
 
@@ -34,6 +34,8 @@ Native fixtures live in `verification/` and compile only into the separate verif
 Final performance uses balanced fresh JVM forks, identical Java 25 heap/GC/CPU settings, instruction-parity checks and raw per-fork ranges. Server tick/allocation measurements and connected short-run operation are reported separately; earlier two-hour records retain their original artifact attribution. [Earlier porting and regression evidence](docs/history/PORTING_ALPHA7.md), [alpha.10 performance](PERFORMANCE_ALPHA10.md) and the versioned validation records retain their original limits.
 
 ## Alpha.12 crop follow-up
+
+Version 1.0.1 fixes wearable fluid labels through native translatable components, preserving exact quantities and existing tank behavior. [Real-client evidence](validation/fluid-tooltip-1.0.1-client.json) binds the production classes to the actual tested fixture artifact and records English-to-Chinese-to-English reloads. Reproduce with `tools/launch_validation.py --verification --fluid-tooltips --game-directory PATH` in a disposable instance containing the verification JAR and a `New World` test save. The fixture remains excluded from both normal archives.
 
 Alpha.12 adds world-owned due phases and dirty queues for unattended farms, while actual player presence restores native crop tickers. Native chunk/border/entity-loaded/freeze rules remain admission gates. `ChunkWatchEvent.Sent` sends full crop fields after the real client receives a chunk. Pressure fixtures preserve exact physical plot and growth callback counts. The finite real-client transition run covers arrival, phenotype/care synchronization, observed cadence, freeze, logout and block removal. Alpha.11 all-item/machine evidence keeps its original artifact attribution; alpha.12 adds targeted crop/native/workflow/clean-source acceptance.
 

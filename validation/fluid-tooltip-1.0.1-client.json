@@ -1,0 +1,388 @@
+{
+  "complete": true,
+  "samples": [
+    {
+      "tooltip": [
+        "CF Backpack",
+        "Empty",
+        "",
+        "When on Chest:"
+      ],
+      "item": "ic2:cf_pack",
+      "hud": [
+        "Empty"
+      ],
+      "amountMb": 0,
+      "locale": "en_us"
+    },
+    {
+      "tooltip": [
+        "CF Backpack",
+        "< Construction Foam, 1 mB >",
+        "",
+        "When on Chest:"
+      ],
+      "item": "ic2:cf_pack",
+      "hud": [
+        "< Construction Foam, 1 mB >"
+      ],
+      "amountMb": 1,
+      "locale": "en_us"
+    },
+    {
+      "tooltip": [
+        "CF Backpack",
+        "< Construction Foam, 40000 mB >",
+        "",
+        "When on Chest:"
+      ],
+      "item": "ic2:cf_pack",
+      "hud": [
+        "< Construction Foam, 40000 mB >"
+      ],
+      "amountMb": 40000,
+      "locale": "en_us"
+    },
+    {
+      "tooltip": [
+        "CF Backpack",
+        "< Construction Foam, 80000 mB >",
+        "",
+        "When on Chest:"
+      ],
+      "item": "ic2:cf_pack",
+      "hud": [
+        "< Construction Foam, 80000 mB >"
+      ],
+      "amountMb": 80000,
+      "locale": "en_us"
+    },
+    {
+      "tooltip": [
+        "Jetpack",
+        "Empty",
+        "",
+        "When on Chest:"
+      ],
+      "item": "ic2:jetpack",
+      "hud": [
+        "Empty"
+      ],
+      "amountMb": 0,
+      "locale": "en_us"
+    },
+    {
+      "tooltip": [
+        "Jetpack",
+        "< Biogas, 1 mB >",
+        "",
+        "When on Chest:"
+      ],
+      "item": "ic2:jetpack",
+      "hud": [
+        "< Biogas, 1 mB >"
+      ],
+      "amountMb": 1,
+      "locale": "en_us"
+    },
+    {
+      "tooltip": [
+        "Jetpack",
+        "< Biogas, 15000 mB >",
+        "",
+        "When on Chest:"
+      ],
+      "item": "ic2:jetpack",
+      "hud": [
+        "< Biogas, 15000 mB >"
+      ],
+      "amountMb": 15000,
+      "locale": "en_us"
+    },
+    {
+      "tooltip": [
+        "Jetpack",
+        "< Biogas, 30000 mB >",
+        "",
+        "When on Chest:"
+      ],
+      "item": "ic2:jetpack",
+      "hud": [
+        "< Biogas, 30000 mB >"
+      ],
+      "amountMb": 30000,
+      "locale": "en_us"
+    },
+    {
+      "tooltip": [
+        "建筑泡沫背包",
+        "空",
+        "",
+        "穿在身上时："
+      ],
+      "item": "ic2:cf_pack",
+      "hud": [
+        "空"
+      ],
+      "amountMb": 0,
+      "locale": "zh_cn"
+    },
+    {
+      "tooltip": [
+        "建筑泡沫背包",
+        "< 建筑泡沫, 1 mB >",
+        "",
+        "穿在身上时："
+      ],
+      "item": "ic2:cf_pack",
+      "hud": [
+        "< 建筑泡沫, 1 mB >"
+      ],
+      "amountMb": 1,
+      "locale": "zh_cn"
+    },
+    {
+      "tooltip": [
+        "建筑泡沫背包",
+        "< 建筑泡沫, 40000 mB >",
+        "",
+        "穿在身上时："
+      ],
+      "item": "ic2:cf_pack",
+      "hud": [
+        "< 建筑泡沫, 40000 mB >"
+      ],
+      "amountMb": 40000,
+      "locale": "zh_cn"
+    },
+    {
+      "tooltip": [
+        "建筑泡沫背包",
+        "< 建筑泡沫, 80000 mB >",
+        "",
+        "穿在身上时："
+      ],
+      "item": "ic2:cf_pack",
+      "hud": [
+        "< 建筑泡沫, 80000 mB >"
+      ],
+      "amountMb": 80000,
+      "locale": "zh_cn"
+    },
+    {
+      "tooltip": [
+        "喷气背包",
+        "空",
+        "",
+        "穿在身上时："
+      ],
+      "item": "ic2:jetpack",
+      "hud": [
+        "空"
+      ],
+      "amountMb": 0,
+      "locale": "zh_cn"
+    },
+    {
+      "tooltip": [
+        "喷气背包",
+        "< 沼气, 1 mB >",
+        "",
+        "穿在身上时："
+      ],
+      "item": "ic2:jetpack",
+      "hud": [
+        "< 沼气, 1 mB >"
+      ],
+      "amountMb": 1,
+      "locale": "zh_cn"
+    },
+    {
+      "tooltip": [
+        "喷气背包",
+        "< 沼气, 15000 mB >",
+        "",
+        "穿在身上时："
+      ],
+      "item": "ic2:jetpack",
+      "hud": [
+        "< 沼气, 15000 mB >"
+      ],
+      "amountMb": 15000,
+      "locale": "zh_cn"
+    },
+    {
+      "tooltip": [
+        "喷气背包",
+        "< 沼气, 30000 mB >",
+        "",
+        "穿在身上时："
+      ],
+      "item": "ic2:jetpack",
+      "hud": [
+        "< 沼气, 30000 mB >"
+      ],
+      "amountMb": 30000,
+      "locale": "zh_cn"
+    },
+    {
+      "tooltip": [
+        "CF Backpack",
+        "Empty",
+        "",
+        "When on Chest:"
+      ],
+      "item": "ic2:cf_pack",
+      "hud": [
+        "Empty"
+      ],
+      "amountMb": 0,
+      "locale": "en_us"
+    },
+    {
+      "tooltip": [
+        "CF Backpack",
+        "< Construction Foam, 1 mB >",
+        "",
+        "When on Chest:"
+      ],
+      "item": "ic2:cf_pack",
+      "hud": [
+        "< Construction Foam, 1 mB >"
+      ],
+      "amountMb": 1,
+      "locale": "en_us"
+    },
+    {
+      "tooltip": [
+        "CF Backpack",
+        "< Construction Foam, 40000 mB >",
+        "",
+        "When on Chest:"
+      ],
+      "item": "ic2:cf_pack",
+      "hud": [
+        "< Construction Foam, 40000 mB >"
+      ],
+      "amountMb": 40000,
+      "locale": "en_us"
+    },
+    {
+      "tooltip": [
+        "CF Backpack",
+        "< Construction Foam, 80000 mB >",
+        "",
+        "When on Chest:"
+      ],
+      "item": "ic2:cf_pack",
+      "hud": [
+        "< Construction Foam, 80000 mB >"
+      ],
+      "amountMb": 80000,
+      "locale": "en_us"
+    },
+    {
+      "tooltip": [
+        "Jetpack",
+        "Empty",
+        "",
+        "When on Chest:"
+      ],
+      "item": "ic2:jetpack",
+      "hud": [
+        "Empty"
+      ],
+      "amountMb": 0,
+      "locale": "en_us"
+    },
+    {
+      "tooltip": [
+        "Jetpack",
+        "< Biogas, 1 mB >",
+        "",
+        "When on Chest:"
+      ],
+      "item": "ic2:jetpack",
+      "hud": [
+        "< Biogas, 1 mB >"
+      ],
+      "amountMb": 1,
+      "locale": "en_us"
+    },
+    {
+      "tooltip": [
+        "Jetpack",
+        "< Biogas, 15000 mB >",
+        "",
+        "When on Chest:"
+      ],
+      "item": "ic2:jetpack",
+      "hud": [
+        "< Biogas, 15000 mB >"
+      ],
+      "amountMb": 15000,
+      "locale": "en_us"
+    },
+    {
+      "tooltip": [
+        "Jetpack",
+        "< Biogas, 30000 mB >",
+        "",
+        "When on Chest:"
+      ],
+      "item": "ic2:jetpack",
+      "hud": [
+        "< Biogas, 30000 mB >"
+      ],
+      "amountMb": 30000,
+      "locale": "en_us"
+    }
+  ],
+  "checks": 187,
+  "failures": [],
+  "locales": [
+    "en_us",
+    "zh_cn",
+    "en_us"
+  ],
+  "disposableWorldOpened": true,
+  "project": "IndustrialCraft2-CE",
+  "version": "1.0.1",
+  "artifacts": {
+    "normal": {
+      "file": "IndustrialCraft2-CE-26.1.2-1.0.1.jar",
+      "sha256": "f4fd450a0a7345625554bcea233d751e73aac8e08fb26a4ac6651f3d84185f05"
+    },
+    "sources": {
+      "file": "IndustrialCraft2-CE-26.1.2-1.0.1-sources.jar",
+      "sha256": "16b0a8ee9af53ac046ac5c4f9e45e53723560667d62675d21a399e78792f5d1e"
+    },
+    "verification": {
+      "file": "IndustrialCraft2-CE-26.1.2-1.0.1-verification.jar",
+      "sha256": "553aab5f54bdabc546f6b4368990b3cd90dd3e9ba0bcde98bc68e2fd3e80cdd9"
+    }
+  },
+  "productionClassesMatchVerification": 1283,
+  "classScope": {
+    "checkedClasses": 1283,
+    "debugOnlyDifferences": [
+      "ic2ce/neoforge/processing/fluid/LegacyCellCanner$1.class"
+    ],
+    "executableDifferences": [
+      "ic2ce/neoforge/item/armor/WearableFluidReservoir.class"
+    ]
+  },
+  "changedProductionSources": [
+    "ic2ce/neoforge/item/armor/WearableFluidReservoir.java"
+  ],
+  "unchangedResourceEntries": 5786,
+  "verificationOnlyResourceDifference": [
+    "data/forge/tags/fluid/steam.json"
+  ],
+  "priorArtifact": {
+    "file": "IndustrialCraft2-CE-26.1.2-1.0.0.jar",
+    "sha256": "827ac99e9fd4659dc82dda420c54611ab866a0abc08020fa94089188b194d72b"
+  },
+  "productionSourceEntries": 912,
+  "method": "Real native client in a disposable integrated world; actual ItemStack tooltips and HUDs for two wearable fluid items, with en_us -> zh_cn -> en_us resource reloads. Exact production class parity binds the fixture JAR to the normal JAR. ASM compares every class, including synthetics, with SKIP_DEBUG; only the wearable reservoir has executable changes. The verification-only steam integration tag is explicitly excluded from resource parity and remains empty in the normal JAR."
+}

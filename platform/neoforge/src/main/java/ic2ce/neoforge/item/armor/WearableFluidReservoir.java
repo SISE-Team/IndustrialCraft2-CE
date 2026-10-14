@@ -4,9 +4,7 @@ package ic2ce.neoforge.item.armor;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.item.IItemHudInfo;
 import ic2ce.core.fluid.StandardFluidItem;
-import ic2ce.neoforge.client.text.LocalizedText;
 import java.util.List;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -64,7 +62,7 @@ public abstract class WearableFluidReservoir extends UtilityGarment
       TooltipDisplay display,
       java.util.function.Consumer<Component> output,
       TooltipFlag flags) {
-    output.accept(Component.literal(description(stack)));
+    output.accept(description(stack));
   }
 
   @Override
@@ -84,18 +82,18 @@ public abstract class WearableFluidReservoir extends UtilityGarment
 
   @Override
   public List<String> getHudInfo(ItemStack stack, boolean advanced) {
-    return List.of(description(stack));
+    return List.of(description(stack).getString());
   }
 
-  private static String description(ItemStack stack) {
+  private static Component description(ItemStack stack) {
     var fluid = Ic2FluidStack.get(stack);
     return fluid.isEmpty()
-        ? LocalizedText.translate("ic2.item.FluidContainer.Empty")
-        : "< "
-            + BuiltInRegistries.FLUID.getKey(fluid.getFluid())
-            + ", "
-            + fluid.getAmountMb()
-            + " mB >";
+        ? Component.translatable("ic2.item.FluidContainer.Empty")
+        : Component.literal("< ")
+            .append(fluid.getFluid().getFluidType().getDescription())
+            .append(", " + fluid.getAmountMb() + " ")
+            .append(Component.translatable("ic2.generic.text.mb"))
+            .append(" >");
   }
 
   public boolean isValidRepairItem(ItemStack first, ItemStack second) {

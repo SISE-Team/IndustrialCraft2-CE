@@ -1,0 +1,58 @@
+{
+  "project": "IndustrialCraft2-CE",
+  "version": "1.0.1",
+  "artifacts": {
+    "normal": {
+      "file": "IndustrialCraft2-CE-26.1.2-1.0.1.jar",
+      "sha256": "f4fd450a0a7345625554bcea233d751e73aac8e08fb26a4ac6651f3d84185f05",
+      "licenseEntries": {
+        "META-INF/licenses/Apache-2.0.txt": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+        "META-INF/licenses/LICENSE": "aaa9c4629b6d86d0b933572f47e6418f88b8591b076cfc611709ddbd9940bb39",
+        "META-INF/licenses/NOTICE": "f5e11c7e474cbee0bc12d3a05c36a83508b9bd9b2ebab38811a99949d6974880"
+      },
+      "manifestVersion": "1.0.1",
+      "noticesMatchRepository": true,
+      "projectCodeLicense": "MIT",
+      "originalIc2MaterialLicense": "All rights reserved",
+      "modMetadataVersion": "1.0.1"
+    },
+    "sources": {
+      "file": "IndustrialCraft2-CE-26.1.2-1.0.1-sources.jar",
+      "sha256": "16b0a8ee9af53ac046ac5c4f9e45e53723560667d62675d21a399e78792f5d1e",
+      "licenseEntries": {
+        "META-INF/licenses/Apache-2.0.txt": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+        "META-INF/licenses/LICENSE": "aaa9c4629b6d86d0b933572f47e6418f88b8591b076cfc611709ddbd9940bb39",
+        "META-INF/licenses/NOTICE": "f5e11c7e474cbee0bc12d3a05c36a83508b9bd9b2ebab38811a99949d6974880"
+      },
+      "manifestVersion": "1.0.1",
+      "noticesMatchRepository": true,
+      "projectCodeLicense": "MIT",
+      "originalIc2MaterialLicense": "All rights reserved"
+    }
+  },
+  "originalAuthorCredits": [
+    "Alblaka",
+    "Player",
+    "RichardG",
+    "Thunderdark",
+    "GregoriusT",
+    "alexthesax",
+    "Drashian",
+    "Elementalist",
+    "Feanturi",
+    "Lurch1985",
+    "SirusKing",
+    "tahu44",
+    "Aroma1997",
+    "estebes",
+    "Chocohead"
+  ],
+  "identicalReleaseAndSourceResourceEntries": 5786,
+  "ic2Media": {
+    "reference": "industrialcraft-2-2.9.40+ex119-1.19.2-forge.jar",
+    "referenceSha256": "5d06ca9146041043132a72bad9b5612e260e77a84a2f3773a3da9b0167ea1d3d",
+    "unchangedTexturesAndMetadata": 1537,
+    "unchangedSoundEffects": 59
+  },
+  "complete": true
+}

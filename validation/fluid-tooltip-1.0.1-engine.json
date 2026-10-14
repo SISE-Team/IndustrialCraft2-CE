@@ -1,0 +1,9 @@
+{
+  "complete": true,
+  "checks": 1506897,
+  "failures": 0,
+  "runtime": "25.0.2+10-LTS",
+  "project": "IndustrialCraft2-CE",
+  "version": "1.0.1",
+  "normalArtifactSha256": "f4fd450a0a7345625554bcea233d751e73aac8e08fb26a4ac6651f3d84185f05"
+}

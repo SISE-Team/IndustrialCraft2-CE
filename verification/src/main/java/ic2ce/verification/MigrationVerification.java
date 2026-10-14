@@ -104,6 +104,7 @@ public final class MigrationVerification {
 
   @SubscribeEvent
   public void started(ServerStartedEvent event) {
+    if (Boolean.getBoolean("ic2.verifyFluidTooltip")) return;
     level = event.getServer().overworld();
     guard("crafting recipes", () -> recipes(event.getServer()));
     guard("fluid containers", this::fluids);
