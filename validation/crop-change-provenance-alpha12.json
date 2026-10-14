@@ -1,0 +1,27 @@
+{
+  "complete": true,
+  "baselineVersion": "alpha.11",
+  "baselineSha256": "07b4bfca99dc6e57c6c2292bdc17c2d6ad25e16c03beb6093965233ae2d83c2c",
+  "candidateVersion": "alpha.12",
+  "candidateSha256": "fa6b2c89e13bd70474fa15d5527125ef1c21ee542ee11bb9d20a8e21edd8ab85",
+  "unchangedProductionClassEntries": 1269,
+  "changedProductionClassEntries": [
+    "ic2ce/core/event/TickHandler.class",
+    "ic2ce/core/event/WorldData.class",
+    "ic2ce/core/network/NetworkManager.class",
+    "ic2ce/engine/agriculture/CropMath.class",
+    "ic2ce/neoforge/EventHandlerNeoForge.class",
+    "ic2ce/neoforge/agriculture/CropPlot.class",
+    "ic2ce/neoforge/block/MachineBlockType$DefaultDrop.class",
+    "ic2ce/neoforge/block/MachineBlockType.class",
+    "ic2ce/neoforge/menu/document/DocumentScreen$1.class",
+    "ic2ce/neoforge/personal/PrivateChest$2.class",
+    "ic2ce/neoforge/processing/thermal/AlloyFurnace$1.class",
+    "ic2ce/neoforge/transport/client/BatchItemScreen$1.class"
+  ],
+  "addedClassEntries": [
+    "ic2ce/neoforge/agriculture/CropTickSchedule$Entry.class",
+    "ic2ce/neoforge/agriculture/CropTickSchedule.class"
+  ],
+  "method": "Allclassentrybytescompared; historical508item/104machine/recipe/reactorpassevidence remains attributed toalpha11. Alpha12acceptance covers changedcrop/world/native ticker/networkmask paths, actualaudience andpairedpressure."
+}

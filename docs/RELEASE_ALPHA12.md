@@ -1,0 +1,9 @@
+# IndustrialCraft2-CE alpha.12
+
+Alpha.12 optimizes unattended crop farms and fixes initial crop state synchronization after the real client receives a chunk. World-owned phase buckets replace idle per-block ticker work when a world has no players; dirty queues preserve state publication and persistence. Actual player arrival restores native tickers before the native block-entity phase. Native chunk, border, entity-loaded and tick-freeze rules remain admission gates. Growth callbacks, random draws, phenotype bounds and nine-cell live environment checks are preserved.
+
+Three fresh JVMs per artifact compare the final release with alpha.10 at 1,024 / 4,096 / 8,192 actual crop plots. Mean cost decreases by 67.09% / 90.00% / 95.15%; allocation decreases by 50.42% / 83.78% / 91.20%. This is an unattended forced-farm workload, not an observed-player or whole-modpack FPS measurement. Raw ranges and all results remain in [PERFORMANCE.md](../PERFORMANCE.md).
+
+A finite real-client transition run passes 51 checks covering arrival, complete crop state, observed growth, freezing, logout and block removal. Native regression passes 9,584 checks; physical planting passes 334 checks; coupled workflow passes 66. The delivered sources independently rebuild all 1,283 executable classes and resources, with 1,506,897 engine contract checks. A normal JAR reload verifies 104 existing machine types and 16 persisted checks. The targeted alpha.12 evidence supplements the separately attributed alpha.11 full-runtime suite.
+
+The historical commit messages now follow English Conventional Commits. Every original tree and author/committer record remains unchanged, with a preserved local history bundle and a public ID mapping. Future work follows [CONTRIBUTING.md](../CONTRIBUTING.md). Distribution names and Java namespaces keep the project-only branding rules.

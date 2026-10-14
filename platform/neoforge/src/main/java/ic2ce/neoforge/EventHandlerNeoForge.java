@@ -113,6 +113,16 @@ public final class EventHandlerNeoForge {
   }
 
   @SubscribeEvent
+  public void syncCropChunk(ChunkWatchEvent.Sent event) {
+    if (event.getPlayer().level() != event.getLevel()) return;
+    for (var tile : event.getChunk().getBlockEntities().values())
+      if (tile instanceof ic2ce.neoforge.agriculture.CropPlot && !tile.isRemoved())
+        ic2ce.neoforge.runtime.ProjectRuntime.network
+            .get(true)
+            .sendInitialData(tile, event.getPlayer());
+  }
+
+  @SubscribeEvent
   public void serverTick(ServerTickEvent.Pre event) {
     TickHandler.onServerTick();
   }

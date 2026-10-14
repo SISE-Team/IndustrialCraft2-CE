@@ -1,0 +1,311 @@
+{
+  "complete": true,
+  "verificationSha256": "168dc8c395795336b38ca376fb57d29f16f598d69c6cacfbab00f3fce6a4c041",
+  "changedClassEntriesSinceThisRun": [
+    "ic2ce/neoforge/EventHandlerNeoForge.class"
+  ],
+  "finalReleaseChunkSynchronizationEvidence": "crop-audience-alpha12.json",
+  "result": {
+    "checks": 66,
+    "failures": [],
+    "stages": [
+      {
+        "poweredBy": "coal generator -> four tin cables -> batbox",
+        "passed": true,
+        "output": [
+          "6 ic2:rubber"
+        ],
+        "input": "2 ic2:resin",
+        "machine": "extractor",
+        "ticks": 799
+      },
+      {
+        "poweredBy": "coal generator -> four tin cables -> batbox",
+        "passed": true,
+        "output": [
+          "2 ic2:crushed_iron"
+        ],
+        "input": "1 minecraft:raw_iron",
+        "machine": "macerator",
+        "ticks": 302
+      },
+      {
+        "poweredBy": "coal generator -> four tin cables -> batbox",
+        "passed": true,
+        "output": [
+          "2 ic2:purified_iron",
+          "4 ic2:small_iron_dust",
+          "2 ic2:stone_dust"
+        ],
+        "input": "2 ic2:crushed_iron",
+        "machine": "ore_washing_plant",
+        "ticks": 1029
+      },
+      {
+        "poweredBy": "coal generator -> four tin cables -> batbox",
+        "passed": true,
+        "output": [
+          "2 ic2:iron_dust",
+          "2 ic2:small_gold_dust"
+        ],
+        "input": "2 ic2:purified_iron",
+        "machine": "centrifuge",
+        "ticks": 5334
+      },
+      {
+        "poweredBy": "coal generator -> four tin cables -> batbox",
+        "passed": true,
+        "output": [
+          "2 minecraft:iron_ingot"
+        ],
+        "input": "2 ic2:iron_dust",
+        "machine": "electric_furnace",
+        "ticks": 202
+      },
+      {
+        "poweredBy": "coal generator -> four tin cables -> batbox",
+        "passed": true,
+        "output": [
+          "2 ic2:iron_plate"
+        ],
+        "input": "2 minecraft:iron_ingot",
+        "machine": "metal_former",
+        "ticks": 402
+      },
+      {
+        "poweredBy": "coal generator -> four tin cables -> batbox",
+        "passed": true,
+        "output": [
+          "2 ic2:crushed_copper"
+        ],
+        "input": "1 minecraft:raw_copper",
+        "machine": "macerator",
+        "ticks": 302
+      },
+      {
+        "poweredBy": "coal generator -> four tin cables -> batbox",
+        "passed": true,
+        "output": [
+          "2 ic2:purified_copper",
+          "4 ic2:small_copper_dust",
+          "2 ic2:stone_dust"
+        ],
+        "input": "2 ic2:crushed_copper",
+        "machine": "ore_washing_plant",
+        "ticks": 1478
+      },
+      {
+        "poweredBy": "coal generator -> four tin cables -> batbox",
+        "passed": true,
+        "output": [
+          "2 ic2:copper_dust",
+          "2 ic2:small_tin_dust"
+        ],
+        "input": "2 ic2:purified_copper",
+        "machine": "centrifuge",
+        "ticks": 5333
+      },
+      {
+        "poweredBy": "coal generator -> four tin cables -> batbox",
+        "passed": true,
+        "output": [
+          "2 minecraft:copper_ingot"
+        ],
+        "input": "2 ic2:copper_dust",
+        "machine": "electric_furnace",
+        "ticks": 203
+      },
+      {
+        "poweredBy": "coal generator -> four tin cables -> batbox",
+        "passed": true,
+        "output": [
+          "6 ic2:copper_cable"
+        ],
+        "input": "2 minecraft:copper_ingot",
+        "machine": "metal_former",
+        "ticks": 402
+      },
+      {
+        "machine": "native_crafting_table",
+        "passed": true,
+        "output": "1 ic2:circuit",
+        "input": "coal-powered processed rubber, iron plate and copper cables; two initial redstone"
+      }
+    ],
+    "cables": [
+      {
+        "id": "ic2:glass_fibre_cable",
+        "position": [
+          740,
+          181,
+          740
+        ],
+        "receivedEU": 12930.0,
+        "coalRemaining": 0,
+        "passed": true
+      },
+      {
+        "id": "ic2:tin_cable",
+        "position": [
+          756,
+          181,
+          740
+        ],
+        "receivedEU": 13210.0,
+        "coalRemaining": 0,
+        "passed": true
+      },
+      {
+        "id": "ic2:detector_cable",
+        "position": [
+          772,
+          181,
+          740
+        ],
+        "receivedEU": 10024.0,
+        "coalRemaining": 0,
+        "passed": true
+      },
+      {
+        "id": "ic2:insulated_iron_cable",
+        "position": [
+          788,
+          181,
+          740
+        ],
+        "receivedEU": 8603.0,
+        "coalRemaining": 0,
+        "passed": true
+      },
+      {
+        "id": "ic2:insulated_gold_cable",
+        "position": [
+          804,
+          181,
+          756
+        ],
+        "receivedEU": 10701.0,
+        "coalRemaining": 1,
+        "passed": true
+      },
+      {
+        "id": "ic2:splitter_cable",
+        "position": [
+          740,
+          181,
+          756
+        ],
+        "receivedEU": 9768.0,
+        "coalRemaining": 0,
+        "passed": true
+      },
+      {
+        "id": "ic2:gold_cable",
+        "position": [
+          756,
+          181,
+          756
+        ],
+        "receivedEU": 12249.0,
+        "coalRemaining": 0,
+        "passed": true
+      },
+      {
+        "id": "ic2:iron_cable",
+        "position": [
+          772,
+          181,
+          756
+        ],
+        "receivedEU": 9499.0,
+        "coalRemaining": 0,
+        "passed": true
+      },
+      {
+        "id": "ic2:double_insulated_iron_cable",
+        "position": [
+          788,
+          181,
+          756
+        ],
+        "receivedEU": 8715.0,
+        "coalRemaining": 0,
+        "passed": true
+      },
+      {
+        "id": "ic2:triple_insulated_iron_cable",
+        "position": [
+          804,
+          181,
+          772
+        ],
+        "receivedEU": 8183.0,
+        "coalRemaining": 1,
+        "passed": true
+      },
+      {
+        "id": "ic2:double_insulated_gold_cable",
+        "position": [
+          740,
+          181,
+          772
+        ],
+        "receivedEU": 10269.0,
+        "coalRemaining": 1,
+        "passed": true
+      },
+      {
+        "id": "ic2:insulated_tin_cable",
+        "position": [
+          756,
+          181,
+          772
+        ],
+        "receivedEU": 11450.0,
+        "coalRemaining": 1,
+        "passed": true
+      },
+      {
+        "id": "ic2:insulated_copper_cable",
+        "position": [
+          772,
+          181,
+          772
+        ],
+        "receivedEU": 11530.0,
+        "coalRemaining": 1,
+        "passed": true
+      },
+      {
+        "id": "ic2:copper_cable",
+        "position": [
+          788,
+          181,
+          772
+        ],
+        "receivedEU": 11490.0,
+        "coalRemaining": 1,
+        "passed": true
+      }
+    ],
+    "remainingPool": {
+      "ic2:copper_cable": 0,
+      "ic2:insulated_copper_cable": 0,
+      "ic2:iron_plate": 1,
+      "ic2:rubber": 0,
+      "ic2:small_copper_dust": 4,
+      "ic2:small_gold_dust": 2,
+      "ic2:small_iron_dust": 4,
+      "ic2:small_tin_dust": 2,
+      "ic2:stone_dust": 4,
+      "minecraft:redstone": 0
+    },
+    "ticks": 15786,
+    "finished": true,
+    "complete": true,
+    "coalRemaining": 24,
+    "generatorFuelTicks": 321,
+    "generatorEU": 0.0,
+    "bankEU": 38.0
+  }
+}

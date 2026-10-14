@@ -1,0 +1,25 @@
+{
+  "complete": true,
+  "normalSha256": "fa6b2c89e13bd70474fa15d5527125ef1c21ee542ee11bb9d20a8e21edd8ab85",
+  "cleanBuildSha256": "425efeb14d2790030820a6a45067d5e3114f6ef3158290e96ce39102a619e26d",
+  "classComparison": {
+    "classes": 1283,
+    "debugOnlyDifferences": 5,
+    "executableDifferences": 0
+  },
+  "debugOnlyRawEntries": [
+    "ic2ce/neoforge/personal/PrivateChest$2.class",
+    "ic2ce/neoforge/crafting/client/WorkbenchScreen$1.class",
+    "ic2ce/neoforge/processing/thermal/AlloyFurnace$1.class",
+    "ic2ce/neoforge/transport/client/BatchItemScreen$1.class",
+    "ic2ce/neoforge/menu/document/DocumentScreen$1.class"
+  ],
+  "resourcesIdentical": true,
+  "engineContracts": {
+    "complete": true,
+    "checks": 1506897,
+    "failures": 0,
+    "runtime": "25.0.2+10-LTS"
+  },
+  "method": "912 delivered Java source entries and delivered resources; clean build --offline --no-build-cache,20tasks executed. Everyclass includingallsynthetics compared viaASM9.9.1 SKIP_DEBUG; no class excluded."
+}

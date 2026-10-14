@@ -37,6 +37,41 @@ public final class CropControllerContracts {
     world.setBlockAndUpdate(position.below(), Blocks.FARMLAND.defaultBlockState());
     world.setBlockAndUpdate(position, BlockDefinitions.WHEAT_CROP.defaultBlockState());
     var crop = (CropPlot) world.getBlockEntity(position);
+    for (int x = -1; x <= 1; x++)
+      for (int z = -1; z <= 1; z++)
+        if (x != 0 || z != 0)
+          world.setBlockAndUpdate(position.offset(x, 0, z), Blocks.AIR.defaultBlockState());
+    world.setBlockAndUpdate(position.above(), Blocks.AIR.defaultBlockState());
+    crop.updateTerrainAirQuality();
+    int openAir = crop.getTerrainAirQuality();
+    world.setBlockAndUpdate(position.east(), Blocks.STONE.defaultBlockState());
+    world.setBlockAndUpdate(position.west(), Blocks.STONE.defaultBlockState());
+    crop.updateTerrainAirQuality();
+    check(
+        crop.getTerrainAirQuality() == openAir - 1,
+        "live terrain scan observes both newly blocked neighbors without stale chunk state");
+    world.setBlockAndUpdate(position.east(), Blocks.AIR.defaultBlockState());
+    world.setBlockAndUpdate(position.west(), Blocks.AIR.defaultBlockState());
+    crop.updateTerrainAirQuality();
+    check(
+        crop.getTerrainAirQuality() == openAir,
+        "live terrain scan sees neighbors reopen with the original nine-cell result");
+    world.setBlockAndUpdate(
+        position.below(),
+        Blocks.FARMLAND
+            .defaultBlockState()
+            .setValue(net.minecraft.world.level.block.FarmlandBlock.MOISTURE, 0));
+    crop.updateTerrainHumidity();
+    int drySoil = crop.getTerrainHumidity();
+    world.setBlockAndUpdate(
+        position.below(),
+        Blocks.FARMLAND
+            .defaultBlockState()
+            .setValue(net.minecraft.world.level.block.FarmlandBlock.MOISTURE, 7));
+    crop.updateTerrainHumidity();
+    check(
+        crop.getTerrainHumidity() == drySoil + 2,
+        "reused terrain cursor observes current native soil moisture");
     crop.setStatGrowth(Integer.MAX_VALUE);
     crop.setStatGain(-10);
     crop.setStatResistance(40);
@@ -168,8 +203,83 @@ public final class CropControllerContracts {
         !bare.tryPlantIn(null, 0, 0, 0, 0, 0)
             && world.getBlockState(position).is(BlockDefinitions.CROP_STICK),
         "null seed species cannot consume or alter the bare plot");
-    world.removeBlock(position, false);
+    var counter = new int[1];
+    var observedCrop =
+        new ic2ce.api.crops.CropCard(Cultivar.WHEAT) {
+          @Override
+          public net.minecraft.world.level.block.Block getCropBlock() {
+            return BlockDefinitions.WHEAT_CROP;
+          }
+
+          @Override
+          public ic2ce.api.crops.CropProperties getProperties() {
+            return new ic2ce.api.crops.CropProperties(1, 0, 0, 0, 0, 0);
+          }
+
+          @Override
+          public List<net.minecraft.resources.Identifier> getTexturesLocation() {
+            return List.of();
+          }
+
+          @Override
+          public void tick(ic2ce.api.crops.ICropTile tile) {
+            counter[0]++;
+          }
+
+          @Override
+          public boolean canGrow(ic2ce.api.crops.ICropTile tile) {
+            return false;
+          }
+
+          @Override
+          public boolean isWeed(ic2ce.api.crops.ICropTile tile) {
+            return false;
+          }
+        };
+    var cropField = ic2ce.core.util.ReflectionUtil.getFieldRecursive(CropPlot.class, "crop");
+    try {
+      cropField.set(bare, observedCrop);
+    } catch (IllegalAccessException exception) {
+      throw new IllegalStateException(exception);
+    }
+    long originalTime = world.getGameTime();
+    int originalPeriod = CropPlot.tickRate;
+    int expectedTicks = 0;
+    boolean cadence = true;
+    long hash =
+        position.getX() * 341873128712L ^ position.getZ() * 132897987541L ^ position.getY() * 31L;
+    try {
+      for (int index = 0; index < 96; index++) {
+        int period = index < 32 ? 7 : index < 64 ? 16 : 11;
+        long time = index < 32 ? 1000 + index : index < 64 ? 5000 + index : 100 + index;
+        CropPlot.tickRate = period;
+        ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData())
+            .setGameTime(time);
+        if (Math.floorMod(time + hash, period) == 0) expectedTicks++;
+        bare.updateEntityServer();
+        cadence &= counter[0] == expectedTicks;
+      }
+    } finally {
+      CropPlot.tickRate = originalPeriod;
+      ((net.minecraft.world.level.storage.ServerLevelData) world.getLevelData())
+          .setGameTime(originalTime);
+      world.removeBlock(position, false);
+    }
+    check(
+        cadence && expectedTicks > 0,
+        "phased schedule preserves callback cadence across period changes and forward/backward"
+            + " world time jumps");
     world.removeBlock(position.below(), false);
+    var schedule = new CropTickSchedule();
+    schedule.add(bare);
+    schedule.add(bare);
+    check(schedule.size() == 1, "world crop schedule admits a plot exactly once");
+    schedule.remove(bare);
+    schedule.remove(bare);
+    check(schedule.size() == 0, "crop removal is idempotent and releases its scheduled membership");
+    schedule.add(bare);
+    schedule.clear();
+    check(schedule.size() == 0, "world unload clears all crop schedule ownership");
     return new Result(checks, List.copyOf(failures));
   }
 }

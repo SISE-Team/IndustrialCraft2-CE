@@ -21,6 +21,8 @@ public final class TickHandler {
     var data = WorldData.get(world, false);
     if (data == null) return;
     dispatchCallbacks(world, data);
+    if (world instanceof net.minecraft.server.level.ServerLevel server)
+      data.cropTicks.refreshAudience(server);
     data.windSim.updateWind();
     data.energyNet.onTickStart();
   }
@@ -29,6 +31,8 @@ public final class TickHandler {
     if (!world.isClientSide()) {
       var data = WorldData.get(world, false);
       if (data != null) {
+        if (world instanceof net.minecraft.server.level.ServerLevel server)
+          data.cropTicks.tick(server);
         data.energyNet.onTickEnd();
         ProjectRuntime.network.get(true).onTickEnd(data);
       }

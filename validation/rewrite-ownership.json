@@ -1,5 +1,5 @@
 {
-  "baselineCommit": "9f5d393c6258070a8afa4552ce865583e0105182",
+  "baselineCommit": "c4e628d5d31a78a636ef6151feb4ed657ca78592",
   "wholeRewriteComplete": true,
   "completedImplementations": [
     {
@@ -3021,6 +3021,10 @@
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/FluidDefinitions.java",
       "scope": "Independent physical fluid metadata admission with checked luminosity/temperature/viscosity, actual gas versus liquid density bounds and rendered alpha, retaining original fluid/material definitions as data"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/CropTickSchedule.java",
+      "scope": "World-owned phased due crop dispatch with native loaded/block-ticking/border admission, lifecycle removal, reentrant-safe iteration and period rebucketing"
     }
   ],
   "remainingFunctionalAreas": [],
@@ -3805,5 +3809,7 @@
     "normalReleaseReloadComplete": true,
     "matrixCasesAttributedByClassEquivalence": true
   },
-  "acceptanceEvidence": "validation/rewrite-acceptance.json"
+  "acceptanceEvidence": "validation/rewrite-acceptance.json",
+  "originalBaselineCommitBeforeMessageRewrite": "9f5d393c6258070a8afa4552ce865583e0105182",
+  "currentAcceptanceEvidence": "validation/crop-acceptance-alpha12.json"
 }

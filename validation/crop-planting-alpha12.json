@@ -1,0 +1,1052 @@
+{
+  "complete": true,
+  "verificationSha256": "168dc8c395795336b38ca376fb57d29f16f598d69c6cacfbab00f3fce6a4c041",
+  "changedClassEntriesSinceThisRun": [
+    "ic2ce/neoforge/EventHandlerNeoForge.class"
+  ],
+  "finalReleaseChunkSynchronizationEvidence": "crop-audience-alpha12.json",
+  "result": {
+    "checks": 334,
+    "cases": [
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:construction_foam_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:construction_foam_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_fill",
+        "movedMB": 1000,
+        "heldMB": 1000,
+        "id": "ic2:cf_pack",
+        "hand": "MAIN_HAND",
+        "tankMB": 0,
+        "passed": true,
+        "held": "1 ic2:cf_pack"
+      },
+      {
+        "operation": "server_owned_fill",
+        "movedMB": 1000,
+        "heldMB": 1000,
+        "id": "ic2:cf_pack",
+        "hand": "OFF_HAND",
+        "tankMB": 0,
+        "passed": true,
+        "held": "1 ic2:cf_pack"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:biomass_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:biomass_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:superheated_steam_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:superheated_steam_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:weed_ex_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:weed_ex_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:heavy_water_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:heavy_water_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:steam_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:steam_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:uu_matter_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:uu_matter_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:lava_cell",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 ic2:empty_cell"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:lava_cell",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 ic2:empty_cell"
+      },
+      {
+        "operation": "server_owned_fill",
+        "movedMB": 1000,
+        "heldMB": 1000,
+        "id": "ic2:jetpack",
+        "hand": "MAIN_HAND",
+        "tankMB": 0,
+        "passed": true,
+        "held": "1 ic2:jetpack"
+      },
+      {
+        "operation": "server_owned_fill",
+        "movedMB": 1000,
+        "heldMB": 1000,
+        "id": "ic2:jetpack",
+        "hand": "OFF_HAND",
+        "tankMB": 0,
+        "passed": true,
+        "held": "1 ic2:jetpack"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:oxygen_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:oxygen_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:coolant_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:coolant_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:creosote_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:creosote_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_fill",
+        "movedMB": 1000,
+        "heldMB": 1000,
+        "id": "ic2:empty_cell",
+        "hand": "MAIN_HAND",
+        "tankMB": 0,
+        "passed": true,
+        "held": "1 ic2:water_cell"
+      },
+      {
+        "operation": "server_owned_fill",
+        "movedMB": 1000,
+        "heldMB": 1000,
+        "id": "ic2:empty_cell",
+        "hand": "OFF_HAND",
+        "tankMB": 0,
+        "passed": true,
+        "held": "1 ic2:water_cell"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:hot_coolant_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:hot_coolant_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:air_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:air_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:hydrogen_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:hydrogen_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:water_cell",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 ic2:empty_cell"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:water_cell",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 ic2:empty_cell"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:air_cell",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 ic2:empty_cell"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:air_cell",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 ic2:empty_cell"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:hot_water_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:hot_water_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:pahoehoe_lava_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:pahoehoe_lava_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:biogas_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:biogas_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:distilled_water_bucket",
+        "hand": "MAIN_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "operation": "server_owned_drain",
+        "movedMB": 1000,
+        "heldMB": 0,
+        "id": "ic2:distilled_water_bucket",
+        "hand": "OFF_HAND",
+        "tankMB": 1000,
+        "passed": true,
+        "held": "1 minecraft:bucket"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=wheat, actual=wheat, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.WheatSpecies@3c60002e, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=wheat, actual=wheat, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.WheatSpecies@3c60002e, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=pumpkin, actual=pumpkin, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PumpkinSpecies@37e4609, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=pumpkin, actual=pumpkin, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PumpkinSpecies@37e4609, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=melon, actual=melon, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.MelonSpecies@119b2456, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=melon, actual=melon, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.MelonSpecies@119b2456, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=dandelion, actual=dandelion, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PigmentSpecies@78b71501, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=dandelion, actual=dandelion, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PigmentSpecies@78b71501, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=poppy, actual=poppy, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PigmentSpecies@1599e1f8, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=poppy, actual=poppy, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PigmentSpecies@1599e1f8, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=blackthorn, actual=blackthorn, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PigmentSpecies@6c822c16, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=blackthorn, actual=blackthorn, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PigmentSpecies@6c822c16, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=tulip, actual=tulip, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PigmentSpecies@117f1d9a, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=tulip, actual=tulip, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PigmentSpecies@117f1d9a, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=cyazint, actual=cyazint, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PigmentSpecies@4c203d73, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=cyazint, actual=cyazint, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PigmentSpecies@4c203d73, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=venomilia, actual=venomilia, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.VenomSpecies@259efefc, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=venomilia, actual=venomilia, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.VenomSpecies@259efefc, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=reed, actual=reed, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.ReedSpecies@72e7b172, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=reed, actual=reed, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.ReedSpecies@72e7b172, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=sticky_reed, actual=sticky_reed, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.ResinReedSpecies@52654723, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=sticky_reed, actual=sticky_reed, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.ResinReedSpecies@52654723, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=cocoa, actual=cocoa, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.CocoaSpecies@27c9ce0f, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=cocoa, actual=cocoa, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.CocoaSpecies@27c9ce0f, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=flax, actual=flax, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.FlaxSpecies@2f36f818, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=flax, actual=flax, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.FlaxSpecies@2f36f818, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=ferru, actual=ferru, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.MetalSpecies@5d8940f5, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=ferru, actual=ferru, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.MetalSpecies@5d8940f5, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=aurelia, actual=aurelia, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PreciousMetalSpecies@eb19872, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=aurelia, actual=aurelia, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PreciousMetalSpecies@eb19872, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=red_wheat, actual=red_wheat, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.RedstoneGrainSpecies@602bd9ec, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=10, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=red_wheat, actual=red_wheat, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.RedstoneGrainSpecies@602bd9ec, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=10, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=nether_wart, actual=nether_wart, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.SoulWartSpecies@37bdce71, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=nether_wart, actual=nether_wart, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.SoulWartSpecies@37bdce71, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=terra_wart, actual=terra_wart, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.FrostWartSpecies@216f2edd, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=terra_wart, actual=terra_wart, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.FrostWartSpecies@216f2edd, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=coffee, actual=coffee, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.CoffeeSpecies@57ae0718, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=coffee, actual=coffee, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.CoffeeSpecies@57ae0718, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=hops, actual=hops, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.HopSpecies@21a9e462, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=hops, actual=hops, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.HopSpecies@21a9e462, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=carrots, actual=carrots, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.CarrotSpecies@4cfea21b, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=carrots, actual=carrots, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.CarrotSpecies@4cfea21b, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=potato, actual=potato, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PotatoSpecies@439d3e3e, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=potato, actual=potato, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PotatoSpecies@439d3e3e, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=red_mushroom, actual=red_mushroom, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.MushroomSpecies@6e027a04, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=red_mushroom, actual=red_mushroom, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.MushroomSpecies@6e027a04, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=brown_mushroom, actual=brown_mushroom, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.MushroomSpecies@65e70d17, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=brown_mushroom, actual=brown_mushroom, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.MushroomSpecies@65e70d17, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=eating_plant, actual=eating_plant, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.CarnivorousSpecies@19bb6ce5, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=eating_plant, actual=eating_plant, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.CarnivorousSpecies@19bb6ce5, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=cyprium, actual=cyprium, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.MetalSpecies@2088e365, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=cyprium, actual=cyprium, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.MetalSpecies@2088e365, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=stagnium, actual=stagnium, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.MetalSpecies@6a8d6020, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=stagnium, actual=stagnium, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.MetalSpecies@6a8d6020, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=plumbiscus, actual=plumbiscus, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.MetalSpecies@49704bdb, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=plumbiscus, actual=plumbiscus, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.MetalSpecies@49704bdb, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=shining, actual=shining, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PreciousMetalSpecies@55ef4b09, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=shining, actual=shining, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.PreciousMetalSpecies@55ef4b09, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=beetroots, actual=beetroots, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.BeetSpecies@50364640, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=beetroots, actual=beetroots, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.BeetSpecies@50364640, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=oak_sapling, actual=oak_sapling, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.TreeSpecies@4e681d3, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=oak_sapling, actual=oak_sapling, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.TreeSpecies@4e681d3, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=spruce_sapling, actual=spruce_sapling, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.TreeSpecies@709dff52, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=spruce_sapling, actual=spruce_sapling, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.TreeSpecies@709dff52, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=birch_sapling, actual=birch_sapling, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.TreeSpecies@7635cb8a, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=birch_sapling, actual=birch_sapling, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.TreeSpecies@7635cb8a, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=jungle_sapling, actual=jungle_sapling, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.TreeSpecies@634869b1, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=jungle_sapling, actual=jungle_sapling, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.TreeSpecies@634869b1, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=acacia_sapling, actual=acacia_sapling, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.TreeSpecies@db73b42, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=acacia_sapling, actual=acacia_sapling, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.TreeSpecies@db73b42, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "MAIN_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=dark_oak_sapling, actual=dark_oak_sapling, held=0 minecraft:air, hand=MAIN_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.TreeSpecies@5be45ad0, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      },
+      {
+        "hand": "OFF_HAND",
+        "clientError": "",
+        "id": "ic2:crop_seed_bag",
+        "evidence": "crop=dark_oak_sapling, actual=dark_oak_sapling, held=0 minecraft:air, hand=OFF_HAND; trace={held=1 ic2:crop_seed_bag, canTill=false, above=Block{minecraft:air}, serverY=200.0, card=ic2ce.neoforge.agriculture.species.TreeSpecies@5be45ad0, position=BlockPos{x=80, y=200, z=80}, crossing=false, light=15, canGrow=true}; clientResult=Success[swingSource=CLIENT, itemContext=ItemContext[wasItemInteraction=true, heldItemTransformedTo=null]]",
+        "passed": true,
+        "operation": "plant"
+      }
+    ],
+    "failures": [],
+    "finished": true,
+    "complete": true
+  }
+}

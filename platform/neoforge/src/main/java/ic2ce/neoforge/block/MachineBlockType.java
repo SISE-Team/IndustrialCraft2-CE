@@ -173,6 +173,15 @@ public final class MachineBlockType extends Block
   public <T extends BlockEntity> BlockEntityTicker<T> getTicker(
       Level world, BlockState state, BlockEntityType<T> type) {
     if (!type.isValid(state)) return null;
+    if (!world.isClientSide() && entityClass == CropPlot.class && world.players().isEmpty())
+      return null;
+    if (!world.isClientSide() && entityClass == CropPlot.class)
+      return (level, pos, current, entity) -> {
+        if (entity instanceof CropPlot plot
+            && plot.dirty
+            && !plot.isRemoved()
+            && plot.getLevel() == level) plot.tick();
+      };
     return (level, pos, current, entity) -> {
       if (entity instanceof NativeBlockEntity nativeEntity
           && !nativeEntity.isRemoved()

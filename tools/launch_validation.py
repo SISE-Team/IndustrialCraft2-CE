@@ -57,6 +57,8 @@ if __name__ == "__main__":
     parser.add_argument("--painter", action="store_true")
     parser.add_argument("--tools", action="store_true")
     parser.add_argument("--dedicated", action="store_true")
+    parser.add_argument("--crop-audience", action="store_true")
+    parser.add_argument("--crop-audience-server-report", type=Path)
     parser.add_argument("--server")
     parser.add_argument("--name", default="IC2Test")
     parser.add_argument("--world", default="New World")
@@ -94,6 +96,12 @@ if __name__ == "__main__":
         command += ["-Dic2.verifyMigration=true", "-Dic2.comp.energy.debugload=true"]
     if args.all_machines:
         command += ["-Dic2.verifyAllMachines=true"]
+    if args.crop_audience:
+        if not args.verification or not args.dedicated:
+            parser.error("--crop-audience requires --verification --dedicated")
+        command += ["-Dic2.verifyCropAudience=true"]
+        if args.crop_audience_server_report:
+            command += ["-Dic2.cropAudienceServerReport=" + str(args.crop_audience_server_report.resolve())]
     if args.inventory_probe_only:
         if not args.verification or not args.all_machines: parser.error("--inventory-probe-only requires --verification --all-machines")
         command += ["-Dic2.inventoryProbeOnly=true"]

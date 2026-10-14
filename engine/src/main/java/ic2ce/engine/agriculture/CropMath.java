@@ -25,16 +25,38 @@ public final class CropMath {
   public static Growth growth(
       Genome genome, int tier, int environmentWeight, int variation, int resistanceDraw) {
     Objects.requireNonNull(genome);
+    int points =
+        growthPoints(
+            genome.growth,
+            genome.gain,
+            genome.resistance,
+            tier,
+            environmentWeight,
+            variation,
+            resistanceDraw);
+    return new Growth(Math.max(0, points), points < 0);
+  }
+
+  /** Primitive result for native hot paths: negative one denotes death, otherwise earned points. */
+  public static int growthPoints(
+      int growth,
+      int gain,
+      int resistance,
+      int tier,
+      int environmentWeight,
+      int variation,
+      int resistanceDraw) {
+    if ((growth | gain | resistance) < 0 || growth > 31 || gain > 31 || resistance > 31)
+      throw new IllegalArgumentException("Crop traits must be within zero and thirty-one");
     if (variation < 0 || variation >= 7 || resistanceDraw < 0 || resistanceDraw >= 32)
       throw new IllegalArgumentException("Invalid native growth random draw");
-    long needed =
-        Math.max(0, ((long) tier - 1) * 4 + genome.growth + genome.gain + genome.resistance);
+    long needed = Math.max(0, ((long) tier - 1) * 4 + growth + gain + resistance);
     long provided = (long) environmentWeight * 5;
     long deficit = needed - provided;
-    if (deficit > 25 && resistanceDraw > genome.resistance) return new Growth(0, true);
+    if (deficit > 25 && resistanceDraw > resistance) return -1;
     long percent = provided >= needed ? 100 + provided - needed : Math.max(0, 100 - deficit * 4);
-    long points = (3L + variation + genome.growth) * percent / 100;
-    return new Growth((int) Math.clamp(points, 0, Integer.MAX_VALUE), false);
+    long points = (3L + variation + growth) * percent / 100;
+    return (int) Math.clamp(points, 0, Integer.MAX_VALUE);
   }
 
   public static int accumulate(int current, int points) {

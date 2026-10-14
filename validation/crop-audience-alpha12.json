@@ -1,0 +1,28 @@
+{
+  "complete": true,
+  "verificationSha256": "39b582511b4c99f18a3b13ffa27aaf9dd26813790ad32d41b2327fc64527874c",
+  "server": {
+    "age": 0,
+    "complete": true,
+    "checks": 51,
+    "calls": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "failures": [],
+    "phase": "COMPLETE"
+  },
+  "client": {
+    "syncedPlots": 8,
+    "complete": true,
+    "updatedAt": 1791968619017
+  },
+  "serverExitCode": 0,
+  "method": "RealTCPclient arrival:8initialcropstates,native tickerrebinding,no duplicated growth,freeze/unfreeze,actualcontrolledclientlogout,tickerremoval andnativeblockremovalownership."
+}

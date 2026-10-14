@@ -100,6 +100,20 @@ public class NetworkManager implements INetworkManager {
     delta(tile).addPlayerField(name, player);
   }
 
+  /** Publishes one server-owned field mask with a single world and delta lookup. */
+  public final void updateTileEntityFields(BlockEntity tile, String[] names, int mask) {
+    requireServer();
+    if (names.length > Integer.SIZE || (names.length < Integer.SIZE && mask >>> names.length != 0))
+      throw new IllegalArgumentException("Synchronized field mask exceeds its names");
+    if (mask == 0) return;
+    var update = delta(tile);
+    while (mask != 0) {
+      int field = Integer.numberOfTrailingZeros(mask);
+      update.addGlobalField(names[field]);
+      mask &= mask - 1;
+    }
+  }
+
   @Override
   public final void sendInitialData(BlockEntity tile) {
     requireServer();

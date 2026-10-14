@@ -2,11 +2,11 @@
   "project": "IndustrialCraft2-CE",
   "releaseBoundaryComplete": true,
   "wholeRewriteComplete": true,
-  "baselineCommit": "9f5d393c6258070a8afa4552ce865583e0105182",
-  "releaseSha256": "07b4bfca99dc6e57c6c2292bdc17c2d6ad25e16c03beb6093965233ae2d83c2c",
-  "sourcesSha256": "5a3b417342faa921709d4e759e5d6e2a70aca14bf13acd43434c9019f1160feb",
-  "runtimeSources": 911,
-  "newOrReimplementedSources": 755,
+  "baselineCommit": "c4e628d5d31a78a636ef6151feb4ed657ca78592",
+  "releaseSha256": "fa6b2c89e13bd70474fa15d5527125ef1c21ee542ee11bb9d20a8e21edd8ab85",
+  "sourcesSha256": "96f505fdcd0600f515685c3132030c52fcff0aad705365acd564f4c651e19a02",
+  "runtimeSources": 912,
+  "newOrReimplementedSources": 756,
   "retainedRuntimeSources": 156,
   "retainedSourcesWithIntegrationChanges": 10,
   "reviewedDeclarationSources": 156,
@@ -40,9 +40,9 @@
     "assets/ic2/lang/zh_tw.json",
     "data/ic2/advancement/ic2/root.json"
   ],
-  "separateNativePlatformClasses": 1038,
-  "excludedNativeVerificationClasses": 338,
-  "releaseClasses": 1281,
+  "separateNativePlatformClasses": 1040,
+  "excludedNativeVerificationClasses": 342,
+  "releaseClasses": 1283,
   "addedClassEntries": [
     "ic2ce/api/block/BreakableBlock.class",
     "ic2ce/api/block/IIdProvider.class",
@@ -504,6 +504,8 @@
     "ic2ce/neoforge/agriculture/CropCatalog$View.class",
     "ic2ce/neoforge/agriculture/CropCatalog.class",
     "ic2ce/neoforge/agriculture/CropPlot.class",
+    "ic2ce/neoforge/agriculture/CropTickSchedule$Entry.class",
+    "ic2ce/neoforge/agriculture/CropTickSchedule.class",
     "ic2ce/neoforge/agriculture/Cultivar.class",
     "ic2ce/neoforge/agriculture/FluidCropCaretaker.class",
     "ic2ce/neoforge/agriculture/client/CellCareScreen.class",
@@ -2889,14 +2891,14 @@
     {
       "file": "platform/neoforge/src/main/java/ic2ce/core/event/TickHandler.java",
       "sourceArchiveEntry": "ic2ce/core/event/TickHandler.java",
-      "sha256": "40d9bd1bd0851a51e90c54acf109f35468a06c9cf0e0266623d80f02a7abc124",
+      "sha256": "04cd1cfdb1d04dc846b7903c335690c76cc604f717db8956f8f5d90146a5b36f",
       "referenceSourceArchiveEntry": "ic2/core/event/TickHandler.java",
       "status": "reimplemented"
     },
     {
       "file": "platform/neoforge/src/main/java/ic2ce/core/event/WorldData.java",
       "sourceArchiveEntry": "ic2ce/core/event/WorldData.java",
-      "sha256": "7442f714b8457f2264e4ab333c9e5bde054e7ab9a713a24238d8afbd4af97c88",
+      "sha256": "af1414ea90ac3a741e9979cae9e40a4a3a5902f4a533ab4d7df79d78676f32ba",
       "referenceSourceArchiveEntry": "ic2/core/event/WorldData.java",
       "status": "reimplemented"
     },
@@ -3092,7 +3094,7 @@
     {
       "file": "platform/neoforge/src/main/java/ic2ce/core/network/NetworkManager.java",
       "sourceArchiveEntry": "ic2ce/core/network/NetworkManager.java",
-      "sha256": "fe6c779dd489ab198e3665e3ca1ab56411df079288c95f1183954cd0d43e9ae8",
+      "sha256": "6bf30cff60c5662c179b0570e4ab5c16cf2a7e0b2c0a4313569624ec10ad9394",
       "referenceSourceArchiveEntry": "ic2/core/network/NetworkManager.java",
       "status": "reimplemented"
     },
@@ -3533,9 +3535,16 @@
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/CropPlot.java",
       "sourceArchiveEntry": "ic2ce/neoforge/agriculture/CropPlot.java",
-      "sha256": "c924bc31be531fcac945654809652cb112a544b22d91469cf143d04e29f1bb37",
+      "sha256": "d7aada7113234fbc874ff74c6f115746d676aa271c7726a2837de6b0f83bd4b2",
       "referenceSourceArchiveEntry": "ic2/core/crop/TileEntityCrop.java",
       "status": "reimplemented"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/CropTickSchedule.java",
+      "sourceArchiveEntry": "ic2ce/neoforge/agriculture/CropTickSchedule.java",
+      "sha256": "4fffd38662a6fa834dbadcb961b919c777d90fb238c4adf509b1f693b463a794",
+      "referenceSourceArchiveEntry": null,
+      "status": "new"
     },
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/Cultivar.java",
@@ -3806,7 +3815,7 @@
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/block/MachineBlockType.java",
       "sourceArchiveEntry": "ic2ce/neoforge/block/MachineBlockType.java",
-      "sha256": "e040dbd2547a662394bed95f15a88443bb21649667d1402739501ac304cc87bc",
+      "sha256": "436c4f01430a46923f7da0e4d49c6f15e04396ca0ecf2e7fa1cf662e06d8fca3",
       "referenceSourceArchiveEntry": "ic2/core/block/tileentity/Ic2TileEntityBlock.java",
       "status": "reimplemented"
     },
@@ -4625,7 +4634,7 @@
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/EventHandlerNeoForge.java",
       "sourceArchiveEntry": "ic2ce/neoforge/EventHandlerNeoForge.java",
-      "sha256": "00fabdfc7f4a8155a005fbc53c4485d00a0b2979a1ca16b2d0005703807c4dd0",
+      "sha256": "747ac53da93d064c36863f6718931c0c7f986982309c93aa95997de23aa63304",
       "referenceSourceArchiveEntry": "ic2/forge/EventHandlerForge.java",
       "status": "reimplemented"
     },
@@ -8720,7 +8729,7 @@
     {
       "file": "engine/src/main/java/ic2ce/engine/agriculture/CropMath.java",
       "sourceArchiveEntry": "ic2ce/engine/agriculture/CropMath.java",
-      "sha256": "076ae8e5d386a816aa4581b5c826c86606dfa4070217c2a1255ce8ae7029b5bd",
+      "sha256": "908327ea3f21ddbf4e6b1ba10a7457fbc713a59babc809c3fe4a1f12a8e274fa",
       "referenceSourceArchiveEntry": null,
       "status": "new"
     },

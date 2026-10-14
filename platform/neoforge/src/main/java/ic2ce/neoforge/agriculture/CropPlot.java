@@ -24,6 +24,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -35,6 +36,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FarmlandBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -56,9 +58,12 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
       currentAge,
       growthPoints,
       scanLevel;
-  private int scheduledPeriod, scheduledPhase;
+  private int scheduledRate, scheduledPeriod, scheduledPhase, scheduledMask;
+  private long lastGrowthTime = Long.MIN_VALUE;
+  private boolean scheduledTicked;
   private int pendingFields = (1 << 14) - 1;
   private boolean persistenceMarked;
+  private final BlockPos.MutableBlockPos terrainCursor = new BlockPos.MutableBlockPos();
   private CompoundTag customData = new CompoundTag();
   private static final List<AABB> OUTLINE = List.of(new AABB(.2, 0, .2, .8, .85, .8)),
       COLLISION = List.of(new AABB(0, 0, 0, 0, 0, 0));
@@ -108,6 +113,11 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     if (!persistenceMarked) {
       persistenceMarked = true;
       setChanged();
+    }
+    var world = getLevel();
+    if (world != null && !world.isClientSide()) {
+      var data = ic2ce.core.event.WorldData.get(world, false);
+      if (data != null) data.cropTicks.queueDirty(this);
     }
   }
 
@@ -174,25 +184,54 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
       updateTerrainHumidity();
       updateTerrainNutrients();
       updateTerrainAirQuality();
+      if (getClass() == CropPlot.class)
+        ic2ce.core.event.WorldData.get(getLevel()).cropTicks.add(this);
     }
   }
 
   @Override
-  public void updateEntityServer() {
-    super.updateEntityServer();
-    if (!server()) return;
-    int period = Math.clamp(tickRate, 1, 65536);
-    if (scheduledPeriod != period) {
-      long hash =
-          worldPosition.getX() * 341873128712L
-              ^ worldPosition.getZ() * 132897987541L
-              ^ worldPosition.getY() * 31L;
-      scheduledPeriod = period;
-      scheduledPhase = Math.floorMod(-hash, period);
+  protected void onUnloaded() {
+    var world = getLevel();
+    if (world != null && !world.isClientSide()) {
+      var data = ic2ce.core.event.WorldData.get(world, false);
+      if (data != null) data.cropTicks.remove(this);
     }
+    super.onUnloaded();
+  }
+
+  @Override
+  public void updateEntityServer() {
+    if (!server()) return;
+    if (scheduledPeriod == 0 || scheduledRate != tickRate) configureSchedule();
     long time = getLevel().getGameTime();
-    if (((period & (period - 1)) == 0 ? time & (period - 1) : Math.floorMod(time, period))
-        == scheduledPhase) performTick();
+    if ((scheduledMask >= 0 ? time & scheduledMask : Math.floorMod(time, scheduledPeriod))
+            == scheduledPhase
+        && (!scheduledTicked || lastGrowthTime != time)) {
+      scheduledTicked = true;
+      lastGrowthTime = time;
+      performTick();
+    }
+    if (dirty && !isRemoved()) publishChanges();
+  }
+
+  private void configureSchedule() {
+    int period = Math.clamp(tickRate, 1, 65536);
+    scheduledPhase = phaseForPeriod(period);
+    scheduledRate = tickRate;
+    scheduledPeriod = period;
+    scheduledMask = (period & (period - 1)) == 0 ? period - 1 : -1;
+  }
+
+  int phaseForPeriod(int period) {
+    long hash =
+        worldPosition.getX() * 341873128712L
+            ^ worldPosition.getZ() * 132897987541L
+            ^ worldPosition.getY() * 31L;
+    return Math.floorMod(-hash, period);
+  }
+
+  private void publishChanges() {
+    var world = getLevel();
     if (dirty && !isRemoved()) {
       int fields = pendingFields == 0 ? (1 << FIELDS.length) - 1 : pendingFields;
       dirty = false;
@@ -204,9 +243,9 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
         getLevel().updateNeighbourForOutputSignal(worldPosition, getBlockType());
         getLevel().getChunkSource().getLightEngine().checkBlock(worldPosition);
       }
-      for (int index = 0; index < FIELDS.length; index++)
-        if ((fields & (1 << index)) != 0)
-          ProjectRuntime.network.get(true).updateTileEntityField(this, FIELDS[index]);
+      // Delta transport discards changes when no player can receive them. Persistence stays live.
+      if (!world.players().isEmpty())
+        ProjectRuntime.network.get(true).updateTileEntityFields(this, FIELDS, fields);
     }
   }
 
@@ -263,12 +302,14 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
             crop.getWeightInfluences(this, terrainHumidity, terrainNutrients, terrainAirQuality);
     long needed = Math.max(0, ((long) tier - 1) * 4 + statGrowth + statGain + statResistance);
     int resistanceDraw = needed - (long) weight * 5 > 25 ? ProjectRuntime.random.nextInt(32) : 0;
-    var result = CropMath.growth(genome(), tier, weight, variation, resistanceDraw);
-    if (result.dies()) {
+    int earned =
+        CropMath.growthPoints(
+            statGrowth, statGain, statResistance, tier, weight, variation, resistanceDraw);
+    if (earned < 0) {
       reset();
       return;
     }
-    int next = CropMath.accumulate(growthPoints, result.points());
+    int next = CropMath.accumulate(growthPoints, earned);
     if (next != growthPoints) {
       growthPoints = next;
       changed(1 << 11);
@@ -546,13 +587,25 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     var world = getLevel();
     if (world == null) return;
     int free = 0;
+    LevelChunk chunk = null;
+    int chunkX = Integer.MIN_VALUE, chunkZ = Integer.MIN_VALUE;
     for (int x = -1; x <= 1; x++)
       for (int z = -1; z <= 1; z++) {
-        var cell = worldPosition.offset(x, 0, z);
-        if (!world.isLoaded(cell)) continue;
-        var state = world.getBlockState(cell);
+        var cell = terrainCursor.setWithOffset(worldPosition, x, 0, z);
+        int cellX = cell.getX() >> 4, cellZ = cell.getZ() >> 4;
+        if (cellX != chunkX || cellZ != chunkZ) {
+          chunkX = cellX;
+          chunkZ = cellZ;
+          chunk =
+              world instanceof ServerLevel server
+                  ? server.getChunkSource().getChunkNow(cellX, cellZ)
+                  : world.isLoaded(cell) ? world.getChunkAt(cell) : null;
+        }
+        if (chunk == null || !world.isInValidBounds(cell)) continue;
+        var state = chunk.getBlockState(cell);
         if (!state.isCollisionShapeFullBlock(world, cell)
-            && !(world.getBlockEntity(cell) instanceof CropPlot)) free++;
+            && !(chunk.getBlockEntity(cell, LevelChunk.EntityCreationType.IMMEDIATE)
+                instanceof CropPlot)) free++;
       }
     setTerrainAirQuality(
         Math.clamp(Math.floorDiv(worldPosition.getY() - 40, 15), 0, 2)
@@ -564,7 +617,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     var world = getLevel();
     if (world == null) return;
     long value = Crops.instance.getHumidityBiomeBonus(BiomeUtil.getBiome(world, worldPosition));
-    var soil = world.getBlockState(worldPosition.below());
+    var soil = world.getBlockState(terrainCursor.setWithOffset(worldPosition, 0, -1, 0));
     if (soil.hasProperty(FarmlandBlock.MOISTURE) && soil.getValue(FarmlandBlock.MOISTURE) == 7)
       value += 2;
     if (storageWater >= 5) value += 2;
@@ -576,11 +629,12 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     var world = getLevel();
     if (world == null) return;
     long value = Crops.instance.getNutrientBiomeBonus(BiomeUtil.getBiome(world, worldPosition));
-    for (int depth = 1;
-        depth <= 4
-            && !world.isOutsideBuildHeight(worldPosition.below(depth))
-            && world.getBlockState(worldPosition.below(depth)).is(Blocks.DIRT);
-        depth++) value++;
+    for (int depth = 1; depth <= 4; depth++) {
+      terrainCursor.setWithOffset(worldPosition, 0, -depth, 0);
+      if (world.isOutsideBuildHeight(terrainCursor)
+          || !world.getBlockState(terrainCursor).is(Blocks.DIRT)) break;
+      value++;
+    }
     value += (storageNutrients + 19) / 20;
     setTerrainNutrients((int) Math.clamp(value, 0, 127));
   }

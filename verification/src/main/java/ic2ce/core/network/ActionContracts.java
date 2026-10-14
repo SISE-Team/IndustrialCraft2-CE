@@ -191,6 +191,32 @@ public final class ActionContracts {
     delta.addPlayerField("mode", player);
     check(
         delta.getPlayerFields(player).size() == 1, "private tile fields serialize once per update");
+    var worldData = ic2ce.core.event.WorldData.get(world);
+    worldData.tesToUpdate.remove(storage);
+    var network = ic2ce.neoforge.runtime.ProjectRuntime.network.get(true);
+    network.updateTileEntityFields(storage, new String[] {"active", "mode", "inventory"}, 5);
+    var masked = worldData.tesToUpdate.get(storage);
+    check(
+        masked != null
+            && new ArrayList<>(masked.getGlobalFields()).equals(List.of("active", "inventory")),
+        "masked publication queues only selected fields in declaration order");
+    masked.addPlayerField("mode", player);
+    network.updateTileEntityFields(storage, new String[] {"active", "mode", "inventory"}, 6);
+    check(
+        masked.getGlobalFields().size() == 3 && masked.getPlayerFields(player).isEmpty(),
+        "repeated masked fields coalesce and supersede matching private values");
+    rejected = false;
+    try {
+      network.updateTileEntityFields(storage, new String[] {"active"}, 2);
+    } catch (IllegalArgumentException expected) {
+      rejected = true;
+    }
+    check(rejected, "masked publication rejects fields outside the supplied declaration");
+    worldData.tesToUpdate.remove(storage);
+    network.updateTileEntityFields(storage, new String[] {"active"}, 0);
+    check(
+        !worldData.tesToUpdate.containsKey(storage),
+        "an empty field mask does not create a world delta");
     packet.clear();
     DataEncoder.encode(
         packet, net.minecraft.resources.Identifier.parse("minecraft:overworld"), false);

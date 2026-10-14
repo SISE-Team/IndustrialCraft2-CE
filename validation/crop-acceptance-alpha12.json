@@ -1,0 +1,41 @@
+{
+  "project": "IndustrialCraft2-CE",
+  "version": "2.9.40-alpha.12",
+  "complete": true,
+  "artifacts": {
+    "normal": {
+      "file": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.12.jar",
+      "sha256": "fa6b2c89e13bd70474fa15d5527125ef1c21ee542ee11bb9d20a8e21edd8ab85"
+    },
+    "sources": {
+      "file": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.12-sources.jar",
+      "sha256": "96f505fdcd0600f515685c3132030c52fcff0aad705365acd564f4c651e19a02"
+    },
+    "verification": {
+      "file": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.12-verification.jar",
+      "sha256": "39b582511b4c99f18a3b13ffa27aaf9dd26813790ad32d41b2327fc64527874c"
+    }
+  },
+  "priorWholeRuntimeEvidence": "rewrite-acceptance.json",
+  "priorWholeRuntimeVersion": "alpha.11",
+  "gates": {
+    "native": "crop-native-alpha12.json",
+    "audience": "crop-audience-alpha12.json",
+    "planting": "crop-planting-alpha12.json",
+    "workflow": "crop-workflow-alpha12.json",
+    "clientLogs": "crop-client-logs-alpha12.json",
+    "cropsPressure": "crop-performance-alpha12.json",
+    "circuitsPressure": "circuit-performance-alpha12.json",
+    "cleanDeliveredSource": "crop-clean-source-alpha12.json",
+    "changedClassProvenance": "crop-change-provenance-alpha12.json",
+    "sourceOwnership": "rewrite-source-inventory.json",
+    "normalDiskReload": "crop-normal-reload-alpha12.json",
+    "materialsAndGameFiles": "crop-release-audit-alpha12.json",
+    "branding": "crop-branding-alpha12.json",
+    "history": "conventional-history-rewrite.json"
+  },
+  "scope": "Targeted crop follow-up acceptance; original alpha.11 full-runtime results remain attributed. Real player arrival, freezing, logout and removal, equal callback pressure and independent source rebuild are additional gates.",
+  "twoHourRequirementWithdrawn": true,
+  "historicalEvidenceRemainsAttributed": true,
+  "pending": []
+}

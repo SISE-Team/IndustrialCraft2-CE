@@ -27,6 +27,8 @@ public final class WorldData {
       continuousUpdatesToRemove = new LinkedHashSet<>();
   public final EnergyNetLocal energyNet;
   public final Map<BlockEntity, TeUpdateDataServer> tesToUpdate = new IdentityHashMap<>();
+  public final ic2ce.neoforge.agriculture.CropTickSchedule cropTicks =
+      new ic2ce.neoforge.agriculture.CropTickSchedule();
   public final WirelessTradeMarket tradeMarket;
   public final WorldWind windSim;
   public final Map<LevelChunk, CompoundTag> worldGenData = new IdentityHashMap<>();
@@ -86,6 +88,7 @@ public final class WorldData {
     services.continuousUpdatesToAdd.clear();
     services.continuousUpdatesToRemove.clear();
     services.tesToUpdate.clear();
+    services.cropTicks.clear();
     services.worldGenData.clear();
     services.chunksToDecorate.clear();
     services.pendingUnloadChunks.clear();
