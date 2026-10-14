@@ -1,5 +1,12 @@
 # IndustrialCraft2-CE
 
+> [!IMPORTANT]
+> **Unofficial community fan project**
+>
+> IndustrialCraft2-CE is a community fan-made reimplementation. It is **not an official IndustrialCraft 2 (IC2) release or an official continuation of IC2**.
+>
+> **本项目为社区粉丝作品，并非 IC2 官方项目或官方正式延续。**
+
 IndustrialCraft2-CE implements IndustrialCraft gameplay for Minecraft 26.1.2, NeoForge 26.1.2.114 and Java 25. Version 1.0.0 starts the project's own version sequence and carries forward the independently rewritten runtime and crop scheduling improvements from the previous alpha.12 build. Existing IC2 materials, registry IDs and save fields are retained.
 
 | Component | Version |
