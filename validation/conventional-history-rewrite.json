@@ -1,0 +1,66 @@
+{
+  "project": "IndustrialCraft2-CE",
+  "complete": true,
+  "specification": "https://www.conventionalcommits.org/zh-hans/v1.0.0/",
+  "method": "Exact original rawcommit headers retained; only parentIDs remapped andcommit messages replaced. Every tree andauthor/committer metadata compared.",
+  "priorHistoryBackupPreservedLocally": true,
+  "commits": [
+    {
+      "oldCommit": "8c8d592aeed06bf48e0cb07a9ff185baf05e7777",
+      "newCommit": "c70d5ecfe1d766e1b37f37a53f5a1c00099bdece",
+      "treeUnchanged": true,
+      "metadataUnchanged": true,
+      "title": "feat(port): add IndustrialCraft2-CE for Minecraft 26.1.2"
+    },
+    {
+      "oldCommit": "38c1d22087a7ed2006fa512a7728ca2f8a1f305a",
+      "newCommit": "07e399a12d2f08237e1aa76d931e2a3cbdcff52d",
+      "treeUnchanged": true,
+      "metadataUnchanged": true,
+      "title": "fix(cables): restore targeting and upstream drops"
+    },
+    {
+      "oldCommit": "c91b740fe466564df52d2ba043f4bc5257b1f9b2",
+      "newCommit": "a370f9e463732bbf02f58e1cecd361adb4b52321",
+      "treeUnchanged": true,
+      "metadataUnchanged": true,
+      "title": "fix(painter): prevent client crash and preserve brush refill"
+    },
+    {
+      "oldCommit": "44ed84d1cc4c7be61017565befb2f7f6a9171d39",
+      "newCommit": "6b832e42db819f14cffc2f18bd09420e082ef78c",
+      "treeUnchanged": true,
+      "metadataUnchanged": true,
+      "title": "fix(tools): persist electric state and correct interactions"
+    },
+    {
+      "oldCommit": "bba29c71f36ff540bac2ef219a32b3e363d37c30",
+      "newCommit": "a4b8f5936a548df8027d636075d980b45e001801",
+      "treeUnchanged": true,
+      "metadataUnchanged": true,
+      "title": "fix(gameplay): restore native behavior across items and machines"
+    },
+    {
+      "oldCommit": "2516961090b7ab989f1814dbf88b943277529af2",
+      "newCommit": "23b9f5b3ecac39e4f1057136b3b141527769a4a2",
+      "treeUnchanged": true,
+      "metadataUnchanged": true,
+      "title": "perf(runtime): optimize Java 25 hot paths"
+    },
+    {
+      "oldCommit": "9f5d393c6258070a8afa4552ce865583e0105182",
+      "newCommit": "c4e628d5d31a78a636ef6151feb4ed657ca78592",
+      "treeUnchanged": true,
+      "metadataUnchanged": true,
+      "title": "perf(recipes): optimize lookup and energy paths"
+    },
+    {
+      "oldCommit": "ec460e64777d3151603c0f1ca0830eca0ce55a0e",
+      "newCommit": "0bd8379ae554c3bb617b3515a4be76a482512819",
+      "treeUnchanged": true,
+      "metadataUnchanged": true,
+      "title": "refactor(runtime)!: rewrite implementation under ic2ce modules"
+    }
+  ],
+  "historicalEvidence": "Old commit IDs in recorded evidence identify their original snapshots. The mapping preserves exact tree and author/committer equivalence; raw evidence is not rewritten."
+}
