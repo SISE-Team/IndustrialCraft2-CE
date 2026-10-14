@@ -1,0 +1,24 @@
+{
+  "complete": true,
+  "method": "Exact class bytes, all production classes checked, no classes excluded. Destructive fixture classes are additional entries only.",
+  "checks": [
+    {
+      "kind": "circuits",
+      "baselineProductionClasses": 1296,
+      "allProductionClassesByteIdentical": true,
+      "fixtureSha256": "7ef3f005eb7530576bbf0c45c7e05c7c6ddc010d5512f01028d0112cfd3e0b0b"
+    },
+    {
+      "kind": "crops",
+      "baselineProductionClasses": 1296,
+      "allProductionClassesByteIdentical": true,
+      "fixtureSha256": "2f7c2d82f34fdf0bfaceee582c795e1c151b2125e18119e8ac5f01828580823b"
+    },
+    {
+      "kind": "candidate",
+      "productionClasses": 1281,
+      "allProductionClassesByteIdentical": true,
+      "fixtureSha256": "727677479a229d3f3fde90ebefbcaf17a4cb59e839e9b7e58abb4207ba1fe83f"
+    }
+  ]
+}

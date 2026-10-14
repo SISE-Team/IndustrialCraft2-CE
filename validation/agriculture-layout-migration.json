@@ -1,0 +1,139 @@
+{
+  "domain": "Independent harvesting, distinct crop-care policies and finite fixed cell protocols",
+  "countsAsImplementationRewrite": false,
+  "sources": [
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/ItemClassicCell.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/container/FixedCell.java",
+      "beforeSha256": "4348e5a480cd9512cbbcfef29bb85c16ffed4352a93c4abf57ea96fc46d80f86",
+      "afterSha256": "962adfc63e0a62547686a455cee54e0c3f741f85ae9e7a5fdd5ed058e45b0404",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxyClient.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxyClient.java",
+      "beforeSha256": "eb3b3082ce3ec6fbfcdc47fcbf6136248f3f060e21e8ba9b1d107b84348c3b49",
+      "afterSha256": "f7bd498cb289c4ecbdf611074a54b9bb2005f969889135b25065a945965dc22e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2BlockEntities.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2BlockEntities.java",
+      "beforeSha256": "549ec93457a9373c5ce5c60db8d2fa15c6442f7d09e2ea0e759b75c9152d5089",
+      "afterSha256": "b8eaa81ed648ea12fe3ee394b1b32ccc9b1338091e951f7765ece5c85b87113b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "beforeSha256": "1a6557abec73c7d6df24a1013e5eff357bee65ba71bd8e7b16c3f6095e51124c",
+      "afterSha256": "9c0d2473631275133e45984afdd8ce9a0256321fbe3802cb843a42b855af3281",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Items.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Items.java",
+      "beforeSha256": "87a21850d7d09c67f3a1b0967025ca307b62069d66ede0d7d4219054fa324cb2",
+      "afterSha256": "1fd64a89c1a74e26d3c3d1374f1c660a5c5f6ccd659011cd50e079e95d4f9462",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2ScreenHandlers.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2ScreenHandlers.java",
+      "beforeSha256": "98c75a1d6acaabb5c27ef7abafef35496eb75704406716c8d0013e4a44423a7e",
+      "afterSha256": "9e3aa7755af771023620ea9279f4f5dc342b0c9d3cb3546f59d64eed44bc5fa2",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/container/ContainerClassicCropmatron.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/menu/CellCareMenu.java",
+      "beforeSha256": "d18c0c1fa9fca7f96f0e31b2a525f6c1d52c21505624e0b6ef87e1988192ee6e",
+      "afterSha256": "4791e4c1639ac72c586b176933182c006d4ab2cd7182d38df43c5dfb9cf626b3",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/container/ContainerCropHarvester.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/menu/HarvesterMenu.java",
+      "beforeSha256": "ae36db4178ae0caaaa546de838acd541b0d83876fd95f1f1ad3bf75e6ab39697",
+      "afterSha256": "0dc0b1f61a4451a8f7f07e8e16d98d1f02a43551d32aaf17c3752d481c3b8bbd",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/container/ContainerCropmatron.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/menu/FluidCareMenu.java",
+      "beforeSha256": "a87d814f38284bfafbfe4417f6e25de4235f3da0177b0a32cac0afe261c41237",
+      "afterSha256": "58134d7ae382607e5f3be3a96752d38736c4ce3abad7ac2ac19b123dbb130d8d",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiClassicCropmatron.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/client/CellCareScreen.java",
+      "beforeSha256": "71899f8379f403560acad6c89984eb0e19dc389734a8c47bb395ed759ef176cb",
+      "afterSha256": "e07544d4b7bfc48f0cdcf03f02284a8c803daf483fa04b892d7f4a159f537d02",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiCropHarvester.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/client/HarvesterScreen.java",
+      "beforeSha256": "610a535d1073263a9c7674e58bc9dd2694127ca5af2c05b3af5376d4a9c8eca0",
+      "afterSha256": "d4c05832839c629bd20c7090f2bf53f422c6658255afe8ece0adafefeafc8b01",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiCropmatron.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/client/FluidCareScreen.java",
+      "beforeSha256": "ad84a41217b683ef4ec44e39edd61aa04c71d4fbd98385763ae38da9efc23b82",
+      "afterSha256": "9e6a418d9cac9a03bd37c6c86c19d10c845c76c3b1e4ef87e54f25bcab710ed2",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityClassicCropmatron.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/CellCropCaretaker.java",
+      "beforeSha256": "ef2c8ceea8861914017499a25474d5e6e3da43249c922d63bad93c56f46cc454",
+      "afterSha256": "a7a1f1fce186c9117480754e07fc679c997404809953e1f7116fd63894ded00b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityCropHarvester.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/AutoHarvester.java",
+      "beforeSha256": "25a18071f97fb82abbca5e0ab26e9caefa3dda496c1f8175a0140f77f8630712",
+      "afterSha256": "b8d7881e63633b36a1b234fd6d8b1be0347115899b9fda2e253a4276c308c208",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityCropmatron.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/FluidCropCaretaker.java",
+      "beforeSha256": "120f72cb3b55563de71c0f265dfeafa36c815a919d385b383e0c32bc420d690e",
+      "afterSha256": "392673727c73233bd55979e77789c83235685c35412e66462639b5b4e113bfa3",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/AllItemFunctions.java",
+      "after": "verification/src/main/java/ic2ce/verification/AllItemFunctions.java",
+      "beforeSha256": "82423922ff01eabfe5e5713b329221d74cba651c911b5bc25713c93ca1e51434",
+      "afterSha256": "04e41d65356b246ef4d26db94571a41acb8b1b03fc61ebd16530524031f375a4",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/FluidItemUsage.java",
+      "after": "verification/src/main/java/ic2ce/verification/FluidItemUsage.java",
+      "beforeSha256": "2a1eb8febc6ba4dc3172f58c09efd629422a71a06e8ed6f612e8f53d8305fe34",
+      "afterSha256": "588cc4a5c1f9597efdd1e279a02ae906e1c92eb5442e6e2dffd31592a742c688",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "after": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "beforeSha256": "bba2e3991fc6bb7c2160bbbf60ab32114fc81325ff4a8f4a4089cd527b8937ec",
+      "afterSha256": "6991d57def1249fd9f2e735db9b75fce75d4ac8e3d63212eeba33eb8406032b3",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/block/machine/tileentity/AgricultureContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/agriculture/AgricultureContracts.java",
+      "beforeSha256": "28884464ac5f69757985146ca8e838a3f84fce6d7b6c7c82e5dc1a501bd9f359",
+      "afterSha256": "779ced64388e0bb6462bb2966ce5982ca8276fe177d7ae7ec791623d951f342e",
+      "countsAsImplementationRewrite": false
+    }
+  ]
+}

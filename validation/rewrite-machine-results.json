@@ -1,0 +1,3912 @@
+{
+  "project": "IndustrialCraft2-CE",
+  "complete": true,
+  "releaseSha256": "07b4bfca99dc6e57c6c2292bdc17c2d6ad25e16c03beb6093965233ae2d83c2c",
+  "verificationSha256": "727677479a229d3f3fde90ebefbcaf17a4cb59e839e9b7e58abb4207ba1fe83f",
+  "results": {
+    "startedAt": "2026-10-14T07:21:50.388Z",
+    "registeredMachineTypes": 104,
+    "excludedNonMachines": {
+      "acacia_sapling_crop": "crop (tested as crop-machine input)",
+      "aurelia_crop": "crop (tested as crop-machine input)",
+      "beetroots_crop": "crop (tested as crop-machine input)",
+      "birch_sapling_crop": "crop (tested as crop-machine input)",
+      "blackthorn_crop": "crop (tested as crop-machine input)",
+      "brown_mushroom_crop": "crop (tested as crop-machine input)",
+      "carrots_crop": "crop (tested as crop-machine input)",
+      "classic_nuke": "non-machine block",
+      "cocoa_crop": "crop (tested as crop-machine input)",
+      "coffee_crop": "crop (tested as crop-machine input)",
+      "crop_stick": "crop (tested as crop-machine input)",
+      "cyazint_crop": "crop (tested as crop-machine input)",
+      "cyprium_crop": "crop (tested as crop-machine input)",
+      "dandelion_crop": "crop (tested as crop-machine input)",
+      "dark_oak_sapling_crop": "crop (tested as crop-machine input)",
+      "eating_plant_crop": "crop (tested as crop-machine input)",
+      "ferru_crop": "crop (tested as crop-machine input)",
+      "flax_crop": "crop (tested as crop-machine input)",
+      "hops_crop": "crop (tested as crop-machine input)",
+      "itnt": "non-machine block",
+      "jungle_sapling_crop": "crop (tested as crop-machine input)",
+      "melon_crop": "crop (tested as crop-machine input)",
+      "nether_wart_crop": "crop (tested as crop-machine input)",
+      "nuke": "non-machine block",
+      "oak_sapling_crop": "crop (tested as crop-machine input)",
+      "plumbiscus_crop": "crop (tested as crop-machine input)",
+      "poppy_crop": "crop (tested as crop-machine input)",
+      "potato_crop": "crop (tested as crop-machine input)",
+      "pumpkin_crop": "crop (tested as crop-machine input)",
+      "red_mushroom_crop": "crop (tested as crop-machine input)",
+      "red_wheat_crop": "crop (tested as crop-machine input)",
+      "reed_crop": "crop (tested as crop-machine input)",
+      "shining_crop": "crop (tested as crop-machine input)",
+      "sign": "non-machine block",
+      "spruce_sapling_crop": "crop (tested as crop-machine input)",
+      "stagnium_crop": "crop (tested as crop-machine input)",
+      "sticky_reed_crop": "crop (tested as crop-machine input)",
+      "terra_wart_crop": "crop (tested as crop-machine input)",
+      "tulip_crop": "crop (tested as crop-machine input)",
+      "venomilia_crop": "crop (tested as crop-machine input)",
+      "wall": "non-machine block",
+      "weed_crop": "crop (tested as crop-machine input)",
+      "wheat_crop": "crop (tested as crop-machine input)"
+    },
+    "ticks": 12000,
+    "checks": 1605,
+    "failures": [],
+    "coreFinished": true,
+    "clientGuiCycleComplete": true,
+    "unverifiedBehavior": [],
+    "complete": true,
+    "machines": {
+      "advanced_miner": {
+        "position": [
+          168,
+          181,
+          168
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "powered scanner and whitelist mine matching ore and route drops": true,
+          "network buttons toggle blacklist and silk touch modes while stopped": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "powered scanner and whitelist mine matching ore and route drops": true,
+          "network buttons toggle blacklist and silk touch modes while stopped": true
+        },
+        "class": "ic2ce.neoforge.mining.AreaMiner",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "everActive": true,
+        "peakEnergy": 3802624.0,
+        "rawIronCount": 1,
+        "clientGuiTicks": 40
+      },
+      "batbox": {
+        "position": [
+          184,
+          181,
+          168
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "receives real EU network power and charges battery": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "receives real EU network power and charges battery": true
+        },
+        "class": "ic2ce.neoforge.energy.storage.LowVoltageBank",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 40000.0,
+        "chargedBatteryEU": 10000.0,
+        "clientGuiTicks": 40
+      },
+      "batbox_chargepad": {
+        "position": [
+          200,
+          181,
+          168
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "receives real EU network power and charges battery": true,
+          "standing player receives wireless battery charge through actual block collision": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "receives real EU network power and charges battery": true,
+          "standing player receives wireless battery charge through actual block collision": true
+        },
+        "class": "ic2ce.neoforge.energy.storage.LowVoltagePad",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 40000.0,
+        "chargedBatteryEU": 10000.0,
+        "standingPlayerBatteryEU": 320.0,
+        "clientGuiTicks": 40
+      },
+      "batch_crafter": {
+        "position": [
+          216,
+          181,
+          168
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "offset 1x1 ghost recipe crafts four planks": true,
+          "tool recipe makes iron plate": true,
+          "offset tool remainder stays in matching ingredient slot": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "offset 1x1 ghost recipe crafts four planks": true,
+          "tool recipe makes iron plate": true,
+          "offset tool remainder stays in matching ingredient slot": true
+        },
+        "class": "ic2ce.neoforge.crafting.AutomaticCrafter",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 20080.0,
+        "clientGuiTicks": 40
+      },
+      "blast_furnace": {
+        "position": [
+          232,
+          181,
+          168
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts air into fluid": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "heat and compressed air smelt iron into steel": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "heat and compressed air smelt iron into steel": true
+        },
+        "class": "ic2ce.neoforge.processing.thermal.AlloyFurnace",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "everActive": true,
+        "heat": 47499,
+        "airRemaining": 2000,
+        "clientGuiTicks": 40
+      },
+      "block_cutter": {
+        "position": [
+          248,
+          181,
+          168
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "full output prevents processing and input loss": true,
+          "normal processing creates output using actual world ticks": true,
+          "normal processing consumes the recipe input": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "full output prevents processing and input loss": true,
+          "normal processing creates output using actual world ticks": true,
+          "normal processing consumes the recipe input": true
+        },
+        "class": "ic2ce.neoforge.processing.solid.PlateCutter",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "recipeInput": "1 minecraft:dark_oak_log",
+        "expectedCraftingRemainder": "0 minecraft:air",
+        "peakEnergy": 3600.0,
+        "everActive": true,
+        "normal processing outputs": [
+          "6 minecraft:dark_oak_planks"
+        ],
+        "clientGuiTicks": 40
+      },
+      "bronze_storage_box": {
+        "position": [
+          264,
+          181,
+          168
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "break/place drop preserves 13 stored ingots": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "break/place drop preserves 13 stored ingots": true
+        },
+        "class": "ic2ce.core.block.storage.box.TileEntityBronzeStorageBox",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "clientGuiTicks": 40
+      },
+      "bronze_tank": {
+        "position": [
+          280,
+          181,
+          168
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "simulated extraction preserves fluid": true,
+          "actual extraction respects requested amount": true,
+          "break/place drop preserves 2000mB coolant": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "simulated extraction preserves fluid": true,
+          "actual extraction respects requested amount": true,
+          "break/place drop preserves 2000mB coolant": true
+        },
+        "class": "ic2ce.core.block.storage.tank.TileEntityBronzeTank",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "clientGuiTicks": 40
+      },
+      "canner": {
+        "position": [
+          296,
+          181,
+          168
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "solid canning consumes valid container and ingredient to exact recipe output": true,
+          "empty-liquid mode extracts bucket to output tank": true,
+          "swap-tanks button moves liquid without volume loss": true,
+          "bottle-liquid mode fills bucket from input tank": true,
+          "enrich-liquid mode consumes additive to matching recipe liquid": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "solid canning consumes valid container and ingredient to exact recipe output": true,
+          "empty-liquid mode extracts bucket to output tank": true,
+          "swap-tanks button moves liquid without volume loss": true,
+          "bottle-liquid mode fills bucket from input tank": true,
+          "enrich-liquid mode consumes additive to matching recipe liquid": true
+        },
+        "class": "ic2ce.neoforge.processing.fluid.MultiPolicyCanner",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": true,
+        "powerFixture": "west",
+        "bottleExpected": "4 ic2:filled_tin_can",
+        "everActive": true,
+        "peakEnergy": 1600.0,
+        "emptySnapshot": [
+          "0 minecraft:air",
+          "1 minecraft:bucket",
+          1000,
+          "EmptyLiquid"
+        ],
+        "bottleSnapshot": [
+          "0 minecraft:air",
+          "1 minecraft:water_bucket",
+          0,
+          "BottleLiquid"
+        ],
+        "enrichExpected": 1000,
+        "enrichFluid": "ic2:biomass",
+        "clientGuiTicks": 40
+      },
+      "centrifuge": {
+        "position": [
+          312,
+          181,
+          168
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "full output prevents processing and input loss": true,
+          "normal processing creates output using actual world ticks": true,
+          "normal processing consumes the recipe input": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "full output prevents processing and input loss": true,
+          "normal processing creates output using actual world ticks": true,
+          "normal processing consumes the recipe input": true
+        },
+        "class": "ic2ce.neoforge.processing.solid.ThermalCentrifuge",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "recipeInput": "4 ic2:clay_dust",
+        "expectedCraftingRemainder": "0 minecraft:air",
+        "peakEnergy": 48000.0,
+        "everActive": true,
+        "normal processing outputs": [
+          "1 ic2:silicon_dioxide_dust",
+          "0 minecraft:air",
+          "0 minecraft:air"
+        ],
+        "clientGuiTicks": 40
+      },
+      "cesu": {
+        "position": [
+          328,
+          181,
+          168
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "receives real EU network power and charges battery": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "receives real EU network power and charges battery": true
+        },
+        "class": "ic2ce.neoforge.energy.storage.MediumVoltageBank",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 300000.0,
+        "chargedBatteryEU": 10000.0,
+        "clientGuiTicks": 40
+      },
+      "cesu_chargepad": {
+        "position": [
+          344,
+          181,
+          168
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "receives real EU network power and charges battery": true,
+          "standing player receives wireless battery charge through actual block collision": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "receives real EU network power and charges battery": true,
+          "standing player receives wireless battery charge through actual block collision": true
+        },
+        "class": "ic2ce.neoforge.energy.storage.MediumVoltagePad",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 300000.0,
+        "chargedBatteryEU": 10000.0,
+        "standingPlayerBatteryEU": 1024.0,
+        "clientGuiTicks": 40
+      },
+      "chunk_loader": {
+        "position": [
+          168,
+          181,
+          184
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "powered loader contains its own chunk and is active": true,
+          "own chunk cannot be deselected": true,
+          "selection is capped at nine chunks": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "powered loader contains its own chunk and is active": true,
+          "own chunk cannot be deselected": true,
+          "selection is capped at nine chunks": true
+        },
+        "class": "ic2ce.neoforge.utility.ChunkAnchor",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "everActive": true,
+        "peakEnergy": 2500.0,
+        "clientGuiTicks": 39
+      },
+      "classic_canner": {
+        "position": [
+          184,
+          181,
+          184
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "solid canning consumes valid container and ingredient to exact recipe output": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "solid canning consumes valid container and ingredient to exact recipe output": true
+        },
+        "class": "ic2ce.neoforge.processing.fluid.LegacyCellCanner",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "bottleExpected": "4 ic2:filled_tin_can",
+        "everActive": true,
+        "peakEnergy": 600.0,
+        "clientGuiTicks": 40
+      },
+      "classic_cropmatron": {
+        "position": [
+          200,
+          181,
+          184
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "automatic scan waters and fertilizes nearby IC2 crop": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "automatic scan waters and fertilizes nearby IC2 crop": true
+        },
+        "class": "ic2ce.neoforge.agriculture.CellCropCaretaker",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 1000.0,
+        "cropWater": 198,
+        "cropNutrients": 163,
+        "cropWeedEx": 150,
+        "cropBlock": "Block{ic2:wheat_crop}[age=1]",
+        "scan": [
+          5,
+          0,
+          -4
+        ],
+        "clientGuiTicks": 40
+      },
+      "classic_electrolyzer": {
+        "position": [
+          216,
+          181,
+          184
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "full adjacent bank stores energy in electrolyzed water cell": true,
+          "empty bank recovers cell energy and returns water cell": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "full adjacent bank stores energy in electrolyzed water cell": true,
+          "empty bank recovers cell energy and returns water cell": true
+        },
+        "class": "ic2ce.neoforge.processing.fluid.CellElectrolyzer",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "everActive": true,
+        "peakEnergy": 12544.0,
+        "clientGuiTicks": 40
+      },
+      "classic_mass_fabricator": {
+        "position": [
+          232,
+          181,
+          184
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "actual EU and scrap produce UU matter": true,
+          "redstone pause stops UU production": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "actual EU and scrap produce UU matter": true,
+          "redstone pause stops UU production": true
+        },
+        "class": "ic2ce.neoforge.processing.fabrication.ClassicMatterFabricator",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "everActive": true,
+        "peakEnergy": 999680.0,
+        "scrapRemaining": 0,
+        "pausedProduction": 3,
+        "clientGuiTicks": 40
+      },
+      "classic_mfe": {
+        "position": [
+          248,
+          181,
+          184
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "receives real EU network power and charges battery": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "receives real EU network power and charges battery": true
+        },
+        "class": "ic2ce.neoforge.energy.storage.HighVoltageBank$TileEntityElectricClassicMFE",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 600000.0,
+        "chargedBatteryEU": 10000.0,
+        "clientGuiTicks": 40
+      },
+      "classic_mfsu": {
+        "position": [
+          264,
+          181,
+          184
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "receives real EU network power and charges battery": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "receives real EU network power and charges battery": true
+        },
+        "class": "ic2ce.neoforge.energy.storage.ExtremeVoltageBank$TileEntityElectricClassicMFSU",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 3832560.0,
+        "chargedBatteryEU": 10000.0,
+        "clientGuiTicks": 40
+      },
+      "compressor": {
+        "position": [
+          280,
+          181,
+          184
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "full output prevents processing and input loss": true,
+          "normal processing creates output using actual world ticks": true,
+          "normal processing consumes the recipe input": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "full output prevents processing and input loss": true,
+          "normal processing creates output using actual world ticks": true,
+          "normal processing consumes the recipe input": true
+        },
+        "class": "ic2ce.neoforge.processing.solid.PressureCompressor",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "recipeInput": "9 minecraft:redstone",
+        "expectedCraftingRemainder": "0 minecraft:air",
+        "peakEnergy": 1200.0,
+        "everActive": true,
+        "normal processing outputs": [
+          "1 minecraft:redstone_block"
+        ],
+        "clientGuiTicks": 40
+      },
+      "condenser": {
+        "position": [
+          296,
+          181,
+          184
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts steam into inputTank": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "20000mB steam condenses into 200mB distilled water": true,
+          "fixture accepts superheated_steam into inputTank": true,
+          "powered heat vent accelerates superheated steam condensation": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "20000mB steam condenses into 200mB distilled water": true,
+          "powered heat vent accelerates superheated steam condensation": true
+        },
+        "class": "ic2ce.neoforge.processing.fluid.SteamCondenser",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": true,
+        "powerFixture": "west",
+        "everActive": true,
+        "peakEnergy": 100000.0,
+        "clientGuiTicks": 40
+      },
+      "creative_generator": {
+        "position": [
+          312,
+          181,
+          184
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "produces EU delivered through real energy network": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true
+        },
+        "behavior": {
+          "produces EU delivered through real energy network": true
+        },
+        "class": "ic2ce.neoforge.power.CreativePowerSource",
+        "hasGui": false,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "receiverEU": 159680.0
+      },
+      "crop_harvester": {
+        "position": [
+          328,
+          181,
+          184
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "ripe IC2 wheat is harvested into machine inventory": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "ripe IC2 wheat is harvested into machine inventory": true
+        },
+        "class": "ic2ce.neoforge.agriculture.AutoHarvester",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 10000.0,
+        "harvestedItemCount": 12,
+        "cropBlock": "Block{ic2:wheat_crop}[age=2]",
+        "cropAge": 2,
+        "scan": [
+          -4,
+          1,
+          1
+        ],
+        "clientGuiTicks": 40
+      },
+      "cropmatron": {
+        "position": [
+          344,
+          181,
+          184
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts minecraft:water into waterTank": true,
+          "fixture accepts weed_ex into exTank": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "automatic scan waters and fertilizes nearby IC2 crop": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "automatic scan waters and fertilizes nearby IC2 crop": true
+        },
+        "class": "ic2ce.neoforge.agriculture.FluidCropCaretaker",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": true,
+        "powerFixture": "west",
+        "peakEnergy": 10000.0,
+        "cropWater": 197,
+        "cropNutrients": 167,
+        "cropWeedEx": 150,
+        "cropBlock": "Block{ic2:wheat_crop}[age=1]",
+        "scan": [
+          -4,
+          1,
+          1
+        ],
+        "clientGuiTicks": 40
+      },
+      "electric_furnace": {
+        "position": [
+          168,
+          181,
+          200
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "full output prevents processing and input loss": true,
+          "normal processing creates output using actual world ticks": true,
+          "normal processing consumes the recipe input": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true,
+          "client uses synchronized vanilla smelting ingredient hints": true
+        },
+        "behavior": {
+          "full output prevents processing and input loss": true,
+          "normal processing creates output using actual world ticks": true,
+          "normal processing consumes the recipe input": true
+        },
+        "class": "ic2ce.neoforge.processing.thermal.ElectricSmelter",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 600.0,
+        "normal processing outputs": [
+          "1 minecraft:iron_ingot"
+        ],
+        "clientGuiTicks": 40
+      },
+      "electric_heat_generator": {
+        "position": [
+          184,
+          181,
+          200
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "valid resources generate heat": true,
+          "simulation leaves heat and exact draw consumes buffer": true,
+          "opposite side cannot extract heat": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "valid resources generate heat": true,
+          "simulation leaves heat and exact draw consumes buffer": true,
+          "opposite side cannot extract heat": true
+        },
+        "class": "ic2ce.neoforge.thermal.ElectricHeater",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 10000.0,
+        "clientGuiTicks": 40
+      },
+      "electric_kinetic_generator": {
+        "position": [
+          200,
+          181,
+          200
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "normal operation produces usable KU": true,
+          "KU output is restricted to designated connector": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "normal operation produces usable KU": true,
+          "KU output is restricted to designated connector": true
+        },
+        "class": "ic2ce.neoforge.kinetic.ElectricMotor",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 10000.0,
+        "kineticBandwidth": 100,
+        "clientGuiTicks": 40
+      },
+      "electrolyzer": {
+        "position": [
+          216,
+          181,
+          200
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts minecraft:water into input": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "40mB water electrolyzes into 26mB hydrogen below and 13mB oxygen above": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "40mB water electrolyzes into 26mB hydrogen below and 13mB oxygen above": true
+        },
+        "class": "ic2ce.neoforge.processing.fluid.FluidElectrolyzer",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": true,
+        "powerFixture": "west",
+        "everActive": true,
+        "peakEnergy": 32000.0,
+        "clientGuiTicks": 40
+      },
+      "energy_o_mat": {
+        "position": [
+          232,
+          181,
+          200
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "one payment buys configured EU without excess charging": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "one payment buys configured EU without excess charging": true
+        },
+        "class": "ic2ce.neoforge.personal.EnergyTradeTerminal",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "paidBatteryEU": 1000.0,
+        "clientGuiTicks": 40
+      },
+      "ev_transformer": {
+        "position": [
+          248,
+          181,
+          200
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "network fills buffer with configured voltage/direction": true,
+          "step-down sends actual converted EU into output bank": true,
+          "step-up button reverses sink/source tiers and directions": true,
+          "step-up transmits real EU through front output": true,
+          "automatic redstone mode selects step-up": true,
+          "automatic mode returns to step-down without signal": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "network fills buffer with configured voltage/direction": true,
+          "step-down sends actual converted EU into output bank": true,
+          "step-up button reverses sink/source tiers and directions": true,
+          "step-up transmits real EU through front output": true,
+          "automatic redstone mode selects step-up": true,
+          "automatic mode returns to step-down without signal": true
+        },
+        "class": "ic2ce.neoforge.energy.transformer.ExtremeVoltageTransformer",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "north",
+        "peakEnergy": 8192.0,
+        "sinkTier": 5,
+        "sourceTier": 4,
+        "sourceDirections": "[down, up, south, west, east]",
+        "stepDownEU": 110592.0,
+        "everActive": true,
+        "stepUpEU": 249856.0,
+        "clientGuiTicks": 40
+      },
+      "extractor": {
+        "position": [
+          264,
+          181,
+          200
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "full output prevents processing and input loss": true,
+          "normal processing creates output using actual world ticks": true,
+          "normal processing consumes the recipe input": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "full output prevents processing and input loss": true,
+          "normal processing creates output using actual world ticks": true,
+          "normal processing consumes the recipe input": true
+        },
+        "class": "ic2ce.neoforge.processing.solid.MaterialExtractor",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "recipeInput": "1 ic2:filled_tin_can",
+        "expectedCraftingRemainder": "0 minecraft:air",
+        "peakEnergy": 1200.0,
+        "everActive": true,
+        "normal processing outputs": [
+          "1 ic2:tin_can"
+        ],
+        "clientGuiTicks": 40
+      },
+      "fermenter": {
+        "position": [
+          280,
+          181,
+          200
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts biomass into input": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "biomass ferments into matching amount of biogas using heat": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "biomass ferments into matching amount of biogas using heat": true
+        },
+        "class": "ic2ce.neoforge.processing.fluid.BiomassFermenter",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "everActive": true,
+        "biogasMB": 2000,
+        "clientGuiTicks": 40
+      },
+      "fluid_bottler": {
+        "position": [
+          296,
+          181,
+          200
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "empties water bucket preserving empty bucket and 1000mB": true,
+          "fills bucket and consumes exactly 1000mB": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "empties water bucket preserving empty bucket and 1000mB": true,
+          "fills bucket and consumes exactly 1000mB": true
+        },
+        "class": "ic2ce.neoforge.processing.fluid.LiquidPackager",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": true,
+        "powerFixture": "west",
+        "everActive": true,
+        "peakEnergy": 400.0,
+        "drainSnapshot": [
+          "0 minecraft:air",
+          "1 minecraft:bucket",
+          1000,
+          0.0
+        ],
+        "fillSnapshot": [
+          "0 minecraft:air",
+          "1 minecraft:water_bucket",
+          0,
+          0.0
+        ],
+        "clientGuiTicks": 40
+      },
+      "fluid_distributor": {
+        "position": [
+          312,
+          181,
+          200
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts coolant into fluidTank": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "distributes 1000mB to connected tanks with volume conservation": true,
+          "two equal receivers share fluid equally": true,
+          "inverted mode consolidates fluid into front tank": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "distributes 1000mB to connected tanks with volume conservation": true,
+          "two equal receivers share fluid equally": true,
+          "inverted mode consolidates fluid into front tank": true
+        },
+        "class": "ic2ce.neoforge.transport.FairFluidRouter",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "everActive": true,
+        "clientGuiTicks": 40
+      },
+      "fluid_heat_generator": {
+        "position": [
+          328,
+          181,
+          200
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts biogas into fluidTank": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "valid resources generate heat": true,
+          "simulation leaves heat and exact draw consumes buffer": true,
+          "opposite side cannot extract heat": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "valid resources generate heat": true,
+          "simulation leaves heat and exact draw consumes buffer": true,
+          "opposite side cannot extract heat": true
+        },
+        "class": "ic2ce.neoforge.thermal.FluidBurner",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "clientGuiTicks": 40
+      },
+      "fluid_regulator": {
+        "position": [
+          344,
+          181,
+          200
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts coolant into fluidTank": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "per-second mode transfers exact configured volume": true,
+          "per-tick mode transfers same volume faster": true,
+          "partial receiver capacity preserves untransferred fluid": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "per-second mode transfers exact configured volume": true,
+          "per-tick mode transfers same volume faster": true,
+          "partial receiver capacity preserves untransferred fluid": true
+        },
+        "class": "ic2ce.neoforge.transport.MeteredFluidOutlet",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": true,
+        "powerFixture": "west",
+        "everActive": true,
+        "peakEnergy": 10000.0,
+        "clientGuiTicks": 40
+      },
+      "generator": {
+        "position": [
+          168,
+          181,
+          216
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "produces EU delivered through real energy network": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "produces EU delivered through real energy network": true
+        },
+        "class": "ic2ce.neoforge.power.CombustionGenerator",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "everActive": true,
+        "peakEnergy": 0.0,
+        "receiverEU": 4980.0,
+        "clientGuiTicks": 40
+      },
+      "geo_generator": {
+        "position": [
+          184,
+          181,
+          216
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts minecraft:lava into fluid": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "produces EU delivered through real energy network": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "produces EU delivered through real energy network": true
+        },
+        "class": "ic2ce.neoforge.power.GeothermalGenerator",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": true,
+        "everActive": true,
+        "peakEnergy": 0.0,
+        "receiverEU": 9960.0,
+        "clientGuiTicks": 40
+      },
+      "hv_transformer": {
+        "position": [
+          200,
+          181,
+          216
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "network fills buffer with configured voltage/direction": true,
+          "step-down sends actual converted EU into output bank": true,
+          "step-up button reverses sink/source tiers and directions": true,
+          "step-up transmits real EU through front output": true,
+          "automatic redstone mode selects step-up": true,
+          "automatic mode returns to step-down without signal": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "network fills buffer with configured voltage/direction": true,
+          "step-down sends actual converted EU into output bank": true,
+          "step-up button reverses sink/source tiers and directions": true,
+          "step-up transmits real EU through front output": true,
+          "automatic redstone mode selects step-up": true,
+          "automatic mode returns to step-down without signal": true
+        },
+        "class": "ic2ce.neoforge.energy.transformer.HighVoltageTransformer",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "north",
+        "peakEnergy": 2048.0,
+        "sinkTier": 4,
+        "sourceTier": 3,
+        "sourceDirections": "[down, up, south, west, east]",
+        "stepDownEU": 111104.0,
+        "everActive": true,
+        "stepUpEU": 143360.0,
+        "clientGuiTicks": 40
+      },
+      "induction_furnace": {
+        "position": [
+          216,
+          181,
+          216
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "both induction input slots smelt to matching outputs": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "both induction input slots smelt to matching outputs": true
+        },
+        "class": "ic2ce.neoforge.processing.thermal.InductionSmelter",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "everActive": true,
+        "peakEnergy": 10000.0,
+        "outputs": [
+          "1 minecraft:iron_ingot",
+          "1 minecraft:gold_ingot"
+        ],
+        "clientGuiTicks": 40
+      },
+      "industrial_workbench": {
+        "position": [
+          232,
+          181,
+          216
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "general grid and hammer/cutter previews resolve real recipes": true,
+          "taking hammer result consumes ingot and retains damaged tool": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "general grid and hammer/cutter previews resolve real recipes": true,
+          "taking hammer result consumes ingot and retains damaged tool": true
+        },
+        "class": "ic2ce.neoforge.crafting.IndustrialWorkbench",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "clientGuiTicks": 20
+      },
+      "iridium_storage_box": {
+        "position": [
+          248,
+          181,
+          216
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "break/place drop preserves 13 stored ingots": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "break/place drop preserves 13 stored ingots": true
+        },
+        "class": "ic2ce.core.block.storage.box.TileEntityIridiumStorageBox",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "clientGuiTicks": 40
+      },
+      "iridium_tank": {
+        "position": [
+          264,
+          181,
+          216
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "simulated extraction preserves fluid": true,
+          "actual extraction respects requested amount": true,
+          "break/place drop preserves 2000mB coolant": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "simulated extraction preserves fluid": true,
+          "actual extraction respects requested amount": true,
+          "break/place drop preserves 2000mB coolant": true
+        },
+        "class": "ic2ce.core.block.storage.tank.TileEntityIridiumTank",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "clientGuiTicks": 40
+      },
+      "iron_furnace": {
+        "position": [
+          280,
+          181,
+          216
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "coal smelts iron ore and consumes input": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "coal smelts iron ore and consumes input": true
+        },
+        "class": "ic2ce.neoforge.processing.thermal.FuelSmelter",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "everActive": true,
+        "clientGuiTicks": 40
+      },
+      "iron_storage_box": {
+        "position": [
+          296,
+          181,
+          216
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "break/place drop preserves 13 stored ingots": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "break/place drop preserves 13 stored ingots": true
+        },
+        "class": "ic2ce.core.block.storage.box.TileEntityIronStorageBox",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "clientGuiTicks": 40
+      },
+      "iron_tank": {
+        "position": [
+          312,
+          181,
+          216
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "simulated extraction preserves fluid": true,
+          "actual extraction respects requested amount": true,
+          "break/place drop preserves 2000mB coolant": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "simulated extraction preserves fluid": true,
+          "actual extraction respects requested amount": true,
+          "break/place drop preserves 2000mB coolant": true
+        },
+        "class": "ic2ce.core.block.storage.tank.TileEntityIronTank",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "clientGuiTicks": 40
+      },
+      "item_buffer": {
+        "position": [
+          328,
+          181,
+          216
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "ejector transfers buffered inventories without duplication": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "ejector transfers buffered inventories without duplication": true
+        },
+        "class": "ic2ce.neoforge.transport.DualItemBuffer",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "deliveredItems": 36,
+        "clientGuiTicks": 40
+      },
+      "kinetic_generator": {
+        "position": [
+          344,
+          181,
+          216
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "produces EU delivered through real energy network": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "produces EU delivered through real energy network": true
+        },
+        "class": "ic2ce.neoforge.power.KineticConverter",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "everActive": true,
+        "receiverEU": 12450.0,
+        "clientGuiTicks": 40
+      },
+      "liquid_heat_exchanger": {
+        "position": [
+          168,
+          181,
+          232
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts hot_coolant into inputTank": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "hot coolant supplies HU and returns equal volume of coolant": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "hot coolant supplies HU and returns equal volume of coolant": true
+        },
+        "class": "ic2ce.neoforge.thermal.FluidHeatExchanger",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "everActive": true,
+        "clientGuiTicks": 40
+      },
+      "lv_transformer": {
+        "position": [
+          184,
+          181,
+          232
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "network fills buffer with configured voltage/direction": true,
+          "step-down sends actual converted EU into output bank": true,
+          "step-up button reverses sink/source tiers and directions": true,
+          "step-up transmits real EU through front output": true,
+          "automatic redstone mode selects step-up": true,
+          "automatic mode returns to step-down without signal": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "network fills buffer with configured voltage/direction": true,
+          "step-down sends actual converted EU into output bank": true,
+          "step-up button reverses sink/source tiers and directions": true,
+          "step-up transmits real EU through front output": true,
+          "automatic redstone mode selects step-up": true,
+          "automatic mode returns to step-down without signal": true
+        },
+        "class": "ic2ce.neoforge.energy.transformer.LowVoltageTransformer",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "north",
+        "peakEnergy": 256.0,
+        "sinkTier": 2,
+        "sourceTier": 1,
+        "sourceDirections": "[down, up, south, west, east]",
+        "stepDownEU": 44544.0,
+        "everActive": true,
+        "stepUpEU": 57472.0,
+        "clientGuiTicks": 40
+      },
+      "macerator": {
+        "position": [
+          200,
+          181,
+          232
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "full output prevents processing and input loss": true,
+          "normal processing creates output using actual world ticks": true,
+          "normal processing consumes the recipe input": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "full output prevents processing and input loss": true,
+          "normal processing creates output using actual world ticks": true,
+          "normal processing consumes the recipe input": true
+        },
+        "class": "ic2ce.neoforge.processing.solid.OreGrinder",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "recipeInput": "1 ic2:obsidian_plate",
+        "expectedCraftingRemainder": "0 minecraft:air",
+        "peakEnergy": 1200.0,
+        "everActive": true,
+        "normal processing outputs": [
+          "1 ic2:obsidian_dust"
+        ],
+        "clientGuiTicks": 40
+      },
+      "magnetizer": {
+        "position": [
+          216,
+          181,
+          232
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "powered iron pole lifts actual player beyond ordinary jump height": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "powered iron pole lifts actual player beyond ordinary jump height": true
+        },
+        "class": "ic2ce.neoforge.utility.PoleDrive",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 100.0,
+        "jumpWindow": false,
+        "peakPolePlayerY": 190.10239929819105,
+        "clientState": {
+          "onGround": false,
+          "magnetizerEU": 100.0,
+          "flying": false,
+          "playerY": 183.5275727648645,
+          "velocityY": 0.5
+        },
+        "actualPlayerRiseObserved": true,
+        "clientGuiTicks": 40
+      },
+      "manual_kinetic_generator": {
+        "position": [
+          232,
+          181,
+          232
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "player activation creates KU and enforces ten clicks per tick": true,
+          "normal operation produces usable KU": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true
+        },
+        "behavior": {
+          "player activation creates KU and enforces ten clicks per tick": true,
+          "normal operation produces usable KU": true
+        },
+        "class": "ic2ce.neoforge.kinetic.ManualCrank",
+        "hasGui": false,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "kineticBandwidth": 1000
+      },
+      "mass_fabricator": {
+        "position": [
+          248,
+          181,
+          232
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "actual EU and scrap produce UU matter": true,
+          "redstone pause stops UU production": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "actual EU and scrap produce UU matter": true,
+          "redstone pause stops UU production": true
+        },
+        "class": "ic2ce.neoforge.processing.fabrication.AmplifiedMatterFabricator",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "everActive": true,
+        "peakEnergy": 991680.0,
+        "scrapRemaining": 14,
+        "pausedProduction": 2,
+        "clientGuiTicks": 40
+      },
+      "matter_generator": {
+        "position": [
+          264,
+          181,
+          232
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "actual EU and scrap produce UU matter": true,
+          "redstone pause stops UU production": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "actual EU and scrap produce UU matter": true,
+          "redstone pause stops UU production": true
+        },
+        "class": "ic2ce.neoforge.processing.fabrication.LiquidMatterFabricator",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": true,
+        "powerFixture": "west",
+        "everActive": true,
+        "peakEnergy": 999680.0,
+        "scrapRemaining": 0,
+        "pausedProduction": 3,
+        "clientGuiTicks": 39
+      },
+      "metal_former": {
+        "position": [
+          280,
+          181,
+          232
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "full output prevents processing and input loss": true,
+          "normal processing creates output using actual world ticks": true,
+          "normal processing consumes the recipe input": true,
+          "rolling mode creates output using actual world ticks": true,
+          "rolling mode consumes the recipe input": true,
+          "cutting mode creates output using actual world ticks": true,
+          "cutting mode consumes the recipe input": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "full output prevents processing and input loss": true,
+          "normal processing creates output using actual world ticks": true,
+          "normal processing consumes the recipe input": true,
+          "rolling mode creates output using actual world ticks": true,
+          "rolling mode consumes the recipe input": true,
+          "cutting mode creates output using actual world ticks": true,
+          "cutting mode consumes the recipe input": true
+        },
+        "class": "ic2ce.neoforge.processing.solid.MetalFormer",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "recipeInput": "1 ic2:gold_plate",
+        "expectedCraftingRemainder": "0 minecraft:air",
+        "peakEnergy": 4000.0,
+        "everActive": true,
+        "normal processing outputs": [
+          "1 ic2:fuel_rod"
+        ],
+        "rolling mode outputs": [
+          "1 ic2:tin_plate"
+        ],
+        "cutting mode outputs": [
+          "4 ic2:gold_cable"
+        ],
+        "clientGuiTicks": 40
+      },
+      "mfe": {
+        "position": [
+          296,
+          181,
+          232
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "receives real EU network power and charges battery": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "receives real EU network power and charges battery": true
+        },
+        "class": "ic2ce.neoforge.energy.storage.HighVoltageBank",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 3832560.0,
+        "chargedBatteryEU": 10000.0,
+        "clientGuiTicks": 40
+      },
+      "mfe_chargepad": {
+        "position": [
+          312,
+          181,
+          232
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "receives real EU network power and charges battery": true,
+          "standing player receives wireless battery charge through actual block collision": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "receives real EU network power and charges battery": true,
+          "standing player receives wireless battery charge through actual block collision": true
+        },
+        "class": "ic2ce.neoforge.energy.storage.HighVoltagePad",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 3828464.0,
+        "chargedBatteryEU": 10000.0,
+        "standingPlayerBatteryEU": 4096.0,
+        "clientGuiTicks": 40
+      },
+      "mfsu": {
+        "position": [
+          328,
+          181,
+          232
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "receives real EU network power and charges battery": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "receives real EU network power and charges battery": true
+        },
+        "class": "ic2ce.neoforge.energy.storage.ExtremeVoltageBank",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 3832560.0,
+        "chargedBatteryEU": 10000.0,
+        "clientGuiTicks": 40
+      },
+      "mfsu_chargepad": {
+        "position": [
+          344,
+          181,
+          232
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "receives real EU network power and charges battery": true,
+          "standing player receives wireless battery charge through actual block collision": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "receives real EU network power and charges battery": true,
+          "standing player receives wireless battery charge through actual block collision": true
+        },
+        "class": "ic2ce.neoforge.energy.storage.ExtremeVoltagePad",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 3822560.0,
+        "chargedBatteryEU": 10000.0,
+        "standingPlayerBatteryEU": 10000.0,
+        "clientGuiTicks": 40
+      },
+      "miner": {
+        "position": [
+          168,
+          181,
+          248
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "charged drill mines ore and stores raw iron in internal buffer": true,
+          "removing drill retracts mining pipe into inventory": true,
+          "connected pump removes intervening water and mining continues into ore": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "charged drill mines ore and stores raw iron in internal buffer": true,
+          "removing drill retracts mining pipe into inventory": true,
+          "connected pump removes intervening water and mining continues into ore": true
+        },
+        "class": "ic2ce.neoforge.mining.PipeMiner",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "everActive": true,
+        "peakEnergy": 1000.0,
+        "rawIronCount": 1,
+        "blockBelow": "Block{ic2:mining_pipe}",
+        "linkedPumpAt3050": [
+          1000,
+          40.0,
+          0,
+          1000.0,
+          8,
+          false,
+          1,
+          "Block{ic2:mining_pipe_tip}",
+          "Block{minecraft:iron_ore}"
+        ],
+        "linkedPumpAt3500": [
+          1000,
+          40.0,
+          0,
+          1000.0,
+          0,
+          false,
+          2,
+          "Block{ic2:mining_pipe}",
+          "Block{ic2:mining_pipe}"
+        ],
+        "linkedPumpAt4000": [
+          1000,
+          40.0,
+          0,
+          1000.0,
+          0,
+          false,
+          2,
+          "Block{ic2:mining_pipe}",
+          "Block{ic2:mining_pipe}"
+        ],
+        "clientGuiTicks": 40
+      },
+      "mv_transformer": {
+        "position": [
+          184,
+          181,
+          248
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "network fills buffer with configured voltage/direction": true,
+          "step-down sends actual converted EU into output bank": true,
+          "step-up button reverses sink/source tiers and directions": true,
+          "step-up transmits real EU through front output": true,
+          "automatic redstone mode selects step-up": true,
+          "automatic mode returns to step-down without signal": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "network fills buffer with configured voltage/direction": true,
+          "step-down sends actual converted EU into output bank": true,
+          "step-up button reverses sink/source tiers and directions": true,
+          "step-up transmits real EU through front output": true,
+          "automatic redstone mode selects step-up": true,
+          "automatic mode returns to step-down without signal": true
+        },
+        "class": "ic2ce.neoforge.energy.transformer.MediumVoltageTransformer",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "north",
+        "peakEnergy": 768.0,
+        "sinkTier": 3,
+        "sourceTier": 2,
+        "sourceDirections": "[down, up, south, west, east]",
+        "stepDownEU": 111360.0,
+        "everActive": true,
+        "stepUpEU": 143360.0,
+        "clientGuiTicks": 40
+      },
+      "nuclear_reactor": {
+        "position": [
+          200,
+          181,
+          248
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "single fuel rod and cooling components produce real EU without overheating": true,
+          "redstone removal stops nuclear production": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "single fuel rod and cooling components produce real EU without overheating": true,
+          "redstone removal stops nuclear production": true
+        },
+        "class": "ic2ce.neoforge.reactor.NuclearCore",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "everActive": true,
+        "receiverEU": 3405.0,
+        "clientGuiTicks": 40
+      },
+      "ore_washing_plant": {
+        "position": [
+          216,
+          181,
+          248
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts minecraft:water into fluid": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "full output prevents processing and input loss": true,
+          "normal processing creates output using actual world ticks": true,
+          "normal processing consumes the recipe input": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "full output prevents processing and input loss": true,
+          "normal processing creates output using actual world ticks": true,
+          "normal processing consumes the recipe input": true
+        },
+        "class": "ic2ce.neoforge.processing.solid.OreWasher",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": true,
+        "powerFixture": "west",
+        "recipeInput": "1 ic2:crushed_uranium",
+        "expectedCraftingRemainder": "0 minecraft:air",
+        "peakEnergy": 16000.0,
+        "everActive": true,
+        "normal processing outputs": [
+          "1 ic2:purified_uranium",
+          "2 ic2:small_lead_dust",
+          "1 ic2:stone_dust"
+        ],
+        "clientGuiTicks": 40
+      },
+      "pattern_storage": {
+        "position": [
+          232,
+          181,
+          248
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "imports scanned memory and rejects duplicate pattern": true,
+          "next-pattern event selects second entry": true,
+          "exports selected pattern to crystal": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "imports scanned memory and rejects duplicate pattern": true,
+          "next-pattern event selects second entry": true,
+          "exports selected pattern to crystal": true
+        },
+        "class": "ic2ce.neoforge.processing.fabrication.PatternLibrary",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "clientGuiTicks": 40
+      },
+      "personal_chest": {
+        "position": [
+          248,
+          181,
+          248
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "first owner can access and different player is denied": true,
+          "owner inventory stores and extracts exact requested count": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "first owner can access and different player is denied": true,
+          "owner inventory stores and extracts exact requested count": true
+        },
+        "class": "ic2ce.neoforge.personal.PrivateChest",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "clientGuiTicks": 40
+      },
+      "pump": {
+        "position": [
+          264,
+          181,
+          248
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "normal world ticks pump source water into a bucket": true,
+          "lava source pumps into lava bucket without duplicating source": true,
+          "fixture accepts minecraft:water into fluid": true,
+          "full output tank stops pumping without deleting source": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "normal world ticks pump source water into a bucket": true,
+          "lava source pumps into lava bucket without duplicating source": true,
+          "full output tank stops pumping without deleting source": true
+        },
+        "class": "ic2ce.neoforge.processing.fluid.FluidCollector",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": true,
+        "powerFixture": "west",
+        "peakEnergy": 40.0,
+        "pumpSnapshot": [
+          "1 minecraft:water_bucket",
+          "0 minecraft:air",
+          0,
+          0,
+          "Block{minecraft:air}"
+        ],
+        "clientGuiTicks": 40
+      },
+      "rci_lzh": {
+        "position": [
+          280,
+          181,
+          248
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "powered injector consumes one coolant block and resets worn matching cell": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "powered injector consumes one coolant block and resets worn matching cell": true
+        },
+        "class": "ic2ce.neoforge.reactor.LapisCondensatorService",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 48000.0,
+        "restoredUseFraction": 0.0,
+        "clientGuiTicks": 39
+      },
+      "rci_rsh": {
+        "position": [
+          296,
+          181,
+          248
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "powered injector consumes one coolant block and resets worn matching cell": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "powered injector consumes one coolant block and resets worn matching cell": true
+        },
+        "class": "ic2ce.neoforge.reactor.RedstoneCondensatorService",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 48000.0,
+        "restoredUseFraction": 0.0,
+        "clientGuiTicks": 40
+      },
+      "reactor_access_hatch": {
+        "position": [
+          312,
+          181,
+          248
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "completed vessel and six chambers resolve fluid reactor": true,
+          "hatch insertion and extraction use actual core inventory": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "completed vessel and six chambers resolve fluid reactor": true,
+          "hatch insertion and extraction use actual core inventory": true
+        },
+        "class": "ic2ce.neoforge.reactor.VesselHatch",
+        "hasGui": false,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "delegatedCoreGui": true,
+        "clientGuiTicks": 40
+      },
+      "reactor_chamber": {
+        "position": [
+          328,
+          181,
+          248
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "attached chamber resolves core and expands grid width": true,
+          "expanded grid retains shared core inventory": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "attached chamber resolves core and expands grid width": true,
+          "expanded grid retains shared core inventory": true
+        },
+        "class": "ic2ce.neoforge.reactor.ReactorChamber",
+        "hasGui": false,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "delegatedCoreGui": true,
+        "clientGuiTicks": 40
+      },
+      "reactor_fluid_port": {
+        "position": [
+          344,
+          181,
+          248
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "completed vessel and six chambers resolve fluid reactor": true,
+          "port insertion forwards coolant to core tank": true,
+          "working fluid reactor outputs extractable hot coolant through port": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "completed vessel and six chambers resolve fluid reactor": true,
+          "port insertion forwards coolant to core tank": true,
+          "working fluid reactor outputs extractable hot coolant through port": true
+        },
+        "class": "ic2ce.neoforge.reactor.CoolantPort",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "clientGuiTicks": 41
+      },
+      "reactor_redstone_port": {
+        "position": [
+          168,
+          181,
+          264
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "completed vessel and six chambers resolve fluid reactor": true,
+          "external port signal starts linked core fuel processing": true,
+          "removing port signal stops linked reactor": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true
+        },
+        "behavior": {
+          "completed vessel and six chambers resolve fluid reactor": true,
+          "external port signal starts linked core fuel processing": true,
+          "removing port signal stops linked reactor": true
+        },
+        "class": "ic2ce.neoforge.reactor.SignalPort",
+        "hasGui": false,
+        "hasEnergy": false,
+        "hasFluid": false
+      },
+      "recycler": {
+        "position": [
+          184,
+          181,
+          264
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "native recycler retains one-in-eight scrap probability": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "full output prevents processing and input loss": true,
+          "normal processing consumes native input and produces only permitted random scrap": true,
+          "probability sample output is actual scrap": true,
+          "native random recycling rate stays within six binomial standard deviations": true,
+          "512 actual recycling operations finish the native probability sample": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "native recycler retains one-in-eight scrap probability": true,
+          "full output prevents processing and input loss": true,
+          "normal processing consumes native input and produces only permitted random scrap": true,
+          "probability sample output is actual scrap": true,
+          "native random recycling rate stays within six binomial standard deviations": true,
+          "512 actual recycling operations finish the native probability sample": true
+        },
+        "class": "ic2ce.neoforge.processing.solid.MaterialRecycler",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 122.0,
+        "everActive": true,
+        "normal processing outputs": [
+          "6 ic2:scrap"
+        ],
+        "recyclingProbabilitySample": {
+          "sixSigma": 44.8998886412873,
+          "actualInputsConsumed": 512,
+          "chanceDenominator": 8,
+          "actualScrapOutputs": 57,
+          "expectedMean": 64.0
+        },
+        "clientGuiTicks": 40
+      },
+      "replicator": {
+        "position": [
+          200,
+          181,
+          264
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts uu_matter into fluidTank": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "single run with no pattern stays stopped and preserves UU": true,
+          "single run duplicates scanned item and automatically stops": true,
+          "continuous mode makes further output": true,
+          "stop button halts replication": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "single run with no pattern stays stopped and preserves UU": true,
+          "single run duplicates scanned item and automatically stops": true,
+          "continuous mode makes further output": true,
+          "stop button halts replication": true
+        },
+        "class": "ic2ce.neoforge.processing.fabrication.PatternReplicator",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": true,
+        "powerFixture": "west",
+        "peakEnergy": 2000000.0,
+        "patternBucketCost": 0.0010727283597727643,
+        "everActive": true,
+        "stopCount": 19,
+        "clientGuiTicks": 40
+      },
+      "rt_generator": {
+        "position": [
+          216,
+          181,
+          264
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "produces EU delivered through real energy network": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "produces EU delivered through real energy network": true
+        },
+        "class": "ic2ce.neoforge.power.RadioisotopeGenerator",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "everActive": true,
+        "peakEnergy": 0.0,
+        "receiverEU": 498.0,
+        "clientGuiTicks": 40
+      },
+      "rt_heat_generator": {
+        "position": [
+          232,
+          181,
+          264
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "valid resources generate heat": true,
+          "simulation leaves heat and exact draw consumes buffer": true,
+          "opposite side cannot extract heat": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "valid resources generate heat": true,
+          "simulation leaves heat and exact draw consumes buffer": true,
+          "opposite side cannot extract heat": true
+        },
+        "class": "ic2ce.neoforge.thermal.RadioisotopeHeater",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "everActive": true,
+        "clientGuiTicks": 40
+      },
+      "semifluid_generator": {
+        "position": [
+          248,
+          181,
+          264
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts biogas into fluid": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "produces EU delivered through real energy network": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "produces EU delivered through real energy network": true
+        },
+        "class": "ic2ce.neoforge.power.BiogasGenerator",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": true,
+        "everActive": true,
+        "peakEnergy": 0.0,
+        "receiverEU": 7968.0,
+        "clientGuiTicks": 40
+      },
+      "solar_distiller": {
+        "position": [
+          264,
+          181,
+          264
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts minecraft:water into inputTank": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "sunlight distills water with 1:1 volume conservation": true,
+          "opaque roof stops solar distillation": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "sunlight distills water with 1:1 volume conservation": true,
+          "opaque roof stops solar distillation": true
+        },
+        "class": "ic2ce.neoforge.processing.fluid.SolarDistiller",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "roofOutput": 16,
+        "stableRoofOutput": 16,
+        "clientGuiTicks": 42
+      },
+      "solar_generator": {
+        "position": [
+          280,
+          181,
+          264
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "produces EU delivered through real energy network": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "produces EU delivered through real energy network": true
+        },
+        "class": "ic2ce.neoforge.power.SolarCollector",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "everActive": true,
+        "peakEnergy": 0.0,
+        "receiverEU": 435.0210876464844,
+        "clientGuiTicks": 40
+      },
+      "solid_canner": {
+        "position": [
+          296,
+          181,
+          264
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "solid canning consumes valid container and ingredient to exact recipe output": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "solid canning consumes valid container and ingredient to exact recipe output": true
+        },
+        "class": "ic2ce.neoforge.processing.solid.SolidPackager",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "bottleExpected": "4 ic2:filled_tin_can",
+        "everActive": true,
+        "peakEnergy": 800.0,
+        "clientGuiTicks": 39
+      },
+      "solid_heat_generator": {
+        "position": [
+          312,
+          181,
+          264
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "valid resources generate heat": true,
+          "simulation leaves heat and exact draw consumes buffer": true,
+          "opposite side cannot extract heat": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "valid resources generate heat": true,
+          "simulation leaves heat and exact draw consumes buffer": true,
+          "opposite side cannot extract heat": true
+        },
+        "class": "ic2ce.neoforge.thermal.CombustionHeater",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "everActive": true,
+        "clientGuiTicks": 40
+      },
+      "sorting_machine": {
+        "position": [
+          328,
+          181,
+          264
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "matched batch routes east and unmatched items use default south": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "matched batch routes east and unmatched items use default south": true
+        },
+        "class": "ic2ce.neoforge.transport.BatchItemSorter",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 15000.0,
+        "clientGuiTicks": 40
+      },
+      "steam_generator": {
+        "position": [
+          344,
+          181,
+          264
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts distilled_water into waterTank": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "heat boils distilled water and transfers usable steam to condenser": true,
+          "zero input control stops steam production": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "heat boils distilled water and transfers usable steam to condenser": true,
+          "zero input control stops steam production": true
+        },
+        "class": "ic2ce.neoforge.processing.fluid.PressureBoiler",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "everActive": true,
+        "condensedWaterMB": 1000,
+        "clientGuiTicks": 40
+      },
+      "steam_kinetic_generator": {
+        "position": [
+          168,
+          181,
+          280
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "normal operation produces usable KU": true,
+          "KU output is restricted to designated connector": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "normal operation produces usable KU": true,
+          "KU output is restricted to designated connector": true
+        },
+        "class": "ic2ce.neoforge.kinetic.SteamTurbine",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "kineticBandwidth": 1802,
+        "everActive": true,
+        "clientGuiTicks": 40
+      },
+      "steam_repressurizer": {
+        "position": [
+          184,
+          181,
+          280
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts steam into input": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "tagged integration steam converts using heat and configured ratio": true,
+          "fixture accepts superheated_steam into input": true,
+          "superheated steam conversion produces configured output": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "tagged integration steam converts using heat and configured ratio": true,
+          "superheated steam conversion produces configured output": true
+        },
+        "class": "ic2ce.neoforge.processing.fluid.IntegrationSteamConverter",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "integrationFixture": "verification-only forge:steam tag supplies target fluid ic2:steam",
+        "regularOutputMB": 1600,
+        "clientGuiTicks": 40
+      },
+      "steel_storage_box": {
+        "position": [
+          200,
+          181,
+          280
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "break/place drop preserves 13 stored ingots": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "break/place drop preserves 13 stored ingots": true
+        },
+        "class": "ic2ce.core.block.storage.box.TileEntitySteelStorageBox",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "clientGuiTicks": 40
+      },
+      "steel_tank": {
+        "position": [
+          216,
+          181,
+          280
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "simulated extraction preserves fluid": true,
+          "actual extraction respects requested amount": true,
+          "break/place drop preserves 2000mB coolant": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "simulated extraction preserves fluid": true,
+          "actual extraction respects requested amount": true,
+          "break/place drop preserves 2000mB coolant": true
+        },
+        "class": "ic2ce.core.block.storage.tank.TileEntitySteelTank",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "clientGuiTicks": 40
+      },
+      "stirling_generator": {
+        "position": [
+          232,
+          181,
+          280
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "produces EU delivered through real energy network": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "produces EU delivered through real energy network": true
+        },
+        "class": "ic2ce.neoforge.power.ThermalConverter",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "everActive": true,
+        "receiverEU": 24900.0,
+        "clientGuiTicks": 40
+      },
+      "stirling_kinetic_generator": {
+        "position": [
+          248,
+          181,
+          280
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts minecraft:water into inputTank": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "normal operation produces usable KU": true,
+          "KU output is restricted to designated connector": true,
+          "stored KU remains within advertised buffer capacity": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "normal operation produces usable KU": true,
+          "KU output is restricted to designated connector": true,
+          "stored KU remains within advertised buffer capacity": true
+        },
+        "class": "ic2ce.neoforge.kinetic.HeatDrivenCogenerator",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "kineticBandwidth": 2000,
+        "clientGuiTicks": 40
+      },
+      "tank": {
+        "position": [
+          264,
+          181,
+          280
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "simulated extraction preserves fluid": true,
+          "actual extraction respects requested amount": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "simulated extraction preserves fluid": true,
+          "actual extraction respects requested amount": true
+        },
+        "class": "ic2ce.neoforge.storage.StationaryFluidStore",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "clientGuiTicks": 40
+      },
+      "teleporter": {
+        "position": [
+          280,
+          181,
+          280
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "redstone teleports actual entity to linked pad and consumes bank EU": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true
+        },
+        "behavior": {
+          "redstone teleports actual entity to linked pad and consumes bank EU": true
+        },
+        "class": "ic2ce.neoforge.utility.LinkedTeleporter",
+        "hasGui": false,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "everActive": true,
+        "remainingBankEU": 999168.0
+      },
+      "terraformer": {
+        "position": [
+          296,
+          181,
+          280
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "powered desertification blueprint converts real dirt into sand": true,
+          "removing blueprint stops operation after idle delay": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true
+        },
+        "behavior": {
+          "powered desertification blueprint converts real dirt into sand": true,
+          "removing blueprint stops operation after idle delay": true
+        },
+        "class": "ic2ce.neoforge.terrain.TerrainController",
+        "hasGui": false,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "everActive": true,
+        "peakEnergy": 100000.0,
+        "convertedSandBlocks": 90
+      },
+      "tesla_coil": {
+        "position": [
+          312,
+          181,
+          280
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "unpowered redstone control leaves nearby target unharmed": true,
+          "redstone-enabled coil shocks actual nearby living entity": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true
+        },
+        "behavior": {
+          "unpowered redstone control leaves nearby target unharmed": true,
+          "redstone-enabled coil shocks actual nearby living entity": true
+        },
+        "class": "ic2ce.neoforge.utility.ArcCoil",
+        "hasGui": false,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 10000.0
+      },
+      "trade_o_mat": {
+        "position": [
+          328,
+          181,
+          280
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "two trades conserve paid items and stock-backed offered output": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "two trades conserve paid items and stock-backed offered output": true
+        },
+        "class": "ic2ce.neoforge.personal.ItemTradeTerminal",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "tradeCount": 2,
+        "clientGuiTicks": 40
+      },
+      "uu_assembly_bench": {
+        "position": [
+          344,
+          181,
+          280
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "original top-center UU layout produces eight oak logs": true,
+          "original center UU layout distinguishes stone from wood": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "original top-center UU layout produces eight oak logs": true,
+          "original center UU layout distinguishes stone from wood": true
+        },
+        "class": "ic2ce.neoforge.crafting.UuAssembler",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "peakEnergy": 20080.0,
+        "clientGuiTicks": 40
+      },
+      "uu_scanner": {
+        "position": [
+          168,
+          181,
+          296
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "3300 powered ticks complete scanning and consume source item": true,
+          "record button writes completed pattern onto crystal memory": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true,
+          "asynchronous native scanner RPC and client acceptance": true
+        },
+        "behavior": {
+          "3300 powered ticks complete scanning and consume source item": true,
+          "record button writes completed pattern onto crystal memory": true
+        },
+        "class": "ic2ce.neoforge.processing.fabrication.PatternScanner",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "powerFixture": "west",
+        "everActive": true,
+        "peakEnergy": 512000.0,
+        "clientGuiTicks": 40
+      },
+      "water_generator": {
+        "position": [
+          184,
+          181,
+          296
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "produces EU delivered through real energy network": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "produces EU delivered through real energy network": true
+        },
+        "class": "ic2ce.neoforge.power.WaterMill",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "peakEnergy": 0.0,
+        "everActive": true,
+        "receiverEU": 480.0,
+        "clientGuiTicks": 40
+      },
+      "water_kinetic_generator": {
+        "position": [
+          200,
+          181,
+          296
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "normal operation produces usable KU": true,
+          "KU output is restricted to designated connector": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "normal operation produces usable KU": true,
+          "KU output is restricted to designated connector": true
+        },
+        "class": "ic2ce.neoforge.kinetic.WaterTurbine",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "everActive": true,
+        "kineticBandwidth": 26,
+        "clientGuiTicks": 40
+      },
+      "weighted_fluid_distributor": {
+        "position": [
+          216,
+          181,
+          296
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "fixture accepts coolant into fluidTank": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "distributes 1000mB to connected tanks with volume conservation": true,
+          "highest-priority tank receives all fluid": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "distributes 1000mB to connected tanks with volume conservation": true,
+          "highest-priority tank receives all fluid": true
+        },
+        "class": "ic2ce.neoforge.transport.PriorityFluidRouter",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": true,
+        "clientGuiTicks": 40
+      },
+      "weighted_item_distributor": {
+        "position": [
+          232,
+          181,
+          296
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "first-priority inventory receives exactly 23 items": true,
+          "full first target falls back to second without loss": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "first-priority inventory receives exactly 23 items": true,
+          "full first target falls back to second without loss": true
+        },
+        "class": "ic2ce.neoforge.transport.PriorityItemRouter",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "clientGuiTicks": 40
+      },
+      "wind_generator": {
+        "position": [
+          248,
+          181,
+          296
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "produces EU delivered through real energy network": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "produces EU delivered through real energy network": true
+        },
+        "class": "ic2ce.neoforge.power.WindMill",
+        "hasGui": true,
+        "hasEnergy": true,
+        "hasFluid": false,
+        "peakEnergy": 0.0,
+        "everActive": true,
+        "receiverEU": 2387.6920795151714,
+        "clientGuiTicks": 40
+      },
+      "wind_kinetic_generator": {
+        "position": [
+          264,
+          181,
+          296
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "normal operation produces usable KU": true,
+          "KU output is restricted to designated connector": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "normal operation produces usable KU": true,
+          "KU output is restricted to designated connector": true
+        },
+        "class": "ic2ce.neoforge.kinetic.WindTurbine",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "everActive": true,
+        "kineticBandwidth": 129,
+        "clientGuiTicks": 40
+      },
+      "wooden_storage_box": {
+        "position": [
+          280,
+          181,
+          296
+        ],
+        "checks": {
+          "registered block creates expected entity": true,
+          "initial machine remains placed": true,
+          "initial saves/loads correct entity type": true,
+          "initial IC2 state survives NBT roundtrip": true,
+          "initial server menu is constructible": true,
+          "initial native menu synchronization fields are enumerable and unique": true,
+          "break/place drop preserves 13 stored ingots": true,
+          "final machine remains placed": true,
+          "final saves/loads correct entity type": true,
+          "final IC2 state survives NBT roundtrip": true,
+          "final server menu is constructible": true,
+          "final native menu synchronization fields are enumerable and unique": true,
+          "opens actual client GUI": true,
+          "actual menu survives at least 15 client frames": true
+        },
+        "behavior": {
+          "break/place drop preserves 13 stored ingots": true
+        },
+        "class": "ic2ce.core.block.storage.box.TileEntityWoodenStorageBox",
+        "hasGui": true,
+        "hasEnergy": false,
+        "hasFluid": false,
+        "clientGuiTicks": 40
+      }
+    }
+  }
+}

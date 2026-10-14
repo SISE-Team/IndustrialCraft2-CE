@@ -1,0 +1,11 @@
+{
+  "complete": true,
+  "normalSha256": "c68951394a8ea669127ef4a7bc595b1b5c8fa1bab1b42fa575b0cded88fe8a77",
+  "oldVerificationSha256": "e4cab54fe5359c8df2e2b924b1e957e890556b7a9bc5143cd680ae6ab2e631a0",
+  "verificationSha256": "c59314cb8444fec2ce29e77435ce97ddecaa145d84ad6cce23ff1aef5d0c41bf",
+  "byteIdenticalProductionClasses": 1281,
+  "changedFixtureClasses": [
+    "ic2ce/verification/ExtendedValidation.class"
+  ],
+  "reason": "Initialize actual priority outlets before continuous fluid workload, assert positive delivery within10s; production, materials and all finite matrix logic unchanged."
+}

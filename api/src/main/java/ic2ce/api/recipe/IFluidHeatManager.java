@@ -1,0 +1,24 @@
+package ic2ce.api.recipe;
+
+import java.util.Map;
+import net.minecraft.world.level.material.Fluid;
+
+public interface IFluidHeatManager extends ILiquidAcceptManager {
+  void addFluid(Fluid var1, int var2, int var3);
+
+  IFluidHeatManager.BurnProperty getBurnProperty(Fluid var1);
+
+  Map<Fluid, IFluidHeatManager.BurnProperty> getBurnProperties();
+
+  public static class BurnProperty {
+    public final int amount;
+    public final int heat;
+
+    public BurnProperty(int amount, int heat) {
+      if (amount <= 0 || heat <= 0)
+        throw new IllegalArgumentException("Heat fuel requires positive volume and heat");
+      this.amount = amount;
+      this.heat = heat;
+    }
+  }
+}

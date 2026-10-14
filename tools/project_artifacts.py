@@ -2,6 +2,9 @@
 from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parents[1]
+JAVA_ROOTS = tuple(PROJECT / path for path in ('platform/neoforge/src/main/java', 'api/src/main/java', 'engine/src/main/java'))
+RESOURCE_ROOT = PROJECT / 'assets/src/main/resources'
+VERIFICATION_ROOT = PROJECT / 'verification/src/main'
 PROPERTIES = {}
 for line in (PROJECT / 'gradle.properties').read_text(encoding='utf-8').splitlines():
     if line.strip() and not line.lstrip().startswith('#') and '=' in line:
@@ -21,6 +24,6 @@ def installed_ic2_jars(mods):
     result = []
     for path in Path(mods).glob('*.jar'):
         with zipfile.ZipFile(path) as jar:
-            if 'ic2/core/IC2.class' in jar.namelist():
+            if any(entry in jar.namelist() for entry in ('ic2ce/neoforge/runtime/ProjectRuntime.class', 'ic2ce/core/IC2.class', 'ic2/core/IC2.class')):
                 result.append(path)
     return result

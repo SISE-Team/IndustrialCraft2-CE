@@ -1,0 +1,218 @@
+{
+  "project": "IndustrialCraft2-CE",
+  "complete": true,
+  "releaseSha256": "07b4bfca99dc6e57c6c2292bdc17c2d6ad25e16c03beb6093965233ae2d83c2c",
+  "verificationSha256": "727677479a229d3f3fde90ebefbcaf17a4cb59e839e9b7e58abb4207ba1fe83f",
+  "runs": [
+    {
+      "mode": "processing",
+      "report": "ic2-all-machines-verification.json",
+      "present": true,
+      "complete": true,
+      "checks": 1605,
+      "failures": [],
+      "reportSha256": "ae3bf9c52a95c7d98fd8c681a400fdc8bacc24f893bfdef05d5dbac4f29b381a"
+    },
+    {
+      "mode": "processing",
+      "report": "ic2-processing-recipes-verification.json",
+      "present": true,
+      "complete": true,
+      "checks": 290,
+      "failures": [],
+      "reportSha256": "139dc9b99ae39cd638f3016497e925dd10bb211329d49637186b69511b537680"
+    },
+    {
+      "mode": "processing",
+      "report": "ic2-workbench-navigation.json",
+      "present": true,
+      "complete": true,
+      "checks": 6,
+      "failures": [],
+      "reportSha256": "dde4a49ac2c2b62edbf706f175defec145b7e4f1158db723389ed793a5af6717"
+    },
+    {
+      "mode": "processing",
+      "report": "ic2-recipe-display-contracts.json",
+      "present": true,
+      "complete": true,
+      "checks": 20,
+      "failures": [],
+      "reportSha256": "e634f3289c665908cf9a126fc7d969714129c510e4c5a11a4fb7ede5c731cc1e"
+    },
+    {
+      "mode": "processing",
+      "report": "ic2-display-contracts.json",
+      "present": true,
+      "complete": true,
+      "checks": 17,
+      "failures": [],
+      "reportSha256": "973682bc54c353ab38dbd8b1f688bfd659965b2e74302142ccc4081ca3fd1210"
+    },
+    {
+      "mode": "processing",
+      "report": "ic2-audio-contracts.json",
+      "present": true,
+      "complete": true,
+      "checks": 10,
+      "failures": [],
+      "reportSha256": "3e505d31de73623e0963b71d5e68aa9a6f9a287303c53eabb653a7cae9442cff"
+    },
+    {
+      "mode": "processing",
+      "report": "ic2-client-binding-contracts.json",
+      "present": true,
+      "complete": true,
+      "checks": 4,
+      "failures": [],
+      "reportSha256": "2c02b47ee8424b6a0f412e9c89723c81e7cd0bf2d257cafc6411c4a1e86fa960"
+    },
+    {
+      "mode": "processing",
+      "report": "ic2-widget-contracts.json",
+      "present": true,
+      "complete": true,
+      "checks": 25,
+      "failures": [],
+      "reportSha256": "2ef2bdde619bcbba0aecd624dd29b6b5b1eeccc937c9820df691f4462186bfec"
+    },
+    {
+      "mode": "processing",
+      "report": "ic2-chunk-map-contracts.json",
+      "present": true,
+      "complete": true,
+      "checks": 2,
+      "failures": [],
+      "reportSha256": "e0b4704c100ffa226a07fa25d0a1709a3f0df446956793d8cebc2ec5e33d734a"
+    },
+    {
+      "mode": "processing",
+      "report": "ic2-outlet-screen-contracts.json",
+      "present": true,
+      "complete": true,
+      "checks": 5,
+      "failures": [],
+      "reportSha256": "ad4efa8c6fa639f814c794b0be27aa8a471fbd3391e5b05ca3580ff5085e672a"
+    },
+    {
+      "mode": "items",
+      "report": "ic2-all-items-verification.json",
+      "present": true,
+      "complete": true,
+      "checks": 3547,
+      "failures": [],
+      "reportSha256": "d89b395b27331a0b759a543feb7ec1fc12b8dfce0368f7e1d3bc8410656f0d64",
+      "registeredItems": 508,
+      "placements": 186,
+      "usedItems": 508,
+      "remainingItems": [],
+      "actualVanillaRecipeBookCases": 366
+    },
+    {
+      "mode": "items",
+      "report": "ic2-item-functions-verification.json",
+      "present": true,
+      "complete": true,
+      "checks": 810,
+      "failures": [],
+      "reportSha256": "8a7253a8dffb22391864a16482d13736aaaf016c3b84af3f81f6c2c7072a4940"
+    },
+    {
+      "mode": "items",
+      "report": "ic2-additional-items-verification.json",
+      "present": true,
+      "complete": true,
+      "checks": 1328,
+      "failures": [],
+      "reportSha256": "b360311c757a4abff2031691dcfd1cf2193d0a3f63e4152b18ab644f230cb4c0"
+    },
+    {
+      "mode": "items",
+      "report": "ic2-canning-recipes-verification.json",
+      "present": true,
+      "complete": true,
+      "checks": 41,
+      "failures": [],
+      "reportSha256": "5d4be13a7f3115a68f392c54911463744c3896f024614e783f4c743659c3aa37"
+    },
+    {
+      "mode": "items",
+      "report": "ic2-all-machines-verification.json",
+      "present": true,
+      "complete": true,
+      "checks": 1615,
+      "failures": [],
+      "reportSha256": "78ccb178be232e4b1e5078b646f644be7de98ef4dd8bb1eecec33995892996b2"
+    },
+    {
+      "mode": "cables",
+      "report": "ic2-cable-verification.json",
+      "present": true,
+      "complete": true,
+      "checks": 696,
+      "failures": [],
+      "reportSha256": "4e05d5c4424724e06351c717ee1b5ec2fde2411005ddbd3bac03cfc2a5f5f7d5"
+    },
+    {
+      "mode": "painter",
+      "report": "ic2-painter-verification.json",
+      "present": true,
+      "complete": true,
+      "checks": 400,
+      "failures": [],
+      "reportSha256": "2899e71690d1a70f99782a5fbb421d1ecb8ef141eacda42fe000a70381b9ed59"
+    },
+    {
+      "mode": "tools",
+      "report": "ic2-tool-interaction-verification.json",
+      "present": true,
+      "complete": true,
+      "checks": 514,
+      "failures": [],
+      "reportSha256": "71bd163e913d278dcb6d91f046b4fbefa30324e9838a0b1fae41646fc7a77fa0"
+    },
+    {
+      "mode": "workflow",
+      "report": "ic2-coupled-workflow-verification.json",
+      "present": true,
+      "complete": true,
+      "checks": 66,
+      "failures": [],
+      "reportSha256": "10a403d3bfef1a9c1d751e3b07f0daae6edf756496526eeca4dd533ab9b01d85"
+    },
+    {
+      "mode": "lifecycle",
+      "report": "ic2-all-machines-verification.json",
+      "present": true,
+      "complete": true,
+      "checks": 1618,
+      "failures": [],
+      "reportSha256": "3fa5d955f65ad39eb107867385e71aea80dec5758c15e6630a2c58a1717d496c"
+    },
+    {
+      "mode": "lifecycle",
+      "report": "ic2-lifecycle-verification.json",
+      "present": true,
+      "complete": true,
+      "checks": 7,
+      "failures": [],
+      "reportSha256": "277bb32c15893637cd2132385045b283b90270b3231ac14ba57d61fdc4881cdb"
+    },
+    {
+      "mode": "native",
+      "report": "ic2-hotpath-regression.json",
+      "complete": true,
+      "checks": 9573,
+      "failures": []
+    },
+    {
+      "mode": "restart",
+      "report": "three actual server processes",
+      "complete": true,
+      "checks": 11,
+      "failures": []
+    }
+  ],
+  "remaining": [],
+  "scope": "Fresh exact-artifact actual native gameplay; multiplayer/endurance, normal-JAR reload and quiet paired performance are separate gates."
+}

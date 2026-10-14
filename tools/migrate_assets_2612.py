@@ -7,9 +7,10 @@ from pathlib import Path
 import argparse
 import json
 from collections import Counter
+from project_artifacts import JAVA_ROOTS, RESOURCE_ROOT
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "src/main/resources/assets/ic2"
+ASSETS = RESOURCE_ROOT / 'assets/ic2'
 
 
 def write(path, data):
@@ -26,7 +27,7 @@ def migrate():
                 raise RuntimeError(f"Both legacy and migrated sprite directories exist: {source}")
             source.rename(target)
     changed = 0
-    for base, suffix in ((ASSETS, ".json"), (ROOT / "src/main/java/ic2", ".java")):
+    for base, suffix in ((ASSETS, '.json'), *((root, '.java') for root in JAVA_ROOTS)):
         for path in base.rglob("*" + suffix):
             original = path.read_text("utf-8")
             updated = original
@@ -144,7 +145,14 @@ def audit():
 
     for path in roots:
         walk(json.loads(path.read_text("utf-8")), str(path.relative_to(ASSETS)))
-    report = {"root_definitions": len(roots), "reachable_ic2_models": len(seen), "missing": sorted(missing)}
+    backgrounds = 0
+    for path in (RESOURCE_ROOT / "data/ic2/advancement").rglob("*.json"):
+        background = json.loads(path.read_text("utf-8" )).get("display", {}).get("background")
+        if isinstance(background, str) and background.startswith("ic2:"):
+            backgrounds += 1
+            if not (ASSETS / "textures" / (background[4:] + ".png")).is_file():
+                missing.add((str(path.relative_to(RESOURCE_ROOT)), "advancement background", background))
+    report = {"root_definitions": len(roots), "reachable_ic2_models": len(seen), "advancement_backgrounds": backgrounds, "missing": sorted(missing)}
     print(json.dumps(report, indent=2))
     return bool(missing)
 

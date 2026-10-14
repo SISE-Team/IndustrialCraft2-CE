@@ -1,0 +1,458 @@
+{
+  "project": "IndustrialCraft2-CE",
+  "round": 2,
+  "scope": "Partial native crop scheduling: cache phased timing, field deltas, saved-data notification coalescing and invalidated weak biome bonus cache. Later species bodies are excluded. Whole rewrite and final quiet performance acceptance remain incomplete.",
+  "baselineSha256": "2f7c2d82f34fdf0bfaceee582c795e1c151b2125e18119e8ac5f01828580823b",
+  "candidateSha256": "3a92cc83813b2033c1cf8768cbf40a673fe5512b8ebfdcf394544d89ed2a7aa6",
+  "unchangedBaselineProductionClasses": 1296,
+  "identicalNormalizedFixtureInstructions": true,
+  "method": "Three fresh JVMs per artifact, balanced B1/A1/A2/B2/B3/A3, Java25/G1/4GiB/16processors/compactheadersOFF/JFR. 1024 warmup and4096 measured ticks per scale. Same placed physical crops and callback observer; exactly16 growth callbacks per plot.",
+  "totalMeasuredTicks": 73728,
+  "totalObservedGrowthCallbacks": 1277952,
+  "background": "Owned machine/GUI client and compilation ran during part of this series; ranges retained; not final quiet acceptance.",
+  "measurements": [
+    {
+      "crops": 1024,
+      "measuredTicksPerFork": 4096,
+      "growthCallsPerPlot": 16,
+      "metrics": {
+        "meanMSPT": {
+          "baselineMedian": 0.0543341064453125,
+          "candidateMedian": 0.0584963134765625,
+          "candidateChangePercent": 7.660394738320164,
+          "baselineForkRange": [
+            0.052259326171875,
+            0.0590504150390625
+          ],
+          "candidateForkRange": [
+            0.0567129638671875,
+            0.0585544921875
+          ]
+        },
+        "p95MSPT": {
+          "baselineMedian": 0.0792,
+          "candidateMedian": 0.092,
+          "candidateChangePercent": 16.161616161616156,
+          "baselineForkRange": [
+            0.0763,
+            0.086
+          ],
+          "candidateForkRange": [
+            0.0886,
+            0.0935
+          ]
+        },
+        "p99MSPT": {
+          "baselineMedian": 0.1348,
+          "candidateMedian": 0.1323,
+          "candidateChangePercent": -1.85459940652819,
+          "baselineForkRange": [
+            0.1213,
+            0.1386
+          ],
+          "candidateForkRange": [
+            0.1321,
+            0.1455
+          ]
+        },
+        "maxMSPT": {
+          "baselineMedian": 3.2582,
+          "candidateMedian": 0.6767,
+          "candidateChangePercent": -79.23086366705543,
+          "baselineForkRange": [
+            2.5325,
+            3.8038
+          ],
+          "candidateForkRange": [
+            0.6119,
+            0.7633
+          ]
+        },
+        "meanThreadCpuMSPT": {
+          "baselineMedian": 0.05340576171875,
+          "candidateMedian": 0.057220458984375,
+          "candidateChangePercent": 7.14285714285714,
+          "baselineForkRange": [
+            0.05340576171875,
+            0.057220458984375
+          ],
+          "candidateForkRange": [
+            0.049591064453125,
+            0.06103515625
+          ]
+        },
+        "allocatedBytesPerTick": {
+          "baselineMedian": 14333.759765625,
+          "candidateMedian": 10641.30078125,
+          "candidateChangePercent": -25.76057534625491,
+          "baselineForkRange": [
+            14324.337890625,
+            14413.205078125
+          ],
+          "candidateForkRange": [
+            10570.17578125,
+            10667.189453125
+          ]
+        }
+      }
+    },
+    {
+      "crops": 4096,
+      "measuredTicksPerFork": 4096,
+      "growthCallsPerPlot": 16,
+      "metrics": {
+        "meanMSPT": {
+          "baselineMedian": 0.1753435302734375,
+          "candidateMedian": 0.1767806640625,
+          "candidateChangePercent": 0.8196103881457084,
+          "baselineForkRange": [
+            0.170112060546875,
+            0.1802708984375
+          ],
+          "candidateForkRange": [
+            0.176108984375,
+            0.17825791015625
+          ]
+        },
+        "p95MSPT": {
+          "baselineMedian": 0.2059,
+          "candidateMedian": 0.2276,
+          "candidateChangePercent": 10.53909664885866,
+          "baselineForkRange": [
+            0.1872,
+            0.231
+          ],
+          "candidateForkRange": [
+            0.2241,
+            0.2302
+          ]
+        },
+        "p99MSPT": {
+          "baselineMedian": 0.2626,
+          "candidateMedian": 0.2689,
+          "candidateChangePercent": 2.3990860624523824,
+          "baselineForkRange": [
+            0.2387,
+            0.2782
+          ],
+          "candidateForkRange": [
+            0.2689,
+            0.2984
+          ]
+        },
+        "maxMSPT": {
+          "baselineMedian": 8.1658,
+          "candidateMedian": 0.4666,
+          "candidateChangePercent": -94.28592422052952,
+          "baselineForkRange": [
+            7.6682,
+            9.0269
+          ],
+          "candidateForkRange": [
+            0.4451,
+            0.5825
+          ]
+        },
+        "meanThreadCpuMSPT": {
+          "baselineMedian": 0.171661376953125,
+          "candidateMedian": 0.171661376953125,
+          "candidateChangePercent": 0.0,
+          "baselineForkRange": [
+            0.1678466796875,
+            0.18310546875
+          ],
+          "candidateForkRange": [
+            0.1678466796875,
+            0.179290771484375
+          ]
+        },
+        "allocatedBytesPerTick": {
+          "baselineMedian": 37585.365234375,
+          "candidateMedian": 18161.919921875,
+          "candidateChangePercent": -51.67821355833364,
+          "baselineForkRange": [
+            37553.724609375,
+            37823.810546875
+          ],
+          "candidateForkRange": [
+            18160.984375,
+            18264.734375
+          ]
+        }
+      }
+    },
+    {
+      "crops": 8192,
+      "measuredTicksPerFork": 4096,
+      "growthCallsPerPlot": 16,
+      "metrics": {
+        "meanMSPT": {
+          "baselineMedian": 0.3383836181640625,
+          "candidateMedian": 0.3463825439453125,
+          "candidateChangePercent": 2.363863187186488,
+          "baselineForkRange": [
+            0.3280044189453125,
+            0.3469703125
+          ],
+          "candidateForkRange": [
+            0.3450102783203125,
+            0.354456689453125
+          ]
+        },
+        "p95MSPT": {
+          "baselineMedian": 0.3502,
+          "candidateMedian": 0.3949,
+          "candidateChangePercent": 12.764134780125636,
+          "baselineForkRange": [
+            0.3435,
+            0.3643
+          ],
+          "candidateForkRange": [
+            0.3882,
+            0.4038
+          ]
+        },
+        "p99MSPT": {
+          "baselineMedian": 0.4667,
+          "candidateMedian": 0.4853,
+          "candidateChangePercent": 3.9854296121705657,
+          "baselineForkRange": [
+            0.4658,
+            0.4968
+          ],
+          "candidateForkRange": [
+            0.4816,
+            0.4922
+          ]
+        },
+        "maxMSPT": {
+          "baselineMedian": 61.6481,
+          "candidateMedian": 7.6262,
+          "candidateChangePercent": -87.62946465503397,
+          "baselineForkRange": [
+            61.2799,
+            64.2909
+          ],
+          "candidateForkRange": [
+            5.0067,
+            8.7368
+          ]
+        },
+        "meanThreadCpuMSPT": {
+          "baselineMedian": 0.316619873046875,
+          "candidateMedian": 0.3509521484375,
+          "candidateChangePercent": 10.843373493975905,
+          "baselineForkRange": [
+            0.308990478515625,
+            0.331878662109375
+          ],
+          "candidateForkRange": [
+            0.347137451171875,
+            0.354766845703125
+          ]
+        },
+        "allocatedBytesPerTick": {
+          "baselineMedian": 70288.73828125,
+          "candidateMedian": 30668.80859375,
+          "candidateChangePercent": -56.367393491922854,
+          "baselineForkRange": [
+            69892.5625,
+            70288.875
+          ],
+          "candidateForkRange": [
+            30459.05859375,
+            30692.76171875
+          ]
+        }
+      }
+    }
+  ],
+  "runs": [
+    {
+      "label": "crop-paired-r2-b1",
+      "kind": "baseline",
+      "state": "complete",
+      "startedAt": 1791919746.0099452,
+      "exitCode": 0,
+      "finishedAt": 1791919760.2365108,
+      "artifactSha256": "2f7c2d82f34fdf0bfaceee582c795e1c151b2125e18119e8ac5f01828580823b",
+      "complete": true,
+      "failures": [],
+      "pid": 90536,
+      "vmArguments": [
+        "-Xms4G",
+        "-Xmx4G",
+        "-XX:+UseG1GC",
+        "-XX:-UseCompactObjectHeaders",
+        "-XX:ActiveProcessorCount=16",
+        "-Djava.awt.headless=true",
+        "-Dic2.perfRun=crop-paired-r2-b1",
+        "-Dic2.perfScales=128,512,1024",
+        "-Dic2.verifyCropPressure=true",
+        "-Dic2.perfWarmupTicks=600",
+        "-Dic2.perfMeasuredTicks=1600",
+        "-Dic2.perfTransactionsPerTick=512",
+        "-XX:StartFlightRecording=filename=D:\\MC26\\.minecraft\\versions\\project02\\.work\\test-ic2-perf-crop-paired-r2-b1-20261013\\profile.jfr,settings=profile,dumponexit=true,maxsize=256m",
+        "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED",
+        "--add-exports=jdk.naming.dns/com.sun.jndi.dns=java.naming",
+        "-Djava.net.preferIPv6Addresses=system",
+        "-DlibraryDirectory=libraries"
+      ]
+    },
+    {
+      "label": "crop-paired-r2-a1",
+      "kind": "candidate",
+      "state": "complete",
+      "startedAt": 1791919760.255928,
+      "exitCode": 0,
+      "finishedAt": 1791919773.910616,
+      "artifactSha256": "3a92cc83813b2033c1cf8768cbf40a673fe5512b8ebfdcf394544d89ed2a7aa6",
+      "complete": true,
+      "failures": [],
+      "pid": 87868,
+      "vmArguments": [
+        "-Xms4G",
+        "-Xmx4G",
+        "-XX:+UseG1GC",
+        "-XX:-UseCompactObjectHeaders",
+        "-XX:ActiveProcessorCount=16",
+        "-Djava.awt.headless=true",
+        "-Dic2.perfRun=crop-paired-r2-a1",
+        "-Dic2.perfScales=128,512,1024",
+        "-Dic2.verifyCropPressure=true",
+        "-Dic2.perfWarmupTicks=600",
+        "-Dic2.perfMeasuredTicks=1600",
+        "-Dic2.perfTransactionsPerTick=512",
+        "-XX:StartFlightRecording=filename=D:\\MC26\\.minecraft\\versions\\project02\\.work\\test-ic2-perf-crop-paired-r2-a1-20261013\\profile.jfr,settings=profile,dumponexit=true,maxsize=256m",
+        "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED",
+        "--add-exports=jdk.naming.dns/com.sun.jndi.dns=java.naming",
+        "-Djava.net.preferIPv6Addresses=system",
+        "-DlibraryDirectory=libraries"
+      ]
+    },
+    {
+      "label": "crop-paired-r2-a2",
+      "kind": "candidate",
+      "state": "complete",
+      "startedAt": 1791919773.925626,
+      "exitCode": 0,
+      "finishedAt": 1791919787.6054454,
+      "artifactSha256": "3a92cc83813b2033c1cf8768cbf40a673fe5512b8ebfdcf394544d89ed2a7aa6",
+      "complete": true,
+      "failures": [],
+      "pid": 85624,
+      "vmArguments": [
+        "-Xms4G",
+        "-Xmx4G",
+        "-XX:+UseG1GC",
+        "-XX:-UseCompactObjectHeaders",
+        "-XX:ActiveProcessorCount=16",
+        "-Djava.awt.headless=true",
+        "-Dic2.perfRun=crop-paired-r2-a2",
+        "-Dic2.perfScales=128,512,1024",
+        "-Dic2.verifyCropPressure=true",
+        "-Dic2.perfWarmupTicks=600",
+        "-Dic2.perfMeasuredTicks=1600",
+        "-Dic2.perfTransactionsPerTick=512",
+        "-XX:StartFlightRecording=filename=D:\\MC26\\.minecraft\\versions\\project02\\.work\\test-ic2-perf-crop-paired-r2-a2-20261013\\profile.jfr,settings=profile,dumponexit=true,maxsize=256m",
+        "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED",
+        "--add-exports=jdk.naming.dns/com.sun.jndi.dns=java.naming",
+        "-Djava.net.preferIPv6Addresses=system",
+        "-DlibraryDirectory=libraries"
+      ]
+    },
+    {
+      "label": "crop-paired-r2-b2",
+      "kind": "baseline",
+      "state": "complete",
+      "startedAt": 1791919787.617704,
+      "exitCode": 0,
+      "finishedAt": 1791919801.2792647,
+      "artifactSha256": "2f7c2d82f34fdf0bfaceee582c795e1c151b2125e18119e8ac5f01828580823b",
+      "complete": true,
+      "failures": [],
+      "pid": 60536,
+      "vmArguments": [
+        "-Xms4G",
+        "-Xmx4G",
+        "-XX:+UseG1GC",
+        "-XX:-UseCompactObjectHeaders",
+        "-XX:ActiveProcessorCount=16",
+        "-Djava.awt.headless=true",
+        "-Dic2.perfRun=crop-paired-r2-b2",
+        "-Dic2.perfScales=128,512,1024",
+        "-Dic2.verifyCropPressure=true",
+        "-Dic2.perfWarmupTicks=600",
+        "-Dic2.perfMeasuredTicks=1600",
+        "-Dic2.perfTransactionsPerTick=512",
+        "-XX:StartFlightRecording=filename=D:\\MC26\\.minecraft\\versions\\project02\\.work\\test-ic2-perf-crop-paired-r2-b2-20261013\\profile.jfr,settings=profile,dumponexit=true,maxsize=256m",
+        "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED",
+        "--add-exports=jdk.naming.dns/com.sun.jndi.dns=java.naming",
+        "-Djava.net.preferIPv6Addresses=system",
+        "-DlibraryDirectory=libraries"
+      ]
+    },
+    {
+      "label": "crop-paired-r2-b3",
+      "kind": "baseline",
+      "state": "complete",
+      "startedAt": 1791919801.293697,
+      "exitCode": 0,
+      "finishedAt": 1791919814.9482641,
+      "artifactSha256": "2f7c2d82f34fdf0bfaceee582c795e1c151b2125e18119e8ac5f01828580823b",
+      "complete": true,
+      "failures": [],
+      "pid": 41740,
+      "vmArguments": [
+        "-Xms4G",
+        "-Xmx4G",
+        "-XX:+UseG1GC",
+        "-XX:-UseCompactObjectHeaders",
+        "-XX:ActiveProcessorCount=16",
+        "-Djava.awt.headless=true",
+        "-Dic2.perfRun=crop-paired-r2-b3",
+        "-Dic2.perfScales=128,512,1024",
+        "-Dic2.verifyCropPressure=true",
+        "-Dic2.perfWarmupTicks=600",
+        "-Dic2.perfMeasuredTicks=1600",
+        "-Dic2.perfTransactionsPerTick=512",
+        "-XX:StartFlightRecording=filename=D:\\MC26\\.minecraft\\versions\\project02\\.work\\test-ic2-perf-crop-paired-r2-b3-20261013\\profile.jfr,settings=profile,dumponexit=true,maxsize=256m",
+        "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED",
+        "--add-exports=jdk.naming.dns/com.sun.jndi.dns=java.naming",
+        "-Djava.net.preferIPv6Addresses=system",
+        "-DlibraryDirectory=libraries"
+      ]
+    },
+    {
+      "label": "crop-paired-r2-a3",
+      "kind": "candidate",
+      "state": "complete",
+      "startedAt": 1791919814.9662075,
+      "exitCode": 0,
+      "finishedAt": 1791919828.655761,
+      "artifactSha256": "3a92cc83813b2033c1cf8768cbf40a673fe5512b8ebfdcf394544d89ed2a7aa6",
+      "complete": true,
+      "failures": [],
+      "pid": 23012,
+      "vmArguments": [
+        "-Xms4G",
+        "-Xmx4G",
+        "-XX:+UseG1GC",
+        "-XX:-UseCompactObjectHeaders",
+        "-XX:ActiveProcessorCount=16",
+        "-Djava.awt.headless=true",
+        "-Dic2.perfRun=crop-paired-r2-a3",
+        "-Dic2.perfScales=128,512,1024",
+        "-Dic2.verifyCropPressure=true",
+        "-Dic2.perfWarmupTicks=600",
+        "-Dic2.perfMeasuredTicks=1600",
+        "-Dic2.perfTransactionsPerTick=512",
+        "-XX:StartFlightRecording=filename=D:\\MC26\\.minecraft\\versions\\project02\\.work\\test-ic2-perf-crop-paired-r2-a3-20261013\\profile.jfr,settings=profile,dumponexit=true,maxsize=256m",
+        "--add-opens=java.base/java.lang.invoke=ALL-UNNAMED",
+        "--add-exports=jdk.naming.dns/com.sun.jndi.dns=java.naming",
+        "-Djava.net.preferIPv6Addresses=system",
+        "-DlibraryDirectory=libraries"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+plugins { id 'java-library' }
+
+group = rootProject.group
+version = rootProject.version
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+java.withSourcesJar()
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+
+// Contract tests have no loader, game, network or external test dependency.
+tasks.register('contractTest', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'ic2ce.engine.EngineContractTest'
+    args layout.buildDirectory.file('reports/engine-contract.json').get().asFile.absolutePath
+    enableAssertions = true
+}
+tasks.named('check') { dependsOn contractTest }
+// The test source set contains an executable contract suite, not JUnit tests.
+tasks.named('test') { enabled = false }

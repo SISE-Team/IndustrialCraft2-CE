@@ -1,0 +1,251 @@
+{
+  "domain": "Independent personal ownership, energy/item invoices and filtered/dual item routing",
+  "countsAsImplementationRewrite": false,
+  "sources": [
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/EnvItemHandlerNeoForge.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/EnvItemHandlerNeoForge.java",
+      "beforeSha256": "8a4d1691c08d949c7c084077ce31d8b50cfba93dd6c8cf9dcfdbfce44c919313",
+      "afterSha256": "5680affdca88f01405ea1db7bdf13148ce3fc0c02315bd87519485e0f1858594",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/event/WorldData.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/event/WorldData.java",
+      "beforeSha256": "2a91651e5d8a2e870a76e3cda1d559e991f80a14a733d77875d3ac791b8018c7",
+      "afterSha256": "edc7ef47cf85bddd4af30855768e1bc04bcf11f3b35dd4b0b7498b9c4db1f20a",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxyClient.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxyClient.java",
+      "beforeSha256": "27d8ebe6a40c97dd9e5d769d6c6710deeb16b1c353eb3626c90f9d5fd200ef2d",
+      "afterSha256": "b98b00a4cb401a3c6eeb8cea22184af7ef3d024c1c48e3162d559bcee3cd2bc0",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2BlockEntities.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2BlockEntities.java",
+      "beforeSha256": "43179315b1adc044248ea16c85cb0949f197b8efdbe26b070be5d397f73470b7",
+      "afterSha256": "3f2bc06201f1f49ca89102699c666c9e244acc746696217665eb38d1060eeeaa",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "beforeSha256": "ebf05d253107480325df012db03c0aba8ad4685322c928a16c2dc5f1c5ea9490",
+      "afterSha256": "7fccd7ad6adf52ffd04c4c31ee4cd31cc294d0a7761c31743ac5fb45df5ee2e2",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2ScreenHandlers.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2ScreenHandlers.java",
+      "beforeSha256": "a5db78ff3775d0975a03929c36bb586ff23b07f8f44b34c64cfd00e8cf1eb8ec",
+      "afterSha256": "f0397e67a529dcab743432dce1f2f38bf52cd0381c4c2eb7f4713ab9694596cb",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tool/ItemDebug.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/item/tool/ItemDebug.java",
+      "beforeSha256": "bee5e07298fa2fcb2e6fe08bdc4c36f584b8508fde180a313db838ceda3256e1",
+      "afterSha256": "9a20e6b342bbb236d85dec7717a91fb0c3db05b7b5b800e3e09feaa7cb34b0e3",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/personal/ContainerEnergyOMatClosed.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/menu/PublicEnergyTradeMenu.java",
+      "beforeSha256": "05c704f69e86563cda5299f986d597c4273c22b71d8341a0e2dbd239ffca56df",
+      "afterSha256": "fb7fc96ec29f45e17ec73699366ea2cbcc369744c3aeb26fb40d11b435e3c470",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/personal/ContainerEnergyOMatOpen.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/menu/OwnerEnergyTradeMenu.java",
+      "beforeSha256": "313abf8bb6eded92975059da34cb1da119a0e02a58b1e05710f478736fa91f9b",
+      "afterSha256": "a3990bd12c548ab12d6fb95f7eaa27707d58503cb679c1deb35540d08596bde4",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/personal/ContainerTradeOMatClosed.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/menu/PublicItemTradeMenu.java",
+      "beforeSha256": "17c246f2880039c160ea5d18791e3bc6248960b36f72535dde5f937da78f3379",
+      "afterSha256": "e83aac913115336a8550bc76c998b7a9c588c9c451ed498350ac79fc67510ddb",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/personal/ContainerTradeOMatOpen.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/menu/OwnerItemTradeMenu.java",
+      "beforeSha256": "9c0726c03544857222b2f13a10b47000c2f6f44a25f5f59af9775221ff4f3f4e",
+      "afterSha256": "6703845423f65c7b801f094b52518ef9bd36ad3c5bce1baa1e5dabf3fc400c93",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/personal/GuiEnergyOMatClosed.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/client/PublicEnergyTradeScreen.java",
+      "beforeSha256": "84092e88ccc4121bdab564ca510f7457b6ba35504e9417505b9a5f6f5a4846da",
+      "afterSha256": "bae189f92b6af691ebb918ce5be321c1ad7d47340a69cc2df7e6ba82e00350c4",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/personal/GuiEnergyOMatOpen.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/client/OwnerEnergyTradeScreen.java",
+      "beforeSha256": "e728895ef2dea709a6bd436ccecac59d5bc8d1d52e7dff3cf7d094d45075874f",
+      "afterSha256": "6ac9412774d6d199c5f0c9a845763e841ec8fdebe878ace4d9b9c0d529a54440",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/personal/GuiTradeOMatClosed.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/client/PublicItemTradeScreen.java",
+      "beforeSha256": "42a543cfe05ba9bea1444bdf6a8309c8951e05ef40a632d30c89ca6ee3aa1152",
+      "afterSha256": "38908747e7163100fbc26c0a210a86a6e2113e26bdf9dce3a60cbb5b1ab4a7e4",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/personal/GuiTradeOMatOpen.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/client/OwnerItemTradeScreen.java",
+      "beforeSha256": "b93bf52ecf3674257d9e001f63f9ed19a7614dbc124878b03112ce51f215bce3",
+      "afterSha256": "4274026eabd931a3578d30bd3534e77cc9d87d8a92476a16d84335981a021458",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/personal/IPersonalBlock.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/OwnedDevice.java",
+      "beforeSha256": "8fff483913afe9e3c28354508e9c5d7c4d61c997f869e2e054dc6bde8c6a38da",
+      "afterSha256": "d4bed8dcec02c7866fff25df5ee7d14d46b4d7352f6d87493eadf0ca7f9aa65d",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/personal/TileEntityEnergyOMat.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/EnergyTradeTerminal.java",
+      "beforeSha256": "0fdb9f2b80793916b287619f6ddf4aebe95ef1c1ef4d40cad6974e370e5bc66b",
+      "afterSha256": "c8ad590839692f6a23280fcd2d38ae26c5f3220c08aadbd6f8b3761486cd671e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/personal/TileEntityPersonalChest.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/PrivateChest.java",
+      "beforeSha256": "a87294e27035d4209f2900a307fe7ab880a83fe413f02cdc6db95262b8373d05",
+      "afterSha256": "3ed8ea922691df68fa90364541f21ab8a5b272025ca5245a1232b1914738118b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/personal/TileEntityTradeOMat.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/ItemTradeTerminal.java",
+      "beforeSha256": "9692ff6b9638d7e6504d58220704c69e5eec60a2a7f1f57df78265f43be621fc",
+      "afterSha256": "72fa145c55edd0616ed09bd28b8711cbb04603fd7a9ea1e61e864bf1d14b79fd",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/personal/TradingMarket.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/WirelessTradeMarket.java",
+      "beforeSha256": "2eee641cc1b647c1563ef9bf7643a2291d2a0521e5b838e28d0dbd7743d4e532",
+      "afterSha256": "3e7848d566877c0e9a5285cdf54109968768d2a3abcde470a417e600833f272c",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/container/ContainerItemBuffer.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/menu/DualBankMenu.java",
+      "beforeSha256": "4768385a1f7ab113486a1a73f3dd2d55b44d45547d5543044ae528c775879dc7",
+      "afterSha256": "83a59a01f92cee67da221989937562565943cc52b94c1aac7f6ef971928e3738",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/container/ContainerSortingMachine.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/menu/BatchItemMenu.java",
+      "beforeSha256": "26b78dee91f3d079d1111474b7d61e9c9b1f8fe3feedab7e93a766f2a567039c",
+      "afterSha256": "c8150da6a66f1a4ad50d02a4b1c21f511bae0e152c7f2b141b8d8947bdb7d8ea",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiIndustrialWorkbench.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiIndustrialWorkbench.java",
+      "beforeSha256": "c1f678db5766697399e74ad981bdbbfd00dd8a19f3408ff73768d8e7dd81c5ef",
+      "afterSha256": "268027cc294d51b00ab97f575286b1c37b15558f3e5888b1c53cdc8b4c8d94cc",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiItemBuffer.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/client/DualBankScreen.java",
+      "beforeSha256": "d1aee8a35bc9c683731340a502202cd9f6b710659e42788e25323f17ea64d6d3",
+      "afterSha256": "6505bc9e35d82175a1f7b8f72f2078015e7fab00786721297b2d97d9df2a6f55",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiSortingMachine.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/client/BatchItemScreen.java",
+      "beforeSha256": "334b9d0e05137656cd265e4e11d09410c8ab27de3bcb8b431092752826ace6d9",
+      "afterSha256": "d3a2dbc955c78f41a48afa034d7d7e2c9f555ad8830e282c7be1f5cd39d5b80f",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityItemBuffer.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/DualItemBuffer.java",
+      "beforeSha256": "aa88455d730a013c19209374e936e203b9e0e0c2e4d20540674c349e75f4ac87",
+      "afterSha256": "4ed7105fd659f3e5dfda61e7c5f220af4909351a2bb7ca2c8d65ce1b2fb174b0",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntitySortingMachine.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/BatchItemSorter.java",
+      "beforeSha256": "dcc5639e8d272705c1bf9730d80d33f2813ecdaf9ba6fcd80807508b6e912e00",
+      "afterSha256": "263d9d471ce2f1b7d2cfeea3901c595fd6730b507fed1e840d1e5e798cfc5350",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/AllTransportCases.java",
+      "after": "verification/src/main/java/ic2ce/verification/AllTransportCases.java",
+      "beforeSha256": "1f56b62bb4bb6a8e4b2c576ec013f92256d079ddbd1cfb6ae0417e4778b0172e",
+      "afterSha256": "e5c5921e8713c355c6619a9364190df14881f79b06afafaeb005264757969c30",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/AllUtilityCases.java",
+      "after": "verification/src/main/java/ic2ce/verification/AllUtilityCases.java",
+      "beforeSha256": "8b9e045d39ccda366b16eb134c48cb252d8ed3c29890d78e9659aa235b1455f0",
+      "afterSha256": "ccaf12fb7fa110e621eb94d8ef87ac67915903f376be4fb6d9356131a312f5af",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/ExtendedValidation.java",
+      "after": "verification/src/main/java/ic2ce/verification/ExtendedValidation.java",
+      "beforeSha256": "e156a8fc7efe6b8c756c861864fcfb0765d451cf58cb0e38c39cf0fada7c81c6",
+      "afterSha256": "110f2ebaae1ac9530397a7c964205ffaa8d13c24c93bf405fb34634f66b7c32f",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "after": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "beforeSha256": "03b03587a385f93ac2082e8998893a569cdbe285f0b4470c07160d9dbaeb75a9",
+      "afterSha256": "70efe8dc42ecb3f13491ba4e56f23bef316358690496ab89650c79d95cf61a35",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/block/personal/EnergySalesContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/personal/EnergySalesContracts.java",
+      "beforeSha256": "74a13ff5f1325813949f72aeffa41da6e239c305421bfd28df73d1b10e21b1d8",
+      "afterSha256": "ad580cd2c0adbdca59b22ec0365ea4cc53349608857ba3820b4a05cc53dd85e2",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/block/personal/ItemSalesContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/personal/ItemSalesContracts.java",
+      "beforeSha256": "f02ef32543408651d3b8c2abe15a4230f9ec5fc7d58f4f79e8897bfe293427ba",
+      "afterSha256": "b98834e5391d46cd5f8af10dafbc6f8340a29e08e1cd9251e8e3f9c22ca009bb",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/block/personal/PersonalContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/personal/PersonalContracts.java",
+      "beforeSha256": "cd4836447d35538a903a67d8a25d63ba82eae6b53cfbe4bcd51b32a1b2582c9a",
+      "afterSha256": "655304e7ecabfc394eedd611b1a910109a93bd45ce13ce1b204f7f15d668307b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/block/machine/tileentity/SortingContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/transport/SortingContracts.java",
+      "beforeSha256": "26343f2f69e0a4f18b276538d2c16c6e4acdf7f9a2f821f65ee4aa0bf0b80223",
+      "afterSha256": "714947bce8a4cd2ce68f844c38acb0d6c09dc99943e82bf9203c60cb7e0fbe34",
+      "countsAsImplementationRewrite": false
+    }
+  ]
+}

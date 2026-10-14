@@ -1,0 +1,50 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev'
+}
+
+group = rootProject.group
+version = rootProject.version
+base { archivesName = rootProject.mod_archive_name + '-NeoForge' }
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+java.withSourcesJar()
+evaluationDependsOn(':engine')
+evaluationDependsOn(':api')
+neoForge {
+    version = rootProject.neo_version
+    runs {
+        client { client() }
+        server { server(); programArgument '--nogui' }
+        gameTestServer { type = 'gameTestServer' }
+    }
+    mods { "${rootProject.mod_id}" { sourceSet sourceSets.main; sourceSet project(':api').sourceSets.main; sourceSet project(':engine').sourceSets.main } }
+}
+repositories { maven { url = 'https://maven.blamejared.com/' } }
+dependencies {
+    implementation project(':engine')
+    implementation project(':api')
+    implementation "mezz.jei:jei-${rootProject.minecraft_version}-neoforge:${rootProject.jei_version}"
+}
+sourceSets.main.resources.setSrcDirs([rootProject.file('assets/src/main/resources')])
+tasks.withType(ProcessResources).configureEach {
+    def props = [:]
+    ['minecraft_version', 'minecraft_version_range', 'neo_version', 'neo_version_range', 'loader_version_range',
+        'mod_id', 'mod_name', 'mod_license', 'mod_authors', 'mod_description'].each { key -> props[key] = rootProject.property(key) }
+    props.mod_version = rootProject.version
+    inputs.properties props
+    filesMatching('META-INF/neoforge.mods.toml') { expand props }
+}
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-Xmaxerrs', '5000']
+    options.fork = true
+    options.forkOptions.jvmArgs += ['-Duser.language=en', '-Duser.country=US', '-Dfile.encoding=UTF-8']
+}
+sourceSets {
+    migrationVerification {
+        java.setSrcDirs([rootProject.file('verification/src/main/java')])
+        resources.setSrcDirs([rootProject.file('verification/src/main/resources')])
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
+    }
+}

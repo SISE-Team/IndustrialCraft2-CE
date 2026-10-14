@@ -1,0 +1,69 @@
+{
+  "domain": "Independent positive physical billing, immutable atomic canning generations and native fluid containers",
+  "countsAsImplementationRewrite": false,
+  "sources": [
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/init/Rezepte.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/init/Rezepte.java",
+      "beforeSha256": "4f8c56dc0fab11f0eede7df1b74d73107b601dbc6f7dab40d86c43e1329636d4",
+      "afterSha256": "e866d48a811bdb9c3667296369a3e86a64c5d1349b0a6289b8700c2092831e7b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/CannerBottleRecipeManager.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/recipe/processing/SolidCanningRecipes.java",
+      "beforeSha256": "0372ef75cce600b80b3c11b748af7777d5e467f756c41fe862ad4e9bbf23e81c",
+      "afterSha256": "beea3160ac83c67b1f1e37f0f832e6057243695396f853f202ac4cb9220359b1",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/CannerEnrichRecipeManager.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/recipe/processing/EnrichmentRecipes.java",
+      "beforeSha256": "05ae0c7e6f3dc249ced7a25a0120f5b7f7602babb3f8dd60275283bf1f4fca67",
+      "afterSha256": "85b9032c06f9636f548ba0785bf0a645591a693a41eacee8e0e4a985bc30ca0d",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/CanningRecipeTable.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/recipe/processing/CanningRecipeCatalog.java",
+      "beforeSha256": "3d8846a3f9ee578c2768406ac73822808f3ca7012866fc90c38bc730974499dc",
+      "afterSha256": "92ac56ed02fd1870478f6a8a34375670e178db8c2e7a261c4fece882c97ad689",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/EmptyFluidContainerRecipeManager.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/recipe/processing/ContainerDrainingRecipes.java",
+      "beforeSha256": "c34c00e497ad36bc480dbe1d14c21c0d6aa63bcec01356bb13061a38b158b012",
+      "afterSha256": "bbbf63e5b3cb0fb901a8c172cbedc6c03b94d1d9a9e45b6792e140dd91346058",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/FillFluidContainerRecipeManager.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/recipe/processing/ContainerFillingRecipes.java",
+      "beforeSha256": "c8e92ccd0b45fbc801b9ba4355b1c55c75ef1cd43898deaf10b582cc4ec0cd86",
+      "afterSha256": "86da6bc793a3607dfe24431e402ccef3fcfefeb15b47d1fc3867c66e53764db6",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/neoforge/NativeApiContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/NativeApiContracts.java",
+      "beforeSha256": "b9af707baf24530e9e1c230fd6e77fbdd47208df626f05ae419bcdc5ba94a874",
+      "afterSha256": "de8db046c001eedba2046cf640b37d8d211fc887fe7ca04e139763f3cd40afb5",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "after": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "beforeSha256": "ee53a87e3908630b865c4f125a86d46be91c8458ba336bc1eb82b19dda69f13e",
+      "afterSha256": "ae18ac984e902f992e3a87598ce3cd4f59f4057d892da955c59608057298a517",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/block/machine/CanningRegistryContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/recipe/processing/CanningRegistryContracts.java",
+      "beforeSha256": "b3f29a4940b142069c13a4eb3431e4befcfef555b6e5f3f7cb1b2d4f142e3f46",
+      "afterSha256": "eb3a0d3f2a41911591f5a77c358400d8ef660e5c41defef6ca5a6d5330ca4419",
+      "countsAsImplementationRewrite": false
+    }
+  ]
+}

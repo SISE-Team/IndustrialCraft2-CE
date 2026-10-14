@@ -1,0 +1,97 @@
+{
+  "domain": "Distinct resin/rubber/wool physics, native signage ownership, strict state projection and mining column shape",
+  "countsAsImplementationRewrite": false,
+  "sources": [
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/world/surface/SurfaceMap.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/surface/SurfaceMap.java",
+      "beforeSha256": "49f7b5cbd3ad13de03a2768857b53a76bfe07a873357d639ef3391040d0c2491",
+      "afterSha256": "c3c5e636580a5bd28f1c63a210901cf7b8acf10f8cb27f929aab765a78525550",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/item/tool/SurfaceImprinter.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/tool/SurfaceImprinter.java",
+      "beforeSha256": "dc042cb5e21c7a2bd69cf86c73caf5119c6318a9002d724d64f953d282d473ac",
+      "afterSha256": "e43faaccc45322ecf3793f7286416f79842468ab1dd7aeaf7d1ae5fd596d4507",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2BlockEntities.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2BlockEntities.java",
+      "beforeSha256": "7ee611c1d706224f51d8a09e75db4fc7e8f3da0357e7e8c381ed7fb1fb48f2a8",
+      "afterSha256": "3e811ab40de2c8ea7a0f8989b8a4110cc68f054762dd011d75a9ce040137a64d",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "beforeSha256": "94f7275c7e42a73e8a20bccbf60d18bcab2aed098a864c5b2a0ff1cda29f5479",
+      "afterSha256": "6444558b80f1422ddd12c0572eb1f18483303f06170aa86ebb9e45e23b017958",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/inherit/Ic2GlassBlock.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/block/StructuralGlass.java",
+      "beforeSha256": "6487d16a57278ce8a95a07f957b25aa10fb4f717661ab454c05eeb9cbfd09ef4",
+      "afterSha256": "5cf0bd9eb4c4e2e587fd30bee38b77b4aba32b1f9891ff95e164ea2e51490bf3",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/inherit/Ic2SheetBlock.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/block/ReactiveSheet.java",
+      "beforeSha256": "9c366f1478370b686ad07397227af2fdd7925f5cc9245804fa068e651171a892",
+      "afterSha256": "b982c04e1872dc3d2e4578e83a28f47511d3e0803444fc42aeef87eb05904f71",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/inherit/Ic2SignBlock.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/block/RubberStandingSign.java",
+      "beforeSha256": "2711eb1c23502b70d98af25c4108ac0fd3899aded7dfdcdadb2b599a2a78a765",
+      "afterSha256": "48fa63e137d74fa54bce35db25a6c953bd3b13ee078f71e2456030f8e6924b66",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/inherit/Ic2WallSignBlock.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/block/RubberWallSign.java",
+      "beforeSha256": "263cc1522b88315f82b95b4fc4abd318a11c6bd524bd23f1dade62ec5fa130bc",
+      "afterSha256": "caf37972514ca8a7d95f584b7ab2e6b5f44bca770effcc2869034c70d460f112",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/MiningPipeBlock.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/mining/MiningColumn.java",
+      "beforeSha256": "8d7ca2d506e10b37bccfab5615e8c5422bf1091804199a744ea09672e2d8efe0",
+      "afterSha256": "2c653028017a08423dc741be184de1202e734747bb006268f74bd1b583bb4be2",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/state/BlockStateUtil.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/surface/StateVariants.java",
+      "beforeSha256": "51dad0d995e32b6b5edfcc98f2edc3f9479e69defcd2694a08acce96d82254b7",
+      "afterSha256": "1897802f4b95975af3696c086bec86c77947e963bbed278756802d3c940fa087",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/tileentity/Ic2SignBlockEntity.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/block/RubberSignEntity.java",
+      "beforeSha256": "4adf85578066d398c05bd467c3ff3c3ef20fde857016360285659f4f755323e6",
+      "afterSha256": "267b4bf4c5d0c14779256d7756b5f86585b23e6d560c56b577463dedf1048a75",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "after": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "beforeSha256": "7b574d14b76c56a48bfedade6d24bda28ab8c4bf84bc6317f7eecba0b9728621",
+      "afterSha256": "f01c7bbb2ccec1f785c4f1ad30bd7bb3e747ec82fd417443e91cb73839d9b881",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/block/inherit/SurfaceContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/world/block/SurfaceContracts.java",
+      "beforeSha256": "4cacaf427e57bf468bc4fda94fe770c420690aa9f9bce261b46778bd6580fa4e",
+      "afterSha256": "235e446f85cbaf57673270f278f9481b2507c7121b83703fbb9baf39813554a6",
+      "countsAsImplementationRewrite": false
+    }
+  ]
+}

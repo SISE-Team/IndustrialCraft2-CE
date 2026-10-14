@@ -1,0 +1,12 @@
+{
+  "complete": true,
+  "normalSha256": "c68951394a8ea669127ef4a7bc595b1b5c8fa1bab1b42fa575b0cded88fe8a77",
+  "sourcesSha256": "fd8d783ce71a14c96e1b9dfbc933d6d6b2fee21daa20f548923f918c1161b188",
+  "verificationSha256": "e4cab54fe5359c8df2e2b924b1e957e890556b7a9bc5143cd680ae6ab2e631a0",
+  "byteIdenticalProductionClasses": 1280,
+  "changedProductionClasses": [
+    "ic2ce/neoforge/client/widget/TextInput.class"
+  ],
+  "scope": "Native text-input narration changes from literal Input to translated ic2.gui.text_input. No gameplay/server behavior change;23 catalogs add that key.",
+  "normalClassesByteIdenticalInVerification": 1281
+}

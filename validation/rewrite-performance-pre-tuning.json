@@ -1,0 +1,565 @@
+{
+  "complete": true,
+  "wholeRewriteComplete": false,
+  "scope": "Final candidate: native processing/energy circuits, inventory transactions and codec/factories",
+  "baselineSha256": "7ef3f005eb7530576bbf0c45c7e05c7c6ddc010d5512f01028d0112cfd3e0b0b",
+  "candidateSha256": "c59314cb8444fec2ce29e77435ce97ddecaa145d84ad6cce23ff1aef5d0c41bf",
+  "forksPerArtifact": 3,
+  "limitations": [
+    "Owned IC2 gameplay fixtures, multiplayer clients and endurance server closed before the first fork. The user game and unrelated services are left untouched; background process counts are recorded per fork. Balanced order, exact frozen artifacts and separate JVM forks retained. Native isolated server workloads do not measure full-modpack FPS.",
+    "Registry fingerprints include renamed Java classes. Native geometry, transaction counts and checksums match exactly.",
+    "Protocol 2 differs from alpha.10; all five compiled benchmark fixtures have identical instructions after only documented symbol/constant-pool normalization.",
+    "This compares only the stated native workloads. Whole-project completion also requires exact-artifact gameplay and endurance acceptance."
+  ],
+  "stress": [
+    {
+      "circuits": 128,
+      "metrics": {
+        "meanMSPT": {
+          "baselineMedian": 0.5926763125,
+          "candidateMedian": 0.5817916875,
+          "changePercent": -1.8365210099399731,
+          "baselineForkRange": [
+            0.5829683125,
+            0.7176179375
+          ],
+          "candidateForkRange": [
+            0.5767305625,
+            0.6128745625
+          ]
+        },
+        "p50MSPT": {
+          "baselineMedian": 0.5525,
+          "candidateMedian": 0.547,
+          "changePercent": -0.9954751131221573,
+          "baselineForkRange": [
+            0.5518,
+            0.6286
+          ],
+          "candidateForkRange": [
+            0.5465,
+            0.5797
+          ]
+        },
+        "p95MSPT": {
+          "baselineMedian": 0.8673,
+          "candidateMedian": 0.7536,
+          "changePercent": -13.10965063991697,
+          "baselineForkRange": [
+            0.7265,
+            1.0672
+          ],
+          "candidateForkRange": [
+            0.732,
+            0.8077
+          ]
+        },
+        "p99MSPT": {
+          "baselineMedian": 0.9586,
+          "candidateMedian": 0.9587,
+          "changePercent": 0.010431879824746026,
+          "baselineForkRange": [
+            0.9137,
+            1.3299
+          ],
+          "candidateForkRange": [
+            0.9119,
+            0.965
+          ]
+        },
+        "meanServerThreadCpuMS": {
+          "baselineMedian": 0.595703125,
+          "candidateMedian": 0.56640625,
+          "changePercent": -4.918032786885251,
+          "baselineForkRange": [
+            0.5859375,
+            0.703125
+          ],
+          "candidateForkRange": [
+            0.556640625,
+            0.576171875
+          ]
+        },
+        "serverThreadAllocatedBytesPerTick": {
+          "baselineMedian": 465502.345,
+          "candidateMedian": 348495.26,
+          "changePercent": -25.135659628094885,
+          "baselineForkRange": [
+            465417.705,
+            465632.855
+          ],
+          "candidateForkRange": [
+            348438.1,
+            348599.02
+          ]
+        }
+      }
+    },
+    {
+      "circuits": 512,
+      "metrics": {
+        "meanMSPT": {
+          "baselineMedian": 1.1457255625,
+          "candidateMedian": 1.61552025,
+          "changePercent": 41.004120260256485,
+          "baselineForkRange": [
+            1.1293228125,
+            1.1779779375
+          ],
+          "candidateForkRange": [
+            1.6066908125,
+            1.654010375
+          ]
+        },
+        "p50MSPT": {
+          "baselineMedian": 1.1127,
+          "candidateMedian": 1.5465,
+          "changePercent": 38.98624966298194,
+          "baselineForkRange": [
+            1.0966,
+            1.1308
+          ],
+          "candidateForkRange": [
+            1.5385,
+            1.5891
+          ]
+        },
+        "p95MSPT": {
+          "baselineMedian": 1.3823,
+          "candidateMedian": 1.8493,
+          "changePercent": 33.78427258916297,
+          "baselineForkRange": [
+            1.3241,
+            1.5272
+          ],
+          "candidateForkRange": [
+            1.8435,
+            1.8851
+          ]
+        },
+        "p99MSPT": {
+          "baselineMedian": 1.7043,
+          "candidateMedian": 2.4106,
+          "changePercent": 41.44223434841285,
+          "baselineForkRange": [
+            1.6946,
+            1.8435
+          ],
+          "candidateForkRange": [
+            2.3897,
+            2.5202
+          ]
+        },
+        "meanServerThreadCpuMS": {
+          "baselineMedian": 1.1328125,
+          "candidateMedian": 1.58203125,
+          "changePercent": 39.6551724137931,
+          "baselineForkRange": [
+            1.1328125,
+            1.15234375
+          ],
+          "candidateForkRange": [
+            1.58203125,
+            1.6015625
+          ]
+        },
+        "serverThreadAllocatedBytesPerTick": {
+          "baselineMedian": 1047518.35,
+          "candidateMedian": 1155668.235,
+          "changePercent": 10.32439049874403,
+          "baselineForkRange": [
+            1007808.015,
+            1065389.77
+          ],
+          "candidateForkRange": [
+            1047750.765,
+            1174424.575
+          ]
+        }
+      }
+    },
+    {
+      "circuits": 1024,
+      "metrics": {
+        "meanMSPT": {
+          "baselineMedian": 3.540567875,
+          "candidateMedian": 4.4122021875,
+          "changePercent": 24.618488990272503,
+          "baselineForkRange": [
+            3.466839,
+            3.67621775
+          ],
+          "candidateForkRange": [
+            4.2481165,
+            4.4418018125
+          ]
+        },
+        "p50MSPT": {
+          "baselineMedian": 3.2981,
+          "candidateMedian": 4.0732,
+          "changePercent": 23.501409902671245,
+          "baselineForkRange": [
+            3.2203,
+            3.3387
+          ],
+          "candidateForkRange": [
+            4.01,
+            4.1643
+          ]
+        },
+        "p95MSPT": {
+          "baselineMedian": 4.2316,
+          "candidateMedian": 5.5588,
+          "changePercent": 31.364023064561852,
+          "baselineForkRange": [
+            4.1757,
+            5.1806
+          ],
+          "candidateForkRange": [
+            5.1879,
+            5.569
+          ]
+        },
+        "p99MSPT": {
+          "baselineMedian": 5.3891,
+          "candidateMedian": 6.91,
+          "changePercent": 28.22178100239372,
+          "baselineForkRange": [
+            5.1927,
+            7.149
+          ],
+          "candidateForkRange": [
+            6.7901,
+            9.0254
+          ]
+        },
+        "meanServerThreadCpuMS": {
+          "baselineMedian": 3.4765625,
+          "candidateMedian": 4.296875,
+          "changePercent": 23.59550561797752,
+          "baselineForkRange": [
+            3.37890625,
+            3.544921875
+          ],
+          "candidateForkRange": [
+            4.16015625,
+            4.3359375
+          ]
+        },
+        "serverThreadAllocatedBytesPerTick": {
+          "baselineMedian": 3512515.7,
+          "candidateMedian": 3506316.565,
+          "changePercent": -0.17648704032839913,
+          "baselineForkRange": [
+            3404773.73,
+            3549711.68
+          ],
+          "candidateForkRange": [
+            3370580.985,
+            3571479.07
+          ]
+        }
+      }
+    }
+  ],
+  "micro": [
+    {
+      "kind": "inventory",
+      "slots": 27,
+      "operations": 40000,
+      "metrics": {
+        "nsPerOperation": {
+          "baselineMedian": 872.095,
+          "candidateMedian": 719.815,
+          "changePercent": -17.46140042082571,
+          "baselineForkRange": [
+            862.7575,
+            875.3525
+          ],
+          "candidateForkRange": [
+            708.5525,
+            725.9675
+          ]
+        },
+        "allocatedBytesPerOperation": {
+          "baselineMedian": 375.4684,
+          "candidateMedian": 382.8044,
+          "changePercent": 1.9538262074784596,
+          "baselineForkRange": [
+            370.5922,
+            376.4036
+          ],
+          "candidateForkRange": [
+            378.9376,
+            385.1774
+          ]
+        }
+      }
+    },
+    {
+      "kind": "inventory",
+      "slots": 45,
+      "operations": 40000,
+      "metrics": {
+        "nsPerOperation": {
+          "baselineMedian": 1054.3375,
+          "candidateMedian": 572.68,
+          "changePercent": -45.68342679644801,
+          "baselineForkRange": [
+            923.125,
+            1054.9875
+          ],
+          "candidateForkRange": [
+            563.0525,
+            866.7875
+          ]
+        },
+        "allocatedBytesPerOperation": {
+          "baselineMedian": 391.5936,
+          "candidateMedian": 358.5634,
+          "changePercent": -8.434816095053643,
+          "baselineForkRange": [
+            374.41,
+            398.9534
+          ],
+          "candidateForkRange": [
+            352.7366,
+            386.7146
+          ]
+        }
+      }
+    },
+    {
+      "kind": "inventory",
+      "slots": 45,
+      "operations": 40000,
+      "metrics": {
+        "nsPerOperation": {
+          "baselineMedian": 740.315,
+          "candidateMedian": 629.035,
+          "changePercent": -15.03143931974904,
+          "baselineForkRange": [
+            706.8175,
+            747.565
+          ],
+          "candidateForkRange": [
+            613.125,
+            648.4875
+          ]
+        },
+        "allocatedBytesPerOperation": {
+          "baselineMedian": 408.0016,
+          "candidateMedian": 408.0016,
+          "changePercent": 0.0,
+          "baselineForkRange": [
+            408.0016,
+            408.0016
+          ],
+          "candidateForkRange": [
+            408.0016,
+            408.0016
+          ]
+        }
+      }
+    },
+    {
+      "kind": "inventory",
+      "slots": 63,
+      "operations": 40000,
+      "metrics": {
+        "nsPerOperation": {
+          "baselineMedian": 667.1375,
+          "candidateMedian": 540.665,
+          "changePercent": -18.957486275318068,
+          "baselineForkRange": [
+            663.3125,
+            674.22
+          ],
+          "candidateForkRange": [
+            514.5375,
+            607.555
+          ]
+        },
+        "allocatedBytesPerOperation": {
+          "baselineMedian": 408.0016,
+          "candidateMedian": 408.0016,
+          "changePercent": 0.0,
+          "baselineForkRange": [
+            408.0016,
+            408.0016
+          ],
+          "candidateForkRange": [
+            408.0016,
+            408.0016
+          ]
+        }
+      }
+    },
+    {
+      "kind": "inventory",
+      "slots": 126,
+      "operations": 40000,
+      "metrics": {
+        "nsPerOperation": {
+          "baselineMedian": 711.36,
+          "candidateMedian": 533.9625,
+          "changePercent": -24.937795209176794,
+          "baselineForkRange": [
+            702.71,
+            762.07
+          ],
+          "candidateForkRange": [
+            507.9125,
+            535.495
+          ]
+        },
+        "allocatedBytesPerOperation": {
+          "baselineMedian": 408.0016,
+          "candidateMedian": 408.0016,
+          "changePercent": 0.0,
+          "baselineForkRange": [
+            408.0016,
+            408.0016
+          ],
+          "candidateForkRange": [
+            408.0016,
+            408.0016
+          ]
+        }
+      }
+    },
+    {
+      "kind": "entity_factory",
+      "types": 146,
+      "operations": 80000,
+      "metrics": {
+        "nsPerOperation": {
+          "baselineMedian": 727.0275,
+          "candidateMedian": 789.73375,
+          "changePercent": 8.625017623129793,
+          "baselineForkRange": [
+            675.38,
+            755.4975
+          ],
+          "candidateForkRange": [
+            764.48375,
+            810.6075
+          ]
+        },
+        "allocatedBytesPerOperation": {
+          "baselineMedian": 767.5444,
+          "candidateMedian": 775.7955,
+          "changePercent": 1.07499970034306,
+          "baselineForkRange": [
+            766.9691,
+            768.0044
+          ],
+          "candidateForkRange": [
+            774.2915,
+            776.4086
+          ]
+        }
+      }
+    },
+    {
+      "kind": "codec",
+      "workers": 1,
+      "operations": 100000,
+      "metrics": {
+        "nsPerOperation": {
+          "baselineMedian": 379.752,
+          "candidateMedian": 128.018,
+          "changePercent": -66.28905180222881,
+          "baselineForkRange": [
+            376.555,
+            382.065
+          ],
+          "candidateForkRange": [
+            120.421,
+            150.962
+          ]
+        },
+        "allocatedBytesPerOperation": {
+          "baselineMedian": 152.0004,
+          "candidateMedian": 0.0004,
+          "changePercent": -99.99973684279779,
+          "baselineForkRange": [
+            152.0004,
+            152.0004
+          ],
+          "candidateForkRange": [
+            0.0004,
+            0.0004
+          ]
+        }
+      }
+    },
+    {
+      "kind": "codec",
+      "workers": 4,
+      "operations": 400000,
+      "metrics": {
+        "nsPerOperation": {
+          "baselineMedian": 116.75525,
+          "candidateMedian": 37.362,
+          "changePercent": -67.99972592238892,
+          "baselineForkRange": [
+            113.45825,
+            118.794
+          ],
+          "candidateForkRange": [
+            33.4005,
+            42.52625
+          ]
+        },
+        "allocatedBytesPerOperation": {
+          "baselineMedian": 152.0004,
+          "candidateMedian": 0.0004,
+          "changePercent": -99.99973684279779,
+          "baselineForkRange": [
+            152.0004,
+            152.0004
+          ],
+          "candidateForkRange": [
+            0.0004,
+            0.0004
+          ]
+        }
+      }
+    },
+    {
+      "kind": "codec",
+      "workers": 8,
+      "operations": 800000,
+      "metrics": {
+        "nsPerOperation": {
+          "baselineMedian": 73.202625,
+          "candidateMedian": 20.826375,
+          "changePercent": -71.54968827962111,
+          "baselineForkRange": [
+            72.116125,
+            86.09275
+          ],
+          "candidateForkRange": [
+            19.879375,
+            20.864
+          ]
+        },
+        "allocatedBytesPerOperation": {
+          "baselineMedian": 152.0004,
+          "candidateMedian": 0.0004,
+          "changePercent": -99.99973684279779,
+          "baselineForkRange": [
+            152.0004,
+            152.0004
+          ],
+          "candidateForkRange": [
+            0.0004,
+            0.0004
+          ]
+        }
+      }
+    }
+  ],
+  "publicationScope": "Pre-tuning final candidate; preserved measured regression evidence only, not current artifact performance."
+}

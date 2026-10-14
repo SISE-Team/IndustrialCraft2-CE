@@ -1,0 +1,33 @@
+{
+  "complete": true,
+  "artifact": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.11.jar",
+  "sha256": "07b4bfca99dc6e57c6c2292bdc17c2d6ad25e16c03beb6093965233ae2d83c2c",
+  "verificationJvmFlags": false,
+  "verificationClassesPresent": false,
+  "loadedMachineTypes": 104,
+  "persistedRuntimeChecks": [
+    "wooden_storage_box: 13 ingots",
+    "iron_storage_box: 13 ingots",
+    "bronze_storage_box: 13 ingots",
+    "steel_storage_box: 13 ingots",
+    "iridium_storage_box: 13 ingots",
+    "bronze_tank: 2000 mB coolant",
+    "iron_tank: 2000 mB coolant",
+    "steel_tank: 2000 mB coolant",
+    "iridium_tank: 2000 mB coolant",
+    "lv_transformer: manual step-down",
+    "mv_transformer: manual step-down",
+    "hv_transformer: manual step-down",
+    "ev_transformer: manual step-down",
+    "fluid regulator: per-tick 100 mB, 63 mB remaining",
+    "batch crafter: iron plate and damaged offset hammer",
+    "personal chest: ownership and ten diamonds"
+  ],
+  "method": "Vanilla commands read all 104 actual loaded block entities after regular JAR reload; only command storage is written",
+  "closedWorld": "D:\\MC26\\.minecraft\\versions\\project02\\.work\\test-ic2-ic2ce-actions-r14-dedicated-20261013\\world",
+  "serverExitCode": 0,
+  "failures": [],
+  "uniqueRunId": "IndustrialCraft2-CE-alpha.11-2d690eb1-75a5-44d5-aa62-a8cff764bf1b",
+  "worldGameTime": 386221,
+  "historicalCommandStorageExcluded": true
+}

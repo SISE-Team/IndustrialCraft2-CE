@@ -1,0 +1,146 @@
+{
+  "domain": "Independent terrain programs and linked teleporter endpoints",
+  "countsAsImplementationRewrite": false,
+  "sources": [
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "beforeSha256": "a24572bc8e241a834e739c9169896667a37fb0e26759363f04dfdff3a506e7ff",
+      "afterSha256": "ca786836599066c5c9925e85fdad9392e1470fce0ee9d83debc8c8cfbe354d2c",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2BlockEntities.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2BlockEntities.java",
+      "beforeSha256": "cb101de97e14a51f04775cf5751e867d4f9adc33928320f93a426e3c17be8d66",
+      "afterSha256": "43179315b1adc044248ea16c85cb0949f197b8efdbe26b070be5d397f73470b7",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "beforeSha256": "0e1c251c57fd208e3091cf4ef9acac95edea18cc6fb98a7451e863eca0e650eb",
+      "afterSha256": "ebf05d253107480325df012db03c0aba8ad4685322c928a16c2dc5f1c5ea9490",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Items.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Items.java",
+      "beforeSha256": "edde69a7baf6c0a08893ac66abc7f9021d598cf193ade1b39a87a52dc561541b",
+      "afterSha256": "87a21850d7d09c67f3a1b0967025ca307b62069d66ede0d7d4219054fa324cb2",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tfbp/Chilling.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/terrain/program/FrostProgram.java",
+      "beforeSha256": "e463127bbf45d956300a053904d47506f65ce0def1ed7a79882a417f736b63c8",
+      "afterSha256": "246138107b9ec90e51a656219d48502452f5bbd201caeb8cb4895705489dae4c",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tfbp/Cultivation.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/terrain/program/CultivationProgram.java",
+      "beforeSha256": "643eafd30547d9d11b26813a017eed4745b2d5e26c5269f0c88087ef095cc901",
+      "afterSha256": "ab322e3fecdba863d2f27e916707ad86a7cd1282a573d8faa8c27d787a52ed81",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tfbp/Desertification.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/terrain/program/AridProgram.java",
+      "beforeSha256": "6ed7986639c9c48ce92671db2ec93b33d5d1e8d8373fb62da8a7be3f869aa397",
+      "afterSha256": "5722768fda23fd478cdb54b801f72fe58e4f7c4fbf40080f8e82f9d42f3f5b46",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tfbp/Flatification.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/terrain/program/LevelingProgram.java",
+      "beforeSha256": "8bb619009fb5a2e3d3083247ae43c0f48030c29d111849301417ff86848e3e04",
+      "afterSha256": "93d35ad1cba0fd53a052c11273d542aff9d316fdbd56c0980020f89c6808e0ac",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tfbp/Irrigation.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/terrain/program/IrrigationProgram.java",
+      "beforeSha256": "ae3d666a9ce6b233c79b1089b9192ee10b704f02c6018cdf253cd73f1362f441",
+      "afterSha256": "5d6070ec6c15599f7a04bb3bbd6e5140544241d6634f5d520adaa1da58e6175c",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tfbp/Mushroom.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/terrain/program/FungalProgram.java",
+      "beforeSha256": "ed799fa3a87a6746c3998a0dcf776f955ce1314d12ea34eb882187af280301d8",
+      "afterSha256": "b3baabcc38a76f064a8f99defb3e6bff51a8cc0d2a388480361da44e76e89757",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tfbp/TerraformerBase.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/terrain/program/TerrainProgram.java",
+      "beforeSha256": "f779071537cf650eb6f1e063292c1cf59490f2ec8b32c11a6a336da634a7d788",
+      "afterSha256": "d465f0a98127e8827378425e76eaf64eb15b620efae5e08185724c8d933924d1",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tfbp/Tfbp.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/terrain/TerrainBlueprint.java",
+      "beforeSha256": "8523f8557f220b8d53286b1877b37175e8d843151c8d7330795fbb63ac135df8",
+      "afterSha256": "a711515333353983d782b724f6d50fbca0a982e532e779b07c86d284322146dd",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tool/ItemFrequencyTransmitter.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/item/tool/ItemFrequencyTransmitter.java",
+      "beforeSha256": "397e84cbbc1f3a3b73dad02db63656c99031fd615422ac644849344d1608aa79",
+      "afterSha256": "fe36ac2b43ec09ea3dbad4ecb404d5bbc0c3a25b9694aafdc189626c03a68641",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityTeleporter.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/LinkedTeleporter.java",
+      "beforeSha256": "7a2cf7e73c472fd8e2241e0c14fd4ba2672cea9bbd7f367daaa473ca8223b842",
+      "afterSha256": "4cfa71749e540c1afadbbc459b859c2bc79b65d1d67c7cc059d35838fdc2585e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityTerra.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/terrain/TerrainController.java",
+      "beforeSha256": "f42653d2e8ba2015eb563e29a90682c7211b209be6d98814d17d24b79283a2bf",
+      "afterSha256": "1bbb5913694993f05bfb4480c45bc66ba611b1b3b163bcc745e308cee8310eec",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/AdditionalItemUsage.java",
+      "after": "verification/src/main/java/ic2ce/verification/AdditionalItemUsage.java",
+      "beforeSha256": "48eff2e2277e82dcfd49163a04782471f8dbc09763045028e9ebb00f3e470aa2",
+      "afterSha256": "c40c967dee9f8eacdbc544d66c9dba83664d0b6a96da38db06b811160a9fd2bb",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/AllItemFunctions.java",
+      "after": "verification/src/main/java/ic2ce/verification/AllItemFunctions.java",
+      "beforeSha256": "9220bd5d61ec99dc2df4c3400ac02e920fb881397f83de657d01ef0b78b15949",
+      "afterSha256": "82423922ff01eabfe5e5713b329221d74cba651c911b5bc25713c93ca1e51434",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/AllUtilityCases.java",
+      "after": "verification/src/main/java/ic2ce/verification/AllUtilityCases.java",
+      "beforeSha256": "423257d5ddb9bf84d4605eae6766fc2ba56cd82b103dab977aa9494d4684ec6e",
+      "afterSha256": "8b9e045d39ccda366b16eb134c48cb252d8ed3c29890d78e9659aa235b1455f0",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "after": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "beforeSha256": "f4a92bd87dbf6e3f76386ccc80699acc1a8e40b0a6f1ae336dc31f62a6d53a6a",
+      "afterSha256": "00c31ef702e91ef40239153a514dd1401d1f5f016193b6dd05857baa9780d515",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/block/machine/tileentity/TerrainTeleportContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/terrain/TerrainTeleportContracts.java",
+      "beforeSha256": "7ba07c1e8a50129e9272288de98f9dc32b57b48ce4b96ecf46301aada877bd00",
+      "afterSha256": "c2e1badaee6d63942222ff54ddd5101aa690a2bacfc221a8d70bb2d8699cfa0c",
+      "countsAsImplementationRewrite": false
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "complete": true,
+  "runs": [
+    {
+      "test": "processing",
+      "logPresent": true,
+      "errorLines": 6,
+      "unclassifiedErrors": []
+    },
+    {
+      "test": "workflow",
+      "logPresent": true,
+      "errorLines": 6,
+      "unclassifiedErrors": []
+    },
+    {
+      "test": "cables",
+      "logPresent": true,
+      "errorLines": 6,
+      "unclassifiedErrors": []
+    },
+    {
+      "test": "painter",
+      "logPresent": true,
+      "errorLines": 6,
+      "unclassifiedErrors": []
+    },
+    {
+      "test": "tools",
+      "logPresent": true,
+      "errorLines": 4,
+      "unclassifiedErrors": []
+    },
+    {
+      "test": "lifecycle",
+      "logPresent": true,
+      "errorLines": 10,
+      "reviewedAuthErrorChain": [
+        "Caused by: java.io.EOFException: SSL peer shut down incorrectly",
+        "[1410\u67082026 12:04:01.607] [Yggdrasil Key Fetcher/ERROR] [com.mojang.authlib.yggdrasil.YggdrasilServicesKeyInfo/]: Failed to request yggdrasil public key"
+      ],
+      "unclassifiedErrors": [],
+      "contextVerified": "Yggdrasil public-key HTTP request and its SSL EOF cause, no IC2 stack."
+    }
+  ],
+  "classification": "Offline fixture users cannot authenticate to Realms or profile services; runtime errors are separately retained."
+}

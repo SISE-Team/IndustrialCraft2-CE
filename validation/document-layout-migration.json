@@ -1,0 +1,461 @@
+{
+  "domain": "Bounded immutable documents, live text and distinct native/handheld menu projections",
+  "countsAsImplementationRewrite": false,
+  "sources": [
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/block/NativeBlockEntity.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/block/NativeBlockEntity.java",
+      "beforeSha256": "13576a49b373928c899d5e3760436f6384fa4aa55491bec619d46ce811b20c13",
+      "afterSha256": "7b58858ce29ae5002c16e44371df639465ab7a5fe4d5c9f4a4783def31abde0a",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/crafting/AutomaticCrafter.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/crafting/AutomaticCrafter.java",
+      "beforeSha256": "1fe214319cc446730b32270c68cd0f4c81b6a9cda172a4eb65fcedd3412f11f8",
+      "afterSha256": "c05d6902d9b5ad145e69bf9f16e52c77244e8a44e0718add37a7ce71e5503111",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/PrivateChest.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/PrivateChest.java",
+      "beforeSha256": "7cb707fb95cea7719e4e12b20042879b8c3a4f5607f911dbd9c737a2e7a60210",
+      "afterSha256": "7a32a4fa2b02b9016d830134f89cd129e27c85d2fe9a2d95e2e4e8e49f052876",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/power/BufferedGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/power/BufferedGenerator.java",
+      "beforeSha256": "f03f0eee1aa7ae8fb95bfefa5a3a8382f61cf7d7d1e6c21b13263480128465ab",
+      "afterSha256": "c189bd4f5e7785209fd9aa0d0d1c39af4ea16d156b131a73d2048aeb9b88fe6b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/power/CombustionGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/power/CombustionGenerator.java",
+      "beforeSha256": "96aef76e24cbf5d0ca5e9540e769ae958e0a757c3a52cdc309f7ff850c206570",
+      "afterSha256": "51b78fe74f7051184025a8b67b628a0f9037937a0030b35f04dc22d992a4b570",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/power/DemandDrivenConverter.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/power/DemandDrivenConverter.java",
+      "beforeSha256": "c923d2d5623bb7eb9c4c79bc5eb83d045b49bb3975e543bfa350141588e5cd17",
+      "afterSha256": "2c97d2d5b5b3b3396a0263defb25746e07251cc9cb7dd50b0222de5119dfd48a",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/power/WaterMill.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/power/WaterMill.java",
+      "beforeSha256": "2e012254e934d11380ecaacecbe837c60a0272b7cb4b15d1fa03c23dcb427a37",
+      "afterSha256": "11c264f00e7915790627755c4367d993f182d4c3fa8f5e319a22693b6652e67f",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/power/WindMill.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/power/WindMill.java",
+      "beforeSha256": "7a0510ac1cab661d3da1d664484889d915eef6b32ebaab63ceaf062a15602a59",
+      "afterSha256": "f8a66584818e32254d6225b9bdde56bd13f856e62481c266701e18a0fe773041",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/CondensatorService.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/CondensatorService.java",
+      "beforeSha256": "014113267f11b542d6e3ac3d3d358f871dfd12b3c152f6df8ab99f241b1de782",
+      "afterSha256": "302b3ab24d70fa1b50b14727f49000cf6c0625438c44c2156b38dc61a59290b4",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/CoolantPort.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/CoolantPort.java",
+      "beforeSha256": "2b82a6903416914dd6980e61889e92c20f8781b0b3c7ad717117ff7be3aa8cbb",
+      "afterSha256": "ffd2babc61ca19f13f096bfcc6a2ec6741796fd7f4742967082ea4d4e18b996d",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/NuclearCore.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/NuclearCore.java",
+      "beforeSha256": "4f7db4cb4a10152a87af54a311d5dbc54a54a3487e14821327011c4a07ca5fcc",
+      "afterSha256": "561bbec4ef3cc5a23c1081dbb7dd08a83fea767d078a9456701cec2bd2f446a0",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/CombustionHeater.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/CombustionHeater.java",
+      "beforeSha256": "a50d92e16cab8533da2e5a64d07d6ce38fd1bb286c53d8dcb24db478879b725d",
+      "afterSha256": "a5a523ed3320a34db68ebeaa5a6ae3721778ad5b7be9f1d9c3107040ae6a7142",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/client/MeteredFluidScreen.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/client/MeteredFluidScreen.java",
+      "beforeSha256": "76a25b3ab3364861b03c23b2c4010b7f3d8cff3801e80076cbe17f2630a73983",
+      "afterSha256": "b46125497f85568df6887f9846da13df80f87ea572dc38282d5e1b7c26186f30",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/client/OutletOrderScreen.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/client/OutletOrderScreen.java",
+      "beforeSha256": "91ee3cda84298e5f6a1820cb11054173f22a113c2510573209180780c28c8071",
+      "afterSha256": "cce3e1a6408fc92bf30ee85c5542b9d775a832befc966758e7994d5ca409914e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/client/ReactorScreen.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/client/ReactorScreen.java",
+      "beforeSha256": "c64c3e3bbc79cc52d032b8ae33f470f9ec13dece442c16c870d9207ece2e67b5",
+      "afterSha256": "2dde1b7a7e6af92eca4707abd4ec737da99656da837452c9942e98fe41b42fe1",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/fluid/BiomassFermenter.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/fluid/BiomassFermenter.java",
+      "beforeSha256": "0c80e798f7d12fe2621b807c72ac7124a7d5ffae5ffcc8b11afdee3a9163bb85",
+      "afterSha256": "dbdbe00bb19576be9dadbfecb708e791521b08312b142c1bce051b0b849a92f2",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/fluid/FluidCollector.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/fluid/FluidCollector.java",
+      "beforeSha256": "26839daff71f436326c72a70436927d8cd4d81af241e7350e22113d3b2cd35a0",
+      "afterSha256": "3fd05639c70ea829c2697242c19f0640eaa88c761561af67ad73b1b179725b54",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/fluid/IntegrationSteamConverter.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/fluid/IntegrationSteamConverter.java",
+      "beforeSha256": "bdba5d0e2008e3952e7009860068e21dd00f5b113d41fce99d2b63e4075c9be4",
+      "afterSha256": "52417a960f1fcc51d6eb9e38945d6919723c90a7c7968a109d24a232af3bda86",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/fluid/PressureBoiler.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/fluid/PressureBoiler.java",
+      "beforeSha256": "bb91139a251d69a9bf562bc41fc1dfb7c9c7e5dd54e362b2172e0e2fd68641a2",
+      "afterSha256": "c830778f2c46adaa8033a1bd3d99430acda52a8018ac1094d9956e3c398fc78e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/fluid/SteamCondenser.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/fluid/SteamCondenser.java",
+      "beforeSha256": "26740913a5afd10a2b1c9f9a03db5bdc0d6dc004d9478c57e216ee5a75f708bf",
+      "afterSha256": "25d7440d981644cb18c5647b0cb46219ed0119b85b3350a1ff9bd7ae98ed21df",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/AdvancedFilterInventory.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/AdvancedFilterInventory.java",
+      "beforeSha256": "66dcd836fac32fc354d26de7271ea9500012df38e309594d392ed0487b2d10e4",
+      "afterSha256": "bffba6f52fff919746f2aa63bda39830a35ebeab9a4169d674a95f604223434e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/AdvancedFilterScreenFactory.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/AdvancedFilterScreenFactory.java",
+      "beforeSha256": "959f28fdb4a6fc8817a290c60d6e5955b872fe839f855f6b4c4559318c3ae943",
+      "afterSha256": "a2bb5ddf525a5962b8750b8daa2551dcf3e81be163438bb5f4acc62cf943a861",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/MachineUpgrade.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/MachineUpgrade.java",
+      "beforeSha256": "56445ebf590b3868da823be6d17dec05c3c22b543d90137b68207f459222ed09",
+      "afterSha256": "d3540e3ba927a77ff55de16b7c65348067c420d58a573328febe7e520823c6f1",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/client/ChargingPadScreen.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/client/ChargingPadScreen.java",
+      "beforeSha256": "8255eb51532fc3d8d87cd8e0a0d6323a35710a7b0beadae9099730f721cf670a",
+      "afterSha256": "695eea24e13ab9b93c3f8461ff4b1f78a5420c75788e45c1886959dfa43ed93c",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/client/TransformerScreen.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/client/TransformerScreen.java",
+      "beforeSha256": "04ddfdbfed3cbe11f6ac414516283d0a22c4590e0a734eb18480a69546787bd7",
+      "afterSha256": "f233880f1f4378772656b6000da5e3897b79ae25fe2a8c342d1f1025266ed6ce",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/integration/jei/recipe/machine/DynamicCategory.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/integration/jei/recipe/machine/DynamicCategory.java",
+      "beforeSha256": "93daf7e867c2c77972129738127191bdd61d3dc7b4b641897c84e4e22d0217e1",
+      "afterSha256": "464d3c0414e1967a018fd5139a9811220133bfa27851cdb61d94c9a118939304",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/gui/GuiElement.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/gui/GuiElement.java",
+      "beforeSha256": "fe65e6ba4a85eafab36614ecbdff58c641d1640333f53b1ed45ed1d78b0c097f",
+      "afterSha256": "2c576012beb93a056881d90700c16607acfc1eea1378747f40db60839968f6e1",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/gui/LinkedGauge.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/gui/LinkedGauge.java",
+      "beforeSha256": "41a0dc3c8c7b53aa5572946d862f0fed9ca2642b58894315402ae92265ae2548",
+      "afterSha256": "0ad0f2dd726e859f79693cce46db5463df92ac01032ac2f994f68ab9a382f2da",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/gui/TextLabel.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/gui/TextLabel.java",
+      "beforeSha256": "382c5ead980c1b690f96055e96a6508b072a9e0b3f0a3f8693b2a9ceae352c1f",
+      "afterSha256": "5e52276b4ba4ce2679141803d47245506dcd6aeab6b7b9f1d4ad1427510c2cf8",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxyClient.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxyClient.java",
+      "beforeSha256": "a96fea0f9900919f1f0f4da59cb087d0996362d5293785f17234a9ac7066708e",
+      "afterSha256": "6c921477d834e05925bfd5486cd01ff68cb3a6fed9a2794b1b678b0cc92874b8",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2ScreenHandlers.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2ScreenHandlers.java",
+      "beforeSha256": "856d8c69bdeedcbbec1bf528109e99a9a93f551b08a1807c4c4ac73297a6f1ef",
+      "afterSha256": "371eef32bdce496f45cd2124524ca26a7ce6b4ace916ef09943140c5673398f9",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/gui/dynamic/DynamicContainer.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/DocumentMenu.java",
+      "beforeSha256": "7709f343adf93f8d664d3bced0d5e743649a48ccb4a8ee982338439147de8320",
+      "afterSha256": "358e02c8f02b3ae6f202c8d16f3444a713fbb62c68dab7f14f6bab49fc5cfda8",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/gui/dynamic/DynamicGui.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/DocumentScreen.java",
+      "beforeSha256": "423daede97b174dc84de672ac22be7298529b499f0105a80f4d322405e4a1a76",
+      "afterSha256": "1e6f458dacabe9c33e7fad851e9a02e1f0e5f3759572d975c56c6a80d0208d90",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/gui/dynamic/DynamicHandHeldContainer.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/HandheldDocumentMenu.java",
+      "beforeSha256": "883f3634e6a5eb3e1b9746fac1e6a94fdf8ada46b1c2c3d1046d263229c57e35",
+      "afterSha256": "dd9f812c71518e51a02d406876c221e8de6a371b2f882fc8d46327d154fd75dd",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/gui/dynamic/GuiEnvironment.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/ScreenProjection.java",
+      "beforeSha256": "107e7206cca7b57ef18830a775b957fc6081b25668587faa7a0f8f374075a636",
+      "afterSha256": "6ecc6482f2faf21c3bfa338c8443f65203d29679acd9de04970945c053c12f01",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/gui/dynamic/GuiParser.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/ScreenDocument.java",
+      "beforeSha256": "53a425c06f2db9cf5c147f50f79674e91344b2a54962301d4f8751b23ab0ba34",
+      "afterSha256": "b7404fff84260e3d2f57d9635e54c42436e5bcbe46172beba2857e5b139ad2b1",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/gui/dynamic/IGuiConditionProvider.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/ScreenConditions.java",
+      "beforeSha256": "8cb1788e50dba38da14b32c42a0337c755c3a71289bbdf5879e7a1c25f70cdce",
+      "afterSha256": "6c144bfa83b8dcea23fd3b13547fd507a041cffe3e8dbeb5736c923eddfc234c",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/gui/dynamic/IGuiValueProvider.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/ScreenValues.java",
+      "beforeSha256": "5d6b2439c4dd21acc16d9ce0fbfefc9501c6c6fe51ee392dd0d45c15f5748583",
+      "afterSha256": "80141ba671cbb7b648202f3778973f7b4df54cbc1af95b5e2c6fbc7a350112e0",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/gui/dynamic/IHolographicSlotProvider.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/TemplateStorage.java",
+      "beforeSha256": "12f2a859a9da090560c058d3de521a7f8e279ba327cc5efec9b0e3dddc1074ed",
+      "afterSha256": "0dad4f365c25dd94b78dc300bdc0a0ce42519c854d98537cfb85132bbdd80a55",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/gui/dynamic/TextProvider.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/LiveText.java",
+      "beforeSha256": "29bfa4fe87a7bfb62ec33d24939712d245fc19de53cf4e5aab578834e95dfc95",
+      "afterSha256": "15cddd839420875eba1684055d942f417f50e726d06594b1d4b00b2c60250da5",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntityStorageBox.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntityStorageBox.java",
+      "beforeSha256": "6f99afda761f7cbd980e09c0ae0edae7c02dbccd9fe4129b3599ad1db530b875",
+      "afterSha256": "56b583fccf628bba217104634584025459fd8d9f66979fcf7cd8cc8e06856e39",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/TileEntityTank.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/TileEntityTank.java",
+      "beforeSha256": "5b81f9a9858ce0745c8f43bc57765c4e91e5e2f31c303b74de4627f48a8da16f",
+      "afterSha256": "9632cd75d817aaca5991f6121cb0d92da41d1e4d2f13f12870eae2f020519d94",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiLiquidHeatExchanger.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiLiquidHeatExchanger.java",
+      "beforeSha256": "2c57c88f6ab427bac52d7ff495d6f0964a404ae5eae29fec4539bceed75a6823",
+      "afterSha256": "2469128f287b297ae1fa86e566f863fd75c3a636fb83e706c5624779cd01181e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiPatternStorage.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiPatternStorage.java",
+      "beforeSha256": "948d5fe61df70aa06b7b432661a64f1afbb51ee9c5a7e2785ad49635c0e6cbc0",
+      "afterSha256": "ee81f144d4137617f3f85fab67e42b108e1ec82f407b9ec89a0aa971785baa50",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiReplicator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiReplicator.java",
+      "beforeSha256": "932adbbbc20ea5b773c2e4fb5043a3afdb2324760b01ae7dd04cb2eb3c4d5205",
+      "afterSha256": "06d905a35fa2176e541a0d83b39ad34a5160ce93e2ef5accfbcf812d73d9dc5b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiSteamGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiSteamGenerator.java",
+      "beforeSha256": "697d2a632e3b773c061e5605213ce43a08624b0b14c22bfaeeb0583cdbe7024f",
+      "afterSha256": "96fd7a174768f165d632de6e1c0e7abd335ec744db7a6d0585fa4432159c5855",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityBlastFurnace.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityBlastFurnace.java",
+      "beforeSha256": "a9e7f66022479b0140ac0691cd05015ac28cf93d9304b97d6163d078c153f558",
+      "afterSha256": "0eb37f839fd9a58a279a180c38ca2b047505f0833602082cffb2f947fdd1d916",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityClassicCanner.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityClassicCanner.java",
+      "beforeSha256": "55533af5ab5b27d9f188e9b0ed3d927585cb9163db5381327b78f337a0ddc649",
+      "afterSha256": "13bb2cae4edc9b99e6b03a2d8f940b48cf46ff907a31ce7835ef0fde7644c2fc",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityClassicElectrolyzer.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityClassicElectrolyzer.java",
+      "beforeSha256": "1bc5ec529668fb4a8118f49748808e66d31fca05aa1af490f94cab38588ee1e7",
+      "afterSha256": "87a6fa3cfa0b28b367379117c6b4fe4095e1ec2b4703508255aba4cc9755b41b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityClassicMassFabricator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityClassicMassFabricator.java",
+      "beforeSha256": "d6c369521dc388063445a65248f7f0d56247edb86759dc816f9f2f33d7515576",
+      "afterSha256": "d247cf3acbf8989d700e1b58c99b0a1822ba6510bccd62b7f0eba97dae82dccb",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityInduction.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityInduction.java",
+      "beforeSha256": "ec4de7e8ff46f60058b8c04ee6e8e6c50d19b0c587ac9f571fea20e2788b339f",
+      "afterSha256": "d4f3c751b7f70e45d08b172bbad029333cc1b7712d83f57203cb1382166b1bd2",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityIronFurnace.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityIronFurnace.java",
+      "beforeSha256": "6ff70d9a599460c5cdc8f5099afd20a4b1cdec88d2c5707ebb5e9f106bcdafd9",
+      "afterSha256": "daf9c23fecaae4396704ebabb2a4d3520a4152bc2bf1c79b508c05ab8ad0a545",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityMassFabricator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityMassFabricator.java",
+      "beforeSha256": "9ae801af39f33f02baace9d7db3ea063995848d0bd6a88a36853b6210169c443",
+      "afterSha256": "4e1a554ed338405989fd4bd08518295a7880e6ae7471ec0e686422865dccae27",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityNuke.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityNuke.java",
+      "beforeSha256": "40355569925e334a0c20851b55656e69a179421ffad120780ab4d41348759c44",
+      "afterSha256": "d0a95cce5cb3d9d633daf995c6ba34884bf01db0e8beea330451ce7e612d8453",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityStandardMachine.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityStandardMachine.java",
+      "beforeSha256": "d236721d987ea85b0fbb2b9329761cb1d8c5ead5838971d02a0f979b7bb13097",
+      "afterSha256": "340828b2c4ae47df76c9f61f6db1811b1d1f4c44523ddd78cd16af06cd3d70c4",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityTank.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityTank.java",
+      "beforeSha256": "97de595f381149d93a590eef4b759b388aba5460516250438763a46954d93055",
+      "afterSha256": "ba637f67f81e534ac727d5b43aea34888bf18891945219948b9f72bfff150865",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/gui/GuiElectricKineticGenertor.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/gui/GuiElectricKineticGenertor.java",
+      "beforeSha256": "ebb22ae4b9cdd9b2a7ee75f1eb8af9a69da742ee932b32e89c59f8d3f3ca8598",
+      "afterSha256": "f3b4a831b6cd31e48bb8206116baa39f42a809b617a7bd204f83b1a8ec7884b0",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/gui/GuiSteamKineticGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/gui/GuiSteamKineticGenerator.java",
+      "beforeSha256": "4717784945435ea24b540203dbbff56d12de079121941b3958d2dd0de4ef4442",
+      "afterSha256": "d2d47cb8917e87a59e2f426b8f860e35e3bf3956f32b39791e5f63fe955b97bf",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/gui/GuiWaterKineticGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/gui/GuiWaterKineticGenerator.java",
+      "beforeSha256": "a0e01c6553df0e61d4b4cce9507dd907bd70bf74730dac980c1fa4cbc03d6729",
+      "afterSha256": "ea7a380a22da45a8e1ea328dada28e8c4eee91c2417ad1ce96e19273a924d63f",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/gui/GuiWindKineticGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/gui/GuiWindKineticGenerator.java",
+      "beforeSha256": "411411e789de670db4390b0813fad44bec8043d453631ac9b63ab1330cc0d7ac",
+      "afterSha256": "fa106050b83c3f5dda425deec4d4792b297d5101c40e55f9fde8c549be6ced7e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/heatgenerator/gui/GuiElectricHeatGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/heatgenerator/gui/GuiElectricHeatGenerator.java",
+      "beforeSha256": "95680f529707b0ac8e9f420c583d7fbd6b44df5f5f09c8b6d1467f9ccf37688c",
+      "afterSha256": "125aa8abce3080db71f307a85143e972dbd6975fa6914b642b566bcd3cf08ad7",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/heatgenerator/gui/GuiRTHeatGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/heatgenerator/gui/GuiRTHeatGenerator.java",
+      "beforeSha256": "cb32fee5c68f6519da646d54ce01ee7b38d5de03dd5e10f2d95b228239cf930d",
+      "afterSha256": "1b35608e47e63b69209ef5df5250e131fa48156eb71d9c98369381f53ecc07b4",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "after": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "beforeSha256": "73818ff3f4424c9d57d630535add072a14b68bc28aba7e5a25ebe68c5548f5af",
+      "afterSha256": "7416c50319a451a2946db3ffb3576fb19d288a7794a009039268c819fa2c8a5a",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/gui/dynamic/GuiDocumentContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/menu/document/GuiDocumentContracts.java",
+      "beforeSha256": "f8501574be9566d4f1bbbf63a9fb6f674724dddbb556dc643fdd4f6cf9c5c4d3",
+      "afterSha256": "a90ff80e8a936a37ba0c8b81e1fb29e7fef56966055507146e5e2c2b2a848973",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/gui/dynamic/TextContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/menu/document/TextContracts.java",
+      "beforeSha256": "1dea1b7c7232f04da75ded690c6a429a2ba1c89d38d1566010f63e5732e3d3e8",
+      "afterSha256": "c104f70535de0dd4c530d4a4ac24c739bd64fa19e066bd5d4b2638d6fdd925f1",
+      "countsAsImplementationRewrite": false
+    }
+  ]
+}

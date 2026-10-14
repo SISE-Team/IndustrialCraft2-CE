@@ -1,0 +1,946 @@
+{
+  "project": "IndustrialCraft2-CE",
+  "reviewMethod": "Native Java 25 compiler syntax trees plus manual inspection of every concrete body; abstract declarations, constant-only specifications and direct native/owned-service forwarding retain API/material meaning. This review counts zero reimplemented behaviors.",
+  "reviewedSources": 156,
+  "entries": [
+    {
+      "file": "api/src/main/java/ic2ce/api/block/BreakableBlock.java",
+      "sha256": "bff5ae871e949d0f49f497937ca60505db61a101a9117344e56394915fa737d4",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/block/container/Ic2CraftingResultSlot.java",
+      "sha256": "ff9fd516c62ef38742edcb3258fbe58e70bd78298317062cda10fabfd1096201",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/block/IIdProvider.java",
+      "sha256": "0d99b0c2f35a7fb6fc00423123b2839158c36c372365b10993efc79e475200c9",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/crops/Crops.java",
+      "sha256": "9be24d7ca50ef2d69e4aa0955aa38d173b24ac92cf6d55a80ae937a56c94a049",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/crops/ICropSeed.java",
+      "sha256": "30328255282eba4c220c8fa47af6d28ea683d9c9cbdbd7ef8346200f2bf2bf86",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/crops/ICropTile.java",
+      "sha256": "06cc4d17c875d1011ee1d3b9d3c38132f9e8a67054956e6288916409891f2c5e",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/crops/ICropType.java",
+      "sha256": "dcb98c19d8778a541634f481df4e820e20bdb252516c93c745cd657cf09c1135",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/energy/EnergyNet.java",
+      "sha256": "0de59f0f7b0cb4505cf87d4d44d9fc048d9366095664557f23c651d70962a98c",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/energy/event/EnergyTileLoadEvent.java",
+      "sha256": "8ca4a632699145b6d41b536eaee8d60f4b26a7bb840edd6af2f7bf4a437985d4",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/energy/event/EnergyTileUnloadEvent.java",
+      "sha256": "2ca1e0a2b62a18eee0705cc2465eb444aded5390746257c2772902b17effdf7f",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/energy/IEnergyNetEventReceiver.java",
+      "sha256": "afa3361a8c0a07d2d37f315fd87ab736bfd4a932a8e877191ebe3d53bf7bfd9d",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/energy/tile/IChargingSlot.java",
+      "sha256": "0ee8690525eff3378b0ce4247cefa7da163ca7faef00659a89aa35d8286a8782",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/energy/tile/IDischargingSlot.java",
+      "sha256": "716d71d966ce65bad2d43bee538729f29dcd0147861725c614dc7637a517fc76",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/energy/tile/IEnergyAcceptor.java",
+      "sha256": "dbf20191650366cdae30fc94f154200feaac0b3e22497d76d7cdc4de43bb2ab1",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/energy/tile/IEnergyConductor.java",
+      "sha256": "9a6ca494bc1e296efbcf681937f55b841b2979e07ecb48897827a452922135aa",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/energy/tile/IEnergyEmitter.java",
+      "sha256": "c6ce550a3022a2345f576b117a253be1c3c3480fe1b2d779245012c1f66cb78a",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/energy/tile/IEnergySink.java",
+      "sha256": "f04a2ba3946dfcb080acce8334953bae18a0b51fe51137f5f7a97787e79c8acb",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/energy/tile/IEnergySource.java",
+      "sha256": "34d0a793a34619b0409ba832f154805e079566035d53f51d62c308d5a1bf8b39",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/energy/tile/IEnergyTile.java",
+      "sha256": "71fafb351712f92bfc8211567aa0c9597a7289ee9ef33f7138da8de3b853f0ec",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/energy/tile/IExplosionPowerOverride.java",
+      "sha256": "7c49e7dc749b78a0ef3e401cfc6fb3e5d529fda6b491c466495a33212271a83e",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/energy/tile/IMetaDelegate.java",
+      "sha256": "3fc759f5f345b7f4c00702723a4a1790e9c38ee5069d7d6fa7d2898d8e050da6",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/energy/tile/IMultiEnergySource.java",
+      "sha256": "edf21b6ca1ba8b10b2512d9feb6f290cfa96c611c5817ca731b61992f05c2277",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/energy/tile/IOverloadHandler.java",
+      "sha256": "1c1bbc1e296cbe4a980f47ab3451abd09339f01a8d8cf7839037ecce28a9893c",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/fluid/Ic2FluidItem.java",
+      "sha256": "03374bccd6480d5e04b9d41fee42fd10b26789a65280b058554d59c444263489",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/info/IInfoProvider.java",
+      "sha256": "35a3b39afb06ad200499d8c44b99b743bdccbd51ea9e627e7d380d35ae67f245",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/info/ILocatable.java",
+      "sha256": "00a3f6f7c92b2c6e19ee703b8334484a3a66fa0996907e089d94122b73724a62",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/item/BlockBreakableItem.java",
+      "sha256": "51481281d015a5e40bd9a8973420732fa1ac58e228c53f6c21c1f08e1057f6d3",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/item/IBackupElectricItemManager.java",
+      "sha256": "829c34deb21d347bf0c63d92ef866a36a5641ebf7a2a3a84427c09b0fb7b7fbe",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/item/IBlockCuttingBlade.java",
+      "sha256": "97447bc8673360272a0389d4600779a4a161eef4f1d7fa72f02357ebcbfd673f",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/item/IBoxable.java",
+      "sha256": "b10ecf6da05fe2d2ac587a7fcea0f4e8ee7e6691e8536434a0b7da556caa6e40",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/item/IDebuggable.java",
+      "sha256": "b523af61da7aeddf793d2b314f1d1893e3dbed1284929d890ad0fd7751ed9aea",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/item/IElectricItem.java",
+      "sha256": "46b257f23fee41751c9ed17a0046d7321aa057ee3eb5e7ee99c060140d7dd695",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/item/IEnhancedOverlayProvider.java",
+      "sha256": "914010d61492cd4298a34009c0c1c4bf4dc7cc52656f15be8c6f1113e40425b7",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/item/IEntityAttackableItem.java",
+      "sha256": "0c0ec05a39d7a618285b6a9a44cc3f3b8396b76d63f1f57283eb3610c9739032",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/item/IItemHudInfo.java",
+      "sha256": "15f04d6f4a6b31ab046a20cd76948064407a307d7ea33087b5224c3b63c59d33",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/item/IItemHudProvider.java",
+      "sha256": "54de0d855c30696757f62ed3a579b23799979342b4450c1c2fee91dd600c794e",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/item/IKineticRotor.java",
+      "sha256": "b9bf491215f8aa22f3b7f8f3ada2a9cf4fde34cf03d5c62a96b4c032bbb26f48",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/item/IMetalArmor.java",
+      "sha256": "4f822c337fb0afb5f15033c6caceff5947443077ef39573d73d7ad2170c97c35",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/item/ISpecialElectricItem.java",
+      "sha256": "1ffca0e0512b596b053b0125560687a6182cbb0febde411267c0ccbcf603734c",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/item/ITerraformingBP.java",
+      "sha256": "8521b36ee261b86dfee4f7362b38c35eeb410ef2daf6abf113da4d5eee4c5318",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/network/ClientModifiable.java",
+      "sha256": "a47b0d43aaf70c52cacc0f793cac8be3a5205a7e59b3beec376dab5b0871153e",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/network/IGrowingBuffer.java",
+      "sha256": "b01d09e0501812c9e57125ad08beaa40fdcc893af29517360336628ee2fe040d",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/network/INetworkClientTileEntityEventListener.java",
+      "sha256": "d809b0df81ce7f3495ab82d0af7f67bbed110286b7d63514c3d566a9e3e5fc54",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/network/INetworkCustomEncoder.java",
+      "sha256": "f5886f0e403008c8d0ab6638ebfcc44910906832f9d3da01111c8374f20ca26f",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/network/INetworkDataProvider.java",
+      "sha256": "210df98dc92d96f6bde09476ee115d1f362137ce6bc0669315ff7bb61ce5dcbb",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/network/INetworkItemEventListener.java",
+      "sha256": "a62b4e66dfff99009b00d2ebdaeb4e5f60ccc3666d83ca24d435d2c8a7c53fa6",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/network/INetworkManager.java",
+      "sha256": "270a6c188f6bf40704449f4f9c8fa6772e7b5ea5b79e024090fa90cb1a27b2e9",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/network/INetworkTileEntityEventListener.java",
+      "sha256": "748b071354fefd3a8faeaf294cfb36e7b01732e49cf3c9fba5045a030c4e5e4b",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/network/INetworkUpdateListener.java",
+      "sha256": "885f0c6386cc46f34e791b4e2e2971d830c036f24d8883448dbcf02c155f1e59",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/reactor/IBaseReactorComponent.java",
+      "sha256": "1c233679c5f7ef6817f754aa66c792c0392289349a3bd8cb7b6943bb8d9e1c69",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/reactor/IReactor.java",
+      "sha256": "9aa954d2c9de071541f5449a501b6c5c85400ce324e0a22704dfc2fe802b4350",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/reactor/IReactorChamber.java",
+      "sha256": "b6a061e14745cf9f66793c3a417f7adc16a75a3297c3be7401cbc2bbed6226ca",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/reactor/IReactorComponent.java",
+      "sha256": "8b0509527aa30b2be2450ce574460cf9b8a7039f1765d70827f01936ffa2734b",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/recipe/IBasicMachineRecipeManager.java",
+      "sha256": "1d9ed3e8c6f93a71ef10a74f9de933b00f00f2991c8374679ce046c157942c90",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/recipe/ICraftingRecipeManager.java",
+      "sha256": "fb6242a8af3bbb275544588674440b05ba9741745b3b321cabfd72d959198310",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/recipe/ILiquidAcceptManager.java",
+      "sha256": "a268080bb4fbfefb3ca632ac8c5dc8128ec563cbaecd407c168f312bf664a7f3",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/recipe/IListRecipeManager.java",
+      "sha256": "6bfc50446d7c9998cc3db5e52645a4903bd580ddbe16987e272b37eed35bd381",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/recipe/IMachineRecipeManager.java",
+      "sha256": "952ca20096fa9829ed6708f37996a04c117c15cb701d3a19ec5208f8b13010f6",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/recipe/IPatternStorage.java",
+      "sha256": "141775d0ba1c94139f9eee305201373234ffec5353efd30e55b84441e7b8ca02",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/recipe/IRecipeInputFactory.java",
+      "sha256": "c004fb1579f796225e5a2548dead66180f6aa9a8fc2e3e46a32b5e2f7f82c731",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/recipe/IScrapboxManager.java",
+      "sha256": "38cf50dd2181bb071402a954a70b4db3ad07d26ddbe156265145cea6c4c9c2b7",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/recipe/Recipes.java",
+      "sha256": "863e370ea2e8f7b7330fb15a04cce8f6036eeeb07fe2d109368dfe5d9b67e0fa",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/sound/item/ISwingSoundItem.java",
+      "sha256": "bb482ac05adef4ed3fa33e157593542a6e578cc9d44865764952eea6a16eea53",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/tile/IEnergyStorage.java",
+      "sha256": "b2f065079a0059e33ab86d22164bb8e2c84c70dad73a17b1e97ec191e2382295",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/tile/IRotorProvider.java",
+      "sha256": "161e03e5330c5f6f363b2bf942a9d66ee35cee69c4b91e05bff5673f56dfac92",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/tile/IWrenchable.java",
+      "sha256": "0b0d1e7095238d2d7298d9d0e398aa3650e6568d0b6fa9d615c92c90e03ef74e",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/tile/RetexturableBlock.java",
+      "sha256": "f51c279fb16aa0c4ee294a45d0ca1e742114363a09bd0fa439a53dda49fe13c0",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/tile/RotorRegistry.java",
+      "sha256": "5031c9ff56181f4966637cbc510617e9c6ba448be2a3e4a446e1b12349268427",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/tile/StainableBlock.java",
+      "sha256": "ee8aa31db606999570ae49533c2abb99603d3f07d5ce472e0a37365c3ecb2224",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/upgrade/IAugmentationUpgrade.java",
+      "sha256": "f5167d68463dc81dc9c9f37e306f6835d74463b55ccf74220633e3ee27812172",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/upgrade/IEnergyStorageUpgrade.java",
+      "sha256": "9b778d5c192cadc01e19a3abb362e75c73e3d0f75750ad41ff3e30c09b947dec",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/upgrade/IFluidConsumingUpgrade.java",
+      "sha256": "de567bba55555a8f3c6046f83ac2a76bd5e7a85e447bb85895452876887bd9d6",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/upgrade/IFluidProducingUpgrade.java",
+      "sha256": "1c7f794ca2b26128b7b8015d0355b151f71eafe89a7f81fcce334e20893f546b",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/upgrade/IFullUpgrade.java",
+      "sha256": "d86135d105ff8dc72dab53a69004dc8f4d75baa70a0902c893c12466457cff9f",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/upgrade/IItemConsumingUpgrade.java",
+      "sha256": "20f964df8ba3d99d094ac175695bb34e65127fc442a3b57ece33a6cecb7fa6db",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/upgrade/IItemProducingUpgrade.java",
+      "sha256": "93f17020e30b49f38eea9245825cee48b293369c55ebf7055a2c0d033d76fe43",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/upgrade/IProcessingUpgrade.java",
+      "sha256": "f9b0b0dd3aaa788f6b2c5ba79c1465fd63b158fd18ee326c844b862be6b11a5e",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/upgrade/IRedstoneSensitiveUpgrade.java",
+      "sha256": "6acc6c7aca4487d9b6222c526d4b7b5d0dca01243e12551cbef838ac15c91566",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/upgrade/IRemoteAccessUpgrade.java",
+      "sha256": "cfaa5957feed10d354ca75ee563bc14c4df381368da990ac151d1978c6df17f9",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/upgrade/ITransformerUpgrade.java",
+      "sha256": "8436fe5cf23204c1466c541a98595b622dd534935ea64cf625a7093f54924062",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/upgrade/IUpgradableBlock.java",
+      "sha256": "9d127daff8c69d74c234e5bafa372802a2232beb0bc1bf558481fe58a55b9945",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/upgrade/IUpgradeItem.java",
+      "sha256": "3f9fdca9cff9ff8b7d0994a094fdb74986c372998eed111deaa88afd7105286f",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/upgrade/UpgradableProperty.java",
+      "sha256": "faf7957a04d916b533a98d8c5b59609f4171d76ac662c1e03ea1a6826df4dd16",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/util/CoreAccess.java",
+      "sha256": "da637f6bc521d7f28e898b5c2968b938badd25aa4186efe6bfe67f0241682a3a",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/util/FluidContainerOutputMode.java",
+      "sha256": "ff993eb29259a6f1bc5d643f6a0af30e687c92de42a395c535b839066a13399e",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/util/IKeyboard.java",
+      "sha256": "cb5b3c549b092c96ec1c580844e2844a585ee40d04fed55af9e866f48590577e",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "api/src/main/java/ic2ce/api/util/Keys.java",
+      "sha256": "f2a3a7c449ed638861444e547600739647b724b24183a639694e65c15b276fe1",
+      "kind": "public signature, immutable data holder or optional constant/default forwarding contract",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/compat/Ic2CraftingRecipe.java",
+      "sha256": "79d35d0d9cbfb6f5d31edbc0d319c8d194e0270695f1db0d0a72fb161e014514",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/block/ChunkLoadAwareBlock.java",
+      "sha256": "580271e0eeab1dd38aa649ea611bbc10df147961233efbd75ac5288ec52746d5",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/block/IInventorySlotHolder.java",
+      "sha256": "239b743062a7574fa669e91dfdd5391c1ca748571b8eae6c6fe44dbad8b6d5a0",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntityBronzeStorageBox.java",
+      "sha256": "2a3727a364c34dc363b7cbff2a5a8aeecff359570af948ef446a211bbbebddae",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntityIridiumStorageBox.java",
+      "sha256": "177d8a08dbb791ab672237f5011fe81952de94983e8b287744619ed2b1440560",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntityIronStorageBox.java",
+      "sha256": "ba66d67b7f955df66162e843da4f000e86d056ce5e231aa1af4692ec346ee269",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntitySteelStorageBox.java",
+      "sha256": "69538810959f57d7264e7ed7d5f1db6179b41b95a800f7b9c0b86679cb6bfe5c",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntityWoodenStorageBox.java",
+      "sha256": "864c8ca3a58330302b98b40bb3de34be15eaacdf8371b3323a8ba43806085811",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/TileEntityBronzeTank.java",
+      "sha256": "ccea3208bb64428b261f3a0f59ae3e44172cbcfa2ff6c553fefc3a0e1457701e",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/TileEntityIridiumTank.java",
+      "sha256": "d3edbb0791f5a5c918e8a4bf79aa7a5ea2312c58c8a80fe31998abdbd49ce915",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/TileEntityIronTank.java",
+      "sha256": "b3a3b538fa95a49c1560dc697411b42c1a233e81412a477ce9dcb2f6ebd3c3ba",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/TileEntitySteelTank.java",
+      "sha256": "70d38006d584d04718cc835b1c1163b85487a20ec6d1fa2e069756920e191c00",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/block/transport/cover/CoverProperty.java",
+      "sha256": "9df76a944038f1f03d24f81482414b47145ab8b960dafc20a51f011f15a24e9c",
+      "kind": "constant-only material/protocol identifiers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/block/transport/cover/ICoverHolder.java",
+      "sha256": "806de07af220d09a678993caee3b0984c756bc7980059d9fdb3b3e411b37786d",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/block/transport/cover/ICoverItem.java",
+      "sha256": "108d5452bf567eb2c622255ad58ca216bd603ee88b63f7fb25ed50d3fd79a176",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/EnergyNetSettings.java",
+      "sha256": "21e5a1a49e3cdda887596830ecc6ace5dd9512c9d9e856a9dbdc5c1e94bed849",
+      "kind": "configuration/algorithm tuning constants; live graph calculation is independently implemented",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/GridInfo.java",
+      "sha256": "c738739f7db3ca2f0ebe32e7d6b24734790e8516a717c5624d3f47244ad416ae",
+      "kind": "immutable diagnostic data holder",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/IEnergyCalculator.java",
+      "sha256": "2c1e5e0135ff20406160c0dd7239570885bfb79851380ecfec4b7eb5591dec2a",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/NodeType.java",
+      "sha256": "c5700cd5e4b6e7aaf0ab77a99b01bb17f845f48dbe472a85a70a93bd0d65832e",
+      "kind": "constant-only material/protocol identifiers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/event/IWorldTickCallback.java",
+      "sha256": "b04b7ed09bfa1541d332a4f46a26d8355bc3021cf4e6c8d715f6c0e6a474ca09",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/fluid/EnvFluidHandler.java",
+      "sha256": "04508c268302bc28c2929a8647b87dcd41272797158e969fe9f80adb437df545",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/fluid/FluidBeBridge.java",
+      "sha256": "6a184068327d867a09e43268b48724f122646bfcfeea2d9f046a05be22db34e6",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/fluid/Ic2FluidBlock.java",
+      "sha256": "604a649ff62b8e8aad22457301e3a0ab5d6f4be389e0d6fd2875374acc79f10b",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/IHitSoundOverride.java",
+      "sha256": "918fdc0bc1a2a570f8ffedb68ffc12ebca8a5ad7ea724f190ea9deef18f24501",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/item/EnvItemHandler.java",
+      "sha256": "69dde8dbee10b4220d9579e9b65932e2048b1c4b11617363785e55a55ce0e381",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/item/IHandHeldInventory.java",
+      "sha256": "315280c0547dac2cce247f415474c7d6407816201f80c393a56465348851051a",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/item/IHandHeldSubInventory.java",
+      "sha256": "9953b6c358bafd743e22c8e9cbf5f667728c58c52da468d95a85947a92c3ba83",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/item/IPseudoDamageItem.java",
+      "sha256": "f0351ceb2ffd0bfd1de5e089e3d10faaca7897f4f93fd536116513d7d297c7b6",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/item/PriorityUsableItem.java",
+      "sha256": "ec9c35807748d1fb42b869e8dcd9411c617034df3632ad33d9507f341e9b7570",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/loot/Ic2LootNbtProviderTypes.java",
+      "sha256": "76b11197e0f82278c139cd47bf599df17997de4962062db34fe24401cb75a0ce",
+      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/network/GuiSynced.java",
+      "sha256": "eb2d5f624aa5a1088b23baf5d5b0adac59f08479b04b6da21754ca08d9fe268b",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/network/IPlayerItemDataListener.java",
+      "sha256": "03b71b0574b65a5a77400df7db4c5b7f72895ef8a4393e9723d8cf2dba85ed29",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/network/IRpcProvider.java",
+      "sha256": "4451328501273205ac3fb004df6430e873df68f0be2bf37d64240fb18c3bb81e",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/profile/Both.java",
+      "sha256": "2e1757ee436a07028e6727463f0e03956b18d8d587075e61b770cdfd2c3f1629",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/profile/NotClassic.java",
+      "sha256": "661240b27f11f5a6f124f0da6e74ab23ef05f13f477880eaa59fdc606c92b0e0",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/profile/NotExperimental.java",
+      "sha256": "f7177e5407477cc380eb5133848ac9f40d97872e739f5e4649958c3f039df4c8",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/proxy/EnvProxy.java",
+      "sha256": "c4bbbae843495c8e2f617ba9cca350bc0de6dee08a91ab809715f1bdcebf5af3",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxy.java",
+      "sha256": "5eb79df2059c22bee96295dd41a12d20f4554bec86ff24564994debad833927e",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/ILateRecipeResolver.java",
+      "sha256": "7e8e7fcd5f4a59708dc685b59cf5e1e61bb7119ff47f84b7ce75d3b9708499d2",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/IRecipeResolver.java",
+      "sha256": "2ceb9ba068d6798b57cf8b6f32cf8b43886dcaa1ee5f4be07e8ce02e23c7a3f7",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/client/audio/FinishAwareAudio.java",
+      "sha256": "b36c8e1cf71cbb506ed0fec69cfefe91cc9024aedc5a48e6a58204da984387fd",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/diagnostics/DiagnosticArea.java",
+      "sha256": "4ef098d6507e52e48de9259e37c8db371769fdd1f871cb3fdff34871a24ecbaa",
+      "kind": "constant-only material/protocol identifiers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/storage/ExtremeVoltageBank.java",
+      "sha256": "0932f0ebc0837591f856ea3b5d136f46c6a2428a0d1e0ca01882936c93735b4e",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/storage/HighVoltageBank.java",
+      "sha256": "fa9051f6c7468db814fad52624fd50e4c2373fd79ba71e3c0f04f9eaa6790a30",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/storage/LowVoltageBank.java",
+      "sha256": "f1464974733bcea68f454bfa6bc4222a944c209ea8812518ce9780f48fbbf38a",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/storage/MediumVoltageBank.java",
+      "sha256": "6e7b32bc15ec3d109dc363b91f28f0ff6fe7dc605e321c3ab537784d3cbd350b",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/transformer/ExtremeVoltageTransformer.java",
+      "sha256": "3d8719350d54404e8e746af009fbdcafd062a09fff68bfd08ee862556ef55cc9",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/transformer/HighVoltageTransformer.java",
+      "sha256": "67476a7221b1e65505ae6c0d912a5be79596a717eaca1d00fd009d99ea1d21de",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/transformer/LowVoltageTransformer.java",
+      "sha256": "b5dde77f48ece5b8972a6589717bbe3a6a409d7f3aa6135e0d1d3c957ed78233",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/transformer/MediumVoltageTransformer.java",
+      "sha256": "6b1cdc383835a60377882a2466355cbf30ac317324598ebb2b88f31100564ab3",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/OwnedDevice.java",
+      "sha256": "d4bed8dcec02c7866fff25df5ee7d14d46b4d7352f6d87493eadf0ca7f9aa65d",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/LapisCondensatorService.java",
+      "sha256": "27316fce9415c1acfb5bbcd86812e55fda98ab666b751c02fe91d64b8d9bde9f",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/RedstoneCondensatorService.java",
+      "sha256": "1150b0c919f09cd46c00a39359fa859944cf861a1705140ace977d1f661f1033",
+      "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/BlockGroups.java",
+      "sha256": "26057cfd8a04cc7d2b72dabea659e0aadced09a35ac1ec10809fc732bea40ed5",
+      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/BlockProfiles.java",
+      "sha256": "477036921c37eca4d2de2d3f0528fc94edeb3fe4c9034ead8521c7cf4ca563ad",
+      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/BoatDefinitions.java",
+      "sha256": "70f0146e53a7a07dba80fe4ace8b6af2a7137ee7f64615cc2ba5c678b57301e5",
+      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/EntityDefinitions.java",
+      "sha256": "540a7321c956a781ab7668436b9eb9442ddcbc18b2918b7f46e5c620f585b4f6",
+      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/EntityGroups.java",
+      "sha256": "9bf5f7a3e611253a5d6987b8653011a2cece5405de0f296a7ce6f8c87f9fcbf4",
+      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/FluidGroups.java",
+      "sha256": "f525cea128ea951c97d725b8bec869bf182a26395deefd64ad99769dfac3fb5a",
+      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/GameSignals.java",
+      "sha256": "3016d1675dca44529cb13c43ef3e1f4d38b76ac7974319519684d7bd5245bdd5",
+      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/ItemDefinitions.java",
+      "sha256": "c36bb191a8183e900c403e30e8c9234af6c26b7b7e87fbc431bd7b8c665bff84",
+      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/ItemGroups.java",
+      "sha256": "d6839ddf90c7afbf48b2fd275d511ed1f30482bac6b8a49a85d8580e4eeefbda",
+      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/MenuDefinitions.java",
+      "sha256": "4ef1739cae8b852be9776fed2ce61c3f6164ba289c4cae7f08a36ba99d0a4146",
+      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/RecipeKinds.java",
+      "sha256": "23f6c3e602642dcb7c83134531abeec9353ef7d669fa35ad310f05de9524d051",
+      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/SignDefinitions.java",
+      "sha256": "486419b57fa784c04fc1cec2bc304018249738327cc77cbcd330456290a1276e",
+      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/SoundDefinitions.java",
+      "sha256": "b6e04e4aa7422c0f78fb6ef2641f2a9603f167be0562f5f0293cb46b1527be87",
+      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/ToolProfiles.java",
+      "sha256": "f71a19926df6447186b2ac76d2e84b67bcf5bb7018417f68312b3dc158faf88c",
+      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/CreativeCategory.java",
+      "sha256": "3f05991402e9c3426e518c4a82a7b5f3299cce527c20ff83fd9fa77936b257cd",
+      "kind": "constant-only material/protocol identifiers",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/OrderedOutlets.java",
+      "sha256": "b5e2d4be1e3f99676631fe772a3ed294424031b19bfe0abe82a134155834c94c",
+      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
+      "countsAsImplementationRewrite": false
+    }
+  ],
+  "implementationAcceptanceComplete": true,
+  "actualClientNavigation": "Native navigation r7 focused: actual button\u2192neighbor\u2192JEI\u2192neighbor\u2192workbench returned successfully through physical native menus; six checks, zero failures",
+  "finalArtifactAcceptance": "pending full item/workflow, multiplayer upgrade/reactor matrix, actual two-hour soak and quiet paired pressure comparison"
+}

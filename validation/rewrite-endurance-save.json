@@ -1,0 +1,13 @@
+{
+  "complete": true,
+  "savedMachineTypes": 104,
+  "readChunks": 104,
+  "finiteStoredEnergy": true,
+  "inventoryCountsValid": true,
+  "retainedBoxes": 5,
+  "retainedTanks": 4,
+  "world": "D:\\MC26\\.minecraft\\versions\\project02\\.work\\test-ic2-ic2ce-actions-r14-dedicated-20261013\\world",
+  "failures": [],
+  "runScope": "controlled_short_run",
+  "actualSeconds": 1075.9404745
+}

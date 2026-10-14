@@ -1,0 +1,181 @@
+{
+  "domain": "Independent resin/bark, curing foam, construction walls, sparse scaffolds, surface persistence and native foliage roles",
+  "countsAsImplementationRewrite": false,
+  "sources": [
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/cable/FoamFinish.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/cable/FoamFinish.java",
+      "beforeSha256": "45e324491ce0e47be2e992f8df3a800d45348fe9c6cf4d33234887449a1d954f",
+      "afterSha256": "d130fde4bd8dc517ea3938e09eaa1d308c037424809207272f89d0bd539e89eb",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/model/ObscuredWallModel.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/model/ObscuredWallModel.java",
+      "beforeSha256": "b1dc30ed2c373a801bc40836dccbed5b21d624bf960f0a7ae6d1e91e0153cdd0",
+      "afterSha256": "6c2016d7695e91984accc814ed7df7f453c626ec63bf2daad4f755e877cf9cf9",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/item/tool/ResinExtraction.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/tool/ResinExtraction.java",
+      "beforeSha256": "9795c7a32744fcccc8df3aa3d72d9869a2b2f8e0f4dede5b741c9c44b6740a84",
+      "afterSha256": "bde9abc44ba7fb87b5f1eba324601bbed66b8dc982cc3139769ee27081cecdd4",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "beforeSha256": "0f34bfcf4ca4a96900dbe3f192582a50eaa80a509678243f77acb52a1eaadda6",
+      "afterSha256": "15aeca7af69fefbd54ef41cc0e87f0bc85e59ae2a7523df631c16940080b49a8",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2BlockEntities.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2BlockEntities.java",
+      "beforeSha256": "d019e119df54adc387ae3ba66450fd5525e18fd9f75e718016417a723ffe2e1b",
+      "afterSha256": "20b0dc4806cfc6e610b50fca5952f96e7abb181532657cc695bd41654c5e7645",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "beforeSha256": "47dce4cd056e016a031a03540cb7b03b37aa8bad077e0dbb4b57c9c32ba1fc40",
+      "afterSha256": "bec39049d42a37da896b5b7a76b8b56687e9f1da1ec2216b15c300d5a9d0b577",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/world/Ic2WorldGen.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/generation/WorldFeatures.java",
+      "beforeSha256": "4b6676b4747e7c8fa375d6990ff4e67a660d475e5ffba2645111b0a7e80454df",
+      "afterSha256": "314f0645e81d5b5d662904c12625381f76e738cc2a5996dc2618bb2e97bd7ede",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/world/RubberTreeFoliagePlacer.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/generation/ResinCanopy.java",
+      "beforeSha256": "941d51e7a26b68a609d5124fedb3d23779d5b8d064f6095cd240d9ae2b9ccd68",
+      "afterSha256": "3ae22191a3956af754a9908ebf9e593ae70bf048499a2e877e118a7968156d54",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/comp/Components.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/comp/Components.java",
+      "beforeSha256": "05c264c5b80a6bcadd9dc5363c308f17ca537320949ad375be603605e2cb30cf",
+      "afterSha256": "9a93241d7cee06fb44b9302403b7852e918d01bad2bb8c23eea15e96d7bdb473",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/comp/Obscuration.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/surface/SurfaceMap.java",
+      "beforeSha256": "a4f19791265902b5e22efe78ae9616ac6eb79777e680e14b64783bfbdaacbc68",
+      "afterSha256": "74447770b69225282e15009cf37aa16b743414b29cf245d9403d4e42a9b330d9",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/misc/FoamBlock.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/block/CuringFoam.java",
+      "beforeSha256": "e57c33694a746662eac61ce5e49c85d17fbbe3041aa7e13b059244ba42672fb7",
+      "afterSha256": "a8b7c3f81a120aa6446dc25665fc448fea2783fe5a55808ad0309d58463bc0de",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/misc/RubberLogBlock.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/block/ResinLog.java",
+      "beforeSha256": "902e1bc12aca63987b2e9e0deb6bf02c14c4fa4175dde19e36dd5a79254df3d5",
+      "afterSha256": "762c0424c0c6957aff8813de6f919be727fd9798ddab14a38ebaa8a0fbeb1065",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/misc/RubberWoodBlock.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/block/BarkWood.java",
+      "beforeSha256": "910a054cd2adc1ec5331b2896547f572a24d495749bc0b3ce3dc5aa98e395b40",
+      "afterSha256": "a33070d909a72d4e82117b335102fece87d735bdc1f7ca0347f9233cbd6580b4",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/misc/ScaffoldBlock.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/block/StructuralScaffold.java",
+      "beforeSha256": "9619738ca57e42e9fa75117576b07b7d564a3819187ec15f071a388f4664b332",
+      "afterSha256": "dfe458a8597d98568c91df86858e4d4fabb6b676b3c02fa709e9de240b6b4035",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/misc/WallBlock.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/block/ConstructionWall.java",
+      "beforeSha256": "a6e229a16e06334141cf84ed66c4dc0d195fd8ccbfd5b1727008d30978fb6a3f",
+      "afterSha256": "5d96aaa0ad838a1f4ec94708f7c192a680fac3ad977d8848854c29d3db52fa9f",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/tileentity/Ic2TileEntityBlock.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/tileentity/Ic2TileEntityBlock.java",
+      "beforeSha256": "ec7c6c6f9c266ae0af873e051aaabc6889de5e4f2b3dd03e9ce107ba08322eb1",
+      "afterSha256": "a5f572d473faf39f2a7ef17abd289426c5c1333a5becfb82761ebaf8fef9b75c",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/tileentity/TileEntityWall.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/block/ImprintedWall.java",
+      "beforeSha256": "8bddcf4159ad8e2cdddf64d254f6b456c5bc8c7569cf74d62a75bb43246d6041",
+      "afterSha256": "cd577417ef71da6fae56af7757f35af8a3d23efffd1b6e852cf5e67639e30b57",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/AllItemFunctions.java",
+      "after": "verification/src/main/java/ic2ce/verification/AllItemFunctions.java",
+      "beforeSha256": "f4b4654f606fa2249f0b0d312b6d0beade1074adc512dea0f10677ef48e3e82f",
+      "afterSha256": "b24be07756497e220a8733ed8213cbc62aa0482a839a2b49b5788b1765da62fa",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/CompleteItemUse.java",
+      "after": "verification/src/main/java/ic2ce/verification/CompleteItemUse.java",
+      "beforeSha256": "119deb490e9a2e91acc352566f5302e5e13165a2fcccd4bdf81c9d75abf5d67a",
+      "afterSha256": "d43e47324671ca1679d0774986aa45c8ef4aecf5bd53c39f10a7b6774e4a648b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "after": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "beforeSha256": "4a7896c9afa13d3ae8446129e888e40e72954a96e3e6d76e46ce2ff247727e9c",
+      "afterSha256": "150054fce49e2a90916c94a9351b6fb5c3d2e08a891377f353271b00ae8f3103",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/ToolInteractionVerification.java",
+      "after": "verification/src/main/java/ic2ce/verification/ToolInteractionVerification.java",
+      "beforeSha256": "6460252cb28dbec5559a6ee0f903e9cd27d6c37eea60fdce0809714dfe115f69",
+      "afterSha256": "4a4dd169b95d647843ef949bd3fa7c9f01009c64aebeab93765d326ce3121204",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/neoforge/item/tool/ResinContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/item/tool/ResinContracts.java",
+      "beforeSha256": "6b6cd9ea0f578a3df3f1e5a63578074faca0819ac2f0a4b49a5900403927c440",
+      "afterSha256": "d8403c87f7a85133de4e54339e1e2ca5221503b1a7c20ff56b87bcf2667f1d9e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/world/WorldGenerationContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/world/generation/WorldGenerationContracts.java",
+      "beforeSha256": "4334f81fb656b86f313920ed4e9ea7174bdf2faf9eb02809adb490cd5f2cc9e9",
+      "afterSha256": "2482b848f41e472d5f6f103eb028e9342191c736fab706662bb955eaf20b24d0",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/block/misc/ConstructionContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/world/block/ConstructionContracts.java",
+      "beforeSha256": "b30d5a0ba37defddc7bcbec5821467303bde51216d461cf13235c642ecdb1f48",
+      "afterSha256": "07a3e197ce0f71dcf4046945e743b154105f03536de8782398e5d582ba7c9610",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/block/misc/ScaffoldContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/world/block/ScaffoldContracts.java",
+      "beforeSha256": "8d496d6f86a7d55b09388e240dc35c259e292da48d20bd4bfcb5b2db28b621b9",
+      "afterSha256": "d185b45b0adb9e9c30dec2620b1f7fa8722fdce8a68d76de1bf9270ebcfb8ed0",
+      "countsAsImplementationRewrite": false
+    }
+  ]
+}

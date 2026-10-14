@@ -1,0 +1,111 @@
+{
+  "domain": "Independent component ledger, dynamic manager routing, creative source and distinct rechargeable/disposable policies",
+  "countsAsImplementationRewrite": false,
+  "sources": [
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "beforeSha256": "83d07c0373a214ec6c99093c39df1793fd4fddec448a54c790a5781abc702857",
+      "afterSha256": "2e05e0f61f1bfd4ea659db4395f5bf8c2726fff71a528c3628eeda248dd26b81",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/BaseElectricItem.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/energy/ElectricItemBase.java",
+      "beforeSha256": "46990fc349aa88cbb93a5c886a62bfed288c8caa8cc6803503356cbfa81ad2b6",
+      "afterSha256": "a66f7e09703146e6de555fc6ebe959d69ce4d205701b71fcce5971b0a363bf6a",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/ElectricItemManager.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/energy/ComponentChargeLedger.java",
+      "beforeSha256": "fa83d46a2614af53df3e9b115528c68c912da6f6e830977f03f1d5931b701301",
+      "afterSha256": "3a79d7985b55dec91d0b3f51f53287ea12b756737afb41aaca649ee0f2dd803f",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/GatewayElectricItemManager.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/energy/ElectricManagerRouter.java",
+      "beforeSha256": "71c2a3e3fb2d92b40b9bb57c1428dac002c34f8a89404387b472b8594663db7c",
+      "afterSha256": "65adbf25c2991b0bca9d4f0844d3a169a11139a5875486f40412ea0d1283bc54",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/InfiniteElectricItemManager.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/energy/CreativeChargeSource.java",
+      "beforeSha256": "849ba1fe0a129c25cdecf86956852dfa938655895e55df93e6bb7599d5789fe6",
+      "afterSha256": "108f16f331e435e44445933d2cf573784c70314009f02ce33d2e22bf2f1c793b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/ItemBattery.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/energy/RechargeableSupply.java",
+      "beforeSha256": "d06f5b971b74469573b8d58c178e18428d9c290a781fdbc0d876e25f7b69294a",
+      "afterSha256": "9f550cd0ff5f159e0ae3ea443669ece8b37e28f0632cab388b04e38bb6e4504f",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/ItemBatterySU.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/energy/DisposableSupply.java",
+      "beforeSha256": "16f8dc86d97be95581a0e77d87264f9a10c01b70d5b6ff32dc6d33a5d1b32c26",
+      "afterSha256": "079aca14d6c95b78d72d8d07c8a4c874815648a63079285527e1d48a1404f1d7",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Items.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Items.java",
+      "beforeSha256": "c8b0016aee6855a8f74626cc5b0627fe99d8ecf46c010889a0505e6c6875eb93",
+      "afterSha256": "44cb5fa27d4912f4c789d6acce6c18997ee902ee3b1d884df001d7fa68afbf70",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/armor/ItemArmorElectric.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/item/armor/ItemArmorElectric.java",
+      "beforeSha256": "e384f54be7497ebd4ce4b9abf0d8390fb9e2409dbbf480cfa37ad57d43fa42df",
+      "afterSha256": "0d5522b59a6cd767154bf80081d73cb67c9edafcca918a3724c95342ec0c1f77",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/armor/ItemArmorNightVisionGoggles.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/item/armor/ItemArmorNightVisionGoggles.java",
+      "beforeSha256": "9e94b64a0744a2a697ded9ca734233b041175e1730caad0e036991bebd67acb6",
+      "afterSha256": "776663e5de888873ec1f94a8080801764234dab15e8923b1142ddc17bf04163f",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tool/ItemDebug.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/item/tool/ItemDebug.java",
+      "beforeSha256": "376ff6e9d8368ad3f4e26980211255c191f6b395edc5683ab2ce490479355328",
+      "afterSha256": "01a4f479b24188138996625acceeca6c1438b9789f491671093ee0d71db9af92",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tool/ItemObscurator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/item/tool/ItemObscurator.java",
+      "beforeSha256": "a81816419d7fff9cf450f07419dfe03e4418041d77699a3e92a9732e43125a26",
+      "afterSha256": "0d97a929611abeacebb7782f483d599b178ab66c0c3563eefefec088fd662ce3",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tool/ItemScanner.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/item/tool/ItemScanner.java",
+      "beforeSha256": "9c97060ebdc59b0f26d2a6aeb9f729fe7e9131f99b0c81f96185a7b67cc9b760",
+      "afterSha256": "1b564888306bf11482115cb07d343a32b9619949711890d1cca3edd26889365a",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/AllItemFunctions.java",
+      "after": "verification/src/main/java/ic2ce/verification/AllItemFunctions.java",
+      "beforeSha256": "e1b781ba4d22a42676ff51d0b2acc4264cde0172d39d590614ce3a9fee1cc6bc",
+      "afterSha256": "4a24bb720e2fe5ba41787df43b7de622d40df589eda8f2b4e956c825af258945",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/neoforge/item/tool/ChargeContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/item/tool/ChargeContracts.java",
+      "beforeSha256": "c615f09c64cba39b17351c7e02fefd08d98334bb3b3a5a55bce52fabd855a041",
+      "afterSha256": "8bd9e8a390c2a76de81c69eb5dcc86bf5bbc2971a188b87d81543fbbbbb29bf8",
+      "countsAsImplementationRewrite": false
+    }
+  ]
+}

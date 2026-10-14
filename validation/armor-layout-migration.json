@@ -1,0 +1,195 @@
+{
+  "domain": "Independent native equipment, sealed protection, nano/quantum, optical and fluid/foam propulsion policies",
+  "countsAsImplementationRewrite": false,
+  "sources": [
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/Ic2Explosion.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/Ic2Explosion.java",
+      "beforeSha256": "b411f7f530e1a80c24b2ca55ec5b9993bb2db4ee4a527920898029156f17e56a",
+      "afterSha256": "0de25fb68b39d7ae3fe1198fa313dd66ddd643dc7d3a85d1beb13eb1980577a7",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/EventHandlerNeoForge.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/EventHandlerNeoForge.java",
+      "beforeSha256": "b5b62ed7ab0303bca66fb8ee8ca11c6bf0efb937b01cccc316d474d4c2c4e9dc",
+      "afterSha256": "b000caf4a2c25ea531e563e2b8c1cebd593cb50e12fbc6e7e2f560f7709b5303",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/ArcCoil.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/ArcCoil.java",
+      "beforeSha256": "526ce33addbe97946b27580c22b9ff40aefacbd07ac826f74103bf5494b1b203",
+      "afterSha256": "83ac53b0e1e04431302049610e7b4a3a2cad3f4b75ccc4ca3222e3025db434fe",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/part/UraniumFuel.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/part/UraniumFuel.java",
+      "beforeSha256": "07641d0fa7f40ad7e88dee849ef9ebca98580f57efef0a6e4b5e056188fc8bcb",
+      "afterSha256": "27dba3a112208dade258f66f51441689fdfed1db5abcfd5370392d3c4ed10f36",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/item/armor/WearablePropulsion.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/armor/WearablePropulsion.java",
+      "beforeSha256": "1a2c16f0ee4719a72231c8ccadb756eca957f40319a2f75baaa38a983914c018",
+      "afterSha256": "eb605dbb7ef0191a551b228d82c26d72de219967a24724e4b938630828957e59",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/item/tool/NanoBladeBase.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/tool/NanoBladeBase.java",
+      "beforeSha256": "ac1d70c52941af5f659a96097a8067a76af3fc15d79df57c9018e504c898cd98",
+      "afterSha256": "a8136d0eba0da4c250bfc5a722f39a57165fa891dbd7eb6cc7ee86916b330e12",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "beforeSha256": "2e05e0f61f1bfd4ea659db4395f5bf8c2726fff71a528c3628eeda248dd26b81",
+      "afterSha256": "5c67759c066620ac290b190fc1c69b272b409658afd53e208741ce5bad318b04",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/ItemNuclearResource.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/item/ItemNuclearResource.java",
+      "beforeSha256": "f69eefc4a6a2c9ee2c0c8d2fe2a38f2e71d2da1b03c9e3366abe8b28e7e7b655",
+      "afterSha256": "8002dcb2a6fec5ae3253a05956a604a7c9276bf0242ddada2fb6fa77c1ad817e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Items.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Items.java",
+      "beforeSha256": "44cb5fa27d4912f4c789d6acce6c18997ee902ee3b1d884df001d7fa68afbf70",
+      "afterSha256": "aefd8a1305d4faec7e517a47ada2f84272d9f08581b025425ad7a6e55e1df1c7",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/armor/ItemArmorCFPack.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/armor/FoamReservoir.java",
+      "beforeSha256": "2263ca90ab8113c5b8452cefd4433aefefbb477846ad34596bf9a2d33937ad38",
+      "afterSha256": "9521a90c73c5e71d31dd75ad791a368f49422d168b5b2ec4424a440f2c026da7",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/armor/ItemArmorElectric.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/armor/ChargedArmor.java",
+      "beforeSha256": "e7f1760bd50477307bc8b5c7a8635970b2fb1d409b1f7b990214cf5d34cbd5ed",
+      "afterSha256": "6e3b6b90b31448019a6f2560fc4e35d2227ab51182f135942f63f54c4b89152f",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/armor/ItemArmorFluidTank.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/armor/WearableFluidReservoir.java",
+      "beforeSha256": "c356a047e56204ff9f6f73eaaa0825120f883c1b223160c43ef86da2f1327b8a",
+      "afterSha256": "173d42ec56bfcd1f8e8e9695e244f9bf19421fc6664309852a1e6e0528f4c586",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/armor/ItemArmorHazmat.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/armor/SealedGarment.java",
+      "beforeSha256": "5b8f8f9395d482c9ecba6579380fd6605e935bf29309e67be47d5170805d5abb",
+      "afterSha256": "5af23929ec9a484fc6d1340a04a180e92b828220ee5b81c805d33d7cf6586fab",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/armor/ItemArmorIC2.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/armor/EquipmentItem.java",
+      "beforeSha256": "615ab29407983909bc912738f8ea182c9dee751dfa4bbc5e1e884dc1504e32f7",
+      "afterSha256": "bf1a829cc0fe2ed10fee96fd7f065e1b5533cd663050c282d663a95dec287c00",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/armor/ItemArmorJetpack.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/armor/BiogasJetpack.java",
+      "beforeSha256": "99ac6348b7aa6282c1674497e98c45b98e93987599f4d822d755044a5d4b440d",
+      "afterSha256": "9fb8d4e52891271ec05604b54a8b9a44e53b563cee599df4d2d88b25083c060e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/armor/ItemArmorNanoSuit.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/armor/NanoArmor.java",
+      "beforeSha256": "cd4f262e045dc388e79abab247fa7b5c8723e2a8dde385e2669851facad02799",
+      "afterSha256": "10ed58eb1b2374c701143f275a9ba1904b80bae23c18ac12fcc98977db53cd40",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/armor/ItemArmorNightVisionGoggles.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/armor/NightVisionGoggles.java",
+      "beforeSha256": "3b0a1dbb2edef0f82ff40968cfe35e64570f94499e4983f6cb3ab80a44046b33",
+      "afterSha256": "18b3c79eb8a64e05bbd04825af90f6c3cd4f129eb0da3fd300880ed0f3a44fc3",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/armor/ItemArmorQuantumSuit.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/armor/QuantumArmor.java",
+      "beforeSha256": "a86a68eb84bd8ec56584be92148043cd4792c9d7044e0f93b4d5ea7cb10f22ab",
+      "afterSha256": "eece027e6f6cd04f4e7c14765eb7305d6da8f9a57a8d68ec82e1cba36f4f6b95",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/armor/ItemArmorUtility.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/armor/UtilityGarment.java",
+      "beforeSha256": "2f1397ddffd7dc2ac3203c71428c14ae6ab43bc605432ab72477f9b57bab9b3c",
+      "afterSha256": "681240a1e9131aaa76ba9747d7c077c64c845b82b75367f3b46256e6fb5f15aa",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/armor/jetpack/IJetpack.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/api/item/PropulsionEquipment.java",
+      "beforeSha256": "b5e2ceedf8c8e3af8f896a20ce08f7f7870a9dd7f5f13e6e872bfa3aad6fccf1",
+      "afterSha256": "d75dd82050c257656c6adf792b1e5b3b56118465d7094dd6d22304a5333b7a45",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityClassicCanner.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityClassicCanner.java",
+      "beforeSha256": "a4fc1ee7cbf2ae96d5396f1cf013cc7a53447900defe31cb726bb25bc4b60f34",
+      "afterSha256": "c7270ea8a9e85ebc6d80c496ad284f2825172354f97e70b099720a41c83b712d",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/AllItemFunctions.java",
+      "after": "verification/src/main/java/ic2ce/verification/AllItemFunctions.java",
+      "beforeSha256": "4a24bb720e2fe5ba41787df43b7de622d40df589eda8f2b4e956c825af258945",
+      "afterSha256": "59cc07eb0a60e69d4499a8b29d912ef6b03a9582360be811ef49dfb55bb90ff2",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/ArmorDamageProbe.java",
+      "after": "verification/src/main/java/ic2ce/verification/ArmorDamageProbe.java",
+      "beforeSha256": "14fd8af4ea24402ea3d8240b8cae4c74fd7b658112c165ced19d22e3545b5dcb",
+      "afterSha256": "f12ceb3cf86909b8b4b4b586ce8a33a73192355227e31ef73ba8783f69d6a591",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/FluidItemUsage.java",
+      "after": "verification/src/main/java/ic2ce/verification/FluidItemUsage.java",
+      "beforeSha256": "588cc4a5c1f9597efdd1e279a02ae906e1c92eb5442e6e2dffd31592a742c688",
+      "afterSha256": "6efd92ced32293afb1e48f5828b4de69e89d946b011eb2dbf113f0f7bb69dafa",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/ReviewInventoryProbe.java",
+      "after": "verification/src/main/java/ic2ce/verification/ReviewInventoryProbe.java",
+      "beforeSha256": "3d0f5afed37aa3309daf8c6e778fbae0ae03da4b807a031096babcb488d33546",
+      "afterSha256": "646c671fefba877bae30f1f54a4b9e44e489ea13763c5ef63ff9199b57418c2c",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/ToolInteractionVerification.java",
+      "after": "verification/src/main/java/ic2ce/verification/ToolInteractionVerification.java",
+      "beforeSha256": "dc8188934eade0e3f9d81a11d5c8ebe7072a4015e1beda9bb3ba2b9d4d575089",
+      "afterSha256": "051abc43a53b7c44853b191ecf49d4c6997914de0fa68813c26f32e270d60a71",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/neoforge/item/armor/ArmorContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/item/armor/ArmorContracts.java",
+      "beforeSha256": "2538087424492e4593526537ba0d344076c0a409a0a6a14da87c0518cdd2f520",
+      "afterSha256": "3eb1c2125aaccaf0d1ea67fbfb1fc59c9c95e3db0c11f905fa6a4c330064d9d4",
+      "countsAsImplementationRewrite": false
+    }
+  ]
+}

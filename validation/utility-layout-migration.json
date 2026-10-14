@@ -1,0 +1,146 @@
+{
+  "domain": "Independent arc, magnetic-pole and chunk-lease protocols",
+  "countsAsImplementationRewrite": false,
+  "sources": [
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ChunkLoaderLogic.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/world/ChunkLeases.java",
+      "beforeSha256": "84a76dcb9fdaccd8537891b854a4eea837fa430da61295592fc01d0c73255b04",
+      "afterSha256": "8b1d35bf629f06432a3f2bd9985eb2a96c6cdb82e5296ca3aaae9f00886ee8f8",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "beforeSha256": "7f9ecb29ca20a1b495d78a3a4e0f6f2b36735e293a21d180f8e102afa9916361",
+      "afterSha256": "a24572bc8e241a834e739c9169896667a37fb0e26759363f04dfdff3a506e7ff",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxyClient.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxyClient.java",
+      "beforeSha256": "340748ecadbc336de8e5a5abf3500ac3d8ed3102b4a70ea6157d9ffc3fe2a318",
+      "afterSha256": "27d8ebe6a40c97dd9e5d769d6c6710deeb16b1c353eb3626c90f9d5fd200ef2d",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2BlockEntities.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2BlockEntities.java",
+      "beforeSha256": "00321d123919ff6682a6e3080deb25a33575130e5c43b7bf012c36b864775902",
+      "afterSha256": "cb101de97e14a51f04775cf5751e867d4f9adc33928320f93a426e3c17be8d66",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "beforeSha256": "5f986231ae7dc1363c4c232bb246f71403315b87342caaf55f5622c07d2f80d7",
+      "afterSha256": "0e1c251c57fd208e3091cf4ef9acac95edea18cc6fb98a7451e863eca0e650eb",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2ScreenHandlers.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2ScreenHandlers.java",
+      "beforeSha256": "fa13674a59664963bc2277acad3a813a4521cfc540b440364cf8ddaca6dbb220",
+      "afterSha256": "a5db78ff3775d0975a03929c36bb586ff23b07f8f44b34c64cfd00e8cf1eb8ec",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/inherit/Ic2FenceBlock.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/IndustrialFence.java",
+      "beforeSha256": "f472caa1220e9eb68bf17da512630b76d114cdd2f05815b48926ea075796a5e9",
+      "afterSha256": "ce05b0f645f551eebf6d0c261efa4dcdee86ccf1a48eba1ac6d1d72f94c20b16",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/container/ContainerChunkLoader.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/menu/ChunkAnchorMenu.java",
+      "beforeSha256": "9e30fd51ee0bbb2b05f34b0f87a036d111eec5c302ce8377f2cea8c3e58ca44c",
+      "afterSha256": "33b21fb057518c1fd5590a51223b0c9bf448fe8a654f62931799d4f363bd5e30",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/container/ContainerMagnetizer.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/menu/PoleDriveMenu.java",
+      "beforeSha256": "c381a506d3e2b81aa4eec55deb02e081f0cb1d77762ed059329fdac1a224032f",
+      "afterSha256": "c446b3ecd8076e0219d9256e310953aa6509447d877b2b37ce1b73646a90cd55",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiChunkLoader.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/client/ChunkAnchorScreen.java",
+      "beforeSha256": "ef58e3371a15c4abd56bed2180827efc7297612f40b62ed198c4afab02f8243a",
+      "afterSha256": "381d46f041ef3660111f135112e4ac4f2059616bb588d8f09e144ab0373001bd",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/gui/GuiMagnetizer.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/client/PoleDriveScreen.java",
+      "beforeSha256": "259dc80b2a46d253aaa522baac8db7a5d29e08bbfcbf20e8cb6e3a5c37e35503",
+      "afterSha256": "3536d89e135e1de86982ee768f62535ea8ead31b1bbfaec720abff1b3d03da56",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityChunkloader.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/ChunkAnchor.java",
+      "beforeSha256": "229d62f08f0a80529b7d6e4b1a4433f71ece334a96283ef1a44d634ec3731901",
+      "afterSha256": "02c05515d7b9afba6edb2e741cbf7aa05c3be5dcdbba4206c586b3fc97d73e7a",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityMagnetizer.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/PoleDrive.java",
+      "beforeSha256": "25aa20ff2c26f883d0319908702666c92ecb235485b3e48b2fc8e7630819e67a",
+      "afterSha256": "755d7b2011560f7d8355f5bb0e635afd1d3a9f65a052bcf25933ce88b5f972d5",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityTesla.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/ArcCoil.java",
+      "beforeSha256": "55a1a4ba416f011a949c6ab27a3c5919b03d545a7cbc73f3af92ee51be5cbf0a",
+      "afterSha256": "526ce33addbe97946b27580c22b9ff40aefacbd07ac826f74103bf5494b1b203",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/AllMachineBehaviors.java",
+      "after": "verification/src/main/java/ic2ce/verification/AllMachineBehaviors.java",
+      "beforeSha256": "55407b475fe44ec1afb45e937b53a951245f5bc820d8968a3cf8647d88dd946d",
+      "afterSha256": "e28ed0c13ef2242c1146eb4299ff05e3984a3b9a821538f15afab748f11fbfd4",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/ClientUiVerification.java",
+      "after": "verification/src/main/java/ic2ce/verification/ClientUiVerification.java",
+      "beforeSha256": "550978220dd7c966eafce48b107621aeaee4d47e12d6cf134da172cd8aa2ccbf",
+      "afterSha256": "cb2fe907db828f46a8cbc5051dec22d5a079f51df1d113cf0110ce98ca14bc70",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "after": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "beforeSha256": "6a94b0c452a25a67792c359b813dcdf684b6a3c763bc0d3bcd4b6b775965ca6f",
+      "afterSha256": "0c47644d61461d408afb9fadeb7e61b041df3f32335fc61c005f2c8f211151dc",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/RemoteClientProbe.java",
+      "after": "verification/src/main/java/ic2ce/verification/RemoteClientProbe.java",
+      "beforeSha256": "f2457eb8552b6984c0d315960a6503ce8967989916ba1704a73891d1e2302c8d",
+      "afterSha256": "fe780e45dbc85ec831d2d04eac70823acb70869b557ddc63d40588fdb4f0b84e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/block/machine/tileentity/ChunkLeaseContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/utility/ChunkLeaseContracts.java",
+      "beforeSha256": "9d1d986d5105b4fc617414f5f0086a028369d50039d9454177afbaee9b54ec98",
+      "afterSha256": "24b0d411a3e92f91ec142215190c56e7aeda193a87f8d56ad7826df6e779345e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/block/machine/tileentity/UtilityContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/utility/UtilityContracts.java",
+      "beforeSha256": "a2630c476c9465f3ceee9378e3592392ccb8126750cfdfc759d8d24bb8eb60db",
+      "afterSha256": "0ab0368d752a5a406ee438897478192e10687476df0cd738b8dab45b051cdc35",
+      "countsAsImplementationRewrite": false
+    }
+  ]
+}

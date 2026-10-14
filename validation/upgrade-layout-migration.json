@@ -1,0 +1,237 @@
+{
+  "domain": "Independent numerical/metadata/material filters, native transfer policies and count-preserving handheld storage",
+  "countsAsImplementationRewrite": false,
+  "sources": [
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/model/StateProperty.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/model/StateProperty.java",
+      "beforeSha256": "b61e757fa4ab27c8265d7ff68bd520fc72e83048e4c5687e08fdd4ef87add0a9",
+      "afterSha256": "d6b80565fbfcc9eda0a4746abaa116a5570e7d8b9b160bed1672cbe0fd482323",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/CompiledUpgradeFilter.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/CompiledUpgradeFilter.java",
+      "beforeSha256": "bb6a289d8f77a49e6f8c1d06ed9045633d077ab6b271fa6849a4da129a003cec",
+      "afterSha256": "61b5bb97d33d2a5f9925346394a916f36b7d8b47a74ce26275e151b808ecec08",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "beforeSha256": "5c67759c066620ac290b190fc1c69b272b409658afd53e208741ce5bad318b04",
+      "afterSha256": "59f3fad41a29ec47e6e97d289190b6417b7f8738861bf62cc69b9ea23e25e97b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandlerClient.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandlerClient.java",
+      "beforeSha256": "8c9d52d1c47bdd5fcf873831e340e43378f140e8431003bf2521147de2eefb80",
+      "afterSha256": "5795f20a4a35363716044da0035ddc28f575aabb3e3dc1e29ce1d703bb6c681e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/ContainerHandHeldInventory.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/item/ContainerHandHeldInventory.java",
+      "beforeSha256": "fff4f5f2e7898325f459df67f8750fc92f5eb497f637a4803f79ebd5a9e63dbd",
+      "afterSha256": "6ea30b51e0089975627ffebdeb6e7e22ade8a88f5dd2503f1ea16cc11199755b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/network/ClientStateUpdates.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/network/ClientStateUpdates.java",
+      "beforeSha256": "0dc63d3f1e4b6fb153a64f03ea9a6dca02d97ecf18cd601029e955dd2d17685b",
+      "afterSha256": "7cbd14dac871ba5b45206efd852362c2d34bae87aa86145ff0b20ea2bb1d60f4",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/network/IncomingActions.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/network/IncomingActions.java",
+      "beforeSha256": "81757361192bee4a6633bd6a067e4d068161dd9ac8bcad65402af5294dc4834d",
+      "afterSha256": "92d754830a3cc44a473fd0922c6c05b6f934ddf305cb1738c4eb0f3acd1e8b2f",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/network/NetworkManager.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/network/NetworkManager.java",
+      "beforeSha256": "9d5041af05371d7e6e711486feff9e2b082b2e2a8d7573eced8b61187219d6c4",
+      "afterSha256": "e0a7253e83446d402c1290757fb93cda738f4e30c310c2958761e79af672ac70",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxyClient.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxyClient.java",
+      "beforeSha256": "f7bd498cb289c4ecbdf611074a54b9bb2005f969889135b25065a945965dc22e",
+      "afterSha256": "36bb2f3cdf0f6f9c33d2b95784f512ed19c9401fed78b5ebf99fad973aa28214",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Items.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Items.java",
+      "beforeSha256": "aefd8a1305d4faec7e517a47ada2f84272d9f08581b025425ad7a6e55e1df1c7",
+      "afterSha256": "e33ee5839b6293770e14b43de3a545dde6f1e153e97247d49b452c43607a38d0",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2ScreenHandlers.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2ScreenHandlers.java",
+      "beforeSha256": "9e3aa7755af771023620ea9279f4f5dc342b0c9d3cb3546f59d64eed44bc5fa2",
+      "afterSha256": "120d2b17e010d084dd531b74fba00c33f58759fc3ef7bc3222cce5d60cec6ec6",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tool/HandHeldInventory.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/handheld/HandheldStorage.java",
+      "beforeSha256": "ce359bad958d77dbcc8f5d0fd85887732f8e9080fba1619994846c75e6741ec1",
+      "afterSha256": "804d2f667f6409af9b18b1bb9cfa8c769bf11053e92fbfae034b4e0d6e8c6495",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tool/HandHeldMeter.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/item/tool/HandHeldMeter.java",
+      "beforeSha256": "2554410dc6d8433a49454ebddf5c2d206ecea95158426d367aa8f8f28bfe0de1",
+      "afterSha256": "60af57064d8c7462c1bda4c1d3565ceb96ec5095488b242d41db1ea64dbdc7d4",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tool/HandHeldScanner.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/item/tool/HandHeldScanner.java",
+      "beforeSha256": "85c34b13f7a7eb166e9e46c911b20bce0991de55bc5b0efb1e9b11b45e501cb2",
+      "afterSha256": "88600447f290fffe1144acdfac7d86506e0c074a9833478d4776e70606e1ee04",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tool/HandHeldToolbox.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/item/tool/HandHeldToolbox.java",
+      "beforeSha256": "240cdb1533aa1be40e481ef8914aba2cd6456ef822bede77bc77fbcf66b8d068",
+      "afterSha256": "cc6e3ac7643ff669cd8d6f35cb4e373c28c239d90b17b2dbbeec7f9930dd4967",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/upgrade/AdvancedUpgradeScreenFactory.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/AdvancedFilterScreenFactory.java",
+      "beforeSha256": "97bb6d018771d979e27486397fb49d84425a2da723e1c066b0bbb308776d6d64",
+      "afterSha256": "959f28fdb4a6fc8817a290c60d6e5955b872fe839f855f6b4c4559318c3ae943",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/upgrade/ComparisonSettings.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/IntegerRelation.java",
+      "beforeSha256": "d216614f85467a29ff8eff88b35c909f720459eac7373cdb41057542b2566020",
+      "afterSha256": "bbd6e696742a47e8bfb933e6cda5ddbd507a7b91c724f04d4740850de565dc62",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/upgrade/ComparisonType.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/FilterMode.java",
+      "beforeSha256": "df933613b7bfdfb85747cade8515804f2027c78967cfd56ce6779406c46a25a5",
+      "afterSha256": "35773f9fb7945c18be551294a7099c26798882fc164c0258898c464859e2fbe4",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/upgrade/HandHeldAdvancedUpgrade.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/AdvancedFilterInventory.java",
+      "beforeSha256": "2295ea08284176421dafa113a0cbba4fb7e1fe3b2979fc3da70c2f4d39add991",
+      "afterSha256": "951fb02b8b72734d5233708c4409b321a64aca38008519aedacefffcd6f54945",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/upgrade/HandHeldOre.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/MaterialTagEditor.java",
+      "beforeSha256": "86ffd9ae1eaa06e349cf3da8f075236d9f9526d448fe05332451da5b94d57bb8",
+      "afterSha256": "191dcc6a7edf803c2753250c354785236ee3e8d37e999606a4dd07167ab418ab",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/upgrade/HandHeldUpgradeOption.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/FilterSubmenu.java",
+      "beforeSha256": "8855f7f28855bf4c3bfed6b153bb62196d994365bfa9a2c1a99cc4dae07759a8",
+      "afterSha256": "552c430fc6fa53063ad30d17ba1f0786afbb09a362668bd8f031945424883224",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/upgrade/HandHeldValueConfig.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/NumericFilterEditor.java",
+      "beforeSha256": "04a864cfb4947cd2618289103020ba21e97b76d15c2241ec098f30bf643253c6",
+      "afterSha256": "8d91cca7c294061861ef3e276367f926604f06e8b32af1bb833283ef05530c60",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/upgrade/ItemUpgradeModule.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/MachineUpgrade.java",
+      "beforeSha256": "9f4c750ab9ef1988355417eb354cf7cfe400ea8c1778da3123348dc737d3b7eb",
+      "afterSha256": "56445ebf590b3868da823be6d17dec05c3c22b543d90137b68207f459222ed09",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/upgrade/NbtSettings.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/MetadataMatch.java",
+      "beforeSha256": "537a355c90c990d90035675a27b5eb46b0ca5fdabec31d8d9f64dc8ca7607f4f",
+      "afterSha256": "832c8a1b608e2d09f88272b3fc64883f3acbc0eed0da76185f8c655aeeac4337",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/upgrade/UpgradeSettings.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/NumericFilter.java",
+      "beforeSha256": "60419bc3f4baad8e07cd4f662fd98495b3a147ba898030caf45379d281e8e054",
+      "afterSha256": "f1c0cb0191822dbd91e6cd4c3cdeb91405a039b6f34c582702e30f9d2cfe025e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/gui/dynamic/DynamicGui.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/gui/dynamic/DynamicGui.java",
+      "beforeSha256": "37bc2c0c23bcc8b5ce51491be8399d44231e1a9b64b3ecdfbc902c96024bc158",
+      "afterSha256": "5c59404be3263f8c400c4c32d8aa67097545e635749241ca025fde81f0b5d824",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/gui/dynamic/DynamicHandHeldContainer.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/gui/dynamic/DynamicHandHeldContainer.java",
+      "beforeSha256": "8e71bc156c909929152bfb97e019d44594e4e1b470234f0ec31291cff7e0fdf3",
+      "afterSha256": "0da2fddea9ee9fd05ea4e3eef5a5321bb7f9bc776e0499d2a620a38dc9a3cd47",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/AllItemFunctions.java",
+      "after": "verification/src/main/java/ic2ce/verification/AllItemFunctions.java",
+      "beforeSha256": "5349050a7fa4e761cecb2061cd440ee91c8934618cf65de83df3c0e6aa489c3a",
+      "afterSha256": "c2518589d0d987c73005e63d81aa7266c81cf3c58fed4b75c1e242f4627194d1",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "after": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "beforeSha256": "57092ef453bec95ceedcbf80c8b38072c71daa4073bb4356b41801f5c7ad616e",
+      "afterSha256": "05dda5fee780da0352173eda31c2dedc078f33542f4a478357cb658ff2aae45f",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/UpgradeMatrix.java",
+      "after": "verification/src/main/java/ic2ce/verification/UpgradeMatrix.java",
+      "beforeSha256": "fdde817bcf3e5e5e4ebdc2eca2cf414c369c0c8f33df95c18b60ce8c7070be3d",
+      "afterSha256": "a940178890c0846d1b090949afda83c26b0dad275ef1dd389370b53a221c3ba1",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/neoforge/item/upgrade/HandheldContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/item/upgrade/HandheldContracts.java",
+      "beforeSha256": "cbd955512169982b5a7299392411e214b999c2d60f032ec153825d17d6e1677a",
+      "afterSha256": "c07db1ac33902fda47443c8baf52f0ed814c6b0406389ee6135a2c2fc5a3cb77",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/neoforge/item/upgrade/UpgradeContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/item/upgrade/UpgradeContracts.java",
+      "beforeSha256": "f7e3554d16def98f0c1d17976f3657b2fd36fd2ec85704ed13ea86c6155f4273",
+      "afterSha256": "35ca7cd27794b1a1284c7913545dd7bc1788abe3e66638201099f9bf5e840e16",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/item/upgrade/UpgradeMenuContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/item/upgrade/UpgradeMenuContracts.java",
+      "beforeSha256": "9b6c617dce1203705d34cac41f438d135165078a75ad2fe76b7252f0b05f578d",
+      "afterSha256": "0e881108e1f40f3317c3611ca4a64d6db1376f694d2ebd07b94595ef9c265eb5",
+      "countsAsImplementationRewrite": false
+    }
+  ]
+}

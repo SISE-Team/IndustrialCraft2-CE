@@ -9,3 +9,8 @@ plugins {
 }
 
 rootProject.name = 'IndustrialCraft2-CE'
+include 'engine'
+include 'api'
+
+include 'neoforge'
+project(':neoforge').projectDir = file('platform/neoforge')

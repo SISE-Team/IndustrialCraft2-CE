@@ -1,0 +1,279 @@
+{
+  "domain": "Distinct independently implemented native species protocols, cultivar metadata and physical supports",
+  "countsAsImplementationRewrite": false,
+  "sources": [
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/CropCatalog.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/CropCatalog.java",
+      "beforeSha256": "6e1d23bb4273262f725c1ce48effe5c8bc6ce49751a2716b22fda3f2992aece4",
+      "afterSha256": "912861deab5c0feb324310049d216485b46dbedd35cd0196d42f06316304ea82",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/CropPlot.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/CropPlot.java",
+      "beforeSha256": "5253baca210eb3310bd85e497b0496f6a415b7be91c8bbff38e9e221df37134c",
+      "afterSha256": "838933ebdbdec7f6fa60893f241ec556526d97dc2c670ca6701896ae08935df2",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/CropBase.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/StoredYieldSpecies.java",
+      "beforeSha256": "ea50b55f4fe788e0427d7d5a2a0863df8a204a32c9b44a89f00b2bf56d3e9370",
+      "afterSha256": "6f22f3f1f03238ff84a968f431c650ba874533f908a3448eaf504220a75420e0",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/CropVanilla.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/VanillaProduceSpecies.java",
+      "beforeSha256": "6529b20479f0c248cfc9773d1353a2374f2557def278c8b5fa7cdecf4a185fb9",
+      "afterSha256": "d6945ce2b985f495f2675433d7dc61eb5a7c3f36391676e74cb7a1e2b115316c",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/CropVanillaStem.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/FruitStemSpecies.java",
+      "beforeSha256": "82dce00419fe75454bc0a188139f3f34de0f98760d705d93cc40bf3d41eedfa7",
+      "afterSha256": "b2ce563dcc82820d869f3655d3f3dd2824bd47e1f94ae072a4f89370cdadc816",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/Ic2CropCard.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/MaterialSpecies.java",
+      "beforeSha256": "b9cdadac88e247101c2e6372f6c6c7a184c1c7bdb58e8c863f1d42d7da0482c9",
+      "afterSha256": "abb065196ac8f1f329bc2acb42e534d9fad1c551a7e226e679c067e8c128c5b8",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/Ic2CropType.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/Cultivar.java",
+      "beforeSha256": "6734100d7677bf08b9a550fcd8ca16055d02b066047ebd8a5961bd9f84010814",
+      "afterSha256": "c41a9430f733bc113c2485f9250263d8d3d4519c22e047c62fc9c5f723d4552f",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/ItemCrop.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/item/CropSupportItem.java",
+      "beforeSha256": "c9f6dca5114a13b44920be7e53d2cf644369711e2f85bf3d7b9a4fe08bf5dc94",
+      "afterSha256": "57edcfe6fa860cfd34228eef08075dd3611039df63491b2eb493ae97741de958",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "beforeSha256": "2cec6c0978292d1b8f626266c8205c917ba0d3fcabf6d68de64973b92d440a3a",
+      "afterSha256": "47dce4cd056e016a031a03540cb7b03b37aa8bad077e0dbb4b57c9c32ba1fc40",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Items.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Items.java",
+      "beforeSha256": "b6affd983d3ae70ee057c11fef00d50df0b1a72fca67147744b8f88ba7467dc7",
+      "afterSha256": "4aa44bfe7856923b1474118ea50cb0ca254db801f51d201d4d71ab4eac05edfe",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropBaseMetalCommon.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/MetalSpecies.java",
+      "beforeSha256": "6ae72b7b39fa99b07ef245bc8db427326b062face1bc4beb58b8bf6fccbe8a84",
+      "afterSha256": "6adc1b9be6553274f91971b89419e6a384dc35e0ca8bdc4e13756133a2fedd8f",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropBaseMetalUncommon.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/PreciousMetalSpecies.java",
+      "beforeSha256": "a94ae67d64f477275a2896e0fd89fbfed1144e9d268beea432553e910e09b8b1",
+      "afterSha256": "39c3bef23849e94d3d6dd2080953a607809c04f7ac26af8c1c400c09979a33d0",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropBaseMushroom.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/MushroomSpecies.java",
+      "beforeSha256": "7273f7dfa7f4e97246c6177dfe9ea90dbe3bc278db2778b900be0685bd3c2172",
+      "afterSha256": "4945f27c72bf62c22408ce7b54331c26869fcb0e4eab741f395b35939faf4623",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropBaseSapling.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/TreeSpecies.java",
+      "beforeSha256": "6407972ba507bfc7bb548183695b83b3e26dcc2f87a417e6fe1ad507df9ca931",
+      "afterSha256": "5f158a3e4960240c3911a3d64eb8ed0b2732adccdbb9f8c564dcb423392504a5",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropBeetroots.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/BeetSpecies.java",
+      "beforeSha256": "1c00b52df5de5e739b22138277b68c2daab58bde6e2fa0a59f210bb2a8d25e94",
+      "afterSha256": "b19fa6ad96d11545a8ecb85032aa7304d85613203309ae1ae08b40223482edae",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropCarrots.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/CarrotSpecies.java",
+      "beforeSha256": "706ff6217bd36bb570d9084de5b5b80ebff2bc3688d9308a8ba03afb6d44dd6c",
+      "afterSha256": "d18d843cd4e48116aba21353c5e883b6e17a871d3d8f3f8accf59a7d4eb9a55e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropCocoa.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/CocoaSpecies.java",
+      "beforeSha256": "6437bfe53f61648570b8e52b425634f146090055eb83ffcac8a858625215dec3",
+      "afterSha256": "366b4441e83652b75d8ff8fccd59751a5ca75e71c292cad8b694e521ab9ac98d",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropCoffee.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/CoffeeSpecies.java",
+      "beforeSha256": "ef11b372c0d1441f4c47ecbe9adf6a6e828620ebfcb34486b621fd8d8c9e0315",
+      "afterSha256": "75b20e3d6697a6d9a4d004ce4a3bbcdba3ea7bdba9eae27302e3fa67f33e0721",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropColorFlower.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/PigmentSpecies.java",
+      "beforeSha256": "e87bbf9e9612bfae1bda58e122f86a05b7c794c172699f24f9bf84a84807e668",
+      "afterSha256": "7e6745754323228949440d581366f137f3f26a3d4f9bcc6850ab09f931a2856b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropEating.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/CarnivorousSpecies.java",
+      "beforeSha256": "16e6a6a78860db7788c92a9ee6ca0e65591da81b8a379a5fe4f7796bb02338f5",
+      "afterSha256": "9de7db049965fa6976f24c960cf365c4d5e6a1359c60391d265620f6d4869707",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropFlax.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/FlaxSpecies.java",
+      "beforeSha256": "60f96ac5a1f9ceb5edaa47fcabdf0055cb402f2cfb6c28481108243bbb7fbd50",
+      "afterSha256": "4d35a970861febca579c47cf6e92ab68e645c8bd4a7cc2efc5096e9ffb6f0bff",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropHops.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/HopSpecies.java",
+      "beforeSha256": "940d6236e1aaa3a93c367060b7a6b84d62538de5e5ca32e153553f2ba98343e5",
+      "afterSha256": "2faeef15ab0606ba53ebe62d4680d834dde879214d82505b06be0870143fcb6b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropMelon.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/MelonSpecies.java",
+      "beforeSha256": "7a5ef0a8b9997ca11db8550001318a270505724c27cd959391b21895576a5b85",
+      "afterSha256": "91864ac3932af09e91c4baab577100f81a2d1ad25f3f5722ca69f43b90ef9fd4",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropNetherWart.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/SoulWartSpecies.java",
+      "beforeSha256": "49c25e6d0b7695c048753d1ad00e0e95db524df0a5d4054d4b7570dc2793b258",
+      "afterSha256": "46d3cc470719a5e01ede4d0b46261bdfe9967137ed3309f779fdf8ca5db9f6ad",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropPotato.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/PotatoSpecies.java",
+      "beforeSha256": "77c95bbb6f8d4a480acba3935726d9364666b7efb45c140c771a2b7a02d5e2bd",
+      "afterSha256": "3bd473e2d58d47fa5bad0c6dacbd3caab7bba6634002e88a11e3cf10841d110b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropPumpkin.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/PumpkinSpecies.java",
+      "beforeSha256": "54580b9538c5599ffed990da67763ed9b7e99e89e70fc399cccf74474029a7ce",
+      "afterSha256": "d59c91921262ef05cf0c7456233c3c4a78934cad8a6937641480f9dbfca45389",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropRedWheat.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/RedstoneGrainSpecies.java",
+      "beforeSha256": "e6c458cd688c7eab2d7a656889ef29ef506f2564d33ddea6fa6e9e044fec7a67",
+      "afterSha256": "051265b8b78a8908574ba4e565e103cb591cdaf1ea91bdb699cebd1c29f0185a",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropReed.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/ReedSpecies.java",
+      "beforeSha256": "cfee086f397c3969d537d7dbf999be377a1ba76e6f1375e29e4f35a98f15fbbb",
+      "afterSha256": "21d9f6b489f13dd3ea81d601714c3edf071ba0c0b7d478d702ba89ac0cde79ed",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropStickyReed.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/ResinReedSpecies.java",
+      "beforeSha256": "672c502e92be1db7d9d1ce271b0f8cb64c7e429bc8ae9fe32e3ca118bad6c078",
+      "afterSha256": "db67221b9e4c54d6d641b4ca3fef5df2c326ec95109f5f042e673abac02bc61d",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropTerraWart.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/FrostWartSpecies.java",
+      "beforeSha256": "7dc043a74ba36bdac57ffd1685b84dfc819dd50e3472bd5566853e808abedb6c",
+      "afterSha256": "b14ae60fee870d61a67cb254819e32e32443ef0c922447f6081fc967c1acc4e6",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropVenomilia.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/VenomSpecies.java",
+      "beforeSha256": "86fea33ff824f372d02f3b6901e87cda27fb1dca355644b79047002a6a906298",
+      "afterSha256": "9255bd22049236090f7d472834c9c99e433b6dbe39dae8a7bc985ea913bc21a4",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropWeed.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/WeedSpecies.java",
+      "beforeSha256": "df11be7dfe438168169cda5c6b1db7a784d9c259ab3791a604ceab2f01673f0f",
+      "afterSha256": "c4307d54b7109b1eabad2a6540953768fc8c66d0573f693f8795bb80358488e7",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/crop/cropcard/CropWheat.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/species/WheatSpecies.java",
+      "beforeSha256": "cf33b7668d31a15d0d02a89e7c4097413e413e8f66c6c5fd14cf60eb2b94df9b",
+      "afterSha256": "62a5f16f296dff8b78ab0ceded158550926095e6cac10b009b006ca949eb62dd",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/tileentity/Ic2TileEntityBlock.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/tileentity/Ic2TileEntityBlock.java",
+      "beforeSha256": "275137a14e6994442e05953d484d5964faf8f99598cd4b81cead120d383f92a1",
+      "afterSha256": "ec7c6c6f9c266ae0af873e051aaabc6889de5e4f2b3dd03e9ce107ba08322eb1",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/AllItemsVerification.java",
+      "after": "verification/src/main/java/ic2ce/verification/AllItemsVerification.java",
+      "beforeSha256": "b50764bcd82dc09011e28981c39f7f69a8e1dfe16c4f13dd627bf5316404d7b4",
+      "afterSha256": "a896b0763f41156dfe879071e1e8461229ffafa885df6318a304bc83f36acc8c",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/neoforge/agriculture/AgricultureContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/agriculture/AgricultureContracts.java",
+      "beforeSha256": "53dffe0f5eca598e802e4acb559919f107071ff8a836ded3895abdfa40e308be",
+      "afterSha256": "1d1b1be63b4eba4abff0c091fdc4ba3f720ba45c083d525952514181c2fabcac",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/neoforge/agriculture/CropCatalogContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/agriculture/CropCatalogContracts.java",
+      "beforeSha256": "97cfca4a2d684be2af5e14f2c00cf822415ec3796bd95372703152c7f511df7e",
+      "afterSha256": "d281d8975993af6bbde8cd2f6d443b8ee5e0d7fa49d717bfda43e8d6a3e688e9",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/neoforge/agriculture/CropControllerContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/agriculture/CropControllerContracts.java",
+      "beforeSha256": "a92c06d458472f301c42d8ab11426b31ca01cfe658078a763221708fd173dfb1",
+      "afterSha256": "0a7f88e37e7ca96d8a827f6cfe0381fde4e51353b4db4028ceb2f1624528fc1d",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/neoforge/agriculture/CropSpeciesContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/agriculture/CropSpeciesContracts.java",
+      "beforeSha256": "09851d437985b9f8cfc899fc2ebb5ac66a82a908ff2a38f7f0eb917f26e059f4",
+      "afterSha256": "0864e49489c44c1d7e0c2263276cb61f352835733193d541b79e1b03b3693a62",
+      "countsAsImplementationRewrite": false
+    }
+  ]
+}

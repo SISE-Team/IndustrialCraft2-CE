@@ -1,0 +1,98 @@
+{
+  "domain": "Native thermal device protocols",
+  "package": "ic2ce.neoforge.thermal",
+  "countsAsImplementationRewrite": false,
+  "sources": [
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "beforeSha256": "7a38c905c45676bb828b6aab4349933799628818cf8958012c67c010674324a6",
+      "afterSha256": "f39461c6796a9a6e0aef35b6d1eae8733c9067bafca211c8648d847a1776daed",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2BlockEntities.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2BlockEntities.java",
+      "beforeSha256": "5fb05ef35a1b0c027a19a4dc536b8b244b8d48dc699a6b2b1d4ff534e7c1669e",
+      "afterSha256": "604ffc9fa76feea94091e213e38d4e3da0ab5223f3530c4a6b1f93ac01a952d0",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "beforeSha256": "2b14c2c7a3658946d36bc383ef1145440e01f0f87126baf6ab7a07bbdd66ac49",
+      "afterSha256": "421f2a2814336106f9f7eaf7c0e55db77c4bb2a6f050597e992c4b4d6a87646a",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/tileentity/TileEntityHeatSourceInventory.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/BufferedHeatSource.java",
+      "beforeSha256": "dd14d0745302323cde47a793285c64c3e610235e8b01ac29a2f910928cbf5c1d",
+      "afterSha256": "fd49704952cb3e137bc522bb45e9c2ec20944d20030c8a99a8d2e3904fc0afd1",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/container/ContainerLiquidHeatExchanger.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/machine/container/ContainerLiquidHeatExchanger.java",
+      "beforeSha256": "b1f8d69635eae9088a4beb2630d4060b8594e655c5a424723b2ab13e794814ab",
+      "afterSha256": "1ee2e7d14f31824ddab5ac0f26db8b61b281bf814a07d0b8bda8d56e4b171e5a",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/machine/tileentity/TileEntityLiquidHeatExchanger.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/FluidHeatExchanger.java",
+      "beforeSha256": "1acfa953c144008c7417c0c46469a26351dfa3b983ee0e64a5976637b054b341",
+      "afterSha256": "2720fe68b576a9e698967a108a40b226c612754e8e88c747798a4ed0a80af758",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/heatgenerator/container/ContainerElectricHeatGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/heatgenerator/container/ContainerElectricHeatGenerator.java",
+      "beforeSha256": "7e852188f945a956e71bfcd50d0697f848c4317b3432624437257792ec083a14",
+      "afterSha256": "03666411f77dffcda3d850f7fb62a2c38b3677637b278620d06b92b0bb56a343",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/heatgenerator/container/ContainerFluidHeatGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/heatgenerator/container/ContainerFluidHeatGenerator.java",
+      "beforeSha256": "fcbef0bb0bd4845dc1bbc9eacd822ef28e8e1f049f2937460e978443bfd1ab17",
+      "afterSha256": "62c407772fc8d56f9b8714729784f29d790c1bd9de958301f70d2a539b6857d4",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/heatgenerator/container/ContainerRTHeatGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/heatgenerator/container/ContainerRTHeatGenerator.java",
+      "beforeSha256": "f755f0bf02d218b6858dc7948268cc7c8df2ff9c042050a217c295459e83117e",
+      "afterSha256": "d5b029f27572a58edfe3043d6e2e842f04ca0114b6f565a8c686f25cab93a3e6",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/heatgenerator/tileentity/TileEntityElectricHeatGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/ElectricHeater.java",
+      "beforeSha256": "e735123099211a8a59d4aaa55eb5bb1b23a0458df1ba1b95f1d74843dad719b5",
+      "afterSha256": "5d787ab91bf66ac47f41d28bd43253bef04918058ddbbabea36609e6f915a06b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/heatgenerator/tileentity/TileEntityFluidHeatGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/FluidBurner.java",
+      "beforeSha256": "950f81ed0dbbe262c02d44fbd1607bcfc5d7b1bb2d1fbedd3764a482a7fb7efb",
+      "afterSha256": "45c87157dddef5819cfa4f184fafe3670e6ce196eeb6e7a8325eac5558557fa3",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/heatgenerator/tileentity/TileEntityRTHeatGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/RadioisotopeHeater.java",
+      "beforeSha256": "101dc3bc91366c11f34a03cd70c95fd8a6263c39a3206822c2f610dfefeeb671",
+      "afterSha256": "a987af1add5564ef90130328a7745d72f7a6783a7a322a5c6167042ad1c82a6a",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/heatgenerator/tileentity/TileEntitySolidHeatGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/CombustionHeater.java",
+      "beforeSha256": "df984d455f6fcca2ee4ee96016b059d9a151f0e3967260e2a717353c3be40054",
+      "afterSha256": "39c51020a9ef2dba920c89ae1c54f073b23eba685f604ef8dd5a407ddf7f1bd5",
+      "countsAsImplementationRewrite": false
+    }
+  ]
+}

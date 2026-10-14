@@ -1,0 +1,80 @@
+{
+  "complete": true,
+  "verificationSha256": "727677479a229d3f3fde90ebefbcaf17a4cb59e839e9b7e58abb4207ba1fe83f",
+  "method": "All seven exact-artifact native client debug logs scanned for every ERROR/FATAL header and explicit model/texture loading failure; only three exact offline service request headers are classified as expected. Full resource graph and original sprite byte audits are separate.",
+  "runs": [
+    {
+      "run": "items",
+      "debugLogSha256": "a0e9d3d60c977d6217b7c28326339a576179cfbdd984b4e0b0fe0a2f525cc4b4",
+      "missingResourceMessages": [],
+      "expectedOfflineServiceErrorHeaders": [
+        "[1410\u67082026 15:22:05.494] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags",
+        "[1410\u67082026 15:22:08.511] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+        "[1410\u67082026 15:22:08.511] [Yggdrasil Key Fetcher/ERROR] [com.mojang.authlib.yggdrasil.YggdrasilServicesKeyInfo/]: Failed to request yggdrasil public key"
+      ],
+      "unexpectedErrorHeaders": []
+    },
+    {
+      "run": "processing",
+      "debugLogSha256": "f4acf074e77e698544ba8fa4dfd26ef8365447a87e7640264aee38e4b7002309",
+      "missingResourceMessages": [],
+      "expectedOfflineServiceErrorHeaders": [
+        "[1410\u67082026 15:22:03.366] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags",
+        "[1410\u67082026 15:22:05.062] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties"
+      ],
+      "unexpectedErrorHeaders": []
+    },
+    {
+      "run": "workflow",
+      "debugLogSha256": "15372472fa51d57801f108e3529dc2fc554d74645f89225bcc8b8fc434d865fc",
+      "missingResourceMessages": [],
+      "expectedOfflineServiceErrorHeaders": [
+        "[1410\u67082026 15:28:42.286] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+        "[1410\u67082026 15:28:42.974] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags"
+      ],
+      "unexpectedErrorHeaders": []
+    },
+    {
+      "run": "lifecycle",
+      "debugLogSha256": "34618905bbc389e1ea11faff696226f3371aa94dc5ecbfed5c0867465631d063",
+      "missingResourceMessages": [],
+      "expectedOfflineServiceErrorHeaders": [
+        "[1410\u67082026 15:31:45.348] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+        "[1410\u67082026 15:31:46.130] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags"
+      ],
+      "unexpectedErrorHeaders": []
+    },
+    {
+      "run": "cables",
+      "debugLogSha256": "a2e257ef1650da7ff36b1e6d71de536bda02368228c124614894da0ef286b5d2",
+      "missingResourceMessages": [],
+      "expectedOfflineServiceErrorHeaders": [
+        "[1410\u67082026 15:26:38.593] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+        "[1410\u67082026 15:26:38.718] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags",
+        "[1410\u67082026 15:26:38.991] [Yggdrasil Key Fetcher/ERROR] [com.mojang.authlib.yggdrasil.YggdrasilServicesKeyInfo/]: Failed to request yggdrasil public key"
+      ],
+      "unexpectedErrorHeaders": []
+    },
+    {
+      "run": "painter",
+      "debugLogSha256": "05e48b9df55a0b581f2a43c4a399d191c6913a3348af471ef35d54d3ae51ca0b",
+      "missingResourceMessages": [],
+      "expectedOfflineServiceErrorHeaders": [
+        "[1410\u67082026 15:26:34.359] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags",
+        "[1410\u67082026 15:26:34.774] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+        "[1410\u67082026 15:26:35.298] [Yggdrasil Key Fetcher/ERROR] [com.mojang.authlib.yggdrasil.YggdrasilServicesKeyInfo/]: Failed to request yggdrasil public key"
+      ],
+      "unexpectedErrorHeaders": []
+    },
+    {
+      "run": "tools",
+      "debugLogSha256": "84a22c1b06adbc4d042eeb723844164d6f15e153fce68c1c3c19e328b06f59bf",
+      "missingResourceMessages": [],
+      "expectedOfflineServiceErrorHeaders": [
+        "[1410\u67082026 15:28:46.628] [Download-2/ERROR] [net.minecraft.client.Minecraft/]: Failed to fetch user properties",
+        "[1410\u67082026 15:28:48.187] [Download-3/ERROR] [com.mojang.realmsclient.client.RealmsClient/]: Failed to fetch Realms feature flags"
+      ],
+      "unexpectedErrorHeaders": []
+    }
+  ]
+}

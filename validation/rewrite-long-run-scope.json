@@ -1,0 +1,10 @@
+{
+  "requestedAt": "2026-10-14T15:45:03",
+  "userInstruction": "\u4e0d\u9700\u8981\u505a\u4e24\u5c0f\u65f6\u6d4b\u8bd5\u4e86 \u76f4\u63a5\u8fdb\u884c\u538b\u529b\u6d4b\u8bd5\u68c0\u67e5\u5c31\u884c\u4e86",
+  "twoHourRequirementWithdrawn": true,
+  "stressComparisonComplete": true,
+  "partialActualSeconds": 1075.9404745,
+  "actualWorldTicks": 21519,
+  "partialRunNotTwoHourPass": true,
+  "failures": []
+}

@@ -1,0 +1,23 @@
+{
+  "complete": true,
+  "normalSha256": "07b4bfca99dc6e57c6c2292bdc17c2d6ad25e16c03beb6093965233ae2d83c2c",
+  "sourcesSha256": "5a3b417342faa921709d4e759e5d6e2a70aca14bf13acd43434c9019f1160feb",
+  "cleanBuildSha256": "8b6bc0d1e73230000b93583215422aa2627cc9ee2043c3feb22fc88bcda9514a",
+  "method": "911 delivered production sources and all delivered resource entries extracted into fresh modules. Full clean build with --offline --no-build-cache; 20 tasks executed. All entries, class sets and every class executable model compared using ASM9.9.1 SKIP_DEBUG.",
+  "classComparison": {
+    "classes": 1281,
+    "debugOnlyDifferences": 1,
+    "executableDifferences": 0
+  },
+  "differentRawEntries": [
+    "ic2ce/neoforge/crafting/client/WorkbenchScreen$1.class"
+  ],
+  "differenceExplanation": "Only javac synthetic enum-switch debug line metadata may differ; no class is excluded.",
+  "assetsIdentical": true,
+  "engineContracts": {
+    "complete": true,
+    "checks": 1506897,
+    "failures": 0,
+    "runtime": "25.0.2+10-LTS"
+  }
+}

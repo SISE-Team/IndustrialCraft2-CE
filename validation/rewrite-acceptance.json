@@ -1,0 +1,54 @@
+{
+  "project": "IndustrialCraft2-CE",
+  "version": "2.9.40-alpha.11",
+  "complete": true,
+  "artifacts": {
+    "normal": {
+      "file": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.11.jar",
+      "sha256": "07b4bfca99dc6e57c6c2292bdc17c2d6ad25e16c03beb6093965233ae2d83c2c"
+    },
+    "-sources": {
+      "file": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.11-sources.jar",
+      "sha256": "5a3b417342faa921709d4e759e5d6e2a70aca14bf13acd43434c9019f1160feb"
+    },
+    "-verification": {
+      "file": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.11-verification.jar",
+      "sha256": "727677479a229d3f3fde90ebefbcaf17a4cb59e839e9b7e58abb4207ba1fe83f"
+    }
+  },
+  "gates": {
+    "sourceOwnership": "rewrite-source-inventory.json",
+    "declarationReview": "rewrite-declaration-review.json",
+    "cleanDeliveredSources": "rewrite-clean-source-build.json",
+    "branding": "rewrite-branding.json",
+    "localization": "localization/localization-audit.json",
+    "gameplay": "rewrite-gameplay-acceptance.json",
+    "allItems": "rewrite-item-usage-ledger.json",
+    "matrixProvenance": "rewrite-matrix-provenance.json",
+    "endurance": "rewrite-endurance.json",
+    "savedWorld": "rewrite-endurance-save.json",
+    "normalReload": "rewrite-normal-reload.json",
+    "circuitsPerformance": "rewrite-performance.json",
+    "cropPerformance": "rewrite-crop-performance.json",
+    "protectedGameAndSprites": "rewrite-release-audit.json",
+    "runtimeLogs": "rewrite-client-log-review.json",
+    "freshPhysicalMatrices": "rewrite-final-physical-matrices.json"
+  },
+  "pending": [],
+  "coverageLimit": "Finite matrices cover specified upgrade variants and5220 two-component reactor scenarios plus functional full grids, not every possible world or54-slot arrangement. Performance covers isolated native workloads, not whole-modpack FPS.",
+  "twoHourRequirementWithdrawn": true,
+  "acceptanceMethod": "Independent business implementations, reviewed declarations excluded; final artifact finite native gameplay/pressure/source/material/disk-reload evidence. User withdrew final two-hour requirement; controlled short-run scope explicit. Publication tracked separately.",
+  "finiteCoverage": {
+    "registeredItemsActuallyUsed": 508,
+    "survivalPlacements": 186,
+    "vanillaRecipeBookPlacements": 366,
+    "machineTypes": 104,
+    "machineBehaviorCases": 223,
+    "actualGuiEntryPoints": 98,
+    "availableProcessingRecipes": 289,
+    "freshReactorPairCases": 5220,
+    "freshReactorFunctionalCases": 16,
+    "freshAdvancedFilterCases": 24,
+    "freshUpgradeFunctionCases": 16
+  }
+}

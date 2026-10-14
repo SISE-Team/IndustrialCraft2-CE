@@ -1,0 +1,140 @@
+{
+  "domain": "Native kinetic device protocols",
+  "package": "ic2ce.neoforge.kinetic",
+  "countsAsImplementationRewrite": false,
+  "sources": [
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2BlockEntities.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2BlockEntities.java",
+      "beforeSha256": "604ffc9fa76feea94091e213e38d4e3da0ab5223f3530c4a6b1f93ac01a952d0",
+      "afterSha256": "8f139c52ee7ed833030ce9e9e548b8e421158d669a859ef22ad1605b50cc612b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/ref/Ic2Blocks.java",
+      "beforeSha256": "421f2a2814336106f9f7eaf7c0e55db77c4bb2a6f050597e992c4b4d6a87646a",
+      "afterSha256": "15b62688c0d5971f99c60039c9014038c6cd07beeac653b1f37f88474362c4cb",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/item/tool/ItemWindMeter.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/item/tool/ItemWindMeter.java",
+      "beforeSha256": "6f8b222b2a72138245aca7a0ce8160022c1569603680ebbc8c72a666ce3eb464",
+      "afterSha256": "79b005a245e942e74680df612e45150fcdd2c89da578769dd6b4c6f7c92badcc",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/container/ContainerElectricKineticGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/container/ContainerElectricKineticGenerator.java",
+      "beforeSha256": "a51e54c290794f513078887569bc9d374ed1b53e2207f72a080123df2422b9b0",
+      "afterSha256": "9a7f30979ca100a6f351e1f1a65b3ecc73c6b0980e0b63969646376718296649",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/container/ContainerSteamKineticGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/container/ContainerSteamKineticGenerator.java",
+      "beforeSha256": "e0eaadc65b9981d03075901ad880d7d961f6839dfee4afa5f731ec3301e8a4e3",
+      "afterSha256": "52e72131f79359309b278f6017bc3c97a06ae9a658e67b513804a9aaa4049cbf",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/container/ContainerStirlingKineticGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/container/ContainerStirlingKineticGenerator.java",
+      "beforeSha256": "cfc46425954fc9e9f6a215c1b6fdf3c50830fb2dbfa237351a4081dd7cdcc793",
+      "afterSha256": "33026ee5baebc87473d3d32940b0ec6f1e7daea68804d89b6c65223730d010da",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/container/ContainerWaterKineticGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/container/ContainerWaterKineticGenerator.java",
+      "beforeSha256": "594a26a93747da4aba4889b543112ed2ae0c19a6cded85becb26d419631fac15",
+      "afterSha256": "ffd8ec4ed06498ffa329bffba6464b8b20759e10cf3c8a4c2bd292fb85b900b2",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/container/ContainerWindKineticGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/container/ContainerWindKineticGenerator.java",
+      "beforeSha256": "b9860aeb3441a6692ead21da69eae426cb8c3cac12a3ae3de05b8690868f5cd3",
+      "afterSha256": "895b719b5196b6e5aa663b9c0201813c5988ac39bbbf518c46338cd784ea79d9",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/gui/GuiWaterKineticGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/gui/GuiWaterKineticGenerator.java",
+      "beforeSha256": "32e082c452f2dfec888d4f8528a6b1ad4c871fe4bbbf8e026dafead795453ee1",
+      "afterSha256": "a0e01c6553df0e61d4b4cce9507dd907bd70bf74730dac980c1fa4cbc03d6729",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/tileentity/TileEntityElectricKineticGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/ElectricMotor.java",
+      "beforeSha256": "8ea832b00cce5471c712c2440be55d0a7b82c39ded0b26ee668bb37e4718c066",
+      "afterSha256": "44178a991d4813728ca8dbd000cedaf0b9ae82e9e1e6a12cf8523a3f25c38300",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/tileentity/TileEntityManualKineticGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/ManualCrank.java",
+      "beforeSha256": "5c169d49493fe2f3b8cbe381047c7eb0e5b69717d6a33657a90d0fc12a5a403d",
+      "afterSha256": "f6f7146833c580dcd5b3ffd67c9e3549a9d5607d41cc787effdd7586e73eb70e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/tileentity/TileEntitySteamKineticGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/SteamTurbine.java",
+      "beforeSha256": "08c24307ea0de5693b76c7a4287f1e67f0960ceb1e230506695e237ffc812f42",
+      "afterSha256": "1366bf296e5cd40c6a8905d0f0a53fb7daae2873b061e7ae915508532ab11471",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/tileentity/TileEntityStirlingKineticGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/HeatDrivenCogenerator.java",
+      "beforeSha256": "c469b36a286c41565ba95bb9fae94ad1471c8dff6fd9236815a96fcaf7d439aa",
+      "afterSha256": "2e764c54be1eb3a12195d5842cf04b8eca22041c73431de13e85f4c27e527762",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/tileentity/TileEntityWaterKineticGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/WaterTurbine.java",
+      "beforeSha256": "2e08fe692ab4541ee1da8c65315f562a7de968f3ec3cc5d27256696c8395b1df",
+      "afterSha256": "4685894ffd4ddf697f694901c9005ca234923af80fec9881e7bab22e31e72bb1",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/block/kineticgenerator/tileentity/TileEntityWindKineticGenerator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/WindTurbine.java",
+      "beforeSha256": "d2eb49e4044db76ce6024fa8ae17b4e2b167515442d19e6c286987ae9ad79d56",
+      "afterSha256": "69383faae9bce9ef96da7ad48d65a9c7dc2fa7ec7d617cbc52d7274b349a686e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/AdditionalItemUsage.java",
+      "after": "verification/src/main/java/ic2ce/verification/AdditionalItemUsage.java",
+      "beforeSha256": "d095ca5d6d8066bad84ec945b5dd04169ab764df07bb4e8c86d5291a9644edcf",
+      "afterSha256": "48eff2e2277e82dcfd49163a04782471f8dbc09763045028e9ebb00f3e470aa2",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/AllGenerationCases.java",
+      "after": "verification/src/main/java/ic2ce/verification/AllGenerationCases.java",
+      "beforeSha256": "12ad70a22c6f32671f9727c11d716f2fbc3e13d884d87864a949af33dc022346",
+      "afterSha256": "93db92c280f4a2b8edfa1e721e142772bdc668f51ca80184955f53799a5cd29d",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "after": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "beforeSha256": "59e03df4deab2a94e65dad0143a640da55153ba443157adedfa40967ebae8f6f",
+      "afterSha256": "5c5b0de34814b68867deabce1f5607be6e53f2f70f4b9d7fb18295693d9dcad8",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/block/kineticgenerator/tileentity/KineticContracts.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/kinetic/KineticContracts.java",
+      "beforeSha256": "01ff2bf03d3cc0a0ca4ab2fecdba063e00cf06f138bbf1a8de66c55c0a412ed6",
+      "afterSha256": "82b1614c140bc457b2cf6775e2883facf7476d695fe8b5ee43ab0587d603f688",
+      "countsAsImplementationRewrite": false
+    }
+  ]
+}

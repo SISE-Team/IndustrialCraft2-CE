@@ -6,7 +6,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import zipfile
-from project_artifacts import PROJECT, PROPERTIES, artifact_path
+from project_artifacts import PROJECT, PROPERTIES, JAVA_ROOTS, RESOURCE_ROOT, VERIFICATION_ROOT, artifact_path
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--baseline', type=Path)
@@ -21,7 +21,7 @@ for key in ('mod_archive_name','mod_name','mod_version','mod_group_id'):
     assert author not in PROPERTIES[key].lower().encode('utf-8'), key
 assert PROPERTIES['mod_id'] == 'ic2'
 failures = []
-for source in (PROJECT/'src').rglob('*'):
+for source in (p for root in (*JAVA_ROOTS, RESOURCE_ROOT, VERIFICATION_ROOT) for p in root.rglob('*')):
     if source.is_file() and (author in str(source.relative_to(PROJECT)).lower().encode('utf-8')
                              or author in source.read_bytes().lower()):
         failures.append('Author marker in source: '+str(source.relative_to(PROJECT)))
@@ -41,7 +41,7 @@ for classifier in (None, 'sources'):
                             failures.append('Author marker outside authors metadata: '+name)
                 else:
                     failures.append('Author marker in archive content: '+name)
-            if classifier is None and name.startswith(('ic2/verification/', 'net/minecraft/', 'org/lwjgl/')):
+            if classifier is None and name.startswith(('ic2/verification/', 'ic2ce/verification/', 'net/minecraft/', 'org/lwjgl/')):
                 failures.append('Test or game classes in release: '+name)
 result = {'project':PROPERTIES['mod_archive_name'], 'version':PROPERTIES['mod_version'],
           'release':artifact_path().name, 'sources':artifact_path('sources').name,

@@ -1,0 +1,7 @@
+{
+  "scope": "Rename obsolete private implementation label only; not a behavior rewrite",
+  "countsAsImplementationRewrite": false,
+  "file": "platform/neoforge/src/main/java/ic2ce/neoforge/EnvItemHandlerNeoForge.java",
+  "beforeSha256": "32d1c0546826f09a8b12969b8d6325f3ceca6aefb83f6354039bd99d6816e516",
+  "afterSha256": "8a4d1691c08d949c7c084077ce31d8b50cfba93dd6c8cf9dcfdbfce44c919313"
+}

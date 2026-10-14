@@ -20,3 +20,10 @@ gradlew text eol=lf
 
 # Preserve the migrated source and asset bytes from the verified artifact.
 src/** -text
+api/** -text
+engine/** -text
+assets/** -text
+platform/** -text
+reference/** -text
+third-party/** -text
+verification/** -text

@@ -1,0 +1,24 @@
+{
+  "complete": true,
+  "previousVerificationSha256": "c59314cb8444fec2ce29e77435ce97ddecaa145d84ad6cce23ff1aef5d0c41bf",
+  "finalVerificationSha256": "727677479a229d3f3fde90ebefbcaf17a4cb59e839e9b7e58abb4207ba1fe83f",
+  "changedProductionClassEntries": [
+    "ic2ce/neoforge/material/CommonMaterialTags.class",
+    "ic2ce/neoforge/recipe/input/MaterialTagIngredient.class",
+    "ic2ce/neoforge/recipe/processing/OrderedMachineRecipes$1.class",
+    "ic2ce/neoforge/recipe/processing/OrderedMachineRecipes.class"
+  ],
+  "unchangedMatrixFixtureClasses": [
+    "ic2ce/verification/ExtendedValidation.class",
+    "ic2ce/verification/ReactorFunctionality.class",
+    "ic2ce/verification/ReactorMatrix$Case.class",
+    "ic2ce/verification/ReactorMatrix.class",
+    "ic2ce/verification/UpgradeFunctionality.class",
+    "ic2ce/verification/UpgradeMatrix$1.class",
+    "ic2ce/verification/UpgradeMatrix.class"
+  ],
+  "unchangedUpgradeReactorImplementationClasses": 55,
+  "method": "Finite matrix cases executed on the prior candidate. All matrix fixture and upgrade/reactor implementation classes remain byte-identical in final tuned artifact. Actual final-world functional checks and two-hour workload repeat after resume. Full new integrated machine/item/processing suites run on the final artifact. Matrix rows are not presented as freshly executed.",
+  "freshFinalArtifactEvidence": "validation/rewrite-final-physical-matrices.json",
+  "freshFinalArtifactScope": "5220reactor paircases/16reactor functions/24filters/16upgrade functions repeated onfinal artifact. Prior dedicated global171upgrade variants remain explicitly attributed."
+}
