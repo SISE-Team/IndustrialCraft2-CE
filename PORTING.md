@@ -1,6 +1,6 @@
 # Provenance and verification
 
-The current build targets Minecraft 26.1.2 / NeoForge 26.1.2.114 on Java 25. Alpha.11 independently implements runtime behavior under `ic2ce` Java packages while reusing IC2 materials and preserving `ic2` registry/resource IDs and persistence fields. Addons must recompile against `ic2ce.api`.
+The current version is 1.0.0 and targets Minecraft 26.1.2 / NeoForge 26.1.2.114 on Java 25. It starts the project's own version sequence from the previous alpha.12 build. Runtime behavior is independently rewritten under `ic2ce` Java packages with IC2 code as a reference, while reusing IC2 materials and preserving `ic2` registry/resource IDs and persistence fields. Addons must recompile against `ic2ce.api`.
 
 ## Reference material
 

@@ -1,13 +1,13 @@
 # IndustrialCraft2-CE
 
-IndustrialCraft2-CE implements IndustrialCraft gameplay for Minecraft 26.1.2, NeoForge 26.1.2.114 and Java 25. Alpha.11 replaces the earlier port's runtime implementations with independently written controllers and shared, bounded algorithms. Existing IC2 materials, registry IDs and save fields are retained. Alpha.12 optimizes crop scheduling and initial crop synchronization.
+IndustrialCraft2-CE implements IndustrialCraft gameplay for Minecraft 26.1.2, NeoForge 26.1.2.114 and Java 25. Version 1.0.0 starts the project's own version sequence and carries forward the independently rewritten runtime and crop scheduling improvements from the previous alpha.12 build. Existing IC2 materials, registry IDs and save fields are retained.
 
 | Component | Version |
 | --- | --- |
 | Minecraft | 26.1.2 |
 | NeoForge | 26.1.2.114 |
 | Java | 25 |
-| IndustrialCraft2-CE | 2.9.40-alpha.12 |
+| IndustrialCraft2-CE | 1.0.0 |
 | Optional JEI | 29.43.0.107 |
 
 Java packages use `ic2ce`, and game integration uses `ic2ce.neoforge`. Addons must recompile against `ic2ce.api`. The mod ID and resource namespace remain `ic2`, preserving existing items, recipes, models and saved block entities.
@@ -38,10 +38,14 @@ On Windows, use `gradlew.bat build`. The wrapper resolves the pinned NeoForge an
 
 The distribution is written to `build/libs/`:
 
-- `IndustrialCraft2-CE-26.1.2-2.9.40-alpha.12.jar`
-- `IndustrialCraft2-CE-26.1.2-2.9.40-alpha.12-sources.jar`
+- `IndustrialCraft2-CE-26.1.2-1.0.0.jar`
+- `IndustrialCraft2-CE-26.1.2-1.0.0-sources.jar`
 
 Place the normal JAR in a compatible instance's `mods` directory. JEI is optional and adds machine recipe browsing. Craftable IC2 recipes support the vanilla recipe book; machine-only processing uses the actual machine inventories.
+
+The mod metadata and manifest report `1.0.0`; `26.1.2` in the filename identifies the compatible Minecraft version. Both release archives include the full copyright and license texts under `META-INF/licenses/`.
+
+The [1.0.0 archive audit](validation/release-1.0.0-notices.json) verifies the MIT text, IC2 material notices, original author credits and version metadata in both archives, with exact code and resource parity against alpha.12. Historical gameplay and performance reports below retain their original artifact attribution.
 
 ## Acceptance and performance
 
@@ -60,12 +64,15 @@ For isolated verification:
 ```sh
 ./gradlew build migrationVerificationJar
 python tools/check_release_branding.py
+python tools/audit_release_notices.py --output validation/release-1.0.0-notices.json
 python tools/audit_localization.py --output validation/localization
 ```
 
 The verification artifact is destructive test tooling for disposable instances. It is excluded from the normal JAR and normal sources. See [PORTING.md](PORTING.md) for provenance, fixture controls and evidence rules.
 
 ## Credits and licensing
+
+All code written by IndustrialCraft2-CE contributors is licensed under the **MIT License**. The complete license text and project copyright are in [LICENSE](LICENSE) and included in both release archives at `META-INF/licenses/LICENSE`. This license applies to project code; original IC2 and other third-party materials retain their own licensing terms.
 
 IndustrialCraft2-CE is an independent reimplementation of IndustrialCraft gameplay, rewritten with the original IC2 source code used as a reference for behavior and compatibility.
 

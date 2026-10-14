@@ -3,7 +3,7 @@ plugins {
     id 'net.neoforged.moddev' version '2.0.148' apply false
 }
 
-version = minecraft_version + '-' + mod_version
+version = mod_version
 group = mod_group_id
 base { archivesName = mod_archive_name }
 java.toolchain.languageVersion = JavaLanguageVersion.of(25)
@@ -23,6 +23,8 @@ tasks.named('jar') {
 tasks.named('sourcesJar') { runtimeModules.each { module -> from module.sourceSets.main.allSource } }
 tasks.named('check') { runtimeModules.each { module -> dependsOn module.tasks.named('check') } }
 tasks.withType(Jar).configureEach {
+    archiveVersion = minecraft_version + '-' + mod_version
+    manifest.attributes('Implementation-Title': mod_name, 'Implementation-Version': mod_version)
     from(['LICENSE', 'NOTICE']) { into 'META-INF/licenses' }
     from('licenses') { into 'META-INF/licenses' }
 }

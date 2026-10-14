@@ -1,0 +1,13 @@
+{
+  "project": "IndustrialCraft2-CE",
+  "version": "1.0.0",
+  "release": "IndustrialCraft2-CE-26.1.2-1.0.0.jar",
+  "sources": "IndustrialCraft2-CE-26.1.2-1.0.0-sources.jar",
+  "authorAttributionPreserved": true,
+  "failures": [],
+  "complete": true,
+  "baselineGameplayEntries": 7321,
+  "byteDifferentClassEntries": [],
+  "changedResourceEntries": [],
+  "changedGameplayEntries": []
+}

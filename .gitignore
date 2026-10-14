@@ -33,6 +33,7 @@ __pycache__/
 /tools/*
 !/tools/project_artifacts.py
 !/tools/check_release_branding.py
+!/tools/audit_release_notices.py
 !/tools/ClassEquivalenceProbe.java
 !/tools/audit_localization.py
 !/tools/LanguageFormatProbe.java

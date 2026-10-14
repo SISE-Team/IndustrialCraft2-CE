@@ -1,0 +1,70 @@
+{
+  "project": "IndustrialCraft2-CE",
+  "version": "1.0.0",
+  "artifacts": {
+    "normal": {
+      "file": "IndustrialCraft2-CE-26.1.2-1.0.0.jar",
+      "sha256": "827ac99e9fd4659dc82dda420c54611ab866a0abc08020fa94089188b194d72b",
+      "licenseEntries": {
+        "META-INF/licenses/Apache-2.0.txt": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+        "META-INF/licenses/LICENSE": "aaa9c4629b6d86d0b933572f47e6418f88b8591b076cfc611709ddbd9940bb39",
+        "META-INF/licenses/NOTICE": "f5e11c7e474cbee0bc12d3a05c36a83508b9bd9b2ebab38811a99949d6974880"
+      },
+      "manifestVersion": "1.0.0",
+      "noticesMatchRepository": true,
+      "projectCodeLicense": "MIT",
+      "originalIc2MaterialLicense": "All rights reserved",
+      "gameplayParity": {
+        "baseline": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.12.jar",
+        "baselineSha256": "fa6b2c89e13bd70474fa15d5527125ef1c21ee542ee11bb9d20a8e21edd8ab85",
+        "identicalEntries": 7069,
+        "changedEntries": []
+      },
+      "modMetadataVersion": "1.0.0"
+    },
+    "sources": {
+      "file": "IndustrialCraft2-CE-26.1.2-1.0.0-sources.jar",
+      "sha256": "5265d48beac5428001d67e31ed43d9557c7ac045233b920928003472b4e1d585",
+      "licenseEntries": {
+        "META-INF/licenses/Apache-2.0.txt": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+        "META-INF/licenses/LICENSE": "aaa9c4629b6d86d0b933572f47e6418f88b8591b076cfc611709ddbd9940bb39",
+        "META-INF/licenses/NOTICE": "f5e11c7e474cbee0bc12d3a05c36a83508b9bd9b2ebab38811a99949d6974880"
+      },
+      "manifestVersion": "1.0.0",
+      "noticesMatchRepository": true,
+      "projectCodeLicense": "MIT",
+      "originalIc2MaterialLicense": "All rights reserved",
+      "gameplayParity": {
+        "baseline": "IndustrialCraft2-CE-26.1.2-2.9.40-alpha.12-sources.jar",
+        "baselineSha256": "96f505fdcd0600f515685c3132030c52fcff0aad705365acd564f4c651e19a02",
+        "identicalEntries": 6698,
+        "changedEntries": []
+      }
+    }
+  },
+  "originalAuthorCredits": [
+    "Alblaka",
+    "Player",
+    "RichardG",
+    "Thunderdark",
+    "GregoriusT",
+    "alexthesax",
+    "Drashian",
+    "Elementalist",
+    "Feanturi",
+    "Lurch1985",
+    "SirusKing",
+    "tahu44",
+    "Aroma1997",
+    "estebes",
+    "Chocohead"
+  ],
+  "identicalReleaseAndSourceResourceEntries": 5786,
+  "ic2Media": {
+    "reference": "industrialcraft-2-2.9.40+ex119-1.19.2-forge.jar",
+    "referenceSha256": "5d06ca9146041043132a72bad9b5612e260e77a84a2f3773a3da9b0167ea1d3d",
+    "unchangedTexturesAndMetadata": 1537,
+    "unchangedSoundEffects": 59
+  },
+  "complete": true
+}

@@ -1,10 +1,30 @@
 IndustrialCraft2-CE
 
-This is a community port of IndustrialCraft 2, maintained by SISE-Team.
-The original authors credited by the input mod are retained in the mod
-metadata. Port authorship is separately recorded there and in README.md.
+IndustrialCraft2-CE is an independent reimplementation of IndustrialCraft 2,
+maintained by SISE-Team. Its implementation was rewritten with the original
+IC2 source code used as a reference for gameplay behavior and compatibility.
 
-Migration input:
+All code written by IndustrialCraft2-CE contributors is licensed under the
+MIT License. Copyright (c) 2026 SISE-Team and IndustrialCraft2-CE contributors.
+The full MIT text is included in LICENSE and in the release archives at
+META-INF/licenses/LICENSE. This code license does not apply to original IC2
+code or reused IC2 materials.
+
+The original IC2 textures, visual assets and sound effects used by this
+project remain the property of the official IndustrialCraft 2 (IC2) project
+and their respective original copyright holders. IndustrialCraft2-CE does
+not claim ownership of these materials. Original copyright notices, author
+credits and licensing terms are retained; the rewrite does not transfer
+ownership or grant additional rights to original IC2 code or materials.
+
+Original authors credited by the input mod:
+  Alblaka, Player, RichardG, Thunderdark, GregoriusT, alexthesax, Drashian,
+  Elementalist, Feanturi, Lurch1985, SirusKing, tahu44, Aroma1997, estebes,
+  Chocohead.
+These credits are also retained in mod metadata. Project authorship is
+separately recorded there and in README.md.
+
+IC2 behavioral and material reference:
   industrialcraft-2-2.9.40+ex119-1.19.2-forge.jar
   SHA-256: 5d06ca9146041043132a72bad9b5612e260e77a84a2f3773a3da9b0167ea1d3d
   Declared license: All rights reserved
@@ -12,9 +32,9 @@ Migration input:
 The input JAR, decompiler caches, game installations, and local runtime logs
 are development inputs and are not part of the source checkout.
 
-The org.ejml source tree contains a small compatibility implementation of
-the EJML API used by the IC2 energy network. Its existing source headers
-identify Apache License 2.0. A copy is included in licenses/Apache-2.0.txt.
+The Apache License 2.0 text for the historical EJML reference is retained in
+licenses/Apache-2.0.txt. The current runtime does not bundle org.ejml
+implementation classes.
 EJML project: https://github.com/lessthanoptimal/ejml
 
 Minecraft, NeoForge, JEI, and their dependencies retain their respective
