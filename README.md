@@ -9,16 +9,45 @@
 
 ## About the project
 
-IndustrialCraft2-CE brings industrial technology to Minecraft on **NeoForge**.
+IndustrialCraft2-CE reintroduces **IndustrialCraft 2 to modern Minecraft**, using the **IC2 implementation for Minecraft 1.19.2** as its reference.
 
-- **Energy:** Generate power, connect cables and store energy.
-- **Industry:** Process resources and build automated machine chains.
-- **Nuclear:** Build reactors and manage fuel, cooling and heat.
-- **Tools and farming:** Use powered equipment and grow crops.
+The goal is to preserve the familiar industrial progression: start with power generation and basic resource processing, connect machines into automated production chains, and work toward advanced equipment and nuclear energy.
 
-Gameplay is independently rewritten with the original IC2 source code as a reference for behavior and compatibility. The project retains original IC2 textures, visual assets and sound effects.
+Gameplay is independently rewritten for **NeoForge**, with the reference implementation guiding behavior and compatibility. Original IC2 textures, visual assets and sound effects are retained to preserve the recognizable look and feel of its machines, equipment and materials.
+
+- **Energy:** Generators, cables, transformers and energy storage for powering an industrial base.
+- **Industry:** Ore processing, metal forming, fluid processing and automated machine chains.
+- **Nuclear:** Reactors, fuel, cooling components and heat management.
+- **Tools and farming:** Powered tools, wearable equipment, crops and farming machines.
 
 Maintained by **SISE-Team**, with project authorship credited to **Viking602**.
+
+## Build from source
+
+Install **JDK 25** and **Git**. Set `JAVA_HOME` to your JDK installation and make sure its `bin` directory is on your `PATH`. The included Gradle Wrapper downloads Gradle and the required dependencies on the first build, so an internet connection is needed.
+
+Clone the repository and enter its directory:
+
+```sh
+git clone https://github.com/SISE-Team/IndustrialCraft2-CE.git
+cd IndustrialCraft2-CE
+```
+
+**Windows (PowerShell)**
+
+```powershell
+.\gradlew.bat build
+```
+
+**Linux / macOS**
+
+```sh
+./gradlew build
+```
+
+The build compiles the mod, runs the standalone engine checks and creates the installable mod JAR and sources JAR in `build/libs/`. Install the mod JAR in the `mods/` directory of a compatible NeoForge instance; the sources JAR is for development.
+
+The target Minecraft and NeoForge dependencies are defined in [gradle.properties](gradle.properties). The original IC2 reference JAR and decompiled reference sources are not needed to build the project.
 
 ## Licensing
 
