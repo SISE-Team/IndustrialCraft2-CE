@@ -1,7 +1,6 @@
 package ic2ce.neoforge.item;
 
 
-import ic2ce.core.item.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.*;

@@ -1,6 +1,5 @@
 package ic2ce.neoforge.diagnostics;
 
-import ic2ce.core.util.*;
 import java.io.*;
 import java.nio.*;
 import java.nio.charset.*;

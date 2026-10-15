@@ -3,12 +3,13 @@ package ic2ce.neoforge.item.tool;
 
 import ic2ce.api.item.ElectricItem;
 import ic2ce.api.sound.item.ISwingSoundItem;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.item.armor.NanoArmor;
 import ic2ce.neoforge.item.armor.QuantumArmor;
 import ic2ce.neoforge.menu.slot.EquipmentOrder;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -71,7 +72,7 @@ public abstract class NanoBladeBase extends PoweredTool implements ISwingSoundIt
   }
 
   public SoundEvent getRandomSwingSound() {
-    return switch (ProjectRuntime.random.nextInt(3)) {
+    return switch (SharedRandom.INSTANCE.nextInt(3)) {
       case 1 -> SoundDefinitions.ITEM_NANOSABER_SWING2;
       case 2 -> SoundDefinitions.ITEM_NANOSABER_SWING3;
       default -> SoundDefinitions.ITEM_NANOSABER_SWING1;
@@ -115,7 +116,7 @@ public abstract class NanoBladeBase extends PoweredTool implements ISwingSoundIt
   }
 
   public float getActiveData() {
-    var world = ProjectRuntime.sideProxy.getPlayerWorld();
+    var world = SideServices.proxy().getPlayerWorld();
     long time = world == null ? ticker : world.getGameTime();
     return (Math.floorMod(time / 5, 10) + 1) / 10F;
   }

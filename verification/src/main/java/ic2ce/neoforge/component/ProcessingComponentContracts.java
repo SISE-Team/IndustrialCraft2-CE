@@ -1,8 +1,8 @@
 package ic2ce.neoforge.component;
 
 import ic2ce.neoforge.block.InventoryBlockEntity;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
+import ic2ce.neoforge.crafting.CraftingBlockEntities;
+import ic2ce.neoforge.crafting.CraftingBlocks;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -31,9 +31,9 @@ public final class ProcessingComponentContracts {
   private Result exercise(ServerLevel world) {
     var parent =
         new InventoryBlockEntity(
-            BlockEntityDefinitions.INDUSTRIAL_WORKBENCH,
+            CraftingBlockEntities.INDUSTRIAL_WORKBENCH,
             new BlockPos(1640, 110, 1310),
-            BlockDefinitions.INDUSTRIAL_WORKBENCH.defaultBlockState()) {
+            CraftingBlocks.INDUSTRIAL_WORKBENCH.defaultBlockState()) {
           final ElectricalBuffer ledger = addComponent(ElectricalBuffer.asBasicSink(this, 300, 1));
           final AddonProcessor cycle = addComponent(AddonProcessor.asFurnace(this, 3, 100, 1, 0));
         };

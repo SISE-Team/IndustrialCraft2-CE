@@ -2,20 +2,21 @@ package ic2ce.neoforge.agriculture;
 
 import ic2ce.api.crops.*;
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.fluid.FluidHandler;
-import ic2ce.core.util.BiomeUtil;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.fluid.FluidHandler;
+import ic2ce.neoforge.item.container.ContainerItems;
+import ic2ce.neoforge.runtime.SharedRandom;
+import ic2ce.neoforge.runtime.SideServices;
+import ic2ce.neoforge.world.BiomeUtil;
+import ic2ce.neoforge.inventory.StackUtil;
+import ic2ce.engine.agriculture.CropBreeding;
 import ic2ce.engine.agriculture.CropMath;
 import ic2ce.engine.recipe.WeightedChoice;
 import ic2ce.neoforge.agriculture.item.EncodedSeed;
 import ic2ce.neoforge.block.MachineBlockType;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.item.container.FixedCell;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -116,7 +117,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     }
     var world = getLevel();
     if (world != null && !world.isClientSide()) {
-      var data = ic2ce.core.event.WorldData.get(world, false);
+      var data = ic2ce.neoforge.world.WorldData.get(world, false);
       if (data != null) data.cropTicks.queueDirty(this);
     }
   }
@@ -185,7 +186,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
       updateTerrainNutrients();
       updateTerrainAirQuality();
       if (getClass() == CropPlot.class)
-        ic2ce.core.event.WorldData.get(getLevel()).cropTicks.add(this);
+        ic2ce.neoforge.world.WorldData.get(getLevel()).cropTicks.add(this);
     }
   }
 
@@ -193,7 +194,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
   protected void onUnloaded() {
     var world = getLevel();
     if (world != null && !world.isClientSide()) {
-      var data = ic2ce.core.event.WorldData.get(world, false);
+      var data = ic2ce.neoforge.world.WorldData.get(world, false);
       if (data != null) data.cropTicks.remove(this);
     }
     super.onUnloaded();
@@ -245,7 +246,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
       }
       // Delta transport discards changes when no player can receive them. Persistence stays live.
       if (!world.players().isEmpty())
-        ProjectRuntime.network.get(true).updateTileEntityFields(this, FIELDS, fields);
+        SideServices.network(true).updateTileEntityFields(this, FIELDS, fields);
     }
   }
 
@@ -259,13 +260,13 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     if (crop == null) {
       if (isCrossingBase() && (attemptCrossing() || attemptSpreading())) return;
       if (storageWeedEX > 0) {
-        if (ProjectRuntime.random.nextInt(10) == 0) {
+        if (SharedRandom.INSTANCE.nextInt(10) == 0) {
           storageWeedEX--;
           changed(1 << 7);
         }
         return;
       }
-      if (ProjectRuntime.random.nextInt(100) == 0) transformCropBlock(Crops.weed, 0);
+      if (SharedRandom.INSTANCE.nextInt(100) == 0) transformCropBlock(Crops.weed, 0);
       return;
     }
     var species = crop;
@@ -290,18 +291,18 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
       changed(1 << 6);
     }
     if (ownedData || !customData.isEmpty()) changed(1 << 13);
-    if (species.isWeed(this) && ProjectRuntime.random.nextInt(50) - statGrowth <= 2)
+    if (species.isWeed(this) && SharedRandom.INSTANCE.nextInt(50) - statGrowth <= 2)
       performWeedWork();
   }
 
   public void performGrowthTick() {
     if (!server() || crop == null) return;
-    int variation = ProjectRuntime.random.nextInt(7);
+    int variation = SharedRandom.INSTANCE.nextInt(7);
     int tier = crop.getProperties().getTier(),
         weight =
             crop.getWeightInfluences(this, terrainHumidity, terrainNutrients, terrainAirQuality);
     long needed = Math.max(0, ((long) tier - 1) * 4 + statGrowth + statGain + statResistance);
-    int resistanceDraw = needed - (long) weight * 5 > 25 ? ProjectRuntime.random.nextInt(32) : 0;
+    int resistanceDraw = needed - (long) weight * 5 > 25 ? SharedRandom.INSTANCE.nextInt(32) : 0;
     int earned =
         CropMath.growthPoints(
             statGrowth, statGain, statResistance, tier, weight, variation, resistanceDraw);
@@ -326,16 +327,16 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
 
   public void performWeedWork() {
     if (!server() || crop == null) return;
-    var target = worldPosition.relative(NEIGHBORS[ProjectRuntime.random.nextInt(4)]);
+    var target = worldPosition.relative(NEIGHBORS[SharedRandom.INSTANCE.nextInt(4)]);
     if (!getLevel().isLoaded(target)) return;
     var plant = neighbor(target);
     if (plant != null) {
       if (plant.crop != null
           && (plant.crop.isWeed(plant)
-              || ProjectRuntime.random.nextInt(32) < plant.statResistance
+              || SharedRandom.INSTANCE.nextInt(32) < plant.statResistance
               || plant.hasWeedEX())) return;
-      int growth = Math.max(statGrowth, plant.statGrowth);
-      if (growth < 31 && ProjectRuntime.random.nextBoolean()) growth++;
+      int growth =
+          CropBreeding.weedGrowth(statGrowth, plant.statGrowth, SharedRandom.INSTANCE::nextBoolean);
       var replacement = plant.transformCropBlock(Crops.weed, 0);
       if (replacement != null) replacement.setStatGrowth(growth);
     } else if (getLevel().isEmptyBlock(target)) {
@@ -363,12 +364,12 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
   }
 
   private boolean attemptCrossing() {
-    if (ProjectRuntime.random.nextInt(3) != 0) return false;
+    if (SharedRandom.INSTANCE.nextInt(3) != 0) return false;
     var parents = new ArrayList<CropPlot>(4);
     for (var direction : NEIGHBORS) {
       var parent = neighbor(worldPosition.relative(direction));
       if (eligible(parent)
-          && ProjectRuntime.random.nextInt(16) <= CropMath.spreadingThreshold(parent.genome()))
+          && SharedRandom.INSTANCE.nextInt(16) <= CropMath.spreadingThreshold(parent.genome()))
         parents.add(parent);
     }
     if (parents.size() < 2) return false;
@@ -384,8 +385,8 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     if (weights.totalWeight() <= 0) return false;
     long ticket =
         weights.totalWeight() <= Integer.MAX_VALUE
-            ? ProjectRuntime.random.nextInt((int) weights.totalWeight())
-            : randomTicket(weights.totalWeight());
+            ? SharedRandom.INSTANCE.nextInt((int) weights.totalWeight())
+            : CropBreeding.ticket(weights.totalWeight(), SharedRandom.INSTANCE::nextLong);
     var selected = candidates.get(weights.select(ticket));
     int count = parents.size();
     var genomes = new CropMath.Genome[count];
@@ -393,9 +394,9 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     var child =
         CropMath.inherit(
             genomes,
-            ProjectRuntime.random.nextInt(count * 2 + 1) - count,
-            ProjectRuntime.random.nextInt(count * 2 + 1) - count,
-            ProjectRuntime.random.nextInt(count * 2 + 1) - count);
+            SharedRandom.INSTANCE.nextInt(count * 2 + 1) - count,
+            SharedRandom.INSTANCE.nextInt(count * 2 + 1) - count,
+            SharedRandom.INSTANCE.nextInt(count * 2 + 1) - count);
     var replacement = transformCropBlock(selected, 0);
     if (replacement == null) return false;
     replacement.setStatGrowth(child.growth());
@@ -404,32 +405,15 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     return true;
   }
 
-  private static long randomTicket(long bound) {
-    long bits, selected;
-    do {
-      bits = ProjectRuntime.random.nextLong() >>> 1;
-      selected = bits % bound;
-    } while (bits - selected + bound - 1 < 0);
-    return selected;
+  private static long ratio(CropCard candidate, CropCard parent) {
+    if (candidate == parent) return CropBreeding.SAME_SPECIES_WEIGHT;
+    return CropBreeding.ratio(species(candidate), species(parent), false);
   }
 
-  private static long ratio(CropCard candidate, CropCard parent) {
-    if (candidate == parent) return 500;
-    var a = candidate.getProperties().getAllProperties();
-    var b = parent.getProperties().getAllProperties();
-    long score = 0;
-    for (int index = 0; index < Math.min(a.length, b.length); index++)
-      score += 2 - Math.abs((long) a[index] - b[index]);
-    var ca = candidate.getAttributes();
-    var pa = parent.getAttributes();
-    if (ca != null && pa != null)
-      for (var left : ca)
-        for (var right : pa)
-          if (left != null && right != null && left.equalsIgnoreCase(right)) score += 5;
-    long difference = (long) candidate.getProperties().getTier() - parent.getProperties().getTier();
-    if (difference > 1) score -= difference * 2;
-    else if (difference < -3) score += difference;
-    return Math.max(0, score);
+  private static CropBreeding.Species species(CropCard card) {
+    var properties = card.getProperties();
+    return new CropBreeding.Species(
+        properties.getAllProperties(), card.getAttributes(), properties.getTier());
   }
 
   private boolean attemptSpreading() {
@@ -441,7 +425,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
       only = parent;
     }
     if (!eligible(only)
-        || ProjectRuntime.random.nextInt(16) > CropMath.spreadingThreshold(only.genome()))
+        || SharedRandom.INSTANCE.nextInt(16) > CropMath.spreadingThreshold(only.genome()))
       return false;
     var replacement = transformCropBlock(only.crop, 0);
     if (replacement == null) return false;
@@ -465,7 +449,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
       return crop.onLeftClick(this, player) ? InteractionResult.SUCCESS : InteractionResult.PASS;
     if (!isCrossingBase()) return InteractionResult.PASS;
     setCrossingBase(false);
-    StackUtil.dropAsEntity(getLevel(), worldPosition, new ItemStack(ItemDefinitions.CROP_STICK));
+    StackUtil.dropAsEntity(getLevel(), worldPosition, new ItemStack(AgricultureItems.CROP_STICK));
     return InteractionResult.SUCCESS;
   }
 
@@ -487,24 +471,24 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     var held = player.getItemInHand(hand);
     boolean creative = player.getAbilities().instabuild;
     if (!held.isEmpty()) {
-      if (crop == null && !isCrossingBase() && held.is(ItemDefinitions.CROP_STICK)) {
+      if (crop == null && !isCrossingBase() && held.is(AgricultureItems.CROP_STICK)) {
         setCrossingBase(true);
         if (!creative) held.shrink(1);
         return true;
       }
-      if (crop != null && held.is(ItemDefinitions.FERTILIZER)) {
+      if (crop != null && held.is(AgricultureItems.FERTILIZER)) {
         if (!applyFertilizer(true)) return false;
         if (!creative) held.shrink(1);
         return true;
       }
       if (crop != null
           && held.getItem() instanceof FixedCell cell
-          && (held.is(ItemDefinitions.HYDRATION_CELL)
-              || held.is(ItemDefinitions.WEED_EX_CELL)
-              || held.is(ItemDefinitions.WATER_CELL))) {
+          && (held.is(ContainerItems.HYDRATION_CELL)
+              || held.is(ContainerItems.WEED_EX_CELL)
+              || held.is(ContainerItems.WATER_CELL))) {
         if (!cell.useOnCrop(creative ? held.copy() : held, this, true)) return false;
-        if (!creative && cell == ItemDefinitions.WATER_CELL) {
-          var empty = new ItemStack(ItemDefinitions.EMPTY_CELL);
+        if (!creative && cell == ContainerItems.WATER_CELL) {
+          var empty = new ItemStack(ContainerItems.EMPTY_CELL);
           if (held.isEmpty()) player.setItemInHand(hand, empty);
           else if (!player.getInventory().add(empty)) player.drop(empty, false);
         }
@@ -576,8 +560,8 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
   @Override
   public void onEntityCollision(Entity entity) {
     if (!server() || crop == null || !crop.onEntityCollision(this, entity)) return;
-    if (ProjectRuntime.random.nextInt(100) == 0
-        && ProjectRuntime.random.nextInt(40) > statResistance) {
+    if (SharedRandom.INSTANCE.nextInt(100) == 0
+        && SharedRandom.INSTANCE.nextInt(40) > statResistance) {
       reset();
       getLevel().setBlockAndUpdate(worldPosition.below(), Blocks.DIRT.defaultBlockState());
     }
@@ -918,7 +902,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     int rolls =
         (int)
             Math.clamp(
-                Math.round(ProjectRuntime.random.nextGaussian() * chance * .6827 + chance), 0, 256);
+                Math.round(SharedRandom.INSTANCE.nextGaussian() * chance * .6827 + chance), 0, 256);
     var drops = new ArrayList<ItemStack>();
     for (int roll = 0; roll < rolls; roll++) {
       var produced = species.getGains(this);
@@ -932,7 +916,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
                       Math.min(
                           Integer.MAX_VALUE,
                           item.getCount()
-                              + (ProjectRuntime.random.nextInt(100) <= statGain ? 1L : 0L))));
+                              + (SharedRandom.INSTANCE.nextInt(100) <= statGain ? 1L : 0L))));
     }
     int nextAge = Math.clamp(species.getAgeAfterHarvest(this), 0, Math.max(0, species.getMaxAge()));
     if (crop != species || !species.canBeHarvested(this) || !approve.test(drops.size()))
@@ -945,7 +929,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
   @Override
   public void reset() {
     if (server()) {
-      var cleared = replace(BlockDefinitions.CROP_STICK, null, 0);
+      var cleared = replace(AgricultureBlocks.CROP_STICK, null, 0);
       if (cleared != null) cleared.resetData();
     }
   }
@@ -1069,7 +1053,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
   @Override
   protected ItemStack getPickBlock(Player player, BlockHitResult target) {
     return crop == null
-        ? new ItemStack(ItemDefinitions.CROP_STICK)
+        ? new ItemStack(AgricultureItems.CROP_STICK)
         : generateSeeds(crop, statGrowth, statGain, statResistance, scanLevel);
   }
 

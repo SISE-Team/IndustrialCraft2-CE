@@ -1,11 +1,12 @@
 package ic2ce.neoforge.config;
 
 import ic2ce.api.recipe.*;
-import ic2ce.core.util.*;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.engine.config.Config;
+import ic2ce.neoforge.runtime.SideServices;
 import java.text.ParseException;
 import java.util.*;
 import java.util.function.Function;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 
@@ -59,7 +60,7 @@ public final class NativeConfigValues {
   private static ItemStack stack(InputSpec spec) throws ParseException {
     var id = Identifier.tryParse(spec.name());
     if (id == null) throw new ParseException("Invalid item identifier: " + spec.name(), 0);
-    var item = Util.getItem(id);
+    var item = BuiltInRegistries.ITEM.getOptional(id).orElse(null);
     return item == null ? null : new ItemStack(item, spec.amount());
   }
 
@@ -72,7 +73,7 @@ public final class NativeConfigValues {
     if (spec.name().startsWith("Fluid:")) {
       var id = Identifier.tryParse(spec.name().substring(6));
       if (id == null) throw new ParseException("Invalid fluid identifier", 6);
-      var fluid = Util.getFluid(id);
+      var fluid = BuiltInRegistries.FLUID.getOptional(id).orElse(null);
       return fluid == null
           ? null
           : Recipes.inputFactory.forFluidContainer(fluid, spec.quantified() ? spec.amount() : 1000);
@@ -120,7 +121,7 @@ public final class NativeConfigValues {
   }
 
   public static String fromStack(ItemStack stack) {
-    return Util.getName(Objects.requireNonNull(stack).getItem()).toString();
+    return BuiltInRegistries.ITEM.getKey(Objects.requireNonNull(stack).getItem()).toString();
   }
 
   public static String fromStackWithAmount(ItemStack stack) {
@@ -217,7 +218,7 @@ public final class NativeConfigValues {
   }
 
   private static void displayError(Config.ParseException error, String key) {
-    ProjectRuntime.sideProxy.displayError(
+    SideServices.proxy().displayError(
         "The IndustrialCraft2-CE configuration contains an invalid entry for %s.\n\n%s%s",
         key,
         error.getMessage(),

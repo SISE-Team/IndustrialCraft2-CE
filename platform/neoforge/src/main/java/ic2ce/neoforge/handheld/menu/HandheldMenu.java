@@ -1,7 +1,6 @@
 package ic2ce.neoforge.handheld.menu;
 
-import ic2ce.core.item.*;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.handheld.HandheldStorage;
 import ic2ce.neoforge.menu.OwnedMenu;
 import net.minecraft.network.protocol.game.ClientboundSetHeldSlotPacket;

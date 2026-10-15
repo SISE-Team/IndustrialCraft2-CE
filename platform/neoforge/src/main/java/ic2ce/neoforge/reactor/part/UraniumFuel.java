@@ -6,7 +6,7 @@ import ic2ce.api.reactor.IReactorComponent;
 import ic2ce.engine.reactor.HeatBalance;
 import ic2ce.neoforge.damage.RadiationEffect;
 import ic2ce.neoforge.item.armor.SealedGarment;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.consumable.ConsumableItems;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -97,9 +97,9 @@ public class UraniumFuel extends WearableReactorPart {
   protected ItemStack getDepletedStack(ItemStack fuel, IReactor reactor) {
     return new ItemStack(
         switch (numberOfCells) {
-          case 1 -> ItemDefinitions.DEPLETED_URANIUM_FUEL_ROD;
-          case 2 -> ItemDefinitions.DEPLETED_DUAL_URANIUM_FUEL_ROD;
-          default -> ItemDefinitions.DEPLETED_QUAD_URANIUM_FUEL_ROD;
+          case 1 -> ConsumableItems.DEPLETED_URANIUM_FUEL_ROD;
+          case 2 -> ConsumableItems.DEPLETED_DUAL_URANIUM_FUEL_ROD;
+          default -> ConsumableItems.DEPLETED_QUAD_URANIUM_FUEL_ROD;
         });
   }
 

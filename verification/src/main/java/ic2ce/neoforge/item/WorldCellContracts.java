@@ -1,7 +1,8 @@
 package ic2ce.neoforge.item;
 
+import ic2ce.neoforge.item.container.ContainerItems;
 import ic2ce.neoforge.item.container.FixedCell;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.tool.ToolItems;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
@@ -30,7 +31,7 @@ public final class WorldCellContracts {
     var pos = new BlockPos(11264, 100, 11264);
     world.setChunkForced(pos.getX() >> 4, pos.getZ() >> 4, true);
     world.getChunkAt(pos);
-    var cell = (FixedCell) ItemDefinitions.EMPTY_CELL;
+    var cell = (FixedCell) ContainerItems.EMPTY_CELL;
     world.setBlock(pos, Blocks.WATER.defaultBlockState().setValue(LiquidBlock.LEVEL, 1), 3);
     var output = cell.tryDrainFluid(world, pos, world.getBlockState(pos));
     check(
@@ -39,7 +40,7 @@ public final class WorldCellContracts {
     world.setBlock(pos, Blocks.WATER.defaultBlockState(), 3);
     output = cell.tryDrainFluid(world, pos, world.getBlockState(pos));
     check(
-        output.is(ItemDefinitions.WATER_CELL) && output.getCount() == 1 && world.isEmptyBlock(pos),
+        output.is(ContainerItems.WATER_CELL) && output.getCount() == 1 && world.isEmptyBlock(pos),
         "one actual native water source becomes exactly one filled physical cell");
     world.setBlock(
         pos,
@@ -50,14 +51,14 @@ public final class WorldCellContracts {
         3);
     output = cell.tryDrainFluid(world, pos, world.getBlockState(pos));
     check(
-        output.is(ItemDefinitions.WATER_CELL)
+        output.is(ContainerItems.WATER_CELL)
             && world.getBlockState(pos).is(Blocks.OAK_STAIRS)
             && !world.getBlockState(pos).getValue(BlockStateProperties.WATERLOGGED)
             && world.getBlockState(pos).getValue(BlockStateProperties.HORIZONTAL_FACING)
                 == Direction.WEST,
         "native waterlogged pickup preserves the block and its physical orientation");
     world.setBlock(pos, Blocks.STONE.defaultBlockState(), 3);
-    var water = (FixedCell) ItemDefinitions.WATER_CELL;
+    var water = (FixedCell) ContainerItems.WATER_CELL;
     check(
         !water.emptyContents(null, world, pos, null) && world.getBlockState(pos).is(Blocks.STONE),
         "solid native obstruction cannot be overwritten by a paid fluid cell");
@@ -67,7 +68,7 @@ public final class WorldCellContracts {
             && world.getFluidState(pos).isSource()
             && world.getFluidState(pos).getType() == Fluids.WATER,
         "actual world placement creates one native source fluid");
-    var cutter = new ItemStack(ItemDefinitions.CUTTER);
+    var cutter = new ItemStack(ToolItems.CUTTER);
     var before = cutter.copy();
     check(
         !PhysicalWear.damage(cutter, -1, (net.minecraft.world.entity.LivingEntity) null, null)

@@ -1,7 +1,8 @@
 package ic2ce.integration.jei.recipe.machine;
 
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.cable.CableItems;
+import ic2ce.neoforge.item.tool.ToolItems;
+import ic2ce.neoforge.processing.ProcessingBlocks;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.RecipeType;
@@ -13,13 +14,13 @@ public final class MetalFormerCategory extends DynamicCategory {
   private final ItemStack icon;
 
   public MetalFormerCategory(RecipeType<IORecipeWrapper> type, int mode, IGuiHelper graphics) {
-    super(BlockDefinitions.METAL_FORMER, type, graphics);
+    super(ProcessingBlocks.METAL_FORMER, type, graphics);
     icon =
         new ItemStack(
             switch (mode) {
-              case 0 -> ItemDefinitions.COPPER_CABLE;
-              case 1 -> ItemDefinitions.FORGE_HAMMER;
-              case 2 -> ItemDefinitions.CUTTER;
+              case 0 -> CableItems.COPPER_CABLE;
+              case 1 -> ToolItems.FORGE_HAMMER;
+              case 2 -> ToolItems.CUTTER;
               default -> throw new IllegalArgumentException("Unknown metal forming mode");
             });
   }

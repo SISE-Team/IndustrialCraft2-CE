@@ -1,14 +1,15 @@
 package ic2ce.neoforge.item.tool;
 
 import ic2ce.api.item.*;
-import ic2ce.core.IHitSoundOverride;
-import ic2ce.core.util.StackTag;
-import ic2ce.core.util.StackUtil;
-import ic2ce.core.util.Util;
+import ic2ce.neoforge.item.IHitSoundOverride;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import ic2ce.neoforge.registry.ToolProfiles;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.List;
+import java.util.Set;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -44,6 +45,22 @@ public class PoweredSaw extends PoweredTool
     tier = 1;
   }
 
+  private static final Set<Block> SHEARABLE =
+      Set.of(
+          Blocks.COBWEB,
+          Blocks.SHORT_GRASS,
+          Blocks.FERN,
+          Blocks.DEAD_BUSH,
+          Blocks.HANGING_ROOTS,
+          Blocks.VINE,
+          Blocks.TRIPWIRE);
+
+  private static boolean canShear(BlockState state) {
+    return state.is(BlockTags.LEAVES)
+        || state.is(BlockTags.WOOL)
+        || SHEARABLE.contains(state.getBlock());
+  }
+
   private static boolean shearing(ItemStack stack) {
     var data = StackTag.get(stack);
     return data == null || !data.getBooleanOr("disableShear", false);
@@ -54,7 +71,7 @@ public class PoweredSaw extends PoweredTool
     var held = player.getItemInHand(hand);
     if (!world.isClientSide()
         && held.is(this)
-        && ProjectRuntime.keyboard.isModeSwitchKeyDown(player)) {
+        && SideServices.keyboard().isModeSwitchKeyDown(player)) {
       boolean enabled = !shearing(held);
       StackTag.update(
           held,
@@ -62,7 +79,7 @@ public class PoweredSaw extends PoweredTool
             data.putBoolean("disableShear", !enabled);
             return data;
           });
-      ProjectRuntime.sideProxy.messagePlayer(
+      SideServices.proxy().messagePlayer(
           player,
           "ic2.tooltip.mode",
           enabled ? "ic2.tooltip.mode.normal" : "ic2.tooltip.mode.noShear");
@@ -75,7 +92,7 @@ public class PoweredSaw extends PoweredTool
   public boolean isCorrectToolForDrops(ItemStack stack, BlockState state) {
     return super.isCorrectToolForDrops(stack, state)
         || state.is(Blocks.COBWEB)
-        || Util.canShear(state);
+        || canShear(state);
   }
 
   @Override
@@ -83,7 +100,7 @@ public class PoweredSaw extends PoweredTool
     return canUse(stack)
             && (state.is(BlockTags.MINEABLE_WITH_AXE)
                 || state.is(Blocks.COBWEB)
-                || Util.canShear(state))
+                || canShear(state))
         ? speed
         : 1;
   }
@@ -103,7 +120,7 @@ public class PoweredSaw extends PoweredTool
     var state = world.getBlockState(position);
     if (!held.is(this)
         || !shearing(held)
-        || !Util.canShear(state)
+        || !canShear(state)
         || !canUse(held)
         || !player.mayUseItemAt(position, direction, held)) return InteractionResult.PASS;
     if (world.isClientSide()) return InteractionResult.SUCCESS;
@@ -152,7 +169,7 @@ public class PoweredSaw extends PoweredTool
   }
 
   public SoundEvent getToolUsingSound() {
-    return ProjectRuntime.random.nextBoolean()
+    return SharedRandom.INSTANCE.nextBoolean()
         ? SoundDefinitions.ITEM_CHAINSAW_USE1
         : SoundDefinitions.ITEM_CHAINSAW_USE2;
   }

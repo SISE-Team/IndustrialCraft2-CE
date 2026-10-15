@@ -1,8 +1,9 @@
 package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
+import ic2ce.neoforge.runtime.EnvProxy;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
@@ -17,7 +18,7 @@ public class CarnivorousSpecies extends MaterialSpecies {
 
   @Override
   public Block getCropBlock() {
-    return BlockDefinitions.EATING_PLANT_CROP;
+    return AgricultureBlocks.EATING_PLANT_CROP;
   }
 
   @Override
@@ -65,10 +66,10 @@ public class CarnivorousSpecies extends MaterialSpecies {
 
   @Override
   public int getGrowthDuration(ICropTile plot) {
-    var biome = ic2ce.core.util.BiomeUtil.getBiome(plot.getWorldObj(), plot.getPosition());
+    var biome = ic2ce.neoforge.world.BiomeUtil.getBiome(plot.getWorldObj(), plot.getPosition());
     double biomeFactor =
-        ProjectRuntime.envProxy.biomeHasType(biome, BiomeType.SWAMP)
-                || ProjectRuntime.envProxy.biomeHasType(biome, BiomeType.MOUNTAIN)
+        EnvProxy.get().biomeHasType(biome, BiomeType.SWAMP)
+                || EnvProxy.get().biomeHasType(biome, BiomeType.MOUNTAIN)
             ? 1 / 1.5
             : 1;
     return Math.max(
@@ -83,7 +84,7 @@ public class CarnivorousSpecies extends MaterialSpecies {
     double x = position.getX() + .5, z = position.getZ() + .5;
     var data = plot.getCustomData();
     if (data.getBooleanOr("eaten", false)) {
-      ic2ce.core.util.StackUtil.dropAsEntity(world, position, new ItemStack(Items.ROTTEN_FLESH));
+      ic2ce.neoforge.inventory.StackUtil.dropAsEntity(world, position, new ItemStack(Items.ROTTEN_FLESH));
       data.putBoolean("eaten", false);
     }
     var nearby =
@@ -96,7 +97,7 @@ public class CarnivorousSpecies extends MaterialSpecies {
                     && net.minecraft.world.entity.EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(
                         entity));
     if (nearby.isEmpty()) return;
-    var victim = nearby.get(ProjectRuntime.random.nextInt(nearby.size()));
+    var victim = nearby.get(SharedRandom.INSTANCE.nextInt(nearby.size()));
     victim.setDeltaMovement(
         (x - victim.getX()) * .5,
         Math.min(victim.getDeltaMovement().y(), -.05),
@@ -123,14 +124,23 @@ public class CarnivorousSpecies extends MaterialSpecies {
         net.minecraft.sounds.SoundEvents.GENERIC_EAT,
         net.minecraft.sounds.SoundSource.BLOCKS,
         1,
-        .9F + ProjectRuntime.random.nextFloat() * .1F);
+        .9F + SharedRandom.INSTANCE.nextFloat() * .1F);
     data.putBoolean("eaten", true);
   }
 
+  private static final net.minecraft.world.entity.EquipmentSlot[] ARMOR = {
+    net.minecraft.world.entity.EquipmentSlot.HEAD,
+    net.minecraft.world.entity.EquipmentSlot.CHEST,
+    net.minecraft.world.entity.EquipmentSlot.LEGS,
+    net.minecraft.world.entity.EquipmentSlot.FEET
+  };
+
   private static boolean metalArmor(net.minecraft.world.entity.LivingEntity entity) {
     if (!(entity instanceof net.minecraft.world.entity.player.Player player)) return false;
-    for (var armor : ic2ce.core.util.Util.armorItems(player))
+    for (var slot : ARMOR) {
+      var armor = player.getItemBySlot(slot);
       if (!armor.isEmpty() && ic2ce.api.item.ItemWrapper.isMetalArmor(armor, player)) return true;
+    }
     return false;
   }
 }

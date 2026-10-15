@@ -1,6 +1,6 @@
 package ic2ce.neoforge.handheld.client;
 
-import ic2ce.core.util.Util;
+import ic2ce.engine.text.SiFormat;
 import ic2ce.neoforge.client.screen.MachineScreen;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.client.widget.AtlasButton;
@@ -51,10 +51,10 @@ public class EnergyMeterScreen extends MachineScreen<EnergyMeterMenu> {
                 : "ic2.generic.text.EUt");
     drawString(graphics, 115, 43, LocalizedText.translate("ic2.meter.mode"), 0x20EBBE);
     drawString(graphics, 15, 42, LocalizedText.translate("ic2.meter.avg"), 0x20EBBE);
-    drawString(graphics, 15, 52, Util.toSiString(menu.getResultAvg(), 6) + unit, 0x20EBBE);
+    drawString(graphics, 15, 52, SiFormat.format(menu.getResultAvg(), 6) + unit, 0x20EBBE);
     drawString(graphics, 15, 66, LocalizedText.translate("ic2.meter.max/min"), 0x20EBBE);
-    drawString(graphics, 15, 76, Util.toSiString(menu.getResultMax(), 6) + unit, 0x20EBBE);
-    drawString(graphics, 15, 86, Util.toSiString(menu.getResultMin(), 6) + unit, 0x20EBBE);
+    drawString(graphics, 15, 76, SiFormat.format(menu.getResultMax(), 6) + unit, 0x20EBBE);
+    drawString(graphics, 15, 86, SiFormat.format(menu.getResultMin(), 6) + unit, 0x20EBBE);
     drawString(
         graphics,
         15,

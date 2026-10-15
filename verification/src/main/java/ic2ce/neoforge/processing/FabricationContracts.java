@@ -1,10 +1,9 @@
 package ic2ce.neoforge.processing;
 
+import ic2ce.neoforge.material.MaterialItems;
 import ic2ce.neoforge.processing.fabrication.AmplifiedMatterFabricator;
 import ic2ce.neoforge.processing.fabrication.ClassicMatterFabricator;
 import ic2ce.neoforge.processing.fabrication.LiquidMatterFabricator;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -32,7 +31,7 @@ public final class FabricationContracts {
     var position = new BlockPos(8300, 100, 8300);
     var classic =
         new ClassicMatterFabricator(
-            position, BlockDefinitions.CLASSIC_MASS_FABRICATOR.defaultBlockState());
+            position, ProcessingBlocks.CLASSIC_MASS_FABRICATOR.defaultBlockState());
     classic.setLevel(world);
     check(
         !classic.attemptGeneration() && classic.outputSlot.isEmpty(),
@@ -60,7 +59,7 @@ public final class FabricationContracts {
         .getComponent(ic2ce.neoforge.component.ElectricalBuffer.class)
         .forceAddEnergy(
             classic.getComponent(ic2ce.neoforge.component.ElectricalBuffer.class).getCapacity());
-    classic.outputSlot.put(new ItemStack(ItemDefinitions.UU_MATTER, 64));
+    classic.outputSlot.put(new ItemStack(MaterialItems.UU_MATTER, 64));
     double before =
         classic.getComponent(ic2ce.neoforge.component.ElectricalBuffer.class).getEnergy();
     check(
@@ -82,7 +81,7 @@ public final class FabricationContracts {
         "one solid matter unit consumes exactly its full capacity cost and retains the prior"
             + " remainder");
     var fluid =
-        new LiquidMatterFabricator(position, BlockDefinitions.MATTER_GENERATOR.defaultBlockState());
+        new LiquidMatterFabricator(position, ProcessingBlocks.MATTER_GENERATOR.defaultBlockState());
     fluid.setLevel(world);
     check(
         !fluid.attemptGeneration() && fluid.fluidTank.isEmpty(),
@@ -98,7 +97,7 @@ public final class FabricationContracts {
         "one fluid matter millibucket consumes its complete native EU budget");
     var quota =
         new AmplifiedMatterFabricator(
-            position, BlockDefinitions.MASS_FABRICATOR.defaultBlockState());
+            position, ProcessingBlocks.MASS_FABRICATOR.defaultBlockState());
     quota.setLevel(world);
     quota
         .getComponent(ic2ce.neoforge.component.ElectricalBuffer.class)

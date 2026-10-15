@@ -1,17 +1,15 @@
 package ic2ce.neoforge.power;
 
 import ic2ce.api.recipe.Recipes;
-import ic2ce.core.SemiFluidFuelManager;
-import ic2ce.core.fluid.Ic2FluidTank;
-import ic2ce.core.network.GuiSynced;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
+import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.inventory.FluidContainerInventory;
 import ic2ce.neoforge.inventory.FluidRecipeInput;
 import ic2ce.neoforge.inventory.OutputInventory;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import net.minecraft.core.BlockPos;
@@ -28,7 +26,7 @@ public class BiogasGenerator extends BufferedGenerator {
   protected final FluidPorts fluids = addComponent(new FluidPorts(this));
 
   public BiogasGenerator(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.SEMIFLUID_GENERATOR, position, block, 32, 1, 32000);
+    super(PowerBlockEntities.SEMIFLUID_GENERATOR, position, block, 32, 1, 32000);
     fluidTank =
         fluids.addTankInsert("fluid", 10000, FluidPorts.fluidPredicate(Recipes.semiFluidGenerator));
     fluidSlot = new FluidRecipeInput(this, "fluidSlot", 1, Recipes.semiFluidGenerator);

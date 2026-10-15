@@ -1,10 +1,9 @@
 package ic2ce.neoforge.item.tool;
 
 import ic2ce.api.item.ElectricItem;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.projectile.MiningBeam;
-import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.*;
 import java.util.function.Consumer;
 import net.minecraft.core.*;
@@ -58,7 +57,7 @@ public final class LaserContracts {
                 UUID.fromString("397e30b2-a07a-48c0-9f45-fa3600e51915"), "IC2LaserProbe"));
     player.getAbilities().instabuild = false;
     player.getInventory().clearContent();
-    ProjectRuntime.keyboard.processKeyUpdate(player, 0);
+    SideServices.keyboard().processKeyUpdate(player, 0);
     var pos = new BlockPos(10560, 100, 10560);
     for (int x = -1; x <= 1; x++)
       for (int z = -1; z <= 1; z++) {
@@ -69,7 +68,7 @@ public final class LaserContracts {
     player.setXRot(0);
     player.setYRot(0);
     var area = new AABB(pos).inflate(30);
-    var tool = (MiningLaser) ItemDefinitions.MINING_LASER;
+    var tool = (MiningLaser) ToolItems.MINING_LASER;
     int[] bills = {1250, 100, 5000, 3000, 2500, 10000, 5000, 7500},
         counts = {1, 1, 1, 1, 1, 25, 1, 9};
     for (int mode = 0; mode < 8; mode++) {
@@ -141,12 +140,12 @@ public final class LaserContracts {
           return data;
         });
     player.setItemInHand(InteractionHand.MAIN_HAND, negative);
-    ProjectRuntime.keyboard.processKeyUpdate(player, 1 << 3);
+    SideServices.keyboard().processKeyUpdate(player, 1 << 3);
     tool.use(world, player, InteractionHand.MAIN_HAND);
     check(
         StackTag.get(negative).getIntOr("laserSetting", -1) >= 0,
         "corrupt negative saved mode switches into the bounded native policy range");
-    ProjectRuntime.keyboard.processKeyUpdate(player, 0);
+    SideServices.keyboard().processKeyUpdate(player, 0);
     var target = pos.south(6);
     for (int y = 0; y < 4; y++)
       for (int z = 0; z < 12; z++)

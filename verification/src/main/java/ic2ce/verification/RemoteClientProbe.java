@@ -2,6 +2,8 @@ package ic2ce.verification;
 
 
 import com.google.gson.GsonBuilder;
+import ic2ce.neoforge.processing.ProcessingItems;
+import ic2ce.neoforge.runtime.SideServices;
 import java.nio.file.*;
 import java.util.*;
 import net.minecraft.client.Minecraft;
@@ -231,11 +233,11 @@ public final class RemoteClientProbe {
           }
         }
       }
-    var memory = new ItemStack(ic2ce.neoforge.registry.ItemDefinitions.CRYSTAL_MEMORY);
-    ((ic2ce.core.item.ItemCrystalMemory) memory.getItem())
+    var memory = new ItemStack(ProcessingItems.CRYSTAL_MEMORY);
+    ((ic2ce.neoforge.processing.uu.ItemCrystalMemory) memory.getItem())
         .writecontentsTag(
             mc.level, memory, new ItemStack(net.minecraft.world.item.Items.IRON_INGOT, 3));
-    var recorded = ((ic2ce.core.item.ItemCrystalMemory) memory.getItem()).readItemStack(memory);
+    var recorded = ((ic2ce.neoforge.processing.uu.ItemCrystalMemory) memory.getItem()).readItemStack(memory);
     if (!recorded.is(net.minecraft.world.item.Items.IRON_INGOT) || recorded.getCount() != 3)
       failures.add("remote client crystal-memory NBT cannot restore stored item");
     var chatChecks = new ArrayList<Map<String, Object>>();
@@ -250,7 +252,7 @@ public final class RemoteClientProbe {
               "ic2.frequency_transmitter.unlinked",
               "ic2.EUStorage.gui.mod.redstone0",
               "ic2.blockChargepad.gui.mod.redstone0")) {
-        ic2ce.neoforge.runtime.ProjectRuntime.sideProxy.messagePlayer(mc.player, key);
+        SideServices.proxy().messagePlayer(mc.player, key);
         var messages =
             (List<net.minecraft.client.multiplayer.chat.GuiMessage>) field.get(mc.gui.getChat());
         String actual = messages.getFirst().content().getString();

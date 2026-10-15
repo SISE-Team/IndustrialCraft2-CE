@@ -4,11 +4,12 @@ import ic2ce.api.item.ElectricItem;
 import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.UpgradableProperty;
-import ic2ce.core.*;
-import ic2ce.core.fluid.FluidHandler;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
-import ic2ce.core.util.*;
+import ic2ce.neoforge.fluid.FluidHandler;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.item.tool.ToolItems;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.engine.machine.LayerSweep;
 import ic2ce.neoforge.block.MachineBlockType;
 import ic2ce.neoforge.block.PoweredBlockEntity;
@@ -20,8 +21,6 @@ import ic2ce.neoforge.item.tool.AdvancedOreScanner;
 import ic2ce.neoforge.item.tool.OreScanner;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.mining.menu.AreaMinerMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.runtime.AutomationActors;
 import ic2ce.neoforge.terrain.MaterialValuation;
 import java.util.ArrayList;
@@ -62,8 +61,8 @@ public class AreaMiner extends PoweredBlockEntity
           InventorySlot.Access.IO,
           1,
           InventorySlot.InvSide.BOTTOM,
-          ItemDefinitions.SCANNER,
-          ItemDefinitions.ADVANCED_SCANNER);
+          ToolItems.SCANNER,
+          ToolItems.ADVANCED_SCANNER);
   public final UpgradeInventory upgradeSlot = new UpgradeInventory(this, "upgrade", 4);
   public final InventorySlot filterSlot =
       new InventorySlot(this, "list", InventorySlot.Access.NONE, 15);
@@ -85,7 +84,7 @@ public class AreaMiner extends PoweredBlockEntity
   }
 
   public AreaMiner(BlockPos position, BlockState state, int tier) {
-    super(BlockEntityDefinitions.ADVANCED_MINER, position, state, 4000000, tier);
+    super(MiningBlockEntities.ADVANCED_MINER, position, state, 4000000, tier);
     defaultTier = tier;
     redstone = addComponent(new SignalInput(this));
   }

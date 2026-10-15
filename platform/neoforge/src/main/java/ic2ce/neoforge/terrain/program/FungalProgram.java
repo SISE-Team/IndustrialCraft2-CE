@@ -1,6 +1,6 @@
 package ic2ce.neoforge.terrain.program;
 
-import ic2ce.core.util.BiomeUtil;
+import ic2ce.neoforge.world.BiomeUtil;
 import ic2ce.neoforge.terrain.TerrainController;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;

@@ -1,8 +1,8 @@
 package ic2ce.neoforge.reactor.part;
 
 import ic2ce.api.reactor.IReactor;
-import ic2ce.core.profile.NotExperimental;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.consumable.ConsumableItems;
+import ic2ce.neoforge.runtime.profile.NotExperimental;
 import net.minecraft.world.item.ItemStack;
 
 /**
@@ -27,7 +27,7 @@ public class IsotopeBreeder extends WearableReactorPart {
     if (thermalPhase) {
       long next = (long) getUse(part) + 1 + Math.max(0, reactor.getHeat()) / 3000;
       if (next >= getMaxUse())
-        reactor.setItemAt(x, y, new ItemStack(ItemDefinitions.RE_ENRICHED_URANIUM));
+        reactor.setItemAt(x, y, new ItemStack(ConsumableItems.RE_ENRICHED_URANIUM));
       else setUse(part, (int) next);
     }
     return true;

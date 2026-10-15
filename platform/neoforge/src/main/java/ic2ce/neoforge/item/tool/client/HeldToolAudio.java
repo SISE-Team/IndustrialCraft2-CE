@@ -2,7 +2,7 @@ package ic2ce.neoforge.item.tool.client;
 
 import ic2ce.neoforge.audio.PlaybackHandle;
 import ic2ce.neoforge.item.tool.PoweredTool;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.IdentityHashMap;
 import java.util.Set;
 import net.minecraft.client.Minecraft;
@@ -30,9 +30,9 @@ public final class HeldToolAudio {
   private HeldToolAudio() {}
 
   private static void release(Player owner, Session session, boolean stop) {
-    if (session.loop != null) ProjectRuntime.soundManager.removeSound(owner, session.loop);
+    if (session.loop != null) SideServices.audio().removeSound(owner, session.loop);
     if (stop && session.stop != null && !owner.isRemoved())
-      ProjectRuntime.soundManager.playOnce(session.stop, SoundSource.PLAYERS, 1, 1, owner);
+      SideServices.audio().playOnce(session.stop, SoundSource.PLAYERS, 1, 1, owner);
   }
 
   @SubscribeEvent
@@ -45,7 +45,7 @@ public final class HeldToolAudio {
         var held = owner.getMainHandItem();
         if (!(held.getItem() instanceof PoweredTool tool) || !tool.canUse(held)) continue;
         if (tool instanceof ic2ce.neoforge.item.tool.NanoBladeBase) {
-          var data = ic2ce.core.util.StackTag.get(held);
+          var data = ic2ce.neoforge.item.StackTag.get(held);
           if (data == null || !data.getBooleanOr("active", false)) continue;
         }
         var idle = tool.heldIdleSound(owner, held);
@@ -66,11 +66,11 @@ public final class HeldToolAudio {
         var loop =
             idle == null
                 ? null
-                : ProjectRuntime.soundManager.createSound(
+                : SideServices.audio().createSound(
                     owner, idle, SoundSource.PLAYERS, owner, 1, 1);
         if (loop != null) loop.play();
         if (start != null)
-          ProjectRuntime.soundManager.playOnce(start, SoundSource.PLAYERS, 1, 1, owner);
+          SideServices.audio().playOnce(start, SoundSource.PLAYERS, 1, 1, owner);
         SESSIONS.put(owner, new Session(tool, idle, start, stop, loop));
       }
     var entries = SESSIONS.entrySet().iterator();

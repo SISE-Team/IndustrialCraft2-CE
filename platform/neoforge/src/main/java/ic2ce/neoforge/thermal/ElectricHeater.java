@@ -1,15 +1,14 @@
 package ic2ce.neoforge.thermal;
 
-import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.material.MaterialItems;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.thermal.menu.ElectricHeaterMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
@@ -23,14 +22,14 @@ public class ElectricHeater extends BufferedHeatSource implements IHasGui {
   private boolean producing;
   public final DischargeInventory dischargeSlot;
   public final ConsumableInventory coilSlot =
-      new StackWhitelistInput(this, "CoilSlot", 10, new ItemStack(ItemDefinitions.COIL));
+      new StackWhitelistInput(this, "CoilSlot", 10, new ItemStack(MaterialItems.COIL));
   protected final ElectricalBuffer energy;
   public static final double outputMultiplier =
       NativeConfigValues.getDouble(
           ProjectConfiguration.get(), "balance/energy/heatgenerator/electric");
 
   public ElectricHeater(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.ELECTRIC_HEAT_GENERATOR, position, block);
+    super(ThermalBlockEntities.ELECTRIC_HEAT_GENERATOR, position, block);
     coilSlot.setStackSizeLimit(1);
     dischargeSlot = new DischargeInventory(this, InventorySlot.Access.NONE, 4);
     energy =
@@ -57,7 +56,7 @@ public class ElectricHeater extends BufferedHeatSource implements IHasGui {
   public int getMaxHeatEmittedPerTick() {
     int coils = 0;
     for (int slot = 0; slot < coilSlot.size(); slot++)
-      if (coilSlot.get(slot).is(ItemDefinitions.COIL)) coils++;
+      if (coilSlot.get(slot).is(MaterialItems.COIL)) coils++;
     return coils * 10;
   }
 

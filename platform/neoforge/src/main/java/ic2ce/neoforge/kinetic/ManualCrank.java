@@ -1,12 +1,11 @@
 package ic2ce.neoforge.kinetic;
 
 import ic2ce.api.energy.tile.IKineticSource;
-import ic2ce.core.profile.NotClassic;
-import ic2ce.core.util.Util;
+import ic2ce.neoforge.runtime.EnvProxy;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -29,7 +28,7 @@ public class ManualCrank extends NativeBlockEntity implements IKineticSource {
               ProjectConfiguration.get(), "balance/energy/kineticgenerator/manual"));
 
   public ManualCrank(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.MANUAL_KINETIC_GENERATOR, position, block);
+    super(KineticBlockEntities.MANUAL_KINETIC_GENERATOR, position, block);
   }
 
   @Override
@@ -46,7 +45,7 @@ public class ManualCrank extends NativeBlockEntity implements IKineticSource {
         && clicks < maxClicksPerTick
         && Double.isFinite(MULTIPLIER)
         && MULTIPLIER > 0) {
-      int base = Util.isFakePlayer(actor, false) ? 20 : 400;
+      int base = EnvProxy.get().isFakePlayer(actor) ? 20 : 400;
       long created = Math.min(maxKU, Math.round(base * MULTIPLIER));
       currentKU = (int) Math.clamp((long) currentKU + created, 0, maxKU);
       actor.causeFoodExhaustion(0.25F);

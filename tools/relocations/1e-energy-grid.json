@@ -1,0 +1,8 @@
+{
+  "domain": "Energy network registration, topology and routing",
+  "report": "energy-grid-layout-migration.json",
+  "moves": {
+    "ic2ce.core.energy.grid.*": "ic2ce.neoforge.energy.grid",
+    "ic2ce.core.energy.leg.*": "ic2ce.neoforge.energy.grid"
+  }
+}

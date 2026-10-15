@@ -5,7 +5,12 @@ import static ic2ce.verification.AllMachinesVerification.*;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.recipe.*;
-import ic2ce.core.block.storage.box.TileEntityStorageBox;
+import ic2ce.neoforge.item.machining.MachiningItems;
+import ic2ce.neoforge.item.tool.ToolItems;
+import ic2ce.neoforge.item.upgrade.UpgradeItems;
+import ic2ce.neoforge.material.MaterialItems;
+import ic2ce.neoforge.runtime.EnvProxy;
+import ic2ce.neoforge.storage.box.TileEntityStorageBox;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.crafting.AutomaticCrafter;
@@ -14,7 +19,6 @@ import ic2ce.neoforge.processing.PoweredProcessor;
 import ic2ce.neoforge.processing.solid.MaterialRecycler;
 import ic2ce.neoforge.processing.solid.PlateCutter;
 import ic2ce.neoforge.processing.thermal.InductionSmelter;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.utility.ChunkAnchor;
 import java.util.*;
 import net.minecraft.world.item.ItemStack;
@@ -63,7 +67,7 @@ final class AllMachineBehaviors {
                       machine.inputSlot.clear();
                       machine.outputSlot.clear();
                       machine.upgradeSlot.put(
-                          0, new ItemStack(ItemDefinitions.OVERCLOCKER_UPGRADE, 4));
+                          0, new ItemStack(UpgradeItems.OVERCLOCKER_UPGRADE, 4));
                       machine.setChanged();
                     });
                 for (int tick = 1050; tick <= 11900; tick += 50)
@@ -78,7 +82,7 @@ final class AllMachineBehaviors {
               }
             }
             if (tile instanceof TileEntityStorageBox box) storageBox(id, box);
-            if (tile instanceof ic2ce.core.block.storage.tank.FluidReservoir) storageTank(id);
+            if (tile instanceof ic2ce.neoforge.storage.tank.FluidReservoir) storageTank(id);
             if (id.equals("tank")) storageTank(id);
             if (id.equals("metal_former")) {
               suite.at(
@@ -148,9 +152,9 @@ final class AllMachineBehaviors {
                   () -> {
                     batch.craftingOutput.clear();
                     java.util.Arrays.fill(batch.craftingGrid, ItemStack.EMPTY);
-                    batch.craftingGrid[4] = new ItemStack(ItemDefinitions.FORGE_HAMMER);
+                    batch.craftingGrid[4] = new ItemStack(ToolItems.FORGE_HAMMER);
                     batch.craftingGrid[5] = new ItemStack(Items.IRON_INGOT);
-                    batch.ingredientsRow[4].put(new ItemStack(ItemDefinitions.FORGE_HAMMER));
+                    batch.ingredientsRow[4].put(new ItemStack(ToolItems.FORGE_HAMMER));
                     batch.ingredientsRow[5].put(new ItemStack(Items.IRON_INGOT));
                     batch.matrixChange(-1);
                     batch.setChanged();
@@ -161,11 +165,11 @@ final class AllMachineBehaviors {
                     suite.behave(
                         id,
                         "tool recipe makes iron plate",
-                        batch.craftingOutput.get().is(ItemDefinitions.IRON_PLATE));
+                        batch.craftingOutput.get().is(MaterialItems.IRON_PLATE));
                     suite.behave(
                         id,
                         "offset tool remainder stays in matching ingredient slot",
-                        batch.ingredientsRow[4].get().is(ItemDefinitions.FORGE_HAMMER)
+                        batch.ingredientsRow[4].get().is(ToolItems.FORGE_HAMMER)
                             && batch.ingredientsRow[4].get().getDamageValue() == 1);
                   });
             }
@@ -274,7 +278,7 @@ final class AllMachineBehaviors {
     if (id.equals("electric_furnace")) machine.inputSlot.put(new ItemStack(Items.IRON_ORE));
     else if (id.equals("recycler")) {
       machine.inputSlot.put(new ItemStack(Items.COBBLESTONE, 64));
-      machine.upgradeSlot.put(0, new ItemStack(ItemDefinitions.OVERCLOCKER_UPGRADE, 2));
+      machine.upgradeSlot.put(0, new ItemStack(UpgradeItems.OVERCLOCKER_UPGRADE, 2));
     } else {
       Recipes.IGetter getter = (Recipes.IGetter) get(machine.inputSlot, "recipeManager");
       IMachineRecipeManager manager = (IMachineRecipeManager) getter.get(suite.level);
@@ -293,17 +297,17 @@ final class AllMachineBehaviors {
       machine.inputSlot.put(stack);
       suite.observe(id, "recipeInput", stack.toString());
       ItemStack remainder =
-          ic2ce.neoforge.runtime.ProjectRuntime.envProxy.hasRecipeRemainder(stack)
-              ? ic2ce.neoforge.runtime.ProjectRuntime.envProxy.getRecipeRemainder(stack)
+          EnvProxy.get().hasRecipeRemainder(stack)
+              ? EnvProxy.get().getRecipeRemainder(stack)
               : ItemStack.EMPTY;
       if (!remainder.isEmpty() && recipe.getOutput() instanceof Collection<?> outputs) {
         for (Object candidate : outputs)
           if (candidate instanceof ItemStack out
               && (ItemStack.isSameItemSameComponents(remainder, out)
-                  || ic2ce.neoforge.runtime.ProjectRuntime.envProxy.hasRecipeRemainder(out)
+                  || EnvProxy.get().hasRecipeRemainder(out)
                       && ItemStack.isSameItemSameComponents(
                           stack,
-                          ic2ce.neoforge.runtime.ProjectRuntime.envProxy.getRecipeRemainder(
+                          EnvProxy.get().getRecipeRemainder(
                               out)))) {
             remainder = ItemStack.EMPTY;
             break;
@@ -313,7 +317,7 @@ final class AllMachineBehaviors {
       suite.observe(id, "expectedCraftingRemainder", remainder.toString());
     }
     if (id.equals("block_cutter"))
-      ((PlateCutter) machine).cutterSlot.put(new ItemStack(ItemDefinitions.DIAMOND_CUTTING_BLADE));
+      ((PlateCutter) machine).cutterSlot.put(new ItemStack(MachiningItems.DIAMOND_CUTTING_BLADE));
     if (id.equals("ore_washing_plant") && suite.tank(id, "fluid").isEmpty())
       suite.fill(id, "fluid", "minecraft:water", 8000);
     machine.setChanged();
@@ -328,7 +332,7 @@ final class AllMachineBehaviors {
           if (id.equals("recycler")) {
             boolean correct = true;
             for (var output : machine.outputSlot)
-              correct &= output.isEmpty() || output.is(ItemDefinitions.SCRAP);
+              correct &= output.isEmpty() || output.is(MaterialItems.SCRAP);
             suite.behave(
                 id,
                 stage + " consumes native input and produces only permitted random scrap",
@@ -361,7 +365,7 @@ final class AllMachineBehaviors {
         suite.behave(
             "recycler",
             "probability sample output is actual scrap",
-            output.is(ItemDefinitions.SCRAP));
+            output.is(MaterialItems.SCRAP));
         recyclingCollected += output.getCount();
       }
     }
@@ -437,7 +441,7 @@ final class AllMachineBehaviors {
               "actual extraction respects requested amount",
               drained.getAmountMb() == 250 && tank.getFluidAmount() == 2000);
         });
-    if (tile instanceof ic2ce.core.block.storage.tank.FluidReservoir)
+    if (tile instanceof ic2ce.neoforge.storage.tank.FluidReservoir)
       suite.at(
           200,
           () -> {

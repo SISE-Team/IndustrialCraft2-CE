@@ -1,7 +1,7 @@
 package ic2ce.neoforge.client.audio;
 
 import ic2ce.engine.audio.CompletionCallbacks;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.sounds.EntityBoundSoundInstance;
 import net.minecraft.sounds.SoundEvent;
@@ -20,7 +20,7 @@ public class EntityPlayback extends EntityBoundSoundInstance implements FinishAw
 
   public EntityPlayback(
       SoundEvent event, SoundSource source, float volume, float pitch, Entity entity) {
-    super(event, source, volume, pitch, entity, ProjectRuntime.random.nextLong());
+    super(event, source, volume, pitch, entity, SharedRandom.INSTANCE.nextLong());
     this.entity = entity;
     soundEvent = event;
     vanillaManager = Minecraft.getInstance().getSoundManager();

@@ -1,7 +1,7 @@
 package ic2ce.neoforge.handheld;
 
-import ic2ce.core.IHasGui;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.menu.slot.TemplateSlot;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;

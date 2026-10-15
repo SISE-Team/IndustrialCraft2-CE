@@ -1,8 +1,8 @@
 package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
+import ic2ce.neoforge.agriculture.AgricultureItems;
 import java.util.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
@@ -20,7 +20,7 @@ public class CoffeeSpecies extends MaterialSpecies {
 
   @Override
   public Block getCropBlock() {
-    return BlockDefinitions.COFFEE_CROP;
+    return AgricultureBlocks.COFFEE_CROP;
   }
 
   @Override
@@ -65,7 +65,7 @@ public class CoffeeSpecies extends MaterialSpecies {
   public ItemStack getGain(ICropTile plot) {
     return plot.getCurrentAge() == getMaxAge() - 1
         ? ItemStack.EMPTY
-        : new ItemStack(ItemDefinitions.COFFEE_BEANS);
+        : new ItemStack(AgricultureItems.COFFEE_BEANS);
   }
 
   @Override

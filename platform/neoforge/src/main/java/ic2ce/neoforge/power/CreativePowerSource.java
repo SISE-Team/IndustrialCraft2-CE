@@ -3,9 +3,8 @@ package ic2ce.neoforge.power;
 import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.energy.tile.IEnergyAcceptor;
 import ic2ce.api.energy.tile.IMultiEnergySource;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.NativeBlockEntity;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.BlockState;
@@ -16,7 +15,7 @@ public class CreativePowerSource extends NativeBlockEntity implements IMultiEner
   private boolean attached;
 
   public CreativePowerSource(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.CREATIVE_GENERATOR, position, block);
+    super(PowerBlockEntities.CREATIVE_GENERATOR, position, block);
   }
 
   @Override

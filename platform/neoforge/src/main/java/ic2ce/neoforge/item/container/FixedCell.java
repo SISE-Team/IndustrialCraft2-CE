@@ -2,10 +2,8 @@ package ic2ce.neoforge.item.container;
 
 import ic2ce.api.fluid.Ic2FluidItem;
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.item.*;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.agriculture.CropPlot;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,7 +34,7 @@ public class FixedCell extends WorldFluidCell implements Ic2FluidItem {
 
   @Override
   public Item getEmptiedBucketItem() {
-    return ItemDefinitions.EMPTY_CELL;
+    return ContainerItems.EMPTY_CELL;
   }
 
   @Override
@@ -47,23 +45,23 @@ public class FixedCell extends WorldFluidCell implements Ic2FluidItem {
   @Override
   public Item getBucketItem(Fluid fluid) {
     return fluid == Fluids.WATER
-        ? ItemDefinitions.WATER_CELL
-        : fluid == Fluids.LAVA ? ItemDefinitions.LAVA_CELL : ItemDefinitions.EMPTY_CELL;
+        ? ContainerItems.WATER_CELL
+        : fluid == Fluids.LAVA ? ContainerItems.LAVA_CELL : ContainerItems.EMPTY_CELL;
   }
 
   @Override
   public boolean bucketUseOnBlock(UseOnContext context) {
     if (!(context.getLevel().getBlockEntity(context.getClickedPos()) instanceof CropPlot crop)
-        || this != ItemDefinitions.WATER_CELL
-            && this != ItemDefinitions.WEED_EX_CELL
-            && this != ItemDefinitions.HYDRATION_CELL) return false;
+        || this != ContainerItems.WATER_CELL
+            && this != ContainerItems.WEED_EX_CELL
+            && this != ContainerItems.HYDRATION_CELL) return false;
     if (context.getLevel().isClientSide()) return true;
     var player = context.getPlayer();
     var held = context.getItemInHand();
     boolean creative = player != null && player.getAbilities().instabuild;
     if (!useOnCrop(creative ? held.copy() : held, crop, true)) return false;
-    if (!creative && this == ItemDefinitions.WATER_CELL && player != null) {
-      var empty = new ItemStack(ItemDefinitions.EMPTY_CELL);
+    if (!creative && this == ContainerItems.WATER_CELL && player != null) {
+      var empty = new ItemStack(ContainerItems.EMPTY_CELL);
       if (held.isEmpty()) player.setItemInHand(context.getHand(), empty);
       else if (!player.getInventory().add(empty)) player.drop(empty, false);
     }
@@ -76,7 +74,7 @@ public class FixedCell extends WorldFluidCell implements Ic2FluidItem {
         || !stack.is(this)
         || crop.getLevel() == null
         || crop.getLevel().isClientSide()) return false;
-    if (this == ItemDefinitions.WATER_CELL) {
+    if (this == ContainerItems.WATER_CELL) {
       if (crop.getStorageWater() >= 10) return false;
       crop.setStorageWater(10);
       crop.setChanged();
@@ -85,12 +83,12 @@ public class FixedCell extends WorldFluidCell implements Ic2FluidItem {
     }
     int used = usage(stack), remaining = charges - used;
     if (remaining <= 0) return false;
-    if (this == ItemDefinitions.WEED_EX_CELL) {
+    if (this == ContainerItems.WEED_EX_CELL) {
       if (crop.applyWeedEx(50, true, manual, false) != 50) return false;
       spend(stack, used + 1);
       return true;
     }
-    if (this == ItemDefinitions.HYDRATION_CELL) {
+    if (this == ContainerItems.HYDRATION_CELL) {
       int offer = Math.min(manual ? 200 : 180, remaining);
       int accepted = crop.applyHydration(offer, false);
       if (accepted <= 0) return false;
@@ -192,7 +190,7 @@ public class FixedCell extends WorldFluidCell implements Ic2FluidItem {
     initial(result, stack);
     if (fluid == null) return null;
     if (!single(stack) || fluid == Fluids.EMPTY || amount < 1000) return Ic2FluidStack.EMPTY;
-    replace(stack, ItemDefinitions.EMPTY_CELL, simulate, result);
+    replace(stack, ContainerItems.EMPTY_CELL, simulate, result);
     return Ic2FluidStack.create(fluid, 1000);
   }
 
@@ -206,7 +204,7 @@ public class FixedCell extends WorldFluidCell implements Ic2FluidItem {
         || fluid == null
         || fluid == Fluids.EMPTY
         || !requested.hasExactFluid(fluid)) return 0;
-    replace(stack, ItemDefinitions.EMPTY_CELL, simulate, result);
+    replace(stack, ContainerItems.EMPTY_CELL, simulate, result);
     return 1000;
   }
 

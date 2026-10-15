@@ -3,7 +3,7 @@
   "wholeRewriteComplete": true,
   "completedImplementations": [
     {
-      "file": "engine/src/main/java/ic2ce/core/util/Config.java",
+      "file": "engine/src/main/java/ic2ce/engine/config/Config.java",
       "scope": "Configuration tree, path tokenizer, INI parsing/writing, value conversion"
     },
     {
@@ -47,11 +47,11 @@
       "scope": "Upgrade aggregation and native addon callbacks"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/leg/EnergyCalculatorLeg.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyCalculatorLeg.java",
       "scope": "Native source/sink dispatch, topology compilation, statistics, overload/shock effects"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/leg/EnergyPath.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyPath.java",
       "scope": "Path direction, conductor thresholds and spatial bounds"
     },
     {
@@ -59,27 +59,27 @@
       "scope": "Conductor-only union/find partition with independent terminal endpoints"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/EnergyNetLocal.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyNetLocal.java",
       "scope": "World-thread registration transactions, direction-filtered adjacency and reuse of unchanged components"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/EnergyNetGlobal.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyNetGlobal.java",
       "scope": "Public energy API facade, typed location dispatch and service lifecycle"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/Grid.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/Grid.java",
       "scope": "Immutable component membership, lifecycle, statistics and diagnostics"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/Node.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/Node.java",
       "scope": "Typed role endpoint ownership and conductor loss adapter"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/NodeLink.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/NodeLink.java",
       "scope": "Immutable edge and physical endpoint direction mapping"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/Tile.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/Tile.java",
       "scope": "API identity, role construction and shared packet accounting"
     },
     {
@@ -87,7 +87,7 @@
       "scope": "Explicit safely published services with direct caller lookup"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/apihelper/CoreAccessImpl.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/CoreAccessImpl.java",
       "scope": "Typed platform service installation and public API bindings"
     },
     {
@@ -107,7 +107,7 @@
       "scope": "Safely published platform fluid capability/serialization services"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/Ic2FluidStackImpl.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/Ic2FluidStackImpl.java",
       "scope": "Native component-preserving copies and value identity"
     },
     {
@@ -195,19 +195,11 @@
       "scope": "Single completion/cancellation future state with nonblocking completion access"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/ProjectRuntime.java",
-      "scope": "NeoForge-only typed runtime bootstrap, side bindings and real build version"
-    },
-    {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/SideGateway.java",
-      "scope": "Typed side factories and dedicated-server client isolation"
-    },
-    {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/Rpc.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/Rpc.java",
       "scope": "Native protocol adapter over a race-safe future state"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/RpcHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/RpcHandler.java",
       "scope": "Bounded RPC lifecycle, provider argument checks and automatic timeout/disconnect cleanup"
     },
     {
@@ -219,7 +211,7 @@
       "scope": "Bounded fluid quantity arithmetic"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/fluid/Ic2FluidTank.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/Ic2FluidTank.java",
       "scope": "Component-sensitive storage, caller-preserving bounded fill/drain and reusable NBT correctness"
     },
     {
@@ -227,7 +219,7 @@
       "scope": "Owned/dynamic tanks, side masks and aggregate transfer without request mutation"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/ItemComparableItemStack.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/ItemComparableItemStack.java",
       "scope": "Immutable normalized legacy custom-data identity without redundant snapshots"
     },
     {
@@ -283,15 +275,15 @@
       "scope": "Distinct canning mode protocols, bounded container enrichment planning, conservation, output capacity and mode/save/network lifecycle"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/LiquidUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/LiquidUtil.java",
       "scope": "Independent fluid container output planning, explicit fluid whitelist, nonmutating distribution, bounded transfer negotiation and world source/container transactions"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/EnvFluidHandlerNeoForge.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/EnvFluidHandlerNeoForge.java",
       "scope": "Independent NeoForge registration/material ledger and native transactional item/block fluid capabilities with immutable predictions, empty-container identity and multi-tank extraction"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/ClientEnvFluidHandlerNeoForge.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/ClientEnvFluidHandlerNeoForge.java",
       "scope": "Direct fluid registration-material bindings for models, sprites and tint; no reflection or lazy initialization cycle"
     },
     {
@@ -363,23 +355,23 @@
       "scope": "Bounded independent packet buffer, big-endian VarHandle primitive access, five-byte positive varints, allocation-reduced UTF8, JDK modified UTF and frame-origin cursor bounds"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/GrowingBuffer.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/GrowingBuffer.java",
       "scope": "Native Netty borrowed/sliced frame views and transfers over the independent wire buffer"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/DataEncoder.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/DataEncoder.java",
       "scope": "Independent protocol 2 typed codec, full item/fluid components, bounded values/arrays/NBT, allowlisted addon/enum types, framed deferred addons, primitive arrays, registry enchantments and conservative state synchronization"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/NeoForgeNetworkHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/NeoForgeNetworkHandler.java",
       "scope": "Independent versioned bidirectional NeoForge transport and temporary frame ownership"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/IncomingActions.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/IncomingActions.java",
       "scope": "Independent bounded client action parser, world-thread dispatch, authoritative owned item events, same-world/range/menu validation and cached annotated writable fields"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/SubPacketType.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/SubPacketType.java",
       "scope": "Independent stable packet identifier table and immutable direction validation"
     },
     {
@@ -387,19 +379,19 @@
       "scope": "Independent pattern repository, indexed duplicate detection, unit quantity/owned snapshots, blank-crystal and malformed save handling, selection/network/drop persistence"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/ReflectionUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/ReflectionUtil.java",
       "scope": "Independent class-lifetime field/hierarchy metadata caches, typed uniqueness/method access, safe enum updates and component-aware synchronization"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/TeUpdateDataServer.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/TeUpdateDataServer.java",
       "scope": "Independent logical-name field delta coalescing, stable order and global/private precedence"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/TeUpdateDataClient.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/TeUpdateDataClient.java",
       "scope": "Independent parsed tile/field records, without borrowed stream or reflective field state"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/TeUpdate.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/TeUpdate.java",
       "scope": "Independent chunk recipient cache, one global field encoding per tile, bounded batch parsing, full registry IDs and owning-thread lifecycle/application"
     },
     {
@@ -407,19 +399,19 @@
       "scope": "Independent bounded compressed-fragment assembly, type/lifetime validation, expansion limits and JDK inflater completion checks"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/ClientStateUpdates.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/ClientStateUpdates.java",
       "scope": "Independent bounded client menu/item/handheld state parsing, owning-thread application and current menu/item matching"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/NetworkManager.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/NetworkManager.java",
       "scope": "Independent network API/message construction, server/client state boundaries, ownership-aware inbound dispatch, coalesced initial/field state, one broadcast payload, bounded compressed fragmentation and direct owned payload transport"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/NetworkManagerClient.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/NetworkManagerClient.java",
       "scope": "Independent client message construction, bounded compressed/state/component/extension routing, world-thread effects/events and direct owned payload transport"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/item/ItemCrystalMemory.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/ItemCrystalMemory.java",
       "scope": "Independent unit crystal records, pure absent/malformed reads, full native item components and translated tooltips"
     },
     {
@@ -439,43 +431,43 @@
       "scope": "Iterative dependency-indexed ingredient hypergraph relaxation with immutable primitive rule data"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/LeanItemStack.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/LeanItemStack.java",
       "scope": "Owned immutable material identities, normalized custom data and separated quantities"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/RecipeTransformation.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/RecipeTransformation.java",
       "scope": "Independent ingredient alternatives and checked output quantity coalescing"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/UuGraph.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/UuGraph.java",
       "scope": "World-thread native compilation, off-thread primitive cost solving, atomic immutable generations and read-only queries"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/RecipeUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/RecipeUtil.java",
       "scope": "Owned native ingredient conversion preserving every slot"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/MachineRecipeResolver.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/MachineRecipeResolver.java",
       "scope": "Quantity-aware IC2 processing material transformations"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/VanillaSmeltingResolver.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/VanillaSmeltingResolver.java",
       "scope": "Actual native smelting input and output material transformations"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/RecipeResolver.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/RecipeResolver.java",
       "scope": "Separate shaped, shapeless, native and assembly-excluded crafting adapters"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/ScrapBoxResolver.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/ScrapBoxResolver.java",
       "scope": "Finite expected-quantity probabilistic drop transformations"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/RecyclerResolver.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/RecyclerResolver.java",
       "scope": "Generation-local obtainable-material recycler alternatives"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/UuIndex.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/UuIndex.java",
       "scope": "Resolver lifecycle, finite seed validation, closed resource loading and immutable generation refresh"
     },
     {
@@ -603,15 +595,15 @@
       "scope": "Atomic bidirectional component registry with duplicate validation before publication"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/SemiFluidFuelManager.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/power/SemiFluidFuelManager.java",
       "scope": "Finite positive electrical fluid fuel registration and immutable identity-map generations"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/FluidHeatManager.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/FluidHeatManager.java",
       "scope": "Positive thermal fluid fuel registration and immutable identity-map generations"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/LiquidHeatExchangerManager.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/LiquidHeatExchangerManager.java",
       "scope": "Independent directional temperature validation, immutable heat-exchange generations and dynamically queried one-way-fluid policy"
     },
     {
@@ -811,11 +803,11 @@
       "scope": "Independent native block lifecycle with deferred-load retry epochs, compact validated components, ClassValue tick metadata, safe NBT bridge and world hooks"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/event/WorldData.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/WorldData.java",
       "scope": "Native level-identity service ownership with immutable lock-free lookup generations and deterministic unload cleanup"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/event/TickHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/TickHandler.java",
       "scope": "Bounded one-shot callback phases and deterministic continuous subscription transactions on native world threads"
     },
     {
@@ -843,11 +835,11 @@
       "scope": "Distinct mandatory-amplifier quota, tier-bounded scrap metering, retained fractional credits and paid solid output"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntityStorageBox.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityStorageBox.java",
       "scope": "Owned portable item snapshots, stale-empty data clearing and sole retained block-drop policy"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/FluidReservoir.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/FluidReservoir.java",
       "scope": "Distinct portable fluid retention, full-component handshake, server-only container commits and bounded capacity restoration"
     },
     {
@@ -899,7 +891,7 @@
       "scope": "Independent reversible voltage packet controller, persisted modes, cached directional policies and actual input/output screen values"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/ChunkLoadAwareBlockHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/ChunkLoadAwareBlockHandler.java",
       "scope": "Immutable state-dispatch generations, palette rejection, stable callback coordinates and native server chunk entry/exit ownership"
     },
     {
@@ -907,7 +899,7 @@
       "scope": "Reusable bounded primitive breadth-first workspace, stamped visited table, cyclic graph traversal and independent randomized collection oracles"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/PumpUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/PumpUtil.java",
       "scope": "Loaded same-fluid region traversal; excludes disconnected neighboring sources and unrelated fluid types"
     },
     {
@@ -2115,7 +2107,7 @@
       "scope": "Independent public service lifecycle, owned event proposals, immutable identity/electrical records and bounded kinetic request bridging"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/fluid/StandardFluidItem.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/StandardFluidItem.java",
       "scope": "Single-item real fluid conservation, exact components, no-write simulation, nonnegative corrupt overfull fill and native damage display"
     },
     {
@@ -2135,39 +2127,35 @@
       "scope": "Independent native fill/drain dynamic recipes with owned capability probes, exact fluid components and conserved adjusted input bills"
     },
     {
-      "file": "engine/src/main/java/ic2ce/core/util/PriorityExecutor.java",
+      "file": "engine/src/main/java/ic2ce/engine/async/PriorityExecutor.java",
       "scope": "Standalone CPU worker lanes, modern platform thread factory, stable priority preserving FutureTasks, detached snapshot removal and race-safe executor admission"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/Keyboard.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/Keyboard.java",
       "scope": "Bounded weak-player primitive key state, immutable observer publication, live native controls and world replacement reset"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/KeyboardClient.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/client/KeyboardClient.java",
       "scope": "Bounded weak-player primitive key state, immutable observer publication, live native controls and world replacement reset"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/StackTag.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/StackTag.java",
       "scope": "Independent owned native components and codec snapshot replacement, saved owner profiles, full stack-specific container delegation and transaction forwarding"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/FluidTag.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidTag.java",
       "scope": "Independent owned native components and codec snapshot replacement, saved owner profiles, full stack-specific container delegation and transaction forwarding"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/ProfileUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/ProfileUtil.java",
       "scope": "Independent owned native components and codec snapshot replacement, saved owner profiles, full stack-specific container delegation and transaction forwarding"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/DelegatingInventory.java",
-      "scope": "Independent owned native components and codec snapshot replacement, saved owner profiles, full stack-specific container delegation and transaction forwarding"
-    },
-    {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/Vector3.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/projectile/Vector3.java",
       "scope": "Independent native three-axis geometry adapter, zero normalization, overflow-resistant finite lengths, owned mutable operations and allocation-free cross products"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/RotationUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/RotationUtil.java",
       "scope": "Native wrench face hit projection, local-coordinate large-world precision, edge/corner decisions and unbiased primitive direction shuffling"
     },
     {
@@ -2179,19 +2167,19 @@
       "scope": "Independent native electrical machine construction, early capacity/tier validation, one real sink ledger and explicitly managed physical discharge slot"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/BiomeUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/BiomeUtil.java",
       "scope": "Independent native biome palette edit/notification, energy/fuel values, client particles and strict bounded XML attribute parsing"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/ItemInfo.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/ItemInfo.java",
       "scope": "Independent native biome palette edit/notification, energy/fuel values, client particles and strict bounded XML attribute parsing"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/ParticleUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/client/ParticleUtil.java",
       "scope": "Independent native biome palette edit/notification, energy/fuel values, client particles and strict bounded XML attribute parsing"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/XmlUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/XmlUtil.java",
       "scope": "Independent native biome palette edit/notification, energy/fuel values, client particles and strict bounded XML attribute parsing"
     },
     {
@@ -2663,23 +2651,23 @@
       "scope": "Actual neighbor identity/access guards and owned workbench return session explicitly re-register the native close callback; live side icons/tooltips tolerate removal and world changes"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/transport/cover/Covers.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/cover/Covers.java",
       "scope": "Six-owned-cover lifecycle, checked addon admission, side-only custom-data removal, reload reset, type guards and dirty tick commits"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/fluid/FluidTankInfo.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidTankInfo.java",
       "scope": "Bounded side masks and independent immutable native fluid-view ownership"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/BlockSideFluidHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/BlockSideFluidHandler.java",
       "scope": "Dynamic actual sided tank lookup without list copies, per-mutated-tank nested transaction journals and stale owner rejection"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/CellFluidHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/CellFluidHandler.java",
       "scope": "One-owned-cell nested transaction protocol, quantity/type/component result validation, native type exchange and complete ownerless component rollback"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/EventHandler.java",
       "scope": "Independent ordered registry/data bootstrap with failure state, checked native world/chunk and typed item/block/fall dispatch; attack admission no longer pays armor"
     },
     {
@@ -2731,7 +2719,7 @@
       "scope": "Bounded incremental UTF8 logger decoding, split-codepoint/CRLF/empty-line semantics and deterministic close without obsolete finalization"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/VanillaColorBlockId.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/paint/VanillaColorBlockId.java",
       "scope": "Independent native color-family classification replaces substring guesses while retaining palette names as material data"
     },
     {
@@ -2743,7 +2731,7 @@
       "scope": "Per-world random drift, 128-tick cadence, Horner altitude evaluation and corrected modulo-360 direction wrap"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxyServer.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SideProxyServer.java",
       "scope": "Dedicated native world/recipe/input/audio/task services, safe translated component ownership and preserved exception causes"
     },
     {
@@ -2775,19 +2763,15 @@
       "scope": "Actual native datapack advancement grant validates registry identity and awards only missing criteria, replacing inert legacy progression stub"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/StackUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/StackUtil.java",
       "scope": "Independent native component-sensitive item ownership/equality, positive hand/inventory bills, staged complete multi-slot debits, native off-hand/durability handling, pure placement caller data and planned bounded-slot balancing"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/Util.java",
-      "scope": "Independent native registry/world/actor helpers, bounded numeric/SI formatting, allocation-free caller StackWalker, ClassValue contract validation and authoritative native automation harvesting without obsolete JVM internals"
-    },
-    {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/IHasGui.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/menu/IHasGui.java",
       "scope": "Independent native block/handheld menu payloads, current attached-world ownership and proprietor/physical handheld identity checks; native chunk delivery precedes menu construction"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/fluid/FluidHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidHandler.java",
       "scope": "Typed independent native item/world/tile fluid dispatcher, actual world/state/position forwarding, published declared gas phases, invalid-operation guards and cached source catalog"
     },
     {
@@ -2799,15 +2783,15 @@
       "scope": "Distinct typed saber/toolbox/directional upgrade native display policies and physical item ownership"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/model/ModelUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/model/ModelUtil.java",
       "scope": "Independent native quad projection returns owned immutable views and canonical state variants"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/renderer/KineticGeneratorRenderer.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/client/KineticGeneratorRenderer.java",
       "scope": "Per-renderer bounded native rotor geometry, finite actual rotor state, reused fixed axis rotations and balanced pose ownership"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/loot/Ic2BlockNbtProvider.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/loot/Ic2BlockNbtProvider.java",
       "scope": "Checked native loot block/entity identity and independent adjusted metadata projection"
     },
     {
@@ -2835,7 +2819,7 @@
       "scope": "Independent declarative actual native JEI registration, distinct forming modes/catalysts, synchronized recipe generation and owned immutable presentation records"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/proxy/ClientEnvProxy.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/client/ClientEnvProxy.java",
       "scope": "Independent current native client boundary replaces obsolete predicate no-ops with owned quad snapshots and real typed renderer/screen contracts"
     },
     {
@@ -2847,7 +2831,7 @@
       "scope": "Typed native client registration replay, current model generations and actual independent fluid/model property bindings"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandlerClient.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/client/EventHandlerClient.java",
       "scope": "Independent finite native fluid fog/audio/connection lifetime service; retired no-op legacy GUI/model/render callback scaffolding"
     },
     {
@@ -2855,7 +2839,7 @@
       "scope": "Independent native recipe connection lifetime, mutable native fog data with explicit project-fluid identity and opaque signed/white RGB handling, owned audio/input event ticks"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxyClient.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/client/SideProxyClient.java",
       "scope": "Independent native client side-service lifetimes, typed actual screen/entity renderer binding data, deferred server task ownership, current dimension/player/recipe lookup and safe physical audio/messages"
     },
     {
@@ -2879,7 +2863,7 @@
       "scope": "Native independently composed leaf decay and project fire-spread/flammability properties"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/entity/render/ExplosiveBlockRenderer.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/explosion/client/ExplosiveBlockRenderer.java",
       "scope": "Independent native finite fuse rendering and equivalent simplified pose transform with finally-restored submission stack"
     },
     {
@@ -2939,7 +2923,7 @@
       "scope": "Independent immutable public tuple structure with value equality/hash and owned stable map projections"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/ManualRecipeResolver.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/ManualRecipeResolver.java",
       "scope": "Independent declarative forward-only actual reactor spent-material cost transformations with owned returned rule generations; reference rod identities retained"
     },
     {
@@ -2976,11 +2960,11 @@
     },
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/BlockDefinitions.java",
-      "scope": "Independent fresh native block-property factories prevent shared mutable builder registry-ID aliasing; reference block names, physical values and constructor table retained as declarative data"
+      "scope": "Independent fresh native block-property factories prevent shared mutable builder registry-ID aliasing; reference block names, physical values and constructor table retained as declarative data; now loads the domain definition holders in a fixed order and keeps only the shared registration helpers"
     },
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/BlockEntityDefinitions.java",
-      "scope": "Independent typed actual block-entity registration/lookup without repeated string allocation or lazy mutable publication; native device/variant constructor table retained as declarative data"
+      "scope": "Independent typed actual block-entity registration/lookup without repeated string allocation or lazy mutable publication; native device/variant constructor table retained as declarative data; now loads the domain definition holders in a fixed order and keeps only the shared registration helpers"
     },
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/ArmorProfiles.java",
@@ -3025,6 +3009,54 @@
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/CropTickSchedule.java",
       "scope": "World-owned phased due crop dispatch with native loaded/block-ticking/border admission, lifecycle removal, reentrant-safe iteration and period rebucketing"
+    },
+    {
+      "file": "engine/src/main/java/ic2ce/engine/text/SiFormat.java",
+      "scope": "Exact-decimal SI presentation with bounded significant digits and prefix carry, extracted from the platform helper with contract coverage"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/LoadedAreas.java",
+      "scope": "Overflow-safe square chunk readiness checks"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/diagnostics/Positions.java",
+      "scope": "Dimension-qualified block position log presentation with optional world identity"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/diagnostics/DevelopmentMode.java",
+      "scope": "INDEV development-content switch"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/ProjectIds.java",
+      "scope": "Project namespace identifiers"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SideServices.java",
+      "scope": "Explicitly installed physical-side proxy, keyboard, audio and network services"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SharedRandom.java",
+      "scope": "Single shared non-world random source"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/CreativeTabs.java",
+      "scope": "Ordered project creative tab staging"
+    },
+    {
+      "file": "engine/src/main/java/ic2ce/engine/agriculture/CropBreeding.java",
+      "scope": "Crossing weights, unbiased large crossing tickets and weed growth inheritance extracted from the crop plot with contract coverage; draws are supplied by the adapter in native order"
+    },
+    {
+      "file": "engine/src/main/java/ic2ce/engine/reactor/ReactorCore.java",
+      "scope": "Saturating reactor hull heat, output, pending coolant heat, electrical output and heat gauge arithmetic extracted from the nuclear core with contract coverage"
+    },
+    {
+      "file": "engine/src/main/java/ic2ce/engine/energy/SinkRoutes.java",
+      "scope": "Per-source sink route selection by loss and node order with one cheapest route per sink owner, extracted from the energy calculator with an oracle contract"
+    },
+    {
+      "file": "engine/src/main/java/ic2ce/engine/recipe/MaterialCostCompiler.java",
+      "scope": "Generic material transformation compilation into the cost hypergraph with first-appearance unit node keys and seeded costs, extracted from the UU graph with contract coverage"
     }
   ],
   "remainingFunctionalAreas": [],
@@ -3037,20 +3069,20 @@
   ],
   "integrationChanges": [
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/fluid/EnvFluidHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/EnvFluidHandler.java",
       "scope": "Implement the public fluid service contract"
     },
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/ItemDefinitions.java",
-      "scope": "Item definition table delegates actual fuel-can behavior to independent FuelCan and retired redundant axe/hoe wrappers to native component types; material membership and identifiers are declarative reference data"
+      "scope": "Item definition table delegates actual fuel-can behavior to independent FuelCan and retired redundant axe/hoe wrappers to native component types; material membership and identifiers are declarative reference data; now loads the domain definition holders in a fixed order and keeps only the shared registration helpers"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/proxy/EnvProxy.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/EnvProxy.java",
       "scope": "Remove unused dynamic-feature declarations; datapack world features and concrete native current registry lookup own these responsibilities; retained interface signatures remain contracts"
     },
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/MenuDefinitions.java",
-      "scope": "Menu type table retains names/factories while old packet decoding is replaced by independent ManagedMenus; declaration-only forwarding is not an implementation rewrite"
+      "scope": "Menu type table retains names/factories while old packet decoding is replaced by independent ManagedMenus; declaration-only forwarding is not an implementation rewrite; now loads the domain definition holders in a fixed order and keeps only the shared registration helpers"
     },
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/ToolProfiles.java",
@@ -3073,8 +3105,304 @@
       "scope": "Native tag-name declarations preserve the existing NeoForge registry identities and remove the unused Fabric dispatch branch; no gameplay implementation rewrite counted"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/loot/Ic2LootNbtProviderTypes.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/loot/Ic2LootNbtProviderTypes.java",
       "scope": "Native loot codec definition delegates registration to the independent typed registry journal in its actual registry phase; single constant/forwarding declaration is not a behavior rewrite"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/AgricultureBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/AgricultureBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/AgricultureItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/AgricultureMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/cable/CableBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/cable/CableItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/crafting/CraftingBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/crafting/CraftingBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/crafting/CraftingItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/crafting/CraftingMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/EnergyBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/EnergyBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/EnergyItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/EnergyMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/explosion/ExplosionBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/explosion/ExplosionBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/explosion/ExplosionItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/handheld/HandheldMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/armor/ArmorItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/consumable/ConsumableItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/container/ContainerItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/energy/BatteryItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/machining/MachiningItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/tool/ToolItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/UpgradeItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/UpgradeMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/KineticBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/KineticBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/KineticItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/KineticMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/material/MaterialItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/DocumentMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/mining/MiningBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/mining/MiningBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/mining/MiningItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/mining/MiningMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/PersonalBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/PersonalBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/PersonalItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/PersonalMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/power/PowerBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/power/PowerBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/power/PowerItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/power/PowerMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/ProcessingBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/ProcessingBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/ProcessingItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/ProcessingMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/ReactorBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/ReactorBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/ReactorItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/ReactorMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/StorageBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/StorageBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/StorageItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/terrain/TerrainBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/terrain/TerrainBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/terrain/TerrainItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/ThermalBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/ThermalBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/ThermalItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/ThermalMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/TransportBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/TransportBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/TransportItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/TransportMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/UtilityBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/UtilityBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/UtilityItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/UtilityMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/vehicle/VehicleItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/WorldBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/WorldBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/WorldItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
     }
   ],
   "retargetedNamespaceSources": {
@@ -3484,7 +3812,6 @@
     "platform/neoforge/src/main/java/ic2ce/neoforge/processing/menu/ProcessingMenu.java": "platform/neoforge/src/main/java/ic2/core/block/machine/container/ContainerStandardMachine.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/processing/menu/BoilerMenu.java": "platform/neoforge/src/main/java/ic2/core/block/machine/container/ContainerSteamGenerator.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/menu/PhysicalInventoryMenu.java": "platform/neoforge/src/main/java/ic2/core/ContainerFullInv.java",
-    "engine/src/main/java/ic2ce/core/util/PriorityExecutor.java": "platform/neoforge/src/main/java/ic2/core/util/PriorityExecutor.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/component/SignalOutput.java": "platform/neoforge/src/main/java/ic2/core/block/comp/BasicRedstoneComponent.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/component/AnalogSignalOutput.java": "platform/neoforge/src/main/java/ic2/core/block/comp/ComparatorEmitter.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/component/ComponentTypes.java": "platform/neoforge/src/main/java/ic2/core/block/comp/Components.java",
@@ -3590,7 +3917,6 @@
     "platform/neoforge/src/main/java/ic2ce/neoforge/power/client/SolarCollectorScreen.java": "platform/neoforge/src/main/java/ic2/core/block/generator/gui/GuiSolarGenerator.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/explosion/PrimedDemolitionCharge.java": "platform/neoforge/src/main/java/ic2/core/entity/block/ITntEntity.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/explosion/PrimedNuclearCharge.java": "platform/neoforge/src/main/java/ic2/core/entity/block/NukeEntity.java",
-    "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/FluidReservoir.java": "platform/neoforge/src/main/java/ic2/core/block/storage/tank/TileEntityTank.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/processing/thermal/AlloyFurnace.java": "platform/neoforge/src/main/java/ic2/core/block/machine/tileentity/TileEntityBlastFurnace.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/processing/solid/PlateCutter.java": "platform/neoforge/src/main/java/ic2/core/block/machine/tileentity/TileEntityBlockCutter.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/explosion/NuclearBlockEntity.java": "platform/neoforge/src/main/java/ic2/core/block/machine/tileentity/TileEntityBridgeNuke.java",
@@ -3646,7 +3972,6 @@
     "platform/neoforge/src/main/java/ic2ce/neoforge/world/surface/StateVariants.java": "platform/neoforge/src/main/java/ic2/core/block/state/BlockStateUtil.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/world/block/RubberSignEntity.java": "platform/neoforge/src/main/java/ic2/core/block/tileentity/Ic2SignBlockEntity.java",
     "verification/src/main/java/ic2ce/neoforge/world/block/SurfaceContracts.java": "verification/src/main/java/ic2ce/core/block/inherit/SurfaceContracts.java",
-    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/ProjectRuntime.java": "platform/neoforge/src/main/java/ic2/core/IC2.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/ProgressionService.java": "platform/neoforge/src/main/java/ic2/core/Ic2Achievements.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/CreativeCategory.java": "platform/neoforge/src/main/java/ic2/core/Ic2ItemGroupType.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/AutomationActors.java": "platform/neoforge/src/main/java/ic2/core/Ic2Player.java",
@@ -3696,7 +4021,138 @@
     "platform/neoforge/src/main/java/ic2ce/neoforge/world/block/WorldMaterials.java": "platform/neoforge/src/main/java/ic2/core/util/BlockMaterialChecks.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/item/paint/PigmentPalette.java": "platform/neoforge/src/main/java/ic2/core/util/Ic2Color.java",
     "verification/src/main/java/ic2ce/neoforge/registry/CreativeContracts.java": "verification/src/main/java/ic2ce/core/ref/CreativeContracts.java",
-    "engine/src/main/java/ic2ce/engine/value/ValueTuples.java": "platform/neoforge/src/main/java/ic2/core/util/Tuple.java"
+    "engine/src/main/java/ic2ce/engine/value/ValueTuples.java": "platform/neoforge/src/main/java/ic2/core/util/Tuple.java",
+    "engine/src/main/java/ic2ce/engine/config/Config.java": "engine/src/main/java/ic2/core/util/Config.java",
+    "engine/src/main/java/ic2ce/engine/async/PriorityExecutor.java": "platform/neoforge/src/main/java/ic2/core/util/PriorityExecutor.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/client/KineticGeneratorRenderer.java": "platform/neoforge/src/main/java/ic2/core/block/renderer/KineticGeneratorRenderer.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/explosion/client/ExplosiveBlockRenderer.java": "platform/neoforge/src/main/java/ic2/core/entity/render/ExplosiveBlockRenderer.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/loot/Ic2BlockNbtProvider.java": "platform/neoforge/src/main/java/ic2/core/loot/Ic2BlockNbtProvider.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/loot/Ic2LootNbtProviderTypes.java": "platform/neoforge/src/main/java/ic2/core/loot/Ic2LootNbtProviderTypes.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/model/ModelUtil.java": "platform/neoforge/src/main/java/ic2/core/model/ModelUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/Both.java": "platform/neoforge/src/main/java/ic2/core/profile/Both.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/NotClassic.java": "platform/neoforge/src/main/java/ic2/core/profile/NotClassic.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/NotExperimental.java": "platform/neoforge/src/main/java/ic2/core/profile/NotExperimental.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/EnvFluidHandler.java": "platform/neoforge/src/main/java/ic2/core/fluid/EnvFluidHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidHandler.java": "platform/neoforge/src/main/java/ic2/core/fluid/FluidHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidTankInfo.java": "platform/neoforge/src/main/java/ic2/core/fluid/FluidTankInfo.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/Ic2FluidBlock.java": "platform/neoforge/src/main/java/ic2/core/fluid/Ic2FluidBlock.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/Ic2FluidTank.java": "platform/neoforge/src/main/java/ic2/core/fluid/Ic2FluidTank.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/StandardFluidItem.java": "platform/neoforge/src/main/java/ic2/core/fluid/StandardFluidItem.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidTag.java": "platform/neoforge/src/main/java/ic2/core/util/FluidTag.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/LiquidUtil.java": "platform/neoforge/src/main/java/ic2/core/util/LiquidUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/PumpUtil.java": "platform/neoforge/src/main/java/ic2/core/util/PumpUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/BlockSideFluidHandler.java": "platform/neoforge/src/main/java/ic2/forge/BlockSideFluidHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/CellFluidHandler.java": "platform/neoforge/src/main/java/ic2/forge/CellFluidHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/ClientEnvFluidHandlerNeoForge.java": "platform/neoforge/src/main/java/ic2/forge/ClientEnvFluidHandlerForge.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/EnvFluidHandlerNeoForge.java": "platform/neoforge/src/main/java/ic2/forge/EnvFluidHandlerForge.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/Ic2FluidStackImpl.java": "platform/neoforge/src/main/java/ic2/forge/Ic2FluidStackImpl.java",
+    "verification/src/main/java/ic2ce/neoforge/fluid/FluidContracts.java": "verification/src/main/java/ic2ce/core/fluid/FluidContracts.java",
+    "verification/src/main/java/ic2ce/neoforge/fluid/FluidServiceContracts.java": "verification/src/main/java/ic2ce/core/fluid/FluidServiceContracts.java",
+    "verification/src/main/java/ic2ce/neoforge/fluid/FluidCapabilityContracts.java": "verification/src/main/java/ic2ce/neoforge/FluidCapabilityContracts.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/ClientStateUpdates.java": "platform/neoforge/src/main/java/ic2ce/core/network/ClientStateUpdates.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/DataEncoder.java": "platform/neoforge/src/main/java/ic2/core/network/DataEncoder.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/GrowingBuffer.java": "platform/neoforge/src/main/java/ic2/core/network/GrowingBuffer.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/GuiSynced.java": "platform/neoforge/src/main/java/ic2/core/network/GuiSynced.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/IPlayerItemDataListener.java": "platform/neoforge/src/main/java/ic2/core/network/IPlayerItemDataListener.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/IRpcProvider.java": "platform/neoforge/src/main/java/ic2/core/network/IRpcProvider.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/IncomingActions.java": "platform/neoforge/src/main/java/ic2ce/core/network/IncomingActions.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/NetworkManager.java": "platform/neoforge/src/main/java/ic2/core/network/NetworkManager.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/NetworkManagerClient.java": "platform/neoforge/src/main/java/ic2/core/network/NetworkManagerClient.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/Rpc.java": "platform/neoforge/src/main/java/ic2/core/network/Rpc.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/RpcHandler.java": "platform/neoforge/src/main/java/ic2/core/network/RpcHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/SubPacketType.java": "platform/neoforge/src/main/java/ic2/core/network/SubPacketType.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/TeUpdate.java": "platform/neoforge/src/main/java/ic2/core/network/TeUpdate.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/TeUpdateDataClient.java": "platform/neoforge/src/main/java/ic2/core/network/TeUpdateDataClient.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/TeUpdateDataServer.java": "platform/neoforge/src/main/java/ic2/core/network/TeUpdateDataServer.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/ReflectionUtil.java": "platform/neoforge/src/main/java/ic2/core/util/ReflectionUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/NeoForgeNetworkHandler.java": "platform/neoforge/src/main/java/ic2/forge/ForgeNetworkHandler.java",
+    "verification/src/main/java/ic2ce/neoforge/network/ActionContracts.java": "verification/src/main/java/ic2ce/core/network/ActionContracts.java",
+    "verification/src/main/java/ic2ce/neoforge/network/WireContracts.java": "verification/src/main/java/ic2ce/core/network/WireContracts.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyNetGlobal.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/EnergyNetGlobal.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyNetLocal.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/EnergyNetLocal.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyNetSettings.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/EnergyNetSettings.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/Grid.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/Grid.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/GridInfo.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/GridInfo.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/IEnergyCalculator.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/IEnergyCalculator.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/Node.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/Node.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/NodeLink.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/NodeLink.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/NodeType.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/NodeType.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/Tile.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/Tile.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyCalculatorLeg.java": "platform/neoforge/src/main/java/ic2/core/energy/leg/EnergyCalculatorLeg.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyPath.java": "platform/neoforge/src/main/java/ic2/core/energy/leg/EnergyPath.java",
+    "verification/src/main/java/ic2ce/neoforge/energy/grid/NetworkLifecycleProbe.java": "verification/src/main/java/ic2ce/core/energy/grid/NetworkLifecycleProbe.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/ItemCrystalMemory.java": "platform/neoforge/src/main/java/ic2/core/item/ItemCrystalMemory.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/ILateRecipeResolver.java": "platform/neoforge/src/main/java/ic2/core/uu/ILateRecipeResolver.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/IRecipeResolver.java": "platform/neoforge/src/main/java/ic2/core/uu/IRecipeResolver.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/LeanItemStack.java": "platform/neoforge/src/main/java/ic2/core/uu/LeanItemStack.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/MachineRecipeResolver.java": "platform/neoforge/src/main/java/ic2/core/uu/MachineRecipeResolver.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/ManualRecipeResolver.java": "platform/neoforge/src/main/java/ic2/core/uu/ManualRecipeResolver.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/RecipeResolver.java": "platform/neoforge/src/main/java/ic2/core/uu/RecipeResolver.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/RecipeTransformation.java": "platform/neoforge/src/main/java/ic2/core/uu/RecipeTransformation.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/RecipeUtil.java": "platform/neoforge/src/main/java/ic2/core/uu/RecipeUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/RecyclerResolver.java": "platform/neoforge/src/main/java/ic2/core/uu/RecyclerResolver.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/ScrapBoxResolver.java": "platform/neoforge/src/main/java/ic2/core/uu/ScrapBoxResolver.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/UuGraph.java": "platform/neoforge/src/main/java/ic2/core/uu/UuGraph.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/UuIndex.java": "platform/neoforge/src/main/java/ic2/core/uu/UuIndex.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/VanillaSmeltingResolver.java": "platform/neoforge/src/main/java/ic2/core/uu/VanillaSmeltingResolver.java",
+    "verification/src/main/java/ic2ce/neoforge/processing/uu/MaterialContracts.java": "verification/src/main/java/ic2ce/core/uu/MaterialContracts.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/ChunkLoadAwareBlock.java": "platform/neoforge/src/main/java/ic2/core/block/ChunkLoadAwareBlock.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/ChunkLoadAwareBlockHandler.java": "platform/neoforge/src/main/java/ic2/core/block/ChunkLoadAwareBlockHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/IInventorySlotHolder.java": "platform/neoforge/src/main/java/ic2/core/block/IInventorySlotHolder.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityBronzeStorageBox.java": "platform/neoforge/src/main/java/ic2/core/block/storage/box/TileEntityBronzeStorageBox.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityIridiumStorageBox.java": "platform/neoforge/src/main/java/ic2/core/block/storage/box/TileEntityIridiumStorageBox.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityIronStorageBox.java": "platform/neoforge/src/main/java/ic2/core/block/storage/box/TileEntityIronStorageBox.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntitySteelStorageBox.java": "platform/neoforge/src/main/java/ic2/core/block/storage/box/TileEntitySteelStorageBox.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityStorageBox.java": "platform/neoforge/src/main/java/ic2/core/block/storage/box/TileEntityStorageBox.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityWoodenStorageBox.java": "platform/neoforge/src/main/java/ic2/core/block/storage/box/TileEntityWoodenStorageBox.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/FluidReservoir.java": "platform/neoforge/src/main/java/ic2/core/block/storage/tank/TileEntityTank.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/TileEntityBronzeTank.java": "platform/neoforge/src/main/java/ic2/core/block/storage/tank/TileEntityBronzeTank.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/TileEntityIridiumTank.java": "platform/neoforge/src/main/java/ic2/core/block/storage/tank/TileEntityIridiumTank.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/TileEntityIronTank.java": "platform/neoforge/src/main/java/ic2/core/block/storage/tank/TileEntityIronTank.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/TileEntitySteelTank.java": "platform/neoforge/src/main/java/ic2/core/block/storage/tank/TileEntitySteelTank.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/transport/cover/CoverProperty.java": "platform/neoforge/src/main/java/ic2/core/block/transport/cover/CoverProperty.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/transport/cover/Covers.java": "platform/neoforge/src/main/java/ic2/core/block/transport/cover/Covers.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/transport/cover/ICoverHolder.java": "platform/neoforge/src/main/java/ic2/core/block/transport/cover/ICoverHolder.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/transport/cover/ICoverItem.java": "platform/neoforge/src/main/java/ic2/core/block/transport/cover/ICoverItem.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/transfer/EnvItemHandler.java": "platform/neoforge/src/main/java/ic2/core/item/EnvItemHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/ItemComparableItemStack.java": "platform/neoforge/src/main/java/ic2/core/util/ItemComparableItemStack.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/StackUtil.java": "platform/neoforge/src/main/java/ic2/core/util/StackUtil.java",
+    "verification/src/main/java/ic2ce/neoforge/component/RegistryContracts.java": "verification/src/main/java/ic2ce/core/block/comp/RegistryContracts.java",
+    "verification/src/main/java/ic2ce/neoforge/storage/PortableStorageContracts.java": "verification/src/main/java/ic2ce/core/block/storage/PortableStorageContracts.java",
+    "verification/src/main/java/ic2ce/neoforge/transport/cover/CoverContracts.java": "verification/src/main/java/ic2ce/core/block/transport/cover/CoverContracts.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/FluidHeatManager.java": "platform/neoforge/src/main/java/ic2/core/FluidHeatManager.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/menu/IHasGui.java": "platform/neoforge/src/main/java/ic2/core/IHasGui.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/item/IHitSoundOverride.java": "platform/neoforge/src/main/java/ic2/core/IHitSoundOverride.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/LiquidHeatExchangerManager.java": "platform/neoforge/src/main/java/ic2/core/LiquidHeatExchangerManager.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/power/SemiFluidFuelManager.java": "platform/neoforge/src/main/java/ic2/core/SemiFluidFuelManager.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/handheld/IHandHeldInventory.java": "platform/neoforge/src/main/java/ic2/core/item/IHandHeldInventory.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/handheld/IHandHeldSubInventory.java": "platform/neoforge/src/main/java/ic2/core/item/IHandHeldSubInventory.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/item/IPseudoDamageItem.java": "platform/neoforge/src/main/java/ic2/core/item/IPseudoDamageItem.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/item/PriorityUsableItem.java": "platform/neoforge/src/main/java/ic2/core/item/PriorityUsableItem.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/client/KeyboardClient.java": "platform/neoforge/src/main/java/ic2/core/util/KeyboardClient.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/client/ParticleUtil.java": "platform/neoforge/src/main/java/ic2/core/util/ParticleUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/personal/ProfileUtil.java": "platform/neoforge/src/main/java/ic2/core/util/ProfileUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/item/StackTag.java": "platform/neoforge/src/main/java/ic2/core/util/StackTag.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/item/paint/VanillaColorBlockId.java": "platform/neoforge/src/main/java/ic2/core/util/VanillaColorBlockId.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/projectile/Vector3.java": "platform/neoforge/src/main/java/ic2/core/util/Vector3.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/XmlUtil.java": "platform/neoforge/src/main/java/ic2/core/util/XmlUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/CoreAccessImpl.java": "platform/neoforge/src/main/java/ic2/core/apihelper/CoreAccessImpl.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/EventHandler.java": "platform/neoforge/src/main/java/ic2/core/event/EventHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/client/EventHandlerClient.java": "platform/neoforge/src/main/java/ic2/core/event/EventHandlerClient.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/IWorldTickCallback.java": "platform/neoforge/src/main/java/ic2/core/event/IWorldTickCallback.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/TickHandler.java": "platform/neoforge/src/main/java/ic2/core/event/TickHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/WorldData.java": "platform/neoforge/src/main/java/ic2/core/event/WorldData.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/client/ClientEnvProxy.java": "platform/neoforge/src/main/java/ic2/core/proxy/ClientEnvProxy.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/EnvProxy.java": "platform/neoforge/src/main/java/ic2/core/proxy/EnvProxy.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SideProxy.java": "platform/neoforge/src/main/java/ic2/core/proxy/SideProxy.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/client/SideProxyClient.java": "platform/neoforge/src/main/java/ic2/core/proxy/SideProxyClient.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SideProxyServer.java": "platform/neoforge/src/main/java/ic2/core/proxy/SideProxyServer.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/BiomeUtil.java": "platform/neoforge/src/main/java/ic2/core/util/BiomeUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/ItemInfo.java": "platform/neoforge/src/main/java/ic2/core/util/ItemInfo.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/Keyboard.java": "platform/neoforge/src/main/java/ic2/core/util/Keyboard.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/RotationUtil.java": "platform/neoforge/src/main/java/ic2/core/util/RotationUtil.java",
+    "verification/src/main/java/ic2ce/neoforge/world/WorldLifecycleContracts.java": "verification/src/main/java/ic2ce/core/event/WorldLifecycleContracts.java",
+    "verification/src/main/java/ic2ce/neoforge/inventory/StackValueContracts.java": "verification/src/main/java/ic2ce/core/util/StackValueContracts.java"
   },
   "retiredSources": [
     {
@@ -3800,6 +4256,31 @@
     {
       "file": "api/src/main/java/ic2ce/api/crops/ExampleCropCard.java",
       "reason": "Unused old addon sample always returned a null native block and had no runtime, registry, API or fixture consumer; real independently implemented crop species supply working native implementations"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/util/Util.java",
+      "scope": "Split by responsibility: SI formatting to engine SiFormat, facing sets to world DirectionSets, area readiness to world LoadedAreas, log positions to diagnostics Positions, the INDEV flag to diagnostics DevelopmentMode; single-caller helpers inlined at their caller; unused helpers removed.",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/util/DelegatingInventory.java",
+      "scope": "Unused container wrapper; no production or verification references.",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidBeBridge.java",
+      "scope": "Unused bridge marker; no production or verification references.",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/ProjectRuntime.java",
+      "scope": "Global service locator split by responsibility: IDs to ProjectIds, logging to ProjectLog.LOG, environment to EnvProxy.get(), side proxy/keyboard/audio/network to SideServices, shared random to SharedRandom, creative tabs to CreativeTabs, UU workers to UuGraph; constant-false flags folded at their readers and unused constants removed.",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SideGateway.java",
+      "scope": "Replaced by SideServices, which installs client services explicitly instead of during static initialization.",
+      "countsAsImplementationRewrite": false
     }
   ],
   "acceptanceScope": {

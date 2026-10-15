@@ -1,6 +1,6 @@
 package ic2ce.neoforge.block;
 
-import ic2ce.core.block.IInventorySlotHolder;
+import ic2ce.neoforge.inventory.IInventorySlotHolder;
 import ic2ce.neoforge.component.AnalogSignalOutput;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.inventory.UpgradeInventory;

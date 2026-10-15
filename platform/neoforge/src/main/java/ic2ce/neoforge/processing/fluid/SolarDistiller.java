@@ -3,20 +3,20 @@ package ic2ce.neoforge.processing.fluid;
 import ic2ce.api.crops.BiomeType;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.upgrade.*;
-import ic2ce.core.*;
-import ic2ce.core.fluid.Ic2FluidTank;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
-import ic2ce.core.util.BiomeUtil;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
+import ic2ce.neoforge.runtime.EnvProxy;
+import ic2ce.neoforge.runtime.profile.NotClassic;
+import ic2ce.neoforge.world.BiomeUtil;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.power.SolarCollector;
 import ic2ce.neoforge.processing.menu.DistillationMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
@@ -41,7 +41,7 @@ public class SolarDistiller extends InventoryBlockEntity implements IHasGui, IUp
           UpgradableProperty.FluidProducing);
 
   public SolarDistiller(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.SOLAR_DISTILLER, position, state);
+    super(ProcessingBlockEntities.SOLAR_DISTILLER, position, state);
     fluids = addComponent(new FluidPorts(this));
     inputTank =
         fluids.addTankInsert(
@@ -108,9 +108,9 @@ public class SolarDistiller extends InventoryBlockEntity implements IHasGui, IUp
   public int getTickRate() {
     if (getLevel() == null) return 72;
     var biome = BiomeUtil.getBiome(getLevel(), worldPosition);
-    return ProjectRuntime.envProxy.biomeHasType(biome, BiomeType.HOT)
+    return EnvProxy.get().biomeHasType(biome, BiomeType.HOT)
         ? 36
-        : ProjectRuntime.envProxy.biomeHasType(biome, BiomeType.COLD) ? 144 : 72;
+        : EnvProxy.get().biomeHasType(biome, BiomeType.COLD) ? 144 : 72;
   }
 
   public boolean canWork() {

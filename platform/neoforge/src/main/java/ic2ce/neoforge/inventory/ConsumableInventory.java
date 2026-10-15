@@ -1,9 +1,8 @@
 package ic2ce.neoforge.inventory;
 
-import ic2ce.core.block.IInventorySlotHolder;
 import ic2ce.engine.inventory.DurabilityBudget;
 import ic2ce.neoforge.item.PhysicalWear;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -42,7 +41,7 @@ public abstract class ConsumableInventory extends InventorySlot {
       if (held.isEmpty()
           || !accepts(held)
           || template != null && !ItemStack.isSameItemSameComponents(held, template)) continue;
-      boolean remainder = !consumeContainers && ProjectRuntime.envProxy.hasRecipeRemainder(held);
+      boolean remainder = !consumeContainers && EnvProxy.get().hasRecipeRemainder(held);
       if (remainder && held.getCount() != 1) continue;
       if (template == null) template = held;
       int taken = Math.min(amount - consumed, held.getCount());
@@ -51,7 +50,7 @@ public abstract class ConsumableInventory extends InventorySlot {
       ItemStack next;
       if (taken < held.getCount()) next = held.copyWithCount(held.getCount() - taken);
       else if (remainder) {
-        next = ProjectRuntime.envProxy.getRecipeRemainder(held);
+        next = EnvProxy.get().getRecipeRemainder(held);
         if (next != null
             && next.isDamageableItem()
             && PhysicalWear.getDamage(next) > PhysicalWear.getMaxDamage(next))

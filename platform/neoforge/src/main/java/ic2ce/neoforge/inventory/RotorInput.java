@@ -1,8 +1,7 @@
 package ic2ce.neoforge.inventory;
 
 import ic2ce.api.item.IKineticRotor;
-import ic2ce.core.block.IInventorySlotHolder;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.world.item.ItemStack;
 
 public class RotorInput extends TypeFilteredInput {
@@ -45,6 +44,6 @@ public class RotorInput extends TypeFilteredInput {
     if (updateField != null
         && base.getParent().hasLevel()
         && !base.getParent().getLevel().isClientSide())
-      ProjectRuntime.network.get(true).updateTileEntityField(base.getParent(), updateField);
+      SideServices.network(true).updateTileEntityField(base.getParent(), updateField);
   }
 }

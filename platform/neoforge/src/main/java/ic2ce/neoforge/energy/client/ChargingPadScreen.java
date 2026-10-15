@@ -1,6 +1,6 @@
 package ic2ce.neoforge.energy.client;
 
-import ic2ce.core.util.Util;
+import ic2ce.engine.text.SiFormat;
 import ic2ce.neoforge.client.screen.MachineScreen;
 import ic2ce.neoforge.client.widget.*;
 import ic2ce.neoforge.energy.menu.*;
@@ -37,7 +37,7 @@ public class ChargingPadScreen extends MachineScreen<ChargingPadMenu> {
             LiveText.of(
                 (com.google.common.base.Supplier<String>)
                     () ->
-                        Util.toSiString(
+                        SiFormat.format(
                             Math.min(menu.base.energy.getEnergy(), menu.base.energy.getCapacity()),
                             6)),
             0x404040,
@@ -49,7 +49,7 @@ public class ChargingPadScreen extends MachineScreen<ChargingPadMenu> {
             45,
             LiveText.of(
                 (com.google.common.base.Supplier<String>)
-                    () -> "/" + Util.toSiString(menu.base.energy.getCapacity(), 6)),
+                    () -> "/" + SiFormat.format(menu.base.energy.getCapacity(), 6)),
             0x404040,
             false));
   }

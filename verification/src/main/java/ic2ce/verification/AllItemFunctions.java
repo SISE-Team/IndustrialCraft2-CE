@@ -3,17 +3,21 @@ package ic2ce.verification;
 import com.google.gson.GsonBuilder;
 import ic2ce.api.crops.*;
 import ic2ce.api.item.*;
-import ic2ce.core.item.*;
+import ic2ce.neoforge.ProjectIds;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
 import ic2ce.neoforge.agriculture.CropPlot;
 import ic2ce.neoforge.agriculture.item.EncodedSeed;
 import ic2ce.neoforge.damage.RadiationEffect;
 import ic2ce.neoforge.item.armor.EquipmentItem;
+import ic2ce.neoforge.item.consumable.ConsumableItems;
 import ic2ce.neoforge.item.container.FixedCell;
 import ic2ce.neoforge.item.energy.DisposableSupply;
 import ic2ce.neoforge.item.energy.RechargeableSupply;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.item.tool.ToolItems;
+import ic2ce.neoforge.power.PowerBlocks;
+import ic2ce.neoforge.processing.ProcessingBlocks;
+import ic2ce.neoforge.utility.UtilityBlocks;
+import ic2ce.neoforge.world.WorldBlocks;
 import java.nio.file.*;
 import java.util.*;
 import net.minecraft.core.*;
@@ -257,7 +261,7 @@ public final class AllItemFunctions {
     for (var boat : player.level().getEntitiesOfClass(Boat.class, new AABB(POS).inflate(6)))
       boat.discard();
     original = AllMachinesVerification.stack(trial.id, 1);
-    if (BuiltInRegistries.ITEM.getValue(ProjectRuntime.getIdentifier(trial.id))
+    if (BuiltInRegistries.ITEM.getValue(ProjectIds.id(trial.id))
         instanceof IElectricItem)
       ElectricItem.manager.charge(original, 1_000_000_000, Integer.MAX_VALUE, true, false);
     beforeCharge = ElectricItem.manager.getCharge(original);
@@ -268,16 +272,16 @@ public final class AllItemFunctions {
     if (operation.equals("legacy_cell"))
       player.level().setBlock(POS, Blocks.STONE.defaultBlockState(), 3);
     if (operation.equals("unsupported_upgrade"))
-      player.level().setBlock(POS, BlockDefinitions.MACERATOR.defaultBlockState(), 3);
+      player.level().setBlock(POS, ProcessingBlocks.MACERATOR.defaultBlockState(), 3);
     if (operation.equals("saber_tick"))
-      player.getInventory().setItem(1, new ItemStack(ItemDefinitions.NANO_SABER));
+      player.getInventory().setItem(1, new ItemStack(ToolItems.NANO_SABER));
     if (operation.equals("obscurator")) {
       player.setShiftKeyDown(true);
       player.level().setBlock(POS, Blocks.STONE.defaultBlockState(), 3);
-      player.level().setBlock(POS.east(3), BlockDefinitions.WHITE_WALL.defaultBlockState(), 3);
+      player.level().setBlock(POS.east(3), WorldBlocks.WHITE_WALL.defaultBlockState(), 3);
     }
     if (operation.equals("battery")) {
-      player.getInventory().setItem(1, new ItemStack(ItemDefinitions.DRILL));
+      player.getInventory().setItem(1, new ItemStack(ToolItems.DRILL));
     }
     if (operation.equals("mine")) {
       Block block =
@@ -311,7 +315,7 @@ public final class AllItemFunctions {
           .level()
           .setBlock(
               POS,
-              BlockDefinitions.CROP_STICK
+              AgricultureBlocks.CROP_STICK
                   .defaultBlockState()
                   .setValue(ic2ce.neoforge.block.MachineBlockType.CROSSING_BASE, false),
               3);
@@ -341,14 +345,14 @@ public final class AllItemFunctions {
       player.level().setBlock(POS.east(), Blocks.IRON_ORE.defaultBlockState(), 3);
     }
     if (operation.equals("wrench")) {
-      player.level().setBlock(POS, BlockDefinitions.GENERATOR.defaultBlockState(), 3);
+      player.level().setBlock(POS, PowerBlocks.GENERATOR.defaultBlockState(), 3);
       var tile = (ic2ce.neoforge.block.NativeBlockEntity) player.level().getBlockEntity(POS);
       ledger.phases.put("wrenchInitial", tile.getFacing().getName());
     }
     if (operation.equals("meter") || operation.equals("debug") || operation.equals("crowbar")) {
-      player.level().setBlock(POS, BlockDefinitions.GENERATOR.defaultBlockState(), 3);
+      player.level().setBlock(POS, PowerBlocks.GENERATOR.defaultBlockState(), 3);
       if (operation.equals("debug"))
-        ic2ce.core.util.StackTag.update(
+        ic2ce.neoforge.item.StackTag.update(
             original,
             n -> {
               n.putInt("mode", 2);
@@ -357,10 +361,10 @@ public final class AllItemFunctions {
     }
     if (operation.startsWith("frequency")) {
       player.setShiftKeyDown(true);
-      player.level().setBlock(POS, BlockDefinitions.TELEPORTER.defaultBlockState(), 3);
-      player.level().setBlock(POS.west(3), BlockDefinitions.TELEPORTER.defaultBlockState(), 3);
+      player.level().setBlock(POS, UtilityBlocks.TELEPORTER.defaultBlockState(), 3);
+      player.level().setBlock(POS.west(3), UtilityBlocks.TELEPORTER.defaultBlockState(), 3);
       if (!operation.equals("frequency_record"))
-        ic2ce.core.util.StackTag.update(
+        ic2ce.neoforge.item.StackTag.update(
             original,
             n -> {
               n.putBoolean("targetSet", true);
@@ -390,7 +394,7 @@ public final class AllItemFunctions {
         && obscuratorStage == 0
         && age >= 40
         && ic2ce.neoforge.item.tool.SurfaceImprinter.getState(
-                ic2ce.core.util.StackUtil.getOrCreateNbtData(player.getItemInHand(hand)))
+                ic2ce.neoforge.inventory.StackUtil.getOrCreateNbtData(player.getItemInHand(hand)))
             != null) {
       player.setShiftKeyDown(false);
       obscuratorStage = 1;
@@ -414,11 +418,11 @@ public final class AllItemFunctions {
     switch (operation) {
       case "equip" -> {
         var armor =
-            (EquipmentItem) BuiltInRegistries.ITEM.getValue(ProjectRuntime.getIdentifier(trial.id));
+            (EquipmentItem) BuiltInRegistries.ITEM.getValue(ProjectIds.id(trial.id));
         passed &=
             player
                     .getItemBySlot(armor.getArmorSlot())
-                    .is(BuiltInRegistries.ITEM.getValue(ProjectRuntime.getIdentifier(trial.id)))
+                    .is(BuiltInRegistries.ITEM.getValue(ProjectIds.id(trial.id)))
                 && held.isEmpty();
         evidence = "worn=" + player.getItemBySlot(armor.getArmorSlot());
       }
@@ -528,9 +532,9 @@ public final class AllItemFunctions {
       }
       case "crowbar" -> {
         passed &=
-            held.is(ItemDefinitions.CROWBAR)
+            held.is(ToolItems.CROWBAR)
                 && held.getDamageValue() == 0
-                && player.level().getBlockState(POS).is(BlockDefinitions.GENERATOR);
+                && player.level().getBlockState(POS).is(PowerBlocks.GENERATOR);
         evidence = "native use safely rejects a non-cover-holder and preserves both hands";
       }
       case "legacy_cell" -> {
@@ -600,7 +604,7 @@ public final class AllItemFunctions {
         evidence = "received debug chat=" + clientResult;
       }
       case "frequency_record" -> {
-        var data = ic2ce.core.util.StackTag.get(held);
+        var data = ic2ce.neoforge.item.StackTag.get(held);
         passed &=
             data != null
                 && data.getBooleanOr("targetSet", false)
@@ -619,7 +623,7 @@ public final class AllItemFunctions {
         evidence = "bidirectional link=" + a.getTarget() + " / " + b.getTarget();
       }
       case "frequency_clear" -> {
-        var data = ic2ce.core.util.StackTag.get(held);
+        var data = ic2ce.neoforge.item.StackTag.get(held);
         passed &= data != null && !data.getBooleanOr("targetSet", true);
         evidence = "unlinked=" + data;
       }
@@ -647,7 +651,7 @@ public final class AllItemFunctions {
             error));
     if (passed)
       ledger.mark(
-          BuiltInRegistries.ITEM.getValue(ProjectRuntime.getIdentifier(trial.id)),
+          BuiltInRegistries.ITEM.getValue(ProjectIds.id(trial.id)),
           "real_client_" + operation,
           evidence);
     save();
@@ -832,7 +836,7 @@ public final class AllItemFunctions {
           } else {
             mc.options.keyUse.setDown(
                 operation.equals("eat")
-                    && mc.player.getItemInHand(hand).is(ItemDefinitions.TERRA_WART));
+                    && mc.player.getItemInHand(hand).is(ConsumableItems.TERRA_WART));
             mc.gameMode.useItem(mc.player, hand);
           }
         }

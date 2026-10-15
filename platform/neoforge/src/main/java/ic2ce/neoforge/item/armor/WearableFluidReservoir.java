@@ -3,7 +3,7 @@ package ic2ce.neoforge.item.armor;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.item.IItemHudInfo;
-import ic2ce.core.fluid.StandardFluidItem;
+import ic2ce.neoforge.fluid.StandardFluidItem;
 import java.util.List;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;

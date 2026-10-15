@@ -2,8 +2,8 @@ package ic2ce.verification;
 
 import com.google.gson.GsonBuilder;
 import com.sun.management.ThreadMXBean;
-import ic2ce.core.network.DataEncoder;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.DataEncoder;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.PerformanceInventoryProbe;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.block.MachineBlockType;
@@ -11,7 +11,7 @@ import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.cable.ConductorBlock;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.processing.PoweredProcessor;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.io.OutputStream;
 import java.lang.management.ManagementFactory;
 import java.nio.file.Files;
@@ -74,7 +74,7 @@ public final class PerformanceVerification {
     }
     bean.setThreadAllocatedMemoryEnabled(true);
     bean.setThreadCpuTimeEnabled(true);
-    ProjectRuntime.random.setSeed(20261013L);
+    SharedRandom.INSTANCE.setSeed(20261013L);
     server
         .getCommands()
         .performPrefixedCommand(

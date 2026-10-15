@@ -3,7 +3,6 @@ package ic2ce.neoforge.inventory;
 import ic2ce.api.energy.tile.IDischargingSlot;
 import ic2ce.api.info.Info;
 import ic2ce.api.item.ElectricItem;
-import ic2ce.core.block.IInventorySlotHolder;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 

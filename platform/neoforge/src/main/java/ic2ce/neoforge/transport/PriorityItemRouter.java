@@ -1,16 +1,15 @@
 package ic2ce.neoforge.transport;
 
 import ic2ce.api.network.ClientModifiable;
-import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.runtime.SideServices;
+import ic2ce.neoforge.runtime.profile.NotClassic;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.network.ClientFieldValidator;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import ic2ce.neoforge.transport.menu.PriorityItemMenu;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +32,7 @@ public class PriorityItemRouter extends InventoryBlockEntity
   public final InventorySlot buffer = new InventorySlot(this, "buffer", InventorySlot.Access.I, 9);
 
   public PriorityItemRouter(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.WEIGHTED_ITEM_DISTRIBUTOR, position, state);
+    super(TransportBlockEntities.WEIGHTED_ITEM_DISTRIBUTOR, position, state);
   }
 
   @Override
@@ -118,7 +117,7 @@ public class PriorityItemRouter extends InventoryBlockEntity
   public void updatePriority(boolean server) {
     getPriority();
     if (server) super.setChanged();
-    ProjectRuntime.network.get(server).updateTileEntityField(this, "priority");
+    SideServices.network(server).updateTileEntityField(this, "priority");
   }
 
   @Override

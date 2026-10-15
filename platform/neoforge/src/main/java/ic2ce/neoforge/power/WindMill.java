@@ -1,20 +1,23 @@
 package ic2ce.neoforge.power;
 
-import ic2ce.core.event.WorldData;
-import ic2ce.core.network.GuiSynced;
-import ic2ce.core.util.StackUtil;
-import ic2ce.core.util.Util;
+import ic2ce.neoforge.runtime.AutomationActors;
+import ic2ce.neoforge.runtime.SharedRandom;
+import ic2ce.neoforge.world.WorldData;
+import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.menu.document.ScreenValues;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.List;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 /** Windmill production samples altitude, weather and a cached obstruction volume. */
@@ -23,11 +26,11 @@ public class WindMill extends RotorGenerator implements ScreenValues.IActiveGuiV
       0.1
           * NativeConfigValues.getDouble(
               ProjectConfiguration.get(), "balance/energy/generator/wind");
-  private int sampleTicks = ProjectRuntime.random.nextInt(128), obstructedBlockCount;
+  private int sampleTicks = SharedRandom.INSTANCE.nextInt(128), obstructedBlockCount;
   @GuiSynced private double overheatRatio;
 
   public WindMill(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.WIND_GENERATOR, position, block, 0, 1, 32, 2);
+    super(PowerBlockEntities.WIND_GENERATOR, position, block, 0, 1, 32, 2);
   }
 
   @Override
@@ -35,6 +38,19 @@ public class WindMill extends RotorGenerator implements ScreenValues.IActiveGuiV
     super.onLoaded();
     updateObscuratedBlockCount();
     if (getLevel() != null && !getLevel().isClientSide()) sampleWind();
+  }
+
+  /** Breaks this block as the dimension's automation actor holding a diamond pickaxe. */
+  private boolean harvestSelf(Level world) {
+    if (!(world instanceof ServerLevel level) || !level.isLoaded(worldPosition)) return false;
+    if (!(AutomationActors.get(level) instanceof ServerPlayer player)) return false;
+    var held = player.getMainHandItem();
+    player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.DIAMOND_PICKAXE));
+    try {
+      return player.gameMode.destroyBlock(worldPosition);
+    } finally {
+      player.setItemInHand(InteractionHand.MAIN_HAND, held);
+    }
   }
 
   private boolean sampleWind() {
@@ -50,7 +66,7 @@ public class WindMill extends RotorGenerator implements ScreenValues.IActiveGuiV
     double next = wind * PER_WIND;
     overheatRatio = Math.max(0, (wind / maximum - 0.5) * 2);
     if (wind > maximum * 0.5 && next > 5 && world.getRandom().nextInt(5000) <= next - 5) {
-      if (Util.harvestBlock(world, worldPosition))
+      if (harvestSelf(world))
         for (int n = world.getRandom().nextInt(5); n > 0; n--)
           StackUtil.dropAsEntity(world, worldPosition, new ItemStack(Items.IRON_INGOT));
       return false;

@@ -1,6 +1,6 @@
 package ic2ce.neoforge.component;
 
-import ic2ce.core.block.transport.cover.Covers;
+import ic2ce.neoforge.transport.cover.Covers;
 import ic2ce.neoforge.reactor.FluidCoreLookup;
 import ic2ce.neoforge.world.surface.SurfaceMap;
 import java.util.HashMap;

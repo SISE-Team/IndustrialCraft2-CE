@@ -1,6 +1,6 @@
 package ic2ce.neoforge.recipe.processing;
 
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.material.MaterialItems;
 import java.util.*;
 import net.minecraft.world.item.*;
 
@@ -48,7 +48,7 @@ public final class ScrapboxContracts {
       invalid = true;
     }
     check(invalid && first.getDrops().size() == 2, "invalid weight rejected before publication");
-    var box = new ItemStack(ItemDefinitions.SCRAP_BOX, 3);
+    var box = new ItemStack(MaterialItems.SCRAP_BOX, 3);
     check(
         first.getDrop(box, false) != null && box.getCount() == 3,
         "preview leaves physical boxes untouched");

@@ -1,0 +1,8 @@
+{
+  "domain": "Engine configuration and executor packages",
+  "report": "engine-package-layout-migration.json",
+  "moves": {
+    "ic2ce.core.util.Config": "ic2ce.engine.config.Config",
+    "ic2ce.core.util.PriorityExecutor": "ic2ce.engine.async.PriorityExecutor"
+  }
+}

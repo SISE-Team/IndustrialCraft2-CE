@@ -4,9 +4,9 @@ import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.recipe.IElectrolyzerRecipeManager.*;
 import ic2ce.neoforge.processing.fluid.FluidElectrolyzer;
 import ic2ce.neoforge.recipe.processing.ElectrolysisRecipes;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.storage.StationaryFluidStore;
+import ic2ce.neoforge.storage.StorageBlocks;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -32,9 +32,9 @@ public final class ElectrolysisContracts {
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8290, 100, 8290);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position, BlockDefinitions.ELECTROLYZER.defaultBlockState());
-    world.setBlockAndUpdate(position.below(), BlockDefinitions.TANK.defaultBlockState());
-    world.setBlockAndUpdate(position.above(), BlockDefinitions.TANK.defaultBlockState());
+    world.setBlockAndUpdate(position, ProcessingBlocks.ELECTROLYZER.defaultBlockState());
+    world.setBlockAndUpdate(position.below(), StorageBlocks.TANK.defaultBlockState());
+    world.setBlockAndUpdate(position.above(), StorageBlocks.TANK.defaultBlockState());
     var machine = (FluidElectrolyzer) world.getBlockEntity(position);
     var hydrogen = ((StationaryFluidStore) world.getBlockEntity(position.below())).getFluidTank();
     var oxygen = ((StationaryFluidStore) world.getBlockEntity(position.above())).getFluidTank();

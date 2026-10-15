@@ -2,7 +2,7 @@ package ic2ce.neoforge.item.tool;
 
 
 import ic2ce.api.item.ElectricItem;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.armor.ArmorItems;
 import java.util.*;
 import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
@@ -49,7 +49,7 @@ public final class PoweredToolContracts {
     for (int index = 0; index < 3; index++) {
       var item =
           new Item[] {
-                ItemDefinitions.DRILL, ItemDefinitions.DIAMOND_DRILL, ItemDefinitions.IRIDIUM_DRILL
+                ToolItems.DRILL, ToolItems.DIAMOND_DRILL, ToolItems.IRIDIUM_DRILL
               }
               [index];
       var drill = (MiningDrill) item;
@@ -68,7 +68,7 @@ public final class PoweredToolContracts {
           "each actual drill pays precisely one complete block bill and rejects a later empty"
               + " operation");
     }
-    var drillStack = new ItemStack(ItemDefinitions.DRILL);
+    var drillStack = new ItemStack(ToolItems.DRILL);
     ElectricItem.manager.charge(drillStack, 1000, 1, true, false);
     player.setItemInHand(InteractionHand.MAIN_HAND, drillStack);
     player.setOnGround(false);
@@ -94,7 +94,7 @@ public final class PoweredToolContracts {
         other.getNewSpeed() == 8,
         "a different held item does not inherit drill physics from another inventory or item"
             + " singleton");
-    var saw = new ItemStack(ItemDefinitions.CHAINSAW);
+    var saw = new ItemStack(ToolItems.CHAINSAW);
     player.setItemInHand(InteractionHand.MAIN_HAND, saw);
     ElectricItem.manager.charge(saw, 100, 1, true, false);
     var chainsaw = (PoweredSaw) saw.getItem();
@@ -118,13 +118,13 @@ public final class PoweredToolContracts {
         world.getBlockState(position).isAir() && ElectricItem.manager.getCharge(saw) == 0,
         "actual unblocked shearing spends exactly one hundred EU and removes one physical leaf"
             + " block");
-    var blade = new ItemStack(ItemDefinitions.NANO_SABER);
+    var blade = new ItemStack(ToolItems.NANO_SABER);
     player.setItemInHand(InteractionHand.MAIN_HAND, blade);
     ElectricItem.manager.charge(blade, 2400, 3, true, false);
     var saber = (NanoBladeBase) blade.getItem();
     saber.use(world, player, InteractionHand.MAIN_HAND);
     var victim = new net.minecraft.world.entity.animal.cow.Cow(EntityType.COW, world);
-    var armor = new ItemStack(ItemDefinitions.NANO_CHESTPLATE);
+    var armor = new ItemStack(ArmorItems.NANO_CHESTPLATE);
     ElectricItem.manager.charge(armor, 1000, 3, true, false);
     victim.setItemSlot(EquipmentSlot.CHEST, armor);
     saber.hurtEnemy(blade, victim, player);
@@ -133,7 +133,7 @@ public final class PoweredToolContracts {
             && ElectricItem.manager.getCharge(blade) == 0,
         "partial thousand-EU nano armor is actually drained and removed after its exact"
             + " twenty-four-hundred-EU blade attack bill");
-    var inactive = new ItemStack(ItemDefinitions.NANO_SABER);
+    var inactive = new ItemStack(ToolItems.NANO_SABER);
     check(
         !NanoBladeBase.isActive(inactive) && !NanoBladeBase.isActive(blade.copyWithCount(0)),
         "activation reads cannot add fake state to blank or empty physical blade stacks");

@@ -1,7 +1,6 @@
 package ic2ce.neoforge.item.armor;
 
 import ic2ce.api.item.ElectricItem;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.*;
 import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
@@ -52,7 +51,7 @@ public final class ArmorDamageContracts {
     actor.removeAllEffects();
     actor.setHealth(20);
     actor.invulnerableTime = 0;
-    var armor = new ItemStack(ItemDefinitions.NANO_CHESTPLATE);
+    var armor = new ItemStack(ArmorItems.NANO_CHESTPLATE);
     ElectricItem.manager.charge(armor, 5000, Integer.MAX_VALUE, true, false);
     actor.setItemSlot(EquipmentSlot.CHEST, armor);
     // FakePlayer.tick is intentionally empty; invoke the actual native equipment publication before

@@ -1,15 +1,13 @@
 package ic2ce.neoforge.item.upgrade;
 
 import ic2ce.api.network.ClientModifiable;
-import ic2ce.core.*;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.client.widget.*;
 import ic2ce.neoforge.handheld.menu.HandheldMenu;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.slot.TemplateSlot;
-import ic2ce.neoforge.registry.MenuDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -39,7 +37,7 @@ public class MaterialTagEditor extends FilterSubmenu {
     @ClientModifiable public String selectedTag = getNBT().getStringOr("tag", "");
 
     public ContainerEditOre(int id) {
-      super(MenuDefinitions.ADVANCED_UPGRADE_EDIT_ORE, id, MaterialTagEditor.this);
+      super(UpgradeMenus.ADVANCED_UPGRADE_EDIT_ORE, id, MaterialTagEditor.this);
       addPlayerInventorySlots(player.getInventory(), 200);
       for (int slot = 0; slot < 9; slot++)
         addSlot(new TemplateSlot(inventory, slot, 8 + slot * 18, 8, 1, makeSaveCallback()));
@@ -122,7 +120,7 @@ public class MaterialTagEditor extends FilterSubmenu {
     }
 
     private void sync() {
-      ProjectRuntime.network.get(false).sendContainerField(getContainer(), "selectedTag");
+      SideServices.network(false).sendContainerField(getContainer(), "selectedTag");
     }
   }
 }

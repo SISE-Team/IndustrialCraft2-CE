@@ -1,7 +1,6 @@
 package ic2ce.neoforge.item.consumable;
 
-import ic2ce.core.item.*;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.material.MaterialItems;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
@@ -30,7 +29,7 @@ public class CannedFood extends Item {
     owner.getFoodData().eat(used, used);
     if (!owner.getAbilities().instabuild) {
       stack.shrink(used);
-      var empties = new ItemStack(ItemDefinitions.TIN_CAN, used);
+      var empties = new ItemStack(MaterialItems.TIN_CAN, used);
       if (!owner.getInventory().add(empties)) owner.drop(empties, false);
     }
     return InteractionResult.SUCCESS.heldItemTransformedTo(stack);

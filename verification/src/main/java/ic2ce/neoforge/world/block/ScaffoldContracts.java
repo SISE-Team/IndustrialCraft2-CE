@@ -1,7 +1,8 @@
 package ic2ce.neoforge.world.block;
 
 import com.mojang.authlib.GameProfile;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.utility.UtilityBlocks;
+import ic2ce.neoforge.world.WorldBlocks;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
@@ -42,10 +43,10 @@ public final class ScaffoldContracts {
     int ordinal = 0;
     for (var block :
         List.of(
-            BlockDefinitions.WOODEN_SCAFFOLD,
-            BlockDefinitions.REINFORCED_WOODEN_SCAFFOLD,
-            BlockDefinitions.IRON_SCAFFOLD,
-            BlockDefinitions.REINFORCED_IRON_SCAFFOLD)) {
+            WorldBlocks.WOODEN_SCAFFOLD,
+            WorldBlocks.REINFORCED_WOODEN_SCAFFOLD,
+            WorldBlocks.IRON_SCAFFOLD,
+            WorldBlocks.REINFORCED_IRON_SCAFFOLD)) {
       var origin = base.offset(0, ordinal * 8, 0);
       for (int x = -1; x <= 14; x++) {
         world.setBlock(origin.offset(x, -1, 0), Blocks.AIR.defaultBlockState(), 2);
@@ -81,12 +82,12 @@ public final class ScaffoldContracts {
     actor.getAbilities().instabuild = false;
     actor.setPos(base.getX(), base.getY(), base.getZ() - 2);
     var hit = new BlockHitResult(Vec3.atCenterOf(base), Direction.NORTH, base, false);
-    for (var block : List.of(BlockDefinitions.WOODEN_SCAFFOLD, BlockDefinitions.IRON_SCAFFOLD))
+    for (var block : List.of(WorldBlocks.WOODEN_SCAFFOLD, WorldBlocks.IRON_SCAFFOLD))
       for (var hand : InteractionHand.values()) {
         world.setBlock(base.below(), Blocks.STONE.defaultBlockState(), 2);
         world.setBlock(base, block.defaultBlockState(), 2);
-        boolean wooden = block == BlockDefinitions.WOODEN_SCAFFOLD;
-        var stack = new ItemStack(wooden ? Items.STICK : BlockDefinitions.IRON_FENCE.asItem(), 4);
+        boolean wooden = block == WorldBlocks.WOODEN_SCAFFOLD;
+        var stack = new ItemStack(wooden ? Items.STICK : UtilityBlocks.IRON_FENCE.asItem(), 4);
         actor.setItemInHand(hand, stack);
         actor.setItemInHand(
             hand == InteractionHand.MAIN_HAND
@@ -99,8 +100,8 @@ public final class ScaffoldContracts {
                     .getBlockState(base)
                     .is(
                         wooden
-                            ? BlockDefinitions.REINFORCED_WOODEN_SCAFFOLD
-                            : BlockDefinitions.REINFORCED_IRON_SCAFFOLD)
+                            ? WorldBlocks.REINFORCED_WOODEN_SCAFFOLD
+                            : WorldBlocks.REINFORCED_IRON_SCAFFOLD)
                 && stack.getCount() == (wooden ? 2 : 3),
             "actual native " + hand + " reinforcement pays the distinct material bill");
         check(
@@ -112,13 +113,13 @@ public final class ScaffoldContracts {
                 .is(Items.DIAMOND),
             "native reinforcement preserves the unused hand");
       }
-    world.setBlock(base, BlockDefinitions.WOODEN_SCAFFOLD.defaultBlockState(), 2);
+    world.setBlock(base, WorldBlocks.WOODEN_SCAFFOLD.defaultBlockState(), 2);
     actor.getAbilities().mayBuild = false;
     var sticks = new ItemStack(Items.STICK, 2);
     actor.setItemInHand(InteractionHand.MAIN_HAND, sticks);
     world.getBlockState(base).useItemOn(sticks, world, actor, InteractionHand.MAIN_HAND, hit);
     check(
-        world.getBlockState(base).is(BlockDefinitions.WOODEN_SCAFFOLD) && sticks.getCount() == 2,
+        world.getBlockState(base).is(WorldBlocks.WOODEN_SCAFFOLD) && sticks.getCount() == 2,
         "denied structural reinforcement changes neither world nor physical bill");
     actor.getAbilities().mayBuild = true;
     world.setBlock(
@@ -126,24 +127,24 @@ public final class ScaffoldContracts {
         Blocks.OAK_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP),
         2);
     check(
-        BlockDefinitions.WOODEN_SCAFFOLD.defaultBlockState().canSurvive(world, base),
+        WorldBlocks.WOODEN_SCAFFOLD.defaultBlockState().canSurvive(world, base),
         "native full upper support face is a valid slab foundation");
     world.setBlock(base.below(), Blocks.STONE.defaultBlockState(), 2);
-    world.setBlock(base, BlockDefinitions.REINFORCED_IRON_SCAFFOLD.defaultBlockState(), 2);
+    world.setBlock(base, WorldBlocks.REINFORCED_IRON_SCAFFOLD.defaultBlockState(), 2);
     for (int y = 1; y <= 8; y++)
-      world.setBlock(base.above(y), BlockDefinitions.WOODEN_SCAFFOLD.defaultBlockState(), 2);
-    world.setBlock(base.above(8).east(), BlockDefinitions.WOODEN_SCAFFOLD.defaultBlockState(), 2);
+      world.setBlock(base.above(y), WorldBlocks.WOODEN_SCAFFOLD.defaultBlockState(), 2);
+    world.setBlock(base.above(8).east(), WorldBlocks.WOODEN_SCAFFOLD.defaultBlockState(), 2);
     check(
-        BlockDefinitions.WOODEN_SCAFFOLD
+        WorldBlocks.WOODEN_SCAFFOLD
             .defaultBlockState()
             .canSurvive(world, base.above(8).east(2)),
         "mixed native vertical pillar retains grounded support for an elevated wooden span");
     actor.setShiftKeyDown(true);
     actor.setDeltaMovement(1, -2, -1);
     actor.fallDistance = 20;
-    ((StructuralScaffold) BlockDefinitions.WOODEN_SCAFFOLD)
+    ((StructuralScaffold) WorldBlocks.WOODEN_SCAFFOLD)
         .entityInside(
-            BlockDefinitions.WOODEN_SCAFFOLD.defaultBlockState(), world, base, actor, null, true);
+            WorldBlocks.WOODEN_SCAFFOLD.defaultBlockState(), world, base, actor, null, true);
     check(
         actor.getDeltaMovement().x == .15
             && actor.getDeltaMovement().z == -.15

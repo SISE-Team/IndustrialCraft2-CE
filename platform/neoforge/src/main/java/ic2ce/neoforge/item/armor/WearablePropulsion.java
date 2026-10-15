@@ -2,8 +2,8 @@ package ic2ce.neoforge.item.armor;
 
 
 import ic2ce.api.item.PropulsionEquipment;
-import ic2ce.core.util.StackTag;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -44,8 +44,8 @@ public final class WearablePropulsion {
             else tag.putByte("jetpackToggleTimer", (byte) next);
             return tag;
           });
-    } else if (ProjectRuntime.keyboard.isModeSwitchKeyDown(owner)
-        && ProjectRuntime.keyboard.isJumpKeyDown(owner)) {
+    } else if (SideServices.keyboard().isModeSwitchKeyDown(owner)
+        && SideServices.keyboard().isJumpKeyDown(owner)) {
       hover = !hover;
       boolean value = hover;
       StackTag.update(
@@ -56,7 +56,7 @@ public final class WearablePropulsion {
             return tag;
           });
     }
-    boolean upwards = ProjectRuntime.keyboard.isJumpKeyDown(owner);
+    boolean upwards = SideServices.keyboard().isJumpKeyDown(owner);
     if (!upwards && (!hover || owner.onGround())) return;
     double ceiling =
         owner.level().getMinY()
@@ -70,12 +70,12 @@ public final class WearablePropulsion {
         hover
             ? (upwards
                 ? pack.getHoverMultiplier(stack, true)
-                : ProjectRuntime.keyboard.isSneakKeyDown(owner)
+                : SideServices.keyboard().isSneakKeyDown(owner)
                     ? -pack.getHoverMultiplier(stack, false)
                     : 0)
             : Math.min(.6 * power, motion.y + .2 * power);
     double x = motion.x, z = motion.z;
-    if (ProjectRuntime.keyboard.isForwardKeyDown(owner)) {
+    if (SideServices.keyboard().isForwardKeyDown(owner)) {
       var look = owner.getLookAngle();
       double horizontal = .08 * power;
       x += look.x * horizontal;

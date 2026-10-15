@@ -4,6 +4,7 @@ import static ic2ce.verification.AllMachinesVerification.*;
 
 import ic2ce.neoforge.reactor.NuclearCore;
 import ic2ce.neoforge.reactor.part.WearableReactorPart;
+import ic2ce.neoforge.world.LoadedAreas;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -128,7 +129,7 @@ final class ReactorFunctionality {
       boolean all = true;
       for (var entry : cores.entrySet()) {
         var core = entry.getValue();
-        boolean loaded = ic2ce.core.util.Util.isAreaLoaded(s.level, core.getBlockPos(), 8);
+        boolean loaded = LoadedAreas.isLoaded(s.level, core.getBlockPos(), 8);
         boolean signal = core.redstone.hasRedstoneInput();
         int initial = initialTickers.get(entry.getKey());
         boolean ticking = core.updateTicker - initial >= core.getTickRate();
@@ -217,9 +218,9 @@ final class ReactorFunctionality {
       var component = (WearableReactorPart) item.getItem();
       record(
           "hot reactor pulses advance lithium breeding",
-          ic2ce.core.util.StackTag.getOrCreate(item).getIntOr("use", 0),
-          ic2ce.core.util.StackTag.getOrCreate(item).getIntOr("use", 0) > 0
-              && ic2ce.core.util.StackTag.getOrCreate(item).getIntOr("use", 0)
+          ic2ce.neoforge.item.StackTag.getOrCreate(item).getIntOr("use", 0),
+          ic2ce.neoforge.item.StackTag.getOrCreate(item).getIntOr("use", 0) > 0
+              && ic2ce.neoforge.item.StackTag.getOrCreate(item).getIntOr("use", 0)
                   < ((Number) get(component, "maxUse")).intValue());
       var fluid = cores.get("fluid_mode");
       record(

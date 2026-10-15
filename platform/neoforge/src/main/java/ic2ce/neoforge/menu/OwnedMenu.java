@@ -1,11 +1,10 @@
 package ic2ce.neoforge.menu;
 
-import ic2ce.core.*;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.menu.slot.DisplaySlot;
 import ic2ce.neoforge.menu.slot.MachineSlot;
 import ic2ce.neoforge.menu.slot.TemplateSlot;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.*;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
@@ -157,7 +156,7 @@ public abstract class OwnedMenu<T extends Container> extends AbstractContainerMe
         || actor.level().isClientSide()
         || !(base instanceof BlockEntity tile)) return;
     for (var field : getNetworkedFields())
-      ProjectRuntime.network.get(true).updateTileEntityFieldTo(tile, field, actor);
+      SideServices.network(true).updateTileEntityFieldTo(tile, field, actor);
     if (base instanceof NativeBlockEntity nativeTile)
       for (var component : nativeTile.getComponents()) component.onContainerUpdate(actor);
   }

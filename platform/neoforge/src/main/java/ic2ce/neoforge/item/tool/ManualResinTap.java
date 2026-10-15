@@ -1,8 +1,8 @@
 package ic2ce.neoforge.item.tool;
 
 import ic2ce.api.item.IBoxable;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
+import ic2ce.neoforge.world.WorldBlocks;
 import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -26,7 +26,7 @@ public class ManualResinTap extends Item implements IBoxable {
     var world = context.getLevel();
     var position = context.getClickedPos();
     var state = world.getBlockState(position);
-    if (!state.is(BlockDefinitions.RUBBER_LOG)) return InteractionResult.PASS;
+    if (!state.is(WorldBlocks.RUBBER_LOG)) return InteractionResult.PASS;
     var player = context.getPlayer();
     var held = context.getItemInHand();
     if (!held.is(this)

@@ -1,7 +1,8 @@
 package ic2ce.neoforge.world.generation;
 
 import com.mojang.serialization.Codec;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.ProjectIds;
+import ic2ce.neoforge.runtime.EnvProxy;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.ConstantInt;
@@ -18,8 +19,8 @@ public final class ResinCanopy extends FoliagePlacer {
   public static final Codec<ResinCanopy> CODEC =
       com.mojang.serialization.MapCodec.unitCodec(INSTANCE);
   public static final FoliagePlacerType<?> TYPE =
-      ProjectRuntime.envProxy.registerFoliagePlacer(
-          ProjectRuntime.getIdentifier("rubber_tree"), CODEC);
+      EnvProxy.get().registerFoliagePlacer(
+          ProjectIds.id("rubber_tree"), CODEC);
 
   private ResinCanopy() {
     super(ConstantInt.of(2), ConstantInt.of(0));

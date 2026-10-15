@@ -1,7 +1,7 @@
 package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
 import java.util.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
@@ -17,7 +17,7 @@ public class BeetSpecies extends VanillaProduceSpecies {
 
   @Override
   public Block getCropBlock() {
-    return BlockDefinitions.BEETROOTS_CROP;
+    return AgricultureBlocks.BEETROOTS_CROP;
   }
 
   @Override

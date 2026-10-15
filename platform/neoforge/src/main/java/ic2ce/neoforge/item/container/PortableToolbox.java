@@ -1,7 +1,7 @@
 package ic2ce.neoforge.item.container;
 
-import ic2ce.core.IHasGui;
-import ic2ce.core.item.IHandHeldInventory;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.handheld.IHandHeldInventory;
 import ic2ce.neoforge.handheld.ToolboxStorage;
 import ic2ce.neoforge.handheld.menu.ToolboxMenu;
 import net.minecraft.server.level.ServerPlayer;

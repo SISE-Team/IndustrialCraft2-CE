@@ -1,6 +1,6 @@
 package ic2ce.neoforge.energy.transformer;
 
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.energy.EnergyBlocks;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -30,7 +30,7 @@ public final class TransformerContracts {
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8390, 100, 8390);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position, BlockDefinitions.LV_TRANSFORMER.defaultBlockState());
+    world.setBlockAndUpdate(position, EnergyBlocks.LV_TRANSFORMER.defaultBlockState());
     var transformer = (VoltageTransformer) world.getBlockEntity(position);
     transformer.setFacing(world, Direction.EAST);
     transformer.onNetworkEvent(null, 1);

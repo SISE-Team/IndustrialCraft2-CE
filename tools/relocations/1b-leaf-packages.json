@@ -1,0 +1,11 @@
+{
+  "domain": "Profile markers, models, loot providers and renderers",
+  "report": "leaf-package-layout-migration.json",
+  "moves": {
+    "ic2ce.core.profile.*": "ic2ce.neoforge.runtime.profile",
+    "ic2ce.core.model.*": "ic2ce.neoforge.model",
+    "ic2ce.core.loot.*": "ic2ce.neoforge.world.loot",
+    "ic2ce.core.entity.render.*": "ic2ce.neoforge.explosion.client",
+    "ic2ce.core.block.renderer.*": "ic2ce.neoforge.kinetic.client"
+  }
+}

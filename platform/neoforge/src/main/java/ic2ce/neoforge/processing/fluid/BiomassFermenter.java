@@ -2,10 +2,12 @@ package ic2ce.neoforge.processing.fluid;
 
 import ic2ce.api.recipe.Recipes;
 import ic2ce.api.upgrade.*;
-import ic2ce.core.*;
-import ic2ce.core.fluid.Ic2FluidTank;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.agriculture.AgricultureItems;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.config.NativeConfigValues;
@@ -15,9 +17,7 @@ import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
 import ic2ce.neoforge.processing.menu.FermentationMenu;
 import ic2ce.neoforge.recipe.processing.FermentationRecipes;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.thermal.HeatSupply;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -52,7 +52,7 @@ public class BiomassFermenter extends InventoryBlockEntity
           UpgradableProperty.FluidProducing);
 
   public BiomassFermenter(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.FERMENTER, position, state);
+    super(ProcessingBlockEntities.FERMENTER, position, state);
     fluids = addComponent(new FluidPorts(this));
     outputTank = fluids.addTankExtract("output", 2000);
     inputTank = fluids.addTankInsert("input", 10000, FluidPorts.fluidPredicate(Recipes.fermenter));
@@ -111,7 +111,7 @@ public class BiomassFermenter extends InventoryBlockEntity
   }
 
   private boolean exportFertilizer() {
-    var fertilizer = new ItemStack(ItemDefinitions.FERTILIZER);
+    var fertilizer = new ItemStack(AgricultureItems.FERTILIZER);
     while (progress >= maxProgress) {
       if (!fertiliserSlot.canAdd(fertilizer)) return false;
       fertiliserSlot.add(fertilizer);

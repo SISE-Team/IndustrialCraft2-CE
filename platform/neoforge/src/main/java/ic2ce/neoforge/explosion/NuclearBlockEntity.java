@@ -1,12 +1,11 @@
 package ic2ce.neoforge.explosion;
 
 import ic2ce.api.entity.block.ExplosiveEntity;
-import ic2ce.core.util.*;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.diagnostics.Positions;
+import ic2ce.neoforge.diagnostics.ProjectLog;
 import net.minecraft.core.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
@@ -50,26 +49,26 @@ public abstract class NuclearBlockEntity extends ExplosiveBlockEntity {
   public void onPlaced(ItemStack stack, LivingEntity placer, Direction facing) {
     super.onPlaced(stack, placer, facing);
     if (placer instanceof Player actor)
-      ProjectRuntime.log.info(
+      ProjectLog.LOG.info(
           DiagnosticArea.PlayerActivity,
           "Nuclear device placed by %s/%s at %s",
           actor.getGameProfile().name(),
           actor.getGameProfile().id(),
-          Util.formatPosition(this));
+          Positions.format(this));
   }
 
   @Override
   protected void onIgnite(LivingEntity igniter) {
-    ProjectRuntime.log.info(
+    ProjectLog.LOG.info(
         DiagnosticArea.PlayerActivity,
         "Nuclear device at %s primed by %s",
-        Util.formatPosition(this),
+        Positions.format(this),
         igniter == null ? "indirect signal" : igniter.getName().getString());
   }
 
   public static class ClassicNuclearCharge extends NuclearBlockEntity {
     public ClassicNuclearCharge(BlockPos position, BlockState state) {
-      super(BlockEntityDefinitions.CLASSIC_NUKE, position, state);
+      super(ExplosionBlockEntities.CLASSIC_NUKE, position, state);
     }
 
     @Override

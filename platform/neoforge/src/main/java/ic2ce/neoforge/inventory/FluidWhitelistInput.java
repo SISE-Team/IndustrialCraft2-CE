@@ -1,6 +1,5 @@
 package ic2ce.neoforge.inventory;
 
-import ic2ce.core.block.IInventorySlotHolder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

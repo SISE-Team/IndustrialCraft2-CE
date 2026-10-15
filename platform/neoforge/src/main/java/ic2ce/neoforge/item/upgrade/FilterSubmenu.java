@@ -1,12 +1,11 @@
 package ic2ce.neoforge.item.upgrade;
 
-import ic2ce.core.*;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.client.screen.MachineScreen;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.client.widget.*;
 import ic2ce.neoforge.handheld.HandheldStorage;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.nbt.CompoundTag;
 
 /**
@@ -37,7 +36,7 @@ public abstract class FilterSubmenu extends HandheldStorage {
 
   ActionButton<?> getBackButton(MachineScreen<?> gui, int x, int y) {
     return new NativeButton(
-            gui, x, y, 50, 15, ignored -> ProjectRuntime.network.get(false).requestGUI(this))
+            gui, x, y, 50, 15, ignored -> SideServices.network(false).requestGUI(this))
         .withText(LocalizedText.translate("ic2.upgrade.advancedGUI.back"));
   }
 }

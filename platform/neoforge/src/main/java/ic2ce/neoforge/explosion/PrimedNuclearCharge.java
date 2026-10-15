@@ -2,7 +2,6 @@ package ic2ce.neoforge.explosion;
 
 import ic2ce.api.entity.block.ExplosiveEntity;
 import ic2ce.neoforge.item.tool.MechanicalWrench;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.EntityDefinitions;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.EntityType;
@@ -29,7 +28,7 @@ public class PrimedNuclearCharge extends ExplosiveEntity {
         validPower(power),
         .05F,
         1.5F,
-        BlockDefinitions.NUKE.defaultBlockState(),
+        ExplosionBlocks.NUKE.defaultBlockState(),
         Math.max(0, radiation));
   }
 
@@ -40,7 +39,7 @@ public class PrimedNuclearCharge extends ExplosiveEntity {
     dropRate = .05F;
     damageVsEntities = 1.5F;
     radiationRange = 1;
-    renderBlockState = BlockDefinitions.NUKE.defaultBlockState();
+    renderBlockState = ExplosionBlocks.NUKE.defaultBlockState();
   }
 
   private static float validPower(float power) {

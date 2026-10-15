@@ -3,11 +3,12 @@ package ic2ce.neoforge.item.tool;
 import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.energy.tile.*;
 import ic2ce.api.item.IBoxable;
-import ic2ce.core.*;
-import ic2ce.core.item.*;
+import ic2ce.neoforge.handheld.IHandHeldInventory;
 import ic2ce.neoforge.handheld.MeterSession;
 import ic2ce.neoforge.handheld.menu.EnergyMeterMenu;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.item.PriorityUsableItem;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
@@ -30,7 +31,7 @@ public class EnergyProbe extends Item implements IBoxable, IHandHeldInventory, P
     if (!(endpoint instanceof IEnergySource
         || endpoint instanceof IEnergyConductor
         || endpoint instanceof IEnergySink)) {
-      ProjectRuntime.sideProxy.messagePlayer(owner, "ic2.meter.not_energy_tile");
+      SideServices.proxy().messagePlayer(owner, "ic2.meter.not_energy_tile");
       return InteractionResult.SUCCESS;
     }
     if (getInventory(owner, context.getHand(), stack)

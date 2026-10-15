@@ -1,7 +1,7 @@
 package ic2ce.neoforge.reactor.part;
 
 import ic2ce.api.reactor.IReactor;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import net.minecraft.world.item.ItemStack;
 
 /**

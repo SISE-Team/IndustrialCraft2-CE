@@ -2,7 +2,8 @@ package ic2ce.neoforge.item.upgrade;
 
 import com.google.common.base.Predicate;
 import ic2ce.api.item.*;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.util.*;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
@@ -35,9 +36,9 @@ public final class CompiledUpgradeFilter implements Predicate<ItemStack> {
     var data = stack.get(DataComponents.CUSTOM_DATA);
     if (data == null) return EMPTY;
     var lookup =
-        ic2ce.neoforge.runtime.ProjectRuntime.envProxy == null
+        EnvProxy.get() == null
             ? null
-            : ic2ce.neoforge.runtime.ProjectRuntime.envProxy.getRegistryLookup();
+            : EnvProxy.get().getRegistryLookup();
     if (lookup == null) return new CompiledUpgradeFilter(data.copyTag());
     synchronized (CACHE) {
       var generation = CACHE.computeIfAbsent(data, ignored -> new WeakHashMap<>());

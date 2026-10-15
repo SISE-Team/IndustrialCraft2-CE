@@ -1,9 +1,9 @@
 package ic2ce.neoforge.crafting;
 
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.component.ElectricalBuffer;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.tool.ToolItems;
+import ic2ce.neoforge.material.MaterialItems;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,7 +33,7 @@ public final class AutomaticCraftingContracts {
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8912, 100, 8912);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position, BlockDefinitions.BATCH_CRAFTER.defaultBlockState());
+    world.setBlockAndUpdate(position, CraftingBlocks.BATCH_CRAFTER.defaultBlockState());
     var tile = (AutomaticCrafter) world.getBlockEntity(position);
     var energy = tile.getComponent(ElectricalBuffer.class);
     tile.craftingGrid[4] = new ItemStack(Items.OAK_LOG);
@@ -95,28 +95,28 @@ public final class AutomaticCraftingContracts {
     check(
         tile.progress == 0 && Arrays.stream(tile.craftingGrid).allMatch(ItemStack::isEmpty),
         "malformed saved matrix indices and progress cannot crash or preserve stale ghosts");
-    tile.craftingGrid[4] = new ItemStack(ItemDefinitions.FORGE_HAMMER);
+    tile.craftingGrid[4] = new ItemStack(ToolItems.FORGE_HAMMER);
     tile.craftingGrid[5] = new ItemStack(Items.IRON_INGOT);
-    tile.ingredientsRow[4].put(new ItemStack(ItemDefinitions.FORGE_HAMMER));
+    tile.ingredientsRow[4].put(new ItemStack(ToolItems.FORGE_HAMMER));
     tile.ingredientsRow[5].put(new ItemStack(Items.IRON_INGOT));
     tile.matrixChange(-1);
     tile.setChanged();
     energy.forceAddEnergy(80);
     for (int tick = 0; tick < 40; tick++) tile.updateEntityServer();
     check(
-        tile.craftingOutput.get().is(ItemDefinitions.IRON_PLATE)
+        tile.craftingOutput.get().is(MaterialItems.IRON_PLATE)
             && tile.ingredientsRow[5].isEmpty()
-            && tile.ingredientsRow[4].get().is(ItemDefinitions.FORGE_HAMMER)
+            && tile.ingredientsRow[4].get().is(ToolItems.FORGE_HAMMER)
             && tile.ingredientsRow[4].get().getDamageValue() == 1
             && tile.containerOutput.isEmpty(),
         "native compact recipe remainders map a damaged hammer back to its original offset"
             + " ingredient cell");
     world.removeBlock(position, false);
-    world.setBlockAndUpdate(position, BlockDefinitions.UU_ASSEMBLY_BENCH.defaultBlockState());
+    world.setBlockAndUpdate(position, CraftingBlocks.UU_ASSEMBLY_BENCH.defaultBlockState());
     var assembly = (UuAssembler) world.getBlockEntity(position);
     energy = assembly.getComponent(ElectricalBuffer.class);
-    assembly.craftingGrid[1] = new ItemStack(ItemDefinitions.UU_MATTER);
-    assembly.ingredientsRow[1].put(new ItemStack(ItemDefinitions.UU_MATTER));
+    assembly.craftingGrid[1] = new ItemStack(MaterialItems.UU_MATTER);
+    assembly.ingredientsRow[1].put(new ItemStack(MaterialItems.UU_MATTER));
     assembly.matrixChange(-1);
     assembly.setChanged();
     energy.forceAddEnergy(80);
@@ -127,8 +127,8 @@ public final class AutomaticCraftingContracts {
         "untrimmed top-center UU layout makes exactly eight logs");
     assembly.craftingOutput.clear();
     Arrays.fill(assembly.craftingGrid, ItemStack.EMPTY);
-    assembly.craftingGrid[4] = new ItemStack(ItemDefinitions.UU_MATTER);
-    assembly.ingredientsRow[4].put(new ItemStack(ItemDefinitions.UU_MATTER));
+    assembly.craftingGrid[4] = new ItemStack(MaterialItems.UU_MATTER);
+    assembly.ingredientsRow[4].put(new ItemStack(MaterialItems.UU_MATTER));
     assembly.matrixChange(-1);
     assembly.setChanged();
     energy.forceAddEnergy(80);

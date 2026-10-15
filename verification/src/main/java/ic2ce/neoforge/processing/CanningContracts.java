@@ -10,7 +10,6 @@ import ic2ce.neoforge.processing.solid.PlateCutter;
 import ic2ce.neoforge.processing.thermal.FuelSmelter;
 import ic2ce.neoforge.processing.thermal.InductionSmelter;
 import ic2ce.neoforge.recipe.input.ExactStackInput;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -39,7 +38,7 @@ public final class CanningContracts {
   private Result exercise(ServerLevel world) {
     var machine =
         new OreGrinder(
-            new BlockPos(8210, 100, 8210), BlockDefinitions.MACERATOR.defaultBlockState());
+            new BlockPos(8210, 100, 8210), ProcessingBlocks.MACERATOR.defaultBlockState());
     machine.setLevel(world);
     machine.setChanged();
     machine.inputSlot.put(new ItemStack(Items.RAW_IRON, 2));
@@ -66,7 +65,7 @@ public final class CanningContracts {
         "completion bills one processing tick without precharging another");
     var canner =
         new MultiPolicyCanner(
-            new BlockPos(8211, 100, 8211), BlockDefinitions.CANNER.defaultBlockState());
+            new BlockPos(8211, 100, 8211), ProcessingBlocks.CANNER.defaultBlockState());
     canner.setLevel(world);
     canner.setMode(MultiPolicyCanner.Mode.EnrichLiquid);
     canner.inputSlot.put(new ItemStack(Items.COAL));
@@ -120,7 +119,7 @@ public final class CanningContracts {
         "invalid persisted mode has a safe default");
     var induction =
         new InductionSmelter(
-            new BlockPos(8212, 100, 8212), BlockDefinitions.INDUCTION_FURNACE.defaultBlockState());
+            new BlockPos(8212, 100, 8212), ProcessingBlocks.INDUCTION_FURNACE.defaultBlockState());
     induction.setLevel(world);
     induction.inputSlotA.put(new ItemStack(Items.RAW_IRON));
     induction.inputSlotB.put(new ItemStack(Items.RAW_GOLD));
@@ -143,7 +142,7 @@ public final class CanningContracts {
         "native induction completion commits both distinct smelting lanes");
     var ironFurnace =
         new FuelSmelter(
-            new BlockPos(8213, 100, 8213), BlockDefinitions.IRON_FURNACE.defaultBlockState());
+            new BlockPos(8213, 100, 8213), ProcessingBlocks.IRON_FURNACE.defaultBlockState());
     ironFurnace.setLevel(world);
     var malformed = new CompoundTag();
     malformed.putInt("fuel", 100);
@@ -164,7 +163,7 @@ public final class CanningContracts {
         "native combustion completion consumes one burn tick and produces one smelted item");
     var cutter =
         new PlateCutter(
-            new BlockPos(8214, 100, 8214), BlockDefinitions.BLOCK_CUTTER.defaultBlockState());
+            new BlockPos(8214, 100, 8214), ProcessingBlocks.BLOCK_CUTTER.defaultBlockState());
     cutter.setLevel(world);
     cutter.cutterSlot.put(new ItemStack(Items.COAL));
     check(

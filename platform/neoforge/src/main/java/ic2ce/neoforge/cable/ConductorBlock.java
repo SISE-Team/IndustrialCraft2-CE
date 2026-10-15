@@ -3,7 +3,7 @@ package ic2ce.neoforge.cable;
 import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.energy.tile.*;
 import ic2ce.api.info.ILocatable;
-import ic2ce.core.block.ChunkLoadAwareBlock;
+import ic2ce.neoforge.world.ChunkLoadAwareBlock;
 import ic2ce.neoforge.item.tool.InsulationCutter;
 import ic2ce.neoforge.registry.BlockGroups;
 import ic2ce.neoforge.registry.FluidDefinitions;

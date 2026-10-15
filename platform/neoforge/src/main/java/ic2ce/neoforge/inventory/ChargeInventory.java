@@ -2,7 +2,6 @@ package ic2ce.neoforge.inventory;
 
 import ic2ce.api.energy.tile.IChargingSlot;
 import ic2ce.api.item.ElectricItem;
-import ic2ce.core.block.IInventorySlotHolder;
 import net.minecraft.world.item.ItemStack;
 
 public class ChargeInventory extends InventorySlot implements IChargingSlot {

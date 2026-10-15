@@ -3,13 +3,14 @@ package ic2ce.neoforge.kinetic;
 import ic2ce.api.energy.tile.IKineticSource;
 import ic2ce.api.item.IKineticRotor;
 import ic2ce.api.tile.IRotorProvider;
-import ic2ce.core.IHasGui;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.engine.energy.TickBudget;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.inventory.RotorInput;
 import ic2ce.neoforge.inventory.TypeFilteredInput;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -98,8 +99,8 @@ public abstract class RotorGearbox extends InventoryBlockEntity
     if (rotationSpeed != next) {
       rotationSpeed = next;
       if (getLevel() != null && !getLevel().isClientSide())
-        ic2ce.neoforge.runtime.ProjectRuntime.network
-            .get(true)
+        SideServices
+            .network(true)
             .updateTileEntityField(this, "rotationSpeed");
     }
   }

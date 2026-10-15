@@ -1,0 +1,132 @@
+{
+  "domain": "Energy network registration, topology and routing",
+  "countsAsImplementationRewrite": false,
+  "sources": [
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/EnergyNetGlobal.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyNetGlobal.java",
+      "beforeSha256": "aeb4cf51ae7d49edab1a50787017e5183fd1447c32c4a145db788dead9398224",
+      "afterSha256": "85383c2dfcd89ae391e7d68c615858d06e49038eb482e38d67329b617012e39d",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/EnergyNetLocal.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyNetLocal.java",
+      "beforeSha256": "cec8759bdecb660c9d9c08c5d5c8f122f30c5239d190d0b0227c5bac741d5609",
+      "afterSha256": "3b742eccc348b17d8768e1ec560d028b45411ab86fe51ad084c87fce9d448711",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/EnergyNetSettings.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyNetSettings.java",
+      "beforeSha256": "21e5a1a49e3cdda887596830ecc6ace5dd9512c9d9e856a9dbdc5c1e94bed849",
+      "afterSha256": "fb6d5fdcb8a741e6161166bd17e4094b3614f9b46b7b9c58f5cf378ebe363987",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/Grid.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/Grid.java",
+      "beforeSha256": "4fb3b362c7ef9e85ef2eab5c232156b72b1897e96d29c8dd76440368af9f06b8",
+      "afterSha256": "8fd8d499f9313fd6df135b8397750e039b405b71c1e4921661a759a277a4a44b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/GridInfo.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/GridInfo.java",
+      "beforeSha256": "c738739f7db3ca2f0ebe32e7d6b24734790e8516a717c5624d3f47244ad416ae",
+      "afterSha256": "2e31577b05fcb36473d0beae1af9db177506b0560bfdb0414e52a3dc28f27abb",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/IEnergyCalculator.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/IEnergyCalculator.java",
+      "beforeSha256": "2c1e5e0135ff20406160c0dd7239570885bfb79851380ecfec4b7eb5591dec2a",
+      "afterSha256": "fc10930dc1661aee3fa68df92b789f986dec5aa22090ae8b5298159df9f748f9",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/Node.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/Node.java",
+      "beforeSha256": "51ac422a578b5922a37cb2291ad60a60fdce9259838a63a56996037d982ca3b6",
+      "afterSha256": "20c26a047189669a6228b3d50d223ede768ebb90d7de72a9e66b9cc40af0d118",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/NodeLink.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/NodeLink.java",
+      "beforeSha256": "13130f8e73b4a5004d1260e7562818808ea80dec5c96f2d03e0e01711f75abdd",
+      "afterSha256": "42d60bb112e89cbf17239d50d83f1571ab49d3c28e91b3714c02c12e1bde8387",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/NodeType.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/NodeType.java",
+      "beforeSha256": "c5700cd5e4b6e7aaf0ab77a99b01bb17f845f48dbe472a85a70a93bd0d65832e",
+      "afterSha256": "ca95a6e76c5ee85b717128919c142d851201fe7c548083327314d2036280d206",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/Tile.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/Tile.java",
+      "beforeSha256": "b6d5f5123348beed5d8566ee61221311c8de128d68d9ca99e76ca318c3a7a37a",
+      "afterSha256": "c8b5f5a543cbca97caebdc9095eb2063dbeb704139ae71c7a6711088c3fdd4cc",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/energy/leg/EnergyCalculatorLeg.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyCalculatorLeg.java",
+      "beforeSha256": "e62a4c9a9fb24332d0ae1a7a843a2d94f02bcf6ba65a833d2cc020c13d7cf6af",
+      "afterSha256": "91d9a47971c9f7e3519fe36369453adb5f0cce24e5198d5085d679f3ad57e315",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/energy/leg/EnergyPath.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyPath.java",
+      "beforeSha256": "812da390e3454f9b9009cc0167f87cd37d7033a644b192131c8ef385d4e5090c",
+      "afterSha256": "ea041f21c975ebf826096917367c76cc45e220c66703cae9d684850b70bbbf07",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "beforeSha256": "31ceb90e9f3f342f18895bf9aa40b8931f349b7bf49263654a45b904143bac87",
+      "afterSha256": "a9b2b6f6dc3157d04ecc8a0d33630eee63e5b9c6c5aa1a14c38d772e954eb278",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/event/WorldData.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/event/WorldData.java",
+      "beforeSha256": "f00e799f4efe28c63b63a7bc6de10395055005a518b86e92774d7f3ed7ba2420",
+      "afterSha256": "089345867932c25646dd8564d271e1b4cd48e5883277c5f3d1d755fa28cb6eba",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/item/tool/DiagnosticTool.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/item/tool/DiagnosticTool.java",
+      "beforeSha256": "65b33013a6ad1c9628a8ef8a3041a9d7cac9ca8019de19b61367507d8d62a215",
+      "afterSha256": "4328dfc7c771c3ddfb92f7d48006be8e65aa711e72e0e52018e50bd577f1b0f8",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/core/energy/grid/NetworkLifecycleProbe.java",
+      "after": "verification/src/main/java/ic2ce/neoforge/energy/grid/NetworkLifecycleProbe.java",
+      "beforeSha256": "5147292b8635d33026e8ab58b6dfd5d38ba0e30b3f7d5360043105a2d93069f7",
+      "afterSha256": "f4372f5cba356dd10348f2262a58fcb947c6dafe0d32073ea68ef1fba689ec4e",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/EnergyEffectsRegression.java",
+      "after": "verification/src/main/java/ic2ce/verification/EnergyEffectsRegression.java",
+      "beforeSha256": "09922f3f9d4f43c29dddca7819efa982da1da0fd22fa6d54a567e2fa5015612a",
+      "afterSha256": "76d4d8ed180549ce60091f28eb518a3abef1b536ef3d698e60b0e4ee2ecca837",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "after": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "beforeSha256": "78adecf04c51d05224a32d16bf79ceea134ff537879123b252039d3afadbaec7",
+      "afterSha256": "5f910baef635a223b65a4cc6501670da5fe0dfe6fccaced2c8ba9dca6b1674bb",
+      "countsAsImplementationRewrite": false
+    }
+  ]
+}

@@ -1,13 +1,14 @@
 package ic2ce.neoforge.reactor;
 
 import ic2ce.api.reactor.IReactorComponent;
-import ic2ce.core.util.*;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.damage.DamageProfiles;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
+import ic2ce.neoforge.diagnostics.Positions;
+import ic2ce.neoforge.diagnostics.ProjectLog;
 import ic2ce.neoforge.explosion.NativeBlast;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.world.block.WorldMaterials;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -105,11 +106,11 @@ public final class ReactorHazards {
       core.reactorSlot.put(slot, ItemStack.EMPTY);
     }
     power = Math.max(0, power * Math.max(0, core.getHeatEffectModifier()) * mitigation);
-    ProjectRuntime.log.log(
+    ProjectLog.LOG.log(
         DiagnosticArea.PlayerActivity,
         org.apache.logging.log4j.Level.INFO,
         "Nuclear reactor at %s melted (raw explosion power %f)",
-        Util.formatPosition(core),
+        Positions.format(core),
         power);
     float limit =
         NativeConfigValues.getFloat(

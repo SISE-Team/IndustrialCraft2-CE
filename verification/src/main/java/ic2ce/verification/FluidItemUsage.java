@@ -1,9 +1,10 @@
 package ic2ce.verification;
 
 import ic2ce.api.fluid.Ic2FluidItem;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.item.armor.ArmorItems;
+import ic2ce.neoforge.item.container.ContainerItems;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.storage.StorageBlocks;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -31,7 +32,7 @@ public final class FluidItemUsage {
         for (var hand : InteractionHand.values())
           try {
             player.level().setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
-            player.level().setBlock(pos, BlockDefinitions.TANK.defaultBlockState(), 3);
+            player.level().setBlock(pos, StorageBlocks.TANK.defaultBlockState(), 3);
             player.getInventory().clearContent();
             player.setItemInHand(hand, new ItemStack(item));
             var access = ItemAccess.forPlayerInteraction(player, hand);
@@ -56,15 +57,15 @@ public final class FluidItemUsage {
             int amount = handler.getAmountAsInt(0);
             if (fluid.isEmpty()
                 && item instanceof ic2ce.neoforge.item.container.FixedCell
-                && item != ItemDefinitions.EMPTY_CELL) continue;
+                && item != ContainerItems.EMPTY_CELL) continue;
             boolean filled = fluid.isEmpty();
             int moved;
             if (filled) {
               fluid =
                   FluidResource.of(
-                      item == ItemDefinitions.CF_PACK
+                      item == ArmorItems.CF_PACK
                           ? FluidDefinitions.CONSTRUCTION_FOAM.still
-                          : item == ItemDefinitions.JETPACK
+                          : item == ArmorItems.JETPACK
                               ? FluidDefinitions.BIOGAS.still
                               : Fluids.WATER);
               try (var root = Transaction.openRoot()) {

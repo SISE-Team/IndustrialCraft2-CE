@@ -1,13 +1,11 @@
 package ic2ce.neoforge.inventory;
 
-import ic2ce.core.block.IInventorySlotHolder;
-import ic2ce.core.network.IRpcProvider;
-import ic2ce.core.network.Rpc;
-import ic2ce.core.network.RpcHandler;
-import ic2ce.core.util.ItemComparableItemStack;
-import ic2ce.core.uu.UuGraph;
-import ic2ce.core.uu.UuIndex;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.network.IRpcProvider;
+import ic2ce.neoforge.network.Rpc;
+import ic2ce.neoforge.network.RpcHandler;
+import ic2ce.neoforge.processing.uu.UuGraph;
+import ic2ce.neoforge.processing.uu.UuIndex;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.LinkedHashMap;
 import net.minecraft.world.item.ItemStack;
 
@@ -26,7 +24,7 @@ public class ScannerInput extends ConsumableInventory {
   @Override
   public boolean accepts(ItemStack stack) {
     if (stack == null || stack.isEmpty()) return false;
-    if (ProjectRuntime.sideProxy.isSimulating()) return valid(stack);
+    if (SideServices.proxy().isSimulating()) return valid(stack);
     long now = System.nanoTime();
     var key = new ItemComparableItemStack(stack, true);
     Query query = queries.get(key);

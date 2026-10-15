@@ -4,7 +4,8 @@ package ic2ce.neoforge.registry;
 import ic2ce.api.recipe.ICannerBottleRecipeManager;
 import ic2ce.api.recipe.ICannerEnrichRecipeManager;
 import ic2ce.api.recipe.IRecipeInput;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.ProjectIds;
+import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.recipe.codec.RecipeHolder;
 import java.util.Collection;
@@ -32,6 +33,6 @@ public class RecipeKinds {
    }
 
    private static <T extends Recipe<?>> RecipeType<T> register(String name) {
-      return ProjectRuntime.envProxy.registerRecipeType(ProjectRuntime.getIdentifier(name));
+      return EnvProxy.get().registerRecipeType(ProjectIds.id(name));
    }
 }

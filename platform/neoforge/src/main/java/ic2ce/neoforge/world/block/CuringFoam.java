@@ -1,6 +1,6 @@
 package ic2ce.neoforge.world.block;
 
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.world.WorldBlocks;
 import java.util.List;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
@@ -106,7 +106,7 @@ public final class CuringFoam extends Block {
     public BlockState getResult() {
       return switch (this) {
         case normal -> ConstructionWall.get(ConstructionWall.DEFAULT_COLOR).defaultBlockState();
-        case reinforced -> BlockDefinitions.REINFORCED_STONE.defaultBlockState();
+        case reinforced -> WorldBlocks.REINFORCED_STONE.defaultBlockState();
       };
     }
   }

@@ -3,7 +3,7 @@ package ic2ce.neoforge.client.screen;
 import ic2ce.api.upgrade.*;
 import ic2ce.neoforge.client.widget.*;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.*;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -519,7 +519,7 @@ public abstract class MachineScreen<T extends OwnedMenu<? extends Container>>
   protected ClickAction createEventSender(int event) {
     if (!(menu.base instanceof BlockEntity owner))
       throw new IllegalArgumentException("Native block event requires an actual owner");
-    return ignored -> ProjectRuntime.network.get(false).initiateClientTileEntityEvent(owner, event);
+    return ignored -> SideServices.network(false).initiateClientTileEntityEvent(owner, event);
   }
 
   protected abstract Identifier getTexture();

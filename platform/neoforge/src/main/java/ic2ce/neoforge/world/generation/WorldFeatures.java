@@ -1,6 +1,6 @@
 package ic2ce.neoforge.world.generation;
 
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.ProjectIds;
 import java.util.List;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -16,7 +16,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 public final class WorldFeatures {
   public static final ResourceKey<ConfiguredFeature<?, ?>> RUBBER_TREE_KEY =
       ResourceKey.create(
-          Registries.CONFIGURED_FEATURE, ProjectRuntime.getIdentifier("rubber_tree"));
+          Registries.CONFIGURED_FEATURE, ProjectIds.id("rubber_tree"));
   public static final List<ResourceKey<PlacedFeature>> ORE_FEATURES =
       List.of(
               "ore_lead",
@@ -29,13 +29,13 @@ public final class WorldFeatures {
           .stream()
           .map(
               name ->
-                  ResourceKey.create(Registries.PLACED_FEATURE, ProjectRuntime.getIdentifier(name)))
+                  ResourceKey.create(Registries.PLACED_FEATURE, ProjectIds.id(name)))
           .toList();
   public static final List<ResourceKey<PlacedFeature>> TREE_FEATURES =
       List.of("trees_rubber_jungle", "trees_rubber_forest", "trees_rubber_swamp").stream()
           .map(
               name ->
-                  ResourceKey.create(Registries.PLACED_FEATURE, ProjectRuntime.getIdentifier(name)))
+                  ResourceKey.create(Registries.PLACED_FEATURE, ProjectIds.id(name)))
           .toList();
 
   private WorldFeatures() {}

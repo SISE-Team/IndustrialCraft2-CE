@@ -1,6 +1,6 @@
 package ic2ce.neoforge.item.tool;
 
-import ic2ce.core.util.VanillaColorBlockId;
+import ic2ce.neoforge.item.paint.VanillaColorBlockId;
 import ic2ce.neoforge.cable.ConductorBlock;
 import java.util.EnumMap;
 import java.util.function.Predicate;

@@ -1,10 +1,10 @@
 package ic2ce.neoforge.item.client;
 
-import ic2ce.core.model.ModelUtil;
-import ic2ce.core.proxy.SideProxyClient;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.model.ModelUtil;
+import ic2ce.neoforge.client.SideProxyClient;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.item.tool.SurfaceImprinter;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.util.RandomSource;
@@ -46,8 +46,8 @@ public final class FaceSampler {
         && variant.equals(SurfaceImprinter.getVariant(data))
         && SurfaceImprinter.getSide(data) == side
         && Arrays.equals(SurfaceImprinter.getColorMultipliers(data), colors)) return false;
-    ProjectRuntime.network
-        .get(false)
+    SideServices
+        .network(false)
         .sendPlayerItemData(
             owner,
             owner.getOffhandItem() == stack ? 40 : owner.getInventory().getSelectedSlot(),

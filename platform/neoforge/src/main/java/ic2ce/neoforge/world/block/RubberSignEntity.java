@@ -1,6 +1,6 @@
 package ic2ce.neoforge.world.block;
 
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
+import ic2ce.neoforge.world.WorldBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.SignBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -11,6 +11,6 @@ import net.minecraft.world.level.block.state.BlockState;
  */
 public class RubberSignEntity extends SignBlockEntity {
   public RubberSignEntity(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.SIGN, position.immutable(), state);
+    super(WorldBlockEntities.SIGN, position.immutable(), state);
   }
 }

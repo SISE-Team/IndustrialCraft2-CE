@@ -1,9 +1,9 @@
 package ic2ce.neoforge.item.tool;
 
 import ic2ce.api.item.IEnhancedOverlayProvider;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.cable.BareCableBlock;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.material.MaterialItems;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -43,7 +43,7 @@ public class InsulationCutter extends DurableCraftingTool implements IEnhancedOv
     boolean creative = player.getAbilities().instabuild;
     if (!creative)
       for (int slot = 0; slot < inventory.getContainerSize(); slot++)
-        if (inventory.getItem(slot).is(ItemDefinitions.RUBBER)) {
+        if (inventory.getItem(slot).is(MaterialItems.RUBBER)) {
           rubberSlot = slot;
           break;
         }
@@ -91,7 +91,7 @@ public class InsulationCutter extends DurableCraftingTool implements IEnhancedOv
         || !cable.tryRemoveInsulation(state, world, position, false)) return false;
     if (!player.getAbilities().instabuild) {
       player.getItemInHand(hand).hurtAndBreak(3, player, hand);
-      StackUtil.dropAsEntity(world, position, new ItemStack(ItemDefinitions.RUBBER));
+      StackUtil.dropAsEntity(world, position, new ItemStack(MaterialItems.RUBBER));
     }
     return true;
   }

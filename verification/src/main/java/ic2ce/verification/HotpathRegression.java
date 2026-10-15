@@ -2,13 +2,14 @@ package ic2ce.verification;
 
 import com.google.gson.GsonBuilder;
 import ic2ce.api.recipe.*;
-import ic2ce.core.util.Config;
+import ic2ce.engine.config.Config;
 import ic2ce.neoforge.recipe.codec.DeferredInput;
 import ic2ce.neoforge.recipe.input.ExactStackInput;
 import ic2ce.neoforge.recipe.input.NativeIngredientInput;
 import ic2ce.neoforge.recipe.processing.BasicMachineRecipes;
 import ic2ce.neoforge.recipe.processing.ListedMachineInputs;
 import ic2ce.neoforge.recipe.processing.OrderedMachineRecipes;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.nio.file.*;
 import java.util.*;
 import java.util.concurrent.*;
@@ -132,7 +133,7 @@ public final class HotpathRegression {
     group(
         "stackValueContracts",
         () -> {
-          var result = ic2ce.core.util.StackValueContracts.run(server.overworld());
+          var result = ic2ce.neoforge.inventory.StackValueContracts.run(server.overworld());
           checks += result.checks();
           failures.addAll(result.failures());
         });
@@ -241,7 +242,7 @@ public final class HotpathRegression {
             "actionContracts",
             () -> {
               try {
-                var result = ic2ce.core.network.ActionContracts.run(server.overworld());
+                var result = ic2ce.neoforge.network.ActionContracts.run(server.overworld());
                 checks += result.checks();
                 failures.addAll(result.failures());
               } catch (Exception error) {
@@ -252,7 +253,7 @@ public final class HotpathRegression {
             "wireContracts",
             () -> {
               try {
-                var result = ic2ce.core.network.WireContracts.run();
+                var result = ic2ce.neoforge.network.WireContracts.run();
                 checks += result.checks();
                 failures.addAll(result.failures());
               } catch (Exception error) {
@@ -276,14 +277,14 @@ public final class HotpathRegression {
         group(
             "registryContracts",
             () -> {
-              var result = ic2ce.core.block.comp.RegistryContracts.run();
+              var result = ic2ce.neoforge.component.RegistryContracts.run();
               checks += result.checks();
               failures.addAll(result.failures());
             });
         group(
             "worldLifecycleContracts",
             () -> {
-              var result = ic2ce.core.event.WorldLifecycleContracts.run(server.overworld());
+              var result = ic2ce.neoforge.world.WorldLifecycleContracts.run(server.overworld());
               checks += result.checks();
               failures.addAll(result.failures());
             });
@@ -298,7 +299,7 @@ public final class HotpathRegression {
             "portableStorageContracts",
             () -> {
               var result =
-                  ic2ce.core.block.storage.PortableStorageContracts.run(server.overworld());
+                  ic2ce.neoforge.storage.PortableStorageContracts.run(server.overworld());
               checks += result.checks();
               failures.addAll(result.failures());
             });
@@ -734,7 +735,7 @@ public final class HotpathRegression {
         group(
             "materialContracts",
             () -> {
-              var result = ic2ce.core.uu.MaterialContracts.run();
+              var result = ic2ce.neoforge.processing.uu.MaterialContracts.run();
               checks += result.checks();
               failures.addAll(result.failures());
             });
@@ -755,28 +756,28 @@ public final class HotpathRegression {
         group(
             "fluidCapabilityContracts",
             () -> {
-              var result = ic2ce.neoforge.FluidCapabilityContracts.run(server.overworld());
+              var result = ic2ce.neoforge.fluid.FluidCapabilityContracts.run(server.overworld());
               checks += result.checks();
               failures.addAll(result.failures());
             });
         group(
             "coverContracts",
             () -> {
-              var result = ic2ce.core.block.transport.cover.CoverContracts.run(server.overworld());
+              var result = ic2ce.neoforge.transport.cover.CoverContracts.run(server.overworld());
               checks += result.checks();
               failures.addAll(result.failures());
             });
         group(
             "fluidServiceContracts",
             () -> {
-              var result = ic2ce.core.fluid.FluidServiceContracts.run(server.overworld());
+              var result = ic2ce.neoforge.fluid.FluidServiceContracts.run(server.overworld());
               checks += result.checks();
               failures.addAll(result.failures());
             });
         group(
             "fluidContracts",
             () -> {
-              var result = ic2ce.core.fluid.FluidContracts.run(server.overworld());
+              var result = ic2ce.neoforge.fluid.FluidContracts.run(server.overworld());
               checks += result.checks();
               failures.addAll(result.failures());
             });
@@ -819,7 +820,7 @@ public final class HotpathRegression {
         group(
             "energyLifecycle",
             () -> {
-              var result = ic2ce.core.energy.grid.NetworkLifecycleProbe.run(server.overworld());
+              var result = ic2ce.neoforge.energy.grid.NetworkLifecycleProbe.run(server.overworld());
               checks += result.checks();
               failures.addAll(result.failures());
             });
@@ -853,7 +854,7 @@ public final class HotpathRegression {
             "native processing recipe after first reload");
         cachedBiome = server.overworld().getBiome(new net.minecraft.core.BlockPos(9120, 100, 9120));
         check(
-            ic2ce.neoforge.runtime.ProjectRuntime.envProxy.biomeHasType(
+            EnvProxy.get().biomeHasType(
                     cachedBiome, ic2ce.api.crops.BiomeType.SWAMP)
                 && ic2ce.api.crops.Crops.instance.getNutrientBiomeBonus(cachedBiome) == 10,
             "first native biome tag reload establishes a warm positive crop bonus");
@@ -900,7 +901,7 @@ public final class HotpathRegression {
         check(
             cachedBiome
                     == server.overworld().getBiome(new net.minecraft.core.BlockPos(9120, 100, 9120))
-                && !ic2ce.neoforge.runtime.ProjectRuntime.envProxy.biomeHasType(
+                && !EnvProxy.get().biomeHasType(
                     cachedBiome, ic2ce.api.crops.BiomeType.SWAMP)
                 && ic2ce.api.crops.Crops.instance.getNutrientBiomeBonus(cachedBiome) == 0,
             "actual tag publication invalidates the warm crop cache despite retaining the same"

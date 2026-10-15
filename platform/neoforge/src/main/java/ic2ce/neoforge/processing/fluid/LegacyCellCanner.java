@@ -2,18 +2,21 @@ package ic2ce.neoforge.processing.fluid;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.recipe.*;
-import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.armor.ArmorItems;
+import ic2ce.neoforge.item.consumable.ConsumableItems;
+import ic2ce.neoforge.item.container.ContainerItems;
+import ic2ce.neoforge.material.MaterialItems;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.item.armor.WearableFluidReservoir;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.processing.menu.LegacyCanningMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -40,10 +43,10 @@ public class LegacyCellCanner extends PoweredBlockEntity implements IHasGui, Scr
         public boolean accepts(ItemStack stack) {
           return stack != null
               && !stack.isEmpty()
-              && (stack.is(ItemDefinitions.TIN_CAN)
-                  || stack.is(ItemDefinitions.EMPTY_FUEL_CAN)
-                  || stack.is(ItemDefinitions.JETPACK)
-                  || stack.is(ItemDefinitions.CF_PACK));
+              && (stack.is(MaterialItems.TIN_CAN)
+                  || stack.is(ConsumableItems.EMPTY_FUEL_CAN)
+                  || stack.is(ArmorItems.JETPACK)
+                  || stack.is(ArmorItems.CF_PACK));
         }
 
         @Override
@@ -62,7 +65,7 @@ public class LegacyCellCanner extends PoweredBlockEntity implements IHasGui, Scr
   public final OutputInventory outputSlot = new OutputInventory(this, "output", 1);
 
   public LegacyCellCanner(BlockPos pos, BlockState state) {
-    super(BlockEntityDefinitions.CLASSIC_CANNER, pos, state, 600, 1);
+    super(ProcessingBlockEntities.CLASSIC_CANNER, pos, state, 600, 1);
   }
 
   @Override
@@ -109,8 +112,8 @@ public class LegacyCellCanner extends PoweredBlockEntity implements IHasGui, Scr
   }
 
   private ItemStack fuelProduct(int quality) {
-    if (inputSlot.get().is(ItemDefinitions.EMPTY_FUEL_CAN)) {
-      var can = new ItemStack(ItemDefinitions.FILLED_FUEL_CAN);
+    if (inputSlot.get().is(ConsumableItems.EMPTY_FUEL_CAN)) {
+      var can = new ItemStack(ConsumableItems.FILLED_FUEL_CAN);
       StackTag.update(
           can,
           data -> {
@@ -250,10 +253,10 @@ public class LegacyCellCanner extends PoweredBlockEntity implements IHasGui, Scr
 
   public Mode getMode() {
     var stack = inputSlot == null ? ItemStack.EMPTY : inputSlot.get();
-    if (stack.is(ItemDefinitions.TIN_CAN)) return Mode.FOOD;
-    if (stack.is(ItemDefinitions.EMPTY_FUEL_CAN) || stack.is(ItemDefinitions.JETPACK))
+    if (stack.is(MaterialItems.TIN_CAN)) return Mode.FOOD;
+    if (stack.is(ConsumableItems.EMPTY_FUEL_CAN) || stack.is(ArmorItems.JETPACK))
       return Mode.FUEL;
-    return stack.is(ItemDefinitions.CF_PACK) ? Mode.CF : Mode.NONE;
+    return stack.is(ArmorItems.CF_PACK) ? Mode.CF : Mode.NONE;
   }
 
   public int getFoodValue(ItemStack stack) {
@@ -263,15 +266,15 @@ public class LegacyCellCanner extends PoweredBlockEntity implements IHasGui, Scr
             .get(getLevel())
             .apply(
                 new ICannerBottleRecipeManager.RawInput(
-                    new ItemStack(ItemDefinitions.TIN_CAN, 64), stack),
+                    new ItemStack(MaterialItems.TIN_CAN, 64), stack),
                 false);
     return recipe == null ? 0 : recipe.getOutput().getCount();
   }
 
   public int getFuelValue(ItemStack stack) {
     if (stack == null || stack.isEmpty()) return 0;
-    if (stack.is(ItemDefinitions.COALFUEL_CELL)) return 2548;
-    if (stack.is(ItemDefinitions.BIOFUEL_CELL)) return 868;
+    if (stack.is(ContainerItems.COALFUEL_CELL)) return 2548;
+    if (stack.is(ContainerItems.BIOFUEL_CELL)) return 868;
     double factor =
         stack.is(Items.REDSTONE)
             ? .2
@@ -280,7 +283,7 @@ public class LegacyCellCanner extends PoweredBlockEntity implements IHasGui, Scr
   }
 
   public static int getPelletValue(ItemStack stack) {
-    return stack != null && stack.is(ItemDefinitions.PELLET) ? stack.getCount() : 0;
+    return stack != null && stack.is(MaterialItems.PELLET) ? stack.getCount() : 0;
   }
 
   @Override

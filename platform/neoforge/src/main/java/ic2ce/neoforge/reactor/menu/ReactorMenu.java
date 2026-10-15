@@ -3,7 +3,7 @@ package ic2ce.neoforge.reactor.menu;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.slot.MachineSlot;
 import ic2ce.neoforge.reactor.NuclearCore;
-import ic2ce.neoforge.registry.MenuDefinitions;
+import ic2ce.neoforge.reactor.ReactorMenus;
 import java.util.List;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -13,7 +13,7 @@ public class ReactorMenu extends OwnedMenu<NuclearCore> {
   private final int columns;
 
   public ReactorMenu(int syncId, Inventory inventory, NuclearCore core) {
-    super(MenuDefinitions.NUCLEAR_REACTOR, syncId, inventory, core);
+    super(ReactorMenus.NUCLEAR_REACTOR, syncId, inventory, core);
     columns = core.getReactorSize();
     for (int row = 0; row < 6; row++)
       for (int column = 0; column < columns; column++)

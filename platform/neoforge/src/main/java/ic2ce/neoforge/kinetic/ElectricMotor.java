@@ -1,9 +1,10 @@
 package ic2ce.neoforge.kinetic;
 
 import ic2ce.api.energy.tile.IKineticSource;
-import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.material.MaterialItems;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.config.NativeConfigValues;
@@ -11,8 +12,6 @@ import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.kinetic.menu.MotorMenu;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -40,10 +39,10 @@ public class ElectricMotor extends InventoryBlockEntity implements IKineticSourc
   protected final ElectricalBuffer energy;
 
   public ElectricMotor(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.ELECTRIC_KINETIC_GENERATOR, position, block);
+    super(KineticBlockEntities.ELECTRIC_KINETIC_GENERATOR, position, block);
     slotMotor =
         new StackWhitelistInput(
-            this, "slotMotor", 10, new ItemStack(ItemDefinitions.ELECTRIC_MOTOR));
+            this, "slotMotor", 10, new ItemStack(MaterialItems.ELECTRIC_MOTOR));
     slotMotor.setStackSizeLimit(1);
     dischargeSlot = new DischargeInventory(this, InventorySlot.Access.NONE, 4);
     energy =
@@ -69,7 +68,7 @@ public class ElectricMotor extends InventoryBlockEntity implements IKineticSourc
   public int getMaxKU() {
     int motors = 0;
     for (int slot = 0; slot < slotMotor.size(); slot++)
-      if (slotMotor.get(slot).is(ItemDefinitions.ELECTRIC_MOTOR)) motors++;
+      if (slotMotor.get(slot).is(MaterialItems.ELECTRIC_MOTOR)) motors++;
     return motors * 100;
   }
 

@@ -1,6 +1,6 @@
 package ic2ce.neoforge.transport.client;
 
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.client.screen.MachineScreen;
 import ic2ce.neoforge.client.widget.*;
 import ic2ce.neoforge.transport.menu.BatchItemMenu;

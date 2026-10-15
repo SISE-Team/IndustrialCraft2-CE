@@ -4,7 +4,6 @@ import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.energy.tile.IColoredEnergyTile;
 import ic2ce.api.energy.tile.IEnergyAcceptor;
 import ic2ce.api.energy.tile.IEnergyEmitter;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -32,7 +31,7 @@ public final class CableContracts {
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8380, 100, 8380);
     world.getChunkAt(position);
-    var bare = (ConductorBlock) BlockDefinitions.COPPER_CABLE;
+    var bare = (ConductorBlock) CableBlocks.COPPER_CABLE;
     world.setBlockAndUpdate(
         position, bare.defaultBlockState().setValue(ConductorBlock.WATERLOGGED, true));
     check(
@@ -48,7 +47,7 @@ public final class CableContracts {
             && world.getBlockState(position).is(bare)
             && world.getBlockState(position).getValue(ConductorBlock.WATERLOGGED),
         "removing insulation retains native water");
-    var foam = BlockDefinitions.COPPER_FOAM_CABLE;
+    var foam = CableBlocks.COPPER_FOAM_CABLE;
     world.setBlockAndUpdate(position, foam.defaultBlockState());
     check(
         foam.tryAddInsulation(world.getBlockState(position), world, position)
@@ -61,7 +60,7 @@ public final class CableContracts {
     check(
         !foamed.tryRemoveInsulation(world.getBlockState(position), world, position, false),
         "hard foam prevents insulation surgery");
-    world.setBlockAndUpdate(position, BlockDefinitions.INSULATED_COPPER_CABLE.defaultBlockState());
+    world.setBlockAndUpdate(position, CableBlocks.INSULATED_COPPER_CABLE.defaultBlockState());
     insulated = (ConductorBlock) world.getBlockState(position).getBlock();
     var other = position.east();
     world.setBlockAndUpdate(other, insulated.defaultBlockState());
@@ -85,7 +84,7 @@ public final class CableContracts {
         EnergyNet.instance.getTile(world, position) == null
             && EnergyNet.instance.getTile(world, other) == null,
         "real removal hides both conductor identities immediately");
-    var splitter = (RedstoneGateBlock) BlockDefinitions.SPLITTER_CABLE;
+    var splitter = (RedstoneGateBlock) CableBlocks.SPLITTER_CABLE;
     world.setBlockAndUpdate(
         position, splitter.defaultBlockState().setValue(RedstoneGateBlock.active, true));
     splitter.onLoad(world.getBlockState(position), world, position);

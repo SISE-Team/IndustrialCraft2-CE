@@ -1,8 +1,8 @@
 package ic2ce.neoforge.item.armor;
 
 import ic2ce.api.item.*;
-import ic2ce.core.util.StackTag;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -32,8 +32,8 @@ public final class HelmetControls {
             else tag.putByte("toggleTimer", (byte) next);
             return tag;
           });
-    } else if (ProjectRuntime.keyboard.isAltKeyDown(owner)) {
-      if (ProjectRuntime.keyboard.isModeSwitchKeyDown(owner)) {
+    } else if (SideServices.keyboard().isAltKeyDown(owner)) {
+      if (SideServices.keyboard().isModeSwitchKeyDown(owner)) {
         enabled = !enabled;
         boolean active = enabled;
         StackTag.update(
@@ -43,9 +43,9 @@ public final class HelmetControls {
               tag.putByte("toggleTimer", (byte) 10);
               return tag;
             });
-        ProjectRuntime.sideProxy.messagePlayer(
+        SideServices.proxy().messagePlayer(
             owner, enabled ? "ic2.nightvision.enabled" : "ic2.nightvision.disabled");
-      } else if (hud && ProjectRuntime.keyboard.isHudModeKeyDown(owner)) {
+      } else if (hud && SideServices.keyboard().isHudModeKeyDown(owner)) {
         var next = HudMode.getFromID(hud(stack).getID() + 1);
         StackTag.update(
             stack,
@@ -54,7 +54,7 @@ public final class HelmetControls {
               tag.putByte("toggleTimer", (byte) 10);
               return tag;
             });
-        ProjectRuntime.sideProxy.messagePlayer(owner, next.getTranslationKey());
+        SideServices.proxy().messagePlayer(owner, next.getTranslationKey());
       }
     }
     if (!enabled

@@ -1,9 +1,8 @@
 package ic2ce.neoforge.thermal;
 
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.material.MaterialItems;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -35,11 +34,11 @@ public final class HeatContracts {
     var electric =
         new ElectricHeater(
             new BlockPos(8260, 100, 8260),
-            BlockDefinitions.ELECTRIC_HEAT_GENERATOR.defaultBlockState());
+            ThermalBlocks.ELECTRIC_HEAT_GENERATOR.defaultBlockState());
     electric.setLevel(world);
     electric.coilSlot.put(new ItemStack(Items.COAL));
     check(electric.getMaxHeatEmittedPerTick() == 0, "forced invalid coil cannot create bandwidth");
-    electric.coilSlot.put(new ItemStack(ItemDefinitions.COIL));
+    electric.coilSlot.put(new ItemStack(MaterialItems.COIL));
     electric.energy.forceAddEnergy(100);
     electric.updateEntityServer();
     check(
@@ -63,7 +62,7 @@ public final class HeatContracts {
     var fuel =
         new FluidBurner(
             new BlockPos(8261, 100, 8261),
-            BlockDefinitions.FLUID_HEAT_GENERATOR.defaultBlockState());
+            ThermalBlocks.FLUID_HEAT_GENERATOR.defaultBlockState());
     fuel.setLevel(world);
     fuel.fluidTank.fillMbUnchecked(Ic2FluidStack.create(FluidDefinitions.BIOGAS.still, 9), false);
     fuel.updateEntityServer();
@@ -83,7 +82,7 @@ public final class HeatContracts {
     var restored =
         new FluidBurner(
             new BlockPos(8262, 100, 8262),
-            BlockDefinitions.FLUID_HEAT_GENERATOR.defaultBlockState());
+            ThermalBlocks.FLUID_HEAT_GENERATOR.defaultBlockState());
     restored.setLevel(world);
     restored.load(saved);
     int total = 1;
@@ -97,9 +96,9 @@ public final class HeatContracts {
     var exchange =
         new FluidHeatExchanger(
             new BlockPos(8263, 100, 8263),
-            BlockDefinitions.LIQUID_HEAT_EXCHANGER.defaultBlockState());
+            ThermalBlocks.LIQUID_HEAT_EXCHANGER.defaultBlockState());
     exchange.setLevel(world);
-    exchange.heatexchangerslots.put(new ItemStack(ItemDefinitions.HEAT_CONDUCTOR));
+    exchange.heatexchangerslots.put(new ItemStack(MaterialItems.HEAT_CONDUCTOR));
     exchange.inputTank.fillMbUnchecked(Ic2FluidStack.create(Fluids.LAVA, 100), false);
     exchange.outputTank.fillMbUnchecked(
         Ic2FluidStack.create(FluidDefinitions.PAHOEHOE_LAVA.still, 1999), false);
@@ -120,7 +119,7 @@ public final class HeatContracts {
     var solid =
         new CombustionHeater(
             new BlockPos(8264, 100, 8264),
-            BlockDefinitions.SOLID_HEAT_GENERATOR.defaultBlockState());
+            ThermalBlocks.SOLID_HEAT_GENERATOR.defaultBlockState());
     solid.setLevel(world);
     solid.fuelSlot.put(new ItemStack(Items.COAL));
     solid.updateEntityServer();
@@ -129,7 +128,7 @@ public final class HeatContracts {
     var reloaded =
         new CombustionHeater(
             new BlockPos(8265, 100, 8265),
-            BlockDefinitions.SOLID_HEAT_GENERATOR.defaultBlockState());
+            ThermalBlocks.SOLID_HEAT_GENERATOR.defaultBlockState());
     reloaded.setLevel(world);
     reloaded.load(saved);
     reloaded.updateEntityServer();

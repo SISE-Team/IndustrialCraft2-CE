@@ -1,6 +1,6 @@
 package ic2ce.neoforge.terrain;
 
-import ic2ce.core.util.ItemComparableItemStack;
+import ic2ce.neoforge.inventory.ItemComparableItemStack;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.world.item.ItemStack;

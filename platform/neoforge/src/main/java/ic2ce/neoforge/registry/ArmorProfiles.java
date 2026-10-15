@@ -1,6 +1,6 @@
 package ic2ce.neoforge.registry;
 
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.ProjectIds;
 import java.util.Map;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
@@ -20,7 +20,7 @@ import net.minecraft.world.item.equipment.EquipmentAssets;
 public final class ArmorProfiles {
   /** Repair items are matched through tags in 26.1.2; IC2 repairs via its own upgrade system. */
   private static final TagKey<Item> NO_REPAIR =
-      TagKey.create(Registries.ITEM, ProjectRuntime.getIdentifier("no_repair"));
+      TagKey.create(Registries.ITEM, ProjectIds.id("no_repair"));
 
   private ArmorProfiles() {}
 
@@ -48,8 +48,8 @@ public final class ArmorProfiles {
     var repair =
         switch (asset) {
           case "bronze" ->
-              TagKey.create(Registries.ITEM, ProjectRuntime.getIdentifier("bronze_ingot"));
-          case "alloy" -> TagKey.create(Registries.ITEM, ProjectRuntime.getIdentifier("alloy"));
+              TagKey.create(Registries.ITEM, ProjectIds.id("bronze_ingot"));
+          case "alloy" -> TagKey.create(Registries.ITEM, ProjectIds.id("alloy"));
           default -> NO_REPAIR;
         };
     return new ArmorMaterial(
@@ -69,7 +69,7 @@ public final class ArmorProfiles {
         knockback,
         repair,
         net.minecraft.resources.ResourceKey.create(
-            EquipmentAssets.ROOT_ID, ProjectRuntime.getIdentifier(asset)));
+            EquipmentAssets.ROOT_ID, ProjectIds.id(asset)));
   }
 
   private static ArmorMaterial soundOnly(String asset, Holder<SoundEvent> sound) {

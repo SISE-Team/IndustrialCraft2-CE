@@ -1,7 +1,6 @@
 package ic2ce.neoforge.utility;
 
-import ic2ce.core.event.WorldData;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.world.WorldData;
 import ic2ce.neoforge.world.ChunkLeases;
 import it.unimi.dsi.fastutil.longs.LongOpenHashSet;
 import java.util.ArrayList;
@@ -60,7 +59,7 @@ public final class ChunkLeaseContracts {
         "temporary release removes runtime ownership independently of saved registration");
     ChunkLeases.removeChunkLoader(world, second);
     world.getChunkAt(first);
-    world.setBlockAndUpdate(first, BlockDefinitions.CHUNK_LOADER.defaultBlockState());
+    world.setBlockAndUpdate(first, UtilityBlocks.CHUNK_LOADER.defaultBlockState());
     var loader = (ChunkAnchor) world.getBlockEntity(first);
     var tag = new CompoundTag();
     var chunks = new ListTag();

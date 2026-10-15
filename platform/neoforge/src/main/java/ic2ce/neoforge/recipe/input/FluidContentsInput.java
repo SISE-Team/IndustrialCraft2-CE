@@ -3,7 +3,7 @@ package ic2ce.neoforge.recipe.input;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.fluid.FluidHandler;
+import ic2ce.neoforge.fluid.FluidHandler;
 import java.util.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.ItemStack;

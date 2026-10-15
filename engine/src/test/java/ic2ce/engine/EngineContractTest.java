@@ -1,6 +1,6 @@
 package ic2ce.engine;
 
-import ic2ce.core.util.Config;
+import ic2ce.engine.config.Config;
 import ic2ce.engine.async.PendingResult;
 import ic2ce.engine.energy.*;
 import ic2ce.engine.fluid.FluidAmounts;
@@ -132,6 +132,7 @@ public final class EngineContractTest {
     audioCallbacks();
     recipes();
     materialCosts();
+    materialCompilation();
     weighted();
     concurrency();
     pendingResults();
@@ -146,12 +147,14 @@ public final class EngineContractTest {
     upgrades();
     configuration();
     routing();
+    sinkRoutes();
     components();
     energyBuffer();
     storageSignals();
     tickBudgets();
     reactorHeat();
     reactorCooling();
+    reactorCore();
     unitConversions();
     insertion();
     durability();
@@ -162,6 +165,7 @@ public final class EngineContractTest {
     fairFluidShares();
     miningLayers();
     cropArithmetic();
+    cropBreeding();
     itemChargeConservation();
     craftingAssignments();
     deferredValues();
@@ -169,6 +173,7 @@ public final class EngineContractTest {
     menuFillLevels();
     priorityWorkers();
     templateTexts();
+    siFormatting();
     nuclearProfiles();
     insertionOrderedRecipes();
     explosionMasks();
@@ -289,6 +294,37 @@ public final class EngineContractTest {
         "invalid native nuclear limits fail admission without making a malformed entity");
   }
 
+  private static void siFormatting() {
+    Object[][] examples = {
+      {0.0, 4, "0 "},
+      {Double.NaN, 4, "NaN "},
+      {Double.NEGATIVE_INFINITY, 4, "-∞ "},
+      {1.0, 4, "1 "},
+      {999.0, 6, "999 "},
+      {1000.0, 6, "1 k"},
+      {12345.0, 4, "12.35 k"},
+      {999_950.0, 4, "1 M"},
+      {40_000_000.0, 6, "40 M"},
+      {-2_048.0, 3, "-2.05 k"},
+      {0.0015, 4, "1.5 m"},
+      {1e30, 4, "1 E30"}
+    };
+    for (var example : examples)
+      check(
+          ic2ce.engine.text.SiFormat.format((double) example[0], (int) example[1])
+              .equals(example[2]),
+          "SI presentation rounds exact decimals and carries into the next prefix");
+    for (int digits : new int[] {0, 19}) {
+      boolean rejected = false;
+      try {
+        ic2ce.engine.text.SiFormat.format(1, digits);
+      } catch (IllegalArgumentException expected) {
+        rejected = true;
+      }
+      check(rejected, "SI presentation rejects significant digits outside [1,18]");
+    }
+  }
+
   private static void templateTexts() {
     var variables = Map.of("name", "Machine", "n", "7", "selected", "name");
     var context =
@@ -349,7 +385,7 @@ public final class EngineContractTest {
   }
 
   private static void priorityWorkers() throws Exception {
-    var worker = new ic2ce.core.util.PriorityExecutor(1);
+    var worker = new ic2ce.engine.async.PriorityExecutor(1);
     var entered = new CountDownLatch(1);
     var release = new CountDownLatch(1);
     var order = Collections.synchronizedList(new ArrayList<String>());
@@ -364,11 +400,11 @@ public final class EngineContractTest {
           }
         });
     check(entered.await(5, TimeUnit.SECONDS), "priority worker native platform task started");
-    class Job implements Callable<String>, ic2ce.core.util.PriorityExecutor.CustomPriority {
+    class Job implements Callable<String>, ic2ce.engine.async.PriorityExecutor.CustomPriority {
       final String name;
-      final ic2ce.core.util.PriorityExecutor.Priority priority;
+      final ic2ce.engine.async.PriorityExecutor.Priority priority;
 
-      Job(String name, ic2ce.core.util.PriorityExecutor.Priority priority) {
+      Job(String name, ic2ce.engine.async.PriorityExecutor.Priority priority) {
         this.name = name;
         this.priority = priority;
       }
@@ -378,17 +414,17 @@ public final class EngineContractTest {
         return name;
       }
 
-      public ic2ce.core.util.PriorityExecutor.Priority getPriority() {
+      public ic2ce.engine.async.PriorityExecutor.Priority getPriority() {
         return priority;
       }
     }
     var jobs =
         List.<Callable<String>>of(
-            new Job("low1", ic2ce.core.util.PriorityExecutor.Priority.Low),
-            new Job("default", ic2ce.core.util.PriorityExecutor.Priority.Default),
-            new Job("high1", ic2ce.core.util.PriorityExecutor.Priority.High),
-            new Job("high2", ic2ce.core.util.PriorityExecutor.Priority.High),
-            new Job("low2", ic2ce.core.util.PriorityExecutor.Priority.Low));
+            new Job("low1", ic2ce.engine.async.PriorityExecutor.Priority.Low),
+            new Job("default", ic2ce.engine.async.PriorityExecutor.Priority.Default),
+            new Job("high1", ic2ce.engine.async.PriorityExecutor.Priority.High),
+            new Job("high2", ic2ce.engine.async.PriorityExecutor.Priority.High),
+            new Job("low2", ic2ce.engine.async.PriorityExecutor.Priority.Low));
     var futures = worker.submitAll(jobs);
     release.countDown();
     for (var task : futures)
@@ -407,7 +443,7 @@ public final class EngineContractTest {
       rejected = true;
     }
     check(rejected, "shutdown executor rejects every later batch through native admission");
-    var removal = new ic2ce.core.util.PriorityExecutor(1);
+    var removal = new ic2ce.engine.async.PriorityExecutor(1);
     entered = new CountDownLatch(1);
     var gate = new CountDownLatch(1);
     var start = entered;
@@ -674,6 +710,84 @@ public final class EngineContractTest {
             && ChargeMath.displayDamage(0, 100, 32) == 31
             && ChargeMath.displayDamage(1, 0, 0) == 0,
         "native durability display has finite full/empty/zero-capacity boundaries");
+  }
+
+  private static void cropBreeding() {
+    var random = new Random(2026101501);
+    String[] names = {"Red", "red", "Food", "Wheat", "Flower", null};
+    for (int sample = 0; sample < 10000; sample++) {
+      var candidate = breedingSpecies(random, names);
+      var parent = breedingSpecies(random, names);
+      long expected = 0;
+      for (int i = 0; i < Math.min(candidate.properties().length, parent.properties().length); i++)
+        expected += 2 - Math.abs((long) candidate.properties()[i] - parent.properties()[i]);
+      if (candidate.attributes() != null && parent.attributes() != null)
+        for (var left : candidate.attributes())
+          for (var right : parent.attributes())
+            if (left != null && right != null && left.equalsIgnoreCase(right)) expected += 5;
+      long difference = (long) candidate.tier() - parent.tier();
+      if (difference > 1) expected -= difference * 2;
+      else if (difference < -3) expected += difference;
+      check(
+          ic2ce.engine.agriculture.CropBreeding.ratio(candidate, parent, false)
+              == Math.max(0, expected),
+          "crossing weight sums property closeness, shared attributes and tier distance " + sample);
+    }
+    var any = breedingSpecies(random, names);
+    check(
+        ic2ce.engine.agriculture.CropBreeding.ratio(any, any, true) == 500,
+        "a parent's own species keeps the fixed crossing weight");
+    check(
+        ic2ce.engine.agriculture.CropBreeding.ratio(
+                new ic2ce.engine.agriculture.CropBreeding.Species(new int[] {0}, null, 20),
+                new ic2ce.engine.agriculture.CropBreeding.Species(new int[] {5}, null, 0),
+                false)
+            == 0,
+        "strongly unfavourable crossings clamp to zero weight");
+    long bound = (1L << 40) + 3;
+    long[] accepted = {42L};
+    var index = new java.util.concurrent.atomic.AtomicInteger();
+    check(
+        ic2ce.engine.agriculture.CropBreeding.ticket(bound, () -> accepted[index.getAndIncrement()])
+                == 21
+            && index.get() == 1,
+        "large crossing tickets reduce one unbiased 63-bit draw");
+    // Long.MAX_VALUE lies in the biased tail above the last whole multiple of the bound.
+    long[] tail = {-1L, Long.MIN_VALUE};
+    index.set(0);
+    check(
+        ic2ce.engine.agriculture.CropBreeding.ticket(bound, () -> tail[index.getAndIncrement()])
+                == (1L << 62) % bound
+            && index.get() == 2,
+        "large crossing tickets reject draws from the biased tail");
+    for (int sample = 0; sample < 1000; sample++) {
+      long limit = 1 + (random.nextLong() >>> 2);
+      long value = ic2ce.engine.agriculture.CropBreeding.ticket(limit, random::nextLong);
+      check(value >= 0 && value < limit, "crossing tickets stay within their bound " + sample);
+    }
+    var coins = new java.util.concurrent.atomic.AtomicInteger();
+    check(
+        ic2ce.engine.agriculture.CropBreeding.weedGrowth(31, 3, () -> coins.incrementAndGet() > 0)
+                == 31
+            && coins.get() == 0,
+        "a maximal weed growth trait draws no coin");
+    check(
+        ic2ce.engine.agriculture.CropBreeding.weedGrowth(4, 9, () -> true) == 10
+            && ic2ce.engine.agriculture.CropBreeding.weedGrowth(4, 9, () -> false) == 9,
+        "overtaking weeds keep the stronger growth and may raise it once");
+  }
+
+  private static ic2ce.engine.agriculture.CropBreeding.Species breedingSpecies(
+      Random random, String[] names) {
+    var properties = new int[random.nextInt(6)];
+    for (int i = 0; i < properties.length; i++) properties[i] = random.nextInt(11) - 2;
+    String[] attributes = null;
+    if (random.nextInt(5) != 0) {
+      attributes = new String[random.nextInt(4)];
+      for (int i = 0; i < attributes.length; i++) attributes[i] = names[random.nextInt(names.length)];
+    }
+    return new ic2ce.engine.agriculture.CropBreeding.Species(
+        properties, attributes, random.nextInt(20) - 4);
   }
 
   private static void cropArithmetic() {
@@ -989,6 +1103,41 @@ public final class EngineContractTest {
     }
   }
 
+  private static void reactorCore() {
+    var random = new Random(2026101502);
+    for (int sample = 0; sample < 20000; sample++) {
+      int heat = random.nextInt(), amount = random.nextInt();
+      check(
+          ic2ce.engine.reactor.ReactorCore.addHeat(heat, amount)
+              == (int) Math.clamp((long) Math.max(0, heat) + amount, 0, Integer.MAX_VALUE),
+          "reactor hull heat saturates within zero and the int range " + sample);
+      int width = random.nextInt(400) - 10, maxHeat = random.nextInt(20001) - 1;
+      int gauge = ic2ce.engine.reactor.ReactorCore.heatGauge(width, Math.abs(heat), maxHeat);
+      check(
+          gauge >= 0 && (maxHeat > 0 || gauge == 0),
+          "reactor heat gauge is nonnegative and empty without capacity " + sample);
+    }
+    check(
+        ic2ce.engine.reactor.ReactorCore.heatGauge(100, 8500, 10000) == 100
+            && ic2ce.engine.reactor.ReactorCore.heatGauge(100, 4250, 10000) == 50,
+        "the heat gauge reaches full scale at eighty-five percent of maximum heat");
+    check(
+        ic2ce.engine.reactor.ReactorCore.addOutput(-3, Float.NaN) == -3
+            && ic2ce.engine.reactor.ReactorCore.addOutput(-3, 2) == 2
+            && ic2ce.engine.reactor.ReactorCore.addOutput(Float.MAX_VALUE, Float.MAX_VALUE)
+                == Float.MAX_VALUE,
+        "reactor output ignores nonfinite pulses and saturates finite ones from zero");
+    check(
+        ic2ce.engine.reactor.ReactorCore.electricalOutput(3, 1) == 15
+            && ic2ce.engine.reactor.ReactorCore.electricalOutput(3, Double.NaN) == 0
+            && ic2ce.engine.reactor.ReactorCore.electricalOutput(Float.NaN, 2) == 0,
+        "electrical reactor output is five EU per output point times the configured factor");
+    check(
+        ic2ce.engine.reactor.ReactorCore.addEmittedHeat(Integer.MAX_VALUE - 1, 5) == Integer.MAX_VALUE
+            && ic2ce.engine.reactor.ReactorCore.addEmittedHeat(7, -3) == 7,
+        "pending coolant heat only grows and saturates");
+  }
+
   private static void reactorCooling() {
     var random = new Random(2026101317);
     for (int trial = 0; trial < 100; trial++) {
@@ -1113,6 +1262,71 @@ public final class EngineContractTest {
 
   private record CostRule(
       double overhead, int[][] inputs, int[][] counts, int[] outputs, int[] outputCounts) {}
+
+  /** A quantity-carrying material whose equality, like the platform's, ignores the quantity. */
+  private record Material(String name, int size) {
+    @Override
+    public boolean equals(Object other) {
+      return other instanceof Material material && material.name.equals(name);
+    }
+
+    @Override
+    public int hashCode() {
+      return name.hashCode();
+    }
+  }
+
+  private static void materialCompilation() {
+    var compiler =
+        new ic2ce.engine.recipe.MaterialCostCompiler<Material>(
+            Material::size, material -> new Material(material.name(), 1));
+    var random = new Random(2026101504);
+    for (int trial = 0; trial < 300; trial++) {
+      var seeds = new LinkedHashMap<Material, Double>();
+      for (int s = 0; s < 1 + random.nextInt(4); s++)
+        seeds.put(new Material("m" + random.nextInt(10), 1), (double) random.nextInt(50));
+      var rules = new ArrayList<ic2ce.engine.recipe.MaterialCostCompiler.Transformation<Material>>();
+      for (int r = 0; r < random.nextInt(12); r++) {
+        var inputs = new ArrayList<List<Material>>();
+        for (int g = 0; g < random.nextInt(3); g++) {
+          var alternatives = new ArrayList<Material>();
+          for (int a = 0; a < 1 + random.nextInt(3); a++)
+            alternatives.add(new Material("m" + random.nextInt(14), 1 + random.nextInt(4)));
+          inputs.add(alternatives);
+        }
+        rules.add(
+            new ic2ce.engine.recipe.MaterialCostCompiler.Transformation<>(
+                random.nextInt(8),
+                inputs,
+                List.of(new Material("m" + random.nextInt(14), 1 + random.nextInt(3)))));
+      }
+      var compiled = compiler.compile(rules, seeds);
+      var order = new LinkedHashMap<String, Integer>();
+      for (var seed : seeds.keySet()) order.putIfAbsent(seed.name(), order.size());
+      for (var rule : rules) {
+        for (var group : rule.inputs()) for (var input : group) order.putIfAbsent(input.name(), order.size());
+        for (var output : rule.outputs()) order.putIfAbsent(output.name(), order.size());
+      }
+      boolean ordered = compiled.materials().size() == order.size();
+      int index = 0;
+      for (var name : order.keySet())
+        ordered &=
+            compiled.materials().get(index).name().equals(name)
+                && compiled.materials().get(index++).size() == 1;
+      boolean seeded = true;
+      for (int i = 0; i < compiled.seeds().length; i++) {
+        var seed = seeds.get(compiled.materials().get(i));
+        seeded &= compiled.seeds()[i] == (seed == null ? Double.POSITIVE_INFINITY : seed);
+      }
+      var solved = compiled.graph().solve(compiled.seeds());
+      boolean bounded = true;
+      for (int i = 0; i < solved.length; i++) bounded &= solved[i] <= compiled.seeds()[i];
+      check(
+          ordered && seeded && bounded,
+          "material compilation keys unit materials in first-appearance order with seeded costs "
+              + trial);
+    }
+  }
 
   private static void materialCosts() {
     var random = new Random(2026101313);
@@ -1780,6 +1994,64 @@ public final class EngineContractTest {
         rejected = true;
       }
       check(rejected, "invalid INI rejected: " + bad);
+    }
+  }
+
+  private static void sinkRoutes() {
+    var random = new Random(2026101503);
+    for (int graph = 0; graph < 300; graph++) {
+      int count = 4 + random.nextInt(12);
+      var roles = new WeightedTopology.Role[count];
+      for (int i = 0; i < count; i++)
+        roles[i] = WeightedTopology.Role.values()[random.nextInt(WeightedTopology.Role.values().length)];
+      roles[0] = WeightedTopology.Role.SOURCE;
+      var adjacency = new ArrayList<List<int[]>>();
+      for (int i = 0; i < count; i++) adjacency.add(new ArrayList<>());
+      int size = 0;
+      for (int a = 0; a < count; a++)
+        for (int b = a + 1; b < count; b++)
+          if (random.nextInt(3) == 0) {
+            int loss = random.nextInt(6);
+            adjacency.get(a).add(new int[] {b, loss});
+            adjacency.get(b).add(new int[] {a, loss});
+            size += 2;
+          }
+      int[] offsets = new int[count + 1], targets = new int[size];
+      double[] losses = new double[size];
+      int cursor = 0;
+      for (int a = 0; a < count; a++) {
+        offsets[a] = cursor;
+        for (var edge : adjacency.get(a)) {
+          targets[cursor] = edge[0];
+          losses[cursor++] = edge[1] * .5;
+        }
+      }
+      offsets[count] = cursor;
+      var workspace = new WeightedTopology(roles, offsets, targets, losses).workspace();
+      var owners = new Object[count];
+      for (int i = 0; i < count; i++) owners[i] = "owner" + random.nextInt(4);
+      workspace.solve(0);
+      var sinks = new ArrayList<Integer>();
+      for (int i = 0; i < count; i++)
+        if (roles[i] == WeightedTopology.Role.SINK && Double.isFinite(workspace.lossTo(i)))
+          sinks.add(i);
+      sinks.sort(Comparator.comparingDouble(workspace::lossTo).thenComparingInt(Integer::intValue));
+      var unique = new LinkedHashMap<Object, Integer>();
+      for (int sink : sinks) {
+        var existing = unique.get(owners[sink]);
+        if (existing != null && workspace.lossTo(existing) <= workspace.lossTo(sink)) continue;
+        unique.put(owners[sink], sink);
+      }
+      var expected = new ArrayList<>(unique.values());
+      var selected = ic2ce.engine.energy.SinkRoutes.select(roles, workspace, owners);
+      boolean same = selected.size() == expected.size();
+      for (int i = 0; same && i < selected.size(); i++)
+        same =
+            selected.get(i).sink() == expected.get(i)
+                && selected.get(i).loss() == workspace.lossTo(expected.get(i));
+      check(
+          same,
+          "sink routes keep the cheapest reachable route per owner in loss/index order " + graph);
     }
   }
 

@@ -2,9 +2,8 @@ package ic2ce.neoforge.crafting;
 
 import com.mojang.authlib.GameProfile;
 import ic2ce.neoforge.crafting.menu.*;
+import ic2ce.neoforge.item.tool.ToolItems;
 import ic2ce.neoforge.menu.MenuFields;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -57,7 +56,7 @@ public final class CraftingMenuContracts {
     owner.getInventory().clearContent();
     owner.getAbilities().instabuild = false;
     var pos = new BlockPos(1580, 110, 1320);
-    world.setBlockAndUpdate(pos, BlockDefinitions.INDUSTRIAL_WORKBENCH.defaultBlockState());
+    world.setBlockAndUpdate(pos, CraftingBlocks.INDUSTRIAL_WORKBENCH.defaultBlockState());
     var bench = (IndustrialWorkbench) world.getBlockEntity(pos);
     var menu = new WorkbenchMenu(196, owner.getInventory(), bench);
     bench.craftingGrid.put(0, new ItemStack(Items.OAK_LOG, 3));
@@ -90,7 +89,7 @@ public final class CraftingMenuContracts {
             && menu.slots.get(menu.indexOutput).getItem().isEmpty(),
         "repeated real shifts conserve all twelve paid products without stale output");
     owner.getInventory().clearContent();
-    bench.leftCrafting.tool.put(new ItemStack(ItemDefinitions.FORGE_HAMMER));
+    bench.leftCrafting.tool.put(new ItemStack(ToolItems.FORGE_HAMMER));
     bench.leftCrafting.input.put(new ItemStack(Items.IRON_INGOT, 2));
     var product = menu.slots.get(menu.indexOutputHammer).getItem().copy();
     check(
@@ -132,7 +131,7 @@ public final class CraftingMenuContracts {
             + " storage");
     owner.getInventory().clearContent();
     var automaticPos = pos.east(3);
-    world.setBlockAndUpdate(automaticPos, BlockDefinitions.BATCH_CRAFTER.defaultBlockState());
+    world.setBlockAndUpdate(automaticPos, CraftingBlocks.BATCH_CRAFTER.defaultBlockState());
     var automatic = (AutomaticCrafter) world.getBlockEntity(automaticPos);
     automatic.craftingGrid[0] = new ItemStack(Items.COAL);
     automatic.craftingGrid[3] = new ItemStack(Items.STICK);

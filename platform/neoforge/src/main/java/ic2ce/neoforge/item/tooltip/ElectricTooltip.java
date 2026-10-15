@@ -1,7 +1,6 @@
 package ic2ce.neoforge.item.tooltip;
 
 import ic2ce.api.item.ElectricItem;
-import ic2ce.core.item.*;
 import java.util.function.Consumer;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;

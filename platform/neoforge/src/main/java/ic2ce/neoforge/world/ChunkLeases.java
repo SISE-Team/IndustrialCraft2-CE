@@ -1,11 +1,7 @@
 package ic2ce.neoforge.world;
 
 import com.mojang.serialization.Codec;
-import ic2ce.core.*;
-import ic2ce.core.event.IWorldTickCallback;
-import ic2ce.core.event.TickHandler;
-import ic2ce.core.event.WorldData;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.utility.ChunkAnchor;
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
@@ -166,7 +162,7 @@ public final class ChunkLeases {
     private static final Codec<SavedState> CODEC =
         BlockPos.CODEC.listOf().xmap(SavedState::read, SavedState::positions);
     private static final SavedDataType<SavedState> TYPE =
-        new SavedDataType<>(ProjectRuntime.getIdentifier("loaded_chunks"), SavedState::new, CODEC);
+        new SavedDataType<>(ProjectIds.id("loaded_chunks"), SavedState::new, CODEC);
 
     private static SavedState read(List<BlockPos> positions) {
       var state = new SavedState();

@@ -1,8 +1,9 @@
 package ic2ce.neoforge.world.block;
 
 import ic2ce.engine.world.ScaffoldSupport;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.EntityGroups;
+import ic2ce.neoforge.utility.UtilityBlocks;
+import ic2ce.neoforge.world.WorldBlocks;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.longs.*;
 import java.util.*;
@@ -221,12 +222,12 @@ public final class StructuralScaffold extends Block {
     if (owner.isShiftKeyDown()) return InteractionResult.TRY_WITH_EMPTY_HAND;
     Block replacement;
     int count;
-    if (this == BlockDefinitions.WOODEN_SCAFFOLD && stack.is(Items.STICK)) {
-      replacement = BlockDefinitions.REINFORCED_WOODEN_SCAFFOLD;
+    if (this == WorldBlocks.WOODEN_SCAFFOLD && stack.is(Items.STICK)) {
+      replacement = WorldBlocks.REINFORCED_WOODEN_SCAFFOLD;
       count = 2;
-    } else if (this == BlockDefinitions.IRON_SCAFFOLD
-        && stack.is(BlockDefinitions.IRON_FENCE.asItem())) {
-      replacement = BlockDefinitions.REINFORCED_IRON_SCAFFOLD;
+    } else if (this == WorldBlocks.IRON_SCAFFOLD
+        && stack.is(UtilityBlocks.IRON_FENCE.asItem())) {
+      replacement = WorldBlocks.REINFORCED_IRON_SCAFFOLD;
       count = 1;
     } else return InteractionResult.TRY_WITH_EMPTY_HAND;
     if (stack.isEmpty()

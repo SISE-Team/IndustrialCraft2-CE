@@ -1,11 +1,10 @@
 package ic2ce.neoforge.item.tool;
 
-import ic2ce.core.util.StackTag;
-import ic2ce.core.util.VanillaColorBlockId;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.item.paint.VanillaColorBlockId;
 import ic2ce.neoforge.item.paint.PigmentPalette;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -77,7 +76,7 @@ public class PigmentBrush extends DurableCraftingTool {
 
   @Override
   public InteractionResult use(Level world, Player player, InteractionHand hand) {
-    if (world.isClientSide() || !ProjectRuntime.keyboard.isModeSwitchKeyDown(player))
+    if (world.isClientSide() || !SideServices.keyboard().isModeSwitchKeyDown(player))
       return InteractionResult.PASS;
     var held = player.getItemInHand(hand);
     if (!held.is(this)) return InteractionResult.PASS;
@@ -85,7 +84,7 @@ public class PigmentBrush extends DurableCraftingTool {
     boolean enabled = !data.getBooleanOr("autoRefill", false);
     data.putBoolean("autoRefill", enabled);
     StackTag.set(held, data);
-    ProjectRuntime.sideProxy.messagePlayer(
+    SideServices.proxy().messagePlayer(
         player, enabled ? "ic2.painter.refill.enabled" : "ic2.painter.refill.disabled");
     return InteractionResult.SUCCESS.heldItemTransformedTo(held);
   }
@@ -115,7 +114,7 @@ public class PigmentBrush extends DurableCraftingTool {
         if (!replacement.isEmpty()) break;
       }
     }
-    var blank = new ItemStack(ItemDefinitions.PAINTER);
+    var blank = new ItemStack(ToolItems.PAINTER);
     if (replacement.isEmpty()) player.setItemInHand(hand, blank);
     else {
       StackTag.update(

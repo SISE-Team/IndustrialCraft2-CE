@@ -6,10 +6,10 @@ import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.IUpgradeItem;
 import ic2ce.api.upgrade.UpgradableProperty;
-import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.runtime.profile.NotClassic;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.engine.fluid.FairAllocation;
 import ic2ce.engine.value.ValueTuples;
 import ic2ce.neoforge.block.PoweredBlockEntity;
@@ -21,7 +21,6 @@ import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
 import ic2ce.neoforge.network.ClientFieldValidator;
 import ic2ce.neoforge.recipe.codec.RecipeGeneration;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -98,7 +97,7 @@ public class AutomaticCrafter extends PoweredBlockEntity
   private RecipeMap generation;
 
   public AutomaticCrafter(BlockPos position, BlockState state) {
-    this(BlockEntityDefinitions.BATCH_CRAFTER, position, state);
+    this(CraftingBlockEntities.BATCH_CRAFTER, position, state);
   }
 
   protected AutomaticCrafter(

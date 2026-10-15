@@ -1,7 +1,6 @@
 package ic2ce.neoforge.menu;
 
 import com.mojang.authlib.GameProfile;
-import ic2ce.core.*;
 import ic2ce.neoforge.menu.slot.EquipmentItemSlot;
 import ic2ce.neoforge.menu.slot.TemplateSlot;
 import java.util.*;

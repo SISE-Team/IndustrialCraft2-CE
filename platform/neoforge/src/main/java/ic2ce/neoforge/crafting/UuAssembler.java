@@ -2,9 +2,8 @@ package ic2ce.neoforge.crafting;
 
 import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.neoforge.client.text.LocalizedText;
+import ic2ce.neoforge.processing.ProcessingItems;
 import ic2ce.neoforge.recipe.crafting.PositionedCrafting;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.RecipeKinds;
 import java.util.List;
 import java.util.Set;
@@ -24,7 +23,7 @@ public class UuAssembler extends AutomaticCrafter {
   public static final List<CraftingRecipe> RECIPES = new CopyOnWriteArrayList<>();
 
   public UuAssembler(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.UU_ASSEMBLY_BENCH, position, state);
+    super(CraftingBlockEntities.UU_ASSEMBLY_BENCH, position, state);
   }
 
   @Override
@@ -57,6 +56,6 @@ public class UuAssembler extends AutomaticCrafter {
     tooltip.add(
         LocalizedText.translate(
             "ic2.tooltip.preferred_machine",
-            LocalizedText.translate(ItemDefinitions.REPLICATOR.getDescriptionId())));
+            LocalizedText.translate(ProcessingItems.REPLICATOR.getDescriptionId())));
   }
 }

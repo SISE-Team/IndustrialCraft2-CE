@@ -6,11 +6,10 @@ import ic2ce.api.energy.tile.*;
 import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.UpgradableProperty;
-import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.util.ProfileUtil;
-import ic2ce.core.util.StackTag;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.inventory.ChargeInventory;
 import ic2ce.neoforge.inventory.InventorySlot;
@@ -19,7 +18,6 @@ import ic2ce.neoforge.inventory.UpgradeInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.personal.menu.OwnerEnergyTradeMenu;
 import ic2ce.neoforge.personal.menu.PublicEnergyTradeMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
@@ -59,7 +57,7 @@ public class EnergyTradeTerminal extends InventoryBlockEntity
   public final UpgradeInventory upgradeSlot = new UpgradeInventory(this, "upgrade", 1);
 
   public EnergyTradeTerminal(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.ENERGY_O_MAT, position, state);
+    super(PersonalBlockEntities.ENERGY_O_MAT, position, state);
   }
 
   @Override

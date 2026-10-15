@@ -3,12 +3,12 @@ package ic2ce.neoforge.processing.fluid;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.UpgradableProperty;
-import ic2ce.core.IHasGui;
-import ic2ce.core.fluid.Ic2FluidTank;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.network.GuiSynced;
-import ic2ce.core.util.LiquidUtil;
-import ic2ce.core.util.PumpUtil;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.fluid.LiquidUtil;
+import ic2ce.neoforge.fluid.PumpUtil;
 import ic2ce.engine.machine.UpgradeMath;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;
@@ -17,7 +17,7 @@ import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
 import ic2ce.neoforge.mining.PipeMiner;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import java.util.EnumSet;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -63,7 +63,7 @@ public class FluidCollector extends PoweredBlockEntity
       BlockPos position, Direction side, boolean capability, Ic2FluidStack preview) {}
 
   public FluidCollector(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.PUMP, position, state, 20, 1);
+    super(ProcessingBlockEntities.PUMP, position, state, 20, 1);
     containerSlot =
         new FluidContainerInventory(
             this,

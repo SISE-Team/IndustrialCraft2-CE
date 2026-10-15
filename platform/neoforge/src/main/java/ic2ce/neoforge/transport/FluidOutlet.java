@@ -1,7 +1,7 @@
 package ic2ce.neoforge.transport;
 
-import ic2ce.core.fluid.Ic2FluidTank;
-import ic2ce.core.util.LiquidUtil;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
+import ic2ce.neoforge.fluid.LiquidUtil;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import net.minecraft.core.Direction;
 

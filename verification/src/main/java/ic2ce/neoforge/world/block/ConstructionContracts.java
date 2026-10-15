@@ -1,8 +1,8 @@
 package ic2ce.neoforge.world.block;
 
 import com.mojang.authlib.GameProfile;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.material.MaterialItems;
+import ic2ce.neoforge.world.WorldBlocks;
 import ic2ce.neoforge.world.surface.SurfaceMap;
 import java.util.*;
 import net.minecraft.core.*;
@@ -48,7 +48,7 @@ public final class ConstructionContracts {
     @SubscribeEvent
     public void joined(EntityJoinLevelEvent event) {
       if (event.getEntity() instanceof ItemEntity item
-          && item.getItem().is(ItemDefinitions.RESIN)
+          && item.getItem().is(MaterialItems.RESIN)
           && item.position().distanceToSqr(Vec3.atCenterOf(position)) < 9)
         resin += item.getItem().getCount();
     }
@@ -80,7 +80,7 @@ public final class ConstructionContracts {
         for (var hand : InteractionHand.values()) {
           observer.resin = 0;
           var state =
-              BlockDefinitions.RUBBER_LOG
+              WorldBlocks.RUBBER_LOG
                   .defaultBlockState()
                   .setValue(RotatedPillarBlock.AXIS, axis)
                   .setValue(ResinLog.stateProperty, ResinLog.RubberWoodState.wet_north);
@@ -95,7 +95,7 @@ public final class ConstructionContracts {
           var hit = new BlockHitResult(Vec3.atCenterOf(position), Direction.NORTH, position, false);
           state.useItemOn(axe, world, actor, hand, hit);
           check(
-              world.getBlockState(position).is(BlockDefinitions.STRIPPED_RUBBER_LOG)
+              world.getBlockState(position).is(WorldBlocks.STRIPPED_RUBBER_LOG)
                   && world.getBlockState(position).getValue(RotatedPillarBlock.AXIS) == axis
                   && axe.getDamageValue() == 1
                   && observer.resin >= 1
@@ -114,7 +114,7 @@ public final class ConstructionContracts {
               "strip preserves unused native hand");
         }
       var wet =
-          BlockDefinitions.RUBBER_LOG
+          WorldBlocks.RUBBER_LOG
               .defaultBlockState()
               .setValue(ResinLog.stateProperty, ResinLog.RubberWoodState.wet_east);
       world.setBlock(position, wet, 3);
@@ -128,19 +128,19 @@ public final class ConstructionContracts {
           world.getBlockState(position) == wet && axe.getDamageValue() == 0 && observer.resin == 0,
           "actual native modification cancellation cannot consume axe wear or emit resin");
       observer.canceled = false;
-      var wood = BlockDefinitions.RUBBER_WOOD.defaultBlockState();
+      var wood = WorldBlocks.RUBBER_WOOD.defaultBlockState();
       world.setBlock(position, wood, 3);
       actor.setItemInHand(InteractionHand.OFF_HAND, axe);
       actor.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(Items.STICK));
       wood.useItemOn(axe, world, actor, InteractionHand.OFF_HAND, hit);
       check(
-          world.getBlockState(position).is(BlockDefinitions.STRIPPED_RUBBER_WOOD)
+          world.getBlockState(position).is(WorldBlocks.STRIPPED_RUBBER_WOOD)
               && axe.getDamageValue() == 1,
           "all-bark wood supports actual native offhand stripping");
       for (var type : CuringFoam.FoamType.values())
         for (var hand : InteractionHand.values()) {
           var foam =
-              BlockDefinitions.FOAM.defaultBlockState().setValue(CuringFoam.typeProperty, type);
+              WorldBlocks.FOAM.defaultBlockState().setValue(CuringFoam.typeProperty, type);
           world.setBlock(position, foam, 3);
           var sand = new ItemStack(Items.SAND, 3);
           actor.setItemInHand(hand, sand);
@@ -161,7 +161,7 @@ public final class ConstructionContracts {
                       .is(Items.STICK),
               "actual " + type + " foam uses exactly one native sand in " + hand);
         }
-      var foam = BlockDefinitions.FOAM.defaultBlockState();
+      var foam = WorldBlocks.FOAM.defaultBlockState();
       world.setBlock(position, foam, 3);
       actor.getAbilities().mayBuild = false;
       var sand = new ItemStack(Items.SAND, 2);
@@ -174,7 +174,7 @@ public final class ConstructionContracts {
       int ticks = world.getGameRules().get(GameRules.RANDOM_TICK_SPEED);
       world.getGameRules().set(GameRules.RANDOM_TICK_SPEED, 0, world.getServer());
       try {
-        ((CuringFoam) BlockDefinitions.FOAM)
+        ((CuringFoam) WorldBlocks.FOAM)
             .randomTick(foam, world, position, RandomSource.create(1));
         check(
             world.getBlockState(position) == foam,
@@ -191,13 +191,13 @@ public final class ConstructionContracts {
       for (var color : DyeColor.values())
         check(
             ConstructionWall.get(color) != null, "native construction pigment registered " + color);
-      world.setBlock(position, BlockDefinitions.OBSCURED_WALL.defaultBlockState(), 3);
+      world.setBlock(position, WorldBlocks.OBSCURED_WALL.defaultBlockState(), 3);
       var wall = (ImprintedWall) world.getBlockEntity(position);
       wall.setColor(DyeColor.BLUE);
       var saved = new CompoundTag();
       wall.saveAdditional(saved);
       var restored =
-          new ImprintedWall(position, BlockDefinitions.OBSCURED_WALL.defaultBlockState());
+          new ImprintedWall(position, WorldBlocks.OBSCURED_WALL.defaultBlockState());
       restored.load(saved);
       var resaved = new CompoundTag();
       restored.saveAdditional(resaved);

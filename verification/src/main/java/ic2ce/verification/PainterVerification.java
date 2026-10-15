@@ -1,9 +1,9 @@
 package ic2ce.verification;
 
 import com.google.gson.GsonBuilder;
-import ic2ce.core.util.StackTag;
-import ic2ce.core.util.StackUtil;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.inventory.StackUtil;
+import ic2ce.neoforge.item.tool.ToolItems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
@@ -167,10 +167,10 @@ public final class PainterVerification {
 
   private int emptyBrushes() {
     return player.getInventory().getNonEquipmentItems().stream()
-            .filter(s -> s.is(ItemDefinitions.PAINTER))
+            .filter(s -> s.is(ToolItems.PAINTER))
             .mapToInt(ItemStack::getCount)
             .sum()
-        + (player.getOffhandItem().is(ItemDefinitions.PAINTER)
+        + (player.getOffhandItem().is(ToolItems.PAINTER)
             ? player.getOffhandItem().getCount()
             : 0);
   }
@@ -219,7 +219,7 @@ public final class PainterVerification {
           "refill consumes one reserve and returns one empty brush");
     } else {
       check(
-          held.is(ItemDefinitions.PAINTER) && held.getCount() == 1,
+          held.is(ToolItems.PAINTER) && held.getCount() == 1,
           "last use returns one empty brush in the used hand");
       check(emptyBrushes() == 1, "exhaustion does not duplicate empty brush");
     }

@@ -1,7 +1,6 @@
 package ic2ce.neoforge.inventory;
 
 import ic2ce.api.upgrade.*;
-import ic2ce.core.block.IInventorySlotHolder;
 import ic2ce.engine.machine.UpgradeMath;
 import ic2ce.neoforge.component.SignalInput;
 import java.util.ArrayList;

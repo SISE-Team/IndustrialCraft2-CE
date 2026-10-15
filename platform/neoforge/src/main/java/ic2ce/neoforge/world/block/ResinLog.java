@@ -1,7 +1,7 @@
 package ic2ce.neoforge.world.block;
 
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.material.MaterialItems;
+import ic2ce.neoforge.world.WorldBlocks;
 import java.util.Objects;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
@@ -64,7 +64,7 @@ public final class ResinLog extends RotatedPillarBlock {
   public BlockState getToolModifiedState(
       BlockState state, UseOnContext context, ItemAbility ability, boolean simulate) {
     return ability == ItemAbilities.AXE_STRIP && context.getItemInHand().canPerformAction(ability)
-        ? BlockDefinitions.STRIPPED_RUBBER_LOG
+        ? WorldBlocks.STRIPPED_RUBBER_LOG
             .defaultBlockState()
             .setValue(AXIS, state.getValue(AXIS))
         : null;
@@ -88,12 +88,12 @@ public final class ResinLog extends RotatedPillarBlock {
     if (!world.isClientSide()
         && result.consumesAction()
         && resin.wet
-        && world.getBlockState(position).is(BlockDefinitions.STRIPPED_RUBBER_LOG))
+        && world.getBlockState(position).is(WorldBlocks.STRIPPED_RUBBER_LOG))
       Block.popResourceFromFace(
           world,
           position,
           hit.getDirection(),
-          new ItemStack(ItemDefinitions.RESIN, world.getRandom().nextInt(2) + 1));
+          new ItemStack(MaterialItems.RESIN, world.getRandom().nextInt(2) + 1));
     return result;
   }
 

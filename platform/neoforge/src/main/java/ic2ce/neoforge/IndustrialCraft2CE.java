@@ -1,7 +1,8 @@
 package ic2ce.neoforge;
 
-import ic2ce.core.event.EventHandler;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EventHandler;
+import ic2ce.neoforge.fluid.EnvFluidHandlerNeoForge;
+import ic2ce.neoforge.network.NeoForgeNetworkHandler;
 import java.util.ArrayDeque;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
@@ -29,7 +30,7 @@ public final class IndustrialCraft2CE {
 
   private final AtomicReference<Phase> phase = new AtomicReference<>(Phase.CONSTRUCTED);
   private final ArrayDeque<Runnable> registryTasks = new ArrayDeque<>();
-  private boolean registriesReady;
+  private boolean registriesReady, sideServicesInstalled;
 
   public IndustrialCraft2CE(IEventBus bus, net.neoforged.fml.ModContainer container) {
     if (instance != null)
@@ -48,12 +49,18 @@ public final class IndustrialCraft2CE {
       bus.register(new ClientModEventHandlerNeoForge());
     }
 
+    static void install() {
+      ic2ce.neoforge.runtime.SideServices.installClient(
+          new ic2ce.neoforge.client.SideProxyClient(),
+          new ic2ce.neoforge.network.NetworkManagerClient());
+    }
+
     static void common() {
       NeoForge.EVENT_BUS.register(new ClientEventHandlerNeoForge());
     }
 
     static void complete() {
-      ic2ce.core.proxy.SideProxyClient.refreshMc();
+      ic2ce.neoforge.client.SideProxyClient.refreshMc();
     }
   }
 
@@ -65,9 +72,16 @@ public final class IndustrialCraft2CE {
 
   private void register(RegisterEvent event) {
     var key = event.getRegistryKey();
+    if (!sideServicesInstalled) {
+      // Side services bind on the first registry callback, before any content stages.
+      sideServicesInstalled = true;
+      if (FMLEnvironment.getDist().isClient()) ClientBindings.install();
+    }
+    // Tabs must be staged before the creative tab plan replays, whichever registry comes first.
+    ic2ce.neoforge.registry.CreativeTabs.init();
     if (key.equals(Registries.GAME_EVENT)) ic2ce.neoforge.registry.GameSignals.init();
     if (key.equals(Registries.LOOT_NBT_PROVIDER_TYPE))
-      ic2ce.core.loot.Ic2LootNbtProviderTypes.registerAll();
+      ic2ce.neoforge.world.loot.Ic2LootNbtProviderTypes.registerAll();
     if (key.equals(Registries.SOUND_EVENT)) {
       transition(Phase.CONSTRUCTED, Phase.REGISTERED);
       EventHandler.onInitEarly();
@@ -87,10 +101,10 @@ public final class IndustrialCraft2CE {
           NeoForgeRegistries.Keys.INGREDIENT_TYPES,
           helper -> {
             helper.register(
-                ProjectRuntime.getIdentifier("fluid_container"),
+                ProjectIds.id("fluid_container"),
                 ic2ce.neoforge.recipe.input.FluidContentsIngredient.TYPE);
             helper.register(
-                ProjectRuntime.getIdentifier("material_tag"),
+                ProjectIds.id("material_tag"),
                 ic2ce.neoforge.recipe.input.MaterialTagIngredient.TYPE);
           });
     if (key.equals(NeoForgeRegistries.Keys.HOLDER_SET_TYPES)) completeRegistries();

@@ -9,6 +9,7 @@ import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.crafting.IndustrialWorkbench;
 import ic2ce.neoforge.crafting.menu.WorkbenchMenu;
 import ic2ce.neoforge.inventory.InventorySlot;
+import ic2ce.neoforge.material.MaterialItems;
 import ic2ce.neoforge.mining.AreaMiner;
 import ic2ce.neoforge.mining.PipeMiner;
 import ic2ce.neoforge.personal.*;
@@ -16,7 +17,6 @@ import ic2ce.neoforge.personal.EnergyTradeTerminal;
 import ic2ce.neoforge.personal.ItemTradeTerminal;
 import ic2ce.neoforge.personal.PrivateChest;
 import ic2ce.neoforge.processing.fluid.FluidCollector;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.terrain.TerrainController;
 import ic2ce.neoforge.utility.LinkedTeleporter;
 import java.util.*;
@@ -536,13 +536,13 @@ final class AllUtilityCases {
                     menu.getSlot(menu.indexOutput).getItem().is(Items.OAK_PLANKS)
                         && menu.getSlot(menu.indexOutputHammer)
                             .getItem()
-                            .is(ItemDefinitions.IRON_PLATE)
+                            .is(MaterialItems.IRON_PLATE)
                         && !menu.getSlot(menu.indexOutputCutter).getItem().isEmpty());
                 menu.clicked(menu.indexOutputHammer, 0, ContainerInput.PICKUP, s.player);
                 s.behave(
                     "industrial_workbench",
                     "taking hammer result consumes ingot and retains damaged tool",
-                    menu.getCarried().is(ItemDefinitions.IRON_PLATE)
+                    menu.getCarried().is(MaterialItems.IRON_PLATE)
                         && tile.leftCrafting.input.isEmpty()
                         && tile.leftCrafting.tool.get().getDamageValue() == 1);
                 menu.setCarried(ItemStack.EMPTY);

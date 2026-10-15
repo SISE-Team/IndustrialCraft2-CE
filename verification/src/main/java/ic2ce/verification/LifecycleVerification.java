@@ -5,8 +5,8 @@ import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.energy.tile.IEnergyTile;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.block.NativeBlockEntity;
+import ic2ce.neoforge.cable.CableBlocks;
 import ic2ce.neoforge.component.ElectricalBuffer;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.storage.StationaryFluidStore;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -78,7 +78,7 @@ public final class LifecycleVerification {
         bank = suite.helper("mfsu", position);
         tank = (StationaryFluidStore) suite.helper("tank", position.east(2));
         suite.level.setBlockAndUpdate(
-            position.south(2), BlockDefinitions.INSULATED_COPPER_CABLE.defaultBlockState());
+            position.south(2), CableBlocks.INSULATED_COPPER_CABLE.defaultBlockState());
         transition("WAITING_FOR_NATIVE_LOAD");
         suite.level.getServer().tickRateManager().requestGameToSprint(400);
       } else if (phase.equals("WAITING_FOR_NATIVE_LOAD")) {

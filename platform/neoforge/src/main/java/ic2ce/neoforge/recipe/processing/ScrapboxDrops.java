@@ -1,8 +1,11 @@
 package ic2ce.neoforge.recipe.processing;
 
 import ic2ce.api.recipe.*;
-import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.item.consumable.ConsumableItems;
+import ic2ce.neoforge.item.energy.BatteryItems;
+import ic2ce.neoforge.material.MaterialItems;
+import ic2ce.neoforge.runtime.SharedRandom;
+import ic2ce.neoforge.world.WorldItems;
 import java.util.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.*;
@@ -65,7 +68,7 @@ public final class ScrapboxDrops implements IScrapboxManager {
       IRecipeInput input, Collection<ItemStack> outputs, CompoundTag metadata, boolean replace) {
     Objects.requireNonNull(input);
     Objects.requireNonNull(outputs);
-    if (input.getAmount() != 1 || !input.matches(new ItemStack(ItemDefinitions.SCRAP_BOX)))
+    if (input.getAmount() != 1 || !input.matches(new ItemStack(MaterialItems.SCRAP_BOX)))
       throw new IllegalArgumentException("Scrapbox operations require one physical scrap box");
     if (outputs.size() != 1 || metadata == null || !metadata.contains("weight"))
       throw new IllegalArgumentException("Scrapbox operation needs one output and weight metadata");
@@ -103,12 +106,12 @@ public final class ScrapboxDrops implements IScrapboxManager {
   @Override
   public MachineRecipeResult<IRecipeInput, Collection<ItemStack>, ItemStack> apply(
       ItemStack input, boolean test) {
-    if (input == null || input.isEmpty() || !input.is(ItemDefinitions.SCRAP_BOX)) return null;
+    if (input == null || input.isEmpty() || !input.is(MaterialItems.SCRAP_BOX)) return null;
     var data = distribution;
     if (data.entries.isEmpty()) return null;
-    var output = select(data, test ? 0 : ProjectRuntime.random.nextDouble());
+    var output = select(data, test ? 0 : SharedRandom.INSTANCE.nextDouble());
     return new MachineRecipe<IRecipeInput, Collection<ItemStack>>(
-            Recipes.inputFactory.forItem(ItemDefinitions.SCRAP_BOX), List.of(output))
+            Recipes.inputFactory.forItem(MaterialItems.SCRAP_BOX), List.of(output))
         .getResult(input.copyWithCount(input.getCount() - 1));
   }
 
@@ -151,7 +154,7 @@ public final class ScrapboxDrops implements IScrapboxManager {
     if (builtinsLoaded) return;
     var defaults =
         List.of(
-            new Builtin(Items.WOODEN_HOE, ProjectRuntime.suddenlyHoes ? 9001f : 5.01f),
+            new Builtin(Items.WOODEN_HOE, 5.01f),
             new Builtin(Blocks.DIRT, 5),
             new Builtin(Items.STICK, 4),
             new Builtin(Blocks.SHORT_GRASS, 3),
@@ -160,7 +163,7 @@ public final class ScrapboxDrops implements IScrapboxManager {
             new Builtin(Items.ROTTEN_FLESH, 2),
             new Builtin(Items.APPLE, 1.5f),
             new Builtin(Items.BREAD, 1.5f),
-            new Builtin(ItemDefinitions.FILLED_TIN_CAN, 1.5f),
+            new Builtin(ConsumableItems.FILLED_TIN_CAN, 1.5f),
             new Builtin(Items.WOODEN_SWORD, 1),
             new Builtin(Items.WOODEN_SHOVEL, 1),
             new Builtin(Items.WOODEN_PICKAXE, 1),
@@ -175,14 +178,14 @@ public final class ScrapboxDrops implements IScrapboxManager {
             new Builtin(Items.COOKED_CHICKEN, .9f),
             new Builtin(Items.MINECART, .01f),
             new Builtin(Items.REDSTONE, .9f),
-            new Builtin(ItemDefinitions.RUBBER, .8f),
+            new Builtin(MaterialItems.RUBBER, .8f),
             new Builtin(Items.GLOWSTONE_DUST, .8f),
-            new Builtin(ItemDefinitions.COAL_DUST, .8f),
-            new Builtin(ItemDefinitions.COPPER_DUST, .8f),
-            new Builtin(ItemDefinitions.TIN_DUST, .8f),
-            new Builtin(ItemDefinitions.SINGLE_USE_BATTERY, .7f),
-            new Builtin(ItemDefinitions.IRON_DUST, .7f),
-            new Builtin(ItemDefinitions.GOLD_DUST, .7f),
+            new Builtin(MaterialItems.COAL_DUST, .8f),
+            new Builtin(MaterialItems.COPPER_DUST, .8f),
+            new Builtin(MaterialItems.TIN_DUST, .8f),
+            new Builtin(BatteryItems.SINGLE_USE_BATTERY, .7f),
+            new Builtin(MaterialItems.IRON_DUST, .7f),
+            new Builtin(MaterialItems.GOLD_DUST, .7f),
             new Builtin(Items.SLIME_BALL, .6f),
             new Builtin(Blocks.IRON_ORE, .5f),
             new Builtin(Items.GOLDEN_HELMET, .01f),
@@ -194,7 +197,7 @@ public final class ScrapboxDrops implements IScrapboxManager {
             new Builtin(Items.BLAZE_ROD, .04f),
             new Builtin(Items.EGG, .8f),
             new Builtin(Blocks.COPPER_ORE, .7f),
-            new Builtin(ItemDefinitions.TIN_ORE, .7f));
+            new Builtin(WorldItems.TIN_ORE, .7f));
     var entries = new ArrayList<>(distribution.entries);
     for (var drop : defaults) entries.add(entry(new ItemStack(drop.item), drop.weight));
     publish(entries);

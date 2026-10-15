@@ -1,9 +1,9 @@
 package ic2ce.neoforge.kinetic;
 
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.material.MaterialItems;
+import ic2ce.neoforge.processing.ProcessingBlocks;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -33,7 +33,7 @@ public final class KineticContracts {
     var manual =
         new ManualCrank(
             new BlockPos(8280, 100, 8280),
-            BlockDefinitions.MANUAL_KINETIC_GENERATOR.defaultBlockState());
+            KineticBlocks.MANUAL_KINETIC_GENERATOR.defaultBlockState());
     manual.setLevel(world);
     manual.currentKU = 100;
     check(
@@ -51,7 +51,7 @@ public final class KineticContracts {
     var motor =
         new ElectricMotor(
             new BlockPos(8281, 100, 8281),
-            BlockDefinitions.ELECTRIC_KINETIC_GENERATOR.defaultBlockState());
+            KineticBlocks.ELECTRIC_KINETIC_GENERATOR.defaultBlockState());
     motor.setLevel(world);
     motor.energy.forceAddEnergy(100);
     motor.updateEntityServer();
@@ -60,7 +60,7 @@ public final class KineticContracts {
         "an absent electric motor cannot silently spend stored EU");
     motor.slotMotor.put(new ItemStack(Items.COAL));
     check(motor.getMaxKU() == 0, "a forced non-motor item cannot create shaft bandwidth");
-    motor.slotMotor.put(new ItemStack(ItemDefinitions.ELECTRIC_MOTOR));
+    motor.slotMotor.put(new ItemStack(MaterialItems.ELECTRIC_MOTOR));
     motor.updateEntityServer();
     check(
         motor.ku == 400 && motor.energy.getEnergy() == 0 && motor.getMaxKU() == 100,
@@ -82,7 +82,7 @@ public final class KineticContracts {
     var cogeneration =
         new HeatDrivenCogenerator(
             new BlockPos(8282, 100, 8282),
-            BlockDefinitions.STIRLING_KINETIC_GENERATOR.defaultBlockState());
+            KineticBlocks.STIRLING_KINETIC_GENERATOR.defaultBlockState());
     cogeneration.setLevel(world);
     saved = new CompoundTag();
     cogeneration.saveAdditional(saved);
@@ -101,9 +101,9 @@ public final class KineticContracts {
     var position = new BlockPos(8283, 100, 8283);
     world.setChunkForced(position.getX() >> 4, position.getZ() >> 4, true);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position.east(), BlockDefinitions.CONDENSER.defaultBlockState());
+    world.setBlockAndUpdate(position.east(), ProcessingBlocks.CONDENSER.defaultBlockState());
     var steam =
-        new SteamTurbine(position, BlockDefinitions.STEAM_KINETIC_GENERATOR.defaultBlockState());
+        new SteamTurbine(position, KineticBlocks.STEAM_KINETIC_GENERATOR.defaultBlockState());
     steam.setLevel(world);
     steam.turbineSlot.put(new ItemStack(Items.COAL));
     steam.steamTank.fillMbUnchecked(
@@ -112,7 +112,7 @@ public final class KineticContracts {
     check(
         steam.steamTank.getFluidAmount() == 1000 && steam.getKUoutput() == 0,
         "invalid forced turbine cannot consume steam or create KU");
-    steam.turbineSlot.put(new ItemStack(ItemDefinitions.STEAM_TURBINE));
+    steam.turbineSlot.put(new ItemStack(MaterialItems.STEAM_TURBINE));
     steam.updateEntityServer();
     int output = steam.getKUoutput();
     check(

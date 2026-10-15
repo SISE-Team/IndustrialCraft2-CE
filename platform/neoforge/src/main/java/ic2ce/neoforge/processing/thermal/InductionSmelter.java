@@ -3,9 +3,9 @@ package ic2ce.neoforge.processing.thermal;
 import ic2ce.api.recipe.MachineRecipeResult;
 import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.UpgradableProperty;
-import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.network.GuiSynced;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.engine.machine.InductionCycle;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.component.SignalInput;
@@ -15,9 +15,9 @@ import ic2ce.neoforge.inventory.UpgradeInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.EnumSet;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -42,7 +42,7 @@ public class InductionSmelter extends PoweredBlockEntity
   private final InductionCycle cycle = new InductionCycle();
 
   public InductionSmelter(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.INDUCTION_FURNACE, position, state, 10000, 2);
+    super(ProcessingBlockEntities.INDUCTION_FURNACE, position, state, 10000, 2);
     inputSlotA = new SmeltingInput(this, "inputA", 1);
     inputSlotB = new SmeltingInput(this, "inputB", 1);
     outputSlotA = new OutputInventory(this, "outputA", 1);
@@ -93,12 +93,12 @@ public class InductionSmelter extends PoweredBlockEntity
     heat = (short) cycle.heat();
     progress = (short) cycle.progress();
     if (cycle.working()) {
-      if (previous == 0) ProjectRuntime.network.get(true).initiateTileEntityEvent(this, 0, true);
+      if (previous == 0) SideServices.network(true).initiateTileEntityEvent(this, 0, true);
       activate(false);
     } else {
       boolean interrupted = previous > 0;
-      if (interrupted) ProjectRuntime.network.get(true).initiateTileEntityEvent(this, 1, true);
-      else if (completed) ProjectRuntime.network.get(true).initiateTileEntityEvent(this, 3, true);
+      if (interrupted) SideServices.network(true).initiateTileEntityEvent(this, 1, true);
+      else if (completed) SideServices.network(true).initiateTileEntityEvent(this, 3, true);
       if (cycle.heated()) activate(false);
       else shutdown(interrupted);
     }

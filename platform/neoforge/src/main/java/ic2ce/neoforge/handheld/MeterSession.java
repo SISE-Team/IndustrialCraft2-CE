@@ -1,6 +1,6 @@
 package ic2ce.neoforge.handheld;
 
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.handheld.menu.EnergyMeterMenu;
 import ic2ce.neoforge.menu.OwnedMenu;
 import net.minecraft.server.level.ServerPlayer;

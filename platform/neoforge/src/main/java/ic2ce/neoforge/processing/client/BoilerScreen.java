@@ -5,6 +5,7 @@ import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.client.widget.*;
 import ic2ce.neoforge.menu.document.LiveText;
 import ic2ce.neoforge.processing.menu.*;
+import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
@@ -104,8 +105,8 @@ public class BoilerScreen extends MachineScreen<BoilerMenu> {
             9,
             button -> {
               if (button == PointerButton.left)
-                ic2ce.neoforge.runtime.ProjectRuntime.network
-                    .get(false)
+                SideServices
+                    .network(false)
                     .initiateClientTileEntityEvent(menu.base, event);
             }));
   }

@@ -6,7 +6,7 @@ import ic2ce.neoforge.recipe.codec.DeferredInput;
 import ic2ce.neoforge.recipe.input.ExactStackInput;
 import ic2ce.neoforge.recipe.input.MaterialTagIngredient;
 import ic2ce.neoforge.recipe.input.NativeIngredientInput;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.util.*;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -51,8 +51,8 @@ public abstract class OrderedMachineRecipes<RI, RO>
     int amount = getForRecipe(recipe).getAmount();
     if (input.getCount() < amount) return null;
     ItemStack remainder =
-        ProjectRuntime.envProxy.hasRecipeRemainder(input)
-            ? ProjectRuntime.envProxy.getRecipeRemainder(input)
+        EnvProxy.get().hasRecipeRemainder(input)
+            ? EnvProxy.get().getRecipeRemainder(input)
             : ItemStack.EMPTY;
     ItemStack adjusted;
     if (!test && !remainder.isEmpty() && !consumeContainer(input, remainder, recipe)) {

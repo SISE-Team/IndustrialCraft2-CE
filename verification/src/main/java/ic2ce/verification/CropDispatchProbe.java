@@ -1,9 +1,9 @@
 package ic2ce.verification;
 
 import ic2ce.api.crops.Crops;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
 import ic2ce.neoforge.agriculture.CropPlot;
 import ic2ce.neoforge.agriculture.item.EncodedSeed;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerPlayer;
@@ -28,13 +28,13 @@ public final class CropDispatchProbe {
         pos.below(), Blocks.FARMLAND.defaultBlockState().setValue(FarmlandBlock.MOISTURE, 7), 3);
     level.setBlock(
         pos,
-        BlockDefinitions.CROP_STICK
+        AgricultureBlocks.CROP_STICK
             .defaultBlockState()
             .setValue(ic2ce.neoforge.block.MachineBlockType.CROSSING_BASE, false),
         3);
     var crop = (CropPlot) level.getBlockEntity(pos);
     var row = new LinkedHashMap<String, Object>();
-    row.put("seedTag", ic2ce.core.util.StackTag.get(stack).toString());
+    row.put("seedTag", ic2ce.neoforge.item.StackTag.get(stack).toString());
     row.put("resolvedCard", String.valueOf(Crops.instance.getCropCard(stack)));
     row.put("light", crop.getLightLevel());
     row.put("crossing", crop.isCrossingBase());

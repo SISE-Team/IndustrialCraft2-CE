@@ -1,15 +1,15 @@
 package ic2ce.neoforge.power;
 
 import ic2ce.api.util.FluidContainerOutputMode;
-import ic2ce.core.network.GuiSynced;
-import ic2ce.core.util.LiquidUtil;
+import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.fluid.LiquidUtil;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.document.ScreenValues;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
+import ic2ce.neoforge.runtime.SharedRandom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.FluidTags;
@@ -26,12 +26,12 @@ public class WaterMill extends RotorGenerator implements ScreenValues {
   private static final boolean AUTOMATION =
       NativeConfigValues.getBool(ProjectConfiguration.get(), "balance/watermillAutomation");
   public final FluidContainerInventory fuelSlot;
-  private int visibilityTicks = ProjectRuntime.random.nextInt(128);
+  private int visibilityTicks = SharedRandom.INSTANCE.nextInt(128);
   @GuiSynced public int water;
   public int microStorage, maxWater = 2000;
 
   public WaterMill(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.WATER_GENERATOR, position, block, 2, 1, 4, 2);
+    super(PowerBlockEntities.WATER_GENERATOR, position, block, 2, 1, 4, 2);
     fuelSlot =
         new FluidWhitelistInput(
             this,
@@ -59,7 +59,7 @@ public class WaterMill extends RotorGenerator implements ScreenValues {
       if (plan == null
           || plan.fluidChange.getAmountMb() != 1000
           || plan.extraOutput != null && !plan.extraOutput.isEmpty()) return false;
-      production = ProjectRuntime.envProxy.hasRecipeRemainder(original) ? 1 : 2;
+      production = EnvProxy.get().hasRecipeRemainder(original) ? 1 : 2;
       fuelSlot.put(plan.inPlaceOutput);
       fuel += 500;
       return true;

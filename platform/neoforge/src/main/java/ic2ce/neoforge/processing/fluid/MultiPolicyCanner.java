@@ -6,19 +6,19 @@ import ic2ce.api.recipe.IEmptyFluidContainerRecipeManager;
 import ic2ce.api.recipe.MachineRecipeResult;
 import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.api.util.FluidContainerOutputMode;
-import ic2ce.core.fluid.Ic2FluidTank;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.util.LiquidUtil;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.fluid.LiquidUtil;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.CanningContainerInput;
 import ic2ce.neoforge.inventory.CanningInput;
 import ic2ce.neoforge.inventory.FluidContainerInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.processing.PoweredProcessor;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.processing.menu.CanningMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EnumSet;
@@ -46,7 +46,7 @@ public class MultiPolicyCanner extends PoweredProcessor<Object, Object, Object>
       ItemStack remainingContainers, List<ItemStack> filled, Ic2FluidStack remainder) {}
 
   public MultiPolicyCanner(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.CANNER, position, state, 4, 200, 1);
+    super(ProcessingBlockEntities.CANNER, position, state, 4, 200, 1);
     inputSlot = new CanningInput(this, "input", 1);
     canInputSlot = new CanningContainerInput(this, "canInput", 1);
     fluids = addComponent(new FluidPorts(this));
@@ -80,7 +80,7 @@ public class MultiPolicyCanner extends PoweredProcessor<Object, Object, Object>
       invalidateOperation();
     }
     configureContainerOperation();
-    if (ProjectRuntime.sideProxy.isRendering()) stopLoopingSound();
+    if (SideServices.proxy().isRendering()) stopLoopingSound();
   }
 
   private void configureContainerOperation() {

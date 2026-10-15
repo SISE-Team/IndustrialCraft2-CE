@@ -5,11 +5,11 @@ import ic2ce.api.energy.tile.*;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.reactor.*;
 import ic2ce.api.recipe.Recipes;
-import ic2ce.core.*;
-import ic2ce.core.fluid.Ic2FluidTank;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.util.*;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.engine.reactor.ReactorCooling;
+import ic2ce.engine.reactor.ReactorCore;
 import ic2ce.neoforge.audio.PlaybackHandle;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;
@@ -21,10 +21,10 @@ import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
 import ic2ce.neoforge.reactor.menu.ReactorMenu;
 import ic2ce.neoforge.reactor.part.HeatCell;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
+import ic2ce.neoforge.runtime.SideServices;
+import ic2ce.neoforge.world.LoadedAreas;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -70,8 +70,8 @@ public class NuclearCore extends InventoryBlockEntity
               ProjectConfiguration.get(), "balance/energy/FluidReactor/outputModifier");
 
   public NuclearCore(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.NUCLEAR_REACTOR, position, state);
-    updateTicker = ProjectRuntime.random.nextInt(20);
+    super(ReactorBlockEntities.NUCLEAR_REACTOR, position, state);
+    updateTicker = SharedRandom.INSTANCE.nextInt(20);
     fluids = addComponent(new FluidPorts(this));
     inputTank =
         fluids.addTank(
@@ -117,7 +117,7 @@ public class NuclearCore extends InventoryBlockEntity
   @Override
   protected void onUnloaded() {
     if (getLevel() != null && getLevel().isClientSide()) {
-      ProjectRuntime.soundManager.removeAllSound(this);
+      SideServices.audio().removeAllSound(this);
       soundMain = null;
       soundGeiger = null;
       soundBand = 0;
@@ -135,9 +135,9 @@ public class NuclearCore extends InventoryBlockEntity
   public void load(CompoundTag data) {
     super.load(data);
     heat = Math.max(0, data.getIntOr("heat", 0));
-    output = bounded(data.getFloatOr("output", 0));
+    output = ReactorCore.bounded(data.getFloatOr("output", 0));
     maxHeat = Math.max(1, data.getIntOr("maxHeat", 10000));
-    hem = bounded(data.getFloatOr("hem", 1));
+    hem = ReactorCore.bounded(data.getFloatOr("hem", 1));
     pendingHeat = Math.max(0, data.getIntOr("pendingHeat", 0));
     fluidCooled = data.getBooleanOr("fluidCooled", false);
     cooling.restore(data.getDoubleOr("coolingHu", 0), data.getDoubleOr("hullHeatFraction", 0));
@@ -156,10 +156,6 @@ public class NuclearCore extends InventoryBlockEntity
     data.putBoolean("fluidCooled", fluidCooled);
     data.putDouble("coolingHu", cooling.pendingHu());
     data.putDouble("hullHeatFraction", cooling.hullFraction());
-  }
-
-  private static float bounded(float value) {
-    return Float.isFinite(value) ? Math.max(0, value) : 0;
   }
 
   private void beginEnergyTick() {
@@ -187,7 +183,7 @@ public class NuclearCore extends InventoryBlockEntity
   public double getReactorEUEnergyOutput() {
     double factor =
         NativeConfigValues.getFloat(ProjectConfiguration.get(), "balance/energy/generator/nuclear");
-    return Double.isFinite(factor) && factor > 0 ? bounded(output) * 5.0 * factor : 0;
+    return ReactorCore.electricalOutput(output, factor);
   }
 
   @Override
@@ -272,7 +268,7 @@ public class NuclearCore extends InventoryBlockEntity
   protected void updateEntityServer() {
     super.updateEntityServer();
     if (updateTicker++ % getTickRate() != 0) return;
-    if (!Util.isAreaLoaded(getLevel(), worldPosition, 8)) {
+    if (!LoadedAreas.isLoaded(getLevel(), worldPosition, 8)) {
       output = 0;
       EmitHeat = 0;
       setActive(false);
@@ -287,7 +283,7 @@ public class NuclearCore extends InventoryBlockEntity
         }
         fluidCooled = enclosed;
         configureConnections();
-        ProjectRuntime.network.get(true).updateTileEntityField(this, "fluidCooled");
+        SideServices.network(true).updateTileEntityField(this, "fluidCooled");
       }
       dropAllUnfittingStuff();
       output = 0;
@@ -303,7 +299,7 @@ public class NuclearCore extends InventoryBlockEntity
       setActive(heat >= 1000 || output > 0);
       setChanged();
     }
-    ProjectRuntime.network.get(true).updateTileEntityField(this, "output");
+    SideServices.network(true).updateTileEntityField(this, "output");
   }
 
   private void exchangeCoolant() {
@@ -422,7 +418,7 @@ public class NuclearCore extends InventoryBlockEntity
 
   @Override
   public int addHeat(int amount) {
-    return heat = (int) Math.clamp((long) getHeat() + amount, 0, Integer.MAX_VALUE);
+    return heat = ReactorCore.addHeat(heat, amount);
   }
 
   @Override
@@ -442,25 +438,22 @@ public class NuclearCore extends InventoryBlockEntity
 
   @Override
   public void setHeatEffectModifier(float value) {
-    hem = bounded(value);
+    hem = ReactorCore.bounded(value);
   }
 
   @Override
   public float getReactorEnergyOutput() {
-    return bounded(output);
+    return ReactorCore.bounded(output);
   }
 
   @Override
   public float addOutput(float amount) {
-    if (Float.isFinite(amount))
-      output = (float) Math.clamp((double) bounded(output) + amount, 0, Float.MAX_VALUE);
-    return output;
+    return output = ReactorCore.addOutput(output, amount);
   }
 
   @Override
   public void addEmitHeat(int amount) {
-    if (fluidCooled && amount > 0)
-      pendingHeat = (int) Math.min(Integer.MAX_VALUE, (long) pendingHeat + amount);
+    if (fluidCooled) pendingHeat = ReactorCore.addEmittedHeat(pendingHeat, amount);
   }
 
   @Override
@@ -481,13 +474,7 @@ public class NuclearCore extends InventoryBlockEntity
   }
 
   public int gaugeHeatScaled(int width) {
-    return maxHeat <= 0
-        ? 0
-        : (int)
-            Math.clamp(
-                (long) Math.max(0, width) * getHeat() * 100 / ((long) maxHeat * 85),
-                0,
-                Integer.MAX_VALUE);
+    return ReactorCore.heatGauge(width, heat, maxHeat);
   }
 
   public int gaugeLiquidScaled(int width, int index) {
@@ -519,7 +506,7 @@ public class NuclearCore extends InventoryBlockEntity
   @Override
   protected InteractionResult onActivated(
       Player player, InteractionHand hand, Direction face, Vec3 hit) {
-    return player.getItemInHand(hand).is(ItemDefinitions.REACTOR_CHAMBER)
+    return player.getItemInHand(hand).is(ReactorItems.REACTOR_CHAMBER)
         ? InteractionResult.PASS
         : super.onActivated(player, hand, face, hit);
   }
@@ -574,7 +561,7 @@ public class NuclearCore extends InventoryBlockEntity
       if (soundBand == 0) {
         if (soundMain == null)
           soundMain =
-              ProjectRuntime.soundManager.createSound(
+              SideServices.audio().createSound(
                   this,
                   SoundDefinitions.GENERATOR_NUCLEAR_LOOP,
                   SoundSource.BLOCKS,
@@ -583,7 +570,7 @@ public class NuclearCore extends InventoryBlockEntity
                   1);
         if (soundMain != null) soundMain.play();
       }
-      if (soundGeiger != null) ProjectRuntime.soundManager.removeSound(this, soundGeiger);
+      if (soundGeiger != null) SideServices.audio().removeSound(this, soundGeiger);
       var event =
           switch (band) {
             case 1 -> SoundDefinitions.GENERATOR_NUCLEAR_LOW_POWER;
@@ -591,7 +578,7 @@ public class NuclearCore extends InventoryBlockEntity
             default -> SoundDefinitions.GENERATOR_NUCLEAR_HIGH_POWER;
           };
       soundGeiger =
-          ProjectRuntime.soundManager.createSound(
+          SideServices.audio().createSound(
               this, event, SoundSource.BLOCKS, worldPosition, 1, 1);
       if (soundGeiger != null) soundGeiger.play();
     }

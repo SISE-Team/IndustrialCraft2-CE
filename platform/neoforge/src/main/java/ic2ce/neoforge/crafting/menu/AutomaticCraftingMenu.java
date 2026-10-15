@@ -2,10 +2,10 @@ package ic2ce.neoforge.crafting.menu;
 
 import ic2ce.engine.inventory.FillLevels;
 import ic2ce.neoforge.crafting.AutomaticCrafter;
+import ic2ce.neoforge.crafting.CraftingMenus;
 import ic2ce.neoforge.menu.MenuFields;
 import ic2ce.neoforge.menu.slot.TemplateSlot;
 import ic2ce.neoforge.processing.menu.PoweredMenu;
-import ic2ce.neoforge.registry.MenuDefinitions;
 import java.util.List;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.item.ItemStack;
@@ -15,7 +15,7 @@ public class AutomaticCraftingMenu extends PoweredMenu<AutomaticCrafter> {
   public static final int HEIGHT = 206;
 
   public AutomaticCraftingMenu(int id, Inventory inventory, AutomaticCrafter machine) {
-    super(MenuDefinitions.BATCH_CRAFTER, id, inventory, machine, HEIGHT, 8, 62);
+    super(CraftingMenus.BATCH_CRAFTER, id, inventory, machine, HEIGHT, 8, 62);
     for (int cell = 0; cell < 9; cell++)
       addSlot(
           new TemplateSlot(

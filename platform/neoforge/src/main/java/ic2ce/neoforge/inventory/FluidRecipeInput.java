@@ -1,7 +1,6 @@
 package ic2ce.neoforge.inventory;
 
 import ic2ce.api.recipe.ILiquidAcceptManager;
-import ic2ce.core.block.IInventorySlotHolder;
 import java.util.Objects;
 import net.minecraft.world.level.material.Fluid;
 

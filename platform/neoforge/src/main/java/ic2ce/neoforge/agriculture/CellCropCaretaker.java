@@ -1,14 +1,13 @@
 package ic2ce.neoforge.agriculture;
 
-import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.item.container.ContainerItems;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.agriculture.menu.CellCareMenu;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.inventory.ConsumableInventory;
 import ic2ce.neoforge.inventory.StackWhitelistInput;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Inventory;
@@ -20,14 +19,14 @@ import net.minecraft.world.level.block.state.BlockState;
 public class CellCropCaretaker extends PoweredBlockEntity implements IHasGui {
   public int scanX = -5, scanY = -1, scanZ = -5;
   public final ConsumableInventory fertilizerSlot =
-      new StackWhitelistInput(this, "fertilizer", 3, new ItemStack(ItemDefinitions.FERTILIZER));
+      new StackWhitelistInput(this, "fertilizer", 3, new ItemStack(AgricultureItems.FERTILIZER));
   public final ConsumableInventory hydrationSlot =
-      new StackWhitelistInput(this, "hydration", 3, new ItemStack(ItemDefinitions.HYDRATION_CELL));
+      new StackWhitelistInput(this, "hydration", 3, new ItemStack(ContainerItems.HYDRATION_CELL));
   public final ConsumableInventory weedExSlot =
-      new StackWhitelistInput(this, "weedEx", 3, new ItemStack(ItemDefinitions.WEED_EX_CELL));
+      new StackWhitelistInput(this, "weedEx", 3, new ItemStack(ContainerItems.WEED_EX_CELL));
 
   public CellCropCaretaker(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.CLASSIC_CROPMATRON, position, state, 1000, 1);
+    super(AgricultureBlockEntities.CLASSIC_CROPMATRON, position, state, 1000, 1);
   }
 
   @Override
@@ -85,12 +84,12 @@ public class CellCropCaretaker extends PoweredBlockEntity implements IHasGui {
     }
     if (!hydrationSlot.isEmpty() && energy.useEnergy(10)) {
       var owned = hydrationSlot.get().copy();
-      if (ItemDefinitions.HYDRATION_CELL.useOnCrop(owned, crop, false)) hydrationSlot.put(owned);
+      if (ContainerItems.HYDRATION_CELL.useOnCrop(owned, crop, false)) hydrationSlot.put(owned);
       else energy.forceAddEnergy(10);
     }
     if (!weedExSlot.isEmpty() && energy.useEnergy(10)) {
       var owned = weedExSlot.get().copy();
-      if (ItemDefinitions.WEED_EX_CELL.useOnCrop(owned, crop, false)) weedExSlot.put(owned);
+      if (ContainerItems.WEED_EX_CELL.useOnCrop(owned, crop, false)) weedExSlot.put(owned);
       else energy.forceAddEnergy(10);
     }
     super.setChanged();

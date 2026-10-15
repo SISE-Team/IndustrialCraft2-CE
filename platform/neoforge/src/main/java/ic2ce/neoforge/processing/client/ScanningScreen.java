@@ -1,6 +1,6 @@
 package ic2ce.neoforge.processing.client;
 
-import ic2ce.core.util.Util;
+import ic2ce.engine.text.SiFormat;
 import ic2ce.neoforge.client.screen.MachineScreen;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.client.widget.*;
@@ -75,8 +75,8 @@ public class ScanningScreen extends MachineScreen<ScanningMenu> {
       drawString(graphics, 110, 30, LocalizedText.translate("ic2.Scanner.gui.info6"), 0xd71010);
     if (state == ic2ce.neoforge.processing.fabrication.PatternScanner.State.COMPLETED
         || state == ic2ce.neoforge.processing.fabrication.PatternScanner.State.TRANSFER_ERROR) {
-      drawString(graphics, 105, 25, Util.toSiString(owner.patternUu, 4) + "B UUM", 0xffffff);
-      drawString(graphics, 105, 36, Util.toSiString(owner.patternEu, 4) + "EU", 0xffffff);
+      drawString(graphics, 105, 25, SiFormat.format(owner.patternUu, 4) + "B UUM", 0xffffff);
+      drawString(graphics, 105, 36, SiFormat.format(owner.patternEu, 4) + "EU", 0xffffff);
     }
   }
 

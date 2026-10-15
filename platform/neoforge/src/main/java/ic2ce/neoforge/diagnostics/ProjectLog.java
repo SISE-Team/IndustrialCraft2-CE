@@ -1,6 +1,5 @@
 package ic2ce.neoforge.diagnostics;
 
-import ic2ce.core.util.*;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -12,6 +11,8 @@ import org.apache.logging.log4j.*;
  * rendering.
  */
 public class ProjectLog {
+  public static final ProjectLog LOG = new ProjectLog(LogManager.getLogger("IndustrialCraft2-CE"));
+
   private final Logger parent;
   private final Map<DiagnosticArea, Logger> categories = new ConcurrentHashMap<>();
 

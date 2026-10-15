@@ -12,6 +12,7 @@ import ic2ce.neoforge.recipe.input.FluidContentsInput;
 import ic2ce.neoforge.recipe.input.InputDescriptor;
 import ic2ce.neoforge.recipe.input.MaterialTagIngredient;
 import ic2ce.neoforge.recipe.input.NativeIngredientInput;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.util.*;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.component.DataComponentPatch;
@@ -37,9 +38,9 @@ public final class RecipeValueCodec {
 
   public static DynamicOps<JsonElement> nativeOps() {
     var lookup =
-        ic2ce.neoforge.runtime.ProjectRuntime.envProxy == null
+        EnvProxy.get() == null
             ? null
-            : ic2ce.neoforge.runtime.ProjectRuntime.envProxy.getRegistryLookup();
+            : EnvProxy.get().getRegistryLookup();
     if (lookup == null)
       lookup = RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY);
     return lookup.createSerializationContext(JsonOps.INSTANCE);

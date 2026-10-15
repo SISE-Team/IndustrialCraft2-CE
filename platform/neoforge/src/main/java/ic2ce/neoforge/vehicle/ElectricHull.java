@@ -3,8 +3,7 @@ package ic2ce.neoforge.vehicle;
 import ic2ce.api.entity.boat.*;
 import ic2ce.api.item.ElectricItem;
 import ic2ce.neoforge.registry.BoatDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -21,7 +20,7 @@ public class ElectricHull extends AbstractBoatEntity {
 
   public ElectricHull(
       net.minecraft.world.entity.EntityType<? extends AbstractBoatEntity> type, Level world) {
-    super(type, world, () -> ItemDefinitions.ELECTRIC_BOAT);
+    super(type, world, () -> VehicleItems.ELECTRIC_BOAT);
   }
 
   public ElectricHull(
@@ -62,7 +61,7 @@ public class ElectricHull extends AbstractBoatEntity {
   public void tick() {
     accelerated = false;
     var driver = getControllingPassenger();
-    if (driver instanceof Player owner && ProjectRuntime.keyboard.isForwardKeyDown(owner)) {
+    if (driver instanceof Player owner && SideServices.keyboard().isForwardKeyDown(owner)) {
       for (var slot : SOURCES) {
         var source = owner.getItemBySlot(slot);
         if (source.isEmpty()

@@ -2,9 +2,8 @@ package ic2ce.neoforge.agriculture;
 
 import ic2ce.api.crops.*;
 import ic2ce.neoforge.agriculture.species.MetalSpecies;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.material.MaterialItems;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -40,7 +39,7 @@ public final class CropSpeciesContracts {
 
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(9168, 100, 9168);
-    ProjectRuntime.random.setSeed(774492);
+    SharedRandom.INSTANCE.setSeed(774492);
     for (var species : Crops.instance.getCrops()) {
       var plot = place(world, position, species);
       check(
@@ -73,7 +72,7 @@ public final class CropSpeciesContracts {
         "immature coffee can be harvested but cannot yield beans");
     plot.setCurrentAge(4);
     check(
-        CropCatalog.cropCoffee.getGains(plot)[0].is(ItemDefinitions.COFFEE_BEANS),
+        CropCatalog.cropCoffee.getGains(plot)[0].is(AgricultureItems.COFFEE_BEANS),
         "fully ripened coffee produces the actual bean item");
     world.removeBlock(position, false);
     plot = place(world, position, CropCatalog.cropStickyReed);
@@ -84,7 +83,7 @@ public final class CropSpeciesContracts {
     plot.setCurrentAge(3);
     var after = CropCatalog.cropStickyReed.getAgeAfterHarvest(plot);
     check(
-        CropCatalog.cropStickyReed.getGain(plot).is(ItemDefinitions.RESIN)
+        CropCatalog.cropStickyReed.getGain(plot).is(MaterialItems.RESIN)
             && after >= 1
             && after <= 2,
         "mature sticky reed yields resin and independently retains one or two stages");
@@ -113,7 +112,7 @@ public final class CropSpeciesContracts {
     var prototype = new ItemStack(Items.IRON_INGOT, 2);
     var roots = new ArrayList<net.minecraft.tags.TagKey<Block>>();
     var owned =
-        new MetalSpecies(Cultivar.FERRU, BlockDefinitions.FERRU_CROP, attributes, roots, prototype);
+        new MetalSpecies(Cultivar.FERRU, AgricultureBlocks.FERRU_CROP, attributes, roots, prototype);
     attributes[0] = "changed";
     prototype.setCount(99);
     roots.add(net.minecraft.tags.BlockTags.LOGS);

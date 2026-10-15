@@ -2,8 +2,8 @@ package ic2ce.neoforge.item.tool;
 
 
 import ic2ce.api.item.*;
-import ic2ce.core.util.StackTag;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.item.energy.BatteryItems;
 import java.util.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -30,7 +30,7 @@ public final class ChargeContracts {
   }
 
   private Result exercise(ServerLevel world) {
-    var battery = new ItemStack(ItemDefinitions.RE_BATTERY);
+    var battery = new ItemStack(BatteryItems.RE_BATTERY);
     var manager = ElectricItem.manager;
     check(
         manager.getCharge(battery) == 0 && !StackTag.has(battery),
@@ -91,7 +91,7 @@ public final class ChargeContracts {
             && manager.getCharge(battery) == 0,
         "rejected complete bills debit nothing and exact later consumption clears only the energy"
             + " field");
-    var drill = new ItemStack(ItemDefinitions.DRILL);
+    var drill = new ItemStack(ToolItems.DRILL);
     manager.charge(drill, 1000, 0, true, false);
     check(
         manager.getCharge(drill) == 0,
@@ -120,14 +120,14 @@ public final class ChargeContracts {
           return data;
         });
     player.setItemSlot(EquipmentSlot.CHEST, diagnostic);
-    var target = new ItemStack(ItemDefinitions.DRILL);
+    var target = new ItemStack(ToolItems.DRILL);
     manager.chargeFromArmor(target, player);
     check(
         manager.getCharge(target) == 0 && rejected.commits > 0,
         "an addon source which refuses the observed debit cannot create an unpaid target charge"
             + " after successful simulation");
     rejected.commits = 0;
-    manager.chargeFromArmor(new ItemStack(ItemDefinitions.IRIDIUM_DRILL), player);
+    manager.chargeFromArmor(new ItemStack(ToolItems.IRIDIUM_DRILL), player);
     check(
         rejected.commits == 0,
         "actual source tier blocks an incompatible target before any source commit");

@@ -2,14 +2,15 @@ package ic2ce.neoforge.utility;
 
 import ic2ce.api.network.INetworkTileEntityEventListener;
 import ic2ce.api.tile.IEnergyStorage;
-import ic2ce.core.util.Util;
 import ic2ce.engine.fluid.FairAllocation;
 import ic2ce.neoforge.block.ActiveBlockEntity;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.ProgressionService;
+import ic2ce.neoforge.runtime.SharedRandom;
+import ic2ce.neoforge.runtime.SideServices;
+import ic2ce.neoforge.world.DirectionSets;
 import java.util.ArrayDeque;
 import java.util.IdentityHashMap;
 import java.util.List;
@@ -37,10 +38,10 @@ import net.minecraft.world.phys.AABB;
 /** Linked endpoints with a complete, observed reservation across at most six native banks. */
 public class LinkedTeleporter extends ActiveBlockEntity implements INetworkTileEntityEventListener {
   private BlockPos target;
-  private int targetCheckTicker = ProjectRuntime.random.nextInt(1024), cooldown;
+  private int targetCheckTicker = SharedRandom.INSTANCE.nextInt(1024), cooldown;
 
   public LinkedTeleporter(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.TELEPORTER, position, state);
+    super(UtilityBlockEntities.TELEPORTER, position, state);
   }
 
   @Override
@@ -156,11 +157,11 @@ public class LinkedTeleporter extends ActiveBlockEntity implements INetworkTileE
       return;
     }
     cooldown = endpoint.cooldown = 20;
-    ProjectRuntime.network.get(true).updateTileEntityField(this, "cooldown");
-    ProjectRuntime.network.get(true).updateTileEntityField(endpoint, "cooldown");
-    ProjectRuntime.network.get(true).initiateTileEntityEvent(this, 0, true);
+    SideServices.network(true).updateTileEntityField(this, "cooldown");
+    SideServices.network(true).updateTileEntityField(endpoint, "cooldown");
+    SideServices.network(true).initiateTileEntityEvent(this, 0, true);
     if (entity instanceof Player player && distance >= 1000)
-      ProjectRuntime.achievements.issueAchievement(player, "teleportFarAway");
+      ProgressionService.issueAchievement(player, "teleportFarAway");
   }
 
   private record Reservation(IEnergyStorage[] banks, int[] paid) {
@@ -175,7 +176,7 @@ public class LinkedTeleporter extends ActiveBlockEntity implements INetworkTileE
     var world = getLevel();
     if (world == null) return result;
     int count = 0;
-    for (var direction : Util.ALL_DIRS) {
+    for (var direction : DirectionSets.ALL_DIRS) {
       var position = worldPosition.relative(direction);
       if (!world.isLoaded(position)) continue;
       if (!(world.getBlockEntity(position) instanceof IEnergyStorage bank)
@@ -260,7 +261,7 @@ public class LinkedTeleporter extends ActiveBlockEntity implements INetworkTileE
             case Player player -> {
               long result = 1000;
               if (inventories)
-                for (var stack : Util.playerMainItems(player)) result += stackCost(stack);
+                for (var stack : player.getInventory().getNonEquipmentItems()) result += stackCost(stack);
               yield result;
             }
             case WitherBoss _ -> 5000;
@@ -308,7 +309,7 @@ public class LinkedTeleporter extends ActiveBlockEntity implements INetworkTileE
     updateComparatorLevel();
     var world = getLevel();
     if (world != null && !world.isClientSide())
-      ProjectRuntime.network.get(true).updateTileEntityField(this, "target");
+      SideServices.network(true).updateTileEntityField(this, "target");
   }
 
   @Override

@@ -2,9 +2,9 @@ package ic2ce.neoforge.energy.storage;
 
 import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.tile.IEnergyStorage;
-import ic2ce.core.*;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.util.*;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.engine.energy.StorageSignalPolicy;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.block.MachineBlockType;
@@ -17,7 +17,7 @@ import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.energy.menu.BankMenu;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.world.DirectionSets;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -142,7 +142,7 @@ public abstract class EnergyBank extends InventoryBlockEntity
   public void onNetworkEvent(Player player, int event) {
     redstoneMode = (byte) ((currentMode() + 1) % modeCount());
     setChanged();
-    if (player != null) ProjectRuntime.sideProxy.messagePlayer(player, getRedstoneModeKey());
+    if (player != null) SideServices.proxy().messagePlayer(player, getRedstoneModeKey());
   }
 
   public String getRedstoneMode() {

@@ -1,9 +1,10 @@
 package ic2ce.verification;
 
 import ic2ce.api.item.ElectricItem;
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.cable.RedstoneGateBlock;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.utility.UtilityBlocks;
+import ic2ce.neoforge.world.WorldBlocks;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -38,8 +39,8 @@ public final class NativeBehaviorReview {
         for (int y = -1; y <= 2; y++)
           level.setBlock(pos.offset(x, y, z), Blocks.AIR.defaultBlockState(), 3);
     level.setBlock(pos.below(), Blocks.STONE.defaultBlockState(), 3);
-    level.setBlock(pos, BlockDefinitions.IRON_FENCE.defaultBlockState(), 3);
-    level.setBlock(pos.east(), BlockDefinitions.IRON_FENCE.defaultBlockState(), 3);
+    level.setBlock(pos, UtilityBlocks.IRON_FENCE.defaultBlockState(), 3);
+    level.setBlock(pos.east(), UtilityBlocks.IRON_FENCE.defaultBlockState(), 3);
     check(
         level.getBlockState(pos).getValue(CrossCollisionBlock.EAST),
         "iron fence connects after neighbor placement");
@@ -48,7 +49,7 @@ public final class NativeBehaviorReview {
         !level.getBlockState(pos).getValue(CrossCollisionBlock.EAST),
         "iron fence disconnects after neighbor removal");
     level.removeBlock(pos, false);
-    var splitter = BuiltInRegistries.BLOCK.getValue(ProjectRuntime.getIdentifier("splitter_cable"));
+    var splitter = BuiltInRegistries.BLOCK.getValue(ProjectIds.id("splitter_cable"));
     level.setBlock(pos, splitter.defaultBlockState(), 3);
     level.setBlock(pos.east(), Blocks.REDSTONE_BLOCK.defaultBlockState(), 3);
     check(
@@ -59,7 +60,7 @@ public final class NativeBehaviorReview {
         !level.getBlockState(pos).getValue(RedstoneGateBlock.active),
         "splitter disconnects when redstone is removed");
     level.removeBlock(pos, false);
-    for (var sheet : List.of(BlockDefinitions.RESIN_SHEET, BlockDefinitions.RUBBER_SHEET)) {
+    for (var sheet : List.of(WorldBlocks.RESIN_SHEET, WorldBlocks.RUBBER_SHEET)) {
       level.setBlock(pos.below(), Blocks.STONE.defaultBlockState(), 3);
       level.setBlock(pos, sheet.defaultBlockState(), 3);
       level.removeBlock(pos.below(), false);
@@ -69,10 +70,10 @@ public final class NativeBehaviorReview {
     }
     for (var scaffold :
         List.of(
-            BlockDefinitions.WOODEN_SCAFFOLD,
-            BlockDefinitions.IRON_SCAFFOLD,
-            BlockDefinitions.REINFORCED_WOODEN_SCAFFOLD,
-            BlockDefinitions.REINFORCED_IRON_SCAFFOLD)) {
+            WorldBlocks.WOODEN_SCAFFOLD,
+            WorldBlocks.IRON_SCAFFOLD,
+            WorldBlocks.REINFORCED_WOODEN_SCAFFOLD,
+            WorldBlocks.REINFORCED_IRON_SCAFFOLD)) {
       level.setBlock(pos.below(), Blocks.STONE.defaultBlockState(), 3);
       level.setBlock(pos, scaffold.defaultBlockState(), 3);
       level.removeBlock(pos.below(), false);
@@ -82,7 +83,7 @@ public final class NativeBehaviorReview {
     }
     player.setDeltaMovement(new Vec3(1, -1, 1));
     player.fallDistance = 10;
-    BlockDefinitions.RESIN_SHEET
+    WorldBlocks.RESIN_SHEET
         .defaultBlockState()
         .entityInside(level, pos, player, InsideBlockEffectApplier.NOOP, true);
     check(
@@ -91,7 +92,7 @@ public final class NativeBehaviorReview {
             && player.fallDistance == 7.5,
         "resin sheet native entity callback slows motion and falling");
     player.fallDistance = 10;
-    BlockDefinitions.WOOL_SHEET
+    WorldBlocks.WOOL_SHEET
         .defaultBlockState()
         .entityInside(level, pos, player, InsideBlockEffectApplier.NOOP, true);
     check(
@@ -100,7 +101,7 @@ public final class NativeBehaviorReview {
     player.setShiftKeyDown(false);
     player.setDeltaMovement(new Vec3(1, -1, 1));
     player.fallDistance = 10;
-    BlockDefinitions.WOODEN_SCAFFOLD
+    WorldBlocks.WOODEN_SCAFFOLD
         .defaultBlockState()
         .entityInside(level, pos, player, InsideBlockEffectApplier.NOOP, true);
     check(
@@ -109,7 +110,7 @@ public final class NativeBehaviorReview {
             && player.fallDistance == 0,
         "scaffold native callback controls climbing and falling");
     for (String id : List.of("drill", "diamond_drill", "iridium_drill", "chainsaw")) {
-      var item = BuiltInRegistries.ITEM.getValue(ProjectRuntime.getIdentifier(id));
+      var item = BuiltInRegistries.ITEM.getValue(ProjectIds.id(id));
       var stack = new ItemStack(item);
       ElectricItem.manager.charge(stack, 10000, Integer.MAX_VALUE, true, false);
       check(stack.getMaxDamage() == 0, id + " uses charge without physical tool durability");

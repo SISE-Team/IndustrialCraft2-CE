@@ -3,10 +3,11 @@ package ic2ce.verification;
 import com.google.gson.GsonBuilder;
 import ic2ce.api.item.ElectricItem;
 import ic2ce.api.item.IElectricItem;
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.damage.RadiationEffect;
 import ic2ce.neoforge.item.armor.EquipmentItem;
-import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.item.consumable.ConsumableItems;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.nio.file.*;
 import java.util.*;
 import net.minecraft.core.component.DataComponents;
@@ -33,10 +34,10 @@ public final class ReviewInventoryProbe {
   private float radiationHealth;
   private final List<Item> mugs =
       List.of(
-          ItemDefinitions.EMPTY_MUG,
-          ItemDefinitions.COLD_COFFEE_MUG,
-          ItemDefinitions.DARK_COFFEE_MUG,
-          ItemDefinitions.COFFEE_MUG);
+          ConsumableItems.EMPTY_MUG,
+          ConsumableItems.COLD_COFFEE_MUG,
+          ConsumableItems.DARK_COFFEE_MUG,
+          ConsumableItems.COFFEE_MUG);
   private static volatile boolean ready, done, used;
   private static volatile int current = -1;
   private static volatile InteractionHand hand;
@@ -125,7 +126,7 @@ public final class ReviewInventoryProbe {
             "deepslate_lead_ore",
             "deepslate_uranium_ore")) {
       var state =
-          BuiltInRegistries.BLOCK.getValue(ProjectRuntime.getIdentifier(name)).defaultBlockState();
+          BuiltInRegistries.BLOCK.getValue(ProjectIds.id(name)).defaultBlockState();
       boolean tag = state.is(BlockTags.MINEABLE_WITH_PICKAXE);
       boolean drops = new ItemStack(Items.DIAMOND_PICKAXE).isCorrectToolForDrops(state);
       ores.add(Map.of("id", name, "pickaxeTag", tag, "diamondToolCorrect", drops));
@@ -144,7 +145,7 @@ public final class ReviewInventoryProbe {
             Map.entry(Biomes.FOREST, ic2ce.api.crops.BiomeType.FOREST),
             Map.entry(Biomes.PLAINS, ic2ce.api.crops.BiomeType.PLAINS))) {
       boolean result =
-          ProjectRuntime.envProxy.biomeHasType(biomes.getOrThrow(pair.getKey()), pair.getValue());
+          EnvProxy.get().biomeHasType(biomes.getOrThrow(pair.getKey()), pair.getValue());
       climates.add(
           Map.of(
               "biome",
@@ -209,8 +210,8 @@ public final class ReviewInventoryProbe {
       report.put("nativeArmorDamage", damageRows);
       player.removeAllEffects();
       RadiationEffect.radiation.applyTo(player, 100, 0);
-      ItemDefinitions.TERRA_WART.finishUsingItem(
-          new ItemStack(ItemDefinitions.TERRA_WART), player.level(), player);
+      ConsumableItems.TERRA_WART.finishUsingItem(
+          new ItemStack(ConsumableItems.TERRA_WART), player.level(), player);
       check(
           !player.hasEffect(RadiationEffect.radiationHolder()),
           "terra wart removes short radiation with the registered holder");
@@ -223,7 +224,7 @@ public final class ReviewInventoryProbe {
     check(used, "coffee interaction dispatched " + index);
     check(clientError.isEmpty(), "coffee client exception " + clientError);
     boolean empty = index % 4 == 0;
-    boolean transformed = player.getItemInHand(hand).is(ItemDefinitions.EMPTY_MUG);
+    boolean transformed = player.getItemInHand(hand).is(ConsumableItems.EMPTY_MUG);
     boolean effect =
         player.hasEffect(net.minecraft.world.effect.MobEffects.SPEED)
             && player.hasEffect(net.minecraft.world.effect.MobEffects.HASTE);

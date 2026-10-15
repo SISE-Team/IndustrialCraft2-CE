@@ -3,9 +3,12 @@ package ic2ce.verification;
 import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.energy.tile.*;
 import ic2ce.api.info.ILocatable;
-import ic2ce.core.energy.grid.*;
-import ic2ce.core.energy.leg.EnergyCalculatorLeg;
+import ic2ce.neoforge.energy.grid.EnergyCalculatorLeg;
 import ic2ce.neoforge.config.ProjectConfiguration;
+import ic2ce.neoforge.energy.grid.EnergyNetLocal;
+import ic2ce.neoforge.energy.grid.Node;
+import ic2ce.neoforge.energy.grid.NodeLink;
+import ic2ce.neoforge.energy.grid.Tile;
 import java.lang.reflect.*;
 import java.util.*;
 import net.minecraft.core.BlockPos;
@@ -51,7 +54,7 @@ final class EnergyEffectsRegression {
     tileConstructor =
         Tile.class.getDeclaredConstructor(EnergyNetLocal.class, IEnergyTile.class, List.class);
     linkConstructor = NodeLink.class.getDeclaredConstructor(Node.class, Node.class, double.class);
-    Class<?> pathType = Class.forName("ic2ce.core.energy.leg.EnergyPath");
+    Class<?> pathType = Class.forName("ic2ce.neoforge.energy.grid.EnergyPath");
     pathConstructor =
         pathType.getDeclaredConstructor(Node.class, Node.class, List.class, double.class);
     packet = pathType.getDeclaredField("maxPacketConducted");

@@ -1,8 +1,7 @@
 package ic2ce.neoforge.terrain;
 
 import ic2ce.api.item.ITerraformingBP;
-import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.ProgressionService;
 import ic2ce.neoforge.terrain.program.TerrainProgram;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -44,10 +43,10 @@ public class TerrainBlueprint extends Item implements ITerraformingBP {
 
   @Override
   public boolean canInsert(ItemStack stack, Player player, Level world, BlockPos position) {
-    if (this == ItemDefinitions.CULTIVATION_TFBP
+    if (this == TerrainItems.CULTIVATION_TFBP
         && world.dimension() == Level.END
         && !world.isClientSide())
-      ProjectRuntime.achievements.issueAchievement(player, "terraformEndCultivation");
+      ProgressionService.issueAchievement(player, "terraformEndCultivation");
     return true;
   }
 

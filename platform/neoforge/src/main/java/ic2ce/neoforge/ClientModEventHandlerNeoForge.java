@@ -1,8 +1,9 @@
 package ic2ce.neoforge;
 
 import com.mojang.serialization.MapCodec;
+import ic2ce.neoforge.fluid.ClientEnvFluidHandlerNeoForge;
 import ic2ce.neoforge.model.*;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.world.WorldBlocks;
 import java.util.Map;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -73,7 +74,7 @@ public final class ClientModEventHandlerNeoForge {
   public void wallModels(ModelEvent.ModifyBakingResult event) {
     var models = event.getBakingResult().blockStateModels();
     var source = Map.copyOf(models);
-    for (var state : BlockDefinitions.OBSCURED_WALL.getStateDefinition().getPossibleStates()) {
+    for (var state : WorldBlocks.OBSCURED_WALL.getStateDefinition().getPossibleStates()) {
       var fallback = models.get(state);
       if (fallback != null) models.put(state, new ObscuredWallModel(fallback, source));
     }
@@ -82,8 +83,8 @@ public final class ClientModEventHandlerNeoForge {
   @SubscribeEvent
   public void itemProperties(RegisterRangeSelectItemModelPropertyEvent event) {
     event.register(
-        ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("charge"), ChargeProperty.CODEC);
+        ProjectIds.id("charge"), ChargeProperty.CODEC);
     event.register(
-        ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("state"), StateProperty.CODEC);
+        ProjectIds.id("state"), StateProperty.CODEC);
   }
 }

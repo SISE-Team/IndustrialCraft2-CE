@@ -532,235 +532,229 @@
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/ChunkLoadAwareBlock.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/ChunkLoadAwareBlock.java",
       "sha256": "580271e0eeab1dd38aa649ea611bbc10df147961233efbd75ac5288ec52746d5",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/IInventorySlotHolder.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/IInventorySlotHolder.java",
       "sha256": "239b743062a7574fa669e91dfdd5391c1ca748571b8eae6c6fe44dbad8b6d5a0",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntityBronzeStorageBox.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityBronzeStorageBox.java",
       "sha256": "2a3727a364c34dc363b7cbff2a5a8aeecff359570af948ef446a211bbbebddae",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntityIridiumStorageBox.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityIridiumStorageBox.java",
       "sha256": "177d8a08dbb791ab672237f5011fe81952de94983e8b287744619ed2b1440560",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntityIronStorageBox.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityIronStorageBox.java",
       "sha256": "ba66d67b7f955df66162e843da4f000e86d056ce5e231aa1af4692ec346ee269",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntitySteelStorageBox.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntitySteelStorageBox.java",
       "sha256": "69538810959f57d7264e7ed7d5f1db6179b41b95a800f7b9c0b86679cb6bfe5c",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntityWoodenStorageBox.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityWoodenStorageBox.java",
       "sha256": "864c8ca3a58330302b98b40bb3de34be15eaacdf8371b3323a8ba43806085811",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/TileEntityBronzeTank.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/TileEntityBronzeTank.java",
       "sha256": "ccea3208bb64428b261f3a0f59ae3e44172cbcfa2ff6c553fefc3a0e1457701e",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/TileEntityIridiumTank.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/TileEntityIridiumTank.java",
       "sha256": "d3edbb0791f5a5c918e8a4bf79aa7a5ea2312c58c8a80fe31998abdbd49ce915",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/TileEntityIronTank.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/TileEntityIronTank.java",
       "sha256": "b3a3b538fa95a49c1560dc697411b42c1a233e81412a477ce9dcb2f6ebd3c3ba",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/TileEntitySteelTank.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/TileEntitySteelTank.java",
       "sha256": "70d38006d584d04718cc835b1c1163b85487a20ec6d1fa2e069756920e191c00",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/transport/cover/CoverProperty.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/cover/CoverProperty.java",
       "sha256": "9df76a944038f1f03d24f81482414b47145ab8b960dafc20a51f011f15a24e9c",
       "kind": "constant-only material/protocol identifiers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/transport/cover/ICoverHolder.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/cover/ICoverHolder.java",
       "sha256": "806de07af220d09a678993caee3b0984c756bc7980059d9fdb3b3e411b37786d",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/transport/cover/ICoverItem.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/cover/ICoverItem.java",
       "sha256": "108d5452bf567eb2c622255ad58ca216bd603ee88b63f7fb25ed50d3fd79a176",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/EnergyNetSettings.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyNetSettings.java",
       "sha256": "21e5a1a49e3cdda887596830ecc6ace5dd9512c9d9e856a9dbdc5c1e94bed849",
       "kind": "configuration/algorithm tuning constants; live graph calculation is independently implemented",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/GridInfo.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/GridInfo.java",
       "sha256": "c738739f7db3ca2f0ebe32e7d6b24734790e8516a717c5624d3f47244ad416ae",
       "kind": "immutable diagnostic data holder",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/IEnergyCalculator.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/IEnergyCalculator.java",
       "sha256": "2c1e5e0135ff20406160c0dd7239570885bfb79851380ecfec4b7eb5591dec2a",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/NodeType.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/NodeType.java",
       "sha256": "c5700cd5e4b6e7aaf0ab77a99b01bb17f845f48dbe472a85a70a93bd0d65832e",
       "kind": "constant-only material/protocol identifiers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/event/IWorldTickCallback.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/IWorldTickCallback.java",
       "sha256": "b04b7ed09bfa1541d332a4f46a26d8355bc3021cf4e6c8d715f6c0e6a474ca09",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/fluid/EnvFluidHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/EnvFluidHandler.java",
       "sha256": "04508c268302bc28c2929a8647b87dcd41272797158e969fe9f80adb437df545",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/fluid/FluidBeBridge.java",
-      "sha256": "6a184068327d867a09e43268b48724f122646bfcfeea2d9f046a05be22db34e6",
-      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
-      "countsAsImplementationRewrite": false
-    },
-    {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/fluid/Ic2FluidBlock.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/Ic2FluidBlock.java",
       "sha256": "604a649ff62b8e8aad22457301e3a0ab5d6f4be389e0d6fd2875374acc79f10b",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/IHitSoundOverride.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/IHitSoundOverride.java",
       "sha256": "918fdc0bc1a2a570f8ffedb68ffc12ebca8a5ad7ea724f190ea9deef18f24501",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/item/EnvItemHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/transfer/EnvItemHandler.java",
       "sha256": "69dde8dbee10b4220d9579e9b65932e2048b1c4b11617363785e55a55ce0e381",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/item/IHandHeldInventory.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/handheld/IHandHeldInventory.java",
       "sha256": "315280c0547dac2cce247f415474c7d6407816201f80c393a56465348851051a",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/item/IHandHeldSubInventory.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/handheld/IHandHeldSubInventory.java",
       "sha256": "9953b6c358bafd743e22c8e9cbf5f667728c58c52da468d95a85947a92c3ba83",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/item/IPseudoDamageItem.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/IPseudoDamageItem.java",
       "sha256": "f0351ceb2ffd0bfd1de5e089e3d10faaca7897f4f93fd536116513d7d297c7b6",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/item/PriorityUsableItem.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/PriorityUsableItem.java",
       "sha256": "ec9c35807748d1fb42b869e8dcd9411c617034df3632ad33d9507f341e9b7570",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/loot/Ic2LootNbtProviderTypes.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/loot/Ic2LootNbtProviderTypes.java",
       "sha256": "76b11197e0f82278c139cd47bf599df17997de4962062db34fe24401cb75a0ce",
       "kind": "native material/registry membership declaration and forwarding into independently implemented services",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/GuiSynced.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/GuiSynced.java",
       "sha256": "eb2d5f624aa5a1088b23baf5d5b0adac59f08479b04b6da21754ca08d9fe268b",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/IPlayerItemDataListener.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/IPlayerItemDataListener.java",
       "sha256": "03b71b0574b65a5a77400df7db4c5b7f72895ef8a4393e9723d8cf2dba85ed29",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/IRpcProvider.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/IRpcProvider.java",
       "sha256": "4451328501273205ac3fb004df6430e873df68f0be2bf37d64240fb18c3bb81e",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/profile/Both.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/Both.java",
       "sha256": "2e1757ee436a07028e6727463f0e03956b18d8d587075e61b770cdfd2c3f1629",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/profile/NotClassic.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/NotClassic.java",
       "sha256": "661240b27f11f5a6f124f0da6e74ab23ef05f13f477880eaa59fdc606c92b0e0",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/profile/NotExperimental.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/NotExperimental.java",
       "sha256": "f7177e5407477cc380eb5133848ac9f40d97872e739f5e4649958c3f039df4c8",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/proxy/EnvProxy.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/EnvProxy.java",
       "sha256": "c4bbbae843495c8e2f617ba9cca350bc0de6dee08a91ab809715f1bdcebf5af3",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxy.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SideProxy.java",
       "sha256": "5eb79df2059c22bee96295dd41a12d20f4554bec86ff24564994debad833927e",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/ILateRecipeResolver.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/ILateRecipeResolver.java",
       "sha256": "7e8e7fcd5f4a59708dc685b59cf5e1e61bb7119ff47f84b7ce75d3b9708499d2",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/IRecipeResolver.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/IRecipeResolver.java",
       "sha256": "2ceb9ba068d6798b57cf8b6f32cf8b43886dcaa1ee5f4be07e8ce02e23c7a3f7",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
@@ -886,20 +880,8 @@
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/ItemDefinitions.java",
-      "sha256": "c36bb191a8183e900c403e30e8c9234af6c26b7b7e87fbc431bd7b8c665bff84",
-      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
-      "countsAsImplementationRewrite": false
-    },
-    {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/ItemGroups.java",
       "sha256": "d6839ddf90c7afbf48b2fd275d511ed1f30482bac6b8a49a85d8580e4eeefbda",
-      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
-      "countsAsImplementationRewrite": false
-    },
-    {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/MenuDefinitions.java",
-      "sha256": "4ef1739cae8b852be9776fed2ce61c3f6164ba289c4cae7f08a36ba99d0a4146",
       "kind": "native material/registry membership declaration and forwarding into independently implemented services",
       "countsAsImplementationRewrite": false
     },

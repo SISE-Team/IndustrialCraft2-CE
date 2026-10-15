@@ -1,8 +1,7 @@
 package ic2ce.neoforge.item.tool;
 
 import ic2ce.api.item.ElectricItem;
-import ic2ce.core.util.StackTag;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.StackTag;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
@@ -43,7 +42,7 @@ public final class ObscuratorContracts {
     world.getChunkAt(pos);
     world.setBlock(pos, Blocks.STONE.defaultBlockState(), 3);
     owner.setPos(pos.getX() + .5, pos.getY(), pos.getZ() - 1.5);
-    var stack = new ItemStack(ItemDefinitions.OBSCURATOR);
+    var stack = new ItemStack(ToolItems.OBSCURATOR);
     var item = (SurfaceImprinter) stack.getItem();
     ElectricItem.manager.charge(stack, 100000, 2, true, false);
     owner.setItemInHand(InteractionHand.MAIN_HAND, stack);

@@ -1,9 +1,11 @@
 package ic2ce.verification;
 
-import ic2ce.core.item.ItemCrystalMemory;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.ProjectIds;
+import ic2ce.neoforge.item.consumable.ConsumableItems;
+import ic2ce.neoforge.item.tool.ToolItems;
+import ic2ce.neoforge.processing.ProcessingItems;
+import ic2ce.neoforge.processing.uu.ItemCrystalMemory;
+import ic2ce.neoforge.world.WorldBlocks;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -61,7 +63,7 @@ public final class CompleteItemUse {
           3);
       var item =
           BuiltInRegistries.ITEM.getValue(
-              ProjectRuntime.getIdentifier(color.getName() + "_painter"));
+              ProjectIds.id(color.getName() + "_painter"));
       var stack = new ItemStack(item);
       player.setItemInHand(InteractionHand.MAIN_HAND, stack);
       item.useOn(
@@ -80,17 +82,17 @@ public final class CompleteItemUse {
                           color.getName() + "_wool"))),
           world.getBlockState(pos).toString());
     }
-    for (Item item : List.of(ItemDefinitions.COFFEE_MUG, ItemDefinitions.COLD_COFFEE_MUG)) {
+    for (Item item : List.of(ConsumableItems.COFFEE_MUG, ConsumableItems.COLD_COFFEE_MUG)) {
       var stack = new ItemStack(item);
       var remainder = item.finishUsingItem(stack, world, player);
       mark(
           item,
           "native_finished_drink",
-          remainder.is(ItemDefinitions.EMPTY_MUG)
+          remainder.is(ConsumableItems.EMPTY_MUG)
               && player.hasEffect(net.minecraft.world.effect.MobEffects.SPEED),
           remainder.toString());
     }
-    var crystal = new ItemStack(ItemDefinitions.CRYSTAL_MEMORY);
+    var crystal = new ItemStack(ProcessingItems.CRYSTAL_MEMORY);
     var memory = (ItemCrystalMemory) crystal.getItem();
     memory.writecontentsTag(world, crystal, new ItemStack(Items.IRON_INGOT));
     var restored = memory.readItemStack(crystal);
@@ -99,12 +101,12 @@ public final class CompleteItemUse {
         "native_pattern_write_read",
         restored.is(Items.IRON_INGOT) && restored.getCount() == 1,
         restored.toString());
-    var tap = new ItemStack(ItemDefinitions.ELECTRIC_TREETAP);
+    var tap = new ItemStack(ToolItems.ELECTRIC_TREETAP);
     ic2ce.api.item.ElectricItem.manager.charge(tap, 50, 1, true, false);
     player.setItemInHand(InteractionHand.MAIN_HAND, tap);
     world.setBlock(
         pos,
-        BlockDefinitions.RUBBER_LOG
+        WorldBlocks.RUBBER_LOG
             .defaultBlockState()
             .setValue(
                 ic2ce.neoforge.world.block.ResinLog.stateProperty,
@@ -172,7 +174,7 @@ public final class CompleteItemUse {
                 "advanced_ejector_upgrade",
                 "advanced_pulling_upgrade"))
           ledger.mark(
-              BuiltInRegistries.ITEM.getValue(ProjectRuntime.getIdentifier(id)),
+              BuiltInRegistries.ITEM.getValue(ProjectIds.id(id)),
               "placed_upgrade_transfer_function",
               "actual rates, storage, tier, signals and filtered item conservation");
       }

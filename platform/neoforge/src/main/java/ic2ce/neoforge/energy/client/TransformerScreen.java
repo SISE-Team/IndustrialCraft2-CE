@@ -4,6 +4,7 @@ import ic2ce.neoforge.client.screen.MachineScreen;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.client.widget.*;
 import ic2ce.neoforge.energy.menu.*;
+import ic2ce.neoforge.item.tool.ToolItems;
 import ic2ce.neoforge.menu.document.LiveText;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -52,7 +53,7 @@ public class TransformerScreen extends MachineScreen<TransformerMenu> {
                             + LocalizedText.translate("ic2.generic.text.EUt")),
             0x20ebbe,
             false));
-    var icon = new ItemStack(ic2ce.neoforge.registry.ItemDefinitions.WRENCH);
+    var icon = new ItemStack(ToolItems.WRENCH);
     var policies = ic2ce.neoforge.energy.transformer.VoltageTransformer.Mode.values();
     for (int index = 0; index < 3; index++) {
       int selected = index;

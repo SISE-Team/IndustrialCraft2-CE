@@ -3,9 +3,8 @@ package ic2ce.neoforge.item.energy;
 import ic2ce.api.item.ElectricItem;
 import ic2ce.api.item.IElectricItem;
 import ic2ce.api.network.INetworkItemEventListener;
-import ic2ce.core.item.*;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -44,7 +43,7 @@ public class RechargeableSupply extends ElectricItemBase implements INetworkItem
     }
     if (transferred) {
       player.containerMenu.broadcastChanges();
-      ProjectRuntime.network.get(true).initiateItemEvent(player, source, 0, true);
+      SideServices.network(true).initiateItemEvent(player, source, 0, true);
     }
     return InteractionResult.SUCCESS.heldItemTransformedTo(source);
   }

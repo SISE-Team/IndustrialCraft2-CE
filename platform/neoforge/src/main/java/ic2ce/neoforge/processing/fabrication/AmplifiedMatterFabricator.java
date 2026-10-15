@@ -4,21 +4,23 @@ import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.energy.tile.IExplosionPowerOverride;
 import ic2ce.api.recipe.*;
 import ic2ce.api.upgrade.*;
-import ic2ce.core.*;
-import ic2ce.core.network.*;
-import ic2ce.core.util.Util;
 import ic2ce.engine.machine.AmplificationBudget;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.component.SignalInput;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
+import ic2ce.neoforge.diagnostics.DevelopmentMode;
 import ic2ce.neoforge.inventory.*;
+import ic2ce.neoforge.material.MaterialItems;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.processing.FabricationSettings;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
+import ic2ce.neoforge.processing.ProcessingItems;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import java.util.List;
 import java.util.Set;
@@ -54,7 +56,7 @@ public class AmplifiedMatterFabricator extends PoweredBlockEntity
 
   public AmplifiedMatterFabricator(BlockPos position, BlockState state) {
     super(
-        BlockEntityDefinitions.MASS_FABRICATOR,
+        ProcessingBlockEntities.MASS_FABRICATOR,
         position,
         state,
         FabricationSettings.energyCost(),
@@ -145,7 +147,7 @@ public class AmplifiedMatterFabricator extends PoweredBlockEntity
       double consumed = amplifier.consume(eligible);
       processedScrap += consumed;
       if (consumed > 0) worked = changed = true;
-      var output = new ItemStack(ItemDefinitions.UU_MATTER);
+      var output = new ItemStack(MaterialItems.UU_MATTER);
       if (processedScrap >= requiredScrap
           && energy.getEnergy() >= energy.getCapacity()
           && outputSlot.canAdd(output)
@@ -177,7 +179,7 @@ public class AmplifiedMatterFabricator extends PoweredBlockEntity
   public boolean getGuiState(String key) {
     return key.equals("scrap")
         ? scrap > 0
-        : key.equals("dev") ? Util.inDev() : super.getGuiState(key);
+        : key.equals("dev") ? DevelopmentMode.active() : super.getGuiState(key);
   }
 
   @Override
@@ -186,7 +188,7 @@ public class AmplifiedMatterFabricator extends PoweredBlockEntity
     tooltip.add(
         LocalizedText.translate(
             "ic2.tooltip.preferred_machine",
-            LocalizedText.translate(ItemDefinitions.MATTER_GENERATOR.getDescriptionId())));
+            LocalizedText.translate(ProcessingItems.MATTER_GENERATOR.getDescriptionId())));
   }
 
   @Override

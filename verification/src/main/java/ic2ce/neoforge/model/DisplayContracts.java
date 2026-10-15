@@ -1,9 +1,10 @@
 package ic2ce.neoforge.model;
 
 import ic2ce.api.item.*;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.item.energy.BatteryItems;
 import ic2ce.neoforge.item.upgrade.MachineUpgrade;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.upgrade.UpgradeItems;
 import java.util.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.*;
@@ -22,7 +23,7 @@ public final class DisplayContracts {
     int checks = 0;
     var client = Minecraft.getInstance();
     var property = new ChargeProperty();
-    var battery = new ItemStack(ItemDefinitions.RE_BATTERY);
+    var battery = new ItemStack(BatteryItems.RE_BATTERY);
     checks++;
     if (property.get(battery, client.level, client.player, 0) != 0)
       failures.add("native model: blank battery publishes nonzero charge display");
@@ -36,7 +37,7 @@ public final class DisplayContracts {
     checks++;
     if (property.get(battery, client.level, client.player, 0) != 1)
       failures.add("native model: actual charged battery display escapes [0,1]");
-    var upgrade = new ItemStack(ItemDefinitions.EJECTOR_UPGRADE);
+    var upgrade = new ItemStack(UpgradeItems.EJECTOR_UPGRADE);
     var directions = Direction.values();
     for (int index = 0; index < directions.length; index++) {
       int encoded = index + 1;
@@ -77,11 +78,11 @@ public final class DisplayContracts {
       failures.add("native model: unrelated physical item can spoof an upgrade display protocol");
     var state = Blocks.OAK_LOG.defaultBlockState();
     checks++;
-    if (!ic2ce.core.model.ModelUtil.getVariant(state)
+    if (!ic2ce.neoforge.model.ModelUtil.getVariant(state)
         .equals(ic2ce.neoforge.world.surface.StateVariants.getVariantString(state)))
       failures.add("native model: render and persisted world variant text diverge");
     var quads =
-        ic2ce.core.model.ModelUtil.getQuads(
+        ic2ce.neoforge.model.ModelUtil.getQuads(
             Blocks.STONE.defaultBlockState(),
             Direction.UP,
             net.minecraft.util.RandomSource.create(25));

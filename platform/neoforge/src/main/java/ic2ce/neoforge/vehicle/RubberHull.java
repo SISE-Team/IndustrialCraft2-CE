@@ -2,7 +2,6 @@ package ic2ce.neoforge.vehicle;
 
 import ic2ce.api.entity.boat.*;
 import ic2ce.neoforge.registry.BoatDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -12,7 +11,7 @@ import net.minecraft.world.level.Level;
  */
 public class RubberHull extends AbstractBoatEntity {
   public RubberHull(EntityType<? extends AbstractBoatEntity> type, Level world) {
-    super(type, world, () -> ItemDefinitions.RUBBER_BOAT);
+    super(type, world, () -> VehicleItems.RUBBER_BOAT);
   }
 
   public RubberHull(
@@ -23,7 +22,7 @@ public class RubberHull extends AbstractBoatEntity {
 
   @Override
   public ItemStack getExtraDropItemStack() {
-    return new ItemStack(ItemDefinitions.BROKEN_RUBBER_BOAT);
+    return new ItemStack(VehicleItems.BROKEN_RUBBER_BOAT);
   }
 
   @Override

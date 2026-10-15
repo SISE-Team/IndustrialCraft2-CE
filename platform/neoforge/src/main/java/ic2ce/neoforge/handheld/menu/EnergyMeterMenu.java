@@ -3,9 +3,9 @@ package ic2ce.neoforge.handheld.menu;
 import ic2ce.api.energy.*;
 import ic2ce.api.energy.tile.IEnergyTile;
 import ic2ce.api.network.ClientModifiable;
+import ic2ce.neoforge.handheld.HandheldMenus;
 import ic2ce.neoforge.handheld.MeterSession;
-import ic2ce.neoforge.registry.MenuDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 
 /**
  * Native energy observations retain fractional/high-voltage values and incremental means without
@@ -20,7 +20,7 @@ public class EnergyMeterMenu extends HandheldMenu<MeterSession> {
   @ClientModifiable private Mode mode = Mode.EnergyIn;
 
   public EnergyMeterMenu(int id, MeterSession inventory) {
-    super(MenuDefinitions.METER, id, inventory);
+    super(HandheldMenus.METER, id, inventory);
   }
 
   @Override
@@ -89,7 +89,7 @@ public class EnergyMeterMenu extends HandheldMenu<MeterSession> {
     mode = value;
     resetLocal();
     if (player.level().isClientSide())
-      ProjectRuntime.network.get(false).sendContainerField(this, "mode");
+      SideServices.network(false).sendContainerField(this, "mode");
   }
 
   private void resetLocal() {
@@ -100,16 +100,16 @@ public class EnergyMeterMenu extends HandheldMenu<MeterSession> {
 
   private void syncResults() {
     if (!player.level().isClientSide()) {
-      ProjectRuntime.network.get(true).sendContainerField(this, "resultAvg");
-      ProjectRuntime.network.get(true).sendContainerField(this, "resultMin");
-      ProjectRuntime.network.get(true).sendContainerField(this, "resultMax");
-      ProjectRuntime.network.get(true).sendContainerField(this, "resultCount");
+      SideServices.network(true).sendContainerField(this, "resultAvg");
+      SideServices.network(true).sendContainerField(this, "resultMin");
+      SideServices.network(true).sendContainerField(this, "resultMax");
+      SideServices.network(true).sendContainerField(this, "resultCount");
     }
   }
 
   public void reset() {
     if (player.level().isClientSide())
-      ProjectRuntime.network.get(false).sendContainerEvent(this, "reset");
+      SideServices.network(false).sendContainerEvent(this, "reset");
     else {
       resetLocal();
       syncResults();

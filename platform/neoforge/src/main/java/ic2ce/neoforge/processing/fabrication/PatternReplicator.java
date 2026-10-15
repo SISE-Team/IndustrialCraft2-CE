@@ -4,14 +4,17 @@ import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.recipe.IPatternStorage;
 import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.UpgradableProperty;
-import ic2ce.core.IHasGui;
-import ic2ce.core.fluid.Ic2FluidTank;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.network.GuiSynced;
-import ic2ce.core.profile.NotClassic;
-import ic2ce.core.util.StackTag;
-import ic2ce.core.util.StackUtil;
-import ic2ce.core.uu.UuIndex;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
+import ic2ce.neoforge.runtime.ProgressionService;
+import ic2ce.neoforge.runtime.SideServices;
+import ic2ce.neoforge.runtime.profile.NotClassic;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.inventory.StackUtil;
+import ic2ce.neoforge.processing.uu.UuIndex;
 import ic2ce.engine.fluid.FractionalFluidLedger;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;
@@ -21,9 +24,7 @@ import ic2ce.neoforge.inventory.OutputInventory;
 import ic2ce.neoforge.inventory.UpgradeInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.processing.menu.ReplicationMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.EnumSet;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -55,7 +56,7 @@ public class PatternReplicator extends PoweredBlockEntity
   private static final Direction[] SIDES = Direction.values();
 
   public PatternReplicator(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.REPLICATOR, position, state, 2000000, 4);
+    super(ProcessingBlockEntities.REPLICATOR, position, state, 2000000, 4);
     fluidTank =
         fluids.addTank(
             "fluidTank", 16000, FluidPorts.fluidPredicate(FluidDefinitions.UU_MATTER.still));
@@ -156,7 +157,7 @@ public class PatternReplicator extends PoweredBlockEntity
   @Override
   protected void onLoaded() {
     super.onLoaded();
-    if (ProjectRuntime.sideProxy.isSimulating()) {
+    if (SideServices.proxy().isSimulating()) {
       setOverclockRates();
       refreshInfo();
     }
@@ -165,7 +166,7 @@ public class PatternReplicator extends PoweredBlockEntity
   @Override
   public void setChanged() {
     super.setChanged();
-    if (ProjectRuntime.sideProxy.isSimulating()) setOverclockRates();
+    if (SideServices.proxy().isSimulating()) setOverclockRates();
   }
 
   public boolean gainFluid() {
@@ -215,7 +216,7 @@ public class PatternReplicator extends PoweredBlockEntity
         if (usablePattern()) {
           mode = event == 4 ? Mode.SINGLE : Mode.CONTINUOUS;
           setChanged();
-          if (actor != null) ProjectRuntime.achievements.issueAchievement(actor, "replicateObject");
+          if (actor != null) ProgressionService.issueAchievement(actor, "replicateObject");
         }
       }
       default -> {}

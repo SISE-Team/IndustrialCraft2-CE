@@ -3,16 +3,15 @@ package ic2ce.neoforge.utility;
 import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.UpgradableProperty;
-import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.utility.menu.ChunkAnchorMenu;
 import ic2ce.neoforge.world.ChunkLeases;
 import it.unimi.dsi.fastutil.longs.LongOpenHashSet;
@@ -51,7 +50,7 @@ public class ChunkAnchor extends InventoryBlockEntity
   public final ElectricalBuffer energy;
 
   public ChunkAnchor(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.CHUNK_LOADER, position, state);
+    super(UtilityBlockEntities.CHUNK_LOADER, position, state);
     double configured =
         NativeConfigValues.getDouble(ProjectConfiguration.get(), "balance/euPerChunk");
     if (!Double.isFinite(configured) || configured < 0)

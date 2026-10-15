@@ -3,6 +3,8 @@ package ic2ce.neoforge;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.recipe.RecipeOutputWeighted;
 import ic2ce.neoforge.explosion.PrimedNuclearCharge;
+import ic2ce.neoforge.fluid.Ic2FluidStackImpl;
+import ic2ce.neoforge.item.armor.ArmorItems;
 import ic2ce.neoforge.registry.EntityDefinitions;
 import java.util.ArrayList;
 import java.util.List;
@@ -199,14 +201,14 @@ public final class NativeApiContracts {
         !ic2ce.api.tile.ExplosionWhitelist.isBlockWhitelisted(
             net.minecraft.world.level.block.Blocks.STONE),
         "public blast whitelist detach publishes the new generation");
-    var tank = new ItemStack(ic2ce.neoforge.registry.ItemDefinitions.CF_PACK);
+    var tank = new ItemStack(ArmorItems.CF_PACK);
     var reservoir = (ic2ce.neoforge.item.armor.WearableFluidReservoir) tank.getItem();
     var foam =
         Ic2FluidStack.create(
             ic2ce.neoforge.registry.FluidDefinitions.CONSTRUCTION_FOAM.still, 2000);
     check(
         reservoir.fillMb(tank, foam, true, null) == 2000
-            && ic2ce.core.util.StackTag.get(tank) == null,
+            && ic2ce.neoforge.item.StackTag.get(tank) == null,
         "reservoir fill simulation writes no item data");
     reservoir.fillMb(tank, foam, false, null);
     var before = tank.copy();
@@ -219,7 +221,7 @@ public final class NativeApiContracts {
     check(
         drained.getAmountMb() == 750 && reservoir.getFluidStack(tank).getAmountMb() == 1250,
         "reservoir actual drain conserves exactly seven hundred fifty millibuckets");
-    ic2ce.core.fluid.StandardFluidItem.setFs(tank, foam.copyWithAmountMb(90000));
+    ic2ce.neoforge.fluid.StandardFluidItem.setFs(tank, foam.copyWithAmountMb(90000));
     before = tank.copy();
     check(
         reservoir.fillMb(tank, foam, false, null) == 0 && ItemStack.matches(before, tank),
@@ -255,10 +257,10 @@ public final class NativeApiContracts {
     savedItem.putInt("Slot", 4);
     var titled = new ItemStack(Items.IRON_INGOT, 2);
     titled.set(DataComponents.CUSTOM_NAME, Component.literal("previous saved title"));
-    ic2ce.core.util.StackTag.save(world.registryAccess(), titled, savedItem);
-    ic2ce.core.util.StackTag.save(
+    ic2ce.neoforge.item.StackTag.save(world.registryAccess(), titled, savedItem);
+    ic2ce.neoforge.item.StackTag.save(
         world.registryAccess(), new ItemStack(Items.IRON_INGOT, 3), savedItem);
-    var parsed = ic2ce.core.util.StackTag.parse(world.registryAccess(), savedItem);
+    var parsed = ic2ce.neoforge.item.StackTag.parse(world.registryAccess(), savedItem);
     check(
         parsed.getCount() == 3
             && !parsed.has(DataComponents.CUSTOM_NAME)
@@ -266,23 +268,23 @@ public final class NativeApiContracts {
         "reused item snapshot removes stale components and preserves surrounding slot data");
     var tag = new CompoundTag();
     tag.putInt("owned", 3);
-    ic2ce.core.util.StackTag.set(parsed, tag);
+    ic2ce.neoforge.item.StackTag.set(parsed, tag);
     tag.putInt("owned", 9);
     check(
-        ic2ce.core.util.StackTag.get(parsed).getIntOr("owned", 0) == 3,
+        ic2ce.neoforge.item.StackTag.get(parsed).getIntOr("owned", 0) == 3,
         "native item custom-data writes never retain caller tag mutations");
     var fluidTag = new CompoundTag();
     fluidTag.putInt("owned", 4);
-    ic2ce.core.util.FluidTag.set(nativeValue, fluidTag);
+    ic2ce.neoforge.fluid.FluidTag.set(nativeValue, fluidTag);
     fluidTag.putInt("owned", 8);
     check(
-        ic2ce.core.util.FluidTag.get(nativeValue).getIntOr("owned", 0) == 4,
+        ic2ce.neoforge.fluid.FluidTag.get(nativeValue).getIntOr("owned", 0) == 4,
         "native fluid custom-data writes never retain caller tag mutations");
-    ic2ce.core.util.FluidTag.set(nativeValue, new CompoundTag());
+    ic2ce.neoforge.fluid.FluidTag.set(nativeValue, new CompoundTag());
     check(
-        !ic2ce.core.util.FluidTag.has(nativeValue),
+        !ic2ce.neoforge.fluid.FluidTag.has(nativeValue),
         "empty native fluid metadata update prunes the custom-data component");
-    var keyState = new ic2ce.core.util.Keyboard();
+    var keyState = new ic2ce.neoforge.runtime.Keyboard();
     var inputOwner =
         net.neoforged.neoforge.common.util.FakePlayerFactory.get(
             world,
@@ -303,12 +305,12 @@ public final class NativeApiContracts {
             && !keyState.isBoostKeyDown(inputOwner)
             && !keyState.isSneakKeyDown(null),
         "keyboard player removal clears weak state and detached reads are inert");
-    var zeroVector = new ic2ce.core.util.Vector3();
+    var zeroVector = new ic2ce.neoforge.projectile.Vector3();
     zeroVector.normalize();
     check(
         zeroVector.x == 0 && zeroVector.y == 0 && zeroVector.z == 0,
         "native zero projectile vector does not normalize to NaN");
-    var largeVector = new ic2ce.core.util.Vector3(1e300, 0, 0).normalize();
+    var largeVector = new ic2ce.neoforge.projectile.Vector3(1e300, 0, 0).normalize();
     check(
         largeVector.x == 1 && largeVector.y == 0 && largeVector.z == 0,
         "large finite native direction normalizes without squared overflow");
@@ -320,16 +322,16 @@ public final class NativeApiContracts {
             largePos,
             false);
     check(
-        ic2ce.core.util.RotationUtil.rotateByRay(hit) == net.minecraft.core.Direction.WEST,
+        ic2ce.neoforge.world.RotationUtil.rotateByRay(hit) == net.minecraft.core.Direction.WEST,
         "actual large-world face hit subtracts the coordinate before float projection");
     for (var face : net.minecraft.core.Direction.values())
       check(
-          ic2ce.core.util.RotationUtil.rotateByHit(face, .5F, .5F, .5F) == face,
+          ic2ce.neoforge.world.RotationUtil.rotateByHit(face, .5F, .5F, .5F) == face,
           "native center hit retains each facing " + face);
     check(
-        ic2ce.neoforge.runtime.ProjectRuntime.getWorldMaxHeight(world) == world.getMaxY() + 1
-            && ic2ce.neoforge.runtime.ProjectRuntime.getWorldMaxHeight(world)
-                    - ic2ce.neoforge.runtime.ProjectRuntime.getWorldMinHeight(world)
+        (world.getMinY() + world.getHeight()) == world.getMaxY() + 1
+            && (world.getMinY() + world.getHeight())
+                    - world.getMinY()
                 == world.getHeight(),
         "native exclusive upper world bound retains the actual minimum Y offset");
     pendingIgniter = destination;

@@ -1,7 +1,6 @@
 package ic2ce.neoforge.runtime;
 
 import com.mojang.authlib.GameProfile;
-import ic2ce.core.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.UUID;
@@ -30,6 +29,6 @@ public final class AutomationActors {
               return new GameProfile(
                   UUID.nameUUIDFromBytes(name.getBytes(StandardCharsets.UTF_8)), name);
             });
-    return ProjectRuntime.envProxy.createFakePlayer(world, identity);
+    return EnvProxy.get().createFakePlayer(world, identity);
   }
 }

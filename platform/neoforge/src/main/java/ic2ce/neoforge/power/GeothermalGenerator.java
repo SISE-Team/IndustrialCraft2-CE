@@ -1,12 +1,11 @@
 package ic2ce.neoforge.power;
 
-import ic2ce.core.fluid.Ic2FluidTank;
-import ic2ce.core.network.GuiSynced;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
+import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.inventory.*;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
@@ -21,7 +20,7 @@ public class GeothermalGenerator extends BufferedGenerator {
 
   public GeothermalGenerator(BlockPos position, BlockState block) {
     super(
-        BlockEntityDefinitions.GEO_GENERATOR,
+        PowerBlockEntities.GEO_GENERATOR,
         position,
         block,
         Math.round(

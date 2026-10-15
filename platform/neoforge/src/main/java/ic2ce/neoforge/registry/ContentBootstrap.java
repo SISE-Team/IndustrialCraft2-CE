@@ -1,7 +1,8 @@
 package ic2ce.neoforge.registry;
 
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.damage.RadiationEffect;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import net.minecraft.world.effect.MobEffectCategory;
 
 /**
@@ -14,8 +15,8 @@ public final class ContentBootstrap {
   public static void init() {
     var radiation = new RadiationEffect(MobEffectCategory.HARMFUL, 5149489);
     RadiationEffect.radiation = radiation;
-    ProjectRuntime.envProxy.registerStatusEffect(
-        ProjectRuntime.getIdentifier("radiation"), radiation);
+    EnvProxy.get().registerStatusEffect(
+        ProjectIds.id("radiation"), radiation);
     FluidDefinitions.init();
     BlockDefinitions.init();
     BlockEntityDefinitions.init();

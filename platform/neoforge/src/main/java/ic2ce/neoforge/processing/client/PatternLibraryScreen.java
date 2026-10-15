@@ -1,6 +1,6 @@
 package ic2ce.neoforge.processing.client;
 
-import ic2ce.core.util.Util;
+import ic2ce.engine.text.SiFormat;
 import ic2ce.neoforge.client.screen.MachineScreen;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.client.widget.*;
@@ -63,10 +63,10 @@ public class PatternLibraryScreen extends MachineScreen<PatternLibraryMenu> {
                                         ? menu.base.pattern.getHoverName().getString()
                                         : "";
                                 case 1 ->
-                                    Util.toSiString(menu.base.patternUu, 4)
+                                    SiFormat.format(menu.base.patternUu, 4)
                                         + LocalizedText.translate("ic2.generic.text.bucketUnit");
                                 default ->
-                                    Util.toSiString(menu.base.patternEu, 4)
+                                    SiFormat.format(menu.base.patternEu, 4)
                                         + LocalizedText.translate("ic2.generic.text.EU");
                               }),
                   0xffffff,

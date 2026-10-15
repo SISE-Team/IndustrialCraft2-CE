@@ -1,7 +1,6 @@
 package ic2ce.neoforge.item.energy;
 
 import ic2ce.api.item.*;
-import ic2ce.core.item.*;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;

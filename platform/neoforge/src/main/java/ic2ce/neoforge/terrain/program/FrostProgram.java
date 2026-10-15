@@ -1,7 +1,7 @@
 package ic2ce.neoforge.terrain.program;
 
-import ic2ce.core.util.Util;
 import ic2ce.neoforge.terrain.TerrainController;
+import ic2ce.neoforge.world.DirectionSets;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
@@ -19,7 +19,7 @@ public final class FrostProgram extends TerrainProgram {
       return replace(world, surface.below(), Blocks.ICE.defaultBlockState());
     if (state.is(Blocks.SNOW)) {
       boolean surrounded = true;
-      for (var side : Util.HORIZONTAL_DIRS)
+      for (var side : DirectionSets.HORIZONTAL_DIRS)
         surrounded &= snowyColumn(world, surface.relative(side), surface.getY());
       if (surrounded) return replace(world, surface, Blocks.SNOW_BLOCK.defaultBlockState());
       int layers = state.getValue(SnowLayerBlock.LAYERS);

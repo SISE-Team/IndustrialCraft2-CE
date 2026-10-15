@@ -2,12 +2,11 @@ package ic2ce.neoforge.thermal;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.recipe.Recipes;
-import ic2ce.core.FluidHeatManager;
-import ic2ce.core.IHasGui;
-import ic2ce.core.fluid.Ic2FluidTank;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.network.GuiSynced;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
@@ -15,7 +14,6 @@ import ic2ce.neoforge.inventory.FluidContainerInventory;
 import ic2ce.neoforge.inventory.FluidRecipeInput;
 import ic2ce.neoforge.inventory.OutputInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.thermal.menu.FluidHeaterMenu;
 import net.minecraft.core.BlockPos;
@@ -39,7 +37,7 @@ public class FluidBurner extends BufferedHeatSource implements IHasGui {
   protected final FluidPorts fluids = addComponent(new FluidPorts(this));
 
   public FluidBurner(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.FLUID_HEAT_GENERATOR, position, block);
+    super(ThermalBlockEntities.FLUID_HEAT_GENERATOR, position, block);
     fluidSlot = new FluidRecipeInput(this, "fluidSlot", 1, Recipes.fluidHeatGenerator);
     outputSlot = new OutputInventory(this, "output", 1);
     fluidTank =

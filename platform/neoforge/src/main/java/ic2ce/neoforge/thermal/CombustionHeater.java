@@ -1,9 +1,11 @@
 package ic2ce.neoforge.thermal;
 
-import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.network.GuiSynced;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.material.MaterialItems;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.runtime.SharedRandom;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.inventory.FuelInput;
@@ -11,9 +13,6 @@ import ic2ce.neoforge.inventory.OutputInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Inventory;
@@ -25,7 +24,7 @@ import net.minecraft.world.level.block.state.BlockState;
 @NotClassic
 public class CombustionHeater extends BufferedHeatSource implements IHasGui, ScreenValues {
   private int storedHeat, pendingAsh;
-  public int activityMeter, ticksSinceLastActiveUpdate = ProjectRuntime.random.nextInt(256);
+  public int activityMeter, ticksSinceLastActiveUpdate = SharedRandom.INSTANCE.nextInt(256);
   @GuiSynced public int fuel, itemFuelTime;
   public final FuelInput fuelSlot = new FuelInput(this, "fuel", 1, false);
   public final OutputInventory outputslot = new OutputInventory(this, "output", 1);
@@ -40,15 +39,15 @@ public class CombustionHeater extends BufferedHeatSource implements IHasGui, Scr
               Integer.MAX_VALUE);
 
   public CombustionHeater(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.SOLID_HEAT_GENERATOR, position, block);
+    super(ThermalBlockEntities.SOLID_HEAT_GENERATOR, position, block);
   }
 
   @Override
   protected void updateEntityServer() {
     super.updateEntityServer();
     boolean changed = false;
-    if (pendingAsh > 0 && outputslot.canAdd(new ItemStack(ItemDefinitions.ASHES, pendingAsh))) {
-      outputslot.add(new ItemStack(ItemDefinitions.ASHES, pendingAsh));
+    if (pendingAsh > 0 && outputslot.canAdd(new ItemStack(MaterialItems.ASHES, pendingAsh))) {
+      outputslot.add(new ItemStack(MaterialItems.ASHES, pendingAsh));
       pendingAsh = 0;
       changed = true;
     }
@@ -69,7 +68,7 @@ public class CombustionHeater extends BufferedHeatSource implements IHasGui, Scr
     if (!isConverting() || emittedHU <= 0) return false;
     storedHeat = (int) Math.min(Integer.MAX_VALUE, (long) storedHeat + emittedHU);
     if (--fuel == 0 && getLevel().getRandom().nextBoolean()) {
-      var ash = new ItemStack(ItemDefinitions.ASHES);
+      var ash = new ItemStack(MaterialItems.ASHES);
       if (outputslot.canAdd(ash)) outputslot.add(ash);
       else pendingAsh++;
     }
@@ -83,7 +82,7 @@ public class CombustionHeater extends BufferedHeatSource implements IHasGui, Scr
   public boolean gainFuel() {
     if (emittedHU <= 0
         || pendingAsh > 0
-        || !outputslot.canAdd(new ItemStack(ItemDefinitions.ASHES))) return false;
+        || !outputslot.canAdd(new ItemStack(MaterialItems.ASHES))) return false;
     int ticks = fuelSlot.consumeFuel() / 4;
     if (ticks <= 0) return false;
     fuel = itemFuelTime = ticks;

@@ -1,7 +1,7 @@
 package ic2ce.neoforge.world.block;
 
 import ic2ce.api.tile.*;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.world.WorldBlocks;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.world.entity.player.Player;
@@ -67,7 +67,7 @@ public final class ConstructionWall extends Block implements StainableBlock, Ret
         || world.getBlockState(position) != state
         || owner != null && (!owner.getAbilities().mayBuild || !world.mayInteract(owner, position)))
       return false;
-    if (!world.setBlockAndUpdate(position, BlockDefinitions.OBSCURED_WALL.defaultBlockState()))
+    if (!world.setBlockAndUpdate(position, WorldBlocks.OBSCURED_WALL.defaultBlockState()))
       return false;
     boolean committed = false;
     try {

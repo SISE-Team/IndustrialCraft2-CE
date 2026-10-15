@@ -3,7 +3,7 @@ package ic2ce.neoforge.component;
 import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.energy.tile.*;
 import ic2ce.api.info.ILocatable;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.engine.energy.EnergyBuffer;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.inventory.InventorySlot;

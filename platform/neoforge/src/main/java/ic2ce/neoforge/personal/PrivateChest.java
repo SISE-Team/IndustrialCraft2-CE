@@ -1,18 +1,15 @@
 package ic2ce.neoforge.personal;
 
 import com.mojang.authlib.GameProfile;
-import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.util.ProfileUtil;
-import ic2ce.core.util.Util;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.menu.document.DocumentMenus;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenDocument;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.MenuDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
@@ -20,6 +17,7 @@ import java.util.Set;
 import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -50,7 +48,7 @@ public class PrivateChest extends InventoryBlockEntity implements OwnedDevice, I
   private byte lidAngle, prevLidAngle;
 
   public PrivateChest(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.PERSONAL_CHEST, position, state);
+    super(PersonalBlockEntities.PERSONAL_CHEST, position, state);
   }
 
   @Override
@@ -138,7 +136,7 @@ public class PrivateChest extends InventoryBlockEntity implements OwnedDevice, I
 
   private void publishViewers() {
     usingPlayerCount = viewers.size();
-    ProjectRuntime.network.get(true).updateTileEntityField(this, "usingPlayerCount");
+    SideServices.network(true).updateTileEntityField(this, "usingPlayerCount");
   }
 
   @Override
@@ -152,12 +150,12 @@ public class PrivateChest extends InventoryBlockEntity implements OwnedDevice, I
   @Override
   public boolean wrenchCanRemove(Player player) {
     if (!permitsAccess(player.getGameProfile())) {
-      ProjectRuntime.sideProxy.messagePlayer(
+      SideServices.proxy().messagePlayer(
           player, "ic2.personal_chest.owner", owner == null ? "" : owner.name());
       return false;
     }
     if (!contentSlot.isEmpty()) {
-      ProjectRuntime.sideProxy.messagePlayer(player, "ic2.personal_chest.non_empty");
+      SideServices.proxy().messagePlayer(player, "ic2.personal_chest.non_empty");
       return false;
     }
     return true;
@@ -177,7 +175,7 @@ public class PrivateChest extends InventoryBlockEntity implements OwnedDevice, I
       if (world != null && !world.isClientSide()) {
         tile.setOwner(accessor);
         tile.setChanged();
-        ProjectRuntime.network.get(true).updateTileEntityField(tile, "owner");
+        SideServices.network(true).updateTileEntityField(tile, "owner");
       }
       return true;
     }
@@ -324,7 +322,7 @@ public class PrivateChest extends InventoryBlockEntity implements OwnedDevice, I
   protected InteractionResult onActivated(
       Player player, InteractionHand hand, Direction side, Vec3 hit) {
     if (!permitsAccess(player.getGameProfile())) {
-      ProjectRuntime.sideProxy.messagePlayer(
+      SideServices.proxy().messagePlayer(
           player, "ic2.personal_chest.owner", owner == null ? "" : owner.name());
       return InteractionResult.FAIL;
     }
@@ -337,11 +335,11 @@ public class PrivateChest extends InventoryBlockEntity implements OwnedDevice, I
       throw new IllegalStateException("Personal chest access denied");
     startOpen(player);
     return new DocumentMenu<InventoryBlockEntity>(
-        MenuDefinitions.DYNAMIC_BE,
+        DocumentMenus.DYNAMIC_BE,
         id,
         player.getInventory(),
         this,
-        ScreenDocument.parse(Util.getName(getBlockType()), getClass())) {
+        ScreenDocument.parse(BuiltInRegistries.BLOCK.getKey(getBlockType()), getClass())) {
       @Override
       public void removed(Player user) {
         base.stopOpen(user);

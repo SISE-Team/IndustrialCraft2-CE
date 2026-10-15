@@ -1,6 +1,6 @@
 package ic2ce.neoforge.world.block;
 
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.Objects;
 import net.minecraft.core.*;
 import net.minecraft.world.entity.*;
@@ -119,7 +119,7 @@ public class ReactiveSheet extends Block {
         }
         if (velocity.y <= -.4) {
           double rebound =
-              entity instanceof Player actor && ProjectRuntime.keyboard.isJumpKeyDown(actor)
+              entity instanceof Player actor && SideServices.keyboard().isJumpKeyDown(actor)
                   ? 1.3
                   : entity instanceof Player actor && actor.isShiftKeyDown() ? .1 : .8;
           entity.fallDistance = 0;

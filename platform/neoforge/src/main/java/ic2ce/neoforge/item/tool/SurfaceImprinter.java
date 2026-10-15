@@ -2,12 +2,12 @@ package ic2ce.neoforge.item.tool;
 
 import ic2ce.api.item.ElectricItem;
 import ic2ce.api.tile.RetexturableBlock;
-import ic2ce.core.item.PriorityUsableItem;
-import ic2ce.core.network.IPlayerItemDataListener;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.PriorityUsableItem;
+import ic2ce.neoforge.network.IPlayerItemDataListener;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.item.client.FaceSampler;
 import ic2ce.neoforge.item.energy.ElectricItemBase;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.neoforge.world.surface.StateVariants;
 import java.util.*;
 import net.minecraft.core.Direction;
@@ -85,7 +85,7 @@ public class SurfaceImprinter extends ElectricItemBase
                   getVariant(data),
                   refSide,
                   colors.clone())
-              : ProjectRuntime.envProxy.announceRetexture(
+              : EnvProxy.get().announceRetexture(
                   world,
                   pos,
                   target,

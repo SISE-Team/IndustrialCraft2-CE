@@ -1,8 +1,6 @@
 package ic2ce.neoforge.weather;
 
-import ic2ce.core.*;
 import ic2ce.engine.weather.WindProfile;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.Objects;
 import net.minecraft.world.level.Level;
 
@@ -23,7 +21,7 @@ public class WorldWind {
     windDirection = random.nextInt(360);
     altitude =
         WindProfile.fromWorld(
-            ProjectRuntime.getWorldMaxHeight(world), ProjectRuntime.getSeaLevel(world));
+            (world.getMinY() + world.getHeight()), world.getSeaLevel());
   }
 
   public void updateWind() {

@@ -1,10 +1,8 @@
 package ic2ce.neoforge.power;
 
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
+import ic2ce.neoforge.item.consumable.ConsumableItems;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -35,9 +33,9 @@ public final class GeneratorContracts {
 
     Converter() {
       super(
-          BlockEntityDefinitions.STIRLING_GENERATOR,
+          PowerBlockEntities.STIRLING_GENERATOR,
           new BlockPos(8240, 100, 8240),
-          BlockDefinitions.STIRLING_GENERATOR.defaultBlockState());
+          PowerBlocks.STIRLING_GENERATOR.defaultBlockState());
     }
 
     protected int getEnergyAvailable() {
@@ -57,7 +55,7 @@ public final class GeneratorContracts {
   private Result exercise(ServerLevel world) {
     var coal =
         new CombustionGenerator(
-            new BlockPos(8241, 100, 8241), BlockDefinitions.GENERATOR.defaultBlockState());
+            new BlockPos(8241, 100, 8241), PowerBlocks.GENERATOR.defaultBlockState());
     coal.setLevel(world);
     coal.fuelSlot.put(new ItemStack(Items.COAL, 2));
     coal.updateEntityServer();
@@ -79,7 +77,7 @@ public final class GeneratorContracts {
     check(coal.getFuelRatio() == 1, "malformed total burn length cannot produce an infinite gauge");
     var geo =
         new GeothermalGenerator(
-            new BlockPos(8242, 100, 8242), BlockDefinitions.GEO_GENERATOR.defaultBlockState());
+            new BlockPos(8242, 100, 8242), PowerBlocks.GEO_GENERATOR.defaultBlockState());
     geo.setLevel(world);
     geo.fluidTank.fillMbUnchecked(Ic2FluidStack.create(Fluids.LAVA, 1000), false);
     geo.updateEntityServer();
@@ -94,7 +92,7 @@ public final class GeneratorContracts {
     var biogas =
         new BiogasGenerator(
             new BlockPos(8243, 100, 8243),
-            BlockDefinitions.SEMIFLUID_GENERATOR.defaultBlockState());
+            PowerBlocks.SEMIFLUID_GENERATOR.defaultBlockState());
     biogas.setLevel(world);
     biogas.fluidTank.fillMbUnchecked(
         Ic2FluidStack.create(FluidDefinitions.BIOGAS.still, 1000), false);
@@ -106,7 +104,7 @@ public final class GeneratorContracts {
         "biogas batch reserves ten millibuckets for ten burn ticks");
     var water =
         new WaterMill(
-            new BlockPos(8244, 100, 8244), BlockDefinitions.WATER_GENERATOR.defaultBlockState());
+            new BlockPos(8244, 100, 8244), PowerBlocks.WATER_GENERATOR.defaultBlockState());
     water.setLevel(world);
     water.fuelSlot.put(new ItemStack(Items.WATER_BUCKET));
     check(
@@ -118,12 +116,12 @@ public final class GeneratorContracts {
         "empty bucket cannot be billed as another full water bucket");
     var radio =
         new RadioisotopeGenerator(
-            new BlockPos(8245, 100, 8245), BlockDefinitions.RT_GENERATOR.defaultBlockState());
+            new BlockPos(8245, 100, 8245), PowerBlocks.RT_GENERATOR.defaultBlockState());
     radio.setLevel(world);
     radio.fuelSlot.put(new ItemStack(Items.COAL));
     check(!radio.gainEnergy(), "forced invalid radioisotope item cannot generate permanent EU");
     for (int slot = 0; slot < 6; slot++)
-      radio.fuelSlot.put(slot, new ItemStack(ItemDefinitions.RTG_PELLET));
+      radio.fuelSlot.put(slot, new ItemStack(ConsumableItems.RTG_PELLET));
     radio.gainEnergy();
     check(
         radio.energy.getEnergy() == 32 && radio.fuelSlot.get().getCount() == 1,

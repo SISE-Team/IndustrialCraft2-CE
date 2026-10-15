@@ -1,10 +1,9 @@
 package ic2ce.neoforge.terrain;
 
 import ic2ce.api.item.ITerraformingBP;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.inventory.TypeFilteredInput;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -27,7 +26,7 @@ public class TerrainController extends PoweredBlockEntity {
       new TypeFilteredInput(this, "tfbp", 1, ITerraformingBP.class);
 
   public TerrainController(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.TERRAFORMER, position, state, 100000, 4);
+    super(TerrainBlockEntities.TERRAFORMER, position, state, 100000, 4);
   }
 
   @Override

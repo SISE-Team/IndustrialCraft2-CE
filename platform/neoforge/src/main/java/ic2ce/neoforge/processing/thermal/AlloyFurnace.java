@@ -2,10 +2,14 @@ package ic2ce.neoforge.processing.thermal;
 
 import ic2ce.api.recipe.*;
 import ic2ce.api.upgrade.*;
-import ic2ce.core.*;
-import ic2ce.core.fluid.Ic2FluidTank;
-import ic2ce.core.network.*;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
+import ic2ce.neoforge.material.MaterialItems;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
+import ic2ce.neoforge.runtime.ProgressionService;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.component.SignalInput;
@@ -13,10 +17,7 @@ import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import ic2ce.neoforge.thermal.HeatSupply;
 import java.util.Collection;
 import java.util.Set;
@@ -54,7 +55,7 @@ public class AlloyFurnace extends InventoryBlockEntity
           UpgradableProperty.FluidConsuming);
 
   public AlloyFurnace(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.BLAST_FURNACE, position, state);
+    super(ProcessingBlockEntities.BLAST_FURNACE, position, state);
     redstone = addComponent(new SignalInput(this));
     fluids = addComponent(new FluidPorts(this));
     fluidTank =
@@ -64,8 +65,8 @@ public class AlloyFurnace extends InventoryBlockEntity
         new OutputInventory(this, "output", 2) {
           @Override
           public void onPickupFromSlot(Player player, ItemStack stack) {
-            if (player != null && stack.is(ItemDefinitions.STEEL_INGOT))
-              ProjectRuntime.achievements.issueAchievement(player, "acquireRefinedIron");
+            if (player != null && stack.is(MaterialItems.STEEL_INGOT))
+              ProgressionService.issueAchievement(player, "acquireRefinedIron");
           }
         };
     tankInputSlot = new FluidWhitelistInput(this, "cellInput", 1, FluidDefinitions.AIR.still);

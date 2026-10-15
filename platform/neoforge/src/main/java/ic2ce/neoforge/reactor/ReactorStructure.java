@@ -1,7 +1,6 @@
 package ic2ce.neoforge.reactor;
 
 import ic2ce.api.reactor.IReactorChamber;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 
@@ -24,7 +23,7 @@ public final class ReactorStructure {
           if (Math.max(Math.abs(x), Math.max(Math.abs(y), Math.abs(z))) != 2) continue;
           cursor.set(center.getX() + x, center.getY() + y, center.getZ() + z);
           if (!world.hasChunkAt(cursor)) return false;
-          if (world.getBlockState(cursor).is(BlockDefinitions.REACTOR_VESSEL)) continue;
+          if (world.getBlockState(cursor).is(ReactorBlocks.REACTOR_VESSEL)) continue;
           if (!(world.getBlockEntity(cursor) instanceof IReactorChamber part) || !part.isWall())
             return false;
         }

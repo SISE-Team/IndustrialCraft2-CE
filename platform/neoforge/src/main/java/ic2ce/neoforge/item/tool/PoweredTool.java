@@ -5,7 +5,7 @@ import ic2ce.api.network.INetworkItemEventListener;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.material.CommonMaterialTags;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -119,7 +119,7 @@ public abstract class PoweredTool extends Item
         && amount > 0
         && ElectricItem.manager.getCharge(stack) <= 0
         && entity instanceof Player player)
-      ProjectRuntime.network.get(true).initiateItemEvent(player, stack, 0, true);
+      SideServices.network(true).initiateItemEvent(player, stack, 0, true);
     return consumed;
   }
 

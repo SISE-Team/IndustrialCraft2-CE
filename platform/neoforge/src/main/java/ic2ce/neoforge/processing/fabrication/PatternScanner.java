@@ -2,14 +2,16 @@ package ic2ce.neoforge.processing.fabrication;
 
 import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.recipe.IPatternStorage;
-import ic2ce.core.IHasGui;
-import ic2ce.core.item.ItemCrystalMemory;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
-import ic2ce.core.util.StackTag;
-import ic2ce.core.util.StackUtil;
-import ic2ce.core.uu.UuGraph;
-import ic2ce.core.uu.UuIndex;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
+import ic2ce.neoforge.processing.ProcessingItems;
+import ic2ce.neoforge.processing.uu.ItemCrystalMemory;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.runtime.profile.NotClassic;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.inventory.StackUtil;
+import ic2ce.neoforge.processing.uu.UuGraph;
+import ic2ce.neoforge.processing.uu.UuIndex;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.inventory.ConsumableInventory;
 import ic2ce.neoforge.inventory.InventorySlot;
@@ -17,8 +19,6 @@ import ic2ce.neoforge.inventory.ItemWhitelistInput;
 import ic2ce.neoforge.inventory.ScannerInput;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.processing.menu.ScanningMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -44,7 +44,7 @@ public class PatternScanner extends PoweredBlockEntity
   private static final Direction[] DIRECTIONS = Direction.values();
 
   public PatternScanner(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.UU_SCANNER, position, block, 512000, 4);
+    super(ProcessingBlockEntities.UU_SCANNER, position, block, 512000, 4);
     inputSlot = new ScannerInput(this, "input", 1);
     diskSlot =
         new ItemWhitelistInput(
@@ -53,7 +53,7 @@ public class PatternScanner extends PoweredBlockEntity
             InventorySlot.Access.IO,
             1,
             InventorySlot.InvSide.ANY,
-            ItemDefinitions.CRYSTAL_MEMORY);
+            ProcessingItems.CRYSTAL_MEMORY);
   }
 
   private void clearWork() {

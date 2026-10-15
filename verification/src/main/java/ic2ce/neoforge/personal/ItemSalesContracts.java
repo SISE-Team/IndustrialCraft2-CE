@@ -1,7 +1,7 @@
 package ic2ce.neoforge.personal;
 
-import ic2ce.core.util.StackTag;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.storage.StorageBlocks;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -29,11 +29,11 @@ public final class ItemSalesContracts {
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8784, 100, 8784);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position, BlockDefinitions.TRADE_O_MAT.defaultBlockState());
-    world.setBlockAndUpdate(position.east(), BlockDefinitions.IRON_STORAGE_BOX.defaultBlockState());
+    world.setBlockAndUpdate(position, PersonalBlocks.TRADE_O_MAT.defaultBlockState());
+    world.setBlockAndUpdate(position.east(), StorageBlocks.IRON_STORAGE_BOX.defaultBlockState());
     var tile = (ItemTradeTerminal) world.getBlockEntity(position);
     var stock =
-        ((ic2ce.core.block.storage.box.TileEntityStorageBox) world.getBlockEntity(position.east()))
+        ((ic2ce.neoforge.storage.box.TileEntityStorageBox) world.getBlockEntity(position.east()))
             .getInventorySlot("inventory");
     stock.put(new ItemStack(Items.GOLD_INGOT, 9));
     tile.demandSlot.put(new ItemStack(Items.IRON_INGOT, 2));

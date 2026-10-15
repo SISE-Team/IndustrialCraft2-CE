@@ -1,6 +1,6 @@
 package ic2ce.neoforge.energy.client;
 
-import ic2ce.core.util.Util;
+import ic2ce.engine.text.SiFormat;
 import ic2ce.neoforge.client.screen.MachineScreen;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.client.widget.*;
@@ -43,10 +43,10 @@ public class BankScreen extends MachineScreen<BankMenu> {
         graphics,
         110,
         50,
-        Util.toSiString(Math.min(menu.base.energy.getEnergy(), menu.base.energy.getCapacity()), 6),
+        SiFormat.format(Math.min(menu.base.energy.getEnergy(), menu.base.energy.getCapacity()), 6),
         0x404040);
     drawString(
-        graphics, 110, 60, "/" + Util.toSiString(menu.base.energy.getCapacity(), 6), 0x404040);
+        graphics, 110, 60, "/" + SiFormat.format(menu.base.energy.getCapacity(), 6), 0x404040);
     drawString(
         graphics,
         85,

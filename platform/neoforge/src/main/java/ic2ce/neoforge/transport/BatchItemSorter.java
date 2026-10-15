@@ -3,19 +3,18 @@ package ic2ce.neoforge.transport;
 import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.UpgradableProperty;
-import ic2ce.core.IHasGui;
-import ic2ce.core.item.EnvItemHandler;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
-import ic2ce.core.util.StackTag;
-import ic2ce.core.util.StackUtil;
-import ic2ce.core.util.Util;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.inventory.transfer.EnvItemHandler;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.runtime.profile.NotClassic;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.inventory.UpgradeInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.transport.menu.BatchItemMenu;
+import ic2ce.neoforge.world.DirectionSets;
 import java.util.Arrays;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -41,7 +40,7 @@ public class BatchItemSorter extends PoweredBlockEntity
   public Direction defaultRoute = Direction.DOWN;
 
   public BatchItemSorter(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.SORTING_MACHINE, position, state, 15000, defaultTier, false);
+    super(TransportBlockEntities.SORTING_MACHINE, position, state, 15000, defaultTier, false);
     clearFilters();
   }
 
@@ -64,7 +63,7 @@ public class BatchItemSorter extends PoweredBlockEntity
         filters[index / 7][index % 7] = stack.copyWithCount(Math.clamp(stack.getCount(), 1, 64));
     }
     int direction = data.getByteOr("defaultroute", (byte) 0);
-    defaultRoute = direction >= 0 && direction < 6 ? Util.ALL_DIRS[direction] : Direction.DOWN;
+    defaultRoute = direction >= 0 && direction < 6 ? DirectionSets.ALL_DIRS[direction] : Direction.DOWN;
   }
 
   @Override
@@ -167,7 +166,7 @@ public class BatchItemSorter extends PoweredBlockEntity
   @Override
   public void onNetworkEvent(Player player, int event) {
     if (event >= 0 && event < 6) {
-      defaultRoute = Util.ALL_DIRS[event];
+      defaultRoute = DirectionSets.ALL_DIRS[event];
       super.setChanged();
     }
   }

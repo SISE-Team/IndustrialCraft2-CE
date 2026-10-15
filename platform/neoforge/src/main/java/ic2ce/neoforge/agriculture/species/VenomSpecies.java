@@ -1,9 +1,9 @@
 package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
+import ic2ce.neoforge.agriculture.AgricultureItems;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
@@ -18,7 +18,7 @@ public class VenomSpecies extends MaterialSpecies {
 
   @Override
   public Block getCropBlock() {
-    return BlockDefinitions.VENOMILIA_CROP;
+    return AgricultureBlocks.VENOMILIA_CROP;
   }
 
   @Override
@@ -57,7 +57,7 @@ public class VenomSpecies extends MaterialSpecies {
     int age = plot.getCurrentAge();
     return age < 3
         ? ItemStack.EMPTY
-        : new ItemStack(age == 4 ? ItemDefinitions.GRIN_POWDER : Items.PURPLE_DYE);
+        : new ItemStack(age == 4 ? AgricultureItems.GRIN_POWDER : Items.PURPLE_DYE);
   }
 
   @Override
@@ -90,12 +90,12 @@ public class VenomSpecies extends MaterialSpecies {
       boolean avoidsContact =
           entity instanceof net.minecraft.world.entity.player.Player
               && entity.isShiftKeyDown()
-              && ProjectRuntime.random.nextInt(50) != 0;
+              && SharedRandom.INSTANCE.nextInt(50) != 0;
       if (!avoidsContact) {
         living.addEffect(
             new net.minecraft.world.effect.MobEffectInstance(
                 net.minecraft.world.effect.MobEffects.POISON,
-                (ProjectRuntime.random.nextInt(10) + 5) * 20));
+                (SharedRandom.INSTANCE.nextInt(10) + 5) * 20));
         plot.setCurrentAge(3);
         plot.updateState();
       }

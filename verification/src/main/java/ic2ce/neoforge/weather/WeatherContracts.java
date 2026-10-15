@@ -1,6 +1,5 @@
 package ic2ce.neoforge.weather;
 
-import ic2ce.core.*;
 import ic2ce.neoforge.runtime.AutomationActors;
 import java.util.*;
 import net.minecraft.server.level.ServerLevel;

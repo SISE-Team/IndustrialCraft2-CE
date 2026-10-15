@@ -1,8 +1,8 @@
 package ic2ce.neoforge.client.widget;
 
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.fluid.FluidHandler;
-import ic2ce.core.proxy.SideProxyClient;
+import ic2ce.neoforge.fluid.FluidHandler;
+import ic2ce.neoforge.client.SideProxyClient;
 import ic2ce.neoforge.client.screen.MachineScreen;
 import java.util.*;
 import net.minecraft.client.gui.GuiGraphicsExtractor;

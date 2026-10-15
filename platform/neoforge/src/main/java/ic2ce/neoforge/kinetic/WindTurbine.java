@@ -1,15 +1,15 @@
 package ic2ce.neoforge.kinetic;
 
 import ic2ce.api.item.IKineticRotor;
-import ic2ce.core.event.WorldData;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.SharedRandom;
+import ic2ce.neoforge.runtime.SideServices;
+import ic2ce.neoforge.world.WorldData;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.kinetic.menu.WindTurbineMenu;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Inventory;
@@ -22,7 +22,7 @@ public class WindTurbine extends RotorGearbox {
   private double windStrength;
   private int obstructedCrossSection,
       crossSection,
-      updateTicker = ProjectRuntime.random.nextInt(32);
+      updateTicker = SharedRandom.INSTANCE.nextInt(32);
   public static final float outputModifier =
       10
           * NativeConfigValues.getFloat(
@@ -30,7 +30,7 @@ public class WindTurbine extends RotorGearbox {
 
   public WindTurbine(BlockPos position, BlockState block) {
     super(
-        BlockEntityDefinitions.WIND_KINETIC_GENERATOR,
+        KineticBlockEntities.WIND_KINETIC_GENERATOR,
         position,
         block,
         IKineticRotor.GearboxType.WIND);
@@ -149,7 +149,7 @@ public class WindTurbine extends RotorGearbox {
   @Override
   public void setActive(boolean value) {
     if (value != getActive() && getLevel() != null && !getLevel().isClientSide())
-      ProjectRuntime.network.get(true).updateTileEntityField(this, "rotorSlot");
+      SideServices.network(true).updateTileEntityField(this, "rotorSlot");
     super.setActive(value);
   }
 

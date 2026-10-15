@@ -1,8 +1,8 @@
 package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
+import ic2ce.neoforge.agriculture.AgricultureItems;
 import java.util.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
@@ -18,7 +18,7 @@ public class HopSpecies extends MaterialSpecies {
 
   @Override
   public Block getCropBlock() {
-    return BlockDefinitions.HOPS_CROP;
+    return AgricultureBlocks.HOPS_CROP;
   }
 
   @Override
@@ -43,7 +43,7 @@ public class HopSpecies extends MaterialSpecies {
 
   @Override
   public ItemStack getGain(ICropTile plot) {
-    return new ItemStack(ItemDefinitions.HOPS);
+    return new ItemStack(AgricultureItems.HOPS);
   }
 
   @Override

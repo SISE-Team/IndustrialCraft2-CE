@@ -125,7 +125,7 @@ public final class RecipeInputContracts {
     legacy.add("nbt", JsonParser.parseString("{\"key\":\"value\"}"));
     var legacyInput = RecipeValueCodec.parseInput(legacy);
     var tagged = new ItemStack(Items.IRON_INGOT);
-    ic2ce.core.util.StackTag.set(tagged, taggedData);
+    ic2ce.neoforge.item.StackTag.set(tagged, taggedData);
     check(
         legacyInput.matches(tagged) && !legacyInput.matches(new ItemStack(Items.IRON_INGOT)),
         "legacy nbt key is parsed from its actual field");

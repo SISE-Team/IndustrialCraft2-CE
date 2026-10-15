@@ -2,14 +2,14 @@ package ic2ce.verification;
 
 import static ic2ce.verification.AllMachinesVerification.*;
 
-import ic2ce.core.item.ItemCrystalMemory;
-import ic2ce.core.uu.UuIndex;
+import ic2ce.neoforge.material.MaterialItems;
+import ic2ce.neoforge.processing.uu.ItemCrystalMemory;
+import ic2ce.neoforge.processing.uu.UuIndex;
 import ic2ce.neoforge.crafting.UuAssembler;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.processing.fabrication.PatternLibrary;
 import ic2ce.neoforge.processing.fabrication.PatternReplicator;
 import ic2ce.neoforge.processing.fabrication.PatternScanner;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Blocks;
@@ -35,7 +35,7 @@ final class AllUuCases {
                   boolean produced =
                       id.equals("matter_generator")
                           ? s.tank(id, "fluidTank").getFluidAmount() > 0
-                          : s.slot(id, "output").get().is(ItemDefinitions.UU_MATTER);
+                          : s.slot(id, "output").get().is(MaterialItems.UU_MATTER);
                   s.behave(id, "actual EU and scrap produce UU matter", produced);
                   s.observe(id, "scrapRemaining", s.slot(id, "scrap").get().getCount());
                   s.level.setBlockAndUpdate(

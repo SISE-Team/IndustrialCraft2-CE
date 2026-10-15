@@ -1,7 +1,6 @@
 package ic2ce.neoforge.mining;
 
 import ic2ce.neoforge.component.ElectricalBuffer;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -44,7 +43,7 @@ public final class MiningContracts {
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8490, 100, 8490);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position, BlockDefinitions.ADVANCED_MINER.defaultBlockState());
+    world.setBlockAndUpdate(position, MiningBlocks.ADVANCED_MINER.defaultBlockState());
     var miner = (AreaMiner) world.getBlockEntity(position);
     var energy = miner.getComponent(ElectricalBuffer.class);
     var target = position.west(2);

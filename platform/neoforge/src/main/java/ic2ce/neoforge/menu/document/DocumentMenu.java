@@ -1,16 +1,15 @@
 package ic2ce.neoforge.menu.document;
 
-import ic2ce.core.block.IInventorySlotHolder;
-import ic2ce.core.network.GuiSynced;
-import ic2ce.core.util.Util;
+import ic2ce.neoforge.inventory.IInventorySlotHolder;
+import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.slot.MachineSlot;
 import ic2ce.neoforge.menu.slot.TemplateSlot;
-import ic2ce.neoforge.registry.MenuDefinitions;
 import java.lang.reflect.Modifier;
 import java.util.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.*;
@@ -41,11 +40,11 @@ public class DocumentMenu<T extends Container> extends OwnedMenu<T> {
   public static DocumentMenu<InventoryBlockEntity> create(
       int id, Inventory inventory, InventoryBlockEntity tile) {
     return new DocumentMenu<>(
-        MenuDefinitions.DYNAMIC_BE,
+        DocumentMenus.DYNAMIC_BE,
         id,
         inventory,
         tile,
-        ScreenDocument.parse(Util.getName(tile.getBlockType()), tile.getClass()));
+        ScreenDocument.parse(BuiltInRegistries.BLOCK.getKey(tile.getBlockType()), tile.getClass()));
   }
 
   public static <T extends Container> DocumentMenu<T> create(

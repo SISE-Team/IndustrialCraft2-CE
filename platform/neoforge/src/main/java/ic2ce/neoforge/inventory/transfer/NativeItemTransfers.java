@@ -1,9 +1,8 @@
 package ic2ce.neoforge.inventory.transfer;
 
 import com.mojang.authlib.GameProfile;
-import ic2ce.core.item.EnvItemHandler;
-import ic2ce.core.util.Util;
 import ic2ce.neoforge.personal.OwnedDevice;
+import ic2ce.neoforge.world.DirectionSets;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -100,7 +99,7 @@ public final class NativeItemTransfers implements EnvItemHandler {
   @Override
   public List<? extends AdjacentInventory> getAdjacentInventories(BlockEntity source) {
     var neighbors = new ArrayList<NativeInventoryHandle>(6);
-    for (var side : Util.ALL_DIRS) {
+    for (var side : DirectionSets.ALL_DIRS) {
       var handle = adjacent(source, side);
       if (handle != null) neighbors.add(handle);
     }

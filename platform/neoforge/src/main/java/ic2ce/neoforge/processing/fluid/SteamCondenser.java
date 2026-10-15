@@ -2,19 +2,19 @@ package ic2ce.neoforge.processing.fluid;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.upgrade.*;
-import ic2ce.core.*;
-import ic2ce.core.fluid.Ic2FluidTank;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
+import ic2ce.neoforge.reactor.ReactorItems;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
 import ic2ce.neoforge.processing.menu.CondensationMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -44,7 +44,7 @@ public class SteamCondenser extends PoweredBlockEntity
           UpgradableProperty.Transformer);
 
   public SteamCondenser(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.CONDENSER, position, state, 100000, 3);
+    super(ProcessingBlockEntities.CONDENSER, position, state, 100000, 3);
     fluids = addComponent(new FluidPorts(this));
     inputTank =
         fluids.addTankInsert(
@@ -63,7 +63,7 @@ public class SteamCondenser extends PoweredBlockEntity
             FluidContainerInventory.OpType.Fill,
             outputTank);
     waterOutputSlot = new OutputInventory(this, "waterOutputSlot", 1);
-    ventSlots = new ItemWhitelistInput(this, "ventSlots", 4, ItemDefinitions.HEAT_VENT);
+    ventSlots = new ItemWhitelistInput(this, "ventSlots", 4, ReactorItems.HEAT_VENT);
     ventSlots.setStackSizeLimit(1);
     upgradeSlot = new UpgradeInventory(this, "upgradeSlot", 1);
   }
@@ -102,7 +102,7 @@ public class SteamCondenser extends PoweredBlockEntity
   public byte getVents() {
     byte count = 0;
     for (int slot = 0; slot < ventSlots.size(); slot++)
-      if (ventSlots.get(slot).is(ItemDefinitions.HEAT_VENT)) count++;
+      if (ventSlots.get(slot).is(ReactorItems.HEAT_VENT)) count++;
     return count;
   }
 

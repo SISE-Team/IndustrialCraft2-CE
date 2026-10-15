@@ -1,0 +1,62 @@
+{
+  "domain": "Engine configuration and executor packages",
+  "countsAsImplementationRewrite": false,
+  "sources": [
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/core/uu/UuIndex.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/core/uu/UuIndex.java",
+      "beforeSha256": "e78b6242a168e4be3ff1413322ac55ae40d9b42e18e24a2a7952173359fd5fc2",
+      "afterSha256": "99b0ab141941f45d1bc405b5c7415f70649b6095c0bd47f3243481e7a6d741d2",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/config/NativeConfigValues.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/config/NativeConfigValues.java",
+      "beforeSha256": "8c3ccf918a8b40a3b00ce282aafe96508be0661ba31c6d8a7212a56a568053af",
+      "afterSha256": "c2620527eb9385f1e1c46c0c44e0a4591c5e22e60b7b5f1afdb55ea7490113f1",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/config/ProjectConfiguration.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/config/ProjectConfiguration.java",
+      "beforeSha256": "b6d77fc2b9d726483bda8374e0c4f1bfa5386dac81cabbc2e0bed50994e1fb9f",
+      "afterSha256": "f6f49ab0c5f6432aab1f1217557b572d323aa5e1db94a4a7c852d3dc36f8e946",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/ProjectRuntime.java",
+      "after": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/ProjectRuntime.java",
+      "beforeSha256": "fc761f5cb73a601d77034073cdd703096f6cc9b0899f09e0d1557e0427b3a762",
+      "afterSha256": "e6bd2b2ba5cefc67a389d438a79ddb6f2baac24cb1518b968e214a11f5944c4b",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "engine/src/main/java/ic2ce/core/util/Config.java",
+      "after": "engine/src/main/java/ic2ce/engine/config/Config.java",
+      "beforeSha256": "02aadb11f603a493cab16da3d5147755ed1159c68f8637e267f0e4fc4546d777",
+      "afterSha256": "34e9fc126d8541a797f464cbc6b9870a23e87f1b843fe7eee68c57073bacf99a",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "engine/src/main/java/ic2ce/core/util/PriorityExecutor.java",
+      "after": "engine/src/main/java/ic2ce/engine/async/PriorityExecutor.java",
+      "beforeSha256": "4e143ea84099d66f9897b01573dea60d92878aac9340b8023eb406f2fa0f6b5b",
+      "afterSha256": "13f15227bef9f33ba8ce8d33c65fd9d88997c225fe6d638f791d9dbab99237b6",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "engine/src/test/java/ic2ce/engine/EngineContractTest.java",
+      "after": "engine/src/test/java/ic2ce/engine/EngineContractTest.java",
+      "beforeSha256": "13954a829eecd4e73126e7f942199ab1cc37c5aba1a6266d194b46ee37821d93",
+      "afterSha256": "231bc2043ddd0cad1acc384f300e39f6fc2a8f81a96514db55801a0439adf43f",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "before": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "after": "verification/src/main/java/ic2ce/verification/HotpathRegression.java",
+      "beforeSha256": "3bc7084a8d38254e507d7557283d3c8c751fa26a47e51b2d534f90faf3bfe8d3",
+      "afterSha256": "936e4b5cc49cd1462ab9bbed2ada5f2e479bbf93b73bbc8a31ea8f08f34b3678",
+      "countsAsImplementationRewrite": false
+    }
+  ]
+}

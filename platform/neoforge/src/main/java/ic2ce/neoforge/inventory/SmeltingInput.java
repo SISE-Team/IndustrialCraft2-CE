@@ -1,7 +1,6 @@
 package ic2ce.neoforge.inventory;
 
 import ic2ce.api.recipe.Recipes;
-import ic2ce.core.block.IInventorySlotHolder;
 import net.minecraft.world.item.ItemStack;
 
 /** Furnace processing uses the furnace manager, not the generic IC2 recipe index. */

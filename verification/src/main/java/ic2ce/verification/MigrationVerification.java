@@ -6,13 +6,14 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.serialization.JsonOps;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.item.ElectricItem;
-import ic2ce.core.IHasGui;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.power.CombustionGenerator;
 import ic2ce.neoforge.processing.PoweredProcessor;
 import ic2ce.neoforge.recipe.crafting.PositionedCrafting;
 import ic2ce.neoforge.recipe.crafting.UnorderedCrafting;
+import ic2ce.neoforge.runtime.EnvProxy;
 import io.netty.buffer.Unpooled;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -109,7 +110,7 @@ public final class MigrationVerification {
     guard("crafting recipes", () -> recipes(event.getServer()));
     guard("fluid containers", this::fluids);
     check(
-        ic2ce.neoforge.runtime.ProjectRuntime.envProxy.getBurnTime(new ItemStack(Items.COAL))
+        EnvProxy.get().getBurnTime(new ItemStack(Items.COAL))
             == 1600,
         "vanilla coal fuel value");
     guard("machine fixtures", this::fixtures);
@@ -304,22 +305,22 @@ public final class MigrationVerification {
     var replacement = new org.apache.commons.lang3.mutable.MutableObject<ItemStack>();
     ItemStack empty = new ItemStack(Items.BUCKET);
     check(
-        ic2ce.core.fluid.FluidHandler.fillMb(empty, fluid, true, replacement) == 1000
+        ic2ce.neoforge.fluid.FluidHandler.fillMb(empty, fluid, true, replacement) == 1000
             && empty.is(Items.BUCKET),
         "bucket simulated fill");
     check(
-        ic2ce.core.fluid.FluidHandler.fillMb(empty, fluid, false, replacement) == 1000,
+        ic2ce.neoforge.fluid.FluidHandler.fillMb(empty, fluid, false, replacement) == 1000,
         "bucket committed fill");
     ItemStack filled = replacement.getValue();
     check(filled.is(coolant.getBucket()), "bucket item replacement");
     check(
-        ic2ce.core.fluid.FluidHandler.drainMb(
+        ic2ce.neoforge.fluid.FluidHandler.drainMb(
                 filled, Ic2FluidStack.create(coolant, 500), false, replacement)
             == 0,
         "bucket refuses partial extraction without losing fluid");
     check(Ic2FluidStack.get(filled).getAmountMb() == 1000, "partial extraction leaves full bucket");
     check(
-        ic2ce.core.fluid.FluidHandler.drainMb(filled, 1000, false, replacement).getAmountMb()
+        ic2ce.neoforge.fluid.FluidHandler.drainMb(filled, 1000, false, replacement).getAmountMb()
             == 1000,
         "bucket full extraction");
     check(replacement.getValue().is(Items.BUCKET), "bucket returns empty container");
@@ -427,7 +428,7 @@ public final class MigrationVerification {
       check(fluidAmount(handler) == before + 2250, name + " exact remainder after extraction");
     }
     check(
-        ic2ce.core.fluid.FluidHandler.fillMb(
+        ic2ce.neoforge.fluid.FluidHandler.fillMb(
                 tile(name), net.minecraft.core.Direction.UP, Ic2FluidStack.create(fluid, 100), true)
             == 100,
         name + " legacy block entity API uses the actual tank capability");

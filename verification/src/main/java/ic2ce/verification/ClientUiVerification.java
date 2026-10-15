@@ -9,7 +9,7 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 
 /** Confirms actual client screens survive multiple render frames, not just menu construction. */
 public final class ClientUiVerification {
-  private ic2ce.core.network.Rpc<Boolean> scannerResponse;
+  private ic2ce.neoforge.network.Rpc<Boolean> scannerResponse;
   private int scannerFrames;
   private int clientTicks;
   private boolean widgetContractsDone,
@@ -40,7 +40,7 @@ public final class ClientUiVerification {
     if (scannerResponse == null) {
       scannerCallsPass &= !accepted;
       scannerResponse =
-          ic2ce.core.network.RpcHandler.run(
+          ic2ce.neoforge.network.RpcHandler.run(
               ic2ce.neoforge.inventory.ScannerInput.ServerScannableCheck.class, item);
     }
     scannerFrames++;

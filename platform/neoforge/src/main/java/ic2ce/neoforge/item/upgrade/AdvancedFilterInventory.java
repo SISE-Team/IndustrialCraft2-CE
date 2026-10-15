@@ -1,18 +1,19 @@
 package ic2ce.neoforge.item.upgrade;
 
 import ic2ce.api.network.ClientModifiable;
-import ic2ce.core.*;
-import ic2ce.core.network.*;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.ProjectIds;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.handheld.HandheldStorage;
 import ic2ce.neoforge.handheld.menu.HandheldMenu;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.menu.OwnedMenu;
+import ic2ce.neoforge.menu.document.DocumentMenus;
 import ic2ce.neoforge.menu.document.HandheldDocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenConditions;
 import ic2ce.neoforge.menu.document.ScreenDocument;
 import ic2ce.neoforge.menu.document.TemplateStorage;
-import ic2ce.neoforge.registry.MenuDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.network.GuiSynced;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.*;
@@ -86,18 +87,18 @@ public class AdvancedFilterInventory extends HandheldStorage
   @Override
   public OwnedMenu<?> createServerScreenHandler(int id, Player owner) {
     return HandheldDocumentMenu.create(
-        MenuDefinitions.ADVANCED_UPGRADE, id, owner.getInventory(), this, getNode());
+        DocumentMenus.ADVANCED_UPGRADE, id, owner.getInventory(), this, getNode());
   }
 
   @Override
   public OwnedMenu<?> createClientScreenHandler(int id, Inventory inventory, GrowingBuffer data) {
     return HandheldDocumentMenu.create(
-        MenuDefinitions.ADVANCED_UPGRADE, id, inventory, this, getNode());
+        DocumentMenus.ADVANCED_UPGRADE, id, inventory, this, getNode());
   }
 
   protected ScreenDocument.GuiNode getNode() {
     return ScreenDocument.parse(
-        ProjectRuntime.getIdentifier("advanced_upgrade"), AdvancedFilterInventory.class);
+        ProjectIds.id("advanced_upgrade"), AdvancedFilterInventory.class);
   }
 
   Player getPlayer() {

@@ -1,10 +1,9 @@
 package ic2ce.neoforge.power;
 
 import ic2ce.api.energy.tile.IKineticSource;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
@@ -23,7 +22,7 @@ public class KineticConverter extends DemandDrivenConverter {
   private BlockEntity sourceEntity;
 
   public KineticConverter(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.KINETIC_GENERATOR, position, block);
+    super(PowerBlockEntities.KINETIC_GENERATOR, position, block);
   }
 
   protected void updateSource() {

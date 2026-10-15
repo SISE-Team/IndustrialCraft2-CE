@@ -3,14 +3,13 @@ package ic2ce.neoforge.transport;
 import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.IUpgradeItem;
 import ic2ce.api.upgrade.UpgradableProperty;
-import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.inventory.UpgradeInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.transport.menu.DualBankMenu;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -32,7 +31,7 @@ public class DualItemBuffer extends InventoryBlockEntity implements IHasGui, IUp
   private double workBudget = 40;
 
   public DualItemBuffer(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.ITEM_BUFFER, position, state);
+    super(TransportBlockEntities.ITEM_BUFFER, position, state);
     comparator.setUpdate(() -> calcRedstoneFromInvSlots(rightcontentSlot, leftcontentSlot));
   }
 

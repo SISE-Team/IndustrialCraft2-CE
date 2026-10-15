@@ -1,7 +1,7 @@
 package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
 import java.util.*;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.*;
@@ -21,7 +21,7 @@ public class WeedSpecies extends MaterialSpecies {
 
   @Override
   public Block getCropBlock() {
-    return BlockDefinitions.WEED_CROP;
+    return AgricultureBlocks.WEED_CROP;
   }
 
   @Override

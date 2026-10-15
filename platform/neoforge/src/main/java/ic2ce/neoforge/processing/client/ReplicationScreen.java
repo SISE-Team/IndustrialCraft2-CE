@@ -1,6 +1,6 @@
 package ic2ce.neoforge.processing.client;
 
-import ic2ce.core.util.Util;
+import ic2ce.engine.text.SiFormat;
 import ic2ce.neoforge.client.screen.MachineScreen;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.client.widget.*;
@@ -29,10 +29,10 @@ public class ReplicationScreen extends MachineScreen<ReplicationMenu> {
                     hasPattern()
                         ? menu.base.pattern.getHoverName().getString()
                             + " UU: "
-                            + Util.toSiString(menu.base.patternUu, 4)
+                            + SiFormat.format(menu.base.patternUu, 4)
                             + LocalizedText.translate("ic2.generic.text.bucketUnit")
                             + " EU: "
-                            + Util.toSiString(menu.base.patternEu, 4)
+                            + SiFormat.format(menu.base.patternEu, 4)
                             + LocalizedText.translate("ic2.generic.text.EU")
                         : null));
     button(80, 16, 9, 18, 0, "ic2.Replicator.gui.info.last");

@@ -4,10 +4,10 @@ package ic2ce.neoforge.crafting.menu;
 import ic2ce.api.block.container.Ic2CraftingResultSlot;
 import ic2ce.engine.inventory.FillLevels;
 import ic2ce.neoforge.crafting.CraftingGridView;
+import ic2ce.neoforge.crafting.CraftingMenus;
 import ic2ce.neoforge.crafting.IndustrialWorkbench;
 import ic2ce.neoforge.menu.PhysicalInventoryMenu;
 import ic2ce.neoforge.menu.slot.MachineSlot;
-import ic2ce.neoforge.registry.MenuDefinitions;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
@@ -34,7 +34,7 @@ public class WorkbenchMenu extends PhysicalInventoryMenu<IndustrialWorkbench> {
   private boolean taking;
 
   public WorkbenchMenu(int id, Inventory inventory, IndustrialWorkbench machine) {
-    super(MenuDefinitions.INDUSTRIAL_WORKBENCH, id, inventory, machine, HEIGHT);
+    super(CraftingMenus.INDUSTRIAL_WORKBENCH, id, inventory, machine, HEIGHT);
     player = inventory.player;
     craftMatrix =
         new CraftingGridView.InventoryGrid(machine.craftingGrid, 3) {

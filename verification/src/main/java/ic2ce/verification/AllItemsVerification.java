@@ -1,7 +1,7 @@
 package ic2ce.verification;
 
 import com.google.gson.GsonBuilder;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.reactor.ReactorBlocks;
 import java.nio.file.*;
 import java.util.*;
 import net.minecraft.core.BlockPos;
@@ -164,7 +164,7 @@ public final class AllItemsVerification {
     if (id.equals("rubber_sapling"))
       level.setBlock(POS.below(), Blocks.GRASS_BLOCK.defaultBlockState(), 3);
     if (id.equals("reactor_chamber"))
-      level.setBlock(POS.west(), BlockDefinitions.NUCLEAR_REACTOR.defaultBlockState(), 3);
+      level.setBlock(POS.west(), ReactorBlocks.NUCLEAR_REACTOR.defaultBlockState(), 3);
     if (Set.of("reactor_access_hatch", "reactor_fluid_port", "reactor_redstone_port")
         .contains(id)) {
       var core = POS.west(2);
@@ -173,12 +173,12 @@ public final class AllItemsVerification {
           for (int z = -2; z <= 2; z++)
             if (Math.abs(x) == 2 || Math.abs(y) == 2 || Math.abs(z) == 2)
               level.setBlock(
-                  core.offset(x, y, z), BlockDefinitions.REACTOR_VESSEL.defaultBlockState(), 3);
+                  core.offset(x, y, z), ReactorBlocks.REACTOR_VESSEL.defaultBlockState(), 3);
       level.setBlock(POS, Blocks.AIR.defaultBlockState(), 3);
-      level.setBlock(core, BlockDefinitions.NUCLEAR_REACTOR.defaultBlockState(), 3);
+      level.setBlock(core, ReactorBlocks.NUCLEAR_REACTOR.defaultBlockState(), 3);
       for (var direction : Direction.values())
         level.setBlock(
-            core.relative(direction), BlockDefinitions.REACTOR_CHAMBER.defaultBlockState(), 3);
+            core.relative(direction), ReactorBlocks.REACTOR_CHAMBER.defaultBlockState(), 3);
     }
     for (var entity :
         level.getEntitiesOfClass(

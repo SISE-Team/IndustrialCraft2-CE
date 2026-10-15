@@ -1,8 +1,8 @@
 package ic2ce.neoforge.transport;
 
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.component.ElectricalBuffer;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.storage.StorageBlocks;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -32,16 +32,16 @@ public final class SortingContracts {
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8680, 100, 8680);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position, BlockDefinitions.SORTING_MACHINE.defaultBlockState());
-    world.setBlockAndUpdate(position.east(), BlockDefinitions.IRON_STORAGE_BOX.defaultBlockState());
+    world.setBlockAndUpdate(position, TransportBlocks.SORTING_MACHINE.defaultBlockState());
+    world.setBlockAndUpdate(position.east(), StorageBlocks.IRON_STORAGE_BOX.defaultBlockState());
     world.setBlockAndUpdate(
-        position.below(), BlockDefinitions.IRON_STORAGE_BOX.defaultBlockState());
+        position.below(), StorageBlocks.IRON_STORAGE_BOX.defaultBlockState());
     var sorter = (BatchItemSorter) world.getBlockEntity(position);
     var first =
-        ((ic2ce.core.block.storage.box.TileEntityStorageBox) world.getBlockEntity(position.east()))
+        ((ic2ce.neoforge.storage.box.TileEntityStorageBox) world.getBlockEntity(position.east()))
             .getInventorySlot("inventory");
     var fallback =
-        ((ic2ce.core.block.storage.box.TileEntityStorageBox) world.getBlockEntity(position.below()))
+        ((ic2ce.neoforge.storage.box.TileEntityStorageBox) world.getBlockEntity(position.below()))
             .getInventorySlot("inventory");
     var energy = sorter.getComponent(ElectricalBuffer.class);
     sorter.getFilterSlots(Direction.EAST)[0] = new ItemStack(Items.IRON_INGOT, 3);
@@ -98,7 +98,7 @@ public final class SortingContracts {
     world.removeBlock(position, false);
     world.removeBlock(position.east(), false);
     world.removeBlock(position.below(), false);
-    world.setBlockAndUpdate(position, BlockDefinitions.ITEM_BUFFER.defaultBlockState());
+    world.setBlockAndUpdate(position, TransportBlocks.ITEM_BUFFER.defaultBlockState());
     var banks = (DualItemBuffer) world.getBlockEntity(position);
     check(
         banks.useEnergy(25)

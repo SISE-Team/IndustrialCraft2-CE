@@ -1,16 +1,20 @@
 package ic2ce.neoforge.block;
 
 import ic2ce.api.network.*;
-import ic2ce.core.*;
-import ic2ce.core.event.*;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.component.ComponentTypes;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.component.NativeComponent;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
+import ic2ce.neoforge.diagnostics.ProjectLog;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.menu.document.ScreenConditions;
-import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.power.PowerItems;
+import ic2ce.neoforge.runtime.EnvProxy;
+import ic2ce.neoforge.runtime.SideServices;
+import ic2ce.neoforge.world.IWorldTickCallback;
+import ic2ce.neoforge.world.TickHandler;
+import ic2ce.neoforge.world.WorldItems;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -156,7 +160,7 @@ public abstract class NativeBlockEntity extends BlockEntity
       var type = ComponentTypes.getClass(name);
       var component = type == null ? null : getComponent(type);
       if (component == null)
-        ProjectRuntime.log.warn(
+        ProjectLog.LOG.warn(
             DiagnosticArea.Block, "Unknown component %s while loading %s", name, this);
       else component.readFromNbt(saved.getCompoundOrEmpty(name));
     }
@@ -180,7 +184,7 @@ public abstract class NativeBlockEntity extends BlockEntity
   public final HolderLookup.Provider getSerializationLookup() {
     if (getLevel() != null) return getLevel().registryAccess();
     if (serializationLookup != null) return serializationLookup;
-    var lookup = ProjectRuntime.envProxy.getRegistryLookup();
+    var lookup = EnvProxy.get().getRegistryLookup();
     if (lookup == null)
       throw new IllegalStateException("No native serialization registry is available");
     return lookup;
@@ -363,9 +367,9 @@ public abstract class NativeBlockEntity extends BlockEntity
     return switch (teBlock.getDefaultDrop()) {
       case Self -> original;
       case None -> null;
-      case Generator -> new ItemStack(ItemDefinitions.GENERATOR);
-      case Machine -> new ItemStack(ItemDefinitions.MACHINE);
-      case AdvMachine -> new ItemStack(ItemDefinitions.ADVANCED_MACHINE);
+      case Generator -> new ItemStack(PowerItems.GENERATOR);
+      case Machine -> new ItemStack(WorldItems.MACHINE);
+      case AdvMachine -> new ItemStack(WorldItems.ADVANCED_MACHINE);
     };
   }
 
@@ -416,7 +420,7 @@ public abstract class NativeBlockEntity extends BlockEntity
     if (teBlock.canActive() && active != value) {
       active = value;
       if (getLevel() != null && !getLevel().isClientSide())
-        ProjectRuntime.network.get(true).updateTileEntityField(this, "active");
+        SideServices.network(true).updateTileEntityField(this, "active");
     }
   }
 

@@ -1,6 +1,6 @@
 package ic2ce.neoforge.personal;
 
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.storage.StorageBlocks;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -31,7 +31,7 @@ public final class EnergySalesContracts {
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8752, 100, 8752);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position, BlockDefinitions.ENERGY_O_MAT.defaultBlockState());
+    world.setBlockAndUpdate(position, PersonalBlocks.ENERGY_O_MAT.defaultBlockState());
     var vendor = (EnergyTradeTerminal) world.getBlockEntity(position);
     vendor.euBuffer = 100;
     check(
@@ -72,9 +72,9 @@ public final class EnergySalesContracts {
     check(
         vendor.euOffer == 1000 && vendor.paidFor == 0 && vendor.euBuffer == 0,
         "empty persistence restores the sensible offer and clears stale ledger values");
-    world.setBlockAndUpdate(position.east(), BlockDefinitions.IRON_STORAGE_BOX.defaultBlockState());
+    world.setBlockAndUpdate(position.east(), StorageBlocks.IRON_STORAGE_BOX.defaultBlockState());
     var income =
-        ((ic2ce.core.block.storage.box.TileEntityStorageBox) world.getBlockEntity(position.east()))
+        ((ic2ce.neoforge.storage.box.TileEntityStorageBox) world.getBlockEntity(position.east()))
             .getInventorySlot("inventory");
     vendor.demandSlot.put(new ItemStack(Items.IRON_INGOT, 2));
     vendor.inputSlot.put(new ItemStack(Items.IRON_INGOT, 4));
@@ -90,7 +90,7 @@ public final class EnergySalesContracts {
         "second invoice conserves all delivered payment and cumulative credit");
     world.removeBlock(position, false);
     world.removeBlock(position.east(), false);
-    world.setBlockAndUpdate(position, BlockDefinitions.TRADE_O_MAT.defaultBlockState());
+    world.setBlockAndUpdate(position, PersonalBlocks.TRADE_O_MAT.defaultBlockState());
     var trader = (ItemTradeTerminal) world.getBlockEntity(position);
     var market = new WirelessTradeMarket(world);
     var notices = new int[2];

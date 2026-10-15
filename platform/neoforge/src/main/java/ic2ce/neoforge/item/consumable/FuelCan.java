@@ -1,6 +1,5 @@
 package ic2ce.neoforge.item.consumable;
 
-import ic2ce.neoforge.registry.ItemDefinitions;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemInstance;
@@ -42,7 +41,7 @@ public final class FuelCan extends Item {
       synchronized (this) {
         result = remainder;
         if (result == null)
-          remainder = result = new ItemStackTemplate(ItemDefinitions.EMPTY_FUEL_CAN);
+          remainder = result = new ItemStackTemplate(ConsumableItems.EMPTY_FUEL_CAN);
       }
     }
     return result;

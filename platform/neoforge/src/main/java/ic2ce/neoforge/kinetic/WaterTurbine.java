@@ -1,15 +1,14 @@
 package ic2ce.neoforge.kinetic;
 
 import ic2ce.api.item.IKineticRotor;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
-import ic2ce.core.util.BiomeUtil;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.runtime.SharedRandom;
+import ic2ce.neoforge.runtime.profile.NotClassic;
+import ic2ce.neoforge.world.BiomeUtil;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.kinetic.menu.WaterTurbineMenu;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -26,7 +25,7 @@ import net.minecraft.world.level.block.state.BlockState;
 @NotClassic
 public class WaterTurbine extends RotorGearbox {
   public BiomeState type = BiomeState.UNKNOWN;
-  protected int updateTicker = ProjectRuntime.random.nextInt(20);
+  protected int updateTicker = SharedRandom.INSTANCE.nextInt(20);
   private boolean rightFacing;
   private int distanceToNormalBiome, crossSection, obstructedCrossSection, waterFlow;
   private static final double MULTIPLIER =
@@ -36,7 +35,7 @@ public class WaterTurbine extends RotorGearbox {
 
   public WaterTurbine(BlockPos position, BlockState block) {
     super(
-        BlockEntityDefinitions.WATER_KINETIC_GENERATOR,
+        KineticBlockEntities.WATER_KINETIC_GENERATOR,
         position,
         block,
         IKineticRotor.GearboxType.WATER);

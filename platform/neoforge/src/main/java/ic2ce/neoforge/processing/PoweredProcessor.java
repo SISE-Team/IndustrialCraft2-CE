@@ -4,10 +4,10 @@ import ic2ce.api.network.INetworkTileEntityEventListener;
 import ic2ce.api.recipe.MachineRecipeResult;
 import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.IUpgradeItem;
-import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.network.GuiSynced;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.engine.machine.ProcessingCycle;
 import ic2ce.engine.machine.UpgradeMath;
 import ic2ce.neoforge.audio.PlaybackHandle;
@@ -16,7 +16,7 @@ import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.Collection;
 import java.util.Objects;
 import net.minecraft.core.BlockPos;
@@ -94,13 +94,13 @@ public abstract class PoweredProcessor<RI, RO, I> extends PoweredBlockEntity
   @Override
   protected void onLoaded() {
     super.onLoaded();
-    if (ProjectRuntime.sideProxy.isSimulating()) setOverclockRates();
+    if (SideServices.proxy().isSimulating()) setOverclockRates();
   }
 
   @Override
   public void setChanged() {
     super.setChanged();
-    if (ProjectRuntime.sideProxy.isSimulating()) setOverclockRates();
+    if (SideServices.proxy().isSimulating()) setOverclockRates();
   }
 
   @Override

@@ -3,9 +3,9 @@ package ic2ce.neoforge.block;
 import ic2ce.api.block.BreakableBlock;
 import ic2ce.api.crops.CropSoilType;
 import ic2ce.api.tile.*;
-import ic2ce.core.util.Util;
 import ic2ce.engine.recipe.DeferredValue;
 import ic2ce.neoforge.agriculture.*;
+import ic2ce.neoforge.world.DirectionSets;
 import ic2ce.neoforge.world.surface.SurfaceMap;
 import java.lang.invoke.*;
 import java.util.*;
@@ -195,9 +195,9 @@ public final class MachineBlockType extends Block
       Property<Direction> facing =
           directions.size() == 6
               ? anyFacingProperty
-              : directions.equals(Util.horizontalFacings)
+              : directions.equals(DirectionSets.horizontalFacings)
                   ? horizontalFacingProperty
-                  : directions.equals(Util.verticalFacings)
+                  : directions.equals(DirectionSets.verticalFacings)
                       ? verticalFacingProperty
                       : EnumProperty.create("facing", Direction.class, List.copyOf(directions));
       definition.add(facing);

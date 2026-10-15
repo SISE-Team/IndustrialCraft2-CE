@@ -1,11 +1,11 @@
 package ic2ce.neoforge.menu;
 
-import ic2ce.core.IHasGui;
-import ic2ce.core.item.IHandHeldInventory;
-import ic2ce.core.item.IHandHeldSubInventory;
-import ic2ce.core.network.DataEncoder;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.ProjectIds;
+import ic2ce.neoforge.handheld.IHandHeldInventory;
+import ic2ce.neoforge.handheld.IHandHeldSubInventory;
+import ic2ce.neoforge.network.DataEncoder;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.runtime.EnvProxy;
 import io.netty.buffer.ByteBuf;
 import java.io.IOException;
 import java.util.Objects;
@@ -22,15 +22,15 @@ public final class ManagedMenus {
 
   @SuppressWarnings("unchecked")
   public static <T extends AbstractContainerMenu> MenuType<T> block(String name) {
-    return ProjectRuntime.envProxy.registerExtendedScreenHandler(
-        ProjectRuntime.getIdentifier(name),
+    return EnvProxy.get().registerExtendedScreenHandler(
+        ProjectIds.id(name),
         (id, inventory, data) -> (T) readBlock(id, inventory, data));
   }
 
   @SuppressWarnings("unchecked")
   public static <T extends AbstractContainerMenu> MenuType<T> item(String name) {
-    return ProjectRuntime.envProxy.registerExtendedScreenHandler(
-        ProjectRuntime.getIdentifier(name),
+    return EnvProxy.get().registerExtendedScreenHandler(
+        ProjectIds.id(name),
         (id, inventory, data) -> (T) readItem(id, inventory, data));
   }
 

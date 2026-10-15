@@ -1,6 +1,5 @@
 package ic2ce.neoforge.damage;
 
-import ic2ce.core.*;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;

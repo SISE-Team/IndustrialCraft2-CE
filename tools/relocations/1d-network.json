@@ -1,0 +1,9 @@
+{
+  "domain": "Network transport, codecs and synchronization",
+  "report": "network-package-layout-migration.json",
+  "moves": {
+    "ic2ce.core.network.*": "ic2ce.neoforge.network",
+    "ic2ce.core.util.ReflectionUtil": "ic2ce.neoforge.network.ReflectionUtil",
+    "ic2ce.neoforge.NeoForgeNetworkHandler": "ic2ce.neoforge.network.NeoForgeNetworkHandler"
+  }
+}

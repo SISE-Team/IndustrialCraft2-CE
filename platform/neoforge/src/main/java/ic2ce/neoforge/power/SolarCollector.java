@@ -1,15 +1,15 @@
 package ic2ce.neoforge.power;
 
 import ic2ce.api.crops.BiomeType;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.network.GuiSynced;
-import ic2ce.core.util.BiomeUtil;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.runtime.EnvProxy;
+import ic2ce.neoforge.runtime.SharedRandom;
+import ic2ce.neoforge.world.BiomeUtil;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.power.menu.SolarCollectorMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -21,12 +21,12 @@ import net.minecraft.world.level.block.state.BlockState;
 public class SolarCollector extends BufferedGenerator {
   public float skyLight;
   @GuiSynced public boolean sunlight;
-  private int visibilityTicks = ProjectRuntime.random.nextInt(128);
+  private int visibilityTicks = SharedRandom.INSTANCE.nextInt(128);
   private static final double MULTIPLIER =
       NativeConfigValues.getDouble(ProjectConfiguration.get(), "balance/energy/generator/solar");
 
   public SolarCollector(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.SOLAR_GENERATOR, position, block, 1, 1, 2);
+    super(PowerBlockEntities.SOLAR_GENERATOR, position, block, 1, 1, 2);
   }
 
   @Override
@@ -52,7 +52,7 @@ public class SolarCollector extends BufferedGenerator {
     if (!world.dimensionType().hasSkyLight()) return 0;
     double phase = (Math.floorMod(world.getOverworldClockTime(), 24000L) + 1.0) / 24000 - 0.25;
     double brightness = Math.clamp(Math.cos(phase * Math.TAU) * 2 + 0.2, 0, 1);
-    if (!ProjectRuntime.envProxy.biomeHasType(
+    if (!EnvProxy.get().biomeHasType(
         BiomeUtil.getBiome(world, position), BiomeType.SANDY)) {
       brightness *= 1 - world.getRainLevel(1) * 5.0 / 16;
       brightness *= 1 - world.getThunderLevel(1) * 5.0 / 16;

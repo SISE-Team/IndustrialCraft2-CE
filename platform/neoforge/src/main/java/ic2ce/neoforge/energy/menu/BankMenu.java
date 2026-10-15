@@ -1,8 +1,8 @@
 package ic2ce.neoforge.energy.menu;
 
+import ic2ce.neoforge.energy.EnergyMenus;
 import ic2ce.neoforge.energy.storage.EnergyBank;
 import ic2ce.neoforge.menu.PhysicalInventoryMenu;
-import ic2ce.neoforge.registry.MenuDefinitions;
 import net.minecraft.world.entity.player.Inventory;
 
 /** Physical charge/discharge and four native worn equipment slots. */
@@ -10,7 +10,7 @@ public class BankMenu extends PhysicalInventoryMenu<EnergyBank> {
   private static final java.util.List<String> FIELDS = java.util.List.of("redstoneMode");
 
   public BankMenu(int id, Inventory inventory, EnergyBank machine) {
-    super(MenuDefinitions.ENERGY_STORAGE, id, inventory, machine, 196);
+    super(EnergyMenus.ENERGY_STORAGE, id, inventory, machine, 196);
     for (int slot = 0; slot < ic2ce.neoforge.menu.slot.EquipmentOrder.getCount(); slot++)
       addSlot(
           new ic2ce.neoforge.menu.slot.EquipmentItemSlot(

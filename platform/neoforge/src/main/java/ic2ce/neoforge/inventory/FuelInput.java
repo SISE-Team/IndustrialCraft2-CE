@@ -1,7 +1,6 @@
 package ic2ce.neoforge.inventory;
 
 import ic2ce.api.info.Info;
-import ic2ce.core.block.IInventorySlotHolder;
 import net.minecraft.world.item.ItemStack;
 
 public class FuelInput extends ConsumableInventory {

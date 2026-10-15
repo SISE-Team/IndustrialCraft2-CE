@@ -1,10 +1,10 @@
 package ic2ce.neoforge.item.tool;
 
-import ic2ce.core.event.WorldData;
-import ic2ce.core.item.PriorityUsableItem;
+import ic2ce.neoforge.runtime.SideServices;
+import ic2ce.neoforge.world.WorldData;
+import ic2ce.neoforge.item.PriorityUsableItem;
 import ic2ce.neoforge.kinetic.WindTurbine;
 import ic2ce.neoforge.power.WindMill;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
@@ -44,7 +44,7 @@ public class WindProbe extends PoweredTool implements PriorityUsableItem {
     if (world.isClientSide())
       return canUse(stack) ? InteractionResult.SUCCESS : InteractionResult.PASS;
     if (tile instanceof WindTurbine turbine && !turbine.getActive()) {
-      ProjectRuntime.sideProxy.messagePlayer(
+      SideServices.proxy().messagePlayer(
           owner,
           turbine.hasRotor()
               ? "ic2.wind_meter.info.rotor.blocked"
@@ -54,7 +54,7 @@ public class WindProbe extends PoweredTool implements PriorityUsableItem {
     if (!consumeEnergy(stack, 50, owner)) return InteractionResult.PASS;
     if (tile instanceof WindTurbine turbine) {
       if (turbine.getObstructions() < 0)
-        ProjectRuntime.sideProxy.messagePlayer(
+        SideServices.proxy().messagePlayer(
             owner, "ic2.wind_meter.info.blocked", turbine.getRotorDiameter() * 3);
       else report(owner, turbine.calcWindStrength(), turbine.getObstructions());
     } else {
@@ -75,7 +75,7 @@ public class WindProbe extends PoweredTool implements PriorityUsableItem {
     if (world.isClientSide())
       return canUse(stack) ? InteractionResult.SUCCESS : InteractionResult.PASS;
     if (!consumeEnergy(stack, 50, owner)) return InteractionResult.PASS;
-    ProjectRuntime.sideProxy.messagePlayer(
+    SideServices.proxy().messagePlayer(
         owner,
         "ic2.wind_meter.info",
         rounded(WorldData.get(world).windSim.getWindAt(owner.getY())));
@@ -85,8 +85,8 @@ public class WindProbe extends PoweredTool implements PriorityUsableItem {
   private static void report(Player owner, double wind, int obstructions) {
     var value = rounded(wind);
     if (value <= 0)
-      ProjectRuntime.sideProxy.messagePlayer(owner, "ic2.wind_meter.info.obstructed", obstructions);
-    else ProjectRuntime.sideProxy.messagePlayer(owner, "ic2.wind_meter.info.effective", value);
+      SideServices.proxy().messagePlayer(owner, "ic2.wind_meter.info.obstructed", obstructions);
+    else SideServices.proxy().messagePlayer(owner, "ic2.wind_meter.info.effective", value);
   }
 
   private static float rounded(double wind) {

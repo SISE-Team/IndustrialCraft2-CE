@@ -1,7 +1,6 @@
 package ic2ce.neoforge.item.upgrade;
 
-import ic2ce.core.util.StackTag;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.StackTag;
 import java.util.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -30,7 +29,7 @@ public final class UpgradeMenuContracts {
             new com.mojang.authlib.GameProfile(
                 UUID.fromString("6cf67f6c-a118-4ad4-9c08-a2bb2c60f95e"), "IC2FilterMenuProbe"));
     player.getInventory().clearContent();
-    var source = new ItemStack(ItemDefinitions.ADVANCED_EJECTOR_UPGRADE, 32);
+    var source = new ItemStack(UpgradeItems.ADVANCED_EJECTOR_UPGRADE, 32);
     player.setItemInHand(InteractionHand.MAIN_HAND, source);
     var base = new AdvancedFilterInventory(player, InteractionHand.MAIN_HAND, source);
     var option = new NumericFilterEditor(base, "energy");
