@@ -6,7 +6,7 @@ import ic2ce.api.item.*;
 import ic2ce.api.recipe.Recipes;
 import ic2ce.api.sound.item.ISwingSoundItem;
 import ic2ce.core.apihelper.CoreAccessImpl;
-import ic2ce.core.block.ChunkLoadAwareBlockHandler;
+import ic2ce.neoforge.world.ChunkLoadAwareBlockHandler;
 import ic2ce.neoforge.energy.grid.EnergyNetGlobal;
 import ic2ce.neoforge.agriculture.CropCatalog;
 import ic2ce.neoforge.component.ComponentTypes;

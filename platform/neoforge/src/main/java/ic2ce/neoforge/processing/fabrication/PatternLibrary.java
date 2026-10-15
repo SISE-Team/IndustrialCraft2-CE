@@ -6,7 +6,7 @@ import ic2ce.core.IHasGui;
 import ic2ce.neoforge.processing.uu.ItemCrystalMemory;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.profile.NotClassic;
-import ic2ce.core.util.ItemComparableItemStack;
+import ic2ce.neoforge.inventory.ItemComparableItemStack;
 import ic2ce.core.util.StackTag;
 import ic2ce.neoforge.processing.uu.UuIndex;
 import ic2ce.neoforge.block.InventoryBlockEntity;

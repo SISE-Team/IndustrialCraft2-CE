@@ -7,6 +7,7 @@ import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.damage.DamageProfiles;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
 import ic2ce.neoforge.explosion.NativeBlast;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import ic2ce.neoforge.world.block.WorldMaterials;
 import net.minecraft.core.BlockPos;

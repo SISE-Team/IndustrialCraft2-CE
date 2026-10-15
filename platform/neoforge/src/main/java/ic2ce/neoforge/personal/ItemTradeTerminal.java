@@ -8,7 +8,7 @@ import ic2ce.core.event.WorldData;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.core.util.ProfileUtil;
 import ic2ce.core.util.StackTag;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.inventory.LinkedInput;

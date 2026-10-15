@@ -5,7 +5,7 @@ import static ic2ce.verification.AllMachinesVerification.*;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.recipe.*;
-import ic2ce.core.block.storage.box.TileEntityStorageBox;
+import ic2ce.neoforge.storage.box.TileEntityStorageBox;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.crafting.AutomaticCrafter;
@@ -78,7 +78,7 @@ final class AllMachineBehaviors {
               }
             }
             if (tile instanceof TileEntityStorageBox box) storageBox(id, box);
-            if (tile instanceof ic2ce.core.block.storage.tank.FluidReservoir) storageTank(id);
+            if (tile instanceof ic2ce.neoforge.storage.tank.FluidReservoir) storageTank(id);
             if (id.equals("tank")) storageTank(id);
             if (id.equals("metal_former")) {
               suite.at(
@@ -437,7 +437,7 @@ final class AllMachineBehaviors {
               "actual extraction respects requested amount",
               drained.getAmountMb() == 250 && tank.getFluidAmount() == 2000);
         });
-    if (tile instanceof ic2ce.core.block.storage.tank.FluidReservoir)
+    if (tile instanceof ic2ce.neoforge.storage.tank.FluidReservoir)
       suite.at(
           200,
           () -> {

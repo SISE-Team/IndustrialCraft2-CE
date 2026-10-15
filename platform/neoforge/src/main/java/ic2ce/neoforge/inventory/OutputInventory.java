@@ -1,6 +1,5 @@
 package ic2ce.neoforge.inventory;
 
-import ic2ce.core.block.IInventorySlotHolder;
 import ic2ce.engine.inventory.InsertionWorkspace;
 import java.util.Collection;
 import java.util.List;

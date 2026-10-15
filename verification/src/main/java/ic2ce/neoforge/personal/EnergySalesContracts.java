@@ -74,7 +74,7 @@ public final class EnergySalesContracts {
         "empty persistence restores the sensible offer and clears stale ledger values");
     world.setBlockAndUpdate(position.east(), BlockDefinitions.IRON_STORAGE_BOX.defaultBlockState());
     var income =
-        ((ic2ce.core.block.storage.box.TileEntityStorageBox) world.getBlockEntity(position.east()))
+        ((ic2ce.neoforge.storage.box.TileEntityStorageBox) world.getBlockEntity(position.east()))
             .getInventorySlot("inventory");
     vendor.demandSlot.put(new ItemStack(Items.IRON_INGOT, 2));
     vendor.inputSlot.put(new ItemStack(Items.IRON_INGOT, 4));

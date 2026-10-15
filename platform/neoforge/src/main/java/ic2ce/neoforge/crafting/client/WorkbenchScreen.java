@@ -1,7 +1,7 @@
 package ic2ce.neoforge.crafting.client;
 
 import ic2ce.core.IHasGui;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.client.screen.MachineScreen;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.client.widget.*;

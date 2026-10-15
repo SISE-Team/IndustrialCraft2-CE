@@ -33,7 +33,7 @@ public final class ItemSalesContracts {
     world.setBlockAndUpdate(position.east(), BlockDefinitions.IRON_STORAGE_BOX.defaultBlockState());
     var tile = (ItemTradeTerminal) world.getBlockEntity(position);
     var stock =
-        ((ic2ce.core.block.storage.box.TileEntityStorageBox) world.getBlockEntity(position.east()))
+        ((ic2ce.neoforge.storage.box.TileEntityStorageBox) world.getBlockEntity(position.east()))
             .getInventorySlot("inventory");
     stock.put(new ItemStack(Items.GOLD_INGOT, 9));
     tile.demandSlot.put(new ItemStack(Items.IRON_INGOT, 2));

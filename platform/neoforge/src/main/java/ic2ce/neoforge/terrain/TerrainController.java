@@ -1,7 +1,7 @@
 package ic2ce.neoforge.terrain;
 
 import ic2ce.api.item.ITerraformingBP;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.inventory.TypeFilteredInput;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;

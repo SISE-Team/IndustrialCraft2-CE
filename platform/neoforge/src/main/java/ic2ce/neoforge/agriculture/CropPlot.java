@@ -4,7 +4,7 @@ import ic2ce.api.crops.*;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.fluid.FluidHandler;
 import ic2ce.core.util.BiomeUtil;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.engine.agriculture.CropMath;
 import ic2ce.engine.recipe.WeightedChoice;
 import ic2ce.neoforge.agriculture.item.EncodedSeed;

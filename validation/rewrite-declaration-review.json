@@ -532,85 +532,85 @@
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/ChunkLoadAwareBlock.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/ChunkLoadAwareBlock.java",
       "sha256": "580271e0eeab1dd38aa649ea611bbc10df147961233efbd75ac5288ec52746d5",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/IInventorySlotHolder.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/IInventorySlotHolder.java",
       "sha256": "239b743062a7574fa669e91dfdd5391c1ca748571b8eae6c6fe44dbad8b6d5a0",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntityBronzeStorageBox.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityBronzeStorageBox.java",
       "sha256": "2a3727a364c34dc363b7cbff2a5a8aeecff359570af948ef446a211bbbebddae",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntityIridiumStorageBox.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityIridiumStorageBox.java",
       "sha256": "177d8a08dbb791ab672237f5011fe81952de94983e8b287744619ed2b1440560",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntityIronStorageBox.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityIronStorageBox.java",
       "sha256": "ba66d67b7f955df66162e843da4f000e86d056ce5e231aa1af4692ec346ee269",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntitySteelStorageBox.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntitySteelStorageBox.java",
       "sha256": "69538810959f57d7264e7ed7d5f1db6179b41b95a800f7b9c0b86679cb6bfe5c",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntityWoodenStorageBox.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityWoodenStorageBox.java",
       "sha256": "864c8ca3a58330302b98b40bb3de34be15eaacdf8371b3323a8ba43806085811",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/TileEntityBronzeTank.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/TileEntityBronzeTank.java",
       "sha256": "ccea3208bb64428b261f3a0f59ae3e44172cbcfa2ff6c553fefc3a0e1457701e",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/TileEntityIridiumTank.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/TileEntityIridiumTank.java",
       "sha256": "d3edbb0791f5a5c918e8a4bf79aa7a5ea2312c58c8a80fe31998abdbd49ce915",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/TileEntityIronTank.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/TileEntityIronTank.java",
       "sha256": "b3a3b538fa95a49c1560dc697411b42c1a233e81412a477ce9dcb2f6ebd3c3ba",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/TileEntitySteelTank.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/TileEntitySteelTank.java",
       "sha256": "70d38006d584d04718cc835b1c1163b85487a20ec6d1fa2e069756920e191c00",
       "kind": "constant-only physical device specification; native state and behavior are inherited from independently implemented controllers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/transport/cover/CoverProperty.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/cover/CoverProperty.java",
       "sha256": "9df76a944038f1f03d24f81482414b47145ab8b960dafc20a51f011f15a24e9c",
       "kind": "constant-only material/protocol identifiers",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/transport/cover/ICoverHolder.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/cover/ICoverHolder.java",
       "sha256": "806de07af220d09a678993caee3b0984c756bc7980059d9fdb3b3e411b37786d",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/transport/cover/ICoverItem.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/cover/ICoverItem.java",
       "sha256": "108d5452bf567eb2c622255ad58ca216bd603ee88b63f7fb25ed50d3fd79a176",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
@@ -670,7 +670,7 @@
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/item/EnvItemHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/transfer/EnvItemHandler.java",
       "sha256": "69dde8dbee10b4220d9579e9b65932e2048b1c4b11617363785e55a55ce0e381",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false

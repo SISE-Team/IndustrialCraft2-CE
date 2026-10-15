@@ -38,10 +38,10 @@ public final class SortingContracts {
         position.below(), BlockDefinitions.IRON_STORAGE_BOX.defaultBlockState());
     var sorter = (BatchItemSorter) world.getBlockEntity(position);
     var first =
-        ((ic2ce.core.block.storage.box.TileEntityStorageBox) world.getBlockEntity(position.east()))
+        ((ic2ce.neoforge.storage.box.TileEntityStorageBox) world.getBlockEntity(position.east()))
             .getInventorySlot("inventory");
     var fallback =
-        ((ic2ce.core.block.storage.box.TileEntityStorageBox) world.getBlockEntity(position.below()))
+        ((ic2ce.neoforge.storage.box.TileEntityStorageBox) world.getBlockEntity(position.below()))
             .getInventorySlot("inventory");
     var energy = sorter.getComponent(ElectricalBuffer.class);
     sorter.getFilterSlots(Direction.EAST)[0] = new ItemStack(Items.IRON_INGOT, 3);

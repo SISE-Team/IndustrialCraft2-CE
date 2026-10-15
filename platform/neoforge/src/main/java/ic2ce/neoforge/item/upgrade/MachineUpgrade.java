@@ -7,6 +7,7 @@ import ic2ce.core.item.IHandHeldSubInventory;
 import ic2ce.core.util.*;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.fluid.LiquidUtil;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.menu.document.HandheldDocumentMenu;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.text.DecimalFormat;
@@ -283,7 +284,7 @@ public class MachineUpgrade extends Item
     return changed > 0;
   }
 
-  private static List<ic2ce.core.item.EnvItemHandler.AdjacentInventory> singleInventory(
+  private static List<ic2ce.neoforge.inventory.transfer.EnvItemHandler.AdjacentInventory> singleInventory(
       BlockEntity tile, Direction direction) {
     var target = StackUtil.ENV.getAdjacentInventory(tile, direction);
     return target == null ? List.of() : List.of(target);

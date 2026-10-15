@@ -1,7 +1,7 @@
 package ic2ce.neoforge.item.tool;
 
 import ic2ce.api.item.IEnhancedOverlayProvider;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.cable.BareCableBlock;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;

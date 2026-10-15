@@ -1,14 +1,14 @@
 package ic2ce.neoforge.registry;
 
-import ic2ce.core.block.storage.box.TileEntityBronzeStorageBox;
-import ic2ce.core.block.storage.box.TileEntityIridiumStorageBox;
-import ic2ce.core.block.storage.box.TileEntityIronStorageBox;
-import ic2ce.core.block.storage.box.TileEntitySteelStorageBox;
-import ic2ce.core.block.storage.box.TileEntityWoodenStorageBox;
-import ic2ce.core.block.storage.tank.TileEntityBronzeTank;
-import ic2ce.core.block.storage.tank.TileEntityIridiumTank;
-import ic2ce.core.block.storage.tank.TileEntityIronTank;
-import ic2ce.core.block.storage.tank.TileEntitySteelTank;
+import ic2ce.neoforge.storage.box.TileEntityBronzeStorageBox;
+import ic2ce.neoforge.storage.box.TileEntityIridiumStorageBox;
+import ic2ce.neoforge.storage.box.TileEntityIronStorageBox;
+import ic2ce.neoforge.storage.box.TileEntitySteelStorageBox;
+import ic2ce.neoforge.storage.box.TileEntityWoodenStorageBox;
+import ic2ce.neoforge.storage.tank.TileEntityBronzeTank;
+import ic2ce.neoforge.storage.tank.TileEntityIridiumTank;
+import ic2ce.neoforge.storage.tank.TileEntityIronTank;
+import ic2ce.neoforge.storage.tank.TileEntitySteelTank;
 import ic2ce.core.util.Util;
 import ic2ce.neoforge.agriculture.AutoHarvester;
 import ic2ce.neoforge.agriculture.CellCropCaretaker;

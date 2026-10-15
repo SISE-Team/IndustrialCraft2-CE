@@ -1,6 +1,5 @@
 package ic2ce.neoforge.inventory;
 
-import ic2ce.core.block.IInventorySlotHolder;
 import ic2ce.engine.inventory.DurabilityBudget;
 import ic2ce.neoforge.item.PhysicalWear;
 import ic2ce.neoforge.runtime.ProjectRuntime;

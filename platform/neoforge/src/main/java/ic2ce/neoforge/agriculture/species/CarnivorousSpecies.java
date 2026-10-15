@@ -83,7 +83,7 @@ public class CarnivorousSpecies extends MaterialSpecies {
     double x = position.getX() + .5, z = position.getZ() + .5;
     var data = plot.getCustomData();
     if (data.getBooleanOr("eaten", false)) {
-      ic2ce.core.util.StackUtil.dropAsEntity(world, position, new ItemStack(Items.ROTTEN_FLESH));
+      ic2ce.neoforge.inventory.StackUtil.dropAsEntity(world, position, new ItemStack(Items.ROTTEN_FLESH));
       data.putBoolean("eaten", false);
     }
     var nearby =

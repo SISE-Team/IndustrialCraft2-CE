@@ -1,7 +1,6 @@
 package ic2ce.neoforge.inventory.transfer;
 
 import com.mojang.authlib.GameProfile;
-import ic2ce.core.item.EnvItemHandler;
 import ic2ce.core.util.Util;
 import ic2ce.neoforge.personal.OwnedDevice;
 import java.util.ArrayList;

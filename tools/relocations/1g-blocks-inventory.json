@@ -1,0 +1,17 @@
+{
+  "domain": "Storage blocks, covers, chunk callbacks and inventory helpers",
+  "report": "block-inventory-layout-migration.json",
+  "moves": {
+    "ic2ce.core.block.storage.box.*": "ic2ce.neoforge.storage.box",
+    "ic2ce.core.block.storage.tank.*": "ic2ce.neoforge.storage.tank",
+    "ic2ce.core.block.storage.*": "ic2ce.neoforge.storage",
+    "ic2ce.core.block.transport.cover.*": "ic2ce.neoforge.transport.cover",
+    "ic2ce.core.block.ChunkLoadAwareBlock": "ic2ce.neoforge.world.ChunkLoadAwareBlock",
+    "ic2ce.core.block.ChunkLoadAwareBlockHandler": "ic2ce.neoforge.world.ChunkLoadAwareBlockHandler",
+    "ic2ce.core.block.IInventorySlotHolder": "ic2ce.neoforge.inventory.IInventorySlotHolder",
+    "ic2ce.core.block.comp.*": "ic2ce.neoforge.component",
+    "ic2ce.core.util.ItemComparableItemStack": "ic2ce.neoforge.inventory.ItemComparableItemStack",
+    "ic2ce.core.util.StackUtil": "ic2ce.neoforge.inventory.StackUtil",
+    "ic2ce.core.item.EnvItemHandler": "ic2ce.neoforge.inventory.transfer.EnvItemHandler"
+  }
+}

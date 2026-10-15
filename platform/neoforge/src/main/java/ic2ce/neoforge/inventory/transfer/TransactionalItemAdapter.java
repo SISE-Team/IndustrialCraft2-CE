@@ -1,7 +1,11 @@
 package ic2ce.neoforge.inventory.transfer;
 
-import ic2ce.core.block.storage.box.*;
 import ic2ce.neoforge.block.InventoryBlockEntity;
+import ic2ce.neoforge.storage.box.TileEntityBronzeStorageBox;
+import ic2ce.neoforge.storage.box.TileEntityIridiumStorageBox;
+import ic2ce.neoforge.storage.box.TileEntityIronStorageBox;
+import ic2ce.neoforge.storage.box.TileEntitySteelStorageBox;
+import ic2ce.neoforge.storage.box.TileEntityWoodenStorageBox;
 import java.util.Objects;
 import java.util.Set;
 import net.minecraft.core.Direction;

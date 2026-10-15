@@ -1,7 +1,7 @@
 package ic2ce.neoforge.menu.document;
 
 import ic2ce.api.network.INetworkClientTileEntityEventListener;
-import ic2ce.core.block.IInventorySlotHolder;
+import ic2ce.neoforge.inventory.IInventorySlotHolder;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.client.widget.*;
 import ic2ce.neoforge.component.*;

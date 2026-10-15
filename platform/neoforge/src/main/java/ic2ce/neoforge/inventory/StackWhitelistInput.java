@@ -1,7 +1,5 @@
 package ic2ce.neoforge.inventory;
 
-import ic2ce.core.block.IInventorySlotHolder;
-import ic2ce.core.util.ItemComparableItemStack;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;

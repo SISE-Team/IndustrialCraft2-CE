@@ -7,7 +7,7 @@ import ic2ce.api.upgrade.IUpgradeItem;
 import ic2ce.core.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.engine.machine.ProcessingCycle;
 import ic2ce.engine.machine.UpgradeMath;
 import ic2ce.neoforge.audio.PlaybackHandle;

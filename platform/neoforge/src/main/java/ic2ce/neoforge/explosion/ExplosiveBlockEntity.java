@@ -1,7 +1,7 @@
 package ic2ce.neoforge.explosion;
 
 import ic2ce.api.entity.block.ExplosiveEntity;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.SignalInput;
 import java.util.List;

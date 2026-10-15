@@ -227,7 +227,7 @@
       "scope": "Owned/dynamic tanks, side masks and aggregate transfer without request mutation"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/ItemComparableItemStack.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/ItemComparableItemStack.java",
       "scope": "Immutable normalized legacy custom-data identity without redundant snapshots"
     },
     {
@@ -843,11 +843,11 @@
       "scope": "Distinct mandatory-amplifier quota, tier-bounded scrap metering, retained fractional credits and paid solid output"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/box/TileEntityStorageBox.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityStorageBox.java",
       "scope": "Owned portable item snapshots, stale-empty data clearing and sole retained block-drop policy"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/FluidReservoir.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/FluidReservoir.java",
       "scope": "Distinct portable fluid retention, full-component handshake, server-only container commits and bounded capacity restoration"
     },
     {
@@ -899,7 +899,7 @@
       "scope": "Independent reversible voltage packet controller, persisted modes, cached directional policies and actual input/output screen values"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/ChunkLoadAwareBlockHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/ChunkLoadAwareBlockHandler.java",
       "scope": "Immutable state-dispatch generations, palette rejection, stable callback coordinates and native server chunk entry/exit ownership"
     },
     {
@@ -2663,7 +2663,7 @@
       "scope": "Actual neighbor identity/access guards and owned workbench return session explicitly re-register the native close callback; live side icons/tooltips tolerate removal and world changes"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/transport/cover/Covers.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/cover/Covers.java",
       "scope": "Six-owned-cover lifecycle, checked addon admission, side-only custom-data removal, reload reset, type guards and dirty tick commits"
     },
     {
@@ -2775,7 +2775,7 @@
       "scope": "Actual native datapack advancement grant validates registry identity and awards only missing criteria, replacing inert legacy progression stub"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/StackUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/StackUtil.java",
       "scope": "Independent native component-sensitive item ownership/equality, positive hand/inventory bills, staged complete multi-slot debits, native off-hand/durability handling, pure placement caller data and planned bounded-slot balancing"
     },
     {
@@ -3589,7 +3589,6 @@
     "platform/neoforge/src/main/java/ic2ce/neoforge/power/client/SolarCollectorScreen.java": "platform/neoforge/src/main/java/ic2/core/block/generator/gui/GuiSolarGenerator.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/explosion/PrimedDemolitionCharge.java": "platform/neoforge/src/main/java/ic2/core/entity/block/ITntEntity.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/explosion/PrimedNuclearCharge.java": "platform/neoforge/src/main/java/ic2/core/entity/block/NukeEntity.java",
-    "platform/neoforge/src/main/java/ic2ce/core/block/storage/tank/FluidReservoir.java": "platform/neoforge/src/main/java/ic2/core/block/storage/tank/TileEntityTank.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/processing/thermal/AlloyFurnace.java": "platform/neoforge/src/main/java/ic2/core/block/machine/tileentity/TileEntityBlastFurnace.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/processing/solid/PlateCutter.java": "platform/neoforge/src/main/java/ic2/core/block/machine/tileentity/TileEntityBlockCutter.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/explosion/NuclearBlockEntity.java": "platform/neoforge/src/main/java/ic2/core/block/machine/tileentity/TileEntityBridgeNuke.java",
@@ -3770,7 +3769,31 @@
     "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/UuGraph.java": "platform/neoforge/src/main/java/ic2/core/uu/UuGraph.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/UuIndex.java": "platform/neoforge/src/main/java/ic2/core/uu/UuIndex.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/VanillaSmeltingResolver.java": "platform/neoforge/src/main/java/ic2/core/uu/VanillaSmeltingResolver.java",
-    "verification/src/main/java/ic2ce/neoforge/processing/uu/MaterialContracts.java": "verification/src/main/java/ic2ce/core/uu/MaterialContracts.java"
+    "verification/src/main/java/ic2ce/neoforge/processing/uu/MaterialContracts.java": "verification/src/main/java/ic2ce/core/uu/MaterialContracts.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/ChunkLoadAwareBlock.java": "platform/neoforge/src/main/java/ic2/core/block/ChunkLoadAwareBlock.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/ChunkLoadAwareBlockHandler.java": "platform/neoforge/src/main/java/ic2/core/block/ChunkLoadAwareBlockHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/IInventorySlotHolder.java": "platform/neoforge/src/main/java/ic2/core/block/IInventorySlotHolder.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityBronzeStorageBox.java": "platform/neoforge/src/main/java/ic2/core/block/storage/box/TileEntityBronzeStorageBox.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityIridiumStorageBox.java": "platform/neoforge/src/main/java/ic2/core/block/storage/box/TileEntityIridiumStorageBox.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityIronStorageBox.java": "platform/neoforge/src/main/java/ic2/core/block/storage/box/TileEntityIronStorageBox.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntitySteelStorageBox.java": "platform/neoforge/src/main/java/ic2/core/block/storage/box/TileEntitySteelStorageBox.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityStorageBox.java": "platform/neoforge/src/main/java/ic2/core/block/storage/box/TileEntityStorageBox.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/box/TileEntityWoodenStorageBox.java": "platform/neoforge/src/main/java/ic2/core/block/storage/box/TileEntityWoodenStorageBox.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/FluidReservoir.java": "platform/neoforge/src/main/java/ic2/core/block/storage/tank/TileEntityTank.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/TileEntityBronzeTank.java": "platform/neoforge/src/main/java/ic2/core/block/storage/tank/TileEntityBronzeTank.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/TileEntityIridiumTank.java": "platform/neoforge/src/main/java/ic2/core/block/storage/tank/TileEntityIridiumTank.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/TileEntityIronTank.java": "platform/neoforge/src/main/java/ic2/core/block/storage/tank/TileEntityIronTank.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/storage/tank/TileEntitySteelTank.java": "platform/neoforge/src/main/java/ic2/core/block/storage/tank/TileEntitySteelTank.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/transport/cover/CoverProperty.java": "platform/neoforge/src/main/java/ic2/core/block/transport/cover/CoverProperty.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/transport/cover/Covers.java": "platform/neoforge/src/main/java/ic2/core/block/transport/cover/Covers.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/transport/cover/ICoverHolder.java": "platform/neoforge/src/main/java/ic2/core/block/transport/cover/ICoverHolder.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/transport/cover/ICoverItem.java": "platform/neoforge/src/main/java/ic2/core/block/transport/cover/ICoverItem.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/transfer/EnvItemHandler.java": "platform/neoforge/src/main/java/ic2/core/item/EnvItemHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/ItemComparableItemStack.java": "platform/neoforge/src/main/java/ic2/core/util/ItemComparableItemStack.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/StackUtil.java": "platform/neoforge/src/main/java/ic2/core/util/StackUtil.java",
+    "verification/src/main/java/ic2ce/neoforge/component/RegistryContracts.java": "verification/src/main/java/ic2ce/core/block/comp/RegistryContracts.java",
+    "verification/src/main/java/ic2ce/neoforge/storage/PortableStorageContracts.java": "verification/src/main/java/ic2ce/core/block/storage/PortableStorageContracts.java",
+    "verification/src/main/java/ic2ce/neoforge/transport/cover/CoverContracts.java": "verification/src/main/java/ic2ce/core/block/transport/cover/CoverContracts.java"
   },
   "retiredSources": [
     {

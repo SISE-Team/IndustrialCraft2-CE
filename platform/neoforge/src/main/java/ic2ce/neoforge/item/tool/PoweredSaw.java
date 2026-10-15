@@ -3,7 +3,7 @@ package ic2ce.neoforge.item.tool;
 import ic2ce.api.item.*;
 import ic2ce.core.IHitSoundOverride;
 import ic2ce.core.util.StackTag;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.core.util.Util;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import ic2ce.neoforge.registry.ToolProfiles;

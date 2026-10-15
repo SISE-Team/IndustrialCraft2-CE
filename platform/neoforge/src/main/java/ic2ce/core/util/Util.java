@@ -1,5 +1,6 @@
 package ic2ce.core.util;
 
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.runtime.AutomationActors;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.lang.reflect.Modifier;

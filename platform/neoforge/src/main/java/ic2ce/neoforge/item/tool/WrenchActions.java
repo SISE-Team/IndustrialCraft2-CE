@@ -1,7 +1,7 @@
 package ic2ce.neoforge.item.tool;
 
 import ic2ce.api.tile.IWrenchable;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.ArrayList;
 import net.minecraft.core.BlockPos;

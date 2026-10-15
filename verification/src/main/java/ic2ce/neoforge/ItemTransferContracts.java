@@ -1,8 +1,8 @@
 package ic2ce.neoforge;
 
 import com.mojang.authlib.GameProfile;
-import ic2ce.core.block.storage.box.TileEntityStorageBox;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.storage.box.TileEntityStorageBox;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.inventory.transfer.TransactionalItemAdapter;
 import ic2ce.neoforge.personal.ItemTradeTerminal;
 import ic2ce.neoforge.personal.PrivateChest;

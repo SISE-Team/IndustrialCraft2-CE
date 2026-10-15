@@ -390,7 +390,7 @@ public final class AllItemFunctions {
         && obscuratorStage == 0
         && age >= 40
         && ic2ce.neoforge.item.tool.SurfaceImprinter.getState(
-                ic2ce.core.util.StackUtil.getOrCreateNbtData(player.getItemInHand(hand)))
+                ic2ce.neoforge.inventory.StackUtil.getOrCreateNbtData(player.getItemInHand(hand)))
             != null) {
       player.setShiftKeyDown(false);
       obscuratorStage = 1;

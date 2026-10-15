@@ -1,7 +1,7 @@
 package ic2ce.neoforge.transport;
 
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.block.storage.box.TileEntityStorageBox;
+import ic2ce.neoforge.storage.box.TileEntityStorageBox;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.storage.StationaryFluidStore;

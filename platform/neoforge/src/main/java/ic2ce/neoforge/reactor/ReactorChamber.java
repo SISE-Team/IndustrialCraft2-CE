@@ -2,7 +2,7 @@ package ic2ce.neoforge.reactor;
 
 import ic2ce.api.energy.tile.*;
 import ic2ce.api.reactor.IReactorChamber;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.component.SignalInput;

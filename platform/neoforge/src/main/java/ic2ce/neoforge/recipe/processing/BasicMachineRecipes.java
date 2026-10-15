@@ -1,7 +1,7 @@
 package ic2ce.neoforge.recipe.processing;
 
 import ic2ce.api.recipe.*;
-import ic2ce.core.util.StackUtil;
+import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
 import ic2ce.neoforge.runtime.ProjectRuntime;

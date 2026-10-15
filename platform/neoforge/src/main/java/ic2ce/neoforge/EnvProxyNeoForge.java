@@ -7,7 +7,7 @@ import ic2ce.api.event.ExplosionEvent;
 import ic2ce.api.event.RetextureEvent;
 import ic2ce.neoforge.fluid.ClientEnvFluidHandlerNeoForge;
 import ic2ce.neoforge.fluid.EnvFluidHandler;
-import ic2ce.core.item.EnvItemHandler;
+import ic2ce.neoforge.inventory.transfer.EnvItemHandler;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.core.proxy.EnvProxy;
 import ic2ce.neoforge.fluid.EnvFluidHandlerNeoForge;

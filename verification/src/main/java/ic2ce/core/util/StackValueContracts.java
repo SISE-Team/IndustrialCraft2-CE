@@ -1,5 +1,6 @@
 package ic2ce.core.util;
 
+import ic2ce.neoforge.inventory.StackUtil;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.core.component.DataComponents;

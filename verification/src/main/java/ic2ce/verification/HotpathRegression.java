@@ -276,7 +276,7 @@ public final class HotpathRegression {
         group(
             "registryContracts",
             () -> {
-              var result = ic2ce.core.block.comp.RegistryContracts.run();
+              var result = ic2ce.neoforge.component.RegistryContracts.run();
               checks += result.checks();
               failures.addAll(result.failures());
             });
@@ -298,7 +298,7 @@ public final class HotpathRegression {
             "portableStorageContracts",
             () -> {
               var result =
-                  ic2ce.core.block.storage.PortableStorageContracts.run(server.overworld());
+                  ic2ce.neoforge.storage.PortableStorageContracts.run(server.overworld());
               checks += result.checks();
               failures.addAll(result.failures());
             });
@@ -762,7 +762,7 @@ public final class HotpathRegression {
         group(
             "coverContracts",
             () -> {
-              var result = ic2ce.core.block.transport.cover.CoverContracts.run(server.overworld());
+              var result = ic2ce.neoforge.transport.cover.CoverContracts.run(server.overworld());
               checks += result.checks();
               failures.addAll(result.failures());
             });
