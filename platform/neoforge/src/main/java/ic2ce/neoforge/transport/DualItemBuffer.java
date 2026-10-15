@@ -5,7 +5,7 @@ import ic2ce.api.upgrade.IUpgradeItem;
 import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.core.IHasGui;
 import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.inventory.UpgradeInventory;

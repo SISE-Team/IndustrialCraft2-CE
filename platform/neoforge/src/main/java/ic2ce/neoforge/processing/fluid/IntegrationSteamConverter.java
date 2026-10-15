@@ -4,7 +4,7 @@ import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.core.*;
 import ic2ce.core.fluid.Ic2FluidTank;
 import ic2ce.core.network.*;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.config.NativeConfigValues;

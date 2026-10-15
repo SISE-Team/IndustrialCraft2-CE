@@ -5,7 +5,7 @@ import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.core.*;
 import ic2ce.core.fluid.Ic2FluidTank;
 import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.core.util.*;
 import ic2ce.engine.machine.BoilerThermodynamics;
 import ic2ce.neoforge.block.InventoryBlockEntity;

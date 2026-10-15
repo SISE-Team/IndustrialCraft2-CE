@@ -1,4 +1,4 @@
-package ic2ce.core.model;
+package ic2ce.neoforge.model;
 
 import ic2ce.neoforge.world.surface.StateVariants;
 import java.util.*;

@@ -700,7 +700,7 @@
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/loot/Ic2LootNbtProviderTypes.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/loot/Ic2LootNbtProviderTypes.java",
       "sha256": "76b11197e0f82278c139cd47bf599df17997de4962062db34fe24401cb75a0ce",
       "kind": "native material/registry membership declaration and forwarding into independently implemented services",
       "countsAsImplementationRewrite": false
@@ -724,19 +724,19 @@
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/profile/Both.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/Both.java",
       "sha256": "2e1757ee436a07028e6727463f0e03956b18d8d587075e61b770cdfd2c3f1629",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/profile/NotClassic.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/NotClassic.java",
       "sha256": "661240b27f11f5a6f124f0da6e74ab23ef05f13f477880eaa59fdc606c92b0e0",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/profile/NotExperimental.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/NotExperimental.java",
       "sha256": "f7177e5407477cc380eb5133848ac9f40d97872e739f5e4649958c3f039df4c8",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false

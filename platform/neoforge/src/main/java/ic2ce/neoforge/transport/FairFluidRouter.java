@@ -4,7 +4,7 @@ import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.core.IHasGui;
 import ic2ce.core.network.GrowingBuffer;
 import ic2ce.core.network.GuiSynced;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.core.util.LiquidUtil;
 import ic2ce.engine.fluid.FairAllocation;
 import ic2ce.neoforge.block.InventoryBlockEntity;

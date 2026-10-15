@@ -7,7 +7,7 @@ import ic2ce.core.IHasGui;
 import ic2ce.core.fluid.Ic2FluidTank;
 import ic2ce.core.network.GrowingBuffer;
 import ic2ce.core.network.GuiSynced;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;

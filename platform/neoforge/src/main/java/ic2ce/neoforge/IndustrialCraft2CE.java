@@ -67,7 +67,7 @@ public final class IndustrialCraft2CE {
     var key = event.getRegistryKey();
     if (key.equals(Registries.GAME_EVENT)) ic2ce.neoforge.registry.GameSignals.init();
     if (key.equals(Registries.LOOT_NBT_PROVIDER_TYPE))
-      ic2ce.core.loot.Ic2LootNbtProviderTypes.registerAll();
+      ic2ce.neoforge.world.loot.Ic2LootNbtProviderTypes.registerAll();
     if (key.equals(Registries.SOUND_EVENT)) {
       transition(Phase.CONSTRUCTED, Phase.REGISTERED);
       EventHandler.onInitEarly();

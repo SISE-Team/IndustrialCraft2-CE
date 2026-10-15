@@ -6,7 +6,7 @@ import ic2ce.api.recipe.Recipes;
 import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.core.fluid.Ic2FluidTank;
 import ic2ce.core.network.GuiSynced;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.FluidContainerInventory;
 import ic2ce.neoforge.inventory.FluidWhitelistInput;

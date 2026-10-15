@@ -1,6 +1,6 @@
 package ic2ce.core.item;
 
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.core.util.StackTag;
 import ic2ce.core.util.Util;
 import ic2ce.core.uu.UuIndex;

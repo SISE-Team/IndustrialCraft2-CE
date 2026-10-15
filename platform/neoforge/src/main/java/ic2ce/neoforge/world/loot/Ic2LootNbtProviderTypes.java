@@ -1,4 +1,4 @@
-package ic2ce.core.loot;
+package ic2ce.neoforge.world.loot;
 
 import com.mojang.serialization.MapCodec;
 import ic2ce.neoforge.runtime.ProjectRuntime;

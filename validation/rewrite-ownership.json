@@ -2799,15 +2799,15 @@
       "scope": "Distinct typed saber/toolbox/directional upgrade native display policies and physical item ownership"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/model/ModelUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/model/ModelUtil.java",
       "scope": "Independent native quad projection returns owned immutable views and canonical state variants"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/block/renderer/KineticGeneratorRenderer.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/client/KineticGeneratorRenderer.java",
       "scope": "Per-renderer bounded native rotor geometry, finite actual rotor state, reused fixed axis rotations and balanced pose ownership"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/loot/Ic2BlockNbtProvider.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/loot/Ic2BlockNbtProvider.java",
       "scope": "Checked native loot block/entity identity and independent adjusted metadata projection"
     },
     {
@@ -2879,7 +2879,7 @@
       "scope": "Native independently composed leaf decay and project fire-spread/flammability properties"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/entity/render/ExplosiveBlockRenderer.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/explosion/client/ExplosiveBlockRenderer.java",
       "scope": "Independent native finite fuse rendering and equivalent simplified pose transform with finally-restored submission stack"
     },
     {
@@ -3073,7 +3073,7 @@
       "scope": "Native tag-name declarations preserve the existing NeoForge registry identities and remove the unused Fabric dispatch branch; no gameplay implementation rewrite counted"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/loot/Ic2LootNbtProviderTypes.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/loot/Ic2LootNbtProviderTypes.java",
       "scope": "Native loot codec definition delegates registration to the independent typed registry journal in its actual registry phase; single constant/forwarding declaration is not a behavior rewrite"
     }
   ],
@@ -3697,7 +3697,15 @@
     "verification/src/main/java/ic2ce/neoforge/registry/CreativeContracts.java": "verification/src/main/java/ic2ce/core/ref/CreativeContracts.java",
     "engine/src/main/java/ic2ce/engine/value/ValueTuples.java": "platform/neoforge/src/main/java/ic2/core/util/Tuple.java",
     "engine/src/main/java/ic2ce/engine/config/Config.java": "engine/src/main/java/ic2/core/util/Config.java",
-    "engine/src/main/java/ic2ce/engine/async/PriorityExecutor.java": "platform/neoforge/src/main/java/ic2/core/util/PriorityExecutor.java"
+    "engine/src/main/java/ic2ce/engine/async/PriorityExecutor.java": "platform/neoforge/src/main/java/ic2/core/util/PriorityExecutor.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/client/KineticGeneratorRenderer.java": "platform/neoforge/src/main/java/ic2/core/block/renderer/KineticGeneratorRenderer.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/explosion/client/ExplosiveBlockRenderer.java": "platform/neoforge/src/main/java/ic2/core/entity/render/ExplosiveBlockRenderer.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/loot/Ic2BlockNbtProvider.java": "platform/neoforge/src/main/java/ic2/core/loot/Ic2BlockNbtProvider.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/loot/Ic2LootNbtProviderTypes.java": "platform/neoforge/src/main/java/ic2/core/loot/Ic2LootNbtProviderTypes.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/model/ModelUtil.java": "platform/neoforge/src/main/java/ic2/core/model/ModelUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/Both.java": "platform/neoforge/src/main/java/ic2/core/profile/Both.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/NotClassic.java": "platform/neoforge/src/main/java/ic2/core/profile/NotClassic.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/NotExperimental.java": "platform/neoforge/src/main/java/ic2/core/profile/NotExperimental.java"
   },
   "retiredSources": [
     {

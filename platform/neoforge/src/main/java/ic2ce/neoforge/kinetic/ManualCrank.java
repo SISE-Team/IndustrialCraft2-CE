@@ -1,7 +1,7 @@
 package ic2ce.neoforge.kinetic;
 
 import ic2ce.api.energy.tile.IKineticSource;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.core.util.Util;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.config.NativeConfigValues;

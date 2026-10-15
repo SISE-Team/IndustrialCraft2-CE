@@ -1,8 +1,8 @@
 package ic2ce.core.proxy;
 
 import ic2ce.api.tile.IRotorProvider;
-import ic2ce.core.block.renderer.KineticGeneratorRenderer;
-import ic2ce.core.entity.render.ExplosiveBlockRenderer;
+import ic2ce.neoforge.kinetic.client.KineticGeneratorRenderer;
+import ic2ce.neoforge.explosion.client.ExplosiveBlockRenderer;
 import ic2ce.core.util.Keyboard;
 import ic2ce.core.util.KeyboardClient;
 import ic2ce.neoforge.agriculture.client.CellCareScreen;

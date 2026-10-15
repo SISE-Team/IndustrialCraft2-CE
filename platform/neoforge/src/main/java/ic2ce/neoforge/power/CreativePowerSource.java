@@ -3,7 +3,7 @@ package ic2ce.neoforge.power;
 import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.energy.tile.IEnergyAcceptor;
 import ic2ce.api.energy.tile.IMultiEnergySource;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import net.minecraft.core.BlockPos;

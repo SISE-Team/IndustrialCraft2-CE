@@ -1,4 +1,4 @@
-package ic2ce.core.profile;
+package ic2ce.neoforge.runtime.profile;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

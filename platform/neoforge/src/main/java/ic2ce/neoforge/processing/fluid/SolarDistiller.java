@@ -6,7 +6,7 @@ import ic2ce.api.upgrade.*;
 import ic2ce.core.*;
 import ic2ce.core.fluid.Ic2FluidTank;
 import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.core.util.BiomeUtil;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;

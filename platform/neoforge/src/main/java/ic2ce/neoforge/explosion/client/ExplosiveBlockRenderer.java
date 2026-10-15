@@ -1,4 +1,4 @@
-package ic2ce.core.entity.render;
+package ic2ce.neoforge.explosion.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import ic2ce.api.entity.block.ExplosiveEntity;

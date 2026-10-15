@@ -1,6 +1,6 @@
 package ic2ce.neoforge.reactor;
 
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

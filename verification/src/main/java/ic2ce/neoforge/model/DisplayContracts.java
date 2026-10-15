@@ -77,11 +77,11 @@ public final class DisplayContracts {
       failures.add("native model: unrelated physical item can spoof an upgrade display protocol");
     var state = Blocks.OAK_LOG.defaultBlockState();
     checks++;
-    if (!ic2ce.core.model.ModelUtil.getVariant(state)
+    if (!ic2ce.neoforge.model.ModelUtil.getVariant(state)
         .equals(ic2ce.neoforge.world.surface.StateVariants.getVariantString(state)))
       failures.add("native model: render and persisted world variant text diverge");
     var quads =
-        ic2ce.core.model.ModelUtil.getQuads(
+        ic2ce.neoforge.model.ModelUtil.getQuads(
             Blocks.STONE.defaultBlockState(),
             Direction.UP,
             net.minecraft.util.RandomSource.create(25));

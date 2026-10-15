@@ -87,7 +87,7 @@ public final class EventHandler {
     EntityGroups.init();
     BoatDefinitions.init();
     EntityDefinitions.init();
-    ic2ce.core.loot.Ic2LootNbtProviderTypes.registerAll();
+    ic2ce.neoforge.world.loot.Ic2LootNbtProviderTypes.registerAll();
     RecipeKinds.init();
     RecipeCodecs.init();
     WorldFeatures.init();

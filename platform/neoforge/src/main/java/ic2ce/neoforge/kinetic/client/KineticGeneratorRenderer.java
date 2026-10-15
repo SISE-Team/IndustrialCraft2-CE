@@ -1,4 +1,4 @@
-package ic2ce.core.block.renderer;
+package ic2ce.neoforge.kinetic.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;

@@ -5,7 +5,7 @@ import ic2ce.api.recipe.IPatternStorage;
 import ic2ce.core.IHasGui;
 import ic2ce.core.item.ItemCrystalMemory;
 import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.core.util.StackTag;
 import ic2ce.core.util.StackUtil;
 import ic2ce.core.uu.UuGraph;

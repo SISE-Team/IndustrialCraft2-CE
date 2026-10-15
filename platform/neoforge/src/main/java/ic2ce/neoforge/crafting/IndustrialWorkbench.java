@@ -2,7 +2,7 @@ package ic2ce.neoforge.crafting;
 
 import ic2ce.core.IHasGui;
 import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.core.util.StackTag;
 import ic2ce.core.util.Util;
 import ic2ce.neoforge.block.InventoryBlockEntity;

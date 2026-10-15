@@ -37,7 +37,7 @@ public final class ClientBindingContracts {
       failures.add("native client binding: replay changes retained native item tint identifiers");
     var client = new ClientEnvProxyNeoForge();
     var quad =
-        ic2ce.core.model.ModelUtil.getQuads(
+        ic2ce.neoforge.model.ModelUtil.getQuads(
                 Blocks.STONE.defaultBlockState(),
                 net.minecraft.core.Direction.UP,
                 net.minecraft.util.RandomSource.create(25))

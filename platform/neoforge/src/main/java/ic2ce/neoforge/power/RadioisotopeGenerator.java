@@ -1,6 +1,6 @@
 package ic2ce.neoforge.power;
 
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.inventory.ConsumableInventory;

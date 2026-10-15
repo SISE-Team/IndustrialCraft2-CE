@@ -6,7 +6,7 @@ import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.api.util.FluidContainerOutputMode;
 import ic2ce.core.fluid.Ic2FluidTank;
 import ic2ce.core.network.*;
-import ic2ce.core.profile.NotClassic;
+import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.core.util.StackTag;
 import ic2ce.core.util.StackUtil;
 import ic2ce.neoforge.component.FluidPorts;
