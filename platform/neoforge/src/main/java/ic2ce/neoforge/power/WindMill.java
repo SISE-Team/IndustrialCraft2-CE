@@ -8,7 +8,6 @@ import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.menu.document.ScreenValues;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -31,7 +30,7 @@ public class WindMill extends RotorGenerator implements ScreenValues.IActiveGuiV
   @GuiSynced private double overheatRatio;
 
   public WindMill(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.WIND_GENERATOR, position, block, 0, 1, 32, 2);
+    super(PowerBlockEntities.WIND_GENERATOR, position, block, 0, 1, 32, 2);
   }
 
   @Override

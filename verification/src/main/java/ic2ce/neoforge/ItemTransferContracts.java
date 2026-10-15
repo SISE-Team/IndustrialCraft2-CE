@@ -1,12 +1,13 @@
 package ic2ce.neoforge;
 
 import com.mojang.authlib.GameProfile;
+import ic2ce.neoforge.personal.PersonalBlocks;
+import ic2ce.neoforge.storage.StorageBlocks;
 import ic2ce.neoforge.storage.box.TileEntityStorageBox;
 import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.inventory.transfer.TransactionalItemAdapter;
 import ic2ce.neoforge.personal.ItemTradeTerminal;
 import ic2ce.neoforge.personal.PrivateChest;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -37,8 +38,8 @@ public final class ItemTransferContracts {
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8840, 100, 8840);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position, BlockDefinitions.IRON_STORAGE_BOX.defaultBlockState());
-    world.setBlockAndUpdate(position.east(), BlockDefinitions.IRON_STORAGE_BOX.defaultBlockState());
+    world.setBlockAndUpdate(position, StorageBlocks.IRON_STORAGE_BOX.defaultBlockState());
+    world.setBlockAndUpdate(position.east(), StorageBlocks.IRON_STORAGE_BOX.defaultBlockState());
     var source = (TileEntityStorageBox) world.getBlockEntity(position);
     var destination = (TileEntityStorageBox) world.getBlockEntity(position.east());
     var input = source.getInventorySlot("inventory");
@@ -86,8 +87,8 @@ public final class ItemTransferContracts {
     world.removeBlock(position, false);
     world.removeBlock(position.east(), false);
 
-    world.setBlockAndUpdate(position, BlockDefinitions.TRADE_O_MAT.defaultBlockState());
-    world.setBlockAndUpdate(position.east(), BlockDefinitions.PERSONAL_CHEST.defaultBlockState());
+    world.setBlockAndUpdate(position, PersonalBlocks.TRADE_O_MAT.defaultBlockState());
+    world.setBlockAndUpdate(position.east(), PersonalBlocks.PERSONAL_CHEST.defaultBlockState());
     var trader = (ItemTradeTerminal) world.getBlockEntity(position);
     var chest = (PrivateChest) world.getBlockEntity(position.east());
     var owner =
@@ -122,7 +123,7 @@ public final class ItemTransferContracts {
     privileged.clearContent();
     world.removeBlock(position, false);
     world.removeBlock(position.east(), false);
-    world.setBlockAndUpdate(position, BlockDefinitions.IRON_STORAGE_BOX.defaultBlockState());
+    world.setBlockAndUpdate(position, StorageBlocks.IRON_STORAGE_BOX.defaultBlockState());
     world.setBlockAndUpdate(
         position.below(), net.minecraft.world.level.block.Blocks.COMPOSTER.defaultBlockState());
     source = (TileEntityStorageBox) world.getBlockEntity(position);

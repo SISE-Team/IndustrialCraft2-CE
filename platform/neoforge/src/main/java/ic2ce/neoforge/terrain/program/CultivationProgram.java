@@ -1,8 +1,8 @@
 package ic2ce.neoforge.terrain.program;
 
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.terrain.TerrainController;
 import ic2ce.neoforge.world.DirectionSets;
+import ic2ce.neoforge.world.WorldBlocks;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -45,7 +45,7 @@ public final class CultivationProgram extends TerrainProgram {
           Blocks.BROWN_MUSHROOM,
           Blocks.PUMPKIN,
           Blocks.MELON,
-          BlockDefinitions.RUBBER_SAPLING
+          WorldBlocks.RUBBER_SAPLING
         }) choices.add(block.defaultBlockState());
     plants = List.copyOf(choices);
   }

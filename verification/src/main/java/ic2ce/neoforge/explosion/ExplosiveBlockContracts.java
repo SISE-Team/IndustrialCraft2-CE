@@ -1,8 +1,7 @@
 package ic2ce.neoforge.explosion;
 
 import ic2ce.api.entity.block.ExplosiveEntity;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.world.WorldItems;
 import java.util.*;
 import java.util.function.Consumer;
 import net.minecraft.core.*;
@@ -64,7 +63,7 @@ public final class ExplosiveBlockContracts {
   }
 
   private static Probe place(ServerLevel world, BlockPos pos) {
-    world.setBlockAndUpdate(pos, BlockDefinitions.ITNT.defaultBlockState());
+    world.setBlockAndUpdate(pos, ExplosionBlocks.ITNT.defaultBlockState());
     var probe = new Probe(pos, world.getBlockState(pos));
     world.setBlockEntity(probe);
     return probe;
@@ -96,7 +95,7 @@ public final class ExplosiveBlockContracts {
           "actual cancelled native entity admission preserves block and both ignition items");
       check(
           pending.getAuxDrops(0).isEmpty()
-              && pending.adjustDrop(new ItemStack(ItemDefinitions.ITNT), true) != null,
+              && pending.adjustDrop(new ItemStack(ExplosionItems.ITNT), true) != null,
           "cancelled admission clears one-shot state and preserves normal block recovery");
     } finally {
       NeoForge.EVENT_BUS.unregister(deny);
@@ -112,7 +111,7 @@ public final class ExplosiveBlockContracts {
     check(
         !pending.explode(actor, false)
             && pending.created == first
-            && pending.adjustDrop(new ItemStack(ItemDefinitions.ITNT), true) == null,
+            && pending.adjustDrop(new ItemStack(ExplosionItems.ITNT), true) == null,
         "removed/primed native charge cannot spawn a duplicate entity or another block drop");
     first.discard();
     var spectator = place(world, pos);
@@ -139,10 +138,10 @@ public final class ExplosiveBlockContracts {
             && actor.getMainHandItem().getDamageValue() == 1,
         "accepted native flint ignition pays exactly one real durability unit");
     spectator.created.discard();
-    world.setBlockAndUpdate(pos, BlockDefinitions.NUKE.defaultBlockState());
+    world.setBlockAndUpdate(pos, ExplosionBlocks.NUKE.defaultBlockState());
     var nuke = (ConfiguredNuclearCharge) world.getBlockEntity(pos);
-    nuke.outsideSlot.put(new ItemStack(ItemDefinitions.ITNT, 64));
-    nuke.insideSlot.put(new ItemStack(ItemDefinitions.URANIUM_BLOCK, 64));
+    nuke.outsideSlot.put(new ItemStack(ExplosionItems.ITNT, 64));
+    nuke.insideSlot.put(new ItemStack(WorldItems.URANIUM_BLOCK, 64));
     float power = nuke.getNukeExplosivePower();
     check(
         Float.isFinite(power) && power >= 0 && nuke.getRadiationRange() == 384,

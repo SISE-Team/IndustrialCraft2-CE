@@ -7,7 +7,6 @@ import ic2ce.neoforge.client.widget.*;
 import ic2ce.neoforge.handheld.menu.HandheldMenu;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.slot.TemplateSlot;
-import ic2ce.neoforge.registry.MenuDefinitions;
 import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -38,7 +37,7 @@ public class MaterialTagEditor extends FilterSubmenu {
     @ClientModifiable public String selectedTag = getNBT().getStringOr("tag", "");
 
     public ContainerEditOre(int id) {
-      super(MenuDefinitions.ADVANCED_UPGRADE_EDIT_ORE, id, MaterialTagEditor.this);
+      super(UpgradeMenus.ADVANCED_UPGRADE_EDIT_ORE, id, MaterialTagEditor.this);
       addPlayerInventorySlots(player.getInventory(), 200);
       for (int slot = 0; slot < 9; slot++)
         addSlot(new TemplateSlot(inventory, slot, 8 + slot * 18, 8, 1, makeSaveCallback()));

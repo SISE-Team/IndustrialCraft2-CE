@@ -1,8 +1,7 @@
 package ic2ce.neoforge.utility;
 
 import ic2ce.neoforge.component.ElectricalBuffer;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.upgrade.UpgradeItems;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -31,7 +30,7 @@ public final class UtilityContracts {
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8560, 100, 8560);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position, BlockDefinitions.TESLA_COIL.defaultBlockState());
+    world.setBlockAndUpdate(position, UtilityBlocks.TESLA_COIL.defaultBlockState());
     var coil = (ArcCoil) world.getBlockEntity(position);
     var energy = coil.getComponent(ElectricalBuffer.class);
     energy.forceAddEnergy(400);
@@ -66,7 +65,7 @@ public final class UtilityContracts {
     world.removeBlock(position, false);
     var pole = position.south(8);
     var magnetPosition = pole.north();
-    world.setBlockAndUpdate(magnetPosition, BlockDefinitions.MAGNETIZER.defaultBlockState());
+    world.setBlockAndUpdate(magnetPosition, UtilityBlocks.MAGNETIZER.defaultBlockState());
     var machine = (PoleDrive) world.getBlockEntity(magnetPosition);
     world.setBlockAndUpdate(
         magnetPosition,
@@ -80,7 +79,7 @@ public final class UtilityContracts {
         machine.tryBoost(0.5) && machine.tryBoost(0.5) && energy.getEnergy() == 0,
         "two half boosts share exactly two paid EU");
     for (int y = 0; y <= 21; y++)
-      world.setBlockAndUpdate(pole.above(y), BlockDefinitions.IRON_FENCE.defaultBlockState());
+      world.setBlockAndUpdate(pole.above(y), UtilityBlocks.IRON_FENCE.defaultBlockState());
     var player =
         net.neoforged.neoforge.common.util.FakePlayerFactory.get(
             world,
@@ -90,13 +89,13 @@ public final class UtilityContracts {
     player.setShiftKeyDown(false);
     player.setDeltaMovement(0, -4, 0);
     player.fallDistance = 10;
-    var fence = (IndustrialFence) BlockDefinitions.IRON_FENCE;
+    var fence = (IndustrialFence) UtilityBlocks.IRON_FENCE;
     fence.entityInside(
         world.getBlockState(pole.above(21)), world, pole.above(21), player, null, true);
     check(
         player.fallDistance == 10 && player.getDeltaMovement().y == -4,
         "fast falling outside unpowered range never uses a tautological slow-speed reset");
-    machine.upgradeSlot.put(new ItemStack(ItemDefinitions.OVERCLOCKER_UPGRADE));
+    machine.upgradeSlot.put(new ItemStack(UpgradeItems.OVERCLOCKER_UPGRADE));
     machine.setChanged();
     energy.forceAddEnergy(2);
     player.setDeltaMovement(0, 0, 0);

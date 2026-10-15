@@ -3,8 +3,6 @@ package ic2ce.neoforge.agriculture;
 import ic2ce.api.crops.*;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.agriculture.item.EncodedSeed;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.*;
 import net.minecraft.core.BlockPos;
@@ -59,7 +57,7 @@ public final class CropCatalogContracts {
     catalog.registerCrop(wheat);
     var snapshot = catalog.getCrops();
     check(
-        catalog.getCropCard(BlockDefinitions.WHEAT_CROP) == wheat
+        catalog.getCropCard(AgricultureBlocks.WHEAT_CROP) == wheat
             && catalog.getCropCard("ic2", "wheat") == wheat,
         "both direct native block and owner/name keys resolve the registered species");
     catalog.registerCrop(wheat);
@@ -123,13 +121,13 @@ public final class CropCatalogContracts {
             && StackTag.get(encoded).getStringOr("addon", "").equals("preserved"),
         "legacy numeric seed reads and later component writes preserve addon data and cap scan"
             + " exhaustion");
-    var blank = new ItemStack(ItemDefinitions.CROP_SEED_BACK);
+    var blank = new ItemStack(AgricultureItems.CROP_SEED_BACK);
     item.setCropFromStack(blank, wheat);
     check(
         item.getCropFromStack(blank) == wheat,
         "assigning a species initializes an actually blank physical seed component");
     var position = new BlockPos(9120, 100, 9120);
-    var plot = place(world, position, BlockDefinitions.CROP_STICK);
+    var plot = place(world, position, AgricultureBlocks.CROP_STICK);
     var player =
         net.neoforged.neoforge.common.util.FakePlayerFactory.get(
             world,
@@ -174,10 +172,10 @@ public final class CropCatalogContracts {
             + player.getItemInHand(InteractionHand.MAIN_HAND).getCount()
             + plantingBefore);
     world.removeBlock(position, false);
-    plot = place(world, position, BlockDefinitions.CROP_STICK);
+    plot = place(world, position, AgricultureBlocks.CROP_STICK);
     plot.setCrossingBase(true);
     plot.setStorageWeedEX(150);
-    var parent = place(world, position.east(), BlockDefinitions.WHEAT_CROP);
+    var parent = place(world, position.east(), AgricultureBlocks.WHEAT_CROP);
     parent.setCurrentAge(7);
     parent.setStatGrowth(17);
     parent.setStatGain(12);
@@ -193,11 +191,11 @@ public final class CropCatalogContracts {
         "single real adjacent mature parent spreads identical genetics into the real crossing"
             + " plot");
     world.removeBlock(position, false);
-    plot = place(world, position, BlockDefinitions.CROP_STICK);
+    plot = place(world, position, AgricultureBlocks.CROP_STICK);
     plot.setCrossingBase(true);
     plot.setStorageWeedEX(150);
     parent.setStatGrowth(10);
-    var second = place(world, position.west(), BlockDefinitions.WHEAT_CROP);
+    var second = place(world, position.west(), AgricultureBlocks.WHEAT_CROP);
     second.setCurrentAge(7);
     second.setStatGrowth(10);
     second.setStatGain(12);
@@ -216,7 +214,7 @@ public final class CropCatalogContracts {
         "two actual mature parents breed a physically replaced species with bounded inherited"
             + " mutation");
     world.removeBlock(position, false);
-    plot = place(world, position, BlockDefinitions.CROP_STICK);
+    plot = place(world, position, AgricultureBlocks.CROP_STICK);
     plot.setCrossingBase(true);
     plot.setStorageWeedEX(150);
     var incompatible =
@@ -239,7 +237,7 @@ public final class CropCatalogContracts {
 
           @Override
           public Block getCropBlock() {
-            return BlockDefinitions.WHEAT_CROP;
+            return AgricultureBlocks.WHEAT_CROP;
           }
 
           @Override

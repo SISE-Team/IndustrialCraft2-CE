@@ -1,5 +1,6 @@
 package ic2ce.neoforge.crafting;
 
+import ic2ce.neoforge.item.tool.ToolItems;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.profile.NotClassic;
@@ -11,8 +12,6 @@ import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.inventory.TagInput;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.recipe.codec.RecipeGeneration;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.ItemGroups;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -40,7 +39,7 @@ public class IndustrialWorkbench extends InventoryBlockEntity implements IHasGui
   public final ToolStation rightCrafting = new ToolStation(this, "right", ItemGroups.WIRE_CUTTERS);
 
   public IndustrialWorkbench(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.INDUSTRIAL_WORKBENCH, position, state);
+    super(CraftingBlockEntities.INDUSTRIAL_WORKBENCH, position, state);
   }
 
   @Override
@@ -48,8 +47,8 @@ public class IndustrialWorkbench extends InventoryBlockEntity implements IHasGui
     super.onPlaced(item, placer, facing);
     var data = StackTag.get(item);
     if (data == null || !data.getBooleanOr("PLACED", false)) {
-      leftCrafting.tool.put(new ItemStack(ItemDefinitions.FORGE_HAMMER));
-      rightCrafting.tool.put(new ItemStack(ItemDefinitions.CUTTER));
+      leftCrafting.tool.put(new ItemStack(ToolItems.FORGE_HAMMER));
+      rightCrafting.tool.put(new ItemStack(ToolItems.CUTTER));
     }
   }
 

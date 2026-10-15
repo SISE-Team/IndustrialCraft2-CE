@@ -2,6 +2,7 @@ package ic2ce.verification;
 
 
 import com.google.gson.GsonBuilder;
+import ic2ce.neoforge.processing.ProcessingItems;
 import ic2ce.neoforge.runtime.SideServices;
 import java.nio.file.*;
 import java.util.*;
@@ -232,7 +233,7 @@ public final class RemoteClientProbe {
           }
         }
       }
-    var memory = new ItemStack(ic2ce.neoforge.registry.ItemDefinitions.CRYSTAL_MEMORY);
+    var memory = new ItemStack(ProcessingItems.CRYSTAL_MEMORY);
     ((ic2ce.neoforge.processing.uu.ItemCrystalMemory) memory.getItem())
         .writecontentsTag(
             mc.level, memory, new ItemStack(net.minecraft.world.item.Items.IRON_INGOT, 3));

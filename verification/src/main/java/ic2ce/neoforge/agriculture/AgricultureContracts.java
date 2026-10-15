@@ -5,9 +5,8 @@ import ic2ce.api.crops.CropProperties;
 import ic2ce.api.crops.ICropTile;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.item.StackTag;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.item.container.ContainerItems;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,9 +37,9 @@ public final class AgricultureContracts {
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8992, 100, 8992);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position, BlockDefinitions.CROP_HARVESTER.defaultBlockState());
+    world.setBlockAndUpdate(position, AgricultureBlocks.CROP_HARVESTER.defaultBlockState());
     world.setBlockAndUpdate(position.east().below(), Blocks.FARMLAND.defaultBlockState());
-    world.setBlockAndUpdate(position.east(), BlockDefinitions.WHEAT_CROP.defaultBlockState());
+    world.setBlockAndUpdate(position.east(), AgricultureBlocks.WHEAT_CROP.defaultBlockState());
     var crop = (CropPlot) world.getBlockEntity(position.east());
     var harvester = (AutoHarvester) world.getBlockEntity(position);
     var nativeSpecies = crop.getCrop();
@@ -50,7 +49,7 @@ public final class AgricultureContracts {
         new CropCard(ic2ce.neoforge.agriculture.Cultivar.WHEAT) {
           @Override
           public Block getCropBlock() {
-            return BlockDefinitions.WHEAT_CROP;
+            return AgricultureBlocks.WHEAT_CROP;
           }
 
           @Override
@@ -120,12 +119,12 @@ public final class AgricultureContracts {
             + ", EU="
             + harvester.getEnergy());
     world.removeBlock(position, false);
-    world.setBlockAndUpdate(position, BlockDefinitions.CROPMATRON.defaultBlockState());
+    world.setBlockAndUpdate(position, AgricultureBlocks.CROPMATRON.defaultBlockState());
     var care = (FluidCropCaretaker) world.getBlockEntity(position);
     crop.setStorageNutrients(0);
     crop.setStorageWater(0);
     crop.setStorageWeedEX(0);
-    care.fertilizerSlot.put(new ItemStack(ItemDefinitions.FERTILIZER));
+    care.fertilizerSlot.put(new ItemStack(AgricultureItems.FERTILIZER));
     care.getWaterTank()
         .fillMbUnchecked(
             Ic2FluidStack.create(net.minecraft.world.level.material.Fluids.WATER, 100), false);
@@ -168,7 +167,7 @@ public final class AgricultureContracts {
     check(
         crop.applyWeedEx(50, true, true, false) == 50 && crop.getStorageWeedEX() == 100,
         "an exactly fitting fixed manual herbicide dose uses its complete legitimate capacity");
-    var herbicide = new ItemStack(ItemDefinitions.WEED_EX_CELL);
+    var herbicide = new ItemStack(ContainerItems.WEED_EX_CELL);
     StackTag.update(
         herbicide,
         data -> {
@@ -177,11 +176,11 @@ public final class AgricultureContracts {
         });
     crop.setStorageWeedEX(0);
     check(
-        ItemDefinitions.WEED_EX_CELL.useOnCrop(herbicide, crop, false)
+        ContainerItems.WEED_EX_CELL.useOnCrop(herbicide, crop, false)
             && herbicide.isEmpty()
             && crop.getStorageWeedEX() == 50,
         "last actual herbicide charge consumes the caller's physical cell");
-    var hydration = new ItemStack(ItemDefinitions.HYDRATION_CELL);
+    var hydration = new ItemStack(ContainerItems.HYDRATION_CELL);
     StackTag.update(
         hydration,
         data -> {
@@ -189,18 +188,18 @@ public final class AgricultureContracts {
           return data;
         });
     check(
-        ItemDefinitions.HYDRATION_CELL.useOnCrop(hydration, crop, false)
+        ContainerItems.HYDRATION_CELL.useOnCrop(hydration, crop, false)
             && hydration.isEmpty()
             && crop.getStorageWater() == 1,
         "last remaining hydration unit has a usable dose and truly exhausts its physical cell");
-    var empty = new ItemStack(ItemDefinitions.EMPTY_CELL);
+    var empty = new ItemStack(ContainerItems.EMPTY_CELL);
     var water = Ic2FluidStack.create(net.minecraft.world.level.material.Fluids.WATER, 1000);
     var replacement = new MutableObject<ItemStack>();
     var emptyItem = (ic2ce.api.fluid.Ic2FluidItem) empty.getItem();
     check(
         emptyItem.fillMb(empty, water, true, replacement) == 1000
             && empty.getCount() == 1
-            && replacement.getValue().is(ItemDefinitions.WATER_CELL),
+            && replacement.getValue().is(ContainerItems.WATER_CELL),
         "fixed-volume fill simulation owns its returned cell and leaves its input intact");
     var filled = replacement.getValue();
     var fluidItem = (ic2ce.api.fluid.Ic2FluidItem) filled.getItem();
@@ -210,16 +209,16 @@ public final class AgricultureContracts {
     check(
         fluidItem.drainMb(filled, 1000, true, replacement).getAmountMb() == 1000
             && filled.getCount() == 1
-            && replacement.getValue().is(ItemDefinitions.EMPTY_CELL),
+            && replacement.getValue().is(ContainerItems.EMPTY_CELL),
         "fixed-volume drain simulation preserves original quantity and returns an owned empty"
             + " replacement");
     check(
         fluidItem.drainMb(filled, 1000, false, replacement).getAmountMb() == 1000
             && filled.isEmpty()
-            && replacement.getValue().is(ItemDefinitions.EMPTY_CELL),
+            && replacement.getValue().is(ContainerItems.EMPTY_CELL),
         "real fixed-volume drain consumes exactly one cell and preserves its empty container");
     check(
-        ItemDefinitions.EMPTY_CELL.getBarWidth(empty) == 0,
+        ContainerItems.EMPTY_CELL.getBarWidth(empty) == 0,
         "zero-charge empty cell has a finite bounded display width");
     world.removeBlock(position, false);
     world.removeBlock(position.east(), false);

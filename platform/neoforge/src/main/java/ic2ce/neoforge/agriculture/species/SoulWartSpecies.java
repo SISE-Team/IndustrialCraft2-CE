@@ -1,8 +1,8 @@
 package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
 import ic2ce.neoforge.agriculture.CropCatalog;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import java.util.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
@@ -22,7 +22,7 @@ public class SoulWartSpecies extends MaterialSpecies {
 
   @Override
   public Block getCropBlock() {
-    return BlockDefinitions.NETHER_WART_CROP;
+    return AgricultureBlocks.NETHER_WART_CROP;
   }
 
   @Override

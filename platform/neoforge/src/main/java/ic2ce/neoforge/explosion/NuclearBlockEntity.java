@@ -6,7 +6,6 @@ import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
 import ic2ce.neoforge.diagnostics.Positions;
 import ic2ce.neoforge.diagnostics.ProjectLog;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import net.minecraft.core.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
@@ -69,7 +68,7 @@ public abstract class NuclearBlockEntity extends ExplosiveBlockEntity {
 
   public static class ClassicNuclearCharge extends NuclearBlockEntity {
     public ClassicNuclearCharge(BlockPos position, BlockState state) {
-      super(BlockEntityDefinitions.CLASSIC_NUKE, position, state);
+      super(ExplosionBlockEntities.CLASSIC_NUKE, position, state);
     }
 
     @Override

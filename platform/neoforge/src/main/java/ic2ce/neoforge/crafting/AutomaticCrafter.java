@@ -21,7 +21,6 @@ import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
 import ic2ce.neoforge.network.ClientFieldValidator;
 import ic2ce.neoforge.recipe.codec.RecipeGeneration;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -98,7 +97,7 @@ public class AutomaticCrafter extends PoweredBlockEntity
   private RecipeMap generation;
 
   public AutomaticCrafter(BlockPos position, BlockState state) {
-    this(BlockEntityDefinitions.BATCH_CRAFTER, position, state);
+    this(CraftingBlockEntities.BATCH_CRAFTER, position, state);
   }
 
   protected AutomaticCrafter(

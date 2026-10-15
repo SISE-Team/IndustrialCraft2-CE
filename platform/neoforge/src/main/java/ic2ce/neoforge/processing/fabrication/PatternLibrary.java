@@ -3,6 +3,8 @@ package ic2ce.neoforge.processing.fabrication;
 import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.recipe.IPatternStorage;
 import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
+import ic2ce.neoforge.processing.ProcessingItems;
 import ic2ce.neoforge.processing.uu.ItemCrystalMemory;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.profile.NotClassic;
@@ -15,8 +17,6 @@ import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.inventory.ItemWhitelistInput;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.processing.menu.PatternLibraryMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -58,7 +58,7 @@ public class PatternLibrary extends InventoryBlockEntity
   public double patternUu, patternEu;
 
   public PatternLibrary(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.PATTERN_STORAGE, position, state);
+    super(ProcessingBlockEntities.PATTERN_STORAGE, position, state);
     diskSlot =
         new ItemWhitelistInput(
             this,
@@ -66,7 +66,7 @@ public class PatternLibrary extends InventoryBlockEntity
             InventorySlot.Access.IO,
             1,
             InventorySlot.InvSide.ANY,
-            ItemDefinitions.CRYSTAL_MEMORY);
+            ProcessingItems.CRYSTAL_MEMORY);
   }
 
   @Override

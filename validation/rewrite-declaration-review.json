@@ -880,20 +880,8 @@
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/ItemDefinitions.java",
-      "sha256": "c36bb191a8183e900c403e30e8c9234af6c26b7b7e87fbc431bd7b8c665bff84",
-      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
-      "countsAsImplementationRewrite": false
-    },
-    {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/ItemGroups.java",
       "sha256": "d6839ddf90c7afbf48b2fd275d511ed1f30482bac6b8a49a85d8580e4eeefbda",
-      "kind": "native material/registry membership declaration and forwarding into independently implemented services",
-      "countsAsImplementationRewrite": false
-    },
-    {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/MenuDefinitions.java",
-      "sha256": "4ef1739cae8b852be9776fed2ce61c3f6164ba289c4cae7f08a36ba99d0a4146",
       "kind": "native material/registry membership declaration and forwarding into independently implemented services",
       "countsAsImplementationRewrite": false
     },

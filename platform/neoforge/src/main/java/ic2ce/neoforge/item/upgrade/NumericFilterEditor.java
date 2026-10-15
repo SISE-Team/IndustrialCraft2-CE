@@ -7,7 +7,6 @@ import ic2ce.neoforge.client.widget.*;
 import ic2ce.neoforge.handheld.menu.HandheldMenu;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.slot.TemplateSlot;
-import ic2ce.neoforge.registry.MenuDefinitions;
 import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.*;
@@ -52,7 +51,7 @@ public class NumericFilterEditor extends FilterSubmenu {
         extraSetting = initialExtraSetting;
 
     public ContainerValueConfig(int id) {
-      super(MenuDefinitions.ADVANCED_UPGRADE_VALUE_CONFIG, id, NumericFilterEditor.this);
+      super(UpgradeMenus.ADVANCED_UPGRADE_VALUE_CONFIG, id, NumericFilterEditor.this);
       addPlayerInventorySlots(player.getInventory(), 166);
       for (int slot = 0; slot < 9; slot++)
         addSlot(new TemplateSlot(inventory, slot, 8 + slot * 18, 8, 1, makeSaveCallback()));

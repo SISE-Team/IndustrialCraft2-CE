@@ -1,7 +1,7 @@
 package ic2ce.neoforge.item.tool;
 
 import ic2ce.api.item.ElectricItem;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.world.WorldBlocks;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.context.UseOnContext;
 
@@ -21,7 +21,7 @@ public class ElectricResinTap extends PoweredTool {
     var state = world.getBlockState(position);
     var held = context.getItemInHand();
     var player = context.getPlayer();
-    if (!state.is(BlockDefinitions.RUBBER_LOG) || player == null || !held.is(this))
+    if (!state.is(WorldBlocks.RUBBER_LOG) || player == null || !held.is(this))
       return InteractionResult.PASS;
     boolean creative = player.getAbilities().instabuild;
     if (!creative && !canUse(held)) return InteractionResult.PASS;

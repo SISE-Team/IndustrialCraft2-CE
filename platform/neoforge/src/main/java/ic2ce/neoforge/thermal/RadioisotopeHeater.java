@@ -1,5 +1,6 @@
 package ic2ce.neoforge.thermal;
 
+import ic2ce.neoforge.item.consumable.ConsumableItems;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.profile.NotClassic;
@@ -8,8 +9,6 @@ import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.inventory.ConsumableInventory;
 import ic2ce.neoforge.inventory.StackWhitelistInput;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.thermal.menu.IsotopeHeaterMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
@@ -21,14 +20,14 @@ import net.minecraft.world.level.block.state.BlockState;
 @NotClassic
 public class RadioisotopeHeater extends BufferedHeatSource implements IHasGui {
   public final ConsumableInventory fuelSlot =
-      new StackWhitelistInput(this, "fuelSlot", 6, new ItemStack(ItemDefinitions.RTG_PELLET));
+      new StackWhitelistInput(this, "fuelSlot", 6, new ItemStack(ConsumableItems.RTG_PELLET));
   public static final float outputMultiplier =
       2
           * NativeConfigValues.getFloat(
               ProjectConfiguration.get(), "balance/energy/heatgenerator/radioisotope");
 
   public RadioisotopeHeater(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.RT_HEAT_GENERATOR, position, block);
+    super(ThermalBlockEntities.RT_HEAT_GENERATOR, position, block);
     fuelSlot.setStackSizeLimit(1);
   }
 
@@ -47,7 +46,7 @@ public class RadioisotopeHeater extends BufferedHeatSource implements IHasGui {
   public int getMaxHeatEmittedPerTick() {
     int pellets = 0;
     for (int slot = 0; slot < fuelSlot.size(); slot++)
-      if (fuelSlot.get(slot).is(ItemDefinitions.RTG_PELLET)) pellets++;
+      if (fuelSlot.get(slot).is(ConsumableItems.RTG_PELLET)) pellets++;
     return pellets == 0 || !Float.isFinite(outputMultiplier) || outputMultiplier <= 0
         ? 0
         : (int) Math.min(Integer.MAX_VALUE, (1 << (pellets - 1)) * (double) outputMultiplier);

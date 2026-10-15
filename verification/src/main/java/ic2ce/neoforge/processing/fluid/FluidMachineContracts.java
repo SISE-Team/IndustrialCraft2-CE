@@ -1,9 +1,10 @@
 package ic2ce.neoforge.processing.fluid;
 
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.agriculture.AgricultureItems;
+import ic2ce.neoforge.processing.ProcessingBlocks;
+import ic2ce.neoforge.reactor.ReactorItems;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -29,14 +30,14 @@ public final class FluidMachineContracts {
 
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8270, 100, 8270);
-    var condenser = new SteamCondenser(position, BlockDefinitions.CONDENSER.defaultBlockState());
+    var condenser = new SteamCondenser(position, ProcessingBlocks.CONDENSER.defaultBlockState());
     condenser.setLevel(world);
     condenser
         .getInputTank()
         .fillMbUnchecked(Ic2FluidStack.create(FluidDefinitions.STEAM.still, 1), false);
     condenser.progress = 9999;
     for (int slot = 0; slot < 4; slot++)
-      condenser.ventSlots.put(slot, new ItemStack(ItemDefinitions.HEAT_VENT));
+      condenser.ventSlots.put(slot, new ItemStack(ReactorItems.HEAT_VENT));
     condenser.updateEntityServer();
     check(
         condenser.getOutputTank().getFluidAmount() == 100
@@ -66,18 +67,18 @@ public final class FluidMachineContracts {
             && condenser.getComponent(ic2ce.neoforge.component.ElectricalBuffer.class).getEnergy()
                 == 2,
         "a full water outlet consumes neither steam nor fan energy");
-    var fermenter = new BiomassFermenter(position, BlockDefinitions.FERMENTER.defaultBlockState());
+    var fermenter = new BiomassFermenter(position, ProcessingBlocks.FERMENTER.defaultBlockState());
     fermenter.setLevel(world);
     var saved = new CompoundTag();
     saved.putInt("progress", 100000);
     fermenter.load(saved);
-    fermenter.fertiliserSlot.put(new ItemStack(ItemDefinitions.FERTILIZER, 64));
+    fermenter.fertiliserSlot.put(new ItemStack(AgricultureItems.FERTILIZER, 64));
     int credit = fermenter.progress;
     fermenter.updateEntityServer();
     check(
         fermenter.progress == credit && fermenter.fertiliserSlot.get().getCount() == 64,
         "a full fertilizer slot cannot erase saved production credit");
-    var boiler = new PressureBoiler(position, BlockDefinitions.STEAM_GENERATOR.defaultBlockState());
+    var boiler = new PressureBoiler(position, ProcessingBlocks.STEAM_GENERATOR.defaultBlockState());
     boiler.setLevel(world);
     saved = new CompoundTag();
     saved.putInt("inputmb", Integer.MAX_VALUE);
@@ -97,7 +98,7 @@ public final class FluidMachineContracts {
         boiler.getPressure() == 0 && boiler.getInputMB() == 1000,
         "extreme signed control events cannot overflow boiler limits");
     var distiller =
-        new SolarDistiller(position, BlockDefinitions.SOLAR_DISTILLER.defaultBlockState());
+        new SolarDistiller(position, ProcessingBlocks.SOLAR_DISTILLER.defaultBlockState());
     distiller.setLevel(world);
     distiller.inputTank.fillMbUnchecked(
         Ic2FluidStack.create(net.minecraft.world.level.material.Fluids.WATER, 1), false);

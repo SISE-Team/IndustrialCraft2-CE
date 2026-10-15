@@ -1,7 +1,6 @@
 package ic2ce.neoforge.personal;
 
 import com.mojang.authlib.GameProfile;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -30,7 +29,7 @@ public final class PersonalContracts {
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8720, 100, 8720);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position, BlockDefinitions.PERSONAL_CHEST.defaultBlockState());
+    world.setBlockAndUpdate(position, PersonalBlocks.PERSONAL_CHEST.defaultBlockState());
     var tile = (PrivateChest) world.getBlockEntity(position);
     var owner =
         new GameProfile(UUID.fromString("051b6536-0ddd-400b-ab4c-350976623513"), "IC2ChestOwner");

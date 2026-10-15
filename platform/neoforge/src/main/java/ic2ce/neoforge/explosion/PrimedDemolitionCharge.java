@@ -1,7 +1,6 @@
 package ic2ce.neoforge.explosion;
 
 import ic2ce.api.entity.block.ExplosiveEntity;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.EntityDefinitions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
@@ -22,7 +21,7 @@ public class PrimedDemolitionCharge extends ExplosiveEntity {
         POWER,
         DROPS,
         ENTITY_DAMAGE,
-        BlockDefinitions.ITNT.defaultBlockState(),
+        ExplosionBlocks.ITNT.defaultBlockState(),
         0);
   }
 
@@ -32,6 +31,6 @@ public class PrimedDemolitionCharge extends ExplosiveEntity {
     explosivePower = POWER;
     dropRate = DROPS;
     damageVsEntities = ENTITY_DAMAGE;
-    renderBlockState = BlockDefinitions.ITNT.defaultBlockState();
+    renderBlockState = ExplosionBlocks.ITNT.defaultBlockState();
   }
 }

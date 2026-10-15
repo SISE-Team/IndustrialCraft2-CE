@@ -1,7 +1,7 @@
 package ic2ce.neoforge.item.tool;
 
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.material.MaterialItems;
+import ic2ce.neoforge.world.WorldBlocks;
 import ic2ce.neoforge.world.block.ResinLog;
 import java.util.*;
 import net.minecraft.core.BlockPos;
@@ -30,7 +30,7 @@ public final class ResinContracts {
             .findFirst()
             .orElseThrow();
     var state =
-        BlockDefinitions.RUBBER_LOG.defaultBlockState().setValue(ResinLog.stateProperty, wet);
+        WorldBlocks.RUBBER_LOG.defaultBlockState().setValue(ResinLog.stateProperty, wet);
     var output = new ArrayList<ItemStack>();
     world.setBlock(position, state, Block.UPDATE_CLIENTS | Block.UPDATE_KNOWN_SHAPE);
     boolean extracted =
@@ -57,7 +57,7 @@ public final class ResinContracts {
       for (var stack : output) {
         dryResin += stack.getCount();
         checks++;
-        if (!stack.is(ItemDefinitions.RESIN) || stack.getCount() != 1)
+        if (!stack.is(MaterialItems.RESIN) || stack.getCount() != 1)
           failures.add("native resin: dry collection owns exactly one resin per successful draw");
       }
     }

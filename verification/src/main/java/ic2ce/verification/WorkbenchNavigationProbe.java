@@ -2,7 +2,7 @@ package ic2ce.verification;
 
 import com.google.gson.GsonBuilder;
 import ic2ce.neoforge.crafting.IndustrialWorkbench;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.processing.ProcessingBlocks;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public final class WorkbenchNavigationProbe {
       var target = source.getBlockPos().above();
       actor
           .level()
-          .setBlockAndUpdate(target, BlockDefinitions.ELECTRIC_FURNACE.defaultBlockState());
+          .setBlockAndUpdate(target, ProcessingBlocks.ELECTRIC_FURNACE.defaultBlockState());
       state =
           new State(
               source.getBlockPos().immutable(),

@@ -6,6 +6,7 @@ import ic2ce.api.upgrade.*;
 import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.world.BiomeUtil;
@@ -15,7 +16,6 @@ import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.power.SolarCollector;
 import ic2ce.neoforge.processing.menu.DistillationMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -41,7 +41,7 @@ public class SolarDistiller extends InventoryBlockEntity implements IHasGui, IUp
           UpgradableProperty.FluidProducing);
 
   public SolarDistiller(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.SOLAR_DISTILLER, position, state);
+    super(ProcessingBlockEntities.SOLAR_DISTILLER, position, state);
     fluids = addComponent(new FluidPorts(this));
     inputTank =
         fluids.addTankInsert(

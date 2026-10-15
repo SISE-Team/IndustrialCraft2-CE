@@ -1,8 +1,8 @@
 package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
+import ic2ce.neoforge.material.MaterialItems;
 import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.*;
 import net.minecraft.world.entity.Entity;
@@ -23,7 +23,7 @@ public class ResinReedSpecies extends MaterialSpecies {
 
   @Override
   public Block getCropBlock() {
-    return BlockDefinitions.STICKY_REED_CROP;
+    return AgricultureBlocks.STICKY_REED_CROP;
   }
 
   @Override
@@ -59,7 +59,7 @@ public class ResinReedSpecies extends MaterialSpecies {
         ? ItemStack.EMPTY
         : age < getMaxAge()
             ? new ItemStack(Items.SUGAR_CANE, age)
-            : new ItemStack(ItemDefinitions.RESIN);
+            : new ItemStack(MaterialItems.RESIN);
   }
 
   @Override

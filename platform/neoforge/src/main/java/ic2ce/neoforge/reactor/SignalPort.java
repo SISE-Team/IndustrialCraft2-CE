@@ -1,7 +1,6 @@
 package ic2ce.neoforge.reactor;
 
 import ic2ce.neoforge.component.SignalInput;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -11,7 +10,7 @@ public class SignalPort extends VesselEndpoint {
   public final SignalInput redstone = addComponent(new SignalInput(this));
 
   public SignalPort(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.REACTOR_REDSTONE_PORT, position, state);
+    super(ReactorBlockEntities.REACTOR_REDSTONE_PORT, position, state);
   }
 
   private void relink() {

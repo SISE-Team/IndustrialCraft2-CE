@@ -5,9 +5,7 @@ import ic2ce.api.recipe.IPatternStorage;
 import ic2ce.neoforge.processing.uu.ItemCrystalMemory;
 import ic2ce.neoforge.processing.fabrication.PatternReplicator;
 import ic2ce.neoforge.processing.fabrication.PatternScanner;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -49,7 +47,7 @@ public final class UuContracts {
     private final Patterns storage = new Patterns();
 
     Replicator() {
-      super(new BlockPos(8220, 100, 8220), BlockDefinitions.REPLICATOR.defaultBlockState());
+      super(new BlockPos(8220, 100, 8220), ProcessingBlocks.REPLICATOR.defaultBlockState());
     }
 
     @Override
@@ -59,7 +57,7 @@ public final class UuContracts {
   }
 
   private Result exercise(ServerLevel world) {
-    var crystal = new ItemStack(ItemDefinitions.CRYSTAL_MEMORY);
+    var crystal = new ItemStack(ProcessingItems.CRYSTAL_MEMORY);
     var memory = (ItemCrystalMemory) crystal.getItem();
     var before = crystal.copy();
     check(
@@ -74,7 +72,7 @@ public final class UuContracts {
     check(memory.readItemStack(crystal).isEmpty(), "writing empty clears an old crystal pattern");
     var scanner =
         new PatternScanner(
-            new BlockPos(8221, 100, 8221), BlockDefinitions.UU_SCANNER.defaultBlockState());
+            new BlockPos(8221, 100, 8221), ProcessingBlocks.UU_SCANNER.defaultBlockState());
     scanner.setLevel(world);
     var malformed = new CompoundTag();
     malformed.putInt("state", -1);

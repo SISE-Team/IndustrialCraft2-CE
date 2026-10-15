@@ -1,8 +1,8 @@
 package ic2ce.neoforge.handheld.menu;
 
 import ic2ce.engine.value.ValueTuples;
+import ic2ce.neoforge.handheld.HandheldMenus;
 import ic2ce.neoforge.handheld.ScannerSession;
-import ic2ce.neoforge.registry.MenuDefinitions;
 import ic2ce.neoforge.runtime.SideServices;
 import java.util.*;
 import net.minecraft.world.entity.player.Inventory;
@@ -13,7 +13,7 @@ public class ScannerMenu extends HandheldMenu<ScannerSession> {
   public List<ValueTuples.T2<ItemStack, Integer>> scanResults = List.of();
 
   public ScannerMenu(int id, Inventory inventory, ScannerSession scanner) {
-    super(MenuDefinitions.SCANNER, id, scanner);
+    super(HandheldMenus.SCANNER, id, scanner);
     addPlayerInventorySlots(inventory, 231);
   }
 

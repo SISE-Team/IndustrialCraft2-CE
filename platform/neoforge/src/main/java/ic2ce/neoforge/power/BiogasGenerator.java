@@ -10,7 +10,6 @@ import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.inventory.FluidContainerInventory;
 import ic2ce.neoforge.inventory.FluidRecipeInput;
 import ic2ce.neoforge.inventory.OutputInventory;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import net.minecraft.core.BlockPos;
@@ -27,7 +26,7 @@ public class BiogasGenerator extends BufferedGenerator {
   protected final FluidPorts fluids = addComponent(new FluidPorts(this));
 
   public BiogasGenerator(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.SEMIFLUID_GENERATOR, position, block, 32, 1, 32000);
+    super(PowerBlockEntities.SEMIFLUID_GENERATOR, position, block, 32, 1, 32000);
     fluidTank =
         fluids.addTankInsert("fluid", 10000, FluidPorts.fluidPredicate(Recipes.semiFluidGenerator));
     fluidSlot = new FluidRecipeInput(this, "fluidSlot", 1, Recipes.semiFluidGenerator);

@@ -2,8 +2,9 @@ package ic2ce.neoforge.processing.fluid;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.fluid.PumpUtil;
+import ic2ce.neoforge.mining.MiningBlocks;
 import ic2ce.neoforge.mining.PipeMiner;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.processing.ProcessingBlocks;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -34,7 +35,7 @@ public final class PumpContracts {
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8420, 100, 8420);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position, BlockDefinitions.PUMP.defaultBlockState());
+    world.setBlockAndUpdate(position, ProcessingBlocks.PUMP.defaultBlockState());
     var pump = (FluidCollector) world.getBlockEntity(position);
     pump.setUpgradestat();
     var source = position.relative(pump.getFacing());
@@ -87,7 +88,7 @@ public final class PumpContracts {
         PumpUtil.searchFluidSource(world, source) == null,
         "fluid search never crosses from flowing water into lava");
     world.setBlockAndUpdate(source, Blocks.WATER.defaultBlockState());
-    var linked = new PipeMiner(position.east(), BlockDefinitions.MINER.defaultBlockState());
+    var linked = new PipeMiner(position.east(), MiningBlocks.MINER.defaultBlockState());
     linked.setLevel(world);
     check(
         !linked.canProvideLiquid

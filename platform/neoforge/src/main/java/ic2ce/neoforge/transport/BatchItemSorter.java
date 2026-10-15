@@ -13,7 +13,6 @@ import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.inventory.UpgradeInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.transport.menu.BatchItemMenu;
 import ic2ce.neoforge.world.DirectionSets;
 import java.util.Arrays;
@@ -41,7 +40,7 @@ public class BatchItemSorter extends PoweredBlockEntity
   public Direction defaultRoute = Direction.DOWN;
 
   public BatchItemSorter(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.SORTING_MACHINE, position, state, 15000, defaultTier, false);
+    super(TransportBlockEntities.SORTING_MACHINE, position, state, 15000, defaultTier, false);
     clearFilters();
   }
 

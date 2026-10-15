@@ -1,8 +1,7 @@
 package ic2ce.neoforge.crafting;
 
 import com.mojang.authlib.GameProfile;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.material.MaterialItems;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -34,7 +33,7 @@ public final class WorkbenchContracts {
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8944, 100, 8944);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position, BlockDefinitions.INDUSTRIAL_WORKBENCH.defaultBlockState());
+    world.setBlockAndUpdate(position, CraftingBlocks.INDUSTRIAL_WORKBENCH.defaultBlockState());
     var bench = (IndustrialWorkbench) world.getBlockEntity(position);
     var player =
         net.neoforged.neoforge.common.util.FakePlayerFactory.get(
@@ -75,11 +74,11 @@ public final class WorkbenchContracts {
             && main.get(1).getCount() == 9,
         "available real player slots receive every remaining source item exactly once");
     bench.onPlaced(
-        new ItemStack(BlockDefinitions.INDUSTRIAL_WORKBENCH.asItem()), player, Direction.NORTH);
+        new ItemStack(CraftingBlocks.INDUSTRIAL_WORKBENCH.asItem()), player, Direction.NORTH);
     bench.leftCrafting.input.put(new ItemStack(Items.IRON_INGOT, 5));
     var before = bench.leftCrafting.resultInv.getItem(0).copy();
     check(
-        before.is(ItemDefinitions.IRON_PLATE)
+        before.is(MaterialItems.IRON_PLATE)
             && !bench.leftCrafting.input.accepts(new ItemStack(Items.DIAMOND))
             && bench.leftCrafting.input.get().is(Items.IRON_INGOT)
             && bench.leftCrafting.input.get().getCount() == 5
@@ -87,10 +86,10 @@ public final class WorkbenchContracts {
         "rejected native station preview changes neither live input nor its displayed recipe"
             + " output");
     check(
-        bench.rightCrafting.input.accepts(new ItemStack(ItemDefinitions.COPPER_PLATE))
+        bench.rightCrafting.input.accepts(new ItemStack(MaterialItems.COPPER_PLATE))
             && bench.rightCrafting.input.isEmpty(),
         "accepted cutter preview resolves an independent recipe without inserting its probe stack");
-    var offeredDrop = new ItemStack(BlockDefinitions.INDUSTRIAL_WORKBENCH.asItem());
+    var offeredDrop = new ItemStack(CraftingBlocks.INDUSTRIAL_WORKBENCH.asItem());
     var marked = bench.adjustDrop(offeredDrop, true);
     check(
         !ic2ce.neoforge.item.StackTag.has(offeredDrop)

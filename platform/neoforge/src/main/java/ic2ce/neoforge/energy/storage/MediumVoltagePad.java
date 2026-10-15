@@ -1,7 +1,7 @@
 package ic2ce.neoforge.energy.storage;
 
+import ic2ce.neoforge.energy.EnergyBlockEntities;
 import ic2ce.neoforge.runtime.profile.NotClassic;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -9,6 +9,6 @@ import net.minecraft.world.level.block.state.BlockState;
 @NotClassic
 public class MediumVoltagePad extends WirelessChargingPad {
   public MediumVoltagePad(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.CESU_CHARGEPAD, position, state, 2, 128, 300000);
+    super(EnergyBlockEntities.CESU_CHARGEPAD, position, state, 2, 128, 300000);
   }
 }

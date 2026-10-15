@@ -5,6 +5,7 @@ import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;
@@ -12,7 +13,6 @@ import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.registry.FluidGroups;
 import ic2ce.neoforge.thermal.HeatSupply;
@@ -33,7 +33,7 @@ public class IntegrationSteamConverter extends InventoryBlockEntity implements I
   protected final FluidPorts fluids;
 
   public IntegrationSteamConverter(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.STEAM_REPRESSURIZER, position, state);
+    super(ProcessingBlockEntities.STEAM_REPRESSURIZER, position, state);
     fluids = addComponent(new FluidPorts(this));
     input =
         fluids.addTankInsert(

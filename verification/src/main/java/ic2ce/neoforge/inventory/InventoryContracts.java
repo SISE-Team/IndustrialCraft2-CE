@@ -3,8 +3,9 @@ package ic2ce.neoforge.inventory;
 import ic2ce.api.energy.tile.IEnergySink;
 import ic2ce.api.energy.tile.IEnergySource;
 import ic2ce.neoforge.component.ElectricalBuffer;
+import ic2ce.neoforge.processing.ProcessingBlocks;
 import ic2ce.neoforge.processing.solid.OreGrinder;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.reactor.ReactorBlocks;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -34,7 +35,7 @@ public final class InventoryContracts {
   private Result exercise(ServerLevel world) {
     var parent =
         new OreGrinder(
-            new BlockPos(8196, 100, 8196), BlockDefinitions.MACERATOR.defaultBlockState());
+            new BlockPos(8196, 100, 8196), ProcessingBlocks.MACERATOR.defaultBlockState());
     parent.setLevel(world);
     var filter = new InventorySlot(parent, "contract_filter", null, 1);
     check(
@@ -156,7 +157,7 @@ public final class InventoryContracts {
     energy.onUnloaded();
     var reactor =
         new ic2ce.neoforge.reactor.NuclearCore(
-            new BlockPos(8200, 100, 8200), BlockDefinitions.NUCLEAR_REACTOR.defaultBlockState());
+            new BlockPos(8200, 100, 8200), ReactorBlocks.NUCLEAR_REACTOR.defaultBlockState());
     reactor.setLevel(world);
     var core = (ReactorInventory) reactor.getInventorySlot("reactor");
     core.put(3, new ItemStack(Items.DIAMOND));

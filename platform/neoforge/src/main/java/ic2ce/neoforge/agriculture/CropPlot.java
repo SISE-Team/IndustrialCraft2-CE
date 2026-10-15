@@ -3,6 +3,7 @@ package ic2ce.neoforge.agriculture;
 import ic2ce.api.crops.*;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.fluid.FluidHandler;
+import ic2ce.neoforge.item.container.ContainerItems;
 import ic2ce.neoforge.runtime.SharedRandom;
 import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.world.BiomeUtil;
@@ -13,10 +14,8 @@ import ic2ce.neoforge.agriculture.item.EncodedSeed;
 import ic2ce.neoforge.block.MachineBlockType;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.item.container.FixedCell;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -466,7 +465,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
       return crop.onLeftClick(this, player) ? InteractionResult.SUCCESS : InteractionResult.PASS;
     if (!isCrossingBase()) return InteractionResult.PASS;
     setCrossingBase(false);
-    StackUtil.dropAsEntity(getLevel(), worldPosition, new ItemStack(ItemDefinitions.CROP_STICK));
+    StackUtil.dropAsEntity(getLevel(), worldPosition, new ItemStack(AgricultureItems.CROP_STICK));
     return InteractionResult.SUCCESS;
   }
 
@@ -488,24 +487,24 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     var held = player.getItemInHand(hand);
     boolean creative = player.getAbilities().instabuild;
     if (!held.isEmpty()) {
-      if (crop == null && !isCrossingBase() && held.is(ItemDefinitions.CROP_STICK)) {
+      if (crop == null && !isCrossingBase() && held.is(AgricultureItems.CROP_STICK)) {
         setCrossingBase(true);
         if (!creative) held.shrink(1);
         return true;
       }
-      if (crop != null && held.is(ItemDefinitions.FERTILIZER)) {
+      if (crop != null && held.is(AgricultureItems.FERTILIZER)) {
         if (!applyFertilizer(true)) return false;
         if (!creative) held.shrink(1);
         return true;
       }
       if (crop != null
           && held.getItem() instanceof FixedCell cell
-          && (held.is(ItemDefinitions.HYDRATION_CELL)
-              || held.is(ItemDefinitions.WEED_EX_CELL)
-              || held.is(ItemDefinitions.WATER_CELL))) {
+          && (held.is(ContainerItems.HYDRATION_CELL)
+              || held.is(ContainerItems.WEED_EX_CELL)
+              || held.is(ContainerItems.WATER_CELL))) {
         if (!cell.useOnCrop(creative ? held.copy() : held, this, true)) return false;
-        if (!creative && cell == ItemDefinitions.WATER_CELL) {
-          var empty = new ItemStack(ItemDefinitions.EMPTY_CELL);
+        if (!creative && cell == ContainerItems.WATER_CELL) {
+          var empty = new ItemStack(ContainerItems.EMPTY_CELL);
           if (held.isEmpty()) player.setItemInHand(hand, empty);
           else if (!player.getInventory().add(empty)) player.drop(empty, false);
         }
@@ -946,7 +945,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
   @Override
   public void reset() {
     if (server()) {
-      var cleared = replace(BlockDefinitions.CROP_STICK, null, 0);
+      var cleared = replace(AgricultureBlocks.CROP_STICK, null, 0);
       if (cleared != null) cleared.resetData();
     }
   }
@@ -1070,7 +1069,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
   @Override
   protected ItemStack getPickBlock(Player player, BlockHitResult target) {
     return crop == null
-        ? new ItemStack(ItemDefinitions.CROP_STICK)
+        ? new ItemStack(AgricultureItems.CROP_STICK)
         : generateSeeds(crop, statGrowth, statGain, statResistance, scanLevel);
   }
 

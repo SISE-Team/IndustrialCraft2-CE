@@ -1,10 +1,10 @@
 package ic2ce.neoforge.storage;
 
+import ic2ce.neoforge.processing.ProcessingBlocks;
 import ic2ce.neoforge.storage.box.TileEntityStorageBox;
 import ic2ce.neoforge.block.MachineBlockType;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -37,10 +37,10 @@ public final class PortableStorageContracts {
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8320, 100, 8320);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position, BlockDefinitions.IRON_STORAGE_BOX.defaultBlockState());
+    world.setBlockAndUpdate(position, StorageBlocks.IRON_STORAGE_BOX.defaultBlockState());
     var box = (TileEntityStorageBox) world.getBlockEntity(position);
     box.getInventorySlot("inventory").put(new ItemStack(Items.IRON_INGOT, 13));
-    var original = new ItemStack(BlockDefinitions.IRON_STORAGE_BOX);
+    var original = new ItemStack(StorageBlocks.IRON_STORAGE_BOX);
     var saved = box.adjustDrop(original, true);
     check(
         !original.has(net.minecraft.core.component.DataComponents.CUSTOM_DATA)
@@ -56,7 +56,7 @@ public final class PortableStorageContracts {
     var nativeDrop =
         drops.stream()
             .map(ItemEntity::getItem)
-            .filter(stack -> stack.is(BlockDefinitions.IRON_STORAGE_BOX.asItem()))
+            .filter(stack -> stack.is(StorageBlocks.IRON_STORAGE_BOX.asItem()))
             .findFirst()
             .orElse(ItemStack.EMPTY)
             .copy();
@@ -64,7 +64,7 @@ public final class PortableStorageContracts {
         loose == 0 && !nativeDrop.isEmpty(),
         "real block destruction yields one retained box without duplicate loose contents");
     for (var drop : drops) drop.discard();
-    world.setBlockAndUpdate(position, BlockDefinitions.IRON_STORAGE_BOX.defaultBlockState());
+    world.setBlockAndUpdate(position, StorageBlocks.IRON_STORAGE_BOX.defaultBlockState());
     box = (TileEntityStorageBox) world.getBlockEntity(position);
     box.onPlaced(nativeDrop, null, Direction.NORTH);
     check(
@@ -79,7 +79,7 @@ public final class PortableStorageContracts {
         "empty retained snapshots clear stale stored items");
     world.removeBlock(position, false);
     var machinePosition = position.east(8);
-    world.setBlockAndUpdate(machinePosition, BlockDefinitions.MACERATOR.defaultBlockState());
+    world.setBlockAndUpdate(machinePosition, ProcessingBlocks.MACERATOR.defaultBlockState());
     var machine = (ic2ce.neoforge.block.InventoryBlockEntity) world.getBlockEntity(machinePosition);
     machine.getInventorySlot("input").put(new ItemStack(Items.IRON_ORE, 11));
     world.destroyBlock(machinePosition, false);
@@ -97,7 +97,7 @@ public final class PortableStorageContracts {
             + " callback");
     for (var drop : machineDrops) drop.discard();
     var tankPosition = position.south(8);
-    world.setBlockAndUpdate(tankPosition, BlockDefinitions.BRONZE_TANK.defaultBlockState());
+    world.setBlockAndUpdate(tankPosition, StorageBlocks.BRONZE_TANK.defaultBlockState());
     var tank = (NativeBlockEntity) world.getBlockEntity(tankPosition);
     var contents = tank.getComponent(FluidPorts.class).getFluidTank("contents");
     var player =

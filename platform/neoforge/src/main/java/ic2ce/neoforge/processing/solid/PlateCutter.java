@@ -6,11 +6,11 @@ import ic2ce.api.recipe.MachineRecipeResult;
 import ic2ce.api.recipe.Recipes;
 import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.inventory.ItemRecipeInput;
 import ic2ce.neoforge.inventory.TypeFilteredInput;
 import ic2ce.neoforge.processing.PoweredProcessor;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import java.util.Collection;
 import java.util.EnumSet;
 import java.util.Set;
@@ -25,7 +25,7 @@ public class PlateCutter extends PoweredProcessor<IRecipeInput, Collection<ItemS
   public final TypeFilteredInput cutterSlot;
 
   public PlateCutter(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.BLOCK_CUTTER, position, state, 4, 450, 1);
+    super(ProcessingBlockEntities.BLOCK_CUTTER, position, state, 4, 450, 1);
     inputSlot = new ItemRecipeInput(this, "input", 1, Recipes.blockcutter);
     cutterSlot = new TypeFilteredInput(this, "cutterInputSlot", 1, IBlockCuttingBlade.class);
   }

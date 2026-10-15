@@ -1,8 +1,8 @@
 package ic2ce.neoforge.world.block;
 
 import ic2ce.neoforge.block.NativeBlockEntity;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.runtime.SideServices;
+import ic2ce.neoforge.world.WorldBlockEntities;
 import ic2ce.neoforge.world.surface.SurfaceMap;
 import java.util.*;
 import net.minecraft.core.*;
@@ -24,7 +24,7 @@ public final class ImprintedWall extends NativeBlockEntity {
   private volatile WallRenderState renderState;
 
   public ImprintedWall(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.WALL, position, state);
+    super(WorldBlockEntities.WALL, position, state);
     obscuration =
         addComponent(
             new SurfaceMap(

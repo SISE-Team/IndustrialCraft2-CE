@@ -10,9 +10,7 @@ import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -36,7 +34,7 @@ public class FluidCropCaretaker extends PoweredBlockEntity implements IHasGui, I
       fluids.addTankInsert(
           "exTank", 2000, FluidPorts.fluidPredicate(FluidDefinitions.WEED_EX.still));
   public final ConsumableInventory fertilizerSlot =
-      new StackWhitelistInput(this, "fertilizer", 7, new ItemStack(ItemDefinitions.FERTILIZER));
+      new StackWhitelistInput(this, "fertilizer", 7, new ItemStack(AgricultureItems.FERTILIZER));
   public final TankContainerInput wasserinputSlot =
       new TankContainerInput(
           this,
@@ -60,7 +58,7 @@ public class FluidCropCaretaker extends PoweredBlockEntity implements IHasGui, I
   public final UpgradeInventory upgradeSlot = new UpgradeInventory(this, "upgrade", 4);
 
   public FluidCropCaretaker(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.CROPMATRON, position, state, 10000, 1);
+    super(AgricultureBlockEntities.CROPMATRON, position, state, 10000, 1);
   }
 
   @Override

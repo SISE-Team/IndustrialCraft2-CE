@@ -2,14 +2,13 @@ package ic2ce.neoforge.personal;
 
 import com.mojang.authlib.GameProfile;
 import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.menu.document.DocumentMenus;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenDocument;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.MenuDefinitions;
 import ic2ce.neoforge.runtime.SideServices;
 import java.util.HashSet;
 import java.util.List;
@@ -49,7 +48,7 @@ public class PrivateChest extends InventoryBlockEntity implements OwnedDevice, I
   private byte lidAngle, prevLidAngle;
 
   public PrivateChest(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.PERSONAL_CHEST, position, state);
+    super(PersonalBlockEntities.PERSONAL_CHEST, position, state);
   }
 
   @Override
@@ -336,7 +335,7 @@ public class PrivateChest extends InventoryBlockEntity implements OwnedDevice, I
       throw new IllegalStateException("Personal chest access denied");
     startOpen(player);
     return new DocumentMenu<InventoryBlockEntity>(
-        MenuDefinitions.DYNAMIC_BE,
+        DocumentMenus.DYNAMIC_BE,
         id,
         player.getInventory(),
         this,

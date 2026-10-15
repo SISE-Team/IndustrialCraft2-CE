@@ -3,9 +3,9 @@ package ic2ce.neoforge.agriculture.item;
 import ic2ce.api.crops.CropCard;
 import ic2ce.api.crops.Crops;
 import ic2ce.api.crops.ICropSeed;
+import ic2ce.neoforge.agriculture.AgricultureItems;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.agriculture.CropPlot;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
@@ -100,7 +100,7 @@ public class EncodedSeed extends Item implements ICropSeed, ic2ce.api.item.Creat
   public static ItemStack generateItemStackFromValues(
       CropCard species, int growth, int gain, int resistance, int scan) {
     if (species == null) return ItemStack.EMPTY;
-    var stack = new ItemStack(ItemDefinitions.CROP_SEED_BACK);
+    var stack = new ItemStack(AgricultureItems.CROP_SEED_BACK);
     var data = new net.minecraft.nbt.CompoundTag();
     data.putString("owner", species.getOwner());
     data.putString("id", species.getId());

@@ -1,6 +1,6 @@
 package ic2ce.neoforge.recipe.crafting;
 
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.tool.ToolItems;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.component.DataComponents;
@@ -18,7 +18,7 @@ public final class RemainderContracts {
   public static Result run() {
     var failures = new ArrayList<String>();
     int checks = 0;
-    var hammer = new ItemStack(ItemDefinitions.FORGE_HAMMER);
+    var hammer = new ItemStack(ToolItems.FORGE_HAMMER);
     hammer.setDamageValue(7);
     var milk = new ItemStack(Items.MILK_BUCKET);
     var input = CraftingInput.of(2, 1, List.of(hammer, milk));

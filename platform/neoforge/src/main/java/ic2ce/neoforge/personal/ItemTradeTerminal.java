@@ -3,6 +3,7 @@ package ic2ce.neoforge.personal;
 import com.mojang.authlib.GameProfile;
 import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.network.INetworkTileEntityEventListener;
+import ic2ce.neoforge.item.upgrade.UpgradeItems;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.runtime.SharedRandom;
 import ic2ce.neoforge.runtime.SideServices;
@@ -17,8 +18,6 @@ import ic2ce.neoforge.inventory.OutputInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.personal.menu.OwnerItemTradeMenu;
 import ic2ce.neoforge.personal.menu.PublicItemTradeMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import java.io.IOException;
 import java.util.List;
@@ -59,7 +58,7 @@ public class ItemTradeTerminal extends InventoryBlockEntity
   private boolean validInvoice = true;
 
   public ItemTradeTerminal(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.TRADE_O_MAT, position, state);
+    super(PersonalBlockEntities.TRADE_O_MAT, position, state);
   }
 
   @Override
@@ -242,7 +241,7 @@ public class ItemTradeTerminal extends InventoryBlockEntity
     var held = player.getItemInHand(hand);
     if (world != null
         && !isWireless()
-        && held.is(ItemDefinitions.REMOTE_INTERFACE_UPGRADE)
+        && held.is(UpgradeItems.REMOTE_INTERFACE_UPGRADE)
         && permitsAccess(player.getGameProfile())) {
       if (!world.isClientSide() && setWireless(true) && !player.getAbilities().instabuild)
         held.shrink(1);
@@ -254,7 +253,7 @@ public class ItemTradeTerminal extends InventoryBlockEntity
   @Override
   protected List<ItemStack> getAuxDrops(int fortune) {
     var drops = super.getAuxDrops(fortune);
-    if (isWireless()) drops.add(new ItemStack(ItemDefinitions.REMOTE_INTERFACE_UPGRADE));
+    if (isWireless()) drops.add(new ItemStack(UpgradeItems.REMOTE_INTERFACE_UPGRADE));
     if (!payment.isEmpty()) drops.add(payment.copy());
     if (!reserved.isEmpty()) drops.add(reserved.copy());
     return drops;

@@ -1,9 +1,9 @@
 package ic2ce.neoforge.transport;
 
 import ic2ce.api.fluid.Ic2FluidStack;
+import ic2ce.neoforge.storage.StorageBlocks;
 import ic2ce.neoforge.storage.box.TileEntityStorageBox;
 import ic2ce.neoforge.component.ElectricalBuffer;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.storage.StationaryFluidStore;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +48,7 @@ public final class TransportContracts {
         place(
             world,
             position,
-            BlockDefinitions.WEIGHTED_FLUID_DISTRIBUTOR,
+            TransportBlocks.WEIGHTED_FLUID_DISTRIBUTOR,
             PriorityFluidRouter.class);
     weighted.onNetworkEvent(null, Direction.EAST.get3DDataValue());
     check(
@@ -83,9 +83,9 @@ public final class TransportContracts {
         saved.getIntArray("priority").orElseThrow().length == 0,
         "empty configuration overwrites a stale saved output order");
     world.removeBlock(position, false);
-    var fair = place(world, position, BlockDefinitions.FLUID_DISTRIBUTOR, FairFluidRouter.class);
-    var east = place(world, position.east(), BlockDefinitions.TANK, StationaryFluidStore.class);
-    var south = place(world, position.south(), BlockDefinitions.TANK, StationaryFluidStore.class);
+    var fair = place(world, position, TransportBlocks.FLUID_DISTRIBUTOR, FairFluidRouter.class);
+    var east = place(world, position.east(), StorageBlocks.TANK, StationaryFluidStore.class);
+    var south = place(world, position.south(), StorageBlocks.TANK, StationaryFluidStore.class);
     for (int cycle = 0; cycle < 6; cycle++) {
       fair.fluidTank.fillMbUnchecked(Ic2FluidStack.create(Fluids.WATER, 1), false);
       fair.updateEntityServer();
@@ -112,10 +112,10 @@ public final class TransportContracts {
     world.removeBlock(position.east(), false);
     world.removeBlock(position.south(), false);
     var regulator =
-        place(world, position, BlockDefinitions.FLUID_REGULATOR, MeteredFluidOutlet.class);
+        place(world, position, TransportBlocks.FLUID_REGULATOR, MeteredFluidOutlet.class);
     var receiverPosition = position.relative(regulator.getFacing());
     var receiver =
-        place(world, receiverPosition, BlockDefinitions.TANK, StationaryFluidStore.class);
+        place(world, receiverPosition, StorageBlocks.TANK, StationaryFluidStore.class);
     receiver
         .getFluidTank()
         .fillMbUnchecked(
@@ -145,15 +145,15 @@ public final class TransportContracts {
     world.removeBlock(receiverPosition, false);
     var items =
         place(
-            world, position, BlockDefinitions.WEIGHTED_ITEM_DISTRIBUTOR, PriorityItemRouter.class);
+            world, position, TransportBlocks.WEIGHTED_ITEM_DISTRIBUTOR, PriorityItemRouter.class);
     var first =
-        place(world, position.east(), BlockDefinitions.IRON_STORAGE_BOX, TileEntityStorageBox.class)
+        place(world, position.east(), StorageBlocks.IRON_STORAGE_BOX, TileEntityStorageBox.class)
             .getInventorySlot("inventory");
     var second =
         place(
                 world,
                 position.south(),
-                BlockDefinitions.IRON_STORAGE_BOX,
+                StorageBlocks.IRON_STORAGE_BOX,
                 TileEntityStorageBox.class)
             .getInventorySlot("inventory");
     for (int index = 0; index < first.size(); index++)

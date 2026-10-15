@@ -1,7 +1,7 @@
 package ic2ce.neoforge.terrain.program;
 
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.terrain.TerrainController;
+import ic2ce.neoforge.world.WorldBlocks;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
@@ -39,9 +39,9 @@ public final class LevelingProgram extends TerrainProgram {
             Blocks.BROWN_MUSHROOM,
             Blocks.PUMPKIN,
             Blocks.MELON,
-            BlockDefinitions.RUBBER_LEAVES,
-            BlockDefinitions.RUBBER_SAPLING,
-            BlockDefinitions.RUBBER_LOG);
+            WorldBlocks.RUBBER_LEAVES,
+            WorldBlocks.RUBBER_SAPLING,
+            WorldBlocks.RUBBER_LOG);
   }
 
   @Override

@@ -17,7 +17,7 @@ import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
 import ic2ce.neoforge.mining.PipeMiner;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import java.util.EnumSet;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -63,7 +63,7 @@ public class FluidCollector extends PoweredBlockEntity
       BlockPos position, Direction side, boolean capability, Ic2FluidStack preview) {}
 
   public FluidCollector(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.PUMP, position, state, 20, 1);
+    super(ProcessingBlockEntities.PUMP, position, state, 20, 1);
     containerSlot =
         new FluidContainerInventory(
             this,

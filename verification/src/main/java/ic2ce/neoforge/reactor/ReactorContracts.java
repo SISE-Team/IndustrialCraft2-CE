@@ -1,7 +1,5 @@
 package ic2ce.neoforge.reactor;
 
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -25,7 +23,7 @@ public final class ReactorContracts {
   }
 
   private Result exercise(net.minecraft.server.level.ServerLevel world) {
-    var core = new NuclearCore(BlockPos.ZERO, BlockDefinitions.NUCLEAR_REACTOR.defaultBlockState());
+    var core = new NuclearCore(BlockPos.ZERO, ReactorBlocks.NUCLEAR_REACTOR.defaultBlockState());
     core.output = 12.25F;
     double nominal = core.getReactorEUEnergyOutput();
     core.drawEnergy(Double.NaN);
@@ -57,7 +55,7 @@ public final class ReactorContracts {
     var data = new CompoundTag();
     core.saveAdditional(data);
     var restored =
-        new NuclearCore(BlockPos.ZERO, BlockDefinitions.NUCLEAR_REACTOR.defaultBlockState());
+        new NuclearCore(BlockPos.ZERO, ReactorBlocks.NUCLEAR_REACTOR.defaultBlockState());
     restored.load(data);
     check(
         restored.getHeat() == 1234
@@ -70,9 +68,9 @@ public final class ReactorContracts {
             && !core.isUsefulItem(ItemStack.EMPTY, true),
         "out-of-grid access and empty insertion return native empty values");
     var chamber =
-        new ReactorChamber(BlockPos.ZERO, BlockDefinitions.REACTOR_CHAMBER.defaultBlockState());
+        new ReactorChamber(BlockPos.ZERO, ReactorBlocks.REACTOR_CHAMBER.defaultBlockState());
     var hatch =
-        new VesselHatch(BlockPos.ZERO, BlockDefinitions.REACTOR_ACCESS_HATCH.defaultBlockState());
+        new VesselHatch(BlockPos.ZERO, ReactorBlocks.REACTOR_ACCESS_HATCH.defaultBlockState());
     check(
         chamber.getItem(0) == ItemStack.EMPTY
             && chamber.removeItem(0, 1) == ItemStack.EMPTY
@@ -96,7 +94,7 @@ public final class ReactorContracts {
     check(cells == 98, "a five-block vessel has exactly 98 unique shell cells");
     var position = new BlockPos(8280, 100, 8280);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position, BlockDefinitions.NUCLEAR_REACTOR.defaultBlockState());
+    world.setBlockAndUpdate(position, ReactorBlocks.NUCLEAR_REACTOR.defaultBlockState());
     var nativeCore = (NuclearCore) world.getBlockEntity(position);
     check(
         nativeCore.getReactorSize() == 3,
@@ -104,14 +102,14 @@ public final class ReactorContracts {
     int width = 3;
     for (var face : net.minecraft.core.Direction.values()) {
       world.setBlockAndUpdate(
-          position.relative(face), BlockDefinitions.REACTOR_CHAMBER.defaultBlockState());
+          position.relative(face), ReactorBlocks.REACTOR_CHAMBER.defaultBlockState());
       check(
           nativeCore.getReactorSize() == ++width,
           "same-tick chamber placement updates live width " + face);
     }
-    nativeCore.setItemAt(8, 5, new ItemStack(ItemDefinitions.REACTOR_COOLANT_CELL));
+    nativeCore.setItemAt(8, 5, new ItemStack(ReactorItems.REACTOR_COOLANT_CELL));
     check(
-        nativeCore.getItemAt(8, 5).is(ItemDefinitions.REACTOR_COOLANT_CELL),
+        nativeCore.getItemAt(8, 5).is(ReactorItems.REACTOR_COOLANT_CELL),
         "expanded-grid write cannot be discarded by stale layout caching");
     for (var face : net.minecraft.core.Direction.values())
       world.removeBlock(position.relative(face), false);

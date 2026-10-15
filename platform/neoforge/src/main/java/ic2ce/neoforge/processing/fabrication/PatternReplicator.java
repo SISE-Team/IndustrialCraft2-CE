@@ -8,6 +8,7 @@ import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.runtime.ProgressionService;
 import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.runtime.profile.NotClassic;
@@ -23,7 +24,6 @@ import ic2ce.neoforge.inventory.OutputInventory;
 import ic2ce.neoforge.inventory.UpgradeInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.processing.menu.ReplicationMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import java.util.EnumSet;
 import java.util.Set;
@@ -56,7 +56,7 @@ public class PatternReplicator extends PoweredBlockEntity
   private static final Direction[] SIDES = Direction.values();
 
   public PatternReplicator(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.REPLICATOR, position, state, 2000000, 4);
+    super(ProcessingBlockEntities.REPLICATOR, position, state, 2000000, 4);
     fluidTank =
         fluids.addTank(
             "fluidTank", 16000, FluidPorts.fluidPredicate(FluidDefinitions.UU_MATTER.still));

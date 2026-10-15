@@ -8,12 +8,13 @@ import ic2ce.api.recipe.*;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.*;
+import ic2ce.neoforge.item.container.ContainerItems;
+import ic2ce.neoforge.material.MaterialItems;
 import ic2ce.neoforge.processing.fluid.IntegrationSteamConverter;
 import ic2ce.neoforge.processing.fluid.LiquidPackager;
 import ic2ce.neoforge.processing.fluid.MultiPolicyCanner;
 import ic2ce.neoforge.processing.fluid.PressureBoiler;
 import ic2ce.neoforge.processing.thermal.AlloyFurnace;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Blocks;
@@ -58,7 +59,7 @@ final class AllFluidCases {
                       s.behave(
                           id,
                           "heat and compressed air smelt iron into steel",
-                          furnace.outputSlot.get().is(ItemDefinitions.STEEL_INGOT)
+                          furnace.outputSlot.get().is(MaterialItems.STEEL_INGOT)
                               && furnace.inputSlot.isEmpty());
                       s.observe(id, "heat", furnace.heat);
                       s.observe(id, "airRemaining", furnace.fluidTank.getFluidAmount());
@@ -262,7 +263,7 @@ final class AllFluidCases {
                           s.slot(id, "water").isEmpty()
                               && s.slot(id, "hydrogen")
                                   .get()
-                                  .is(ItemDefinitions.ELECTROLYZED_WATER_CELL));
+                                  .is(ContainerItems.ELECTROLYZED_WATER_CELL));
                       energy.useEnergy(energy.getEnergy());
                     });
                 s.at(
@@ -271,7 +272,7 @@ final class AllFluidCases {
                         s.behave(
                             id,
                             "empty bank recovers cell energy and returns water cell",
-                            s.slot(id, "water").get().is(ItemDefinitions.WATER_CELL)
+                            s.slot(id, "water").get().is(ContainerItems.WATER_CELL)
                                 && s.slot(id, "hydrogen").isEmpty()
                                 && energy.getEnergy() > 0));
               }

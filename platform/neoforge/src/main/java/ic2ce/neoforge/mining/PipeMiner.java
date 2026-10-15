@@ -5,6 +5,7 @@ import ic2ce.api.item.IMiningDrill;
 import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.neoforge.fluid.FluidHandler;
+import ic2ce.neoforge.item.tool.ToolItems;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.block.PoweredBlockEntity;
@@ -16,10 +17,7 @@ import ic2ce.neoforge.item.tool.OreScanner;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.mining.menu.PipeMinerMenu;
 import ic2ce.neoforge.processing.fluid.FluidCollector;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.BlockGroups;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import ic2ce.neoforge.runtime.AutomationActors;
 import ic2ce.neoforge.terrain.MaterialValuation;
@@ -56,7 +54,7 @@ public class PipeMiner extends PoweredBlockEntity implements IHasGui, IUpgradabl
 
   public PipeMiner(BlockPos position, BlockState state) {
     super(
-        BlockEntityDefinitions.MINER,
+        MiningBlockEntities.MINER,
         position,
         state,
         1000,
@@ -90,8 +88,8 @@ public class PipeMiner extends PoweredBlockEntity implements IHasGui, IUpgradabl
             InventorySlot.Access.IO,
             1,
             InventorySlot.InvSide.BOTTOM,
-            ItemDefinitions.SCANNER,
-            ItemDefinitions.ADVANCED_SCANNER) {
+            ToolItems.SCANNER,
+            ToolItems.ADVANCED_SCANNER) {
           @Override
           public boolean canOutput() {
             return !tickingUpgrades && super.canOutput();
@@ -142,9 +140,9 @@ public class PipeMiner extends PoweredBlockEntity implements IHasGui, IUpgradabl
 
   private int tickReserve() {
     var item = drillSlot.get().getItem();
-    return item == ItemDefinitions.IRIDIUM_DRILL
+    return item == ToolItems.IRIDIUM_DRILL
         ? 200
-        : item == ItemDefinitions.DIAMOND_DRILL ? 20 : drillSlot.isEmpty() ? 3 : 6;
+        : item == ToolItems.DIAMOND_DRILL ? 20 : drillSlot.isEmpty() ? 3 : 6;
   }
 
   private void charge(ItemStack stack, int tier, int reserve) {
@@ -182,7 +180,7 @@ public class PipeMiner extends PoweredBlockEntity implements IHasGui, IUpgradabl
     var world = getLevel();
     var position = worldPosition.mutable().move(Direction.DOWN);
     while (position.getY() >= world.getMinY()
-        && world.getBlockState(position).is(BlockDefinitions.MINING_PIPE))
+        && world.getBlockState(position).is(MiningBlocks.MINING_PIPE))
       position.move(Direction.DOWN);
     return position.immutable();
   }
@@ -194,7 +192,7 @@ public class PipeMiner extends PoweredBlockEntity implements IHasGui, IUpgradabl
     if (drillSlot.isEmpty()) return retract(position);
     if (position.getY() < world.getMinY()) return false;
     var state = world.getBlockState(position);
-    if (!state.is(BlockDefinitions.MINING_PIPE_TIP)) return descend(position, state, false);
+    if (!state.is(MiningBlocks.MINING_PIPE_TIP)) return descend(position, state, false);
     var layer = mineLevel(position.getY());
     if (layer != MineResult.Done) return layer == MineResult.Working;
     var below = position.below();
@@ -214,12 +212,12 @@ public class PipeMiner extends PoweredBlockEntity implements IHasGui, IUpgradabl
     var world = getLevel();
     var position =
         bottom.getY() >= world.getMinY()
-                && world.getBlockState(bottom).is(BlockDefinitions.MINING_PIPE_TIP)
+                && world.getBlockState(bottom).is(MiningBlocks.MINING_PIPE_TIP)
             ? bottom
             : bottom.above();
     if (position.getY() >= worldPosition.getY()) return false;
     var state = world.getBlockState(position);
-    if (!state.is(BlockDefinitions.MINING_PIPE) && !state.is(BlockDefinitions.MINING_PIPE_TIP))
+    if (!state.is(MiningBlocks.MINING_PIPE) && !state.is(MiningBlocks.MINING_PIPE_TIP))
       return false;
     phase(Mode.Withdraw, position, state);
     if (progress < 20) {
@@ -230,10 +228,10 @@ public class PipeMiner extends PoweredBlockEntity implements IHasGui, IUpgradabl
     if (!world.removeBlock(position, false)) return false;
     progress = 0;
     pendingTarget = null;
-    storeDrop(new ItemStack(ItemDefinitions.MINING_PIPE));
+    storeDrop(new ItemStack(MiningItems.MINING_PIPE));
     var filler = pipeSlot.consume(1, true, false);
     if (filler != null
-        && !filler.is(ItemDefinitions.MINING_PIPE)
+        && !filler.is(MiningItems.MINING_PIPE)
         && filler.getItem() instanceof BlockItem block) {
       if (block.place(
               new DirectionalPlaceContext(
@@ -245,24 +243,24 @@ public class PipeMiner extends PoweredBlockEntity implements IHasGui, IUpgradabl
 
   private boolean descend(BlockPos position, BlockState state, boolean tipAbove) {
     var pipe = pipeSlot.consume(1, true, false);
-    if (pipe == null || !pipe.is(ItemDefinitions.MINING_PIPE)) return false;
+    if (pipe == null || !pipe.is(MiningItems.MINING_PIPE)) return false;
     var world = getLevel();
     if (position.getY() < world.getMinY()) {
       if (tipAbove)
-        world.setBlockAndUpdate(position.above(), BlockDefinitions.MINING_PIPE.defaultBlockState());
+        world.setBlockAndUpdate(position.above(), MiningBlocks.MINING_PIPE.defaultBlockState());
       return false;
     }
     var result = mineBlock(position, state);
     if (result == MineResult.Done) {
-      if (!world.setBlockAndUpdate(position, BlockDefinitions.MINING_PIPE_TIP.defaultBlockState()))
+      if (!world.setBlockAndUpdate(position, MiningBlocks.MINING_PIPE_TIP.defaultBlockState()))
         return false;
       pipeSlot.consume(1);
       if (tipAbove)
-        world.setBlockAndUpdate(position.above(), BlockDefinitions.MINING_PIPE.defaultBlockState());
+        world.setBlockAndUpdate(position.above(), MiningBlocks.MINING_PIPE.defaultBlockState());
       return true;
     }
     if (result == MineResult.Failed_Perm && tipAbove)
-      world.setBlockAndUpdate(position.above(), BlockDefinitions.MINING_PIPE.defaultBlockState());
+      world.setBlockAndUpdate(position.above(), MiningBlocks.MINING_PIPE.defaultBlockState());
     return result == MineResult.Working;
   }
 
@@ -283,8 +281,8 @@ public class PipeMiner extends PoweredBlockEntity implements IHasGui, IUpgradabl
         if (!world.hasChunkAt(target)) return MineResult.Failed_Temp;
         var state = world.getBlockState(target);
         if (state.isAir()
-            || state.is(BlockDefinitions.MINING_PIPE)
-            || state.is(BlockDefinitions.MINING_PIPE_TIP)) continue;
+            || state.is(MiningBlocks.MINING_PIPE)
+            || state.is(MiningBlocks.MINING_PIPE_TIP)) continue;
         var liquid = LiquidUtil.getLiquid(world, target);
         boolean interesting =
             liquid != null
@@ -360,15 +358,15 @@ public class PipeMiner extends PoweredBlockEntity implements IHasGui, IUpgradabl
       mode = Mode.MineAir;
       cost = 3;
       duration = 20;
-    } else if (item == ItemDefinitions.DRILL) {
+    } else if (item == ToolItems.DRILL) {
       mode = Mode.MineDrill;
       cost = 6;
       duration = 200;
-    } else if (item == ItemDefinitions.DIAMOND_DRILL) {
+    } else if (item == ToolItems.DIAMOND_DRILL) {
       mode = Mode.MineDDrill;
       cost = 20;
       duration = 50;
-    } else if (item == ItemDefinitions.IRIDIUM_DRILL) {
+    } else if (item == ToolItems.IRIDIUM_DRILL) {
       mode = Mode.MineIDrill;
       cost = 200;
       duration = 20;
@@ -450,8 +448,8 @@ public class PipeMiner extends PoweredBlockEntity implements IHasGui, IUpgradabl
   public boolean canMine(BlockPos position, BlockState state) {
     var block = state.getBlock();
     if (state.isAir()) return true;
-    if (block == BlockDefinitions.MINING_PIPE
-        || block == BlockDefinitions.MINING_PIPE_TIP
+    if (block == MiningBlocks.MINING_PIPE
+        || block == MiningBlocks.MINING_PIPE_TIP
         || block == Blocks.CHEST) return false;
     if (block == Blocks.WATER || block == Blocks.LAVA || FluidHandler.getWorldFluid(state) != null)
       return isPumpConnected(position);

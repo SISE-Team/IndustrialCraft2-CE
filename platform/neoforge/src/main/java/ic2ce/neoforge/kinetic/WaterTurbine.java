@@ -9,7 +9,6 @@ import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.kinetic.menu.WaterTurbineMenu;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -36,7 +35,7 @@ public class WaterTurbine extends RotorGearbox {
 
   public WaterTurbine(BlockPos position, BlockState block) {
     super(
-        BlockEntityDefinitions.WATER_KINETIC_GENERATOR,
+        KineticBlockEntities.WATER_KINETIC_GENERATOR,
         position,
         block,
         IKineticRotor.GearboxType.WATER);

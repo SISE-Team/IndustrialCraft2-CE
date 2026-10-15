@@ -4,6 +4,7 @@ import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.recipe.Recipes;
 import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.UpgradableProperty;
+import ic2ce.neoforge.material.MaterialItems;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.network.GrowingBuffer;
@@ -13,9 +14,7 @@ import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.processing.menu.HeatExchangeMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.runtime.EnvProxy;
 import java.util.EnumSet;
 import java.util.Set;
@@ -41,14 +40,14 @@ public class FluidHeatExchanger extends BufferedHeatSource implements IHasGui, I
   private long prepaidHeat;
 
   public FluidHeatExchanger(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.LIQUID_HEAT_EXCHANGER, position, block);
+    super(ThermalBlockEntities.LIQUID_HEAT_EXCHANGER, position, block);
     inputTank =
         fluids.addTankInsert(
             "inputTank", 2000, FluidPorts.fluidPredicate(Recipes.liquidCooldownManager));
     outputTank = fluids.addTankExtract("outputTank", 2000);
     heatexchangerslots =
         new StackWhitelistInput(
-            this, "heatExchanger", 10, new ItemStack(ItemDefinitions.HEAT_CONDUCTOR));
+            this, "heatExchanger", 10, new ItemStack(MaterialItems.HEAT_CONDUCTOR));
     heatexchangerslots.setStackSizeLimit(1);
     hotoutputSlot = new OutputInventory(this, "hotOutputSlot", 1);
     cooloutputSlot = new OutputInventory(this, "outputSlot", 1);
@@ -135,7 +134,7 @@ public class FluidHeatExchanger extends BufferedHeatSource implements IHasGui, I
   public int getMaxHeatEmittedPerTick() {
     int count = 0;
     for (int slot = 0; slot < heatexchangerslots.size(); slot++)
-      if (heatexchangerslots.get(slot).is(ItemDefinitions.HEAT_CONDUCTOR)) count++;
+      if (heatexchangerslots.get(slot).is(MaterialItems.HEAT_CONDUCTOR)) count++;
     return count * 10;
   }
 

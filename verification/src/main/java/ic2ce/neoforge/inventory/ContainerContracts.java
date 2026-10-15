@@ -2,7 +2,7 @@ package ic2ce.neoforge.inventory;
 
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.block.MachineBlockType;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.storage.StorageBlocks;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -27,7 +27,7 @@ public final class ContainerContracts {
   }
 
   private Result exercise(ServerLevel world) {
-    var block = (MachineBlockType) BlockDefinitions.IRON_STORAGE_BOX;
+    var block = (MachineBlockType) StorageBlocks.IRON_STORAGE_BOX;
     var box =
         (InventoryBlockEntity)
             block.createBlockEntity(new BlockPos(8350, 100, 8350), block.defaultBlockState());

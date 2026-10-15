@@ -1,9 +1,9 @@
 package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
 import ic2ce.neoforge.agriculture.CropCatalog;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.consumable.ConsumableItems;
 import java.util.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
@@ -22,7 +22,7 @@ public class FrostWartSpecies extends MaterialSpecies {
 
   @Override
   public Block getCropBlock() {
-    return BlockDefinitions.TERRA_WART_CROP;
+    return AgricultureBlocks.TERRA_WART_CROP;
   }
 
   @Override
@@ -42,7 +42,7 @@ public class FrostWartSpecies extends MaterialSpecies {
 
   @Override
   public ItemStack getGain(ICropTile plot) {
-    return new ItemStack(ItemDefinitions.TERRA_WART);
+    return new ItemStack(ConsumableItems.TERRA_WART);
   }
 
   @Override

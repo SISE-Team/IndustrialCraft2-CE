@@ -3,8 +3,8 @@ package ic2ce.integration.jei;
 import ic2ce.api.recipe.IRecipeInput;
 import ic2ce.integration.jei.recipe.machine.*;
 import ic2ce.neoforge.block.MachineBlockType;
+import ic2ce.neoforge.processing.ProcessingBlocks;
 import ic2ce.neoforge.recipe.codec.*;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.RecipeKinds;
 import java.util.*;
 import java.util.function.Supplier;
@@ -46,38 +46,38 @@ public final class Ic2JeiPlugin implements IModPlugin {
       List.of(
           binding(
               "blast_furnace",
-              () -> BlockDefinitions.BLAST_FURNACE,
+              () -> ProcessingBlocks.BLAST_FURNACE,
               () -> RecipeKinds.BLAST_FURNACE,
               -1),
           binding(
               "block_cutter",
-              () -> BlockDefinitions.BLOCK_CUTTER,
+              () -> ProcessingBlocks.BLOCK_CUTTER,
               () -> RecipeKinds.BLOCK_CUTTER,
               -1),
           binding(
-              "centrifuge", () -> BlockDefinitions.CENTRIFUGE, () -> RecipeKinds.CENTRIFUGE, -1),
+              "centrifuge", () -> ProcessingBlocks.CENTRIFUGE, () -> RecipeKinds.CENTRIFUGE, -1),
           binding(
-              "compressor", () -> BlockDefinitions.COMPRESSOR, () -> RecipeKinds.COMPRESSOR, -1),
-          binding("extractor", () -> BlockDefinitions.EXTRACTOR, () -> RecipeKinds.EXTRACTOR, -1),
-          binding("macerator", () -> BlockDefinitions.MACERATOR, () -> RecipeKinds.MACERATOR, -1),
+              "compressor", () -> ProcessingBlocks.COMPRESSOR, () -> RecipeKinds.COMPRESSOR, -1),
+          binding("extractor", () -> ProcessingBlocks.EXTRACTOR, () -> RecipeKinds.EXTRACTOR, -1),
+          binding("macerator", () -> ProcessingBlocks.MACERATOR, () -> RecipeKinds.MACERATOR, -1),
           binding(
               "metal_former_extruding",
-              () -> BlockDefinitions.METAL_FORMER,
+              () -> ProcessingBlocks.METAL_FORMER,
               () -> RecipeKinds.METAL_FORMER_EXTRUDING,
               0),
           binding(
               "metal_former_rolling",
-              () -> BlockDefinitions.METAL_FORMER,
+              () -> ProcessingBlocks.METAL_FORMER,
               () -> RecipeKinds.METAL_FORMER_ROLLING,
               1),
           binding(
               "metal_former_cutting",
-              () -> BlockDefinitions.METAL_FORMER,
+              () -> ProcessingBlocks.METAL_FORMER,
               () -> RecipeKinds.METAL_FORMER_CUTTING,
               2),
           binding(
               "ore_washer",
-              () -> BlockDefinitions.ORE_WASHING_PLANT,
+              () -> ProcessingBlocks.ORE_WASHING_PLANT,
               () -> RecipeKinds.ORE_WASHER,
               -1));
   private static volatile mezz.jei.api.runtime.IJeiRuntime runtime;

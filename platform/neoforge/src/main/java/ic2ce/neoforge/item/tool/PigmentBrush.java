@@ -3,7 +3,6 @@ package ic2ce.neoforge.item.tool;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.item.paint.VanillaColorBlockId;
 import ic2ce.neoforge.item.paint.PigmentPalette;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.server.level.ServerPlayer;
@@ -115,7 +114,7 @@ public class PigmentBrush extends DurableCraftingTool {
         if (!replacement.isEmpty()) break;
       }
     }
-    var blank = new ItemStack(ItemDefinitions.PAINTER);
+    var blank = new ItemStack(ToolItems.PAINTER);
     if (replacement.isEmpty()) player.setItemInHand(hand, blank);
     else {
       StackTag.update(

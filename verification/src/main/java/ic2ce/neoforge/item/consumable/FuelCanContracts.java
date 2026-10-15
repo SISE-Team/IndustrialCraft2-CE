@@ -1,7 +1,6 @@
 package ic2ce.neoforge.item.consumable;
 
 import ic2ce.neoforge.item.StackTag;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.world.item.ItemStack;
@@ -18,7 +17,7 @@ public final class FuelCanContracts {
   public static Result run() {
     var failures = new ArrayList<String>();
     int checks = 0;
-    var item = (FuelCan) ItemDefinitions.FILLED_FUEL_CAN;
+    var item = (FuelCan) ConsumableItems.FILLED_FUEL_CAN;
     var stack = new ItemStack(item);
     for (int ticks : new int[] {0, 1, 400, 20000, -1, Integer.MAX_VALUE, 0}) {
       StackTag.update(
@@ -42,7 +41,7 @@ public final class FuelCanContracts {
     var first = template.create();
     first.setCount(0);
     checks++;
-    if (!template.create().is(ItemDefinitions.EMPTY_FUEL_CAN) || template.create().getCount() != 1)
+    if (!template.create().is(ConsumableItems.EMPTY_FUEL_CAN) || template.create().getCount() != 1)
       failures.add(
           "fuel can: one consumed physical fuel can does not leave an independent empty can");
     checks++;

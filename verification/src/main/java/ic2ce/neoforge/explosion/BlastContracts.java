@@ -4,7 +4,6 @@ import ic2ce.api.event.ExplosionEvent;
 import ic2ce.api.tile.ExplosionWhitelist;
 import ic2ce.neoforge.damage.DamageProfiles;
 import ic2ce.neoforge.damage.RadiationEffect;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import java.util.*;
 import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
@@ -105,7 +104,7 @@ public final class BlastContracts {
       }
       world.removeBlock(target, false);
       world.removeBlock(center.east(2), false);
-      world.setBlockAndUpdate(center, BlockDefinitions.ITNT.defaultBlockState());
+      world.setBlockAndUpdate(center, ExplosionBlocks.ITNT.defaultBlockState());
       new NativeBlast(world, null, origin.x, origin.y, origin.z, 2, 0).doExplosion();
       check(
           world.getBlockState(center).isAir()

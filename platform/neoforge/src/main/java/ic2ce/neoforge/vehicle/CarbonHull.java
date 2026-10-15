@@ -2,7 +2,6 @@ package ic2ce.neoforge.vehicle;
 
 import ic2ce.api.entity.boat.*;
 import ic2ce.neoforge.registry.BoatDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 
@@ -12,7 +11,7 @@ import net.minecraft.world.level.Level;
  */
 public class CarbonHull extends AbstractBoatEntity {
   public CarbonHull(EntityType<? extends AbstractBoatEntity> type, Level world) {
-    super(type, world, () -> ItemDefinitions.CARBON_BOAT);
+    super(type, world, () -> VehicleItems.CARBON_BOAT);
   }
 
   public CarbonHull(

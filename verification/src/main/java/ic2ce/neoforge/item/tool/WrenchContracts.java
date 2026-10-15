@@ -3,8 +3,9 @@ package ic2ce.neoforge.item.tool;
 import ic2ce.api.item.ElectricItem;
 import ic2ce.api.tile.IWrenchable;
 import ic2ce.neoforge.block.InventoryBlockEntity;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.power.PowerBlocks;
+import ic2ce.neoforge.power.PowerItems;
+import ic2ce.neoforge.storage.StorageBlocks;
 import java.util.*;
 import java.util.function.Consumer;
 import net.minecraft.core.BlockPos;
@@ -48,12 +49,12 @@ public final class WrenchContracts {
                 UUID.fromString("fc4ad392-af63-479d-8a9f-40e83b987817"), "IC2WrenchProbe"));
     player.getInventory().clearContent();
     player.getAbilities().instabuild = false;
-    world.setBlockAndUpdate(position, BlockDefinitions.GENERATOR.defaultBlockState());
+    world.setBlockAndUpdate(position, PowerBlocks.GENERATOR.defaultBlockState());
     var before = world.getBlockState(position);
     var nativeBlock = (IWrenchable) before.getBlock();
     var facing = nativeBlock.getFacing(world, position);
     var target = facing == Direction.EAST ? Direction.WEST : Direction.EAST;
-    var stack = new ItemStack(ItemDefinitions.ELECTRIC_WRENCH);
+    var stack = new ItemStack(ToolItems.ELECTRIC_WRENCH);
     player.setItemInHand(InteractionHand.MAIN_HAND, stack);
     var tool = (ElectricWrench) stack.getItem();
     ElectricItem.manager.charge(stack, 99, 1, true, false);
@@ -89,7 +90,7 @@ public final class WrenchContracts {
       NeoForge.EVENT_BUS.unregister(deny);
     }
     check(
-        world.getBlockState(position).is(BlockDefinitions.GENERATOR)
+        world.getBlockState(position).is(PowerBlocks.GENERATOR)
             && ElectricItem.manager.getCharge(stack) == 1000,
         "actual cancelled block-break event preserves generator and complete reserved removal"
             + " energy");
@@ -100,7 +101,7 @@ public final class WrenchContracts {
     int coal = 0, generators = 0;
     for (var drop : drops) {
       if (drop.getItem().is(Items.COAL)) coal += drop.getItem().getCount();
-      if (drop.getItem().is(ItemDefinitions.GENERATOR)) generators += drop.getItem().getCount();
+      if (drop.getItem().is(PowerItems.GENERATOR)) generators += drop.getItem().getCount();
     }
     check(
         world.getBlockState(position).isAir()
@@ -113,7 +114,7 @@ public final class WrenchContracts {
             + ", generators="
             + generators);
     drops.forEach(ItemEntity::discard);
-    world.setBlockAndUpdate(position, BlockDefinitions.WOODEN_STORAGE_BOX.defaultBlockState());
+    world.setBlockAndUpdate(position, StorageBlocks.WOODEN_STORAGE_BOX.defaultBlockState());
     inventory = (InventoryBlockEntity) world.getBlockEntity(position);
     inventory.setItem(0, new ItemStack(Items.IRON_INGOT, 13));
     int action = 0;
@@ -133,14 +134,14 @@ public final class WrenchContracts {
     ItemStack boxDrop = ItemStack.EMPTY;
     int looseIron = 0;
     for (var drop : drops) {
-      if (drop.getItem().is(BlockDefinitions.WOODEN_STORAGE_BOX.asItem()))
+      if (drop.getItem().is(StorageBlocks.WOODEN_STORAGE_BOX.asItem()))
         boxDrop = drop.getItem().copy();
       if (drop.getItem().is(Items.IRON_INGOT)) looseIron += drop.getItem().getCount();
     }
     check(
         result == WrenchActions.Action.REMOVE && !boxDrop.isEmpty() && looseIron == 0,
         "portable inventory travels in its sole real wrench drop without loose iron duplication");
-    world.setBlockAndUpdate(position, BlockDefinitions.WOODEN_STORAGE_BOX.defaultBlockState());
+    world.setBlockAndUpdate(position, StorageBlocks.WOODEN_STORAGE_BOX.defaultBlockState());
     inventory = (InventoryBlockEntity) world.getBlockEntity(position);
     inventory.onPlaced(boxDrop, player, Direction.NORTH);
     check(

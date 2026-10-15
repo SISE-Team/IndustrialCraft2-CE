@@ -18,7 +18,6 @@ import ic2ce.neoforge.inventory.UpgradeInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.personal.menu.OwnerEnergyTradeMenu;
 import ic2ce.neoforge.personal.menu.PublicEnergyTradeMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
@@ -58,7 +57,7 @@ public class EnergyTradeTerminal extends InventoryBlockEntity
   public final UpgradeInventory upgradeSlot = new UpgradeInventory(this, "upgrade", 1);
 
   public EnergyTradeTerminal(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.ENERGY_O_MAT, position, state);
+    super(PersonalBlockEntities.ENERGY_O_MAT, position, state);
   }
 
   @Override

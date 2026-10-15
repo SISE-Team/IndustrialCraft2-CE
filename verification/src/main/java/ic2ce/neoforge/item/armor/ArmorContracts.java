@@ -4,7 +4,6 @@ import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.item.*;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.runtime.SideServices;
 import java.util.*;
 import net.minecraft.core.BlockPos;
@@ -49,21 +48,21 @@ public final class ArmorContracts {
     SideServices.keyboard().processKeyUpdate(player, 0);
     for (Item item :
         List.of(
-            ItemDefinitions.NANO_HELMET,
-            ItemDefinitions.NANO_CHESTPLATE,
-            ItemDefinitions.NANO_LEGGINGS,
-            ItemDefinitions.NANO_BOOTS,
-            ItemDefinitions.QUANTUM_HELMET,
-            ItemDefinitions.QUANTUM_CHESTPLATE,
-            ItemDefinitions.QUANTUM_LEGGINGS,
-            ItemDefinitions.QUANTUM_BOOTS,
-            ItemDefinitions.HAZMAT_HELMET,
-            ItemDefinitions.HAZMAT_CHESTPLATE,
-            ItemDefinitions.HAZMAT_LEGGINGS,
-            ItemDefinitions.RUBBER_BOOTS,
-            ItemDefinitions.NIGHT_VISION_GOGGLES,
-            ItemDefinitions.JETPACK,
-            ItemDefinitions.CF_PACK)) {
+            ArmorItems.NANO_HELMET,
+            ArmorItems.NANO_CHESTPLATE,
+            ArmorItems.NANO_LEGGINGS,
+            ArmorItems.NANO_BOOTS,
+            ArmorItems.QUANTUM_HELMET,
+            ArmorItems.QUANTUM_CHESTPLATE,
+            ArmorItems.QUANTUM_LEGGINGS,
+            ArmorItems.QUANTUM_BOOTS,
+            ArmorItems.HAZMAT_HELMET,
+            ArmorItems.HAZMAT_CHESTPLATE,
+            ArmorItems.HAZMAT_LEGGINGS,
+            ArmorItems.RUBBER_BOOTS,
+            ArmorItems.NIGHT_VISION_GOGGLES,
+            ArmorItems.JETPACK,
+            ArmorItems.CF_PACK)) {
       var armor = (EquipmentItem) item;
       var stack = new ItemStack(item);
       check(
@@ -72,7 +71,7 @@ public final class ArmorContracts {
           "actual registered equipment owns a native slot and stable immutable attributes: "
               + item);
     }
-    var nano = charged(ItemDefinitions.NANO_BOOTS, 4999);
+    var nano = charged(ArmorItems.NANO_BOOTS, 4999);
     var nanoItem = (NanoArmor) nano.getItem();
     check(
         !nanoItem.absorbFall(nano, player, 4) && manager.getCharge(nano) == 4999,
@@ -88,12 +87,12 @@ public final class ArmorContracts {
             && manager.getCharge(nano) == before
             && !nanoItem.absorbFall(nano, player, Float.NaN),
         "nano short-fall limit and malformed distance cannot spend charge");
-    var quantum = charged(ItemDefinitions.QUANTUM_BOOTS, 40_000);
+    var quantum = charged(ArmorItems.QUANTUM_BOOTS, 40_000);
     var quantumItem = (QuantumArmor) quantum.getItem();
     check(
         quantumItem.absorbFall(quantum, player, 12) && manager.getCharge(quantum) == 0,
         "quantum boots independently absorb a longer fall with twenty-thousand-EU damage units");
-    var chest = charged(ItemDefinitions.QUANTUM_CHESTPLATE, 7);
+    var chest = charged(ArmorItems.QUANTUM_CHESTPLATE, 7);
     var quantumChest = (QuantumArmor) chest.getItem();
     check(
         !quantumChest.drainEnergy(chest, 2) && manager.getCharge(chest) == 7,
@@ -105,7 +104,7 @@ public final class ArmorContracts {
     check(
         !quantumItem.isJetpackActive(quantum) && !quantumItem.drainEnergy(quantum, 1),
         "quantum boots cannot impersonate a chest thruster");
-    var tint = new ItemStack(ItemDefinitions.QUANTUM_HELMET);
+    var tint = new ItemStack(ArmorItems.QUANTUM_HELMET);
     StackTag.update(
         tint,
         data -> {
@@ -129,7 +128,7 @@ public final class ArmorContracts {
                 .equals("retained")
             && StackTag.get(tint).getStringOr("owned", "").equals("retained"),
         "native dye removal preserves unrelated display and owned metadata");
-    var boots = new ItemStack(ItemDefinitions.RUBBER_BOOTS);
+    var boots = new ItemStack(ArmorItems.RUBBER_BOOTS);
     var rubber = (SealedGarment) boots.getItem();
     check(
         rubber.absorbFall(boots, player, 7)
@@ -137,9 +136,9 @@ public final class ArmorContracts {
             && !rubber.absorbFall(boots, player, 11),
         "rubber footwear has a physical 64-wear budget and its own short-fall bound");
     player.setItemSlot(EquipmentSlot.FEET, boots);
-    player.setItemSlot(EquipmentSlot.LEGS, new ItemStack(ItemDefinitions.HAZMAT_LEGGINGS));
-    player.setItemSlot(EquipmentSlot.CHEST, new ItemStack(ItemDefinitions.HAZMAT_CHESTPLATE));
-    player.setItemSlot(EquipmentSlot.HEAD, new ItemStack(ItemDefinitions.HAZMAT_HELMET));
+    player.setItemSlot(EquipmentSlot.LEGS, new ItemStack(ArmorItems.HAZMAT_LEGGINGS));
+    player.setItemSlot(EquipmentSlot.CHEST, new ItemStack(ArmorItems.HAZMAT_CHESTPLATE));
+    player.setItemSlot(EquipmentSlot.HEAD, new ItemStack(ArmorItems.HAZMAT_HELMET));
     check(
         IHazmatLike.hasCompleteHazmat(player),
         "the actual four sealed native equipment slots provide complete chemical protection");
@@ -153,7 +152,7 @@ public final class ArmorContracts {
             && !SealedGarment.hazmatAbsorbs(world.damageSources().generic()),
         "independently created native electricity source matches its registry key without"
             + " object-identity dependence");
-    var helmet = new ItemStack(ItemDefinitions.NANO_HELMET);
+    var helmet = new ItemStack(ArmorItems.NANO_HELMET);
     var helmetItem = (NanoArmor) helmet.getItem();
     player.setItemSlot(EquipmentSlot.HEAD, helmet);
     check(
@@ -170,7 +169,7 @@ public final class ArmorContracts {
     check(
         helmetItem.getHudMode(helmet) == HudMode.ADVANCED,
         "negative saved HUD mode cannot throw an array-index exception");
-    var goggles = new ItemStack(ItemDefinitions.NIGHT_VISION_GOGGLES);
+    var goggles = new ItemStack(ArmorItems.NIGHT_VISION_GOGGLES);
     var gogglesItem = (NightVisionGoggles) goggles.getItem();
     player.setItemSlot(EquipmentSlot.HEAD, goggles);
     player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 1200));
@@ -178,7 +177,7 @@ public final class ArmorContracts {
     check(
         player.getEffect(MobEffects.NIGHT_VISION).getDuration() == 1200 && !StackTag.has(goggles),
         "inactive goggles preserve a real potion night-vision effect and blank components");
-    var pack = new ItemStack(ItemDefinitions.JETPACK);
+    var pack = new ItemStack(ArmorItems.JETPACK);
     var jetpack = (BiogasJetpack) pack.getItem();
     jetpack.fillMb(pack, Ic2FluidStack.create(FluidDefinitions.BIOGAS.still, 1), false, null);
     check(
@@ -196,7 +195,7 @@ public final class ArmorContracts {
                 null)
             == 0,
         "biogas tank rejects another physical fluid");
-    var foam = new ItemStack(ItemDefinitions.CF_PACK);
+    var foam = new ItemStack(ArmorItems.CF_PACK);
     var foamItem = (FoamReservoir) foam.getItem();
     foamItem.filltank(foam);
     check(
@@ -237,7 +236,7 @@ public final class ArmorContracts {
     check(
         jetpack.getCharge(pack) == 1 && player.getDeltaMovement().y == 0,
         "paid biogas hover arrests downward movement with its distinct one-millibucket bill");
-    var poorChest = charged(ItemDefinitions.QUANTUM_CHESTPLATE, 7);
+    var poorChest = charged(ArmorItems.QUANTUM_CHESTPLATE, 7);
     player.setItemSlot(EquipmentSlot.CHEST, poorChest);
     SideServices.keyboard().processKeyUpdate(player, 1 << 4);
     player.setDeltaMovement(Vec3.ZERO);
@@ -304,10 +303,10 @@ public final class ArmorContracts {
     SideServices.keyboard().processKeyUpdate(player, 0);
     for (var armorItem :
         List.of(
-            ItemDefinitions.QUANTUM_HELMET,
-            ItemDefinitions.QUANTUM_CHESTPLATE,
-            ItemDefinitions.QUANTUM_LEGGINGS,
-            ItemDefinitions.QUANTUM_BOOTS)) {
+            ArmorItems.QUANTUM_HELMET,
+            ArmorItems.QUANTUM_CHESTPLATE,
+            ArmorItems.QUANTUM_LEGGINGS,
+            ArmorItems.QUANTUM_BOOTS)) {
       var nativeStack = new ItemStack(armorItem);
       var data = new net.minecraft.nbt.CompoundTag();
       data.putString("sentinel", "keep");

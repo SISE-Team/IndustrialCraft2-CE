@@ -3,8 +3,8 @@ package ic2ce.neoforge.fluid;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.InventorySlot;
+import ic2ce.neoforge.processing.ProcessingBlocks;
 import ic2ce.neoforge.processing.solid.OreGrinder;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
@@ -32,7 +32,7 @@ public final class FluidContracts {
 
   private Result exercise(ServerLevel world) {
     Fluid water = net.minecraft.world.level.material.Fluids.WATER;
-    var parent = new OreGrinder(BlockPos.ZERO, BlockDefinitions.MACERATOR.defaultBlockState());
+    var parent = new OreGrinder(BlockPos.ZERO, ProcessingBlocks.MACERATOR.defaultBlockState());
     parent.setLevel(world);
     var component = new FluidPorts(parent);
     var first =
@@ -103,7 +103,7 @@ public final class FluidContracts {
         component.drainMb(Direction.UP, Ic2FluidStack.create(water, 1200), true) == 1000,
         "duplicate tank references cannot overpredict available volume");
     var remoteParent =
-        new OreGrinder(BlockPos.ZERO, BlockDefinitions.MACERATOR.defaultBlockState());
+        new OreGrinder(BlockPos.ZERO, ProcessingBlocks.MACERATOR.defaultBlockState());
     remoteParent.setLevel(world);
     var remote = new FluidPorts(remoteParent).addTank("remote", 300);
     dynamic.set(List.of(remote));

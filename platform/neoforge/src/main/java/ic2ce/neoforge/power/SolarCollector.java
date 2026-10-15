@@ -10,7 +10,6 @@ import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.power.menu.SolarCollectorMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -27,7 +26,7 @@ public class SolarCollector extends BufferedGenerator {
       NativeConfigValues.getDouble(ProjectConfiguration.get(), "balance/energy/generator/solar");
 
   public SolarCollector(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.SOLAR_GENERATOR, position, block, 1, 1, 2);
+    super(PowerBlockEntities.SOLAR_GENERATOR, position, block, 1, 1, 2);
   }
 
   @Override

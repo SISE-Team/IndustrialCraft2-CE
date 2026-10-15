@@ -3,7 +3,7 @@ package ic2ce.api.energy.prefab;
 import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.info.ILocatable;
 import ic2ce.api.item.ElectricItem;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.energy.BatteryItems;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -92,7 +92,7 @@ public final class EnergyBufferContracts {
     check(restored.getEnergyStored() == 0, "corrupt persisted ledger becomes finite empty storage");
     sink.setCapacity(1000);
     sink.setEnergyStored(200);
-    var battery = new ItemStack(ItemDefinitions.RE_BATTERY);
+    var battery = new ItemStack(BatteryItems.RE_BATTERY);
     double sum = sink.getEnergyStored() + ElectricItem.manager.getCharge(battery);
     check(
         sink.charge(battery)

@@ -7,14 +7,14 @@ import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.component.SignalInput;
 import ic2ce.neoforge.diagnostics.DevelopmentMode;
 import ic2ce.neoforge.inventory.*;
+import ic2ce.neoforge.material.MaterialItems;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.processing.FabricationSettings;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -36,7 +36,7 @@ public class ClassicMatterFabricator extends PoweredBlockEntity
 
   public ClassicMatterFabricator(BlockPos position, BlockState state) {
     super(
-        BlockEntityDefinitions.CLASSIC_MASS_FABRICATOR,
+        ProcessingBlockEntities.CLASSIC_MASS_FABRICATOR,
         position,
         state,
         FabricationSettings.energyCost(),
@@ -120,7 +120,7 @@ public class ClassicMatterFabricator extends PoweredBlockEntity
 
   public boolean attemptGeneration() {
     double cost = energy.getCapacity();
-    var product = new ItemStack(ItemDefinitions.UU_MATTER);
+    var product = new ItemStack(MaterialItems.UU_MATTER);
     if (cost <= 0
         || energy.getEnergy() < cost
         || !outputSlot.canAdd(product)

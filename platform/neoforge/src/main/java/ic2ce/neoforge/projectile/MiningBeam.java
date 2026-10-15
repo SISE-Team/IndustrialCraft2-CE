@@ -1,5 +1,6 @@
 package ic2ce.neoforge.projectile;
 
+import ic2ce.neoforge.explosion.ExplosionBlocks;
 import ic2ce.neoforge.explosion.NativeBlast;
 import ic2ce.neoforge.registry.EntityDefinitions;
 import ic2ce.neoforge.runtime.AutomationActors;
@@ -176,9 +177,9 @@ public class MiningBeam extends ThrowableProjectile {
     power -= cost;
     blockBreaks--;
     if (!removeBlock) return;
-    if (block == ic2ce.neoforge.registry.BlockDefinitions.ITNT
-        || block == ic2ce.neoforge.registry.BlockDefinitions.NUKE
-        || block == ic2ce.neoforge.registry.BlockDefinitions.CLASSIC_NUKE) {
+    if (block == ExplosionBlocks.ITNT
+        || block == ExplosionBlocks.NUKE
+        || block == ExplosionBlocks.CLASSIC_NUKE) {
       state.onProjectileHit(world, state, result, this);
       discard();
       return;

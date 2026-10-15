@@ -1,5 +1,6 @@
 package ic2ce.neoforge.explosion;
 
+import ic2ce.neoforge.item.consumable.ConsumableItems;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.engine.explosion.NuclearCharge;
@@ -8,8 +9,7 @@ import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.world.WorldItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.*;
@@ -23,19 +23,19 @@ public class ConfiguredNuclearCharge extends NuclearBlockEntity implements IHasG
   public final ConsumableInventory outsideSlot, insideSlot;
 
   public ConfiguredNuclearCharge(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.NUKE, position, state);
-    outsideSlot = new ItemWhitelistInput(this, "outsideSlot", 1, ItemDefinitions.ITNT);
+    super(ExplosionBlockEntities.NUKE, position, state);
+    outsideSlot = new ItemWhitelistInput(this, "outsideSlot", 1, ExplosionItems.ITNT);
     insideSlot =
         new ItemWhitelistInput(
             this,
             "insideSlot",
             1,
-            ItemDefinitions.URANIUM_BLOCK,
-            ItemDefinitions.URANIUM_238,
-            ItemDefinitions.URANIUM_235,
-            ItemDefinitions.SMALL_URANIUM_235,
-            ItemDefinitions.PLUTONIUM,
-            ItemDefinitions.SMALL_PLUTONIUM);
+            WorldItems.URANIUM_BLOCK,
+            ConsumableItems.URANIUM_238,
+            ConsumableItems.URANIUM_235,
+            ConsumableItems.SMALL_URANIUM_235,
+            ConsumableItems.PLUTONIUM,
+            ConsumableItems.SMALL_PLUTONIUM);
   }
 
   @Override
@@ -53,17 +53,17 @@ public class ConfiguredNuclearCharge extends NuclearBlockEntity implements IHasG
     var payload =
         isotope.isEmpty()
             ? NuclearCharge.Payload.NONE
-            : isotope.is(ItemDefinitions.URANIUM_238)
+            : isotope.is(ConsumableItems.URANIUM_238)
                 ? NuclearCharge.Payload.URANIUM_238
-                : isotope.is(ItemDefinitions.URANIUM_BLOCK)
+                : isotope.is(WorldItems.URANIUM_BLOCK)
                     ? NuclearCharge.Payload.URANIUM_BLOCK
-                    : isotope.is(ItemDefinitions.SMALL_URANIUM_235)
+                    : isotope.is(ConsumableItems.SMALL_URANIUM_235)
                         ? NuclearCharge.Payload.SMALL_URANIUM_235
-                        : isotope.is(ItemDefinitions.URANIUM_235)
+                        : isotope.is(ConsumableItems.URANIUM_235)
                             ? NuclearCharge.Payload.URANIUM_235
-                            : isotope.is(ItemDefinitions.SMALL_PLUTONIUM)
+                            : isotope.is(ConsumableItems.SMALL_PLUTONIUM)
                                 ? NuclearCharge.Payload.SMALL_PLUTONIUM
-                                : isotope.is(ItemDefinitions.PLUTONIUM)
+                                : isotope.is(ConsumableItems.PLUTONIUM)
                                     ? NuclearCharge.Payload.PLUTONIUM
                                     : NuclearCharge.Payload.NONE;
     var profile =

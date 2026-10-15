@@ -1,7 +1,6 @@
 package ic2ce.neoforge.reactor;
 
 import ic2ce.neoforge.runtime.profile.NotClassic;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
@@ -14,7 +13,7 @@ import net.minecraft.world.phys.Vec3;
 @NotClassic
 public class VesselHatch extends VesselEndpoint implements ReactorInventoryView {
   public VesselHatch(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.REACTOR_ACCESS_HATCH, position, state);
+    super(ReactorBlockEntities.REACTOR_ACCESS_HATCH, position, state);
   }
 
   @Override

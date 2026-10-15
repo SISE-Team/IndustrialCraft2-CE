@@ -6,6 +6,7 @@ import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.fluid.LiquidUtil;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.engine.machine.BoilerThermodynamics;
 import ic2ce.neoforge.block.InventoryBlockEntity;
@@ -15,7 +16,6 @@ import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
 import ic2ce.neoforge.processing.menu.BoilerMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.thermal.HeatSupply;
 import ic2ce.neoforge.world.BiomeUtil;
@@ -50,7 +50,7 @@ public class PressureBoiler extends InventoryBlockEntity
   }
 
   public PressureBoiler(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.STEAM_GENERATOR, position, state);
+    super(ProcessingBlockEntities.STEAM_GENERATOR, position, state);
     fluids = addComponent(new FluidPorts(this));
     waterTank =
         fluids.addTankInsert(

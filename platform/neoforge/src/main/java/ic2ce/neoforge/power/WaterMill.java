@@ -7,7 +7,6 @@ import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.document.ScreenValues;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.neoforge.runtime.SharedRandom;
@@ -32,7 +31,7 @@ public class WaterMill extends RotorGenerator implements ScreenValues {
   public int microStorage, maxWater = 2000;
 
   public WaterMill(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.WATER_GENERATOR, position, block, 2, 1, 4, 2);
+    super(PowerBlockEntities.WATER_GENERATOR, position, block, 2, 1, 4, 2);
     fuelSlot =
         new FluidWhitelistInput(
             this,

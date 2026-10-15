@@ -1,7 +1,7 @@
 package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
 import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.*;
@@ -18,7 +18,7 @@ public class CarnivorousSpecies extends MaterialSpecies {
 
   @Override
   public Block getCropBlock() {
-    return BlockDefinitions.EATING_PLANT_CROP;
+    return AgricultureBlocks.EATING_PLANT_CROP;
   }
 
   @Override

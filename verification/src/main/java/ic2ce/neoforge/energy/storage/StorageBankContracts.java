@@ -1,8 +1,8 @@
 package ic2ce.neoforge.energy.storage;
 
 import ic2ce.api.item.ElectricItem;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.energy.EnergyBlocks;
+import ic2ce.neoforge.item.energy.BatteryItems;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -27,7 +27,7 @@ public final class StorageBankContracts {
 
   private static final class Pad extends LowVoltagePad {
     Pad(BlockPos position) {
-      super(position, BlockDefinitions.BATBOX_CHARGEPAD.defaultBlockState());
+      super(position, EnergyBlocks.BATBOX_CHARGEPAD.defaultBlockState());
     }
 
     void contact(net.minecraft.world.entity.player.Player player) {
@@ -45,7 +45,7 @@ public final class StorageBankContracts {
 
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(8340, 100, 8340);
-    var bank = new LowVoltageBank(position, BlockDefinitions.BATBOX.defaultBlockState());
+    var bank = new LowVoltageBank(position, EnergyBlocks.BATBOX.defaultBlockState());
     bank.setLevel(world);
     bank.setStored(39990);
     check(
@@ -95,8 +95,8 @@ public final class StorageBankContracts {
     second.getInventory().clearContent();
     first.setPos(position.getX() + 0.3, position.getY() + 0.94, position.getZ() + 0.5);
     second.setPos(position.getX() + 0.7, position.getY() + 0.94, position.getZ() + 0.5);
-    first.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ItemDefinitions.RE_BATTERY));
-    second.setItemInHand(InteractionHand.OFF_HAND, new ItemStack(ItemDefinitions.RE_BATTERY));
+    first.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(BatteryItems.RE_BATTERY));
+    second.setItemInHand(InteractionHand.OFF_HAND, new ItemStack(BatteryItems.RE_BATTERY));
     for (int cycle = 0; cycle < 2; cycle++) {
       pad.energy.forceAddEnergy(64);
       pad.contact(first);

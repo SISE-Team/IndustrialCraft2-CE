@@ -8,7 +8,6 @@ import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.component.SignalInput;
 import ic2ce.neoforge.inventory.UpgradeInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.utility.menu.PoleDriveMenu;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -29,7 +28,7 @@ public class PoleDrive extends PoweredBlockEntity implements IHasGui, IUpgradabl
   protected final SignalInput redstone;
 
   public PoleDrive(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.MAGNETIZER, position, state, 100, 1);
+    super(UtilityBlockEntities.MAGNETIZER, position, state, 100, 1);
     redstone = addComponent(new SignalInput(this));
     upgradeSlot = new UpgradeInventory(this, "upgrade", 4);
   }

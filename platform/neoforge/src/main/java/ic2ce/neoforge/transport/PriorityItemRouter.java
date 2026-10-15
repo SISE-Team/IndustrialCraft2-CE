@@ -10,7 +10,6 @@ import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.network.ClientFieldValidator;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.transport.menu.PriorityItemMenu;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +32,7 @@ public class PriorityItemRouter extends InventoryBlockEntity
   public final InventorySlot buffer = new InventorySlot(this, "buffer", InventorySlot.Access.I, 9);
 
   public PriorityItemRouter(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.WEIGHTED_ITEM_DISTRIBUTOR, position, state);
+    super(TransportBlockEntities.WEIGHTED_ITEM_DISTRIBUTOR, position, state);
   }
 
   @Override

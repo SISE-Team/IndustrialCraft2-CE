@@ -1,6 +1,5 @@
 package ic2ce.neoforge.item.consumable;
 
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.Objects;
 import net.minecraft.core.Holder;
 import net.minecraft.world.*;
@@ -42,7 +41,7 @@ public class CoffeeCup extends Item {
     }
     if (owner.getAbilities().instabuild) return stack;
     stack.shrink(1);
-    var empty = new ItemStack(ItemDefinitions.EMPTY_MUG);
+    var empty = new ItemStack(ConsumableItems.EMPTY_MUG);
     if (stack.isEmpty()) return empty;
     if (!owner.getInventory().add(empty)) owner.drop(empty, false);
     return stack;

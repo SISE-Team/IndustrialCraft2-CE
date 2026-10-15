@@ -5,7 +5,7 @@ import ic2ce.api.recipe.Recipes;
 import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.neoforge.inventory.ItemRecipeInput;
 import ic2ce.neoforge.processing.PoweredProcessor;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import java.util.Collection;
 import java.util.EnumSet;
@@ -19,7 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class MaterialExtractor
     extends PoweredProcessor<IRecipeInput, Collection<ItemStack>, ItemStack> {
   public MaterialExtractor(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.EXTRACTOR, position, state, 2, 300, 1);
+    super(ProcessingBlockEntities.EXTRACTOR, position, state, 2, 300, 1);
     inputSlot = new ItemRecipeInput(this, "input", 1, Recipes.extractor);
   }
 

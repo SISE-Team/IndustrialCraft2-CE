@@ -20,8 +20,6 @@ import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
 import ic2ce.neoforge.reactor.menu.ReactorMenu;
 import ic2ce.neoforge.reactor.part.HeatCell;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import ic2ce.neoforge.runtime.SharedRandom;
 import ic2ce.neoforge.runtime.SideServices;
@@ -71,7 +69,7 @@ public class NuclearCore extends InventoryBlockEntity
               ProjectConfiguration.get(), "balance/energy/FluidReactor/outputModifier");
 
   public NuclearCore(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.NUCLEAR_REACTOR, position, state);
+    super(ReactorBlockEntities.NUCLEAR_REACTOR, position, state);
     updateTicker = SharedRandom.INSTANCE.nextInt(20);
     fluids = addComponent(new FluidPorts(this));
     inputTank =
@@ -520,7 +518,7 @@ public class NuclearCore extends InventoryBlockEntity
   @Override
   protected InteractionResult onActivated(
       Player player, InteractionHand hand, Direction face, Vec3 hit) {
-    return player.getItemInHand(hand).is(ItemDefinitions.REACTOR_CHAMBER)
+    return player.getItemInHand(hand).is(ReactorItems.REACTOR_CHAMBER)
         ? InteractionResult.PASS
         : super.onActivated(player, hand, face, hit);
   }

@@ -1,8 +1,8 @@
 package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
+import ic2ce.neoforge.agriculture.AgricultureItems;
 import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.*;
 import net.minecraft.world.item.*;
@@ -18,7 +18,7 @@ public class VenomSpecies extends MaterialSpecies {
 
   @Override
   public Block getCropBlock() {
-    return BlockDefinitions.VENOMILIA_CROP;
+    return AgricultureBlocks.VENOMILIA_CROP;
   }
 
   @Override
@@ -57,7 +57,7 @@ public class VenomSpecies extends MaterialSpecies {
     int age = plot.getCurrentAge();
     return age < 3
         ? ItemStack.EMPTY
-        : new ItemStack(age == 4 ? ItemDefinitions.GRIN_POWDER : Items.PURPLE_DYE);
+        : new ItemStack(age == 4 ? AgricultureItems.GRIN_POWDER : Items.PURPLE_DYE);
   }
 
   @Override

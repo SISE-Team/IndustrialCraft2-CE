@@ -11,7 +11,6 @@ import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.transport.menu.MeteredFluidMenu;
 import ic2ce.neoforge.world.DirectionSets;
 import java.util.Set;
@@ -34,7 +33,7 @@ public class MeteredFluidOutlet extends PoweredBlockEntity
   @GuiSynced protected final FluidPorts.InternalFluidTank fluidTank;
 
   public MeteredFluidOutlet(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.FLUID_REGULATOR, position, state, 10000, 4);
+    super(TransportBlockEntities.FLUID_REGULATOR, position, state, 10000, 4);
     fluids = addComponent(new FluidPorts(this));
     fluidTank = fluids.addTank("fluidTank", 10000, InventorySlot.Access.NONE);
     wasserinputSlot =

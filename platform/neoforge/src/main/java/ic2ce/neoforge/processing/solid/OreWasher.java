@@ -6,6 +6,7 @@ import ic2ce.api.recipe.Recipes;
 import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.FluidContainerInventory;
@@ -13,7 +14,6 @@ import ic2ce.neoforge.inventory.FluidWhitelistInput;
 import ic2ce.neoforge.inventory.ItemRecipeInput;
 import ic2ce.neoforge.inventory.OutputInventory;
 import ic2ce.neoforge.processing.PoweredProcessor;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import java.util.Collection;
 import java.util.EnumSet;
 import java.util.Set;
@@ -30,7 +30,7 @@ public class OreWasher extends PoweredProcessor<IRecipeInput, Collection<ItemSta
   protected final FluidPorts fluids;
 
   public OreWasher(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.ORE_WASHING_PLANT, position, state, 16, 500, 3);
+    super(ProcessingBlockEntities.ORE_WASHING_PLANT, position, state, 16, 500, 3);
     inputSlot = new ItemRecipeInput(this, "input", 1, Recipes.oreWashing);
     fluidSlot =
         new FluidWhitelistInput(this, "fluid", 1, net.minecraft.world.level.material.Fluids.WATER);

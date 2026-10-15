@@ -1,7 +1,7 @@
 package ic2ce.neoforge.processing.uu;
 
 import ic2ce.api.recipe.Recipes;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.material.MaterialItems;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +18,7 @@ public final class ScrapBoxResolver implements IRecipeResolver {
       result.add(
           new RecipeTransformation(
               1,
-              List.of(List.of(new LeanItemStack(ItemDefinitions.SCRAP_BOX, boxes))),
+              List.of(List.of(new LeanItemStack(MaterialItems.SCRAP_BOX, boxes))),
               new LeanItemStack(stack)));
     }
     return List.copyOf(result);

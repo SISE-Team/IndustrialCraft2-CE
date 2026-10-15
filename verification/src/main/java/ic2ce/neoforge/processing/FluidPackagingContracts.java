@@ -3,7 +3,6 @@ package ic2ce.neoforge.processing;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.processing.fluid.LiquidPackager;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -31,7 +30,7 @@ public final class FluidPackagingContracts {
 
   private Result exercise(ServerLevel world) {
     var pos = new BlockPos(1660, 110, 1300);
-    world.setBlockAndUpdate(pos, BlockDefinitions.FLUID_BOTTLER.defaultBlockState());
+    world.setBlockAndUpdate(pos, ProcessingBlocks.FLUID_BOTTLER.defaultBlockState());
     var machine = (LiquidPackager) world.getBlockEntity(pos);
     var energy = machine.getComponent(ElectricalBuffer.class);
     machine.setOverclockRates();

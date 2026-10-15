@@ -12,7 +12,6 @@ import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.utility.menu.ChunkAnchorMenu;
 import ic2ce.neoforge.world.ChunkLeases;
 import it.unimi.dsi.fastutil.longs.LongOpenHashSet;
@@ -51,7 +50,7 @@ public class ChunkAnchor extends InventoryBlockEntity
   public final ElectricalBuffer energy;
 
   public ChunkAnchor(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.CHUNK_LOADER, position, state);
+    super(UtilityBlockEntities.CHUNK_LOADER, position, state);
     double configured =
         NativeConfigValues.getDouble(ProjectConfiguration.get(), "balance/euPerChunk");
     if (!Double.isFinite(configured) || configured < 0)

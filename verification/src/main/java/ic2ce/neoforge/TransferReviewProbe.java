@@ -4,7 +4,11 @@ import ic2ce.api.fluid.Ic2FluidItem;
 import ic2ce.neoforge.fluid.CellFluidHandler;
 import ic2ce.neoforge.inventory.transfer.NativeItemTransfers;
 import ic2ce.neoforge.inventory.transfer.TransactionalItemAdapter;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.armor.ArmorItems;
+import ic2ce.neoforge.item.container.ContainerItems;
+import ic2ce.neoforge.kinetic.KineticBlocks;
+import ic2ce.neoforge.material.MaterialItems;
+import ic2ce.neoforge.thermal.ThermalBlocks;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -141,17 +145,17 @@ public final class TransferReviewProbe {
     var fixtures =
         List.of(
             new LimitedSlot(
-                ic2ce.neoforge.registry.BlockDefinitions.ELECTRIC_HEAT_GENERATOR,
+                ThermalBlocks.ELECTRIC_HEAT_GENERATOR,
                 "CoilSlot",
-                ItemDefinitions.COIL),
+                MaterialItems.COIL),
             new LimitedSlot(
-                ic2ce.neoforge.registry.BlockDefinitions.ELECTRIC_KINETIC_GENERATOR,
+                KineticBlocks.ELECTRIC_KINETIC_GENERATOR,
                 "slotMotor",
-                ItemDefinitions.ELECTRIC_MOTOR),
+                MaterialItems.ELECTRIC_MOTOR),
             new LimitedSlot(
-                ic2ce.neoforge.registry.BlockDefinitions.LIQUID_HEAT_EXCHANGER,
+                ThermalBlocks.LIQUID_HEAT_EXCHANGER,
                 "heatExchanger",
-                ItemDefinitions.HEAT_CONDUCTOR));
+                MaterialItems.HEAT_CONDUCTOR));
     int next = 0;
     var adapter = new NativeItemTransfers();
     for (var fixture : fixtures) {
@@ -292,7 +296,7 @@ public final class TransferReviewProbe {
   private void fluids() {
     var water = FluidResource.of(Fluids.WATER);
     for (boolean commit : List.of(false, true)) {
-      var owned = owned(new ItemStack(ItemDefinitions.EMPTY_CELL));
+      var owned = owned(new ItemStack(ContainerItems.EMPTY_CELL));
       var handler = new CellFluidHandler(owned.getResource().toStack(1), owned);
       int filled;
       try (var root = Transaction.openRoot()) {
@@ -302,7 +306,7 @@ public final class TransferReviewProbe {
       check(filled == 1000, "classic cell accepts an entire bucket commit=" + commit);
       check(
           owned.getResource().getItem()
-              == (commit ? ItemDefinitions.WATER_CELL : ItemDefinitions.EMPTY_CELL),
+              == (commit ? ContainerItems.WATER_CELL : ContainerItems.EMPTY_CELL),
           "classic fill changes or restores its owned item type commit=" + commit);
       check(
           handler.getAmountAsLong(0) == (commit ? 1000 : 0),
@@ -319,7 +323,7 @@ public final class TransferReviewProbe {
               handler.getAmountAsLong(0)));
     }
     for (boolean commit : List.of(false, true)) {
-      var owned = owned(new ItemStack(ItemDefinitions.WATER_CELL));
+      var owned = owned(new ItemStack(ContainerItems.WATER_CELL));
       var handler = new CellFluidHandler(owned.getResource().toStack(1), owned);
       int drained;
       try (var root = Transaction.openRoot()) {
@@ -329,15 +333,15 @@ public final class TransferReviewProbe {
       check(drained == 1000, "classic cell drains a bucket commit=" + commit);
       check(
           owned.getResource().getItem()
-              == (commit ? ItemDefinitions.EMPTY_CELL : ItemDefinitions.WATER_CELL),
+              == (commit ? ContainerItems.EMPTY_CELL : ContainerItems.WATER_CELL),
           "classic drain preserves container count/type commit=" + commit);
       check(owned.getAmount() == 1, "classic operation retains one container");
       check(
           handler.getAmountAsLong(0) == (commit ? 0 : 1000),
           "drain rollback restores cached fluid and item type");
     }
-    var fluidItem = (Ic2FluidItem) ItemDefinitions.CF_PACK;
-    var empty = new ItemStack(ItemDefinitions.CF_PACK);
+    var fluidItem = (Ic2FluidItem) ArmorItems.CF_PACK;
+    var empty = new ItemStack(ArmorItems.CF_PACK);
     var foam = ic2ce.neoforge.registry.FluidDefinitions.CONSTRUCTION_FOAM.still;
     var fluid = FluidResource.of(foam);
     for (boolean ownedMode : List.of(false, true))
@@ -389,14 +393,14 @@ public final class TransferReviewProbe {
     check(
         fluidItem.getFluidStack(original).isEmpty(),
         "rejected fluid operations preserve empty data");
-    var classic = new ItemStack(ItemDefinitions.EMPTY_CELL);
+    var classic = new ItemStack(ContainerItems.EMPTY_CELL);
     handler = new CellFluidHandler(classic, null);
     try (var root = Transaction.openRoot()) {
       check(handler.insert(0, water, 1000, root) == 0, "type replacement requires an item owner");
       root.commit();
     }
     check(
-        classic.is(ItemDefinitions.EMPTY_CELL) && classic.getCount() == 1,
+        classic.is(ContainerItems.EMPTY_CELL) && classic.getCount() == 1,
         "ownerless rejected conversion retains its cell");
   }
 }

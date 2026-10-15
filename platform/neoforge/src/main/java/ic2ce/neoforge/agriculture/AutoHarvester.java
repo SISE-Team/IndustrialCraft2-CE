@@ -10,7 +10,6 @@ import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.inventory.UpgradeInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -29,7 +28,7 @@ public class AutoHarvester extends PoweredBlockEntity implements IHasGui, IUpgra
   public int scanX = -4, scanY = -1, scanZ = -4;
 
   public AutoHarvester(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.CROP_HARVESTER, position, state, 10000, 1, false);
+    super(AgricultureBlockEntities.CROP_HARVESTER, position, state, 10000, 1, false);
   }
 
   @Override

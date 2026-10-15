@@ -6,7 +6,6 @@ import ic2ce.engine.fluid.FairAllocation;
 import ic2ce.neoforge.block.ActiveBlockEntity;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import ic2ce.neoforge.runtime.ProgressionService;
 import ic2ce.neoforge.runtime.SharedRandom;
@@ -42,7 +41,7 @@ public class LinkedTeleporter extends ActiveBlockEntity implements INetworkTileE
   private int targetCheckTicker = SharedRandom.INSTANCE.nextInt(1024), cooldown;
 
   public LinkedTeleporter(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.TELEPORTER, position, state);
+    super(UtilityBlockEntities.TELEPORTER, position, state);
   }
 
   @Override

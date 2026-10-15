@@ -1,6 +1,7 @@
 package ic2ce.neoforge.processing.uu;
 
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.consumable.ConsumableItems;
+import ic2ce.neoforge.reactor.ReactorItems;
 import java.util.List;
 import net.minecraft.world.item.Item;
 
@@ -13,16 +14,16 @@ public final class ManualRecipeResolver implements IRecipeResolver {
   private static final class Definitions {
     static final List<Rod> RODS =
         List.of(
-            new Rod(ItemDefinitions.URANIUM_FUEL_ROD, ItemDefinitions.DEPLETED_URANIUM_FUEL_ROD),
+            new Rod(ReactorItems.URANIUM_FUEL_ROD, ConsumableItems.DEPLETED_URANIUM_FUEL_ROD),
             new Rod(
-                ItemDefinitions.DUAL_URANIUM_FUEL_ROD,
-                ItemDefinitions.DEPLETED_DUAL_URANIUM_FUEL_ROD),
+                ReactorItems.DUAL_URANIUM_FUEL_ROD,
+                ConsumableItems.DEPLETED_DUAL_URANIUM_FUEL_ROD),
             new Rod(
-                ItemDefinitions.QUAD_URANIUM_FUEL_ROD,
-                ItemDefinitions.DEPLETED_QUAD_URANIUM_FUEL_ROD),
-            new Rod(ItemDefinitions.MOX_FUEL_ROD, ItemDefinitions.DEPLETED_MOX_FUEL_ROD),
-            new Rod(ItemDefinitions.DUAL_MOX_FUEL_ROD, ItemDefinitions.DEPLETED_DUAL_MOX_FUEL_ROD),
-            new Rod(ItemDefinitions.QUAD_MOX_FUEL_ROD, ItemDefinitions.DEPLETED_QUAD_MOX_FUEL_ROD));
+                ReactorItems.QUAD_URANIUM_FUEL_ROD,
+                ConsumableItems.DEPLETED_QUAD_URANIUM_FUEL_ROD),
+            new Rod(ReactorItems.MOX_FUEL_ROD, ConsumableItems.DEPLETED_MOX_FUEL_ROD),
+            new Rod(ReactorItems.DUAL_MOX_FUEL_ROD, ConsumableItems.DEPLETED_DUAL_MOX_FUEL_ROD),
+            new Rod(ReactorItems.QUAD_MOX_FUEL_ROD, ConsumableItems.DEPLETED_QUAD_MOX_FUEL_ROD));
   }
 
   @Override

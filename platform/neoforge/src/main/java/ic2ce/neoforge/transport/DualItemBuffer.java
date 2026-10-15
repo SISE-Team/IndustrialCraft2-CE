@@ -10,7 +10,6 @@ import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.inventory.UpgradeInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.transport.menu.DualBankMenu;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -32,7 +31,7 @@ public class DualItemBuffer extends InventoryBlockEntity implements IHasGui, IUp
   private double workBudget = 40;
 
   public DualItemBuffer(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.ITEM_BUFFER, position, state);
+    super(TransportBlockEntities.ITEM_BUFFER, position, state);
     comparator.setUpdate(() -> calcRedstoneFromInvSlots(rightcontentSlot, leftcontentSlot));
   }
 

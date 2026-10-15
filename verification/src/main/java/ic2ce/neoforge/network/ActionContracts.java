@@ -2,8 +2,9 @@ package ic2ce.neoforge.network;
 
 import com.mojang.authlib.GameProfile;
 import ic2ce.api.network.ClientModifiable;
+import ic2ce.neoforge.processing.ProcessingBlocks;
+import ic2ce.neoforge.processing.ProcessingItems;
 import ic2ce.neoforge.processing.fluid.MultiPolicyCanner;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.runtime.SideServices;
 import java.util.ArrayList;
 import java.util.List;
@@ -57,11 +58,11 @@ public final class ActionContracts {
         "a client cannot synthesize an unowned item event target");
     var near =
         new MultiPolicyCanner(
-            new BlockPos(8251, 100, 8251), BlockDefinitions.CANNER.defaultBlockState());
+            new BlockPos(8251, 100, 8251), ProcessingBlocks.CANNER.defaultBlockState());
     near.setLevel(world);
     var far =
         new MultiPolicyCanner(
-            new BlockPos(8300, 100, 8300), BlockDefinitions.CANNER.defaultBlockState());
+            new BlockPos(8300, 100, 8300), ProcessingBlocks.CANNER.defaultBlockState());
     far.setLevel(world);
     check(
         IncomingActions.reachable(player, near) && !IncomingActions.reachable(player, far),
@@ -148,7 +149,7 @@ public final class ActionContracts {
         "cached field updates preserve inherited instance semantics");
     var storage =
         new ic2ce.neoforge.processing.fabrication.PatternLibrary(
-            new BlockPos(8252, 100, 8252), BlockDefinitions.PATTERN_STORAGE.defaultBlockState());
+            new BlockPos(8252, 100, 8252), ProcessingBlocks.PATTERN_STORAGE.defaultBlockState());
     storage.setLevel(world);
     var supplied = new ItemStack(Items.IRON_INGOT, 64);
     check(
@@ -165,7 +166,7 @@ public final class ActionContracts {
         !storage.addPattern(new ItemStack(Items.IRON_INGOT))
             && !storage.addPattern(ItemStack.EMPTY),
         "duplicate and empty patterns are rejected without an exception");
-    storage.diskSlot.put(new ItemStack(ic2ce.neoforge.registry.ItemDefinitions.CRYSTAL_MEMORY));
+    storage.diskSlot.put(new ItemStack(ProcessingItems.CRYSTAL_MEMORY));
     storage.onNetworkEvent(player, 3);
     check(storage.getPatterns().size() == 1, "blank crystal import preserves stored patterns");
     var saved = new net.minecraft.nbt.CompoundTag();

@@ -10,7 +10,6 @@ import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.UpgradeInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import java.util.List;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -31,7 +30,7 @@ public class CoolantPort extends InventoryBlockEntity
       Set.of(UpgradableProperty.FluidConsuming, UpgradableProperty.FluidProducing);
 
   public CoolantPort(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.REACTOR_FLUID_PORT, position, state);
+    super(ReactorBlockEntities.REACTOR_FLUID_PORT, position, state);
     fluids.addUnmanagedTankHook(
         () -> {
           var core = getReactorInstance();

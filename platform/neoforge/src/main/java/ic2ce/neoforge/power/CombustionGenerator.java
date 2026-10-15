@@ -6,7 +6,6 @@ import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.inventory.FuelInput;
 import ic2ce.neoforge.menu.document.ScreenValues;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -22,7 +21,7 @@ public class CombustionGenerator extends BufferedGenerator implements ScreenValu
 
   public CombustionGenerator(BlockPos position, BlockState block) {
     super(
-        BlockEntityDefinitions.GENERATOR,
+        PowerBlockEntities.GENERATOR,
         position,
         block,
         Math.round(

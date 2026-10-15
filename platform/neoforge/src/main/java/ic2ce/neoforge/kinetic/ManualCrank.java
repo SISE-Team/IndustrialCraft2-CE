@@ -6,7 +6,6 @@ import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -29,7 +28,7 @@ public class ManualCrank extends NativeBlockEntity implements IKineticSource {
               ProjectConfiguration.get(), "balance/energy/kineticgenerator/manual"));
 
   public ManualCrank(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.MANUAL_KINETIC_GENERATOR, position, block);
+    super(KineticBlockEntities.MANUAL_KINETIC_GENERATOR, position, block);
   }
 
   @Override

@@ -5,7 +5,6 @@ import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.component.SignalInput;
 import ic2ce.neoforge.damage.DamageProfiles;
 import ic2ce.neoforge.item.armor.SealedGarment;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.server.level.ServerLevel;
@@ -24,7 +23,7 @@ public class ArcCoil extends NativeBlockEntity {
   private int ticker;
 
   public ArcCoil(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.TESLA_COIL, position, state);
+    super(UtilityBlockEntities.TESLA_COIL, position, state);
     redstone = addComponent(new SignalInput(this));
     energy = addComponent(ElectricalBuffer.asBasicSink(this, 10000, 2));
     ticker = Math.floorMod(position.hashCode(), 32);

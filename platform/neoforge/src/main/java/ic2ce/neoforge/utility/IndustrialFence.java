@@ -2,7 +2,6 @@ package ic2ce.neoforge.utility;
 
 
 import ic2ce.api.item.ItemWrapper;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.runtime.SideServices;
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +108,7 @@ public class IndustrialFence extends FenceBlock {
 
   private static PoleDrive source(
       BlockGetter world, BlockPos position, Direction side, boolean powered) {
-    if (!world.getBlockState(position).is(BlockDefinitions.MAGNETIZER)
+    if (!world.getBlockState(position).is(UtilityBlocks.MAGNETIZER)
         || !(world.getBlockEntity(position) instanceof PoleDrive machine)
         || machine.isRemoved()
         || side.getOpposite() != machine.getFacing()

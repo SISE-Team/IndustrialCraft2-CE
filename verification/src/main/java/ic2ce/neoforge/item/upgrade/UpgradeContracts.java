@@ -4,8 +4,10 @@ import ic2ce.api.item.ElectricItem;
 import ic2ce.api.upgrade.*;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.block.InventoryBlockEntity;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.energy.BatteryItems;
+import ic2ce.neoforge.processing.ProcessingBlocks;
+import ic2ce.neoforge.storage.StorageBlocks;
+import ic2ce.neoforge.transport.TransportBlocks;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.nbt.*;
@@ -46,21 +48,21 @@ public final class UpgradeContracts {
     check(
         rule.doComparison(Integer.MAX_VALUE) && !rule.doComparison(Integer.MAX_VALUE - 1),
         "compile-once numeric threshold preserves exact signed-integer boundary");
-    var blank = new ItemStack(ItemDefinitions.EJECTOR_UPGRADE);
+    var blank = new ItemStack(UpgradeItems.EJECTOR_UPGRADE);
     check(
         MachineUpgrade.getDirection(blank) == null && !StackTag.has(blank),
         "reading an unconfigured upgrade direction never writes a custom-data component");
-    var invert = (MachineUpgrade) ItemDefinitions.REDSTONE_INVERTER_UPGRADE;
+    var invert = (MachineUpgrade) UpgradeItems.REDSTONE_INVERTER_UPGRADE;
     check(
         invert.getRedstoneInput(blank, null, -100) == 15
             && invert.getRedstoneInput(blank, null, 100) == 0,
         "native redstone inversion clamps external source strength");
-    var prototype = new ItemStack(ItemDefinitions.EJECTOR_UPGRADE);
+    var prototype = new ItemStack(UpgradeItems.EJECTOR_UPGRADE);
     UpgradeRegistry.register(prototype);
     prototype.setCount(7);
     ItemStack found = null;
     for (var registered : UpgradeRegistry.getUpgrades())
-      if (registered.is(ItemDefinitions.EJECTOR_UPGRADE)) {
+      if (registered.is(UpgradeItems.EJECTOR_UPGRADE)) {
         found = registered;
         break;
       }
@@ -71,7 +73,7 @@ public final class UpgradeContracts {
     found.setCount(55);
     int count = 0;
     for (var registered : UpgradeRegistry.getUpgrades())
-      if (registered.is(ItemDefinitions.EJECTOR_UPGRADE)) count = registered.getCount();
+      if (registered.is(UpgradeItems.EJECTOR_UPGRADE)) count = registered.getCount();
     check(count == 1, "native enumeration returns independent physical upgrade stacks");
     int number = 0;
     for (boolean pull : new boolean[] {false, true})
@@ -95,10 +97,10 @@ public final class UpgradeContracts {
         world.setBlock(
             pos,
             pull
-                ? BlockDefinitions.RECYCLER.defaultBlockState()
-                : BlockDefinitions.ITEM_BUFFER.defaultBlockState(),
+                ? ProcessingBlocks.RECYCLER.defaultBlockState()
+                : TransportBlocks.ITEM_BUFFER.defaultBlockState(),
             3);
-        world.setBlock(pos.east(), BlockDefinitions.IRON_STORAGE_BOX.defaultBlockState(), 3);
+        world.setBlock(pos.east(), StorageBlocks.IRON_STORAGE_BOX.defaultBlockState(), 3);
         var parent = (InventoryBlockEntity) world.getBlockEntity(pos);
         var box = (InventoryBlockEntity) world.getBlockEntity(pos.east());
         var inside = parent.getInventorySlot(pull ? "input" : "rightcontent");
@@ -149,8 +151,8 @@ public final class UpgradeContracts {
         var upgrade =
             new ItemStack(
                 pull
-                    ? ItemDefinitions.ADVANCED_PULLING_UPGRADE
-                    : ItemDefinitions.ADVANCED_EJECTOR_UPGRADE);
+                    ? UpgradeItems.ADVANCED_PULLING_UPGRADE
+                    : UpgradeItems.ADVANCED_EJECTOR_UPGRADE);
         StackTag.set(upgrade, tag);
         var item = (MachineUpgrade) upgrade.getItem();
         var compiled = CompiledUpgradeFilter.of(upgrade);
@@ -186,7 +188,7 @@ public final class UpgradeContracts {
   }
 
   private static ItemStack battery(double energy) {
-    var result = new ItemStack(ItemDefinitions.RE_BATTERY);
+    var result = new ItemStack(BatteryItems.RE_BATTERY);
     ElectricItem.manager.charge(result, energy, 1, true, false);
     return result;
   }

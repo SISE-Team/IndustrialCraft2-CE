@@ -1,9 +1,9 @@
 package ic2ce.neoforge.world.block;
 
 import ic2ce.neoforge.runtime.Keyboard;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.runtime.SideServices;
+import ic2ce.neoforge.world.WorldBlockEntities;
+import ic2ce.neoforge.world.WorldBlocks;
 import ic2ce.neoforge.world.surface.StateVariants;
 import java.util.*;
 import net.minecraft.core.*;
@@ -36,9 +36,9 @@ public final class SurfaceContracts {
             new com.mojang.authlib.GameProfile(
                 UUID.fromString("7e7e4e74-1111-4111-8111-555500001414"), "SurfaceProbe"));
     actor.setPos(pos.getX() + .5, pos.getY() + .2, pos.getZ() + .5);
-    var resin = (ReactiveSheet) BlockDefinitions.RESIN_SHEET;
-    var rubber = (ReactiveSheet) BlockDefinitions.RUBBER_SHEET;
-    var wool = (ReactiveSheet) BlockDefinitions.WOOL_SHEET;
+    var resin = (ReactiveSheet) WorldBlocks.RESIN_SHEET;
+    var rubber = (ReactiveSheet) WorldBlocks.RUBBER_SHEET;
+    var wool = (ReactiveSheet) WorldBlocks.WOOL_SHEET;
     world.removeBlock(pos.below(), false);
     check(
         !resin.canSurvive(resin.defaultBlockState(), world, pos)
@@ -111,9 +111,9 @@ public final class SurfaceContracts {
         "rubber without opposite support breaks in the authoritative native server level");
     var sign =
         new ic2ce.neoforge.world.block.RubberSignEntity(
-            pos, BlockDefinitions.RUBBER_SIGN.defaultBlockState());
+            pos, WorldBlocks.RUBBER_SIGN.defaultBlockState());
     check(
-        sign.getType() == BlockEntityDefinitions.SIGN
+        sign.getType() == WorldBlockEntities.SIGN
             && sign.getType().isValid(sign.getBlockState()),
         "native rubber sign stores the actual registered type in its superclass"
             + " validity/serialization protocol");

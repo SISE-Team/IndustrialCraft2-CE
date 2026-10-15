@@ -5,12 +5,12 @@ import ic2ce.api.recipe.MachineRecipeResult;
 import ic2ce.api.recipe.Recipes;
 import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.engine.machine.ThermalRamp;
 import ic2ce.neoforge.component.SignalInput;
 import ic2ce.neoforge.inventory.ItemRecipeInput;
 import ic2ce.neoforge.processing.PoweredProcessor;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import java.util.Collection;
 import java.util.EnumSet;
 import java.util.Set;
@@ -32,7 +32,7 @@ public class ThermalCentrifuge
   @GuiSynced public short workheat = maxHeat;
 
   public ThermalCentrifuge(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.CENTRIFUGE, position, state, 48, 500, 3, 2);
+    super(ProcessingBlockEntities.CENTRIFUGE, position, state, 48, 500, 3, 2);
     inputSlot = new ItemRecipeInput(this, "input", 1, Recipes.centrifuge);
     redstone = addComponent(new SignalInput(this));
   }

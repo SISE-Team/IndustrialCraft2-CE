@@ -15,7 +15,7 @@ import ic2ce.neoforge.inventory.UpgradeInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import ic2ce.neoforge.runtime.SideServices;
 import java.util.EnumSet;
@@ -42,7 +42,7 @@ public class InductionSmelter extends PoweredBlockEntity
   private final InductionCycle cycle = new InductionCycle();
 
   public InductionSmelter(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.INDUCTION_FURNACE, position, state, 10000, 2);
+    super(ProcessingBlockEntities.INDUCTION_FURNACE, position, state, 10000, 2);
     inputSlotA = new SmeltingInput(this, "inputA", 1);
     inputSlotB = new SmeltingInput(this, "inputB", 1);
     outputSlotA = new OutputInventory(this, "outputA", 1);

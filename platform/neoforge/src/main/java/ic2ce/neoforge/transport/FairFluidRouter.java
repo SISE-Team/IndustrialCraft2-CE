@@ -11,7 +11,6 @@ import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.transport.menu.FairFluidMenu;
 import ic2ce.neoforge.world.DirectionSets;
 import java.util.Set;
@@ -38,7 +37,7 @@ public class FairFluidRouter extends InventoryBlockEntity
   private int rotation;
 
   public FairFluidRouter(BlockPos position, BlockState state) {
-    this(BlockEntityDefinitions.FLUID_DISTRIBUTOR, position, state);
+    this(TransportBlockEntities.FLUID_DISTRIBUTOR, position, state);
   }
 
   protected FairFluidRouter(

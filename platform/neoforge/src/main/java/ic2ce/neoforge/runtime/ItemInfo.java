@@ -4,7 +4,8 @@ import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.info.IInfoProvider;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.energy.BatteryItems;
+import ic2ce.neoforge.material.MaterialItems;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.material.Fluids;
 
@@ -17,14 +18,14 @@ public final class ItemInfo implements IInfoProvider {
   public double getEnergyValue(ItemStack stack) {
     if (stack == null || stack.isEmpty()) return 0;
     if (stack.is(Items.REDSTONE)) return 800;
-    if (stack.is(ItemDefinitions.SINGLE_USE_BATTERY)) return 1200;
-    return stack.is(ItemDefinitions.ENERGIUM_DUST) ? 16000 : 0;
+    if (stack.is(BatteryItems.SINGLE_USE_BATTERY)) return 1200;
+    return stack.is(MaterialItems.ENERGIUM_DUST) ? 16000 : 0;
   }
 
   @Override
   public int getFuelValue(ItemStack stack, boolean lavaAllowed) {
     if (stack == null || stack.isEmpty()) return 0;
-    if ((stack.is(ItemDefinitions.SCRAP) || stack.is(ItemDefinitions.SCRAP_BOX))
+    if ((stack.is(MaterialItems.SCRAP) || stack.is(MaterialItems.SCRAP_BOX))
         && !NativeConfigValues.getBool(ProjectConfiguration.get(), "misc/allowBurningScrap"))
       return 0;
     var contents = Ic2FluidStack.getAll(stack);

@@ -2960,11 +2960,11 @@
     },
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/BlockDefinitions.java",
-      "scope": "Independent fresh native block-property factories prevent shared mutable builder registry-ID aliasing; reference block names, physical values and constructor table retained as declarative data"
+      "scope": "Independent fresh native block-property factories prevent shared mutable builder registry-ID aliasing; reference block names, physical values and constructor table retained as declarative data; now loads the domain definition holders in a fixed order and keeps only the shared registration helpers"
     },
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/BlockEntityDefinitions.java",
-      "scope": "Independent typed actual block-entity registration/lookup without repeated string allocation or lazy mutable publication; native device/variant constructor table retained as declarative data"
+      "scope": "Independent typed actual block-entity registration/lookup without repeated string allocation or lazy mutable publication; native device/variant constructor table retained as declarative data; now loads the domain definition holders in a fixed order and keeps only the shared registration helpers"
     },
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/ArmorProfiles.java",
@@ -3058,7 +3058,7 @@
     },
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/ItemDefinitions.java",
-      "scope": "Item definition table delegates actual fuel-can behavior to independent FuelCan and retired redundant axe/hoe wrappers to native component types; material membership and identifiers are declarative reference data"
+      "scope": "Item definition table delegates actual fuel-can behavior to independent FuelCan and retired redundant axe/hoe wrappers to native component types; material membership and identifiers are declarative reference data; now loads the domain definition holders in a fixed order and keeps only the shared registration helpers"
     },
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/EnvProxy.java",
@@ -3066,7 +3066,7 @@
     },
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/MenuDefinitions.java",
-      "scope": "Menu type table retains names/factories while old packet decoding is replaced by independent ManagedMenus; declaration-only forwarding is not an implementation rewrite"
+      "scope": "Menu type table retains names/factories while old packet decoding is replaced by independent ManagedMenus; declaration-only forwarding is not an implementation rewrite; now loads the domain definition holders in a fixed order and keeps only the shared registration helpers"
     },
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/ToolProfiles.java",
@@ -3091,6 +3091,302 @@
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/loot/Ic2LootNbtProviderTypes.java",
       "scope": "Native loot codec definition delegates registration to the independent typed registry journal in its actual registry phase; single constant/forwarding declaration is not a behavior rewrite"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/AgricultureBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/AgricultureBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/AgricultureItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/AgricultureMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/cable/CableBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/cable/CableItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/crafting/CraftingBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/crafting/CraftingBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/crafting/CraftingItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/crafting/CraftingMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/EnergyBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/EnergyBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/EnergyItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/EnergyMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/explosion/ExplosionBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/explosion/ExplosionBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/explosion/ExplosionItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/handheld/HandheldMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/armor/ArmorItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/consumable/ConsumableItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/container/ContainerItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/energy/BatteryItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/machining/MachiningItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/tool/ToolItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/UpgradeItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/upgrade/UpgradeMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/KineticBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/KineticBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/KineticItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/kinetic/KineticMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/material/MaterialItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/DocumentMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/mining/MiningBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/mining/MiningBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/mining/MiningItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/mining/MiningMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/PersonalBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/PersonalBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/PersonalItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/PersonalMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/power/PowerBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/power/PowerBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/power/PowerItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/power/PowerMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/ProcessingBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/ProcessingBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/ProcessingItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/ProcessingMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/ReactorBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/ReactorBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/ReactorItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/reactor/ReactorMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/StorageBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/StorageBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/storage/StorageItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/terrain/TerrainBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/terrain/TerrainBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/terrain/TerrainItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/ThermalBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/ThermalBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/ThermalItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/ThermalMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/TransportBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/TransportBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/TransportItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/transport/TransportMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/UtilityBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/UtilityBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/UtilityItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/utility/UtilityMenus.java",
+      "scope": "Domain menu definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/vehicle/VehicleItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/WorldBlockEntities.java",
+      "scope": "Domain block entity definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/WorldBlocks.java",
+      "scope": "Domain block definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/WorldItems.java",
+      "scope": "Domain item definition table split from the central registry; declarations moved unchanged and staged through the central registration helper"
     }
   ],
   "retargetedNamespaceSources": {

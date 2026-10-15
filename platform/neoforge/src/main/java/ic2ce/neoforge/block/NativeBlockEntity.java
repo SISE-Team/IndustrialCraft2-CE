@@ -9,11 +9,12 @@ import ic2ce.neoforge.diagnostics.DiagnosticArea;
 import ic2ce.neoforge.diagnostics.ProjectLog;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.menu.document.ScreenConditions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.power.PowerItems;
 import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.world.IWorldTickCallback;
 import ic2ce.neoforge.world.TickHandler;
+import ic2ce.neoforge.world.WorldItems;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -366,9 +367,9 @@ public abstract class NativeBlockEntity extends BlockEntity
     return switch (teBlock.getDefaultDrop()) {
       case Self -> original;
       case None -> null;
-      case Generator -> new ItemStack(ItemDefinitions.GENERATOR);
-      case Machine -> new ItemStack(ItemDefinitions.MACHINE);
-      case AdvMachine -> new ItemStack(ItemDefinitions.ADVANCED_MACHINE);
+      case Generator -> new ItemStack(PowerItems.GENERATOR);
+      case Machine -> new ItemStack(WorldItems.MACHINE);
+      case AdvMachine -> new ItemStack(WorldItems.ADVANCED_MACHINE);
     };
   }
 

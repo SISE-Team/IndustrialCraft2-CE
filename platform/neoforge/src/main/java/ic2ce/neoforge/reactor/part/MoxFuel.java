@@ -1,8 +1,8 @@
 package ic2ce.neoforge.reactor.part;
 
 import ic2ce.api.reactor.IReactor;
+import ic2ce.neoforge.item.consumable.ConsumableItems;
 import ic2ce.neoforge.runtime.profile.NotClassic;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import net.minecraft.world.item.ItemStack;
 
 /**
@@ -32,9 +32,9 @@ public class MoxFuel extends UraniumFuel {
   protected ItemStack getDepletedStack(ItemStack fuel, IReactor reactor) {
     return new ItemStack(
         switch (numberOfCells) {
-          case 1 -> ItemDefinitions.DEPLETED_MOX_FUEL_ROD;
-          case 2 -> ItemDefinitions.DEPLETED_DUAL_MOX_FUEL_ROD;
-          default -> ItemDefinitions.DEPLETED_QUAD_MOX_FUEL_ROD;
+          case 1 -> ConsumableItems.DEPLETED_MOX_FUEL_ROD;
+          case 2 -> ConsumableItems.DEPLETED_DUAL_MOX_FUEL_ROD;
+          default -> ConsumableItems.DEPLETED_QUAD_MOX_FUEL_ROD;
         });
   }
 

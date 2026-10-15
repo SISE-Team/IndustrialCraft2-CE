@@ -13,9 +13,9 @@ import ic2ce.neoforge.client.widget.SupplierGauge;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.UpgradeInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.processing.menu.ElectrolysisMenu;
 import ic2ce.neoforge.recipe.processing.ElectrolysisRecipes;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.storage.StationaryFluidStore;
 import java.util.Set;
@@ -42,7 +42,7 @@ public class FluidElectrolyzer extends PoweredBlockEntity
       Set.of(UpgradableProperty.FluidConsuming);
 
   public FluidElectrolyzer(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.ELECTROLYZER, position, state, 32000, 2);
+    super(ProcessingBlockEntities.ELECTROLYZER, position, state, 32000, 2);
     fluids = addComponent(new FluidPorts(this));
     input = fluids.addTankInsert("input", 8000, FluidPorts.fluidPredicate(Recipes.electrolyzer));
     upgradeSlot = new UpgradeInventory(this, "upgradeSlot", 4);

@@ -4,13 +4,13 @@ import ic2ce.neoforge.block.ActiveBlockEntity;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.energy.storage.EnergyBank;
 import ic2ce.neoforge.inventory.*;
+import ic2ce.neoforge.item.container.ContainerItems;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -30,7 +30,7 @@ public class CellElectrolyzer extends ActiveBlockEntity implements IHasGui {
   @GuiSynced protected final ElectricalBuffer energy;
 
   public CellElectrolyzer(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.CLASSIC_ELECTROLYZER, position, state);
+    super(ProcessingBlockEntities.CLASSIC_ELECTROLYZER, position, state);
     waterSlot =
         new ItemWhitelistInput(
             this,
@@ -38,7 +38,7 @@ public class CellElectrolyzer extends ActiveBlockEntity implements IHasGui {
             InventorySlot.Access.IO,
             1,
             InventorySlot.InvSide.TOP,
-            ItemDefinitions.WATER_CELL);
+            ContainerItems.WATER_CELL);
     hydrogenSlot =
         new ItemWhitelistInput(
             this,
@@ -46,7 +46,7 @@ public class CellElectrolyzer extends ActiveBlockEntity implements IHasGui {
             InventorySlot.Access.IO,
             1,
             InventorySlot.InvSide.BOTTOM,
-            ItemDefinitions.ELECTROLYZED_WATER_CELL);
+            ContainerItems.ELECTROLYZED_WATER_CELL);
     energy = addComponent(new ElectricalBuffer(this, 20000, Set.of(), Set.of(), 1));
     comparator.setUpdate(energy::getComparatorValue);
     ticker = Math.floorMod(position.hashCode(), 16);
@@ -94,13 +94,13 @@ public class CellElectrolyzer extends ActiveBlockEntity implements IHasGui {
   }
 
   public boolean canDrain() {
-    return waterSlot.get().is(ItemDefinitions.WATER_CELL)
-        && room(hydrogenSlot, ItemDefinitions.ELECTROLYZED_WATER_CELL);
+    return waterSlot.get().is(ContainerItems.WATER_CELL)
+        && room(hydrogenSlot, ContainerItems.ELECTROLYZED_WATER_CELL);
   }
 
   public boolean canPower() {
-    return hydrogenSlot.get().is(ItemDefinitions.ELECTROLYZED_WATER_CELL)
-        && room(waterSlot, ItemDefinitions.WATER_CELL);
+    return hydrogenSlot.get().is(ContainerItems.ELECTROLYZED_WATER_CELL)
+        && room(waterSlot, ContainerItems.WATER_CELL);
   }
 
   public int processRate() {
@@ -124,7 +124,7 @@ public class CellElectrolyzer extends ActiveBlockEntity implements IHasGui {
     }
     if (!energy.useEnergy(20000)) return accepted > 0;
     waterSlot.consume(1);
-    insert(hydrogenSlot, ItemDefinitions.ELECTROLYZED_WATER_CELL);
+    insert(hydrogenSlot, ContainerItems.ELECTROLYZED_WATER_CELL);
     return true;
   }
 
@@ -135,7 +135,7 @@ public class CellElectrolyzer extends ActiveBlockEntity implements IHasGui {
       if (!canPower()) return false;
       double recovered = Math.min(20000L, 12000L + 2000L * Math.max(0, mfe.energy.getSinkTier()));
       hydrogenSlot.consume(1);
-      insert(waterSlot, ItemDefinitions.WATER_CELL);
+      insert(waterSlot, ContainerItems.WATER_CELL);
       energy.forceAddEnergy(recovered);
       opened = true;
     }

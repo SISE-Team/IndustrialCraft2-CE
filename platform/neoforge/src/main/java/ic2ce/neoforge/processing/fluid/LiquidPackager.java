@@ -7,6 +7,7 @@ import ic2ce.api.util.FluidContainerOutputMode;
 import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.item.StackTag;
@@ -16,7 +17,6 @@ import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.processing.PoweredProcessor;
 import ic2ce.neoforge.processing.menu.FluidPackagingMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -58,7 +58,7 @@ public class LiquidPackager extends PoweredProcessor<Void, Object, Object> {
               UpgradableProperty.FluidProducing));
 
   public LiquidPackager(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.FLUID_BOTTLER, position, state, 2, 100, 1);
+    super(ProcessingBlockEntities.FLUID_BOTTLER, position, state, 2, 100, 1);
     fluidTank = fluids.addTank("fluidTank", 8000);
     drainInputSlot =
         new TankContainerInput(

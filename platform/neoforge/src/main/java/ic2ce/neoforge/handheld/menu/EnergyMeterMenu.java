@@ -3,8 +3,8 @@ package ic2ce.neoforge.handheld.menu;
 import ic2ce.api.energy.*;
 import ic2ce.api.energy.tile.IEnergyTile;
 import ic2ce.api.network.ClientModifiable;
+import ic2ce.neoforge.handheld.HandheldMenus;
 import ic2ce.neoforge.handheld.MeterSession;
-import ic2ce.neoforge.registry.MenuDefinitions;
 import ic2ce.neoforge.runtime.SideServices;
 
 /**
@@ -20,7 +20,7 @@ public class EnergyMeterMenu extends HandheldMenu<MeterSession> {
   @ClientModifiable private Mode mode = Mode.EnergyIn;
 
   public EnergyMeterMenu(int id, MeterSession inventory) {
-    super(MenuDefinitions.METER, id, inventory);
+    super(HandheldMenus.METER, id, inventory);
   }
 
   @Override

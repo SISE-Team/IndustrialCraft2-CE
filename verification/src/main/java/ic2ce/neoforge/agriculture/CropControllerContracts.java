@@ -1,8 +1,7 @@
 package ic2ce.neoforge.agriculture;
 
 import ic2ce.api.crops.Crops;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.container.ContainerItems;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -35,7 +34,7 @@ public final class CropControllerContracts {
     var position = new BlockPos(9040, 100, 9040);
     world.getChunkAt(position);
     world.setBlockAndUpdate(position.below(), Blocks.FARMLAND.defaultBlockState());
-    world.setBlockAndUpdate(position, BlockDefinitions.WHEAT_CROP.defaultBlockState());
+    world.setBlockAndUpdate(position, AgricultureBlocks.WHEAT_CROP.defaultBlockState());
     var crop = (CropPlot) world.getBlockEntity(position);
     for (int x = -1; x <= 1; x++)
       for (int z = -1; z <= 1; z++)
@@ -138,12 +137,12 @@ public final class CropControllerContracts {
     player.getInventory().clearContent();
     player.getAbilities().instabuild = false;
     crop.setStorageWater(0);
-    player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ItemDefinitions.WATER_CELL, 2));
+    player.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ContainerItems.WATER_CELL, 2));
     check(
         crop.rightClick(player, InteractionHand.MAIN_HAND)
             && crop.getStorageWater() == 10
             && player.getItemInHand(InteractionHand.MAIN_HAND).getCount() == 1
-            && player.getInventory().countItem(ItemDefinitions.EMPTY_CELL) == 1,
+            && player.getInventory().countItem(ContainerItems.EMPTY_CELL) == 1,
         "manual use of a stacked physical water cell conserves the empty container in the native"
             + " player inventory");
     crop.setStorageWater(0);
@@ -152,7 +151,7 @@ public final class CropControllerContracts {
         crop.rightClick(player, InteractionHand.MAIN_HAND)
             && crop.getStorageWater() == 10
             && player.getItemInHand(InteractionHand.MAIN_HAND).getCount() == 1
-            && player.getInventory().countItem(ItemDefinitions.EMPTY_CELL) == 1,
+            && player.getInventory().countItem(ContainerItems.EMPTY_CELL) == 1,
         "creative crop watering updates the real crop without consuming the held cell or"
             + " manufacturing an empty container");
     player.getAbilities().instabuild = false;
@@ -201,14 +200,14 @@ public final class CropControllerContracts {
     check(!bare.isCrossingBase(), "crossing state can be independently disabled");
     check(
         !bare.tryPlantIn(null, 0, 0, 0, 0, 0)
-            && world.getBlockState(position).is(BlockDefinitions.CROP_STICK),
+            && world.getBlockState(position).is(AgricultureBlocks.CROP_STICK),
         "null seed species cannot consume or alter the bare plot");
     var counter = new int[1];
     var observedCrop =
         new ic2ce.api.crops.CropCard(Cultivar.WHEAT) {
           @Override
           public net.minecraft.world.level.block.Block getCropBlock() {
-            return BlockDefinitions.WHEAT_CROP;
+            return AgricultureBlocks.WHEAT_CROP;
           }
 
           @Override

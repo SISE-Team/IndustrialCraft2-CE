@@ -7,7 +7,6 @@ import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.slot.MachineSlot;
 import ic2ce.neoforge.menu.slot.TemplateSlot;
-import ic2ce.neoforge.registry.MenuDefinitions;
 import java.lang.reflect.Modifier;
 import java.util.*;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -41,7 +40,7 @@ public class DocumentMenu<T extends Container> extends OwnedMenu<T> {
   public static DocumentMenu<InventoryBlockEntity> create(
       int id, Inventory inventory, InventoryBlockEntity tile) {
     return new DocumentMenu<>(
-        MenuDefinitions.DYNAMIC_BE,
+        DocumentMenus.DYNAMIC_BE,
         id,
         inventory,
         tile,

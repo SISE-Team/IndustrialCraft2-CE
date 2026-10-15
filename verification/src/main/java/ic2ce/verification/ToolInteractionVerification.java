@@ -3,14 +3,17 @@ package ic2ce.verification;
 
 import com.google.gson.GsonBuilder;
 import ic2ce.api.item.ElectricItem;
+import ic2ce.neoforge.cable.CableBlocks;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.item.PhysicalWear;
+import ic2ce.neoforge.item.armor.ArmorItems;
 import ic2ce.neoforge.item.armor.QuantumArmor;
 import ic2ce.neoforge.item.tool.NanoBladeBase;
 import ic2ce.neoforge.item.tool.PoweredTool;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.tool.ToolItems;
+import ic2ce.neoforge.material.MaterialItems;
+import ic2ce.neoforge.world.WorldBlocks;
 import ic2ce.neoforge.world.block.ResinLog;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -160,25 +163,25 @@ public final class ToolInteractionVerification {
     level.setBlock(POS, Blocks.AIR.defaultBlockState(), 3);
     tool =
         operation.startsWith("nano_")
-            ? ItemDefinitions.NANO_SABER
+            ? ToolItems.NANO_SABER
             : operation.equals("axe_strip")
                 ? Items.WOODEN_AXE
                 : operation.startsWith("treetap")
-                    ? ItemDefinitions.TREETAP
+                    ? ToolItems.TREETAP
                     : operation.equals("electric_treetap")
-                        ? ItemDefinitions.ELECTRIC_TREETAP
+                        ? ToolItems.ELECTRIC_TREETAP
                         : operation.startsWith("chainsaw") || operation.equals("client_energy_api")
-                            ? ItemDefinitions.CHAINSAW
-                            : ItemDefinitions.CUTTER;
+                            ? ToolItems.CHAINSAW
+                            : ToolItems.CUTTER;
     if (operation.equals("armor_color_api"))
       tool =
           switch (condition) {
-            case "helmet" -> ItemDefinitions.QUANTUM_HELMET;
-            case "chestplate" -> ItemDefinitions.QUANTUM_CHESTPLATE;
-            case "leggings" -> ItemDefinitions.QUANTUM_LEGGINGS;
-            default -> ItemDefinitions.QUANTUM_BOOTS;
+            case "helmet" -> ArmorItems.QUANTUM_HELMET;
+            case "chestplate" -> ArmorItems.QUANTUM_CHESTPLATE;
+            case "leggings" -> ArmorItems.QUANTUM_LEGGINGS;
+            default -> ArmorItems.QUANTUM_BOOTS;
           };
-    if (operation.equals("obscurator_reset")) tool = ItemDefinitions.OBSCURATOR;
+    if (operation.equals("obscurator_reset")) tool = ToolItems.OBSCURATOR;
     var stack = new ItemStack(tool);
     initialDamage =
         condition.contains("last")
@@ -196,7 +199,7 @@ public final class ToolInteractionVerification {
                   : condition.equals("empty")
                       ? 0
                       : condition.equals("exact")
-                          ? (tool == ItemDefinitions.CHAINSAW ? 100 : 50)
+                          ? (tool == ToolItems.CHAINSAW ? 100 : 50)
                           : 1000;
       ElectricItem.manager.charge(stack, initialCharge, Integer.MAX_VALUE, true, false);
       var tag = StackUtil.getOrCreateNbtData(stack);
@@ -232,16 +235,16 @@ public final class ToolInteractionVerification {
         || operation.equals("axe_strip"))
       level.setBlock(
           POS,
-          BlockDefinitions.RUBBER_LOG
+          WorldBlocks.RUBBER_LOG
               .defaultBlockState()
               .setValue(ResinLog.stateProperty, ResinLog.RubberWoodState.wet_north),
           3);
     if (operation.equals("cutter_add")) {
-      level.setBlock(POS, BlockDefinitions.COPPER_CABLE.defaultBlockState(), 3);
-      player.getInventory().setItem(9, new ItemStack(ItemDefinitions.RUBBER, 2));
+      level.setBlock(POS, CableBlocks.COPPER_CABLE.defaultBlockState(), 3);
+      player.getInventory().setItem(9, new ItemStack(MaterialItems.RUBBER, 2));
     }
     if (operation.equals("cutter_remove"))
-      level.setBlock(POS, BlockDefinitions.INSULATED_COPPER_CABLE.defaultBlockState(), 3);
+      level.setBlock(POS, CableBlocks.INSULATED_COPPER_CABLE.defaultBlockState(), 3);
     if (condition.startsWith("stale")) {
       player.setItemInHand(InteractionHand.OFF_HAND, new ItemStack(Items.BREAD));
       player.startUsingItem(InteractionHand.OFF_HAND);
@@ -264,8 +267,8 @@ public final class ToolInteractionVerification {
       var armor =
           new ItemStack(
               condition.equals("nano")
-                  ? ItemDefinitions.NANO_CHESTPLATE
-                  : ItemDefinitions.QUANTUM_CHESTPLATE);
+                  ? ArmorItems.NANO_CHESTPLATE
+                  : ArmorItems.QUANTUM_CHESTPLATE);
       ElectricItem.manager.charge(
           armor, condition.equals("nano") ? 48000 : 300000, Integer.MAX_VALUE, true, false);
       sheep.setItemSlot(net.minecraft.world.entity.EquipmentSlot.CHEST, armor);
@@ -411,22 +414,22 @@ public final class ToolInteractionVerification {
                 == ResinLog.RubberWoodState.dry_north,
             "resin extracted on server");
         check(
-            quantity(ItemDefinitions.RESIN) >= 1 && quantity(ItemDefinitions.RESIN) <= 3,
+            quantity(MaterialItems.RESIN) >= 1 && quantity(MaterialItems.RESIN) <= 3,
             "one extraction drop range");
         wear(held, 1);
       } else if (operation.equals("cutter_add")) {
         check(
-            level.getBlockState(POS).is(BlockDefinitions.INSULATED_COPPER_CABLE),
+            level.getBlockState(POS).is(CableBlocks.INSULATED_COPPER_CABLE),
             "insulation applied");
         check(
-            quantity(ItemDefinitions.RUBBER) == (condition.equals("creative") ? 2 : 1),
+            quantity(MaterialItems.RUBBER) == (condition.equals("creative") ? 2 : 1),
             "exact rubber cost");
         wear(held, 1);
       } else if (operation.equals("cutter_remove")) {
         check(
-            level.getBlockState(POS).is(BlockDefinitions.COPPER_CABLE),
+            level.getBlockState(POS).is(CableBlocks.COPPER_CABLE),
             "left click removes insulation without mining cable");
-        check(quantity(ItemDefinitions.RUBBER) == 1, "one rubber returned");
+        check(quantity(MaterialItems.RUBBER) == 1, "one rubber returned");
         wear(held, 3);
       } else if (operation.equals("chainsaw_sheep")) {
         boolean success = !List.of("empty", "disabled", "already").contains(condition);
@@ -449,8 +452,8 @@ public final class ToolInteractionVerification {
             "electric extraction state");
         check(charge == initialCharge - (success ? 50 : 0), "one electric extraction energy cost");
         check(
-            quantity(ItemDefinitions.RESIN) >= (success ? 1 : 0)
-                && quantity(ItemDefinitions.RESIN) <= (success ? 3 : 0),
+            quantity(MaterialItems.RESIN) >= (success ? 1 : 0)
+                && quantity(MaterialItems.RESIN) <= (success ? 3 : 0),
             "electric resin drop range");
       } else if (operation.equals("chainsaw_leaf")) {
         check(level.getBlockState(POS).isAir(), "leaf removed");
@@ -460,10 +463,10 @@ public final class ToolInteractionVerification {
       } else if (operation.equals("server_damage_api")) wear(held, 1);
       else if (operation.equals("axe_strip")) {
         check(
-            level.getBlockState(POS).is(BlockDefinitions.STRIPPED_RUBBER_LOG),
+            level.getBlockState(POS).is(WorldBlocks.STRIPPED_RUBBER_LOG),
             "rubber log stripped");
         check(
-            quantity(ItemDefinitions.RESIN) >= 1 && quantity(ItemDefinitions.RESIN) <= 2,
+            quantity(MaterialItems.RESIN) >= 1 && quantity(MaterialItems.RESIN) <= 2,
             "one stripping resin drop range");
         check(
             clientObservation.equals("no_client_drops"),

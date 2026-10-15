@@ -1,10 +1,10 @@
 package ic2ce.neoforge.fluid;
 
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.item.container.ContainerItems;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.storage.StationaryFluidStore;
+import ic2ce.neoforge.storage.StorageBlocks;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
@@ -32,7 +32,7 @@ public final class FluidServiceContracts {
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(1760, 130, 1300);
     world.setChunkForced(position.getX() >> 4, position.getZ() >> 4, true);
-    world.setBlockAndUpdate(position, BlockDefinitions.TANK.defaultBlockState());
+    world.setBlockAndUpdate(position, StorageBlocks.TANK.defaultBlockState());
     var tank = (StationaryFluidStore) world.getBlockEntity(position);
     var water = Ic2FluidStack.create(Fluids.WATER, 700);
     check(
@@ -73,12 +73,12 @@ public final class FluidServiceContracts {
             new com.mojang.authlib.GameProfile(
                 UUID.fromString("d8bc92f6-1111-4111-8111-555500001717"), "FluidMenuProbe"));
     actor.setPos(position.getX() + .5, position.getY() + 1, position.getZ() + .5);
-    var detached = new StationaryFluidStore(position, BlockDefinitions.TANK.defaultBlockState());
+    var detached = new StationaryFluidStore(position, StorageBlocks.TANK.defaultBlockState());
     detached.setLevel(world);
     check(
         !detached.openManagedBe(actor, InteractionHand.MAIN_HAND),
         "detached block-entity copy cannot open an actual attached native menu");
-    var stack = new ItemStack(ItemDefinitions.TOOL_BOX);
+    var stack = new ItemStack(ContainerItems.TOOL_BOX);
     actor.setItemInHand(InteractionHand.MAIN_HAND, stack);
     var storage =
         new ic2ce.neoforge.handheld.ToolboxStorage(actor, InteractionHand.MAIN_HAND, stack, 9);

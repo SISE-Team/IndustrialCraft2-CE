@@ -1,8 +1,8 @@
 package ic2ce.neoforge.processing.uu;
 
 import ic2ce.api.recipe.Recipes;
+import ic2ce.neoforge.material.MaterialItems;
 import ic2ce.neoforge.processing.solid.MaterialRecycler;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +23,6 @@ public final class RecyclerResolver implements ILateRecipeResolver {
         new RecipeTransformation(
             55.0 * chance / 4000 * 107,
             List.of(List.copyOf(choices)),
-            new LeanItemStack(ItemDefinitions.SCRAP)));
+            new LeanItemStack(MaterialItems.SCRAP)));
   }
 }

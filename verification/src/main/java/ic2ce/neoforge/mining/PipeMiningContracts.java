@@ -1,8 +1,6 @@
 package ic2ce.neoforge.mining;
 
 import ic2ce.neoforge.component.ElectricalBuffer;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -36,15 +34,15 @@ public final class PipeMiningContracts {
   private Result exercise(ServerLevel world) throws ReflectiveOperationException {
     var position = new BlockPos(8520, 100, 8520);
     world.getChunkAt(position);
-    world.setBlockAndUpdate(position, BlockDefinitions.MINER.defaultBlockState());
+    world.setBlockAndUpdate(position, MiningBlocks.MINER.defaultBlockState());
     var miner = (PipeMiner) world.getBlockEntity(position);
     var energy = miner.getComponent(ElectricalBuffer.class);
-    world.setBlockAndUpdate(position.below(), BlockDefinitions.MINING_PIPE_TIP.defaultBlockState());
+    world.setBlockAndUpdate(position.below(), MiningBlocks.MINING_PIPE_TIP.defaultBlockState());
     energy.forceAddEnergy(60);
     for (int tick = 0; tick < 20; tick++) miner.updateEntityServer();
     int pipes = 0;
     for (var stack : miner.buffer)
-      if (stack.is(ItemDefinitions.MINING_PIPE)) pipes += stack.getCount();
+      if (stack.is(MiningItems.MINING_PIPE)) pipes += stack.getCount();
     check(
         world.getBlockState(position.below()).isAir() && energy.getEnergy() == 0 && pipes == 1,
         "twenty paid native steps retract a real pipe with exactly sixty EU");

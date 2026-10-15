@@ -1,9 +1,9 @@
 package ic2ce.neoforge.item.tool;
 
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.material.MaterialItems;
 import ic2ce.neoforge.registry.GameSignals;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
+import ic2ce.neoforge.world.WorldBlocks;
 import ic2ce.neoforge.world.block.ResinLog;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -52,7 +52,7 @@ public final class ResinExtraction {
       ItemStack permissionStack) {
     if (world == null
         || face == null
-        || !expected.is(BlockDefinitions.RUBBER_LOG)
+        || !expected.is(WorldBlocks.RUBBER_LOG)
         || world.getBlockState(position) != expected) return false;
     var wood = expected.getValue(ResinLog.stateProperty);
     if (wood.isPlain() || wood.facing != face) return false;
@@ -73,7 +73,7 @@ public final class ResinExtraction {
       return false;
     if (next != expected && !world.setBlockAndUpdate(position, next)) return false;
     if (quantity > 0) {
-      var output = new ItemStack(ItemDefinitions.RESIN, quantity);
+      var output = new ItemStack(MaterialItems.RESIN, quantity);
       if (collection != null) collection.add(output);
       else {
         var entity =

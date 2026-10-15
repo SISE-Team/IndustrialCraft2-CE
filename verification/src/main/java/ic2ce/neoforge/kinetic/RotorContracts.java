@@ -1,7 +1,5 @@
 package ic2ce.neoforge.kinetic;
 
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -32,13 +30,13 @@ public final class RotorContracts {
     world.setChunkForced(position.getX() >> 4, position.getZ() >> 4, true);
     world.getChunkAt(position);
     var wind =
-        new WindTurbine(position, BlockDefinitions.WIND_KINETIC_GENERATOR.defaultBlockState());
+        new WindTurbine(position, KineticBlocks.WIND_KINETIC_GENERATOR.defaultBlockState());
     wind.setLevel(world);
     wind.rotorSlot.put(new ItemStack(Items.COAL));
     check(
         !wind.hasRotor() && wind.getRotorDiameter() == 0 && wind.getKuOutput() == 0,
         "forced non-rotor item creates neither radius nor production");
-    wind.rotorSlot.put(new ItemStack(ItemDefinitions.WOODEN_ROTOR));
+    wind.rotorSlot.put(new ItemStack(KineticItems.WOODEN_ROTOR));
     check(
         wind.hasRotor() && wind.getRotorDiameter() > 0,
         "native wooden rotor exposes its own capability");
@@ -77,11 +75,11 @@ public final class RotorContracts {
         "multiple connected consumers share exactly one produced tick budget");
     var water =
         new WaterTurbine(
-            position.above(20), BlockDefinitions.WATER_KINETIC_GENERATOR.defaultBlockState());
+            position.above(20), KineticBlocks.WATER_KINETIC_GENERATOR.defaultBlockState());
     water.setLevel(world);
-    water.rotorSlot.put(new ItemStack(ItemDefinitions.WOODEN_ROTOR));
+    water.rotorSlot.put(new ItemStack(KineticItems.WOODEN_ROTOR));
     check(!water.hasRotor(), "wind-only wooden rotor cannot be forced into a water gearbox");
-    water.rotorSlot.put(new ItemStack(ItemDefinitions.IRON_ROTOR));
+    water.rotorSlot.put(new ItemStack(KineticItems.IRON_ROTOR));
     check(water.hasRotor(), "water gearbox accepts the declared compatible iron rotor");
     wind.speed(-0.5F);
     float first = wind.getAngle(), second = wind.getAngle();

@@ -1,8 +1,8 @@
 package ic2ce.neoforge.energy.menu;
 
+import ic2ce.neoforge.energy.EnergyMenus;
 import ic2ce.neoforge.energy.transformer.VoltageTransformer;
 import ic2ce.neoforge.menu.PhysicalInventoryMenu;
-import ic2ce.neoforge.registry.MenuDefinitions;
 import net.minecraft.world.entity.player.Inventory;
 
 /** Transformer signal mode and distinct measured input/output flows. */
@@ -11,7 +11,7 @@ public class TransformerMenu extends PhysicalInventoryMenu<VoltageTransformer> {
       java.util.List.of("configuredMode", "inputFlow", "outputFlow");
 
   public TransformerMenu(int id, Inventory inventory, VoltageTransformer machine) {
-    super(MenuDefinitions.TRANSFORMER, id, inventory, machine, 219);
+    super(EnergyMenus.TRANSFORMER, id, inventory, machine, 219);
   }
 
   @Override

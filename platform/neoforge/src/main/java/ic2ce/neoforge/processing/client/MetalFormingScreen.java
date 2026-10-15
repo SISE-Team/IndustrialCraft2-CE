@@ -1,9 +1,11 @@
 package ic2ce.neoforge.processing.client;
 
 
+import ic2ce.neoforge.cable.CableItems;
 import ic2ce.neoforge.client.screen.MachineScreen;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.client.widget.*;
+import ic2ce.neoforge.item.tool.ToolItems;
 import ic2ce.neoforge.processing.menu.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -23,10 +25,10 @@ public class MetalFormingScreen extends MachineScreen<MetalFormingMenu> {
     var icons =
         java.util.List.of(
             new net.minecraft.world.item.ItemStack(
-                ic2ce.neoforge.registry.ItemDefinitions.COPPER_CABLE),
+                CableItems.COPPER_CABLE),
             new net.minecraft.world.item.ItemStack(
-                ic2ce.neoforge.registry.ItemDefinitions.FORGE_HAMMER),
-            new net.minecraft.world.item.ItemStack(ic2ce.neoforge.registry.ItemDefinitions.CUTTER));
+                ToolItems.FORGE_HAMMER),
+            new net.minecraft.world.item.ItemStack(ToolItems.CUTTER));
     addElement(
         new NativeButton(this, 65, 53, 20, 20, createEventSender(0))
             .withIcon(

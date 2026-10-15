@@ -1,7 +1,7 @@
 package ic2ce.neoforge.world.generation;
 
 import ic2ce.neoforge.ProjectIds;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.world.WorldBlocks;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
@@ -58,10 +58,10 @@ public final class WorldGenerationContracts {
           for (int z = -4; z <= 4; z++) {
             cursor.setWithOffset(center, x, y, z);
             var state = world.getBlockState(cursor);
-            if (state.is(BlockDefinitions.RUBBER_LOG)) {
+            if (state.is(WorldBlocks.RUBBER_LOG)) {
               logs++;
               if (state.getValue(ic2ce.neoforge.world.block.ResinLog.stateProperty).wet) resin++;
-            } else if (state.is(BlockDefinitions.RUBBER_LEAVES)) leaves++;
+            } else if (state.is(WorldBlocks.RUBBER_LEAVES)) leaves++;
           }
       check(
           success && logs >= 4 && logs <= 8 && leaves > 8,
@@ -102,9 +102,9 @@ public final class WorldGenerationContracts {
           for (int z = -10; z <= 10; z++) {
             cursor.setWithOffset(center, x, y, z);
             var state = world.getBlockState(cursor);
-            if (state.is(BlockDefinitions.LEAD_ORE)
-                || state.is(BlockDefinitions.TIN_ORE)
-                || state.is(BlockDefinitions.URANIUM_ORE)) ores++;
+            if (state.is(WorldBlocks.LEAD_ORE)
+                || state.is(WorldBlocks.TIN_ORE)
+                || state.is(WorldBlocks.URANIUM_ORE)) ores++;
           }
       check(
           success && ores > 0,

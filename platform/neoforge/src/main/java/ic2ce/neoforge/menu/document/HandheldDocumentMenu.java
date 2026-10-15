@@ -2,7 +2,6 @@ package ic2ce.neoforge.menu.document;
 
 import ic2ce.neoforge.handheld.HandheldStorage;
 import ic2ce.neoforge.menu.slot.TemplateSlot;
-import ic2ce.neoforge.registry.MenuDefinitions;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.*;
 import net.minecraft.world.inventory.*;
@@ -15,7 +14,7 @@ public class HandheldDocumentMenu<T extends HandheldStorage> extends DocumentMen
   public static HandheldDocumentMenu<HandheldStorage> create(
       int id, Inventory inventory, HandheldStorage storage, ScreenDocument.GuiNode document) {
     return new HandheldDocumentMenu<>(
-        MenuDefinitions.DYNAMIC_ITEM, id, inventory, storage, document);
+        DocumentMenus.DYNAMIC_ITEM, id, inventory, storage, document);
   }
 
   public static <T extends HandheldStorage> HandheldDocumentMenu<T> create(

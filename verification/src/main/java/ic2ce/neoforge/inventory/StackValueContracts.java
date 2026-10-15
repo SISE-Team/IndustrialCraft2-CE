@@ -1,6 +1,7 @@
 package ic2ce.neoforge.inventory;
 
 import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.item.energy.BatteryItems;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.core.component.DataComponents;
@@ -63,7 +64,7 @@ public final class StackValueContracts {
         !StackUtil.checkItemEqualityStrict(named, plain)
             && !StackUtil.checkItemEquality(named, plain),
         "native custom-name components prevent incompatible item merging");
-    var battery = new ItemStack(ic2ce.neoforge.registry.ItemDefinitions.RE_BATTERY);
+    var battery = new ItemStack(BatteryItems.RE_BATTERY);
     var another = battery.copy();
     StackTag.update(
         battery,

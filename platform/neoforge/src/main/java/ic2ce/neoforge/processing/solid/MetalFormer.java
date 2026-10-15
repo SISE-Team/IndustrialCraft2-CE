@@ -5,12 +5,12 @@ import ic2ce.api.recipe.IRecipeInput;
 import ic2ce.api.recipe.Recipes;
 import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.inventory.ItemRecipeInput;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.processing.PoweredProcessor;
 import ic2ce.neoforge.processing.menu.MetalFormingMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import java.util.Collection;
 import java.util.EnumSet;
 import java.util.Set;
@@ -31,7 +31,7 @@ public class MetalFormer extends PoweredProcessor<IRecipeInput, Collection<ItemS
   public static final int EventSwitch = 0;
 
   public MetalFormer(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.METAL_FORMER, position, state, 10, 200, 1);
+    super(ProcessingBlockEntities.METAL_FORMER, position, state, 10, 200, 1);
     inputSlot = new ItemRecipeInput(this, "input", 1, Recipes.metalformerExtruding);
   }
 

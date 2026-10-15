@@ -1,8 +1,8 @@
 package ic2ce.verification;
 
 import com.google.gson.GsonBuilder;
+import ic2ce.neoforge.utility.UtilityBlocks;
 import ic2ce.neoforge.world.WorldData;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.utility.ChunkAnchor;
 import ic2ce.neoforge.world.ChunkLeases;
 import it.unimi.dsi.fastutil.longs.LongOpenHashSet;
@@ -54,7 +54,7 @@ public final class ChunkLeaseRestartProbe {
         world.setChunkForced(owner.getX() >> 4, owner.getZ() >> 4, true);
         world.getChunkAt(owner);
         for (var position : List.of(owner, second, inactive))
-          world.setBlockAndUpdate(position, BlockDefinitions.CHUNK_LOADER.defaultBlockState());
+          world.setBlockAndUpdate(position, UtilityBlocks.CHUNK_LOADER.defaultBlockState());
         var left = (ChunkAnchor) world.getBlockEntity(owner);
         var right = (ChunkAnchor) world.getBlockEntity(second);
         left.energy.forceAddEnergy(2500);

@@ -6,7 +6,7 @@ import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.engine.machine.ExperienceAccount;
 import ic2ce.neoforge.inventory.SmeltingInput;
 import ic2ce.neoforge.processing.PoweredProcessor;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import java.util.Collection;
 import java.util.EnumSet;
@@ -25,7 +25,7 @@ public class ElectricSmelter extends PoweredProcessor<ItemStack, ItemStack, Item
   protected double xp;
 
   public ElectricSmelter(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.ELECTRIC_FURNACE, position, state, 3, 100, 1);
+    super(ProcessingBlockEntities.ELECTRIC_FURNACE, position, state, 3, 100, 1);
     inputSlot = new SmeltingInput(this, "input", 1);
   }
 

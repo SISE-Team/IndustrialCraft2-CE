@@ -3,8 +3,8 @@ package ic2ce.neoforge.transport.cover;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.block.NativeBlockEntity;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
+import ic2ce.neoforge.processing.ProcessingBlocks;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
@@ -48,9 +48,9 @@ public final class CoverContracts {
   private static final class Holder extends NativeBlockEntity implements ICoverHolder {
     Holder() {
       super(
-          BlockEntityDefinitions.MACERATOR,
+          ProcessingBlockEntities.MACERATOR,
           BlockPos.ZERO,
-          BlockDefinitions.MACERATOR.defaultBlockState());
+          ProcessingBlocks.MACERATOR.defaultBlockState());
     }
 
     public Set<CoverProperty> getCoverProperties() {
@@ -159,7 +159,7 @@ public final class CoverContracts {
         "empty saved cover set replaces the complete previous state on reload");
     var wrong =
         new ic2ce.neoforge.processing.solid.OreGrinder(
-            BlockPos.ZERO, BlockDefinitions.MACERATOR.defaultBlockState());
+            BlockPos.ZERO, ProcessingBlocks.MACERATOR.defaultBlockState());
     wrong.setLevel(world);
     var inert = new Covers(wrong);
     inert.addCover(Direction.UP, new ItemStack(item));

@@ -4,8 +4,8 @@ import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.TransferReviewProbe;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.InventorySlot;
+import ic2ce.neoforge.processing.ProcessingBlocks;
 import ic2ce.neoforge.processing.solid.OreGrinder;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.server.level.ServerLevel;
@@ -30,7 +30,7 @@ public final class FluidCapabilityContracts {
   }
 
   private Result exercise(ServerLevel world) {
-    var owner = new OreGrinder(BlockPos.ZERO, BlockDefinitions.MACERATOR.defaultBlockState());
+    var owner = new OreGrinder(BlockPos.ZERO, ProcessingBlocks.MACERATOR.defaultBlockState());
     owner.setLevel(world);
     var ports = new FluidPorts(owner);
     var first = ports.addTank("left", 1000, InventorySlot.Access.IO, InventorySlot.InvSide.TOP);

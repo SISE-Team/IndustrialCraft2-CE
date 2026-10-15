@@ -2,11 +2,11 @@ package ic2ce.neoforge.energy.storage;
 
 
 import ic2ce.api.item.ElectricItem;
+import ic2ce.neoforge.item.tool.ToolItems;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.energy.menu.ChargingPadMenu;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.world.DirectionSets;
 import java.util.ArrayList;
 import java.util.List;
@@ -129,7 +129,7 @@ public abstract class WirelessChargingPad extends EnergyBank {
   }
 
   protected void chargeItem(ItemStack stack, int rate) {
-    if (stack == null || stack.isEmpty() || stack.is(ItemDefinitions.DEBUG_ITEM) || rate <= 0)
+    if (stack == null || stack.isEmpty() || stack.is(ToolItems.DEBUG_ITEM) || rate <= 0)
       return;
     double available = energy.getEnergy();
     if (available <= 0) return;

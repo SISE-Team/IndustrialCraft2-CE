@@ -15,7 +15,6 @@ import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.kinetic.menu.StirlingEngineMenu;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import java.util.EnumSet;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -44,7 +43,7 @@ public class HeatDrivenCogenerator extends InventoryBlockEntity
   private static final Direction[] SIDES = Direction.values();
 
   public HeatDrivenCogenerator(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.STIRLING_KINETIC_GENERATOR, position, block);
+    super(KineticBlockEntities.STIRLING_KINETIC_GENERATOR, position, block);
     var liquids = Recipes.liquidHeatupManager.getSingleDirectionLiquidManager();
     inputTank = fluids.addTankInsert("inputTank", 2000, FluidPorts.fluidPredicate(liquids));
     outputTank = fluids.addTankExtract("outputTank", 2000);

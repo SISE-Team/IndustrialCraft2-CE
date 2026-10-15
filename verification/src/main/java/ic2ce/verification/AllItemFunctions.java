@@ -4,15 +4,20 @@ import com.google.gson.GsonBuilder;
 import ic2ce.api.crops.*;
 import ic2ce.api.item.*;
 import ic2ce.neoforge.ProjectIds;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
 import ic2ce.neoforge.agriculture.CropPlot;
 import ic2ce.neoforge.agriculture.item.EncodedSeed;
 import ic2ce.neoforge.damage.RadiationEffect;
 import ic2ce.neoforge.item.armor.EquipmentItem;
+import ic2ce.neoforge.item.consumable.ConsumableItems;
 import ic2ce.neoforge.item.container.FixedCell;
 import ic2ce.neoforge.item.energy.DisposableSupply;
 import ic2ce.neoforge.item.energy.RechargeableSupply;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.tool.ToolItems;
+import ic2ce.neoforge.power.PowerBlocks;
+import ic2ce.neoforge.processing.ProcessingBlocks;
+import ic2ce.neoforge.utility.UtilityBlocks;
+import ic2ce.neoforge.world.WorldBlocks;
 import java.nio.file.*;
 import java.util.*;
 import net.minecraft.core.*;
@@ -267,16 +272,16 @@ public final class AllItemFunctions {
     if (operation.equals("legacy_cell"))
       player.level().setBlock(POS, Blocks.STONE.defaultBlockState(), 3);
     if (operation.equals("unsupported_upgrade"))
-      player.level().setBlock(POS, BlockDefinitions.MACERATOR.defaultBlockState(), 3);
+      player.level().setBlock(POS, ProcessingBlocks.MACERATOR.defaultBlockState(), 3);
     if (operation.equals("saber_tick"))
-      player.getInventory().setItem(1, new ItemStack(ItemDefinitions.NANO_SABER));
+      player.getInventory().setItem(1, new ItemStack(ToolItems.NANO_SABER));
     if (operation.equals("obscurator")) {
       player.setShiftKeyDown(true);
       player.level().setBlock(POS, Blocks.STONE.defaultBlockState(), 3);
-      player.level().setBlock(POS.east(3), BlockDefinitions.WHITE_WALL.defaultBlockState(), 3);
+      player.level().setBlock(POS.east(3), WorldBlocks.WHITE_WALL.defaultBlockState(), 3);
     }
     if (operation.equals("battery")) {
-      player.getInventory().setItem(1, new ItemStack(ItemDefinitions.DRILL));
+      player.getInventory().setItem(1, new ItemStack(ToolItems.DRILL));
     }
     if (operation.equals("mine")) {
       Block block =
@@ -310,7 +315,7 @@ public final class AllItemFunctions {
           .level()
           .setBlock(
               POS,
-              BlockDefinitions.CROP_STICK
+              AgricultureBlocks.CROP_STICK
                   .defaultBlockState()
                   .setValue(ic2ce.neoforge.block.MachineBlockType.CROSSING_BASE, false),
               3);
@@ -340,12 +345,12 @@ public final class AllItemFunctions {
       player.level().setBlock(POS.east(), Blocks.IRON_ORE.defaultBlockState(), 3);
     }
     if (operation.equals("wrench")) {
-      player.level().setBlock(POS, BlockDefinitions.GENERATOR.defaultBlockState(), 3);
+      player.level().setBlock(POS, PowerBlocks.GENERATOR.defaultBlockState(), 3);
       var tile = (ic2ce.neoforge.block.NativeBlockEntity) player.level().getBlockEntity(POS);
       ledger.phases.put("wrenchInitial", tile.getFacing().getName());
     }
     if (operation.equals("meter") || operation.equals("debug") || operation.equals("crowbar")) {
-      player.level().setBlock(POS, BlockDefinitions.GENERATOR.defaultBlockState(), 3);
+      player.level().setBlock(POS, PowerBlocks.GENERATOR.defaultBlockState(), 3);
       if (operation.equals("debug"))
         ic2ce.neoforge.item.StackTag.update(
             original,
@@ -356,8 +361,8 @@ public final class AllItemFunctions {
     }
     if (operation.startsWith("frequency")) {
       player.setShiftKeyDown(true);
-      player.level().setBlock(POS, BlockDefinitions.TELEPORTER.defaultBlockState(), 3);
-      player.level().setBlock(POS.west(3), BlockDefinitions.TELEPORTER.defaultBlockState(), 3);
+      player.level().setBlock(POS, UtilityBlocks.TELEPORTER.defaultBlockState(), 3);
+      player.level().setBlock(POS.west(3), UtilityBlocks.TELEPORTER.defaultBlockState(), 3);
       if (!operation.equals("frequency_record"))
         ic2ce.neoforge.item.StackTag.update(
             original,
@@ -527,9 +532,9 @@ public final class AllItemFunctions {
       }
       case "crowbar" -> {
         passed &=
-            held.is(ItemDefinitions.CROWBAR)
+            held.is(ToolItems.CROWBAR)
                 && held.getDamageValue() == 0
-                && player.level().getBlockState(POS).is(BlockDefinitions.GENERATOR);
+                && player.level().getBlockState(POS).is(PowerBlocks.GENERATOR);
         evidence = "native use safely rejects a non-cover-holder and preserves both hands";
       }
       case "legacy_cell" -> {
@@ -831,7 +836,7 @@ public final class AllItemFunctions {
           } else {
             mc.options.keyUse.setDown(
                 operation.equals("eat")
-                    && mc.player.getItemInHand(hand).is(ItemDefinitions.TERRA_WART));
+                    && mc.player.getItemInHand(hand).is(ConsumableItems.TERRA_WART));
             mc.gameMode.useItem(mc.player, hand);
           }
         }

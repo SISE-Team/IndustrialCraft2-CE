@@ -6,7 +6,6 @@ import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.network.ClientFieldValidator;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.transport.menu.PriorityFluidMenu;
 import ic2ce.neoforge.world.DirectionSets;
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ public class PriorityFluidRouter extends FairFluidRouter
   @ClientModifiable protected List<Direction> priority = new ArrayList<>(5);
 
   public PriorityFluidRouter(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.WEIGHTED_FLUID_DISTRIBUTOR, position, state);
+    super(TransportBlockEntities.WEIGHTED_FLUID_DISTRIBUTOR, position, state);
   }
 
   @Override

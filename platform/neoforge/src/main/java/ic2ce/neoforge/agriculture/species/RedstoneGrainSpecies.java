@@ -1,7 +1,7 @@
 package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
 import java.util.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
@@ -19,7 +19,7 @@ public class RedstoneGrainSpecies extends MaterialSpecies {
 
   @Override
   public Block getCropBlock() {
-    return BlockDefinitions.RED_WHEAT_CROP;
+    return AgricultureBlocks.RED_WHEAT_CROP;
   }
 
   @Override

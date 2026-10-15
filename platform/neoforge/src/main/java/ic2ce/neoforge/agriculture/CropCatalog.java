@@ -26,9 +26,9 @@ import ic2ce.neoforge.agriculture.species.TreeSpecies;
 import ic2ce.neoforge.agriculture.species.VenomSpecies;
 import ic2ce.neoforge.agriculture.species.WeedSpecies;
 import ic2ce.neoforge.agriculture.species.WheatSpecies;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.item.consumable.ConsumableItems;
+import ic2ce.neoforge.material.MaterialItems;
 import ic2ce.neoforge.registry.BlockGroups;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.runtime.EnvProxy;
 import java.util.*;
 import net.minecraft.core.Holder;
@@ -50,31 +50,31 @@ public class CropCatalog extends Crops {
   public static CropCard cropYellowFlower =
       new PigmentSpecies(
           Cultivar.DANDELION,
-          BlockDefinitions.DANDELION_CROP,
+          AgricultureBlocks.DANDELION_CROP,
           new String[] {"Yellow", "Flower"},
           DyeColor.YELLOW);
   public static CropCard cropRedFlower =
       new PigmentSpecies(
           Cultivar.POPPY,
-          BlockDefinitions.POPPY_CROP,
+          AgricultureBlocks.POPPY_CROP,
           new String[] {"Red", "Flower", "Rose"},
           DyeColor.RED);
   public static CropCard cropBlackFlower =
       new PigmentSpecies(
           Cultivar.BLACKTHORN,
-          BlockDefinitions.BLACKTHORN_CROP,
+          AgricultureBlocks.BLACKTHORN_CROP,
           new String[] {"Black", "Flower", "Rose"},
           DyeColor.BLACK);
   public static CropCard cropPurpleFlower =
       new PigmentSpecies(
           Cultivar.TULIP,
-          BlockDefinitions.TULIP_CROP,
+          AgricultureBlocks.TULIP_CROP,
           new String[] {"Purple", "Flower", "Tulip"},
           DyeColor.PURPLE);
   public static CropCard cropBlueFlower =
       new PigmentSpecies(
           Cultivar.CYAZINT,
-          BlockDefinitions.CYAZINT_CROP,
+          AgricultureBlocks.CYAZINT_CROP,
           new String[] {"Blue", "Flower"},
           DyeColor.CYAN);
   public static CropCard cropVenomilia = new VenomSpecies(Cultivar.VENOMILIA);
@@ -85,13 +85,13 @@ public class CropCatalog extends Crops {
   public static CropCard cropRedMushroom =
       new MushroomSpecies(
           Cultivar.RED_MUSHROOM,
-          BlockDefinitions.RED_MUSHROOM_CROP,
+          AgricultureBlocks.RED_MUSHROOM_CROP,
           new String[] {"Red", "Food", "Mushroom"},
           new ItemStack(Blocks.RED_MUSHROOM));
   public static CropCard cropBrownMushroom =
       new MushroomSpecies(
           Cultivar.BROWN_MUSHROOM,
-          BlockDefinitions.BROWN_MUSHROOM_CROP,
+          AgricultureBlocks.BROWN_MUSHROOM_CROP,
           new String[] {"Brown", "Food", "Mushroom"},
           new ItemStack(Blocks.BROWN_MUSHROOM));
   public static CropCard cropNetherWart = new SoulWartSpecies(Cultivar.NETHER_WART);
@@ -99,87 +99,87 @@ public class CropCatalog extends Crops {
   public static CropCard cropOakSapling =
       new TreeSpecies(
           Cultivar.OAK_SAPLING,
-          BlockDefinitions.OAK_SAPLING_CROP,
+          AgricultureBlocks.OAK_SAPLING_CROP,
           "acorns",
           new ItemStack(Blocks.OAK_LOG),
           new ItemStack(Blocks.OAK_SAPLING));
   public static CropCard cropSpruceSapling =
       new TreeSpecies(
           Cultivar.SPRUCE_SAPLING,
-          BlockDefinitions.SPRUCE_SAPLING_CROP,
+          AgricultureBlocks.SPRUCE_SAPLING_CROP,
           "pine_cones",
           new ItemStack(Blocks.SPRUCE_LOG),
           new ItemStack(Blocks.SPRUCE_SAPLING));
   public static CropCard cropBirchSapling =
       new TreeSpecies(
           Cultivar.BIRCH_SAPLING,
-          BlockDefinitions.BIRCH_SAPLING_CROP,
+          AgricultureBlocks.BIRCH_SAPLING_CROP,
           "catkins",
           new ItemStack(Blocks.BIRCH_LOG),
           new ItemStack(Blocks.BIRCH_SAPLING));
   public static CropCard cropJungleSapling =
       new TreeSpecies(
           Cultivar.JUNGLE_SAPLING,
-          BlockDefinitions.JUNGLE_SAPLING_CROP,
+          AgricultureBlocks.JUNGLE_SAPLING_CROP,
           "seedling",
           new ItemStack(Blocks.JUNGLE_LOG),
           new ItemStack(Blocks.JUNGLE_SAPLING));
   public static CropCard cropAcaciaSapling =
       new TreeSpecies(
           Cultivar.ACACIA_SAPLING,
-          BlockDefinitions.ACACIA_SAPLING_CROP,
+          AgricultureBlocks.ACACIA_SAPLING_CROP,
           "seedling",
           new ItemStack(Blocks.ACACIA_LOG),
           new ItemStack(Blocks.ACACIA_SAPLING));
   public static CropCard cropDarkOakSapling =
       new TreeSpecies(
           Cultivar.DARK_OAK_SAPLING,
-          BlockDefinitions.DARK_OAK_SAPLING_CROP,
+          AgricultureBlocks.DARK_OAK_SAPLING_CROP,
           "acorns",
           new ItemStack(Blocks.DARK_OAK_LOG),
           new ItemStack(Blocks.DARK_OAK_SAPLING));
   public static CropCard cropFerru =
       new MetalSpecies(
           Cultivar.FERRU,
-          BlockDefinitions.FERRU_CROP,
+          AgricultureBlocks.FERRU_CROP,
           new String[] {"Gray", "Leaves", "Metal"},
           Arrays.asList(BlockTags.IRON_ORES, BlockGroups.IRON_BLOCKS),
-          new ItemStack(ItemDefinitions.SMALL_IRON_DUST));
+          new ItemStack(MaterialItems.SMALL_IRON_DUST));
   public static CropCard cropCyprium =
       new MetalSpecies(
           Cultivar.CYPRIUM,
-          BlockDefinitions.CYPRIUM_CROP,
+          AgricultureBlocks.CYPRIUM_CROP,
           new String[] {"Orange", "Leaves", "Metal"},
           Arrays.asList(BlockTags.COPPER_ORES, BlockGroups.COPPER_BLOCKS),
-          new ItemStack(ItemDefinitions.SMALL_COPPER_DUST));
+          new ItemStack(MaterialItems.SMALL_COPPER_DUST));
   public static CropCard cropStagnium =
       new MetalSpecies(
           Cultivar.STAGNIUM,
-          BlockDefinitions.STAGNIUM_CROP,
+          AgricultureBlocks.STAGNIUM_CROP,
           new String[] {"Shiny", "Leaves", "Metal"},
           Arrays.asList(BlockGroups.TIN_ORES, BlockGroups.TIN_BLOCKS),
-          new ItemStack(ItemDefinitions.SMALL_TIN_DUST));
+          new ItemStack(MaterialItems.SMALL_TIN_DUST));
   public static CropCard cropPlumbiscus =
       new MetalSpecies(
           Cultivar.PLUMBISCUS,
-          BlockDefinitions.PLUMBISCUS_CROP,
+          AgricultureBlocks.PLUMBISCUS_CROP,
           new String[] {"Dense", "Leaves", "Metal"},
           Arrays.asList(BlockGroups.LEAD_ORES, BlockGroups.LEAD_BLOCKS),
-          new ItemStack(ItemDefinitions.SMALL_LEAD_DUST));
+          new ItemStack(MaterialItems.SMALL_LEAD_DUST));
   public static CropCard cropAurelia =
       new PreciousMetalSpecies(
           Cultivar.AURELIA,
-          BlockDefinitions.AURELIA_CROP,
+          AgricultureBlocks.AURELIA_CROP,
           new String[] {"Gold", "Leaves", "Metal"},
           Arrays.asList(BlockTags.GOLD_ORES, BlockGroups.GOLD_BLOCKS),
-          new ItemStack(ItemDefinitions.SMALL_GOLD_DUST));
+          new ItemStack(MaterialItems.SMALL_GOLD_DUST));
   public static CropCard cropShining =
       new PreciousMetalSpecies(
           Cultivar.SHINING,
-          BlockDefinitions.SHINING_CROP,
+          AgricultureBlocks.SHINING_CROP,
           new String[] {"Silver", "Leaves", "Metal"},
           Arrays.asList(BlockGroups.SILVER_ORES, BlockGroups.SILVER_BLOCKS),
-          new ItemStack(ItemDefinitions.SMALL_SILVER_DUST));
+          new ItemStack(MaterialItems.SMALL_SILVER_DUST));
   public static CropCard cropRedWheat = new RedstoneGrainSpecies(Cultivar.RED_WHEAT);
   public static CropCard cropCoffee = new CoffeeSpecies(Cultivar.COFFEE);
   public static CropCard cropHops = new HopSpecies(Cultivar.HOPS);
@@ -194,9 +194,9 @@ public class CropCatalog extends Crops {
     Crops.instance.registerBaseSeed(new ItemStack(Items.MELON_SEEDS), cropMelon, 0, 1, 1, 1);
     Crops.instance.registerBaseSeed(new ItemStack(Items.NETHER_WART), cropNetherWart, 0, 1, 1, 1);
     Crops.instance.registerBaseSeed(
-        new ItemStack(ItemDefinitions.TERRA_WART), cropTerraWart, 0, 1, 1, 1);
+        new ItemStack(ConsumableItems.TERRA_WART), cropTerraWart, 0, 1, 1, 1);
     Crops.instance.registerBaseSeed(
-        new ItemStack(ItemDefinitions.COFFEE_BEANS), cropCoffee, 0, 1, 1, 1);
+        new ItemStack(AgricultureItems.COFFEE_BEANS), cropCoffee, 0, 1, 1, 1);
     Crops.instance.registerBaseSeed(new ItemStack(Items.SUGAR_CANE), cropReed, 0, 3, 0, 2);
     Crops.instance.registerBaseSeed(new ItemStack(Items.COCOA_BEANS), cropCocoa, 0, 0, 0, 0);
     Crops.instance.registerBaseSeed(new ItemStack(Items.POPPY, 4), cropRedFlower, 3, 1, 1, 1);

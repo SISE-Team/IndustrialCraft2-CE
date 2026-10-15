@@ -1,6 +1,7 @@
 package ic2ce.neoforge.registry;
 
 import ic2ce.api.item.ElectricItem;
+import ic2ce.neoforge.item.energy.BatteryItems;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.resources.Identifier;
@@ -23,7 +24,7 @@ public final class CreativeContracts {
         || stacks.stream().anyMatch(stack -> stack.isEmpty() || stack.getCount() != 1))
       failures.add(
           "creative: native physical tool tab omitted members or emitted invalid quantities");
-    var batteries = stacks.stream().filter(stack -> stack.is(ItemDefinitions.RE_BATTERY)).toList();
+    var batteries = stacks.stream().filter(stack -> stack.is(BatteryItems.RE_BATTERY)).toList();
     checks++;
     if (batteries.size() != 2
         || batteries.stream().noneMatch(stack -> ElectricItem.manager.getCharge(stack) == 0)
@@ -33,14 +34,14 @@ public final class CreativeContracts {
     var next = new ArrayList<ItemStack>();
     CreativeContents.accept(tools, (stack, visibility) -> next.add(stack));
     checks++;
-    if (next.stream().filter(stack -> stack.is(ItemDefinitions.RE_BATTERY)).count() != 2)
+    if (next.stream().filter(stack -> stack.is(BatteryItems.RE_BATTERY)).count() != 2)
       failures.add("creative: borrowed output mutation changed a later generation");
     var bucket = FluidDefinitions.BIOGAS.bucket;
     CreativeContents.assignDynamic(
         bucket, Identifier.fromNamespaceAndPath("ic2", "tools_and_utilities"));
     checks++;
     if (!CreativeContents.isIn(bucket, CreativeTabs.TOOLS_AND_UTILITIES)
-        || !CreativeContents.isIn(ItemDefinitions.RE_BATTERY, tools))
+        || !CreativeContents.isIn(BatteryItems.RE_BATTERY, tools))
       failures.add(
           "creative: equivalent native tab identifiers broke static or dynamic membership");
     var emitted = new ArrayList<ItemStack>();

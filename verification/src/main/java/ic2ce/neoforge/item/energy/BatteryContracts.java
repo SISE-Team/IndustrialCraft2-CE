@@ -2,7 +2,7 @@ package ic2ce.neoforge.item.energy;
 
 import ic2ce.api.item.*;
 import ic2ce.neoforge.item.StackTag;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.tool.ToolItems;
 import java.util.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -34,10 +34,10 @@ public final class BatteryContracts {
                 UUID.fromString("04899aec-7c2e-4d94-b651-6028971db781"), "IC2BatteryProbe"));
     player.getInventory().clearContent();
     player.getAbilities().instabuild = false;
-    var source = charged(ItemDefinitions.RE_BATTERY, 1000);
-    var drill = new ItemStack(ItemDefinitions.DRILL);
-    var saw = new ItemStack(ItemDefinitions.CHAINSAW);
-    var battery = new ItemStack(ItemDefinitions.RE_BATTERY);
+    var source = charged(BatteryItems.RE_BATTERY, 1000);
+    var drill = new ItemStack(ToolItems.DRILL);
+    var saw = new ItemStack(ToolItems.CHAINSAW);
+    var battery = new ItemStack(BatteryItems.RE_BATTERY);
     player.setItemInHand(InteractionHand.MAIN_HAND, source);
     player.getInventory().setItem(1, drill);
     player.getInventory().setItem(2, saw);
@@ -55,12 +55,12 @@ public final class BatteryContracts {
         ItemChargeTransfers.move(source, source, 100, 1) == 0
             && manager.getCharge(source) == before,
         "physical source identity cannot transfer to itself");
-    var full = charged(ItemDefinitions.DRILL, Double.POSITIVE_INFINITY);
+    var full = charged(ToolItems.DRILL, Double.POSITIVE_INFINITY);
     check(
         ItemChargeTransfers.move(source, full, 1000, 1) == 0 && manager.getCharge(source) == before,
         "a full target cannot consume any prepaid source energy");
     check(
-        ItemChargeTransfers.move(source, new ItemStack(ItemDefinitions.IRIDIUM_DRILL), 1000, 1) == 0
+        ItemChargeTransfers.move(source, new ItemStack(ToolItems.IRIDIUM_DRILL), 1000, 1) == 0
             && manager.getCharge(source) == before,
         "an incompatible native target tier cannot debit the source");
     var probe = new CallbackManager();
@@ -82,9 +82,9 @@ public final class BatteryContracts {
         sent == 100 && manager.getCharge(source) == before - 100 && probe.recursiveCredit == 0,
         "an addon callback cannot recursively spend a transfer already in progress");
     player.getInventory().clearContent();
-    var cell = new ItemStack(ItemDefinitions.SINGLE_USE_BATTERY);
-    drill = new ItemStack(ItemDefinitions.DRILL);
-    saw = new ItemStack(ItemDefinitions.CHAINSAW);
+    var cell = new ItemStack(BatteryItems.SINGLE_USE_BATTERY);
+    drill = new ItemStack(ToolItems.DRILL);
+    saw = new ItemStack(ToolItems.CHAINSAW);
     manager.charge(drill, manager.getMaxCharge(drill) - 500, 1, true, false);
     player.setItemInHand(InteractionHand.OFF_HAND, cell);
     player.getInventory().setItem(1, drill);
@@ -97,7 +97,7 @@ public final class BatteryContracts {
         "the final physical disposable cell pays exactly 1200 EU across partial and empty tools and"
             + " disappears from its actual hand");
     player.getInventory().clearContent();
-    cell = new ItemStack(ItemDefinitions.SINGLE_USE_BATTERY, 2);
+    cell = new ItemStack(BatteryItems.SINGLE_USE_BATTERY, 2);
     player.setItemInHand(InteractionHand.OFF_HAND, cell);
     player.getInventory().setItem(1, marked(Items.EMERALD, "reject"));
     cell.getItem().use(world, player, InteractionHand.OFF_HAND);
@@ -105,23 +105,23 @@ public final class BatteryContracts {
         cell.getCount() == 2,
         "a disposable source is refunded when every addon target rejects actual delivery");
     player.getInventory().clearContent();
-    cell = new ItemStack(ItemDefinitions.SINGLE_USE_BATTERY);
+    cell = new ItemStack(BatteryItems.SINGLE_USE_BATTERY);
     player.setItemInHand(InteractionHand.OFF_HAND, cell);
     player.getInventory().setItem(1, marked(Items.EMERALD, "reject"));
     cell.getItem().use(world, player, InteractionHand.OFF_HAND);
     check(
-        player.getItemInHand(InteractionHand.OFF_HAND).is(ItemDefinitions.SINGLE_USE_BATTERY)
+        player.getItemInHand(InteractionHand.OFF_HAND).is(BatteryItems.SINGLE_USE_BATTERY)
             && cell.getCount() == 1,
         "refunding the last cell restores its actual physical item identity");
     player.getInventory().clearContent();
-    cell = new ItemStack(ItemDefinitions.SINGLE_USE_BATTERY, 2);
+    cell = new ItemStack(BatteryItems.SINGLE_USE_BATTERY, 2);
     player.setItemInHand(InteractionHand.OFF_HAND, cell);
     player.getInventory().setItem(1, full);
     cell.getItem().use(world, player, InteractionHand.OFF_HAND);
     check(cell.getCount() == 2, "a full hotbar never spends a disposable cell");
     player.getInventory().clearContent();
-    cell = new ItemStack(ItemDefinitions.SINGLE_USE_BATTERY, 2);
-    drill = new ItemStack(ItemDefinitions.DRILL);
+    cell = new ItemStack(BatteryItems.SINGLE_USE_BATTERY, 2);
+    drill = new ItemStack(ToolItems.DRILL);
     player.getAbilities().instabuild = true;
     player.setItemInHand(InteractionHand.OFF_HAND, cell);
     player.getInventory().setItem(1, drill);

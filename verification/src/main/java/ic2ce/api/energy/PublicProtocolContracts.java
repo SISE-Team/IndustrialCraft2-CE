@@ -4,7 +4,7 @@ import ic2ce.api.crops.BaseSeed;
 import ic2ce.api.energy.tile.*;
 import ic2ce.api.item.*;
 import ic2ce.neoforge.agriculture.CropCatalog;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.tool.ToolItems;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -80,7 +80,7 @@ public final class PublicProtocolContracts {
             return false;
           }
         };
-    var stack = new ItemStack(ItemDefinitions.DIAMOND_DRILL);
+    var stack = new ItemStack(ToolItems.DIAMOND_DRILL);
     ElectricItem.manager.charge(stack, 1000, Integer.MAX_VALUE, true, false);
     double before = ElectricItem.manager.getCharge(stack);
     for (double bill :

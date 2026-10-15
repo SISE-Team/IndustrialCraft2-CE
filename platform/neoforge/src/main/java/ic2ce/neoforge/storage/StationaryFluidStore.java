@@ -11,7 +11,6 @@ import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.UpgradeInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
@@ -31,7 +30,7 @@ public class StationaryFluidStore extends InventoryBlockEntity
       Set.of(UpgradableProperty.FluidConsuming, UpgradableProperty.FluidProducing);
 
   public StationaryFluidStore(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.TANK, position, state);
+    super(StorageBlockEntities.TANK, position, state);
     fluids = addComponent(new FluidPorts(this));
     fluidTank = fluids.addTank("fluid", 24000);
     upgradeSlot = new UpgradeInventory(this, "upgrade", 4);

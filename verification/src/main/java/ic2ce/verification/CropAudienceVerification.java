@@ -2,11 +2,11 @@ package ic2ce.verification;
 
 import com.google.gson.GsonBuilder;
 import ic2ce.api.crops.*;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
 import ic2ce.neoforge.world.WorldData;
 import ic2ce.neoforge.network.ReflectionUtil;
 import ic2ce.neoforge.agriculture.CropPlot;
 import ic2ce.neoforge.agriculture.Cultivar;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import java.nio.file.*;
 import java.util.*;
 import net.minecraft.core.BlockPos;
@@ -45,13 +45,13 @@ public final class CropAudienceVerification {
       active.world.setChunkForced(position.getX() >> 4, position.getZ() >> 4, true);
       active.world.getChunkAt(position);
       active.world.setBlockAndUpdate(position.below(), Blocks.FARMLAND.defaultBlockState());
-      active.world.setBlockAndUpdate(position, BlockDefinitions.WHEAT_CROP.defaultBlockState());
+      active.world.setBlockAndUpdate(position, AgricultureBlocks.WHEAT_CROP.defaultBlockState());
       var plot = (CropPlot) active.world.getBlockEntity(position);
       var species =
           new CropCard(Cultivar.WHEAT) {
             @Override
             public Block getCropBlock() {
-              return BlockDefinitions.WHEAT_CROP;
+              return AgricultureBlocks.WHEAT_CROP;
             }
 
             @Override

@@ -1,7 +1,7 @@
 package ic2ce.neoforge.reactor.part;
 
 import ic2ce.api.reactor.IReactor;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.reactor.ReactorItems;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -117,7 +117,7 @@ public final class ReactorPartContracts {
 
   private Result exercise() {
     var core = new Core();
-    var cell = new ItemStack(ItemDefinitions.REACTOR_COOLANT_CELL);
+    var cell = new ItemStack(ReactorItems.REACTOR_COOLANT_CELL);
     var storage = (HeatCell) cell.getItem();
     core.setItemAt(1, 1, cell);
     int maximum = storage.getMaxHeat(cell, core, 1, 1);
@@ -126,7 +126,7 @@ public final class ReactorPartContracts {
     check(
         excess == 98 && core.getItemAt(1, 1).isEmpty(),
         "melting storage returns positive excess instead of cooling the reactor");
-    cell = new ItemStack(ItemDefinitions.REACTOR_COOLANT_CELL);
+    cell = new ItemStack(ReactorItems.REACTOR_COOLANT_CELL);
     core.setItemAt(1, 1, cell);
     storage.setUse(cell, 5);
     check(
@@ -136,7 +136,7 @@ public final class ReactorPartContracts {
     check(
         storage.getUse(cell) == 0 && Double.isFinite(storage.getUseFraction(cell)),
         "invalid saved wear never creates negative heat or a nonfinite gauge");
-    var fuel = new ItemStack(ItemDefinitions.URANIUM_FUEL_ROD);
+    var fuel = new ItemStack(ReactorItems.URANIUM_FUEL_ROD);
     var uranium = (UraniumFuel) fuel.getItem();
     core = new Core();
     core.setItemAt(2, 2, fuel);
@@ -147,15 +147,15 @@ public final class ReactorPartContracts {
         "single isolated uranium has one pulse, four HU and one wear unit");
     core = new Core();
     core.setItemAt(2, 2, fuel);
-    var left = new ItemStack(ItemDefinitions.REACTOR_COOLANT_CELL);
-    var right = new ItemStack(ItemDefinitions.REACTOR_COOLANT_CELL);
+    var left = new ItemStack(ReactorItems.REACTOR_COOLANT_CELL);
+    var right = new ItemStack(ReactorItems.REACTOR_COOLANT_CELL);
     core.setItemAt(1, 2, left);
     core.setItemAt(3, 2, right);
     uranium.processChamber(fuel, core, 2, 2, true);
     check(
         storage.getUse(left) == 2 && storage.getUse(right) == 2 && core.heat == 0,
         "fuel partitions four HU across two native storage recipients without a queue");
-    var moxStack = new ItemStack(ItemDefinitions.MOX_FUEL_ROD);
+    var moxStack = new ItemStack(ReactorItems.MOX_FUEL_ROD);
     var mox = (MoxFuel) moxStack.getItem();
     core = new Core();
     core.heat = 5000;
@@ -167,7 +167,7 @@ public final class ReactorPartContracts {
     check(
         core.output == 1 && Float.isFinite(core.output),
         "zero hull capacity cannot create infinite MOX output");
-    var condensatorStack = new ItemStack(ItemDefinitions.RSH_CONDENSATOR);
+    var condensatorStack = new ItemStack(ReactorItems.RSH_CONDENSATOR);
     var condensator = (ChemicalCondensator) condensatorStack.getItem();
     core = new Core();
     int capacity = condensator.getMaxHeat(condensatorStack, core, 1, 1);

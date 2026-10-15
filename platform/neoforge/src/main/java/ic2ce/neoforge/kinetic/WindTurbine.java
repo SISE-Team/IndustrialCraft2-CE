@@ -10,7 +10,6 @@ import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.kinetic.menu.WindTurbineMenu;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Inventory;
@@ -31,7 +30,7 @@ public class WindTurbine extends RotorGearbox {
 
   public WindTurbine(BlockPos position, BlockState block) {
     super(
-        BlockEntityDefinitions.WIND_KINETIC_GENERATOR,
+        KineticBlockEntities.WIND_KINETIC_GENERATOR,
         position,
         block,
         IKineticRotor.GearboxType.WIND);

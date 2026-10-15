@@ -8,9 +8,11 @@ import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.inventory.InventorySlot;
+import ic2ce.neoforge.item.consumable.ConsumableItems;
+import ic2ce.neoforge.kinetic.KineticItems;
 import ic2ce.neoforge.kinetic.ManualCrank;
+import ic2ce.neoforge.material.MaterialItems;
 import ic2ce.neoforge.power.BufferedGenerator;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.*;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemStack;
@@ -53,7 +55,7 @@ final class AllGenerationCases {
               case "semifluid_generator" -> s.fill(id, "fluid", "biogas", 4000);
               case "rt_generator" ->
                   ((InventorySlot) get(tile, "fuelSlot"))
-                      .put(new ItemStack(ItemDefinitions.RTG_PELLET));
+                      .put(new ItemStack(ConsumableItems.RTG_PELLET));
               case "water_generator" ->
                   ((InventorySlot) get(tile, "fuelSlot")).put(new ItemStack(Items.WATER_BUCKET));
               case "stirling_generator" -> s.heatSupply(id);
@@ -64,27 +66,27 @@ final class AllGenerationCases {
                         tile.getBlockPos().relative(tile.getFacing()));
                 s.facing(source, tile.getFacing().getOpposite());
                 ((InventorySlot) get(source, "slotMotor"))
-                    .put(new ItemStack(ItemDefinitions.ELECTRIC_MOTOR));
+                    .put(new ItemStack(MaterialItems.ELECTRIC_MOTOR));
                 s.helper("creative_generator", source.getBlockPos().above());
                 source.setChanged();
               }
               case "electric_heat_generator" -> {
                 InventorySlot slot = (InventorySlot) get(tile, "coilSlot");
                 for (int i = 0; i < slot.size(); i++)
-                  slot.put(i, new ItemStack(ItemDefinitions.COIL));
+                  slot.put(i, new ItemStack(MaterialItems.COIL));
               }
               case "solid_heat_generator" ->
                   ((InventorySlot) get(tile, "fuelSlot")).put(new ItemStack(Items.COAL, 8));
               case "fluid_heat_generator" -> s.fill(id, "fluidTank", "biogas", 4000);
               case "rt_heat_generator" ->
                   ((InventorySlot) get(tile, "fuelSlot"))
-                      .put(new ItemStack(ItemDefinitions.RTG_PELLET));
+                      .put(new ItemStack(ConsumableItems.RTG_PELLET));
               case "electric_kinetic_generator" ->
                   ((InventorySlot) get(tile, "slotMotor"))
-                      .put(new ItemStack(ItemDefinitions.ELECTRIC_MOTOR));
+                      .put(new ItemStack(MaterialItems.ELECTRIC_MOTOR));
               case "steam_kinetic_generator" -> {
                 ((InventorySlot) get(tile, "turbineSlot"))
-                    .put(new ItemStack(ItemDefinitions.STEAM_TURBINE));
+                    .put(new ItemStack(MaterialItems.STEAM_TURBINE));
                 s.helper("condenser", tile.getBlockPos().east());
                 // Feed repeatedly, exactly as a connected steam producer would.
                 for (int tick = 100; tick < 280; tick++)
@@ -97,14 +99,14 @@ final class AllGenerationCases {
               case "stirling_kinetic_generator" -> {
                 var heat = s.helper("electric_heat_generator", tile.getBlockPos().west());
                 s.facing(heat, Direction.EAST);
-                ((InventorySlot) get(heat, "coilSlot")).put(new ItemStack(ItemDefinitions.COIL));
+                ((InventorySlot) get(heat, "coilSlot")).put(new ItemStack(MaterialItems.COIL));
                 s.helper("creative_generator", heat.getBlockPos().above());
                 heat.setChanged();
                 s.fill(id, "inputTank", "minecraft:water", 1000);
               }
               case "wind_kinetic_generator" -> {
                 ((InventorySlot) get(tile, "rotorSlot"))
-                    .put(new ItemStack(ItemDefinitions.WOODEN_ROTOR));
+                    .put(new ItemStack(KineticItems.WOODEN_ROTOR));
                 for (int x = -4; x <= 4; x++)
                   for (int y = -3; y <= 4; y++)
                     for (int z = -5; z <= -1; z++)
@@ -113,7 +115,7 @@ final class AllGenerationCases {
               }
               case "water_kinetic_generator" -> {
                 ((InventorySlot) get(tile, "rotorSlot"))
-                    .put(new ItemStack(ItemDefinitions.IRON_ROTOR));
+                    .put(new ItemStack(KineticItems.IRON_ROTOR));
                 var p = tile.getBlockPos();
                 var server = s.level.getServer();
                 server

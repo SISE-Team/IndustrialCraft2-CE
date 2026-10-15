@@ -1,6 +1,6 @@
 package ic2ce.neoforge.world.block;
 
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.world.WorldBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
@@ -25,7 +25,7 @@ public final class BarkWood extends Block {
   public BlockState getToolModifiedState(
       BlockState state, UseOnContext context, ItemAbility ability, boolean simulate) {
     return ability == ItemAbilities.AXE_STRIP && context.getItemInHand().canPerformAction(ability)
-        ? BlockDefinitions.STRIPPED_RUBBER_WOOD.defaultBlockState()
+        ? WorldBlocks.STRIPPED_RUBBER_WOOD.defaultBlockState()
         : null;
   }
 

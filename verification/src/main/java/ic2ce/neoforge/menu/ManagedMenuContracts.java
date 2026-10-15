@@ -1,7 +1,7 @@
 package ic2ce.neoforge.menu;
 
+import ic2ce.neoforge.item.container.ContainerItems;
 import ic2ce.neoforge.network.GrowingBuffer;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.server.level.ServerLevel;
@@ -24,8 +24,8 @@ public final class ManagedMenuContracts {
     var off = actor.getOffhandItem();
     int selected = inventory.getSelectedSlot();
     try {
-      actor.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ItemDefinitions.TOOL_BOX));
-      actor.setItemInHand(InteractionHand.OFF_HAND, new ItemStack(ItemDefinitions.TOOL_BOX));
+      actor.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ContainerItems.TOOL_BOX));
+      actor.setItemInHand(InteractionHand.OFF_HAND, new ItemStack(ContainerItems.TOOL_BOX));
       for (var hand : InteractionHand.values()) {
         var buffer = new GrowingBuffer();
         ManagedMenus.writeItem(actor, hand, null, buffer);
@@ -71,7 +71,7 @@ public final class ManagedMenuContracts {
         if (!rejected)
           failures.add("managed menus: invalid native hand/slot coordinate was admitted");
       }
-      actor.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ItemDefinitions.TOOL_BOX));
+      actor.setItemInHand(InteractionHand.MAIN_HAND, new ItemStack(ContainerItems.TOOL_BOX));
       rejected = false;
       try {
         ManagedMenus.writeItem(actor, InteractionHand.MAIN_HAND, 1, new GrowingBuffer());

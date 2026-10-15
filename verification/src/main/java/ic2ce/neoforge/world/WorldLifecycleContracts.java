@@ -2,9 +2,9 @@ package ic2ce.neoforge.world;
 
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.NativeComponent;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
+import ic2ce.neoforge.processing.ProcessingBlocks;
 import ic2ce.neoforge.processing.solid.OreGrinder;
-import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -25,9 +25,9 @@ public final class WorldLifecycleContracts {
   private static final class Inventory extends InventoryBlockEntity {
     Inventory() {
       super(
-          BlockEntityDefinitions.MACERATOR,
+          ProcessingBlockEntities.MACERATOR,
           BlockPos.ZERO,
-          BlockDefinitions.MACERATOR.defaultBlockState());
+          ProcessingBlocks.MACERATOR.defaultBlockState());
     }
 
     <T extends NativeComponent> T attach(T component) {
@@ -102,7 +102,7 @@ public final class WorldLifecycleContracts {
     check(
         rejected && owner.getComponent(Marker.class) == original,
         "a foreign-parent component cannot be attached");
-    var machine = new OreGrinder(BlockPos.ZERO, BlockDefinitions.MACERATOR.defaultBlockState());
+    var machine = new OreGrinder(BlockPos.ZERO, ProcessingBlocks.MACERATOR.defaultBlockState());
     machine.setLevel(world);
     machine.setActiveState(true, true);
     check(machine.getActive(), "common activation changes the authoritative native running state");

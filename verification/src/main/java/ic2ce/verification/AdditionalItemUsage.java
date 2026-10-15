@@ -6,11 +6,12 @@ import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.item.consumable.ConsumableItems;
 import ic2ce.neoforge.kinetic.WindTurbine;
+import ic2ce.neoforge.material.MaterialItems;
 import ic2ce.neoforge.processing.fluid.LegacyCellCanner;
 import ic2ce.neoforge.processing.solid.MaterialRecycler;
 import ic2ce.neoforge.processing.solid.PlateCutter;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.terrain.TerrainBlueprint;
 import ic2ce.neoforge.terrain.TerrainController;
 import ic2ce.neoforge.world.BiomeUtil;
@@ -275,7 +276,7 @@ public final class AdditionalItemUsage {
           var item = materials.get(indices[i]);
           boolean consumed = m.inputSlot.isEmpty();
           boolean valid = true;
-          for (var out : m.outputSlot) valid &= out.isEmpty() || out.is(ItemDefinitions.SCRAP);
+          for (var out : m.outputSlot) valid &= out.isEmpty() || out.is(MaterialItems.SCRAP);
           row(
               BuiltInRegistries.ITEM.getKey(item).getPath(),
               "placed_recycler_material_input",
@@ -343,14 +344,14 @@ public final class AdditionalItemUsage {
                 "placed_classic_canner_fuel",
                 canner.inputSlot.isEmpty()
                     && canner.resInputSlot.isEmpty()
-                    && out.is(ItemDefinitions.FILLED_FUEL_CAN)
+                    && out.is(ConsumableItems.FILLED_FUEL_CAN)
                     && data != null
                     && data.getIntOr("value", 0) == expected,
                 "output=" + out + ", grade=" + data);
             row(
                 "empty_fuel_can",
                 "placed_classic_canner_container",
-                out.is(ItemDefinitions.FILLED_FUEL_CAN),
+                out.is(ConsumableItems.FILLED_FUEL_CAN),
                 "filled with " + id);
           } else if (id.equals("filled_fuel_can")) {
             var fuel = (InventorySlot) AllMachinesVerification.get(te, "fuelSlot");
@@ -362,7 +363,7 @@ public final class AdditionalItemUsage {
             row(
                 id,
                 "placed_fuel_generator",
-                eu > 0 && !fuel.get().is(ItemDefinitions.FILLED_FUEL_CAN),
+                eu > 0 && !fuel.get().is(ConsumableItems.FILLED_FUEL_CAN),
                 "receiver EU=" + eu + ", remainder=" + fuel.get());
           }
         }

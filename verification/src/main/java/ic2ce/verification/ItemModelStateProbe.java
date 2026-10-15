@@ -3,7 +3,7 @@ package ic2ce.verification;
 import com.google.gson.GsonBuilder;
 import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.item.StackTag;
-import ic2ce.neoforge.registry.ItemDefinitions;
+import ic2ce.neoforge.item.tool.ToolItems;
 import java.nio.file.*;
 import java.util.*;
 import net.minecraft.client.Minecraft;
@@ -73,7 +73,7 @@ public final class ItemModelStateProbe {
             || m.flowingMaterial().sprite().contents().name().toString().contains("missingno"))
           failures.add("fluid missing native material: " + fluid);
       }
-    var saber = new ItemStack(ItemDefinitions.NANO_SABER);
+    var saber = new ItemStack(ToolItems.NANO_SABER);
     ic2ce.api.item.ElectricItem.manager.charge(saber, 100000, Integer.MAX_VALUE, true, false);
     StackTag.update(
         saber,

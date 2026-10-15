@@ -2,7 +2,7 @@ package ic2ce.neoforge.agriculture.item;
 
 import ic2ce.api.crops.CropSoilType;
 import ic2ce.api.item.IBoxable;
-import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.agriculture.AgricultureBlocks;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
  */
 public class CropSupportItem extends BlockItem implements IBoxable {
   public CropSupportItem(Properties properties) {
-    super(BlockDefinitions.CROP_STICK, properties);
+    super(AgricultureBlocks.CROP_STICK, properties);
   }
 
   @Override

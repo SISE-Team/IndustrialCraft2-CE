@@ -7,7 +7,6 @@ import ic2ce.neoforge.fluid.LiquidUtil;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.reactor.*;
 import ic2ce.neoforge.reactor.part.ChemicalCondensator;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.*;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.*;
@@ -107,8 +106,8 @@ final class AllReactorCases {
                             s.behave(
                                 id,
                                 "hatch insertion and extraction use actual core inventory",
-                                reactor.getItem(0).is(ItemDefinitions.HEAT_VENT)
-                                    && hatch.removeItem(0, 1).is(ItemDefinitions.HEAT_VENT)
+                                reactor.getItem(0).is(ReactorItems.HEAT_VENT)
+                                    && hatch.removeItem(0, 1).is(ReactorItems.HEAT_VENT)
                                     && reactor.getItem(0).isEmpty());
                           } else if (id.equals("reactor_fluid_port")) {
                             int accepted =

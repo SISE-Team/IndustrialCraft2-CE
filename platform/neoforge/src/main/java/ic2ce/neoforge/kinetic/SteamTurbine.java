@@ -4,6 +4,7 @@ import ic2ce.api.energy.tile.IKineticSource;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.UpgradableProperty;
+import ic2ce.neoforge.material.MaterialItems;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.network.GrowingBuffer;
@@ -21,9 +22,7 @@ import ic2ce.neoforge.inventory.UpgradeInventory;
 import ic2ce.neoforge.kinetic.menu.SteamTurbineMenu;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.processing.fluid.SteamCondenser;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.EnumSet;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -44,7 +43,7 @@ public class SteamTurbine extends InventoryBlockEntity
   protected final Ic2FluidTank steamTank, distilledWaterTank;
   public final UpgradeInventory upgradeSlot = new UpgradeInventory(this, "upgrade", 1);
   public final ConsumableInventory turbineSlot =
-      new StackWhitelistInput(this, "Turbineslot", 1, new ItemStack(ItemDefinitions.STEAM_TURBINE));
+      new StackWhitelistInput(this, "Turbineslot", 1, new ItemStack(MaterialItems.STEAM_TURBINE));
   private static final double MULTIPLIER =
       NativeConfigValues.getDouble(
           ProjectConfiguration.get(), "balance/energy/kineticgenerator/steam");
@@ -55,7 +54,7 @@ public class SteamTurbine extends InventoryBlockEntity
   private static final Direction[] SIDES = Direction.values();
 
   public SteamTurbine(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.STEAM_KINETIC_GENERATOR, position, block);
+    super(KineticBlockEntities.STEAM_KINETIC_GENERATOR, position, block);
     turbineSlot.setStackSizeLimit(1);
     steamTank =
         fluids.addTankInsert(
@@ -206,7 +205,7 @@ public class SteamTurbine extends InventoryBlockEntity
   }
 
   public boolean hasTurbine() {
-    return turbineSlot.get().is(ItemDefinitions.STEAM_TURBINE);
+    return turbineSlot.get().is(MaterialItems.STEAM_TURBINE);
   }
 
   public boolean isVentingSteam() {

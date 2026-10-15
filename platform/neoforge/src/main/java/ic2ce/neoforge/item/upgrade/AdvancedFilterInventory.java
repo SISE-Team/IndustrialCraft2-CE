@@ -7,13 +7,13 @@ import ic2ce.neoforge.handheld.HandheldStorage;
 import ic2ce.neoforge.handheld.menu.HandheldMenu;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.menu.OwnedMenu;
+import ic2ce.neoforge.menu.document.DocumentMenus;
 import ic2ce.neoforge.menu.document.HandheldDocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenConditions;
 import ic2ce.neoforge.menu.document.ScreenDocument;
 import ic2ce.neoforge.menu.document.TemplateStorage;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
-import ic2ce.neoforge.registry.MenuDefinitions;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.*;
@@ -87,13 +87,13 @@ public class AdvancedFilterInventory extends HandheldStorage
   @Override
   public OwnedMenu<?> createServerScreenHandler(int id, Player owner) {
     return HandheldDocumentMenu.create(
-        MenuDefinitions.ADVANCED_UPGRADE, id, owner.getInventory(), this, getNode());
+        DocumentMenus.ADVANCED_UPGRADE, id, owner.getInventory(), this, getNode());
   }
 
   @Override
   public OwnedMenu<?> createClientScreenHandler(int id, Inventory inventory, GrowingBuffer data) {
     return HandheldDocumentMenu.create(
-        MenuDefinitions.ADVANCED_UPGRADE, id, inventory, this, getNode());
+        DocumentMenus.ADVANCED_UPGRADE, id, inventory, this, getNode());
   }
 
   protected ScreenDocument.GuiNode getNode() {

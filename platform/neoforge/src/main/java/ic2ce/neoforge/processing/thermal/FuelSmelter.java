@@ -13,7 +13,7 @@ import ic2ce.neoforge.inventory.SmeltingInput;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
+import ic2ce.neoforge.processing.ProcessingBlockEntities;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -44,7 +44,7 @@ public class FuelSmelter extends ActiveBlockEntity
   private ItemStack processingKey = ItemStack.EMPTY;
 
   public FuelSmelter(BlockPos position, BlockState state) {
-    super(BlockEntityDefinitions.IRON_FURNACE, position, state);
+    super(ProcessingBlockEntities.IRON_FURNACE, position, state);
     inputSlot = new SmeltingInput(this, "input", 1);
     outputSlot = new OutputInventory(this, "output", 1);
     fuelSlot = new FuelInput(this, "fuel", 1, true);

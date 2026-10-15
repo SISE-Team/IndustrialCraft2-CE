@@ -25,7 +25,6 @@ import ic2ce.neoforge.registry.ContentBootstrap;
 import ic2ce.neoforge.registry.EntityDefinitions;
 import ic2ce.neoforge.registry.EntityGroups;
 import ic2ce.neoforge.registry.GameSignals;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.ItemGroups;
 import ic2ce.neoforge.registry.RecipeCodecs;
 import ic2ce.neoforge.registry.RecipeKinds;
@@ -201,7 +200,7 @@ public final class EventHandler {
     if (entity.level().isClientSide() || !Float.isFinite(distance) || distance < 0) return false;
     var boots = entity.getItemBySlot(EquipmentSlot.FEET);
     return switch (boots.getItem()) {
-      case SealedGarment garment when boots.is(ItemDefinitions.RUBBER_BOOTS) ->
+      case SealedGarment garment when boots.is(ArmorItems.RUBBER_BOOTS) ->
           garment.absorbFall(boots, entity, distance);
       case NanoArmor nano -> nano.absorbFall(boots, entity, distance);
       case QuantumArmor quantum -> quantum.absorbFall(boots, entity, distance);

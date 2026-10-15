@@ -1,9 +1,9 @@
 package ic2ce.neoforge;
 
-import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.GameSignals;
 import ic2ce.neoforge.registry.RegistryPlan;
 import ic2ce.neoforge.runtime.EnvProxy;
+import ic2ce.neoforge.world.WorldBlocks;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -55,10 +55,10 @@ public final class PlatformContracts {
         "the actual registration journal contains every project item");
     for (var block :
         List.of(
-            BlockDefinitions.RUBBER_LEAVES,
-            BlockDefinitions.RUBBER_LOG,
-            BlockDefinitions.WOODEN_SCAFFOLD,
-            BlockDefinitions.REINFORCED_WOODEN_SCAFFOLD)) {
+            WorldBlocks.RUBBER_LEAVES,
+            WorldBlocks.RUBBER_LOG,
+            WorldBlocks.WOODEN_SCAFFOLD,
+            WorldBlocks.REINFORCED_WOODEN_SCAFFOLD)) {
       var state = block.defaultBlockState();
       check(
           state.getFlammability(world, BlockPos.ZERO, Direction.UP) > 0

@@ -4,7 +4,6 @@ import ic2ce.api.energy.tile.IHeatSource;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
-import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
@@ -23,7 +22,7 @@ public class ThermalConverter extends DemandDrivenConverter {
   private BlockEntity sourceEntity;
 
   public ThermalConverter(BlockPos position, BlockState block) {
-    super(BlockEntityDefinitions.STIRLING_GENERATOR, position, block);
+    super(PowerBlockEntities.STIRLING_GENERATOR, position, block);
   }
 
   protected void updateSource() {

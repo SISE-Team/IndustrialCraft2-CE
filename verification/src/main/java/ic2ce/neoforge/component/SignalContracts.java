@@ -1,7 +1,7 @@
 package ic2ce.neoforge.component;
 
+import ic2ce.neoforge.crafting.CraftingBlocks;
 import ic2ce.neoforge.crafting.IndustrialWorkbench;
-import ic2ce.neoforge.registry.BlockDefinitions;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import net.minecraft.core.BlockPos;
@@ -25,7 +25,7 @@ public final class SignalContracts {
 
   private IndustrialWorkbench owner(ServerLevel world, BlockPos pos) {
     var result =
-        new IndustrialWorkbench(pos, BlockDefinitions.INDUSTRIAL_WORKBENCH.defaultBlockState());
+        new IndustrialWorkbench(pos, CraftingBlocks.INDUSTRIAL_WORKBENCH.defaultBlockState());
     result.setLevel(world);
     return result;
   }
@@ -111,10 +111,10 @@ public final class SignalContracts {
         output.getLevel() == 0,
         "detached signal supplier is safe to tick during lifecycle replacement");
     new DirectSignalOutput(
-            new IndustrialWorkbench(pos, BlockDefinitions.INDUSTRIAL_WORKBENCH.defaultBlockState()))
+            new IndustrialWorkbench(pos, CraftingBlocks.INDUSTRIAL_WORKBENCH.defaultBlockState()))
         .setLevel(15);
     new AnalogSignalOutput(
-            new IndustrialWorkbench(pos, BlockDefinitions.INDUSTRIAL_WORKBENCH.defaultBlockState()))
+            new IndustrialWorkbench(pos, CraftingBlocks.INDUSTRIAL_WORKBENCH.defaultBlockState()))
         .setLevel(15);
     check(
         true,

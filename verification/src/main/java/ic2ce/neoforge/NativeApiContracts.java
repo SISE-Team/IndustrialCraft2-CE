@@ -4,6 +4,7 @@ import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.recipe.RecipeOutputWeighted;
 import ic2ce.neoforge.explosion.PrimedNuclearCharge;
 import ic2ce.neoforge.fluid.Ic2FluidStackImpl;
+import ic2ce.neoforge.item.armor.ArmorItems;
 import ic2ce.neoforge.registry.EntityDefinitions;
 import java.util.ArrayList;
 import java.util.List;
@@ -200,7 +201,7 @@ public final class NativeApiContracts {
         !ic2ce.api.tile.ExplosionWhitelist.isBlockWhitelisted(
             net.minecraft.world.level.block.Blocks.STONE),
         "public blast whitelist detach publishes the new generation");
-    var tank = new ItemStack(ic2ce.neoforge.registry.ItemDefinitions.CF_PACK);
+    var tank = new ItemStack(ArmorItems.CF_PACK);
     var reservoir = (ic2ce.neoforge.item.armor.WearableFluidReservoir) tank.getItem();
     var foam =
         Ic2FluidStack.create(

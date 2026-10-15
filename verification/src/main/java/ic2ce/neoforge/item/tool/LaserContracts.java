@@ -3,7 +3,6 @@ package ic2ce.neoforge.item.tool;
 import ic2ce.api.item.ElectricItem;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.projectile.MiningBeam;
-import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.runtime.SideServices;
 import java.util.*;
 import java.util.function.Consumer;
@@ -69,7 +68,7 @@ public final class LaserContracts {
     player.setXRot(0);
     player.setYRot(0);
     var area = new AABB(pos).inflate(30);
-    var tool = (MiningLaser) ItemDefinitions.MINING_LASER;
+    var tool = (MiningLaser) ToolItems.MINING_LASER;
     int[] bills = {1250, 100, 5000, 3000, 2500, 10000, 5000, 7500},
         counts = {1, 1, 1, 1, 1, 25, 1, 9};
     for (int mode = 0; mode < 8; mode++) {
