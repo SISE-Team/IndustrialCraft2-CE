@@ -2,7 +2,6 @@ package ic2ce.neoforge.item.upgrade;
 
 import ic2ce.api.network.ClientModifiable;
 import ic2ce.core.*;
-import ic2ce.core.network.*;
 import ic2ce.core.util.StackTag;
 import ic2ce.neoforge.handheld.HandheldStorage;
 import ic2ce.neoforge.handheld.menu.HandheldMenu;
@@ -11,6 +10,8 @@ import ic2ce.neoforge.menu.document.HandheldDocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenConditions;
 import ic2ce.neoforge.menu.document.ScreenDocument;
 import ic2ce.neoforge.menu.document.TemplateStorage;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.registry.MenuDefinitions;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.nbt.CompoundTag;

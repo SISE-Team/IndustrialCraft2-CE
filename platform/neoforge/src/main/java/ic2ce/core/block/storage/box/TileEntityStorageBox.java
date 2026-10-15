@@ -1,7 +1,7 @@
 package ic2ce.core.block.storage.box;
 
 import ic2ce.core.*;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.core.util.StackTag;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.client.text.LocalizedText;

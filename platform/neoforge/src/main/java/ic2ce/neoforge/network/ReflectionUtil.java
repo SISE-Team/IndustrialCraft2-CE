@@ -1,6 +1,5 @@
-package ic2ce.core.util;
+package ic2ce.neoforge.network;
 
-import ic2ce.core.network.DataEncoder;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;

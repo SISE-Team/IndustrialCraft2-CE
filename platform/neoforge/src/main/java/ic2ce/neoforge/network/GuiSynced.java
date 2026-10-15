@@ -1,4 +1,4 @@
-package ic2ce.core.network;
+package ic2ce.neoforge.network;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

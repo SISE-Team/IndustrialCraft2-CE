@@ -1,4 +1,4 @@
-package ic2ce.core.network;
+package ic2ce.neoforge.network;
 
 public interface IRpcProvider<V> {
    V executeRpc(Object... var1);

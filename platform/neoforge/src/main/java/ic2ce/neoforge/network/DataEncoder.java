@@ -1,4 +1,4 @@
-package ic2ce.core.network;
+package ic2ce.neoforge.network;
 
 import com.mojang.authlib.GameProfile;
 import ic2ce.api.crops.CropCard;

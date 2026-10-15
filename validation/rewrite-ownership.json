@@ -203,11 +203,11 @@
       "scope": "Typed side factories and dedicated-server client isolation"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/Rpc.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/Rpc.java",
       "scope": "Native protocol adapter over a race-safe future state"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/RpcHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/RpcHandler.java",
       "scope": "Bounded RPC lifecycle, provider argument checks and automatic timeout/disconnect cleanup"
     },
     {
@@ -363,23 +363,23 @@
       "scope": "Bounded independent packet buffer, big-endian VarHandle primitive access, five-byte positive varints, allocation-reduced UTF8, JDK modified UTF and frame-origin cursor bounds"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/GrowingBuffer.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/GrowingBuffer.java",
       "scope": "Native Netty borrowed/sliced frame views and transfers over the independent wire buffer"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/DataEncoder.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/DataEncoder.java",
       "scope": "Independent protocol 2 typed codec, full item/fluid components, bounded values/arrays/NBT, allowlisted addon/enum types, framed deferred addons, primitive arrays, registry enchantments and conservative state synchronization"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/NeoForgeNetworkHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/NeoForgeNetworkHandler.java",
       "scope": "Independent versioned bidirectional NeoForge transport and temporary frame ownership"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/IncomingActions.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/IncomingActions.java",
       "scope": "Independent bounded client action parser, world-thread dispatch, authoritative owned item events, same-world/range/menu validation and cached annotated writable fields"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/SubPacketType.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/SubPacketType.java",
       "scope": "Independent stable packet identifier table and immutable direction validation"
     },
     {
@@ -387,19 +387,19 @@
       "scope": "Independent pattern repository, indexed duplicate detection, unit quantity/owned snapshots, blank-crystal and malformed save handling, selection/network/drop persistence"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/ReflectionUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/ReflectionUtil.java",
       "scope": "Independent class-lifetime field/hierarchy metadata caches, typed uniqueness/method access, safe enum updates and component-aware synchronization"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/TeUpdateDataServer.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/TeUpdateDataServer.java",
       "scope": "Independent logical-name field delta coalescing, stable order and global/private precedence"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/TeUpdateDataClient.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/TeUpdateDataClient.java",
       "scope": "Independent parsed tile/field records, without borrowed stream or reflective field state"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/TeUpdate.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/TeUpdate.java",
       "scope": "Independent chunk recipient cache, one global field encoding per tile, bounded batch parsing, full registry IDs and owning-thread lifecycle/application"
     },
     {
@@ -407,15 +407,15 @@
       "scope": "Independent bounded compressed-fragment assembly, type/lifetime validation, expansion limits and JDK inflater completion checks"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/ClientStateUpdates.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/ClientStateUpdates.java",
       "scope": "Independent bounded client menu/item/handheld state parsing, owning-thread application and current menu/item matching"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/NetworkManager.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/NetworkManager.java",
       "scope": "Independent network API/message construction, server/client state boundaries, ownership-aware inbound dispatch, coalesced initial/field state, one broadcast payload, bounded compressed fragmentation and direct owned payload transport"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/NetworkManagerClient.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/NetworkManagerClient.java",
       "scope": "Independent client message construction, bounded compressed/state/component/extension routing, world-thread effects/events and direct owned payload transport"
     },
     {
@@ -3723,7 +3723,26 @@
     "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/Ic2FluidStackImpl.java": "platform/neoforge/src/main/java/ic2/forge/Ic2FluidStackImpl.java",
     "verification/src/main/java/ic2ce/neoforge/fluid/FluidContracts.java": "verification/src/main/java/ic2ce/core/fluid/FluidContracts.java",
     "verification/src/main/java/ic2ce/neoforge/fluid/FluidServiceContracts.java": "verification/src/main/java/ic2ce/core/fluid/FluidServiceContracts.java",
-    "verification/src/main/java/ic2ce/neoforge/fluid/FluidCapabilityContracts.java": "verification/src/main/java/ic2ce/neoforge/FluidCapabilityContracts.java"
+    "verification/src/main/java/ic2ce/neoforge/fluid/FluidCapabilityContracts.java": "verification/src/main/java/ic2ce/neoforge/FluidCapabilityContracts.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/ClientStateUpdates.java": "platform/neoforge/src/main/java/ic2ce/core/network/ClientStateUpdates.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/DataEncoder.java": "platform/neoforge/src/main/java/ic2/core/network/DataEncoder.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/GrowingBuffer.java": "platform/neoforge/src/main/java/ic2/core/network/GrowingBuffer.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/GuiSynced.java": "platform/neoforge/src/main/java/ic2/core/network/GuiSynced.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/IPlayerItemDataListener.java": "platform/neoforge/src/main/java/ic2/core/network/IPlayerItemDataListener.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/IRpcProvider.java": "platform/neoforge/src/main/java/ic2/core/network/IRpcProvider.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/IncomingActions.java": "platform/neoforge/src/main/java/ic2ce/core/network/IncomingActions.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/NetworkManager.java": "platform/neoforge/src/main/java/ic2/core/network/NetworkManager.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/NetworkManagerClient.java": "platform/neoforge/src/main/java/ic2/core/network/NetworkManagerClient.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/Rpc.java": "platform/neoforge/src/main/java/ic2/core/network/Rpc.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/RpcHandler.java": "platform/neoforge/src/main/java/ic2/core/network/RpcHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/SubPacketType.java": "platform/neoforge/src/main/java/ic2/core/network/SubPacketType.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/TeUpdate.java": "platform/neoforge/src/main/java/ic2/core/network/TeUpdate.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/TeUpdateDataClient.java": "platform/neoforge/src/main/java/ic2/core/network/TeUpdateDataClient.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/TeUpdateDataServer.java": "platform/neoforge/src/main/java/ic2/core/network/TeUpdateDataServer.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/ReflectionUtil.java": "platform/neoforge/src/main/java/ic2/core/util/ReflectionUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/network/NeoForgeNetworkHandler.java": "platform/neoforge/src/main/java/ic2/forge/ForgeNetworkHandler.java",
+    "verification/src/main/java/ic2ce/neoforge/network/ActionContracts.java": "verification/src/main/java/ic2ce/core/network/ActionContracts.java",
+    "verification/src/main/java/ic2ce/neoforge/network/WireContracts.java": "verification/src/main/java/ic2ce/core/network/WireContracts.java"
   },
   "retiredSources": [
     {

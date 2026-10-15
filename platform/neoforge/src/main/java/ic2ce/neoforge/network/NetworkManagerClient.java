@@ -1,4 +1,4 @@
-package ic2ce.core.network;
+package ic2ce.neoforge.network;
 
 import com.mojang.authlib.GameProfile;
 import ic2ce.api.network.INetworkItemEventListener;
@@ -6,7 +6,7 @@ import ic2ce.api.network.INetworkTileEntityEventListener;
 import ic2ce.core.IHasGui;
 import ic2ce.core.item.IHandHeldInventory;
 import ic2ce.engine.network.FramedCompression;
-import ic2ce.neoforge.NeoForgeNetworkHandler.Ic2Payload;
+import ic2ce.neoforge.network.NeoForgeNetworkHandler.Ic2Payload;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.component.ComponentTypes;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;

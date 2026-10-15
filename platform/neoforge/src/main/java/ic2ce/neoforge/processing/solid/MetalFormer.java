@@ -4,7 +4,7 @@ import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.recipe.IRecipeInput;
 import ic2ce.api.recipe.Recipes;
 import ic2ce.api.upgrade.UpgradableProperty;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.inventory.ItemRecipeInput;
 import ic2ce.neoforge.menu.OwnedMenu;

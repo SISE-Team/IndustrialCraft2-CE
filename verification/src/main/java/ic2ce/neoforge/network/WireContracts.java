@@ -1,4 +1,4 @@
-package ic2ce.core.network;
+package ic2ce.neoforge.network;
 
 import io.netty.buffer.Unpooled;
 import java.util.ArrayList;
@@ -78,7 +78,7 @@ public final class WireContracts {
         DataEncoder.copyValue(incoming, mutable) && mutable.equals(incoming),
         "owned mutable menu list retains its native identity");
     var holder = new ImmutableField();
-    ic2ce.core.util.ReflectionUtil.setValueRecursive(holder, "values", incoming);
+    ic2ce.neoforge.network.ReflectionUtil.setValueRecursive(holder, "values", incoming);
     check(
         holder.values.equals(incoming),
         "actual reflected native menu publication supports immutable previous fields");

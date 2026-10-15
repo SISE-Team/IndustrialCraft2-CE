@@ -1,9 +1,9 @@
 package ic2ce.neoforge.inventory;
 
 import ic2ce.core.block.IInventorySlotHolder;
-import ic2ce.core.network.IRpcProvider;
-import ic2ce.core.network.Rpc;
-import ic2ce.core.network.RpcHandler;
+import ic2ce.neoforge.network.IRpcProvider;
+import ic2ce.neoforge.network.Rpc;
+import ic2ce.neoforge.network.RpcHandler;
 import ic2ce.core.util.ItemComparableItemStack;
 import ic2ce.core.uu.UuGraph;
 import ic2ce.core.uu.UuIndex;

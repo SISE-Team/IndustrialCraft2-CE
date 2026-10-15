@@ -3,7 +3,7 @@ package ic2ce.verification;
 import com.google.gson.GsonBuilder;
 import ic2ce.api.crops.*;
 import ic2ce.core.event.WorldData;
-import ic2ce.core.util.ReflectionUtil;
+import ic2ce.neoforge.network.ReflectionUtil;
 import ic2ce.neoforge.agriculture.CropPlot;
 import ic2ce.neoforge.agriculture.Cultivar;
 import ic2ce.neoforge.registry.BlockDefinitions;

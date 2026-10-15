@@ -1,8 +1,9 @@
 package ic2ce.core.event;
 
 import ic2ce.neoforge.fluid.FluidHandler;
-import ic2ce.core.network.*;
 import ic2ce.neoforge.client.audio.ClientAudioService;
+import ic2ce.neoforge.network.NetworkManagerClient;
+import ic2ce.neoforge.network.RpcHandler;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.core.registries.BuiltInRegistries;

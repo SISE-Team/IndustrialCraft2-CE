@@ -4,7 +4,7 @@ import ic2ce.api.recipe.IRecipeInput;
 import ic2ce.api.recipe.MachineRecipeResult;
 import ic2ce.api.recipe.Recipes;
 import ic2ce.api.upgrade.UpgradableProperty;
-import ic2ce.core.network.GuiSynced;
+import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.engine.machine.ThermalRamp;
 import ic2ce.neoforge.component.SignalInput;

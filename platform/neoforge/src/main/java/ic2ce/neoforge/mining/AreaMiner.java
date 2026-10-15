@@ -6,7 +6,7 @@ import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.core.*;
 import ic2ce.neoforge.fluid.FluidHandler;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.core.util.*;
 import ic2ce.engine.machine.LayerSweep;

@@ -1,4 +1,4 @@
-package ic2ce.neoforge;
+package ic2ce.neoforge.network;
 
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import io.netty.buffer.Unpooled;

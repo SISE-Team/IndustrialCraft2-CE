@@ -706,19 +706,19 @@
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/GuiSynced.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/GuiSynced.java",
       "sha256": "eb2d5f624aa5a1088b23baf5d5b0adac59f08479b04b6da21754ca08d9fe268b",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/IPlayerItemDataListener.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/IPlayerItemDataListener.java",
       "sha256": "03b71b0574b65a5a77400df7db4c5b7f72895ef8a4393e9723d8cf2dba85ed29",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/network/IRpcProvider.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/IRpcProvider.java",
       "sha256": "4451328501273205ac3fb004df6430e873df68f0be2bf37d64240fb18c3bb81e",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false

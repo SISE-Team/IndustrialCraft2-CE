@@ -1,13 +1,14 @@
 package ic2ce.neoforge.processing.fluid;
 
 import ic2ce.core.*;
-import ic2ce.core.network.*;
 import ic2ce.neoforge.block.ActiveBlockEntity;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.energy.storage.EnergyBank;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;

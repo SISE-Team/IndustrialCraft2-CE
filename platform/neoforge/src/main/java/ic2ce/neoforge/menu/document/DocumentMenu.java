@@ -1,7 +1,7 @@
 package ic2ce.neoforge.menu.document;
 
 import ic2ce.core.block.IInventorySlotHolder;
-import ic2ce.core.network.GuiSynced;
+import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.core.util.Util;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.inventory.InventorySlot;

@@ -1,7 +1,7 @@
 package ic2ce.neoforge.runtime;
 
 import ic2ce.core.*;
-import ic2ce.core.network.NetworkManager;
+import ic2ce.neoforge.network.NetworkManager;
 import ic2ce.core.proxy.EnvProxy;
 import ic2ce.core.proxy.SideProxy;
 import ic2ce.core.proxy.SideProxyServer;
@@ -32,7 +32,7 @@ public final class ProjectRuntime {
   public static final SideGateway<NetworkManager> network =
       new SideGateway<>(
           NetworkManager::new,
-          () -> instantiate("ic2ce.core.network.NetworkManagerClient", NetworkManager.class));
+          () -> instantiate("ic2ce.neoforge.network.NetworkManagerClient", NetworkManager.class));
   public static final Keyboard keyboard = sideProxy.getKeyboard();
   public static final AudioService soundManager = sideProxy.getSoundManager();
   public static final RandomSource random = RandomSource.create();

@@ -1,4 +1,4 @@
-package ic2ce.core.network;
+package ic2ce.neoforge.network;
 
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
 import ic2ce.neoforge.runtime.ProjectRuntime;

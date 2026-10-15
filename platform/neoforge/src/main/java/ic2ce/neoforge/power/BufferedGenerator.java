@@ -1,8 +1,8 @@
 package ic2ce.neoforge.power;
 
 import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
-import ic2ce.core.network.GuiSynced;
+import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.block.ActiveBlockEntity;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.inventory.ChargeInventory;

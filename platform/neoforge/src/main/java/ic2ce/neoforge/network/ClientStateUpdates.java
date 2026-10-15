@@ -1,6 +1,5 @@
-package ic2ce.core.network;
+package ic2ce.neoforge.network;
 
-import ic2ce.core.util.ReflectionUtil;
 import ic2ce.neoforge.handheld.HandheldStorage;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.runtime.ProjectRuntime;

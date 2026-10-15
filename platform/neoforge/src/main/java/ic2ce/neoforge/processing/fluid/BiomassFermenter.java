@@ -4,7 +4,7 @@ import ic2ce.api.recipe.Recipes;
 import ic2ce.api.upgrade.*;
 import ic2ce.core.*;
 import ic2ce.neoforge.fluid.Ic2FluidTank;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;

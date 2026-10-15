@@ -160,6 +160,23 @@ def warn_shadowing(sources, moves, after_packages):
     return warnings
 
 
+def warn_visibility(sources, moves):
+    """Report package-private top-level types that a move separates from a user in another package."""
+    hidden = {}
+    for source in sources:
+        for match in TOP_LEVEL.finditer(source.text):
+            if 'public' not in match[0].split(): hidden[source.package + '.' + match[1]] = source
+    warnings = []
+    for fqcn, owner in hidden.items():
+        simple, owner_after = fqcn.rsplit('.', 1)[1], moves.get(fqcn, fqcn).rsplit('.', 1)[0]
+        for source in sources:
+            if source is owner or simple not in code_identifiers(source.text): continue
+            user_after = moves.get(source.package + '.' + source.path.stem, source.package + '.x').rsplit('.', 1)[0]
+            if source.package == owner.package and user_after != owner_after:
+                warnings.append(f'{source.path}: package-private {fqcn} will be in another package')
+    return warnings
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('table', type=Path)
@@ -176,7 +193,7 @@ def main():
             moved = moves.get(fqcn, fqcn)
             after_packages.setdefault(moved.rsplit('.', 1)[0], set()).add(moved)
 
-    for warning in warn_shadowing(sources, moves, after_packages): print('WARNING', warning)
+    for warning in warn_shadowing(sources, moves, after_packages) + warn_visibility(sources, moves): print('WARNING', warning)
     report = PROJECT / 'validation' / table['report']
     ledger = PROJECT / 'validation/rewrite-ownership.json'
     review = PROJECT / 'validation/rewrite-declaration-review.json'

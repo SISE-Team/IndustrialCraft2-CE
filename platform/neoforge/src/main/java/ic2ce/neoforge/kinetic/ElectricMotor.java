@@ -2,7 +2,7 @@ package ic2ce.neoforge.kinetic;
 
 import ic2ce.api.energy.tile.IKineticSource;
 import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.ElectricalBuffer;

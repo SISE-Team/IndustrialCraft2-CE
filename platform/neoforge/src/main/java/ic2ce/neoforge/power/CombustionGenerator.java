@@ -1,6 +1,6 @@
 package ic2ce.neoforge.power;
 
-import ic2ce.core.network.GuiSynced;
+import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.core.util.ParticleUtil;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;

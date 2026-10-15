@@ -3,7 +3,7 @@ package ic2ce.neoforge.item.tool;
 import ic2ce.api.item.ElectricItem;
 import ic2ce.api.tile.RetexturableBlock;
 import ic2ce.core.item.PriorityUsableItem;
-import ic2ce.core.network.IPlayerItemDataListener;
+import ic2ce.neoforge.network.IPlayerItemDataListener;
 import ic2ce.core.util.StackTag;
 import ic2ce.neoforge.item.client.FaceSampler;
 import ic2ce.neoforge.item.energy.ElectricItemBase;

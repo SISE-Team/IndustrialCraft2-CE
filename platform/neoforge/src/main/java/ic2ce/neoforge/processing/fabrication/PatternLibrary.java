@@ -4,7 +4,7 @@ import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.recipe.IPatternStorage;
 import ic2ce.core.IHasGui;
 import ic2ce.core.item.ItemCrystalMemory;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.core.util.ItemComparableItemStack;
 import ic2ce.core.util.StackTag;

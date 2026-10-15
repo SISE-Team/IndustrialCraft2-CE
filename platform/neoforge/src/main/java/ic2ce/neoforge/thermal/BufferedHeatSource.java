@@ -1,7 +1,7 @@
 package ic2ce.neoforge.thermal;
 
 import ic2ce.api.energy.tile.IHeatSource;
-import ic2ce.core.network.GuiSynced;
+import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.core.BlockPos;

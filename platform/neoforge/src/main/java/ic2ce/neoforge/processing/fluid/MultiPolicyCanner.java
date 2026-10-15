@@ -7,7 +7,7 @@ import ic2ce.api.recipe.MachineRecipeResult;
 import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.api.util.FluidContainerOutputMode;
 import ic2ce.neoforge.fluid.Ic2FluidTank;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.fluid.LiquidUtil;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.CanningContainerInput;

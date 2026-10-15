@@ -1,6 +1,6 @@
 package ic2ce.neoforge.menu;
 
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ic2ce.core.network;
+package ic2ce.neoforge.network;
 
 import com.mojang.authlib.GameProfile;
 import ic2ce.api.network.ClientModifiable;
@@ -136,14 +136,14 @@ public final class ActionContracts {
     check(
         rejected, "RPC root-array limit is enforced before reading or allocating argument values");
     var fields = new Fields();
-    var cached = ic2ce.core.util.ReflectionUtil.getFieldRecursive(Fields.class, "allowed");
+    var cached = ic2ce.neoforge.network.ReflectionUtil.getFieldRecursive(Fields.class, "allowed");
     check(
-        cached == ic2ce.core.util.ReflectionUtil.getFieldRecursive(Fields.class, "allowed"),
+        cached == ic2ce.neoforge.network.ReflectionUtil.getFieldRecursive(Fields.class, "allowed"),
         "field lookup reuses class-lifetime metadata");
-    ic2ce.core.util.ReflectionUtil.setValue(fields, cached, 19);
+    ic2ce.neoforge.network.ReflectionUtil.setValue(fields, cached, 19);
     check(
         fields.allowed == 19
-            && ic2ce.core.util.ReflectionUtil.getFieldRecursive(Fields.class, "parent") != null,
+            && ic2ce.neoforge.network.ReflectionUtil.getFieldRecursive(Fields.class, "parent") != null,
         "cached field updates preserve inherited instance semantics");
     var storage =
         new ic2ce.neoforge.processing.fabrication.PatternLibrary(

@@ -1,7 +1,7 @@
 package ic2ce.neoforge.thermal;
 
 import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;

@@ -2,8 +2,8 @@ package ic2ce.verification;
 
 import com.google.gson.GsonBuilder;
 import com.sun.management.ThreadMXBean;
-import ic2ce.core.network.DataEncoder;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.DataEncoder;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.PerformanceInventoryProbe;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.block.MachineBlockType;

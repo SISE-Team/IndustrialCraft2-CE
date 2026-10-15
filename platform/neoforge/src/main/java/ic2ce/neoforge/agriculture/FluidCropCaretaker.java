@@ -4,7 +4,7 @@ import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.core.IHasGui;
 import ic2ce.neoforge.fluid.Ic2FluidTank;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.agriculture.menu.FluidCareMenu;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;

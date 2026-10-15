@@ -1,6 +1,6 @@
 package ic2ce.neoforge.component;
 
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.io.*;

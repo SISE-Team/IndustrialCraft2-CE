@@ -1,7 +1,7 @@
 package ic2ce.neoforge.power;
 
 import ic2ce.neoforge.fluid.Ic2FluidTank;
-import ic2ce.core.network.GuiSynced;
+import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;

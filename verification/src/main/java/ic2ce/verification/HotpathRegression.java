@@ -241,7 +241,7 @@ public final class HotpathRegression {
             "actionContracts",
             () -> {
               try {
-                var result = ic2ce.core.network.ActionContracts.run(server.overworld());
+                var result = ic2ce.neoforge.network.ActionContracts.run(server.overworld());
                 checks += result.checks();
                 failures.addAll(result.failures());
               } catch (Exception error) {
@@ -252,7 +252,7 @@ public final class HotpathRegression {
             "wireContracts",
             () -> {
               try {
-                var result = ic2ce.core.network.WireContracts.run();
+                var result = ic2ce.neoforge.network.WireContracts.run();
                 checks += result.checks();
                 failures.addAll(result.failures());
               } catch (Exception error) {

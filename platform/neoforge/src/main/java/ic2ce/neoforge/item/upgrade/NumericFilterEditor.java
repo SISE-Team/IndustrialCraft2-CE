@@ -2,7 +2,7 @@ package ic2ce.neoforge.item.upgrade;
 
 import ic2ce.api.network.ClientModifiable;
 import ic2ce.core.*;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.client.widget.*;
 import ic2ce.neoforge.handheld.menu.HandheldMenu;

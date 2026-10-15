@@ -236,7 +236,7 @@ public final class CropControllerContracts {
             return false;
           }
         };
-    var cropField = ic2ce.core.util.ReflectionUtil.getFieldRecursive(CropPlot.class, "crop");
+    var cropField = ic2ce.neoforge.network.ReflectionUtil.getFieldRecursive(CropPlot.class, "crop");
     try {
       cropField.set(bare, observedCrop);
     } catch (IllegalAccessException exception) {

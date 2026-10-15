@@ -6,7 +6,7 @@ import ic2ce.api.recipe.Recipes;
 import ic2ce.api.upgrade.*;
 import ic2ce.core.*;
 import ic2ce.neoforge.fluid.Ic2FluidTank;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.fluid.LiquidUtil;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.client.widget.SupplierGauge;

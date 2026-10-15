@@ -1,7 +1,7 @@
 package ic2ce.neoforge.power;
 
 import ic2ce.core.event.WorldData;
-import ic2ce.core.network.GuiSynced;
+import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.core.util.StackUtil;
 import ic2ce.core.util.Util;
 import ic2ce.neoforge.config.NativeConfigValues;

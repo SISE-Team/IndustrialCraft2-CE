@@ -5,7 +5,7 @@ import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.network.INetworkTileEntityEventListener;
 import ic2ce.core.IHasGui;
 import ic2ce.core.event.WorldData;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.core.util.ProfileUtil;
 import ic2ce.core.util.StackTag;
 import ic2ce.core.util.StackUtil;

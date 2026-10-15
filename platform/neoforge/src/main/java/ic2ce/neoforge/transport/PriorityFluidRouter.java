@@ -1,7 +1,7 @@
 package ic2ce.neoforge.transport;
 
 import ic2ce.api.network.ClientModifiable;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.network.ClientFieldValidator;

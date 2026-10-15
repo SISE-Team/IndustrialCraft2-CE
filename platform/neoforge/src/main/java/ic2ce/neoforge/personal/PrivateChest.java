@@ -2,7 +2,7 @@ package ic2ce.neoforge.personal;
 
 import com.mojang.authlib.GameProfile;
 import ic2ce.core.IHasGui;
-import ic2ce.core.network.GrowingBuffer;
+import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.core.util.ProfileUtil;
 import ic2ce.core.util.Util;
 import ic2ce.neoforge.block.InventoryBlockEntity;
