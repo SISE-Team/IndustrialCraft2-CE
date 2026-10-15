@@ -1,6 +1,7 @@
 package ic2ce.neoforge.client;
 
 import ic2ce.api.tile.IRotorProvider;
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.kinetic.client.KineticGeneratorRenderer;
 import ic2ce.neoforge.explosion.client.ExplosiveBlockRenderer;
 import ic2ce.neoforge.runtime.Keyboard;
@@ -54,7 +55,6 @@ import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.EntityDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.MenuDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import ic2ce.neoforge.runtime.SideProxy;
 import ic2ce.neoforge.runtime.SideProxyServer;
 import ic2ce.neoforge.thermal.client.ElectricHeaterScreen;
@@ -192,21 +192,21 @@ public final class SideProxyClient implements SideProxy {
         context ->
             new HullRenderer(
                 context,
-                ProjectRuntime.getIdentifier("textures/entity/boat/boat_rubber.png"),
+                ProjectIds.id("textures/entity/boat/boat_rubber.png"),
                 false));
     envProxy.registerEntityRenderer(
         EntityDefinitions.ELECTRIC_BOAT,
         context ->
             new HullRenderer(
                 context,
-                ProjectRuntime.getIdentifier("textures/entity/boat/boat_electric.png"),
+                ProjectIds.id("textures/entity/boat/boat_electric.png"),
                 false));
     envProxy.registerEntityRenderer(
         EntityDefinitions.CARBON_BOAT,
         context ->
             new HullRenderer(
                 context,
-                ProjectRuntime.getIdentifier("textures/entity/boat/boat_carbon.png"),
+                ProjectIds.id("textures/entity/boat/boat_carbon.png"),
                 false));
     envProxy.registerBlockEntityRenderer(
         BlockEntityDefinitions.SIGN,

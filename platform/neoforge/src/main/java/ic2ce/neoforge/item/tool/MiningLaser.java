@@ -7,7 +7,7 @@ import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.projectile.MiningBeam;
 import ic2ce.neoforge.projectile.Vector3;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.*;
@@ -88,7 +88,7 @@ public class MiningLaser extends PoweredTool
     if (!stack.is(this)) return InteractionResult.PASS;
     if (world.isClientSide()) return InteractionResult.SUCCESS;
     var policy = mode(stack);
-    if (ProjectRuntime.keyboard.isModeSwitchKeyDown(owner)) {
+    if (SideServices.keyboard().isModeSwitchKeyDown(owner)) {
       int next = (policy.ordinal() + 1) % MODES.length;
       StackTag.update(
           stack,
@@ -96,7 +96,7 @@ public class MiningLaser extends PoweredTool
             data.putInt("laserSetting", next);
             return data;
           });
-      ProjectRuntime.sideProxy.messagePlayer(owner, "ic2.tooltip.mode", MODES[next].key);
+      SideServices.proxy().messagePlayer(owner, "ic2.tooltip.mode", MODES[next].key);
       return InteractionResult.SUCCESS.heldItemTransformedTo(stack);
     }
     if (policy == Beam.HORIZONTAL || policy == Beam.GRID) return InteractionResult.PASS;
@@ -121,7 +121,7 @@ public class MiningLaser extends PoweredTool
       refund(stack, policy.cost, owner);
       return InteractionResult.FAIL;
     }
-    ProjectRuntime.network.get(true).initiateItemEvent(owner, stack, policy.ordinal(), true);
+    SideServices.network(true).initiateItemEvent(owner, stack, policy.ordinal(), true);
     return InteractionResult.SUCCESS.heldItemTransformedTo(stack);
   }
 
@@ -129,7 +129,7 @@ public class MiningLaser extends PoweredTool
   public InteractionResult onItemUseFirst(ItemStack stack, UseOnContext context) {
     var owner = context.getPlayer();
     var world = context.getLevel();
-    if (owner == null || !stack.is(this) || ProjectRuntime.keyboard.isModeSwitchKeyDown(owner))
+    if (owner == null || !stack.is(this) || SideServices.keyboard().isModeSwitchKeyDown(owner))
       return InteractionResult.PASS;
     var policy = mode(stack);
     if (policy != Beam.HORIZONTAL && policy != Beam.GRID) return InteractionResult.PASS;
@@ -140,7 +140,7 @@ public class MiningLaser extends PoweredTool
     boolean horizontal = Math.abs(look.y) < 1 / Math.sqrt(2);
     if (policy == Beam.HORIZONTAL && !horizontal) {
       if (!world.isClientSide())
-        ProjectRuntime.sideProxy.messagePlayer(owner, "ic2.laser.angle_steep");
+        SideServices.proxy().messagePlayer(owner, "ic2.laser.angle_steep");
       return InteractionResult.FAIL;
     }
     if (world.isClientSide()) return InteractionResult.SUCCESS;
@@ -178,7 +178,7 @@ public class MiningLaser extends PoweredTool
       refund(stack, policy.cost, owner);
       return InteractionResult.FAIL;
     }
-    ProjectRuntime.network.get(true).initiateItemEvent(owner, stack, policy.ordinal(), true);
+    SideServices.network(true).initiateItemEvent(owner, stack, policy.ordinal(), true);
     return InteractionResult.SUCCESS;
   }
 

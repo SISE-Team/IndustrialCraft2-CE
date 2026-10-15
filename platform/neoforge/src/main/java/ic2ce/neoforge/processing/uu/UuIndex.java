@@ -2,10 +2,11 @@ package ic2ce.neoforge.processing.uu;
 
 import ic2ce.api.recipe.Recipes;
 import ic2ce.engine.config.Config;
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.diagnostics.ProjectLog;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,13 +76,13 @@ public final class UuIndex {
     if (scanned == null) {
       scanned = new Config("uu scan values");
       try (var input =
-          ProjectRuntime.class.getResourceAsStream("/assets/ic2/config/uu_scan_values.ini")) {
+          ProjectIds.class.getResourceAsStream("/assets/ic2/config/uu_scan_values.ini")) {
         if (input == null) throw new IllegalStateException("Missing packaged material seed values");
         scanned.load(input);
       } catch (java.io.IOException failed) {
         throw new IllegalStateException("Cannot read material seed values", failed);
       }
-      ProjectRuntime.log.info(
+      ProjectLog.LOG.info(
           DiagnosticArea.Uu,
           "Loading packaged UU scan values; /ic2 uu-world-scan <small|medium|large> calibrates this"
               + " world.");
@@ -112,7 +113,7 @@ public final class UuIndex {
         throw new Config.ParseException(
             "Material seed value must be finite and nonnegative", entry);
       if (stack == null || stack.isEmpty())
-        ProjectRuntime.log.warn(
+        ProjectLog.LOG.warn(
             DiagnosticArea.Uu, "Unknown material seed %s on line %d", entry.name, entry.getLine());
       else add(stack, cost);
     }

@@ -1,7 +1,8 @@
 package ic2ce.neoforge.client;
 
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.runtime.Keyboard;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.*;
 import net.minecraft.client.*;
 import net.minecraft.world.entity.player.Player;
@@ -14,7 +15,7 @@ import net.neoforged.api.distmarker.*;
 @OnlyIn(Dist.CLIENT)
 public class KeyboardClient extends Keyboard {
   private static final KeyMapping.Category CATEGORY =
-      new KeyMapping.Category(ProjectRuntime.getIdentifier("ic2"));
+      new KeyMapping.Category(ProjectIds.id("ic2"));
   private static final KeyMapping ALT = new KeyMapping("ALT Key", 342, CATEGORY),
       BOOST = new KeyMapping("Boost Key", 341, CATEGORY),
       MODE = new KeyMapping("Mode Switch Key", 77, CATEGORY),
@@ -62,7 +63,7 @@ public class KeyboardClient extends Keyboard {
       }
     }
     if (bits != last) {
-      ProjectRuntime.network.get(false).initiateKeyUpdate(bits);
+      SideServices.network(false).initiateKeyUpdate(bits);
       processKeyUpdate(player, bits);
       last = bits;
     }

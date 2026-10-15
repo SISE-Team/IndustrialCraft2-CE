@@ -1,7 +1,8 @@
 package ic2ce.neoforge.network;
 
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.diagnostics.ProjectLog;
+import ic2ce.neoforge.runtime.SideServices;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
@@ -49,8 +50,8 @@ public final class RpcHandler {
             });
     result.completion().orTimeout(2, TimeUnit.SECONDS);
     try {
-      ProjectRuntime.network
-          .get(false)
+      SideServices
+          .network(false)
           .initiateRpc(id, Objects.requireNonNull(provider), arguments);
     } catch (RuntimeException error) {
       result.fail(error);
@@ -77,17 +78,17 @@ public final class RpcHandler {
       try {
         result = provider.executeRpc(arguments);
       } catch (RuntimeException error) {
-        ProjectRuntime.log.debug(DiagnosticArea.Network, error, "Rejected RPC provider input");
+        ProjectLog.LOG.debug(DiagnosticArea.Network, error, "Rejected RPC provider input");
       }
     } else
-      ProjectRuntime.log.warn(
+      ProjectLog.LOG.warn(
           DiagnosticArea.Network, "Unregistered RPC provider requested by %s", player.getName());
     var response = new GrowingBuffer(256);
     SubPacketType.Rpc.writeTo(response);
     response.writeInt(id);
     DataEncoder.encode(response, result, true);
     response.flip();
-    ProjectRuntime.network.get(true).sendS2CPacket(player, response, true);
+    SideServices.network(true).sendS2CPacket(player, response, true);
   }
 
   static void processRpcResponse(GrowingBuffer input) throws IOException {

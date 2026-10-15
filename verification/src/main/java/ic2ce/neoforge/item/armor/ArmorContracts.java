@@ -5,7 +5,7 @@ import ic2ce.api.item.*;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
@@ -46,7 +46,7 @@ public final class ArmorContracts {
     for (var slot : EquipmentSlot.values()) player.setItemSlot(slot, ItemStack.EMPTY);
     player.getAbilities().instabuild = false;
     player.setHealth(20);
-    ProjectRuntime.keyboard.processKeyUpdate(player, 0);
+    SideServices.keyboard().processKeyUpdate(player, 0);
     for (Item item :
         List.of(
             ItemDefinitions.NANO_HELMET,
@@ -213,7 +213,7 @@ public final class ArmorContracts {
     player.fallDistance = 20;
     jetpack.fillMb(pack, Ic2FluidStack.create(FluidDefinitions.BIOGAS.still, 2), false, null);
     player.setItemSlot(EquipmentSlot.CHEST, pack);
-    ProjectRuntime.keyboard.processKeyUpdate(player, 1 << 4);
+    SideServices.keyboard().processKeyUpdate(player, 1 << 4);
     WearablePropulsion.tick(player);
     check(
         jetpack.getCharge(pack) == 0 && player.getDeltaMovement().y > 0 && player.fallDistance == 0,
@@ -231,7 +231,7 @@ public final class ArmorContracts {
           tag.putBoolean("hoverMode", true);
           return tag;
         });
-    ProjectRuntime.keyboard.processKeyUpdate(player, 0);
+    SideServices.keyboard().processKeyUpdate(player, 0);
     player.setDeltaMovement(0, -.5, 0);
     WearablePropulsion.tick(player);
     check(
@@ -239,7 +239,7 @@ public final class ArmorContracts {
         "paid biogas hover arrests downward movement with its distinct one-millibucket bill");
     var poorChest = charged(ItemDefinitions.QUANTUM_CHESTPLATE, 7);
     player.setItemSlot(EquipmentSlot.CHEST, poorChest);
-    ProjectRuntime.keyboard.processKeyUpdate(player, 1 << 4);
+    SideServices.keyboard().processKeyUpdate(player, 1 << 4);
     player.setDeltaMovement(Vec3.ZERO);
     WearablePropulsion.tick(player);
     check(
@@ -274,7 +274,7 @@ public final class ArmorContracts {
     check(
         darkWorld.getMaxLocalRawBrightness(pos) <= 8,
         "the actual native dimension provides the goggles' required low light");
-    ProjectRuntime.keyboard.processKeyUpdate(darkPlayer, 1 | (1 << 3));
+    SideServices.keyboard().processKeyUpdate(darkPlayer, 1 | (1 << 3));
     gogglesItem.inventoryTick(goggles, darkWorld, darkPlayer, EquipmentSlot.HEAD);
     check(
         StackTag.get(goggles).getBooleanOr("active", false)
@@ -283,8 +283,8 @@ public final class ArmorContracts {
         "synchronized native mode input enables real night vision and spends exactly one EU");
     darkPlayer.removeAllEffects();
     darkPlayer.setItemSlot(EquipmentSlot.HEAD, ItemStack.EMPTY);
-    ProjectRuntime.keyboard.processKeyUpdate(darkPlayer, 0);
-    ProjectRuntime.keyboard.processKeyUpdate(player, 0);
+    SideServices.keyboard().processKeyUpdate(darkPlayer, 0);
+    SideServices.keyboard().processKeyUpdate(player, 0);
     player.setItemSlot(EquipmentSlot.HEAD, ItemStack.EMPTY);
     before = manager.getCharge(goggles);
     gogglesItem.inventoryTick(goggles, world, player, EquipmentSlot.MAINHAND);
@@ -301,7 +301,7 @@ public final class ArmorContracts {
     player.removeAllEffects();
     for (var slot : EquipmentSlot.values()) player.setItemSlot(slot, ItemStack.EMPTY);
     player.getInventory().clearContent();
-    ProjectRuntime.keyboard.processKeyUpdate(player, 0);
+    SideServices.keyboard().processKeyUpdate(player, 0);
     for (var armorItem :
         List.of(
             ItemDefinitions.QUANTUM_HELMET,

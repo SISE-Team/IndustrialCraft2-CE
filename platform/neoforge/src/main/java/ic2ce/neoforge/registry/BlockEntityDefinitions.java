@@ -1,5 +1,7 @@
 package ic2ce.neoforge.registry;
 
+import ic2ce.neoforge.ProjectIds;
+import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.neoforge.storage.box.TileEntityBronzeStorageBox;
 import ic2ce.neoforge.storage.box.TileEntityIridiumStorageBox;
 import ic2ce.neoforge.storage.box.TileEntityIronStorageBox;
@@ -89,7 +91,6 @@ import ic2ce.neoforge.reactor.ReactorChamber;
 import ic2ce.neoforge.reactor.RedstoneCondensatorService;
 import ic2ce.neoforge.reactor.SignalPort;
 import ic2ce.neoforge.reactor.VesselHatch;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import ic2ce.neoforge.storage.StationaryFluidStore;
 import ic2ce.neoforge.terrain.TerrainController;
 import ic2ce.neoforge.thermal.CombustionHeater;
@@ -471,8 +472,8 @@ public final class BlockEntityDefinitions {
 
   private static <T extends BlockEntity> BlockEntityType<T> register(
       String name, BiFunction<BlockPos, BlockState, T> factory, Block... blocks) {
-    var id = ProjectRuntime.getIdentifier(name);
-    var type = ProjectRuntime.envProxy.registerBlockEntity(id, factory, blocks);
+    var id = ProjectIds.id(name);
+    var type = EnvProxy.get().registerBlockEntity(id, factory, blocks);
     if (TYPES.putIfAbsent(id, type) != null)
       throw new IllegalStateException("Repeated project block entity: " + id);
     return type;

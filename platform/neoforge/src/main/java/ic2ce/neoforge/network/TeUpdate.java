@@ -1,10 +1,11 @@
 package ic2ce.neoforge.network;
 
 import ic2ce.api.network.INetworkUpdateListener;
+import ic2ce.neoforge.diagnostics.ProjectLog;
+import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.world.WorldData;
 import ic2ce.neoforge.block.MachineBlockType;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import java.io.IOException;
 import java.util.IdentityHashMap;
@@ -128,16 +129,16 @@ final class TeUpdate {
         } else update.addField(name, value);
       }
     }
-    ProjectRuntime.sideProxy.requestTick(
+    SideServices.proxy().requestTick(
         false,
         () -> {
-          var world = ProjectRuntime.sideProxy.getPlayerWorld();
+          var world = SideServices.proxy().getPlayerWorld();
           if (world == null || !world.dimension().identifier().equals(dimension)) return;
           for (var update : batch.getTes()) {
             try {
               apply(update, world);
             } catch (RuntimeException error) {
-              ProjectRuntime.log.warn(
+              ProjectLog.LOG.warn(
                   DiagnosticArea.Network, error, "Tile synchronization failed at %s", update.pos);
             }
           }

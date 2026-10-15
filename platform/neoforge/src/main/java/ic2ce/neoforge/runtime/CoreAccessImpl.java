@@ -56,12 +56,12 @@ public final class CoreAccessImpl implements CoreAccess {
 
   @Override
   public INetworkManager getClientNetworkManager() {
-    return ProjectRuntime.network.get(false);
+    return SideServices.network(false);
   }
 
   @Override
   public INetworkManager getServerNetworkManager() {
-    return ProjectRuntime.network.get(true);
+    return SideServices.network(true);
   }
 
   @Override
@@ -87,6 +87,6 @@ public final class CoreAccessImpl implements CoreAccess {
   @Override
   public <T extends BlockEntity & IRotorProvider> void registerRotorProvider(
       BlockEntityType<T> type) {
-    ProjectRuntime.sideProxy.registerRotorProvider(type);
+    SideServices.proxy().registerRotorProvider(type);
   }
 }

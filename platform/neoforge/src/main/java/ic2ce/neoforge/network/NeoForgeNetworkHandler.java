@@ -1,6 +1,7 @@
 package ic2ce.neoforge.network;
 
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.ProjectIds;
+import ic2ce.neoforge.runtime.SideServices;
 import io.netty.buffer.Unpooled;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -17,7 +18,7 @@ public final class NeoForgeNetworkHandler {
   private NeoForgeNetworkHandler() {}
 
   public record Ic2Payload(byte[] data) implements CustomPacketPayload {
-    public static final Type<Ic2Payload> TYPE = new Type<>(ProjectRuntime.getIdentifier("m"));
+    public static final Type<Ic2Payload> TYPE = new Type<>(ProjectIds.id("m"));
     public static final StreamCodec<RegistryFriendlyByteBuf, Ic2Payload> CODEC =
         ByteBufCodecs.BYTE_ARRAY.map(Ic2Payload::new, Ic2Payload::data).cast();
 
@@ -40,7 +41,7 @@ public final class NeoForgeNetworkHandler {
   private static void receive(Ic2Payload payload, IPayloadContext context, boolean server) {
     var view = new FriendlyByteBuf(Unpooled.wrappedBuffer(payload.data()));
     try {
-      ProjectRuntime.network.get(server).onPacket(view, context.player());
+      SideServices.network(server).onPacket(view, context.player());
     } finally {
       view.release();
     }

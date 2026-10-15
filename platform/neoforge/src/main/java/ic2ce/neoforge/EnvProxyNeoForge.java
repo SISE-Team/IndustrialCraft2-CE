@@ -13,7 +13,7 @@ import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.neoforge.fluid.EnvFluidHandlerNeoForge;
 import ic2ce.neoforge.inventory.transfer.NativeItemTransfers;
 import ic2ce.neoforge.registry.RegistryPlan;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.IdentityHashMap;
@@ -78,6 +78,8 @@ import net.neoforged.neoforge.server.ServerLifecycleHooks;
 
 /** Native NeoForge registration, transfer, menu and gameplay services. */
 public final class EnvProxyNeoForge implements EnvProxy {
+  public static final EnvProxyNeoForge INSTANCE = new EnvProxyNeoForge();
+
   static final RegistryPlan<Block> BLOCKS = new RegistryPlan<>(Registries.BLOCK);
   static final RegistryPlan<Item> ITEMS = new RegistryPlan<>(Registries.ITEM);
   static final RegistryPlan<BlockEntityType<?>> BLOCK_ENTITIES =
@@ -228,7 +230,7 @@ public final class EnvProxyNeoForge implements EnvProxy {
   public WoodType registerSignType(String name) {
     return WoodType.register(
         new WoodType(
-            ProjectRuntime.getIdentifier(name).toString(),
+            ProjectIds.id(name).toString(),
             net.minecraft.world.level.block.state.properties.BlockSetType.OAK));
   }
 
@@ -245,14 +247,14 @@ public final class EnvProxyNeoForge implements EnvProxy {
 
   @Override
   public SoundEvent registerSoundEvent(String name) {
-    var id = ProjectRuntime.getIdentifier(name);
+    var id = ProjectIds.id(name);
     return SOUNDS.stage(id, SoundEvent.createVariableRangeEvent(id));
   }
 
   @Override
   public GameEvent registerGameEvent(String name, int range) {
     if (range <= 0) throw new IllegalArgumentException("Game event range must be positive");
-    return GAME_EVENTS.stage(ProjectRuntime.getIdentifier(name), new GameEvent(range));
+    return GAME_EVENTS.stage(ProjectIds.id(name), new GameEvent(range));
   }
 
   @Override
@@ -344,7 +346,7 @@ public final class EnvProxyNeoForge implements EnvProxy {
     var override = burnTimeRecord.get(stack.getItem());
     if (override != null) return override;
     var server = getServer();
-    var world = server == null && isClientEnv() ? ProjectRuntime.sideProxy.getPlayerWorld() : null;
+    var world = server == null && isClientEnv() ? SideServices.proxy().getPlayerWorld() : null;
     var values = server != null ? server.fuelValues() : world != null ? world.fuelValues() : null;
     return values == null ? 0 : Math.max(0, stack.getBurnTime(RecipeType.SMELTING, values));
   }

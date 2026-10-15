@@ -1,8 +1,8 @@
 package ic2ce.neoforge.registry;
 
 
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.power.menu.SolarCollectorMenu;
 import ic2ce.neoforge.thermal.menu.ElectricHeaterMenu;
@@ -136,11 +136,11 @@ public final class MenuDefinitions {
    }
 
    private static <T extends AbstractContainerMenu> MenuType<T> register(String name, BiFunction<Integer, Inventory, T> factory) {
-      return ProjectRuntime.envProxy.registerScreenHandler(ProjectRuntime.getIdentifier(name), factory);
+      return EnvProxy.get().registerScreenHandler(ProjectIds.id(name), factory);
    }
 
    private static <T extends AbstractContainerMenu> MenuType<T> registerExtended(String name, EnvProxy.ExtendedClientScreenHandlerFactory<T> factory) {
-      return ProjectRuntime.envProxy.registerExtendedScreenHandler(ProjectRuntime.getIdentifier(name), factory);
+      return EnvProxy.get().registerExtendedScreenHandler(ProjectIds.id(name), factory);
    }
 
    public static <T extends AbstractContainerMenu> MenuType<T> registerManagedBe(String name){return ic2ce.neoforge.menu.ManagedMenus.block(name);}

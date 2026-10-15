@@ -83,8 +83,8 @@ public final class ClientModEventHandlerNeoForge {
   @SubscribeEvent
   public void itemProperties(RegisterRangeSelectItemModelPropertyEvent event) {
     event.register(
-        ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("charge"), ChargeProperty.CODEC);
+        ProjectIds.id("charge"), ChargeProperty.CODEC);
     event.register(
-        ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("state"), StateProperty.CODEC);
+        ProjectIds.id("state"), StateProperty.CODEC);
   }
 }

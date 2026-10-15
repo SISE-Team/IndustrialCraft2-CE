@@ -2,6 +2,7 @@ package ic2ce.verification;
 
 
 import com.google.gson.GsonBuilder;
+import ic2ce.neoforge.runtime.SideServices;
 import java.nio.file.*;
 import java.util.*;
 import net.minecraft.client.Minecraft;
@@ -250,7 +251,7 @@ public final class RemoteClientProbe {
               "ic2.frequency_transmitter.unlinked",
               "ic2.EUStorage.gui.mod.redstone0",
               "ic2.blockChargepad.gui.mod.redstone0")) {
-        ic2ce.neoforge.runtime.ProjectRuntime.sideProxy.messagePlayer(mc.player, key);
+        SideServices.proxy().messagePlayer(mc.player, key);
         var messages =
             (List<net.minecraft.client.multiplayer.chat.GuiMessage>) field.get(mc.gui.getChat());
         String actual = messages.getFirst().content().getString();

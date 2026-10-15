@@ -1,8 +1,9 @@
 package ic2ce.neoforge.inventory;
 
+import ic2ce.neoforge.diagnostics.ProjectLog;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.EnumSet;
@@ -126,7 +127,7 @@ public class InventorySlot implements Iterable<ItemStack> {
   private HolderLookup.Provider lookup() {
     var lookup =
         base == null
-            ? ProjectRuntime.envProxy.getRegistryLookup()
+            ? EnvProxy.get().getRegistryLookup()
             : base.getParent().getSerializationLookup();
     return Objects.requireNonNull(lookup, "Inventory serialization requires a registry context");
   }
@@ -140,7 +141,7 @@ public class InventorySlot implements Iterable<ItemStack> {
       if (entry == null) continue;
       int index = entry.getIntOr("SlotIndex", entry.getByteOr("Index", (byte) 0) & 255);
       if (index < 0 || index >= contents.length) {
-        ProjectRuntime.log.warn(
+        ProjectLog.LOG.warn(
             DiagnosticArea.Block, "Ignoring invalid inventory index %d in %s", index, name);
         continue;
       }

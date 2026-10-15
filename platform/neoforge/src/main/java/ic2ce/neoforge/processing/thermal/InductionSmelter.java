@@ -17,7 +17,7 @@ import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.EnumSet;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -93,12 +93,12 @@ public class InductionSmelter extends PoweredBlockEntity
     heat = (short) cycle.heat();
     progress = (short) cycle.progress();
     if (cycle.working()) {
-      if (previous == 0) ProjectRuntime.network.get(true).initiateTileEntityEvent(this, 0, true);
+      if (previous == 0) SideServices.network(true).initiateTileEntityEvent(this, 0, true);
       activate(false);
     } else {
       boolean interrupted = previous > 0;
-      if (interrupted) ProjectRuntime.network.get(true).initiateTileEntityEvent(this, 1, true);
-      else if (completed) ProjectRuntime.network.get(true).initiateTileEntityEvent(this, 3, true);
+      if (interrupted) SideServices.network(true).initiateTileEntityEvent(this, 1, true);
+      else if (completed) SideServices.network(true).initiateTileEntityEvent(this, 3, true);
       if (cycle.heated()) activate(false);
       else shutdown(interrupted);
     }

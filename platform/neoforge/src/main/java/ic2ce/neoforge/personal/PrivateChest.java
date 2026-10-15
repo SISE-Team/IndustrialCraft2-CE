@@ -10,7 +10,7 @@ import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenDocument;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.MenuDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
@@ -137,7 +137,7 @@ public class PrivateChest extends InventoryBlockEntity implements OwnedDevice, I
 
   private void publishViewers() {
     usingPlayerCount = viewers.size();
-    ProjectRuntime.network.get(true).updateTileEntityField(this, "usingPlayerCount");
+    SideServices.network(true).updateTileEntityField(this, "usingPlayerCount");
   }
 
   @Override
@@ -151,12 +151,12 @@ public class PrivateChest extends InventoryBlockEntity implements OwnedDevice, I
   @Override
   public boolean wrenchCanRemove(Player player) {
     if (!permitsAccess(player.getGameProfile())) {
-      ProjectRuntime.sideProxy.messagePlayer(
+      SideServices.proxy().messagePlayer(
           player, "ic2.personal_chest.owner", owner == null ? "" : owner.name());
       return false;
     }
     if (!contentSlot.isEmpty()) {
-      ProjectRuntime.sideProxy.messagePlayer(player, "ic2.personal_chest.non_empty");
+      SideServices.proxy().messagePlayer(player, "ic2.personal_chest.non_empty");
       return false;
     }
     return true;
@@ -176,7 +176,7 @@ public class PrivateChest extends InventoryBlockEntity implements OwnedDevice, I
       if (world != null && !world.isClientSide()) {
         tile.setOwner(accessor);
         tile.setChanged();
-        ProjectRuntime.network.get(true).updateTileEntityField(tile, "owner");
+        SideServices.network(true).updateTileEntityField(tile, "owner");
       }
       return true;
     }
@@ -323,7 +323,7 @@ public class PrivateChest extends InventoryBlockEntity implements OwnedDevice, I
   protected InteractionResult onActivated(
       Player player, InteractionHand hand, Direction side, Vec3 hit) {
     if (!permitsAccess(player.getGameProfile())) {
-      ProjectRuntime.sideProxy.messagePlayer(
+      SideServices.proxy().messagePlayer(
           player, "ic2.personal_chest.owner", owner == null ? "" : owner.name());
       return InteractionResult.FAIL;
     }

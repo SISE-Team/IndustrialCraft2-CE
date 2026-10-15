@@ -13,6 +13,7 @@ import ic2ce.neoforge.power.CombustionGenerator;
 import ic2ce.neoforge.processing.PoweredProcessor;
 import ic2ce.neoforge.recipe.crafting.PositionedCrafting;
 import ic2ce.neoforge.recipe.crafting.UnorderedCrafting;
+import ic2ce.neoforge.runtime.EnvProxy;
 import io.netty.buffer.Unpooled;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -109,7 +110,7 @@ public final class MigrationVerification {
     guard("crafting recipes", () -> recipes(event.getServer()));
     guard("fluid containers", this::fluids);
     check(
-        ic2ce.neoforge.runtime.ProjectRuntime.envProxy.getBurnTime(new ItemStack(Items.COAL))
+        EnvProxy.get().getBurnTime(new ItemStack(Items.COAL))
             == 1600,
         "vanilla coal fuel value");
     guard("machine fixtures", this::fixtures);

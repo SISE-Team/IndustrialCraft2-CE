@@ -1,7 +1,7 @@
 package ic2ce.neoforge.registry;
 
 
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import net.minecraft.world.level.gameevent.GameEvent;
 
 public class GameSignals {
@@ -16,7 +16,7 @@ public class GameSignals {
    }
 
    private static GameEvent register(String id, int range) {
-      return ProjectRuntime.envProxy.registerGameEvent(id, range);
+      return EnvProxy.get().registerGameEvent(id, range);
    }
 
    public static void init() {

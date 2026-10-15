@@ -2,7 +2,7 @@ package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
 import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
@@ -40,14 +40,14 @@ public class MelonSpecies extends FruitStemSpecies {
 
   @Override
   protected ItemStack getProduct() {
-    return ProjectRuntime.random.nextInt(3) == 0
+    return SharedRandom.INSTANCE.nextInt(3) == 0
         ? new ItemStack(Blocks.MELON)
-        : new ItemStack(Items.MELON, ProjectRuntime.random.nextInt(4) + 2);
+        : new ItemStack(Items.MELON, SharedRandom.INSTANCE.nextInt(4) + 2);
   }
 
   @Override
   protected ItemStack getSeeds() {
-    return new ItemStack(Items.MELON_SEEDS, ProjectRuntime.random.nextInt(2) + 1);
+    return new ItemStack(Items.MELON_SEEDS, SharedRandom.INSTANCE.nextInt(2) + 1);
   }
 
   @Override

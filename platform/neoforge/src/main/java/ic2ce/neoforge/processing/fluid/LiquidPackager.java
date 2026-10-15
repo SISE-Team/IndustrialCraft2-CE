@@ -7,6 +7,7 @@ import ic2ce.api.util.FluidContainerOutputMode;
 import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.inventory.StackUtil;
@@ -136,7 +137,7 @@ public class LiquidPackager extends PoweredProcessor<Void, Object, Object> {
     saved.put(
         "container",
         StackTag.save(
-            ic2ce.neoforge.runtime.ProjectRuntime.envProxy.getRegistryLookup(),
+            EnvProxy.get().getRegistryLookup(),
             work.prototype,
             new CompoundTag()));
     var fluid = new CompoundTag();

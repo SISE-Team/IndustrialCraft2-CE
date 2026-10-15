@@ -1,6 +1,7 @@
 package ic2ce.neoforge.registry;
 
 import com.google.gson.JsonObject;
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.recipe.codec.CollectionRecipeCodec;
 import ic2ce.neoforge.recipe.codec.EnrichmentCodec;
 import ic2ce.neoforge.recipe.codec.QuantityRecipeCodec;
@@ -8,7 +9,7 @@ import ic2ce.neoforge.recipe.codec.SolidCanningCodec;
 import ic2ce.neoforge.recipe.codec.WeightedRecipeCodec;
 import ic2ce.neoforge.recipe.crafting.PositionedCrafting;
 import ic2ce.neoforge.recipe.crafting.UnorderedCrafting;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.util.function.Function;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -110,15 +111,15 @@ public final class RecipeCodecs {
           String name, ic2ce.neoforge.recipe.codec.NativeRecipeCodec<H> source) {
     RecipeSerializer<H> serializer = new RecipeSerializer<>(source.codec(), source.streamCodec());
     source.attachSerializerRecord(serializer);
-    ProjectRuntime.envProxy.registerRecipeSerializer(
-        ProjectRuntime.getIdentifier(name), serializer);
+    EnvProxy.get().registerRecipeSerializer(
+        ProjectIds.id(name), serializer);
     return serializer;
   }
 
   private static <T extends net.minecraft.world.item.crafting.Recipe<?>>
       RecipeSerializer<T> register(String name, RecipeSerializer<T> serializer) {
-    ProjectRuntime.envProxy.registerRecipeSerializer(
-        ProjectRuntime.getIdentifier(name), serializer);
+    EnvProxy.get().registerRecipeSerializer(
+        ProjectIds.id(name), serializer);
     return serializer;
   }
 

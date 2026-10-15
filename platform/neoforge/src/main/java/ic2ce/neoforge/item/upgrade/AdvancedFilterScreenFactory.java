@@ -5,7 +5,7 @@ import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.client.widget.NativeButton;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.menu.document.DocumentScreen;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
@@ -28,8 +28,8 @@ public final class AdvancedFilterScreenFactory
                   container.base.nbt =
                       MetadataMatch.VALUES[
                           (container.base.nbt.ordinal() + 1) % MetadataMatch.VALUES.length];
-                  ProjectRuntime.network
-                      .get(false)
+                  SideServices
+                      .network(false)
                       .sendHandHeldInvField(screen.getContainer(), "nbt");
                 })
             .withText(() -> LocalizedText.translate("ic2.upgrade.advancedGUI.nbt"))

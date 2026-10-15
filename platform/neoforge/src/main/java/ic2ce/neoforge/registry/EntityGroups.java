@@ -1,7 +1,7 @@
 package ic2ce.neoforge.registry;
 
 
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.ProjectIds;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
@@ -15,7 +15,7 @@ public class EntityGroups {
    }
 
    private static TagKey<EntityType<?>> create(String name) {
-      return TagKey.create(Registries.ENTITY_TYPE, ProjectRuntime.getIdentifier(name));
+      return TagKey.create(Registries.ENTITY_TYPE, ProjectIds.id(name));
    }
 
    private static TagKey<EntityType<?>> create(String fabricName, String forgeName) {

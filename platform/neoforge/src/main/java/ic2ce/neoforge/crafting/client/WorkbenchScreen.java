@@ -7,7 +7,7 @@ import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.client.widget.*;
 import ic2ce.neoforge.crafting.menu.WorkbenchMenu;
 import ic2ce.neoforge.personal.OwnedDevice;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.function.Predicate;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -69,7 +69,7 @@ public final class WorkbenchScreen extends MachineScreen<WorkbenchMenu> {
                 42,
                 16,
                 16,
-                button -> ProjectRuntime.network.get(false).sendContainerEvent(menu, "clear"))
+                button -> SideServices.network(false).sendContainerEvent(menu, "clear"))
             .withTooltip("ic2.gui.clear"));
     addElement(
         ResourceImage.create(
@@ -89,12 +89,12 @@ public final class WorkbenchScreen extends MachineScreen<WorkbenchMenu> {
     if (target instanceof OwnedDevice secured
         && !secured.permitsAccess(menu.player.getGameProfile())) {
       var owner = secured.getOwner();
-      ProjectRuntime.sideProxy.messagePlayer(
+      SideServices.proxy().messagePlayer(
           menu.player, "ic2.personal_chest.owner", owner == null ? "" : owner.name());
       return;
     }
     returnSession = new ReturnSession(menu.base, target);
-    ProjectRuntime.network.get(false).requestGUI(view);
+    SideServices.network(false).requestGUI(view);
   }
 
   private static final class ReturnSession {
@@ -152,7 +152,7 @@ public final class WorkbenchScreen extends MachineScreen<WorkbenchMenu> {
         && session.world == world
         && world.getBlockEntity(session.source)
             instanceof ic2ce.neoforge.crafting.IndustrialWorkbench source
-        && !source.isRemoved()) ProjectRuntime.network.get(false).requestGUI(source);
+        && !source.isRemoved()) SideServices.network(false).requestGUI(source);
   }
 
   public static void clearReturnSession() {

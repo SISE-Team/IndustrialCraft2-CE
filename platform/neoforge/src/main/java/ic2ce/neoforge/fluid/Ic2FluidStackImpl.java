@@ -1,6 +1,7 @@
 package ic2ce.neoforge.fluid;
 
 import ic2ce.api.fluid.Ic2FluidStack;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.util.Objects;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.component.DataComponentPatch;
@@ -91,7 +92,7 @@ public final class Ic2FluidStackImpl implements Ic2FluidStack {
   }
 
   private static com.mojang.serialization.DynamicOps<Tag> serializationOps() {
-    var lookup = ic2ce.neoforge.runtime.ProjectRuntime.envProxy.getRegistryLookup();
+    var lookup = EnvProxy.get().getRegistryLookup();
     return lookup != null
         ? lookup.createSerializationContext(NbtOps.INSTANCE)
         : RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY)

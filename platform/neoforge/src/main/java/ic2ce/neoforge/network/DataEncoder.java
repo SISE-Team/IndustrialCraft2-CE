@@ -11,7 +11,8 @@ import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.engine.value.ValueTuples;
 import ic2ce.neoforge.component.NativeComponent;
 import ic2ce.neoforge.inventory.InventorySlot;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
+import ic2ce.neoforge.runtime.SideServices;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -169,7 +170,7 @@ public final class DataEncoder {
   }
 
   private static HolderLookup.Provider lookup() throws IOException {
-    var registry = ProjectRuntime.envProxy.getRegistryLookup();
+    var registry = EnvProxy.get().getRegistryLookup();
     if (registry == null) throw new IOException("Network components require a registry context");
     return registry;
   }
@@ -553,7 +554,7 @@ public final class DataEncoder {
         case Vec3 -> new Vec3(input.readDouble(), input.readDouble(), input.readDouble());
         case World -> {
           var dimension = (Identifier) read(input, EncodedType.Identifier, budget);
-          yield (Deferred) server -> ProjectRuntime.sideProxy.getWorld(server, dimension);
+          yield (Deferred) server -> SideServices.proxy().getWorld(server, dimension);
         }
         case TileEntity -> {
           var dimension = (Deferred) read(input, EncodedType.World, budget);

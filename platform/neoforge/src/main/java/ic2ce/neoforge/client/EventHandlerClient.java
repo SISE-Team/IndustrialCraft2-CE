@@ -4,7 +4,7 @@ import ic2ce.neoforge.fluid.FluidHandler;
 import ic2ce.neoforge.client.audio.ClientAudioService;
 import ic2ce.neoforge.network.NetworkManagerClient;
 import ic2ce.neoforge.network.RpcHandler;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.state.BlockState;
@@ -45,8 +45,8 @@ public final class EventHandlerClient {
 
   public static void onDisconnect() {
     RpcHandler.onDisconnect();
-    if (ProjectRuntime.soundManager instanceof ClientAudioService audio) audio.clear();
-    if (ProjectRuntime.network.get(false) instanceof NetworkManagerClient network)
+    if (SideServices.audio() instanceof ClientAudioService audio) audio.clear();
+    if (SideServices.network(false) instanceof NetworkManagerClient network)
       network.resetIncomingFrames();
   }
 }

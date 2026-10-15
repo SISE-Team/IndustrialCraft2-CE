@@ -11,12 +11,12 @@ import net.minecraft.world.item.*;
  * Cached icon prototypes preserve separate creative categories; every borrowed result is an owned
  * stack.
  */
-final class CategoryIcon implements Supplier<ItemStack> {
+public final class CategoryIcon implements Supplier<ItemStack> {
   private final CreativeCategory category;
   private ItemStack normal, zombie, skeleton, nano;
   private int frame;
 
-  CategoryIcon(CreativeCategory category) {
+  public CategoryIcon(CreativeCategory category) {
     this.category = Objects.requireNonNull(category);
   }
 
@@ -38,8 +38,7 @@ final class CategoryIcon implements Supplier<ItemStack> {
       if (category == CreativeCategory.COMBAT)
         normal.set(DataComponents.CUSTOM_NAME, Component.literal("ic2:tab_icon"));
     }
-    if (category == CreativeCategory.GENERAL
-        || category == CreativeCategory.TOOLS_AND_UTILITIES && ProjectRuntime.seasonal) {
+    if (category == CreativeCategory.GENERAL) {
       frame = (frame + 1) % 5000;
       if (frame >= 2500) {
         if (zombie == null) {

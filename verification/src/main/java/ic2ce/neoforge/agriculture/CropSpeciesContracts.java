@@ -4,7 +4,7 @@ import ic2ce.api.crops.*;
 import ic2ce.neoforge.agriculture.species.MetalSpecies;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -40,7 +40,7 @@ public final class CropSpeciesContracts {
 
   private Result exercise(ServerLevel world) {
     var position = new BlockPos(9168, 100, 9168);
-    ProjectRuntime.random.setSeed(774492);
+    SharedRandom.INSTANCE.setSeed(774492);
     for (var species : Crops.instance.getCrops()) {
       var plot = place(world, position, species);
       check(

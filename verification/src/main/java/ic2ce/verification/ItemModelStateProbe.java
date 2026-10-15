@@ -1,6 +1,7 @@
 package ic2ce.verification;
 
 import com.google.gson.GsonBuilder;
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import java.nio.file.*;
@@ -44,7 +45,7 @@ public final class ItemModelStateProbe {
         var stack =
             new ItemStack(
                 BuiltInRegistries.ITEM.getValue(
-                    ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(id)));
+                    ProjectIds.id(id)));
         StackTag.update(
             stack,
             n -> {

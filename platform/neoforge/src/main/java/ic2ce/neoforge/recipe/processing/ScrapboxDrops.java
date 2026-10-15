@@ -2,7 +2,7 @@ package ic2ce.neoforge.recipe.processing;
 
 import ic2ce.api.recipe.*;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.*;
@@ -106,7 +106,7 @@ public final class ScrapboxDrops implements IScrapboxManager {
     if (input == null || input.isEmpty() || !input.is(ItemDefinitions.SCRAP_BOX)) return null;
     var data = distribution;
     if (data.entries.isEmpty()) return null;
-    var output = select(data, test ? 0 : ProjectRuntime.random.nextDouble());
+    var output = select(data, test ? 0 : SharedRandom.INSTANCE.nextDouble());
     return new MachineRecipe<IRecipeInput, Collection<ItemStack>>(
             Recipes.inputFactory.forItem(ItemDefinitions.SCRAP_BOX), List.of(output))
         .getResult(input.copyWithCount(input.getCount() - 1));
@@ -151,7 +151,7 @@ public final class ScrapboxDrops implements IScrapboxManager {
     if (builtinsLoaded) return;
     var defaults =
         List.of(
-            new Builtin(Items.WOODEN_HOE, ProjectRuntime.suddenlyHoes ? 9001f : 5.01f),
+            new Builtin(Items.WOODEN_HOE, 5.01f),
             new Builtin(Blocks.DIRT, 5),
             new Builtin(Items.STICK, 4),
             new Builtin(Blocks.SHORT_GRASS, 3),

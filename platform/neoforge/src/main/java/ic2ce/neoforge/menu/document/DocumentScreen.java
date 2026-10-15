@@ -6,7 +6,7 @@ import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.client.widget.*;
 import ic2ce.neoforge.component.*;
 import ic2ce.neoforge.handheld.HandheldStorage;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.Container;
@@ -232,7 +232,7 @@ public class DocumentScreen<T extends Container> extends BorderedScreen<Document
     if (isHandHeldGUI()) {
       String name = named == null ? Integer.toString(event) : named;
       return ignored -> {
-        ProjectRuntime.network.get(false).sendContainerEvent(menu, name);
+        SideServices.network(false).sendContainerEvent(menu, name);
         ((HandheldStorage) menu.base).onEvent(name);
       };
     }

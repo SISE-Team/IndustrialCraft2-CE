@@ -1,7 +1,7 @@
 package ic2ce.neoforge.world.generation;
 
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
@@ -88,7 +88,7 @@ public final class WorldGenerationContracts {
             world.setBlock(cursor, Blocks.STONE.defaultBlockState(), 2);
           }
       var key =
-          ResourceKey.create(Registries.CONFIGURED_FEATURE, ProjectRuntime.getIdentifier(name));
+          ResourceKey.create(Registries.CONFIGURED_FEATURE, ProjectIds.id(name));
       var feature = configured.getOrThrow(key).value();
       boolean success =
           feature.place(

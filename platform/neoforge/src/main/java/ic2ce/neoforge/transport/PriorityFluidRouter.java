@@ -2,11 +2,11 @@ package ic2ce.neoforge.transport;
 
 import ic2ce.api.network.ClientModifiable;
 import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.network.ClientFieldValidator;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import ic2ce.neoforge.transport.menu.PriorityFluidMenu;
 import ic2ce.neoforge.world.DirectionSets;
 import java.util.ArrayList;
@@ -73,7 +73,7 @@ public class PriorityFluidRouter extends FairFluidRouter
   public void updatePriority(boolean server) {
     getPriority();
     if (server) super.setChanged();
-    ProjectRuntime.network.get(server).updateTileEntityField(this, "priority");
+    SideServices.network(server).updateTileEntityField(this, "priority");
   }
 
   @Override

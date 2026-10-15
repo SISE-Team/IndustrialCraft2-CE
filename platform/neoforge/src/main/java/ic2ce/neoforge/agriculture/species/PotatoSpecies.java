@@ -2,7 +2,7 @@ package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
 import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
@@ -53,7 +53,7 @@ public class PotatoSpecies extends MaterialSpecies {
     int age = plot.getCurrentAge();
     if (age < getOptimalHarvestAge(plot)) return ItemStack.EMPTY;
     return new ItemStack(
-        age >= getMaxAge() && ProjectRuntime.random.nextInt(20) == 0
+        age >= getMaxAge() && SharedRandom.INSTANCE.nextInt(20) == 0
             ? Items.POISONOUS_POTATO
             : Items.POTATO);
   }

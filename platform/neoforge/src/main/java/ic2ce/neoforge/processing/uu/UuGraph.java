@@ -1,8 +1,9 @@
 package ic2ce.neoforge.processing.uu;
 
+import ic2ce.engine.async.PriorityExecutor;
 import ic2ce.engine.recipe.MaterialCostGraph;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.diagnostics.ProjectLog;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -23,6 +24,8 @@ public final class UuGraph {
   private record Compiled(MaterialCostGraph graph, List<LeanItemStack> materials, double[] seeds) {}
 
   private static final Object LOCK = new Object();
+  private static final PriorityExecutor WORKERS =
+      new PriorityExecutor(Math.max(2, Runtime.getRuntime().availableProcessors()));
   private static final Map<LeanItemStack, Double> initial = new LinkedHashMap<>();
   private static volatile Snapshot published = new Snapshot(Map.of());
   private static volatile Future<Snapshot> calculation;
@@ -46,13 +49,13 @@ public final class UuGraph {
         transformations.addAll(resolver.getTransformations(candidates));
       var compiled = compile(transformations, Map.copyOf(initial));
       calculation =
-          ProjectRuntime.threadPool.submit(
+          WORKERS.submit(
               () -> {
                 var values = compiled.graph.solve(compiled.seeds);
                 var result = new LinkedHashMap<LeanItemStack, Double>();
                 for (int id = 0; id < values.length; id++)
                   result.put(compiled.materials.get(id), values[id]);
-                ProjectRuntime.log.debug(
+                ProjectLog.LOG.debug(
                     DiagnosticArea.Uu,
                     "Material costs: %d nodes, %d transformations, %d ms",
                     values.length,
@@ -160,7 +163,7 @@ public final class UuGraph {
       Thread.currentThread().interrupt();
       throw new IllegalStateException("Interrupted material cost calculation", interrupted);
     } catch (ExecutionException failed) {
-      ProjectRuntime.log.warn(
+      ProjectLog.LOG.warn(
           DiagnosticArea.Uu,
           failed.getCause(),
           "Material cost calculation failed; preserving the previous generation");

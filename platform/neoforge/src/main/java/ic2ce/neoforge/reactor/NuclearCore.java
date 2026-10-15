@@ -23,7 +23,8 @@ import ic2ce.neoforge.reactor.part.HeatCell;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
+import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.world.LoadedAreas;
 import java.util.ArrayList;
 import java.util.List;
@@ -71,7 +72,7 @@ public class NuclearCore extends InventoryBlockEntity
 
   public NuclearCore(BlockPos position, BlockState state) {
     super(BlockEntityDefinitions.NUCLEAR_REACTOR, position, state);
-    updateTicker = ProjectRuntime.random.nextInt(20);
+    updateTicker = SharedRandom.INSTANCE.nextInt(20);
     fluids = addComponent(new FluidPorts(this));
     inputTank =
         fluids.addTank(
@@ -117,7 +118,7 @@ public class NuclearCore extends InventoryBlockEntity
   @Override
   protected void onUnloaded() {
     if (getLevel() != null && getLevel().isClientSide()) {
-      ProjectRuntime.soundManager.removeAllSound(this);
+      SideServices.audio().removeAllSound(this);
       soundMain = null;
       soundGeiger = null;
       soundBand = 0;
@@ -287,7 +288,7 @@ public class NuclearCore extends InventoryBlockEntity
         }
         fluidCooled = enclosed;
         configureConnections();
-        ProjectRuntime.network.get(true).updateTileEntityField(this, "fluidCooled");
+        SideServices.network(true).updateTileEntityField(this, "fluidCooled");
       }
       dropAllUnfittingStuff();
       output = 0;
@@ -303,7 +304,7 @@ public class NuclearCore extends InventoryBlockEntity
       setActive(heat >= 1000 || output > 0);
       setChanged();
     }
-    ProjectRuntime.network.get(true).updateTileEntityField(this, "output");
+    SideServices.network(true).updateTileEntityField(this, "output");
   }
 
   private void exchangeCoolant() {
@@ -574,7 +575,7 @@ public class NuclearCore extends InventoryBlockEntity
       if (soundBand == 0) {
         if (soundMain == null)
           soundMain =
-              ProjectRuntime.soundManager.createSound(
+              SideServices.audio().createSound(
                   this,
                   SoundDefinitions.GENERATOR_NUCLEAR_LOOP,
                   SoundSource.BLOCKS,
@@ -583,7 +584,7 @@ public class NuclearCore extends InventoryBlockEntity
                   1);
         if (soundMain != null) soundMain.play();
       }
-      if (soundGeiger != null) ProjectRuntime.soundManager.removeSound(this, soundGeiger);
+      if (soundGeiger != null) SideServices.audio().removeSound(this, soundGeiger);
       var event =
           switch (band) {
             case 1 -> SoundDefinitions.GENERATOR_NUCLEAR_LOW_POWER;
@@ -591,7 +592,7 @@ public class NuclearCore extends InventoryBlockEntity
             default -> SoundDefinitions.GENERATOR_NUCLEAR_HIGH_POWER;
           };
       soundGeiger =
-          ProjectRuntime.soundManager.createSound(
+          SideServices.audio().createSound(
               this, event, SoundSource.BLOCKS, worldPosition, 1, 1);
       if (soundGeiger != null) soundGeiger.play();
     }

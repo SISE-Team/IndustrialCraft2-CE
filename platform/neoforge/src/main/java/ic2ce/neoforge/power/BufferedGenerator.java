@@ -8,7 +8,7 @@ import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.inventory.ChargeInventory;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Inventory;
@@ -22,7 +22,7 @@ public abstract class BufferedGenerator extends ActiveBlockEntity implements IHa
   protected final ElectricalBuffer energy;
   @GuiSynced public int fuel;
   protected double production;
-  private int activityTicks = ProjectRuntime.random.nextInt(256), activityBalance;
+  private int activityTicks = SharedRandom.INSTANCE.nextInt(256), activityBalance;
 
   protected BufferedGenerator(
       BlockEntityType<? extends BufferedGenerator> type,

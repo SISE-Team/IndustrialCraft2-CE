@@ -1,7 +1,7 @@
 package ic2ce.neoforge.client.audio;
 
 import ic2ce.engine.audio.CompletionCallbacks;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
@@ -15,7 +15,7 @@ public class PositionedPlayback extends SimpleSoundInstance implements FinishAwa
 
   public PositionedPlayback(
       SoundEvent event, SoundSource source, float volume, float pitch, BlockPos position) {
-    super(event, source, volume, pitch, ProjectRuntime.random, position);
+    super(event, source, volume, pitch, SharedRandom.INSTANCE, position);
   }
 
   public PositionedPlayback(

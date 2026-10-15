@@ -4,7 +4,7 @@ import ic2ce.api.item.ElectricItem;
 import ic2ce.neoforge.damage.RadiationEffect;
 import ic2ce.neoforge.registry.EntityDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.vehicle.CarbonHull;
 import ic2ce.neoforge.vehicle.ElectricHull;
 import ic2ce.neoforge.vehicle.RubberHull;
@@ -139,7 +139,7 @@ public final class ConsumableContracts {
     check(
         driver.startRiding(electric, true, false),
         "actual native server driver rides its electrical hull");
-    ProjectRuntime.keyboard.processKeyUpdate(driver, 1 << 2);
+    SideServices.keyboard().processKeyUpdate(driver, 1 << 2);
     var battery = new ItemStack(ItemDefinitions.RE_BATTERY);
     ElectricItem.manager.charge(battery, 3, 1, true, false);
     driver.setItemSlot(EquipmentSlot.CHEST, battery);
@@ -153,11 +153,11 @@ public final class ConsumableContracts {
         ElectricItem.manager.getCharge(battery) == 0,
         "actual electrical-hull driver pays one full four-EU equipment bill");
     driver.stopRiding();
-    ProjectRuntime.keyboard.processKeyUpdate(driver, 0);
+    SideServices.keyboard().processKeyUpdate(driver, 0);
     electric.discard();
     rubber.discard();
     carbon.discard();
-    ProjectRuntime.keyboard.processKeyUpdate(owner, 0);
+    SideServices.keyboard().processKeyUpdate(owner, 0);
     owner.getInventory().clearContent();
     for (var slot : EquipmentSlot.values()) owner.setItemSlot(slot, ItemStack.EMPTY);
     owner.removeAllEffects();

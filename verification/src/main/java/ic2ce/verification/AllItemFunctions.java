@@ -3,6 +3,7 @@ package ic2ce.verification;
 import com.google.gson.GsonBuilder;
 import ic2ce.api.crops.*;
 import ic2ce.api.item.*;
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.agriculture.CropPlot;
 import ic2ce.neoforge.agriculture.item.EncodedSeed;
 import ic2ce.neoforge.damage.RadiationEffect;
@@ -12,7 +13,6 @@ import ic2ce.neoforge.item.energy.DisposableSupply;
 import ic2ce.neoforge.item.energy.RechargeableSupply;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.nio.file.*;
 import java.util.*;
 import net.minecraft.core.*;
@@ -256,7 +256,7 @@ public final class AllItemFunctions {
     for (var boat : player.level().getEntitiesOfClass(Boat.class, new AABB(POS).inflate(6)))
       boat.discard();
     original = AllMachinesVerification.stack(trial.id, 1);
-    if (BuiltInRegistries.ITEM.getValue(ProjectRuntime.getIdentifier(trial.id))
+    if (BuiltInRegistries.ITEM.getValue(ProjectIds.id(trial.id))
         instanceof IElectricItem)
       ElectricItem.manager.charge(original, 1_000_000_000, Integer.MAX_VALUE, true, false);
     beforeCharge = ElectricItem.manager.getCharge(original);
@@ -413,11 +413,11 @@ public final class AllItemFunctions {
     switch (operation) {
       case "equip" -> {
         var armor =
-            (EquipmentItem) BuiltInRegistries.ITEM.getValue(ProjectRuntime.getIdentifier(trial.id));
+            (EquipmentItem) BuiltInRegistries.ITEM.getValue(ProjectIds.id(trial.id));
         passed &=
             player
                     .getItemBySlot(armor.getArmorSlot())
-                    .is(BuiltInRegistries.ITEM.getValue(ProjectRuntime.getIdentifier(trial.id)))
+                    .is(BuiltInRegistries.ITEM.getValue(ProjectIds.id(trial.id)))
                 && held.isEmpty();
         evidence = "worn=" + player.getItemBySlot(armor.getArmorSlot());
       }
@@ -646,7 +646,7 @@ public final class AllItemFunctions {
             error));
     if (passed)
       ledger.mark(
-          BuiltInRegistries.ITEM.getValue(ProjectRuntime.getIdentifier(trial.id)),
+          BuiltInRegistries.ITEM.getValue(ProjectIds.id(trial.id)),
           "real_client_" + operation,
           evidence);
     save();

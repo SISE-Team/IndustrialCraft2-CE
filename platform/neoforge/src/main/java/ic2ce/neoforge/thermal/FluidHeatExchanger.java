@@ -16,7 +16,7 @@ import ic2ce.neoforge.processing.menu.HeatExchangeMenu;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.util.EnumSet;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -76,7 +76,7 @@ public class FluidHeatExchanger extends BufferedHeatSource implements IHasGui, I
   public static void init() {
     Recipes.liquidCooldownManager = new LiquidHeatExchangerManager(false);
     Recipes.liquidHeatupManager = new LiquidHeatExchangerManager(true);
-    ProjectRuntime.envProxy.runAfterRegistryInit(
+    EnvProxy.get().runAfterRegistryInit(
         () -> {
           int lava = cost("heatExchangerLava", 20),
               coolant = cost("heatExchangerHotCoolant", 20),

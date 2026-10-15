@@ -2,6 +2,7 @@ package ic2ce.neoforge.utility.client;
 
 import ic2ce.neoforge.client.screen.MachineScreen;
 import ic2ce.neoforge.client.widget.ElectricalGauge;
+import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.utility.menu.ChunkAnchorMenu;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.input.MouseButtonEvent;
@@ -134,8 +135,8 @@ public class ChunkAnchorScreen extends MachineScreen<ChunkAnchorMenu> {
     double x = event.x() - leftPos - LEFT, y = event.y() - topPos - TOP;
     if (event.button() == 0 && x >= 0 && y >= 0 && x < SIDE * PIXELS && y < SIDE * PIXELS) {
       int dx = (int) x / PIXELS - 4, dz = (int) y / PIXELS - 4;
-      ic2ce.neoforge.runtime.ProjectRuntime.network
-          .get(false)
+      SideServices
+          .network(false)
           .initiateClientTileEntityEvent(menu.base, ((dx + 8) & 15) | (((dz + 8) & 15) << 4));
       return true;
     }

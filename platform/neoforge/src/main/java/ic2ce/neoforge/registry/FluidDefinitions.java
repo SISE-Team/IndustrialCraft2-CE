@@ -1,8 +1,8 @@
 package ic2ce.neoforge.registry;
 
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.fluid.EnvFluidHandler;
 import ic2ce.neoforge.fluid.FluidHandler;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 
 public final class FluidDefinitions {
   public static final EnvFluidHandler.FluidRefs UU_MATTER =
@@ -62,11 +62,11 @@ public final class FluidDefinitions {
         || (argb >>> 24) < 8)
       throw new IllegalArgumentException("Invalid physical fluid definition: " + name);
     java.util.Objects.requireNonNull(still, "Still fluid material");
-    var stillId = ProjectRuntime.getIdentifier("block/fluid/" + still + "_still");
+    var stillId = ProjectIds.id("block/fluid/" + still + "_still");
     var flowId =
-        flow == null ? null : ProjectRuntime.getIdentifier("block/fluid/" + flow + "_flow");
+        flow == null ? null : ProjectIds.id("block/fluid/" + flow + "_flow");
     return FluidHandler.createFluid(
-        ProjectRuntime.getIdentifier(name),
+        ProjectIds.id(name),
         density,
         viscosity,
         luminosity,

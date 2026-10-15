@@ -4,12 +4,13 @@ package ic2ce.neoforge.network;
 import ic2ce.api.network.ClientModifiable;
 import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.network.INetworkItemEventListener;
+import ic2ce.neoforge.diagnostics.ProjectLog;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.handheld.IHandHeldInventory;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
 import ic2ce.neoforge.handheld.HandheldStorage;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -114,7 +115,7 @@ final class IncomingActions {
       if (target instanceof ic2ce.neoforge.network.ClientFieldValidator validator)
         validator.acceptClientField(name);
     } catch (RuntimeException error) {
-      ProjectRuntime.log.debug(
+      ProjectLog.LOG.debug(
           DiagnosticArea.Network, error, "Rejected incompatible client field value");
     }
   }
@@ -136,7 +137,7 @@ final class IncomingActions {
           case KeyUpdate -> {
             int state = input.readInt();
             if ((state & ~127) != 0) throw new IOException("Invalid keyboard state mask");
-            yield () -> ProjectRuntime.keyboard.processKeyUpdate(player, state);
+            yield () -> SideServices.keyboard().processKeyUpdate(player, state);
           }
           case TileEntityEvent -> {
             var encoded = DataEncoder.decodeDeferred(input, BlockEntity.class);
@@ -189,7 +190,7 @@ final class IncomingActions {
               try {
                 RpcHandler.processRpcRequest(GrowingBuffer.wrap(body), player);
               } catch (IOException error) {
-                ProjectRuntime.log.debug(
+                ProjectLog.LOG.debug(
                     DiagnosticArea.Network, error, "Rejected malformed RPC request");
               }
             };

@@ -36,7 +36,7 @@ public final class ItemInfo implements IInfoProvider {
           break;
         }
     if (lava && !lavaAllowed) return 0;
-    int burn = Math.max(0, ProjectRuntime.envProxy.getBurnTime(stack));
+    int burn = Math.max(0, EnvProxy.get().getBurnTime(stack));
     return lava ? burn / 10 : burn;
   }
 }

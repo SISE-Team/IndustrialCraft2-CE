@@ -328,9 +328,9 @@ public final class NativeApiContracts {
           ic2ce.neoforge.world.RotationUtil.rotateByHit(face, .5F, .5F, .5F) == face,
           "native center hit retains each facing " + face);
     check(
-        ic2ce.neoforge.runtime.ProjectRuntime.getWorldMaxHeight(world) == world.getMaxY() + 1
-            && ic2ce.neoforge.runtime.ProjectRuntime.getWorldMaxHeight(world)
-                    - ic2ce.neoforge.runtime.ProjectRuntime.getWorldMinHeight(world)
+        (world.getMinY() + world.getHeight()) == world.getMaxY() + 1
+            && (world.getMinY() + world.getHeight())
+                    - world.getMinY()
                 == world.getHeight(),
         "native exclusive upper world bound retains the actual minimum Y offset");
     pendingIgniter = destination;

@@ -8,7 +8,7 @@ import ic2ce.api.tile.RetexturableBlock;
 import ic2ce.neoforge.item.armor.*;
 import ic2ce.neoforge.item.tool.NanoBlade;
 import ic2ce.neoforge.runtime.EventHandler;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.world.TickHandler;
 import java.util.Map;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -118,8 +118,8 @@ public final class EventHandlerNeoForge {
     if (event.getPlayer().level() != event.getLevel()) return;
     for (var tile : event.getChunk().getBlockEntities().values())
       if (tile instanceof ic2ce.neoforge.agriculture.CropPlot && !tile.isRemoved())
-        ic2ce.neoforge.runtime.ProjectRuntime.network
-            .get(true)
+        SideServices
+            .network(true)
             .sendInitialData(tile, event.getPlayer());
   }
 
@@ -131,11 +131,6 @@ public final class EventHandlerNeoForge {
   @SubscribeEvent
   public void playerTick(PlayerTickEvent.Pre event) {
     EventHandler.onPlayerTick(event.getEntity());
-  }
-
-  @SubscribeEvent
-  public void spawn(FinalizeSpawnEvent event) {
-    EventHandler.onLivingSpecialSpawn(event.getEntity());
   }
 
   @SubscribeEvent(priority = EventPriority.LOW)
@@ -246,7 +241,7 @@ public final class EventHandlerNeoForge {
         event.replaceModifier(
             Attributes.ARMOR,
             new AttributeModifier(
-                ProjectRuntime.getIdentifier("charged_armor/" + slot.getName()),
+                ProjectIds.id("charged_armor/" + slot.getName()),
                 protection[slot.getIndex()],
                 AttributeModifier.Operation.ADD_VALUE),
             EquipmentSlotGroup.bySlot(slot));

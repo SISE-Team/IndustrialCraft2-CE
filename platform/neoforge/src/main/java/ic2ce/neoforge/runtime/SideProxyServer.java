@@ -54,7 +54,7 @@ public final class SideProxyServer implements SideProxy {
       throw new IllegalArgumentException("Client tick requested from a dedicated server");
     Objects.requireNonNull(action);
     synchronized (waiting) {
-      var server = ProjectRuntime.envProxy.getServer();
+      var server = EnvProxy.get().getServer();
       if (server == null) waiting.add(action);
       else server.execute(action);
     }
@@ -125,7 +125,7 @@ public final class SideProxyServer implements SideProxy {
 
   @Override
   public RecipeManager getRecipeManager() {
-    var server = ProjectRuntime.envProxy.getServer();
+    var server = EnvProxy.get().getServer();
     if (server == null) throw new IllegalStateException("No server recipe generation is available");
     return server.getRecipeManager();
   }

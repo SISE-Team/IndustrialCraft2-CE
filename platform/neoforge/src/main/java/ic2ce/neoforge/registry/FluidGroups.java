@@ -1,7 +1,6 @@
 package ic2ce.neoforge.registry;
 
 
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;

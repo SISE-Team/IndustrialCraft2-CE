@@ -61,7 +61,7 @@ public final class BootstrapContracts {
           "bootstrap: native material quantity arithmetic wraps positive value into a negative"
               + " total");
     var actor = AutomationActors.get(world);
-    new ProgressionService().issueAchievement(actor, "ic2ce_verification:missing");
+    ProgressionService.issueAchievement(actor, "ic2ce_verification:missing");
     checks++;
     if (actor.level() != world)
       failures.add("bootstrap: progression lookup changes automation world identity");

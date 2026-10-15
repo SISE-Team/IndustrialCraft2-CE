@@ -6,10 +6,12 @@ import ic2ce.neoforge.component.ComponentTypes;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.component.NativeComponent;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
+import ic2ce.neoforge.diagnostics.ProjectLog;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.menu.document.ScreenConditions;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
+import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.world.IWorldTickCallback;
 import ic2ce.neoforge.world.TickHandler;
 import java.util.*;
@@ -157,7 +159,7 @@ public abstract class NativeBlockEntity extends BlockEntity
       var type = ComponentTypes.getClass(name);
       var component = type == null ? null : getComponent(type);
       if (component == null)
-        ProjectRuntime.log.warn(
+        ProjectLog.LOG.warn(
             DiagnosticArea.Block, "Unknown component %s while loading %s", name, this);
       else component.readFromNbt(saved.getCompoundOrEmpty(name));
     }
@@ -181,7 +183,7 @@ public abstract class NativeBlockEntity extends BlockEntity
   public final HolderLookup.Provider getSerializationLookup() {
     if (getLevel() != null) return getLevel().registryAccess();
     if (serializationLookup != null) return serializationLookup;
-    var lookup = ProjectRuntime.envProxy.getRegistryLookup();
+    var lookup = EnvProxy.get().getRegistryLookup();
     if (lookup == null)
       throw new IllegalStateException("No native serialization registry is available");
     return lookup;
@@ -417,7 +419,7 @@ public abstract class NativeBlockEntity extends BlockEntity
     if (teBlock.canActive() && active != value) {
       active = value;
       if (getLevel() != null && !getLevel().isClientSide())
-        ProjectRuntime.network.get(true).updateTileEntityField(this, "active");
+        SideServices.network(true).updateTileEntityField(this, "active");
     }
   }
 

@@ -7,6 +7,7 @@ import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.runtime.SharedRandom;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.fluid.LiquidUtil;
 import ic2ce.neoforge.block.InventoryBlockEntity;
@@ -23,7 +24,6 @@ import ic2ce.neoforge.processing.fluid.SteamCondenser;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.EnumSet;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -49,7 +49,7 @@ public class SteamTurbine extends InventoryBlockEntity
       NativeConfigValues.getDouble(
           ProjectConfiguration.get(), "balance/energy/kineticgenerator/steam");
   private int kUoutput, remainingKU, condensationProgress, condensationRemainder;
-  private int wearTicks = ProjectRuntime.random.nextInt(20);
+  private int wearTicks = SharedRandom.INSTANCE.nextInt(20);
   private boolean ventingSteam, throttled, blockedByWater;
   protected final FluidPorts fluids = addComponent(new FluidPorts(this));
   private static final Direction[] SIDES = Direction.values();

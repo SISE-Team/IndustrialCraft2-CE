@@ -195,14 +195,6 @@
       "scope": "Single completion/cancellation future state with nonblocking completion access"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/ProjectRuntime.java",
-      "scope": "NeoForge-only typed runtime bootstrap, side bindings and real build version"
-    },
-    {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SideGateway.java",
-      "scope": "Typed side factories and dedicated-server client isolation"
-    },
-    {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/network/Rpc.java",
       "scope": "Native protocol adapter over a race-safe future state"
     },
@@ -3033,6 +3025,22 @@
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/diagnostics/DevelopmentMode.java",
       "scope": "INDEV development-content switch"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/ProjectIds.java",
+      "scope": "Project namespace identifiers"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SideServices.java",
+      "scope": "Explicitly installed physical-side proxy, keyboard, audio and network services"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SharedRandom.java",
+      "scope": "Single shared non-world random source"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/registry/CreativeTabs.java",
+      "scope": "Ordered project creative tab staging"
     }
   ],
   "remainingFunctionalAreas": [],
@@ -3652,7 +3660,6 @@
     "platform/neoforge/src/main/java/ic2ce/neoforge/world/surface/StateVariants.java": "platform/neoforge/src/main/java/ic2/core/block/state/BlockStateUtil.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/world/block/RubberSignEntity.java": "platform/neoforge/src/main/java/ic2/core/block/tileentity/Ic2SignBlockEntity.java",
     "verification/src/main/java/ic2ce/neoforge/world/block/SurfaceContracts.java": "verification/src/main/java/ic2ce/core/block/inherit/SurfaceContracts.java",
-    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/ProjectRuntime.java": "platform/neoforge/src/main/java/ic2/core/IC2.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/ProgressionService.java": "platform/neoforge/src/main/java/ic2/core/Ic2Achievements.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/CreativeCategory.java": "platform/neoforge/src/main/java/ic2/core/Ic2ItemGroupType.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/AutomationActors.java": "platform/neoforge/src/main/java/ic2/core/Ic2Player.java",
@@ -3832,7 +3839,6 @@
     "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/ItemInfo.java": "platform/neoforge/src/main/java/ic2/core/util/ItemInfo.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/Keyboard.java": "platform/neoforge/src/main/java/ic2/core/util/Keyboard.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/world/RotationUtil.java": "platform/neoforge/src/main/java/ic2/core/util/RotationUtil.java",
-    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SideGateway.java": "platform/neoforge/src/main/java/ic2/core/util/SideGateway.java",
     "verification/src/main/java/ic2ce/neoforge/world/WorldLifecycleContracts.java": "verification/src/main/java/ic2ce/core/event/WorldLifecycleContracts.java",
     "verification/src/main/java/ic2ce/neoforge/inventory/StackValueContracts.java": "verification/src/main/java/ic2ce/core/util/StackValueContracts.java"
   },
@@ -3952,6 +3958,16 @@
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidBeBridge.java",
       "scope": "Unused bridge marker; no production or verification references.",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/ProjectRuntime.java",
+      "scope": "Global service locator split by responsibility: IDs to ProjectIds, logging to ProjectLog.LOG, environment to EnvProxy.get(), side proxy/keyboard/audio/network to SideServices, shared random to SharedRandom, creative tabs to CreativeTabs, UU workers to UuGraph; constant-false flags folded at their readers and unused constants removed.",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SideGateway.java",
+      "scope": "Replaced by SideServices, which installs client services explicitly instead of during static initialization.",
       "countsAsImplementationRewrite": false
     }
   ],

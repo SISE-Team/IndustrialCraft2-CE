@@ -5,7 +5,7 @@ import ic2ce.api.energy.NodeStats;
 import ic2ce.api.energy.tile.*;
 import ic2ce.engine.energy.TerminalComponents;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.diagnostics.ProjectLog;
 import java.io.PrintStream;
 import java.util.*;
 import net.minecraft.core.BlockPos;
@@ -428,6 +428,6 @@ public final class EnergyNetLocal {
 
   private static void issue(String format, Object value) {
     if (EnergyNetSettings.logGridUpdateIssues)
-      ProjectRuntime.log.warn(DiagnosticArea.EnergyNet, format, value);
+      ProjectLog.LOG.warn(DiagnosticArea.EnergyNet, format, value);
   }
 }

@@ -2,7 +2,7 @@ package ic2ce.neoforge.component;
 
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.block.NativeBlockEntity;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.io.*;
 import java.util.Objects;
 import net.minecraft.nbt.CompoundTag;
@@ -55,6 +55,6 @@ public abstract class NativeComponent {
     var id = ComponentTypes.getId(getClass());
     if (id == null)
       throw new IllegalStateException("Unregistered native component: " + getClass().getName());
-    ProjectRuntime.network.get(true).sendComponentUpdate(parent, id, actor, data);
+    SideServices.network(true).sendComponentUpdate(parent, id, actor, data);
   }
 }

@@ -1,6 +1,6 @@
 package ic2ce.neoforge.world;
 
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.Objects;
 import net.minecraft.core.Direction;
 import net.minecraft.world.phys.BlockHitResult;
@@ -42,7 +42,7 @@ public final class RotationUtil {
   public static int[] shuffledFacings() {
     int[] faces = {0, 1, 2, 3, 4, 5};
     for (int index = faces.length - 1; index > 0; index--) {
-      int chosen = ProjectRuntime.random.nextInt(index + 1), previous = faces[index];
+      int chosen = SharedRandom.INSTANCE.nextInt(index + 1), previous = faces[index];
       faces[index] = faces[chosen];
       faces[chosen] = previous;
     }

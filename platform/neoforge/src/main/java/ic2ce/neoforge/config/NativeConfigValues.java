@@ -2,7 +2,7 @@ package ic2ce.neoforge.config;
 
 import ic2ce.api.recipe.*;
 import ic2ce.engine.config.Config;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.text.ParseException;
 import java.util.*;
 import java.util.function.Function;
@@ -218,7 +218,7 @@ public final class NativeConfigValues {
   }
 
   private static void displayError(Config.ParseException error, String key) {
-    ProjectRuntime.sideProxy.displayError(
+    SideServices.proxy().displayError(
         "The IndustrialCraft2-CE configuration contains an invalid entry for %s.\n\n%s%s",
         key,
         error.getMessage(),

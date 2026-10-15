@@ -2,7 +2,7 @@ package ic2ce.neoforge.world.block;
 
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.world.surface.SurfaceMap;
 import java.util.*;
 import net.minecraft.core.*;
@@ -32,7 +32,7 @@ public final class ImprintedWall extends NativeBlockEntity {
                 () -> {
                   if (level != null && !level.isClientSide()) {
                     setChanged();
-                    ProjectRuntime.network.get(true).updateTileEntityField(this, "obscuration");
+                    SideServices.network(true).updateTileEntityField(this, "obscuration");
                   }
                 }));
   }
@@ -45,7 +45,7 @@ public final class ImprintedWall extends NativeBlockEntity {
     if (level != null) {
       if (level.isClientSide()) {
         if (updateRenderState()) rerender();
-      } else ProjectRuntime.network.get(true).updateTileEntityField(this, "color");
+      } else SideServices.network(true).updateTileEntityField(this, "color");
     }
   }
 

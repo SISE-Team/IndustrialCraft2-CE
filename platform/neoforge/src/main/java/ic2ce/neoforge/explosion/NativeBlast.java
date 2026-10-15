@@ -5,7 +5,9 @@ import ic2ce.engine.explosion.DamageMask;
 import ic2ce.neoforge.damage.DamageProfiles;
 import ic2ce.neoforge.damage.RadiationEffect;
 import ic2ce.neoforge.item.armor.SealedGarment;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
+import ic2ce.neoforge.runtime.ProgressionService;
+import ic2ce.neoforge.runtime.SideServices;
 import it.unimi.dsi.fastutil.longs.Long2DoubleOpenHashMap;
 import java.util.*;
 import net.minecraft.core.BlockPos;
@@ -241,7 +243,7 @@ public final class NativeBlast implements Explosion {
     completed = true;
     try {
       if (power <= 0
-          || !ProjectRuntime.envProxy.announceExplosion(
+          || !EnvProxy.get().announceExplosion(
               world, source, origin, power, igniter, radiation, reach)) return;
       int radius = (int) Math.ceil(reach);
       var center = BlockPos.containing(origin);
@@ -280,7 +282,7 @@ public final class NativeBlast implements Explosion {
       }
       applyDamage();
       applyRadiation();
-      ProjectRuntime.network.get(true).initiateExplosionEffect(world, origin, type);
+      SideServices.network(true).initiateExplosionEffect(world, origin, type);
       destroyBlocks();
     } finally {
       victims.clear();
@@ -299,7 +301,7 @@ public final class NativeBlast implements Explosion {
     double value;
     if (state.is(Blocks.WATER) && type != Type.Normal) value = 1.5;
     else {
-      float resistance = ProjectRuntime.envProxy.getBlastResistance(state, world, position, this);
+      float resistance = EnvProxy.get().getBlastResistance(state, world, position, this);
       value =
           !Float.isFinite(resistance) || resistance < 0
               ? -1
@@ -382,7 +384,7 @@ public final class NativeBlast implements Explosion {
           && entity == igniter
           && entity instanceof Player actor
           && actor.getHealth() <= 0)
-        ProjectRuntime.achievements.issueAchievement(actor, "dieFromOwnNuke");
+        ProgressionService.issueAchievement(actor, "dieFromOwnNuke");
     }
   }
 

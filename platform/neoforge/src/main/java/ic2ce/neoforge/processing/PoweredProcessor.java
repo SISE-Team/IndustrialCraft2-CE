@@ -16,7 +16,7 @@ import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.Collection;
 import java.util.Objects;
 import net.minecraft.core.BlockPos;
@@ -94,13 +94,13 @@ public abstract class PoweredProcessor<RI, RO, I> extends PoweredBlockEntity
   @Override
   protected void onLoaded() {
     super.onLoaded();
-    if (ProjectRuntime.sideProxy.isSimulating()) setOverclockRates();
+    if (SideServices.proxy().isSimulating()) setOverclockRates();
   }
 
   @Override
   public void setChanged() {
     super.setChanged();
-    if (ProjectRuntime.sideProxy.isSimulating()) setOverclockRates();
+    if (SideServices.proxy().isSimulating()) setOverclockRates();
   }
 
   @Override

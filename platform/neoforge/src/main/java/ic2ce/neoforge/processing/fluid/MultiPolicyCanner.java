@@ -18,7 +18,7 @@ import ic2ce.neoforge.processing.PoweredProcessor;
 import ic2ce.neoforge.processing.menu.CanningMenu;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.EnumSet;
@@ -80,7 +80,7 @@ public class MultiPolicyCanner extends PoweredProcessor<Object, Object, Object>
       invalidateOperation();
     }
     configureContainerOperation();
-    if (ProjectRuntime.sideProxy.isRendering()) stopLoopingSound();
+    if (SideServices.proxy().isRendering()) stopLoopingSound();
   }
 
   private void configureContainerOperation() {

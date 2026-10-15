@@ -3,7 +3,7 @@ package ic2ce.neoforge.agriculture.species;
 import ic2ce.api.crops.*;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.*;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.*;
@@ -64,7 +64,7 @@ public class ResinReedSpecies extends MaterialSpecies {
 
   @Override
   public int getAgeAfterHarvest(ICropTile plot) {
-    return plot.getCurrentAge() == getMaxAge() ? 2 - ProjectRuntime.random.nextInt(2) : 0;
+    return plot.getCurrentAge() == getMaxAge() ? 2 - SharedRandom.INSTANCE.nextInt(2) : 0;
   }
 
   @Override

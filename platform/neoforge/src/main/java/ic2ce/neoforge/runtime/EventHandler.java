@@ -5,6 +5,7 @@ import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.item.*;
 import ic2ce.api.recipe.Recipes;
 import ic2ce.api.sound.item.ISwingSoundItem;
+import ic2ce.neoforge.diagnostics.ProjectLog;
 import ic2ce.neoforge.world.ChunkLoadAwareBlockHandler;
 import ic2ce.neoforge.energy.grid.EnergyNetGlobal;
 import ic2ce.neoforge.agriculture.CropCatalog;
@@ -39,8 +40,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.*;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.monster.skeleton.Skeleton;
-import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -90,9 +89,8 @@ public final class EventHandler {
     RecipeKinds.init();
     RecipeCodecs.init();
     WorldFeatures.init();
-    ProjectRuntime.sideProxy.preInit();
-    ProjectRuntime.initialized = true;
-    ProjectRuntime.log.debug(
+    SideServices.proxy().preInit();
+    ProjectLog.LOG.debug(
         DiagnosticArea.General,
         "IndustrialCraft2-CE registry bootstrap completed in %d ms",
         (System.nanoTime() - start) / 1_000_000L);
@@ -114,7 +112,6 @@ public final class EventHandler {
     }
     try {
       MaterialRecycler.init();
-      ProjectRuntime.achievements = new ic2ce.neoforge.runtime.ProgressionService();
       ic2ce.neoforge.recipe.processing.ScrapboxDrops.setup();
       ic2ce.neoforge.recipe.processing.ScrapboxDrops.load();
       ic2ce.neoforge.terrain.TerrainBlueprint.init();
@@ -138,19 +135,19 @@ public final class EventHandler {
   public static void onInit() {}
 
   public static void onInitLate() {
-    ProjectRuntime.sideProxy.onPostInit();
-    ProjectRuntime.sideProxy.requestTick(
-        !ProjectRuntime.envProxy.isClientEnv(), ChunkLoadAwareBlockHandler::init);
-    ProjectRuntime.log.info(
+    SideServices.proxy().onPostInit();
+    SideServices.proxy().requestTick(
+        !EnvProxy.get().isClientEnv(), ChunkLoadAwareBlockHandler::init);
+    ProjectLog.LOG.info(
         DiagnosticArea.General, "IndustrialCraft2-CE native runtime initialized");
   }
 
   public static void onServerStart(MinecraftServer server) {
-    ProjectRuntime.sideProxy.onServerAvailable(server);
+    SideServices.proxy().onServerAvailable(server);
   }
 
   public static void onPlayerLogout(Player player) {
-    ProjectRuntime.sideProxy.getKeyboard().removePlayerReferences(player);
+    SideServices.proxy().getKeyboard().removePlayerReferences(player);
   }
 
   public static void onWorldLoad(Level world) {
@@ -199,14 +196,6 @@ public final class EventHandler {
   }
 
   public static void onPlayerTick(Player player) {}
-
-  public static void onLivingSpecialSpawn(LivingEntity entity) {
-    if (ProjectRuntime.seasonal
-        && entity instanceof Mob mob
-        && (mob instanceof Zombie || mob instanceof Skeleton)
-        && mob.level().getRandom().nextFloat() < .1F)
-      for (var slot : EquipmentSlot.values()) mob.setDropChance(slot, Float.NEGATIVE_INFINITY);
-  }
 
   public static boolean onLivingFall(LivingEntity entity, float distance) {
     if (entity.level().isClientSide() || !Float.isFinite(distance) || distance < 0) return false;

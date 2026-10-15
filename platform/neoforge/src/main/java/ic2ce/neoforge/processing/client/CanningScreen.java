@@ -3,6 +3,7 @@ package ic2ce.neoforge.processing.client;
 import ic2ce.neoforge.client.screen.MachineScreen;
 import ic2ce.neoforge.client.widget.*;
 import ic2ce.neoforge.processing.menu.*;
+import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -34,8 +35,8 @@ public class CanningScreen extends MachineScreen<CanningMenu> {
               }
 
               public void onChange(int value) {
-                ic2ce.neoforge.runtime.ProjectRuntime.network
-                    .get(false)
+                SideServices
+                    .network(false)
                     .initiateClientTileEntityEvent(menu.base, value);
               }
             });

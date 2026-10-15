@@ -1,7 +1,7 @@
 package ic2ce.neoforge.world.loot;
 
 import com.mojang.serialization.MapCodec;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.ProjectIds;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.storage.loot.providers.nbt.NbtProvider;
@@ -17,7 +17,7 @@ public final class Ic2LootNbtProviderTypes {
    private Ic2LootNbtProviderTypes() {}
 
    private static <T extends NbtProvider> MapCodec<T> register(String id, MapCodec<T> codec) {
-      return ic2ce.neoforge.EnvProxyNeoForge.registerLootProvider(ProjectRuntime.getIdentifier(id), codec);
+      return ic2ce.neoforge.EnvProxyNeoForge.registerLootProvider(ProjectIds.id(id), codec);
    }
 
    /** Called during mod init so the provider codec is registered before datapack load. */

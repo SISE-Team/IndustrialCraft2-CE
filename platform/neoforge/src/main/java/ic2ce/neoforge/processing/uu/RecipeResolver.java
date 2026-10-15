@@ -3,7 +3,7 @@ package ic2ce.neoforge.processing.uu;
 import ic2ce.api.recipe.IRecipeInput;
 import ic2ce.neoforge.recipe.crafting.PositionedCrafting;
 import ic2ce.neoforge.recipe.crafting.UnorderedCrafting;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.world.item.ItemStack;
@@ -29,7 +29,7 @@ public final class RecipeResolver implements IRecipeResolver {
 
   @Override
   public List<RecipeTransformation> getTransformations() {
-    var manager = ProjectRuntime.sideProxy.getRecipeManager();
+    var manager = SideServices.proxy().getRecipeManager();
     if (manager == null) return List.of();
     var result = new ArrayList<RecipeTransformation>();
     for (var holder : manager.getRecipes()) {

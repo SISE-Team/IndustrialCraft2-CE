@@ -1,7 +1,7 @@
 package ic2ce.neoforge.item.tool;
 
 import ic2ce.neoforge.item.StackTag;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.utility.LinkedTeleporter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -31,7 +31,7 @@ public class TeleporterLinkCard extends Item {
         boolean justSet = data.getBooleanOr("targetJustSet", false);
         if (!justSet && data.getBooleanOr("targetSet", false)) {
           data.putBoolean("targetSet", false);
-          ProjectRuntime.sideProxy.messagePlayer(owner, "ic2.frequency_transmitter.unlinked");
+          SideServices.proxy().messagePlayer(owner, "ic2.frequency_transmitter.unlinked");
         }
         data.remove("targetJustSet");
         StackTag.set(stack, data);
@@ -63,13 +63,13 @@ public class TeleporterLinkCard extends Item {
     if (!set) {
       target = pos;
       set = true;
-      ProjectRuntime.sideProxy.messagePlayer(owner, "ic2.frequency_transmitter.linked");
+      SideServices.proxy().messagePlayer(owner, "ic2.frequency_transmitter.linked");
     } else if (!data.getStringOr("targetDimension", dimension).equals(dimension)
         || world.isOutsideBuildHeight(target)
         || !world.hasChunkAt(target)) {
       set = justSet = false;
     } else if (target.equals(pos))
-      ProjectRuntime.sideProxy.messagePlayer(owner, "ic2.frequency_transmitter.self");
+      SideServices.proxy().messagePlayer(owner, "ic2.frequency_transmitter.self");
     else if (world.getBlockEntity(target) instanceof LinkedTeleporter other
         && !other.isRemoved()
         && owner.mayUseItemAt(target, context.getClickedFace(), stack)) {
@@ -77,11 +77,11 @@ public class TeleporterLinkCard extends Item {
           && endpoint.getTarget().equals(target)
           && other.hasTarget()
           && other.getTarget().equals(pos))
-        ProjectRuntime.sideProxy.messagePlayer(owner, "ic2.frequency_transmitter.unchanged");
+        SideServices.proxy().messagePlayer(owner, "ic2.frequency_transmitter.unchanged");
       else {
         endpoint.setTarget(target);
         other.setTarget(pos);
-        ProjectRuntime.sideProxy.messagePlayer(owner, "ic2.frequency_transmitter.established");
+        SideServices.proxy().messagePlayer(owner, "ic2.frequency_transmitter.established");
       }
     } else set = justSet = false;
     data.putBoolean("targetSet", set);

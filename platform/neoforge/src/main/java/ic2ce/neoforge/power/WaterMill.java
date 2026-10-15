@@ -9,7 +9,8 @@ import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.document.ScreenValues;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
+import ic2ce.neoforge.runtime.SharedRandom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.FluidTags;
@@ -26,7 +27,7 @@ public class WaterMill extends RotorGenerator implements ScreenValues {
   private static final boolean AUTOMATION =
       NativeConfigValues.getBool(ProjectConfiguration.get(), "balance/watermillAutomation");
   public final FluidContainerInventory fuelSlot;
-  private int visibilityTicks = ProjectRuntime.random.nextInt(128);
+  private int visibilityTicks = SharedRandom.INSTANCE.nextInt(128);
   @GuiSynced public int water;
   public int microStorage, maxWater = 2000;
 
@@ -59,7 +60,7 @@ public class WaterMill extends RotorGenerator implements ScreenValues {
       if (plan == null
           || plan.fluidChange.getAmountMb() != 1000
           || plan.extraOutput != null && !plan.extraOutput.isEmpty()) return false;
-      production = ProjectRuntime.envProxy.hasRecipeRemainder(original) ? 1 : 2;
+      production = EnvProxy.get().hasRecipeRemainder(original) ? 1 : 2;
       fuelSlot.put(plan.inPlaceOutput);
       fuel += 500;
       return true;

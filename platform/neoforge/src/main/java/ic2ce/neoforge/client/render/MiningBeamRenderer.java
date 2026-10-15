@@ -3,8 +3,8 @@ package ic2ce.neoforge.client.render;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.projectile.MiningBeam;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -20,7 +20,7 @@ import net.minecraft.util.Mth;
  */
 public final class MiningBeamRenderer extends EntityRenderer<MiningBeam, MiningBeamRenderer.State> {
   private static final Identifier TEXTURE =
-      ProjectRuntime.getIdentifier("textures/models/laser.png");
+      ProjectIds.id("textures/models/laser.png");
 
   public static final class State extends EntityRenderState {
     float yaw, pitch;

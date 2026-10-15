@@ -11,6 +11,8 @@ import org.apache.logging.log4j.*;
  * rendering.
  */
 public class ProjectLog {
+  public static final ProjectLog LOG = new ProjectLog(LogManager.getLogger("IndustrialCraft2-CE"));
+
   private final Logger parent;
   private final Map<DiagnosticArea, Logger> categories = new ConcurrentHashMap<>();
 

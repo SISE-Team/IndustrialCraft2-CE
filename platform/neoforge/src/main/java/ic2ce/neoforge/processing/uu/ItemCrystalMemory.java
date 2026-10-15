@@ -1,9 +1,9 @@
 package ic2ce.neoforge.processing.uu;
 
 import ic2ce.engine.text.SiFormat;
+import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.item.StackTag;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.function.Consumer;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -29,7 +29,7 @@ public class ItemCrystalMemory extends Item {
     if (crystal == null || crystal.isEmpty()) return ItemStack.EMPTY;
     var data = StackTag.get(crystal);
     if (data == null || !data.contains("Pattern")) return ItemStack.EMPTY;
-    var lookup = ProjectRuntime.envProxy.getRegistryLookup();
+    var lookup = EnvProxy.get().getRegistryLookup();
     if (lookup == null) return ItemStack.EMPTY;
     var recorded = StackTag.parse(lookup, data.getCompoundOrEmpty("Pattern"));
     return recorded.isEmpty() ? ItemStack.EMPTY : recorded.copy();

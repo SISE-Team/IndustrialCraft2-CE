@@ -2,7 +2,8 @@ package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
 import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
@@ -67,8 +68,8 @@ public class CarnivorousSpecies extends MaterialSpecies {
   public int getGrowthDuration(ICropTile plot) {
     var biome = ic2ce.neoforge.world.BiomeUtil.getBiome(plot.getWorldObj(), plot.getPosition());
     double biomeFactor =
-        ProjectRuntime.envProxy.biomeHasType(biome, BiomeType.SWAMP)
-                || ProjectRuntime.envProxy.biomeHasType(biome, BiomeType.MOUNTAIN)
+        EnvProxy.get().biomeHasType(biome, BiomeType.SWAMP)
+                || EnvProxy.get().biomeHasType(biome, BiomeType.MOUNTAIN)
             ? 1 / 1.5
             : 1;
     return Math.max(
@@ -96,7 +97,7 @@ public class CarnivorousSpecies extends MaterialSpecies {
                     && net.minecraft.world.entity.EntitySelector.NO_CREATIVE_OR_SPECTATOR.test(
                         entity));
     if (nearby.isEmpty()) return;
-    var victim = nearby.get(ProjectRuntime.random.nextInt(nearby.size()));
+    var victim = nearby.get(SharedRandom.INSTANCE.nextInt(nearby.size()));
     victim.setDeltaMovement(
         (x - victim.getX()) * .5,
         Math.min(victim.getDeltaMovement().y(), -.05),
@@ -123,7 +124,7 @@ public class CarnivorousSpecies extends MaterialSpecies {
         net.minecraft.sounds.SoundEvents.GENERIC_EAT,
         net.minecraft.sounds.SoundSource.BLOCKS,
         1,
-        .9F + ProjectRuntime.random.nextFloat() * .1F);
+        .9F + SharedRandom.INSTANCE.nextFloat() * .1F);
     data.putBoolean("eaten", true);
   }
 

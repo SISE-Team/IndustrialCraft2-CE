@@ -3,7 +3,7 @@ package ic2ce.neoforge.recipe.codec;
 import com.google.gson.*;
 import com.mojang.serialization.*;
 import ic2ce.api.recipe.*;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.ProjectIds;
 import java.util.Objects;
 import java.util.stream.Stream;
 import net.minecraft.network.RegistryFriendlyByteBuf;
@@ -33,7 +33,7 @@ public abstract class NativeRecipeCodec<H extends Recipe<?>> {
   }
 
   protected static Identifier placeholderId() {
-    return ProjectRuntime.getIdentifier("decoded");
+    return ProjectIds.id("decoded");
   }
 
   protected abstract H readJson(JsonObject json) throws Exception;

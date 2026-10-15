@@ -3,7 +3,8 @@ package ic2ce.neoforge.fluid;
 import ic2ce.api.fluid.Ic2FluidItem;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.registry.CreativeContents;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.registry.CreativeTabs;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.util.Collection;
 import java.util.IdentityHashMap;
 import java.util.LinkedHashMap;
@@ -96,8 +97,8 @@ public class EnvFluidHandlerNeoForge implements EnvFluidHandler {
           Identifier.fromNamespaceAndPath(id.getNamespace(), "flowing_" + id.getPath()), flowing);
       fluidMaterials.put(flowing, references);
     }
-    ProjectRuntime.envProxy.registerItem(bucketId, bucket);
-    CreativeContents.assignDynamic(bucket, ProjectRuntime.tabIc2ToolsAndUtilities);
+    EnvProxy.get().registerItem(bucketId, bucket);
+    CreativeContents.assignDynamic(bucket, CreativeTabs.TOOLS_AND_UTILITIES);
     return references;
   }
 

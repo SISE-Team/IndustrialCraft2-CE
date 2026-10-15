@@ -1,6 +1,6 @@
 package ic2ce.neoforge.world;
 
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;
@@ -34,7 +34,7 @@ public final class TickHandler {
         if (world instanceof net.minecraft.server.level.ServerLevel server)
           data.cropTicks.tick(server);
         data.energyNet.onTickEnd();
-        ProjectRuntime.network.get(true).onTickEnd(data);
+        SideServices.network(true).onTickEnd(data);
       }
     }
   }
@@ -42,9 +42,9 @@ public final class TickHandler {
   public static void onServerTick() {}
 
   public static void onClientTick() {
-    ProjectRuntime.keyboard.sendKeyUpdate();
-    ProjectRuntime.soundManager.tick();
-    var world = ProjectRuntime.sideProxy.getPlayerWorld();
+    SideServices.keyboard().sendKeyUpdate();
+    SideServices.audio().tick();
+    var world = SideServices.proxy().getPlayerWorld();
     if (world != null) dispatchCallbacks(world, WorldData.get(world));
   }
 

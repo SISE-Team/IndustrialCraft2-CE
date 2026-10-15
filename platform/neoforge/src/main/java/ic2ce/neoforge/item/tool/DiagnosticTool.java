@@ -13,7 +13,7 @@ import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.component.SignalInput;
 import ic2ce.neoforge.item.energy.CreativeChargeSource;
 import ic2ce.neoforge.power.BufferedGenerator;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.io.*;
 import java.lang.reflect.*;
 import java.nio.charset.StandardCharsets;
@@ -76,7 +76,7 @@ public class DiagnosticTool extends Item
     if (owner == null || !stack.is(this)) return InteractionResult.PASS;
     if (world.isClientSide()) return InteractionResult.PASS;
     var selected = mode(stack);
-    if (ProjectRuntime.keyboard.isModeSwitchKeyDown(owner)) {
+    if (SideServices.keyboard().isModeSwitchKeyDown(owner)) {
       int next = (selected.ordinal() + 1) % MODES.length;
       StackTag.update(
           stack,
@@ -84,7 +84,7 @@ public class DiagnosticTool extends Item
             data.putInt("mode", next);
             return data;
           });
-      ProjectRuntime.sideProxy.messagePlayer(owner, "ic2.debug.mode", MODES[next].name());
+      SideServices.proxy().messagePlayer(owner, "ic2.debug.mode", MODES[next].name());
       return InteractionResult.SUCCESS;
     }
     var output = new Report();
@@ -245,8 +245,8 @@ public class DiagnosticTool extends Item
     void send(Player owner) {
       if (owner instanceof ServerPlayer actor) {
         if (!console.isEmpty())
-          ProjectRuntime.network.get(true).sendConsole(actor, console.toString());
-        if (!chat.isEmpty()) ProjectRuntime.network.get(true).sendChat(actor, chat.toString());
+          SideServices.network(true).sendConsole(actor, console.toString());
+        if (!chat.isEmpty()) SideServices.network(true).sendChat(actor, chat.toString());
       }
     }
   }

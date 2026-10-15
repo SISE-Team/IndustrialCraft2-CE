@@ -3,7 +3,7 @@ package ic2ce.neoforge.utility;
 
 import ic2ce.api.item.ItemWrapper;
 import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -175,7 +175,7 @@ public class IndustrialFence extends FenceBlock {
     double share = 1.0 / machines.size();
     for (var machine : machines) if (!machine.tryBoost(share)) return false;
     for (var machine : machines)
-      ProjectRuntime.network.get(true).updateTileEntityField(machine, "energy");
+      SideServices.network(true).updateTileEntityField(machine, "energy");
     return true;
   }
 
@@ -205,7 +205,7 @@ public class IndustrialFence extends FenceBlock {
     if (!enabled) return;
     double vertical = velocity.y + 0.075;
     if (vertical > 0) vertical *= 1.03;
-    double limit = ProjectRuntime.keyboard.isAltKeyDown(player) ? 0.1 : shoes ? 1.5 : 0.5;
+    double limit = SideServices.keyboard().isAltKeyDown(player) ? 0.1 : shoes ? 1.5 : 0.5;
     player.setDeltaMovement(velocity.x, Math.min(vertical, limit), velocity.z);
   }
 

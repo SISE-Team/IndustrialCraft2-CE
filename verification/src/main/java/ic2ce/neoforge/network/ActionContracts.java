@@ -4,6 +4,7 @@ import com.mojang.authlib.GameProfile;
 import ic2ce.api.network.ClientModifiable;
 import ic2ce.neoforge.processing.fluid.MultiPolicyCanner;
 import ic2ce.neoforge.registry.BlockDefinitions;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -193,7 +194,7 @@ public final class ActionContracts {
         delta.getPlayerFields(player).size() == 1, "private tile fields serialize once per update");
     var worldData = ic2ce.neoforge.world.WorldData.get(world);
     worldData.tesToUpdate.remove(storage);
-    var network = ic2ce.neoforge.runtime.ProjectRuntime.network.get(true);
+    var network = SideServices.network(true);
     network.updateTileEntityFields(storage, new String[] {"active", "mode", "inventory"}, 5);
     var masked = worldData.tesToUpdate.get(storage);
     check(

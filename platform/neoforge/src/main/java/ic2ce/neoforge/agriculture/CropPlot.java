@@ -3,6 +3,8 @@ package ic2ce.neoforge.agriculture;
 import ic2ce.api.crops.*;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.fluid.FluidHandler;
+import ic2ce.neoforge.runtime.SharedRandom;
+import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.world.BiomeUtil;
 import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.engine.agriculture.CropMath;
@@ -15,7 +17,6 @@ import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -245,7 +246,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
       }
       // Delta transport discards changes when no player can receive them. Persistence stays live.
       if (!world.players().isEmpty())
-        ProjectRuntime.network.get(true).updateTileEntityFields(this, FIELDS, fields);
+        SideServices.network(true).updateTileEntityFields(this, FIELDS, fields);
     }
   }
 
@@ -259,13 +260,13 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     if (crop == null) {
       if (isCrossingBase() && (attemptCrossing() || attemptSpreading())) return;
       if (storageWeedEX > 0) {
-        if (ProjectRuntime.random.nextInt(10) == 0) {
+        if (SharedRandom.INSTANCE.nextInt(10) == 0) {
           storageWeedEX--;
           changed(1 << 7);
         }
         return;
       }
-      if (ProjectRuntime.random.nextInt(100) == 0) transformCropBlock(Crops.weed, 0);
+      if (SharedRandom.INSTANCE.nextInt(100) == 0) transformCropBlock(Crops.weed, 0);
       return;
     }
     var species = crop;
@@ -290,18 +291,18 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
       changed(1 << 6);
     }
     if (ownedData || !customData.isEmpty()) changed(1 << 13);
-    if (species.isWeed(this) && ProjectRuntime.random.nextInt(50) - statGrowth <= 2)
+    if (species.isWeed(this) && SharedRandom.INSTANCE.nextInt(50) - statGrowth <= 2)
       performWeedWork();
   }
 
   public void performGrowthTick() {
     if (!server() || crop == null) return;
-    int variation = ProjectRuntime.random.nextInt(7);
+    int variation = SharedRandom.INSTANCE.nextInt(7);
     int tier = crop.getProperties().getTier(),
         weight =
             crop.getWeightInfluences(this, terrainHumidity, terrainNutrients, terrainAirQuality);
     long needed = Math.max(0, ((long) tier - 1) * 4 + statGrowth + statGain + statResistance);
-    int resistanceDraw = needed - (long) weight * 5 > 25 ? ProjectRuntime.random.nextInt(32) : 0;
+    int resistanceDraw = needed - (long) weight * 5 > 25 ? SharedRandom.INSTANCE.nextInt(32) : 0;
     int earned =
         CropMath.growthPoints(
             statGrowth, statGain, statResistance, tier, weight, variation, resistanceDraw);
@@ -326,16 +327,16 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
 
   public void performWeedWork() {
     if (!server() || crop == null) return;
-    var target = worldPosition.relative(NEIGHBORS[ProjectRuntime.random.nextInt(4)]);
+    var target = worldPosition.relative(NEIGHBORS[SharedRandom.INSTANCE.nextInt(4)]);
     if (!getLevel().isLoaded(target)) return;
     var plant = neighbor(target);
     if (plant != null) {
       if (plant.crop != null
           && (plant.crop.isWeed(plant)
-              || ProjectRuntime.random.nextInt(32) < plant.statResistance
+              || SharedRandom.INSTANCE.nextInt(32) < plant.statResistance
               || plant.hasWeedEX())) return;
       int growth = Math.max(statGrowth, plant.statGrowth);
-      if (growth < 31 && ProjectRuntime.random.nextBoolean()) growth++;
+      if (growth < 31 && SharedRandom.INSTANCE.nextBoolean()) growth++;
       var replacement = plant.transformCropBlock(Crops.weed, 0);
       if (replacement != null) replacement.setStatGrowth(growth);
     } else if (getLevel().isEmptyBlock(target)) {
@@ -363,12 +364,12 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
   }
 
   private boolean attemptCrossing() {
-    if (ProjectRuntime.random.nextInt(3) != 0) return false;
+    if (SharedRandom.INSTANCE.nextInt(3) != 0) return false;
     var parents = new ArrayList<CropPlot>(4);
     for (var direction : NEIGHBORS) {
       var parent = neighbor(worldPosition.relative(direction));
       if (eligible(parent)
-          && ProjectRuntime.random.nextInt(16) <= CropMath.spreadingThreshold(parent.genome()))
+          && SharedRandom.INSTANCE.nextInt(16) <= CropMath.spreadingThreshold(parent.genome()))
         parents.add(parent);
     }
     if (parents.size() < 2) return false;
@@ -384,7 +385,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     if (weights.totalWeight() <= 0) return false;
     long ticket =
         weights.totalWeight() <= Integer.MAX_VALUE
-            ? ProjectRuntime.random.nextInt((int) weights.totalWeight())
+            ? SharedRandom.INSTANCE.nextInt((int) weights.totalWeight())
             : randomTicket(weights.totalWeight());
     var selected = candidates.get(weights.select(ticket));
     int count = parents.size();
@@ -393,9 +394,9 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     var child =
         CropMath.inherit(
             genomes,
-            ProjectRuntime.random.nextInt(count * 2 + 1) - count,
-            ProjectRuntime.random.nextInt(count * 2 + 1) - count,
-            ProjectRuntime.random.nextInt(count * 2 + 1) - count);
+            SharedRandom.INSTANCE.nextInt(count * 2 + 1) - count,
+            SharedRandom.INSTANCE.nextInt(count * 2 + 1) - count,
+            SharedRandom.INSTANCE.nextInt(count * 2 + 1) - count);
     var replacement = transformCropBlock(selected, 0);
     if (replacement == null) return false;
     replacement.setStatGrowth(child.growth());
@@ -407,7 +408,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
   private static long randomTicket(long bound) {
     long bits, selected;
     do {
-      bits = ProjectRuntime.random.nextLong() >>> 1;
+      bits = SharedRandom.INSTANCE.nextLong() >>> 1;
       selected = bits % bound;
     } while (bits - selected + bound - 1 < 0);
     return selected;
@@ -441,7 +442,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
       only = parent;
     }
     if (!eligible(only)
-        || ProjectRuntime.random.nextInt(16) > CropMath.spreadingThreshold(only.genome()))
+        || SharedRandom.INSTANCE.nextInt(16) > CropMath.spreadingThreshold(only.genome()))
       return false;
     var replacement = transformCropBlock(only.crop, 0);
     if (replacement == null) return false;
@@ -576,8 +577,8 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
   @Override
   public void onEntityCollision(Entity entity) {
     if (!server() || crop == null || !crop.onEntityCollision(this, entity)) return;
-    if (ProjectRuntime.random.nextInt(100) == 0
-        && ProjectRuntime.random.nextInt(40) > statResistance) {
+    if (SharedRandom.INSTANCE.nextInt(100) == 0
+        && SharedRandom.INSTANCE.nextInt(40) > statResistance) {
       reset();
       getLevel().setBlockAndUpdate(worldPosition.below(), Blocks.DIRT.defaultBlockState());
     }
@@ -918,7 +919,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     int rolls =
         (int)
             Math.clamp(
-                Math.round(ProjectRuntime.random.nextGaussian() * chance * .6827 + chance), 0, 256);
+                Math.round(SharedRandom.INSTANCE.nextGaussian() * chance * .6827 + chance), 0, 256);
     var drops = new ArrayList<ItemStack>();
     for (int roll = 0; roll < rolls; roll++) {
       var produced = species.getGains(this);
@@ -932,7 +933,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
                       Math.min(
                           Integer.MAX_VALUE,
                           item.getCount()
-                              + (ProjectRuntime.random.nextInt(100) <= statGain ? 1L : 0L))));
+                              + (SharedRandom.INSTANCE.nextInt(100) <= statGain ? 1L : 0L))));
     }
     int nextAge = Math.clamp(species.getAgeAfterHarvest(this), 0, Math.max(0, species.getMaxAge()));
     if (crop != species || !species.canBeHarvested(this) || !approve.test(drops.size()))

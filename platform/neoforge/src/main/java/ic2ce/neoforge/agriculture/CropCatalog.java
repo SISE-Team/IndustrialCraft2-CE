@@ -29,7 +29,7 @@ import ic2ce.neoforge.agriculture.species.WheatSpecies;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.BlockGroups;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.util.*;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -356,7 +356,7 @@ public class CropCatalog extends Crops {
     if (cached != null) return cached;
     int humidity = Integer.MIN_VALUE, nutrients = Integer.MIN_VALUE;
     var generation = view;
-    for (var type : ProjectRuntime.envProxy.getBiomeTypes(biome)) {
+    for (var type : EnvProxy.get().getBiomeTypes(biome)) {
       var water = generation.humidity.get(type);
       if (water != null) humidity = Math.max(humidity, water);
       var food = generation.nutrients.get(type);

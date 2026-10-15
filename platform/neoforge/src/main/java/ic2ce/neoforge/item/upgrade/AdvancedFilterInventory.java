@@ -1,6 +1,7 @@
 package ic2ce.neoforge.item.upgrade;
 
 import ic2ce.api.network.ClientModifiable;
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.handheld.HandheldStorage;
 import ic2ce.neoforge.handheld.menu.HandheldMenu;
@@ -13,7 +14,6 @@ import ic2ce.neoforge.menu.document.TemplateStorage;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.registry.MenuDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.*;
@@ -98,7 +98,7 @@ public class AdvancedFilterInventory extends HandheldStorage
 
   protected ScreenDocument.GuiNode getNode() {
     return ScreenDocument.parse(
-        ProjectRuntime.getIdentifier("advanced_upgrade"), AdvancedFilterInventory.class);
+        ProjectIds.id("advanced_upgrade"), AdvancedFilterInventory.class);
   }
 
   Player getPlayer() {

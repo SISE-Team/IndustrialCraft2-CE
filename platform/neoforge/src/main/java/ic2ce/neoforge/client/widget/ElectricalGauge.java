@@ -1,11 +1,11 @@
 package ic2ce.neoforge.client.widget;
 
 import ic2ce.engine.text.SiFormat;
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.client.screen.MachineScreen;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.component.ElectricalBuffer;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.*;
 import net.minecraft.network.chat.Component;
 
@@ -57,7 +57,7 @@ public class ElectricalGauge extends FillGauge<ElectricalGauge> {
             .build()),
     StirlingBar(
         new GaugePropertyBuilder(176, 15, 58, 14, GaugePropertyBuilder.GaugeOrientation.Right)
-            .withTexture(ProjectRuntime.getIdentifier("textures/gui/guistirlinggenerator.png"))
+            .withTexture(ProjectIds.id("textures/gui/guistirlinggenerator.png"))
             .withBackground(59, 33)
             .build());
     public final String name;

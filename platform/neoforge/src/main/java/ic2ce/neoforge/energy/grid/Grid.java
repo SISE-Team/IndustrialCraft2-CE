@@ -5,7 +5,7 @@ import ic2ce.api.energy.tile.IEnergySink;
 import ic2ce.api.energy.tile.IEnergySource;
 import ic2ce.api.energy.tile.IEnergyTile;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.diagnostics.ProjectLog;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.file.Files;
@@ -122,7 +122,7 @@ public final class Grid {
       }
       writer.write("}\n");
     } catch (IOException error) {
-      ProjectRuntime.log.debug(DiagnosticArea.EnergyNet, error, "Cannot write energy graph");
+      ProjectLog.LOG.debug(DiagnosticArea.EnergyNet, error, "Cannot write energy graph");
     }
   }
 

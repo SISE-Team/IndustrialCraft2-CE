@@ -6,6 +6,7 @@ import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.runtime.ProgressionService;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;
@@ -17,7 +18,6 @@ import ic2ce.neoforge.menu.document.ScreenValues;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import ic2ce.neoforge.thermal.HeatSupply;
 import java.util.Collection;
 import java.util.Set;
@@ -66,7 +66,7 @@ public class AlloyFurnace extends InventoryBlockEntity
           @Override
           public void onPickupFromSlot(Player player, ItemStack stack) {
             if (player != null && stack.is(ItemDefinitions.STEEL_INGOT))
-              ProjectRuntime.achievements.issueAchievement(player, "acquireRefinedIron");
+              ProgressionService.issueAchievement(player, "acquireRefinedIron");
           }
         };
     tankInputSlot = new FluidWhitelistInput(this, "cellInput", 1, FluidDefinitions.AIR.still);

@@ -2,7 +2,7 @@ package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
 import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
@@ -38,7 +38,7 @@ public class PumpkinSpecies extends FruitStemSpecies {
 
   @Override
   protected ItemStack getSeeds() {
-    return new ItemStack(Items.PUMPKIN_SEEDS, ProjectRuntime.random.nextInt(3) + 1);
+    return new ItemStack(Items.PUMPKIN_SEEDS, SharedRandom.INSTANCE.nextInt(3) + 1);
   }
 
   @Override

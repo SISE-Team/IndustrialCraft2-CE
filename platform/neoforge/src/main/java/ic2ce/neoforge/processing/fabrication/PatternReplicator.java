@@ -8,6 +8,8 @@ import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.runtime.ProgressionService;
+import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.inventory.StackUtil;
@@ -23,7 +25,6 @@ import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.processing.menu.ReplicationMenu;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.EnumSet;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -156,7 +157,7 @@ public class PatternReplicator extends PoweredBlockEntity
   @Override
   protected void onLoaded() {
     super.onLoaded();
-    if (ProjectRuntime.sideProxy.isSimulating()) {
+    if (SideServices.proxy().isSimulating()) {
       setOverclockRates();
       refreshInfo();
     }
@@ -165,7 +166,7 @@ public class PatternReplicator extends PoweredBlockEntity
   @Override
   public void setChanged() {
     super.setChanged();
-    if (ProjectRuntime.sideProxy.isSimulating()) setOverclockRates();
+    if (SideServices.proxy().isSimulating()) setOverclockRates();
   }
 
   public boolean gainFluid() {
@@ -215,7 +216,7 @@ public class PatternReplicator extends PoweredBlockEntity
         if (usablePattern()) {
           mode = event == 4 ? Mode.SINGLE : Mode.CONTINUOUS;
           setChanged();
-          if (actor != null) ProjectRuntime.achievements.issueAchievement(actor, "replicateObject");
+          if (actor != null) ProgressionService.issueAchievement(actor, "replicateObject");
         }
       }
       default -> {}

@@ -8,6 +8,7 @@ import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.engine.machine.AmplificationBudget;
 import ic2ce.neoforge.block.PoweredBlockEntity;
@@ -24,7 +25,6 @@ import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.List;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
@@ -188,7 +188,7 @@ public class LiquidMatterFabricator extends PoweredBlockEntity
     int next = redstonePowered || energy.getEnergy() <= 0 ? 0 : amplified ? 2 : 1;
     if (state != next) {
       state = next;
-      ProjectRuntime.network.get(true).updateTileEntityField(this, "state");
+      SideServices.network(true).updateTileEntityField(this, "state");
     }
     setActiveState(next != 0, amplified);
     if (changed) super.setChanged();

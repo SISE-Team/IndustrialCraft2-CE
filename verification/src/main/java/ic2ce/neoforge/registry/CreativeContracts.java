@@ -1,7 +1,6 @@
 package ic2ce.neoforge.registry;
 
 import ic2ce.api.item.ElectricItem;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.resources.Identifier;
@@ -40,13 +39,13 @@ public final class CreativeContracts {
     CreativeContents.assignDynamic(
         bucket, Identifier.fromNamespaceAndPath("ic2", "tools_and_utilities"));
     checks++;
-    if (!CreativeContents.isIn(bucket, ProjectRuntime.tabIc2ToolsAndUtilities)
+    if (!CreativeContents.isIn(bucket, CreativeTabs.TOOLS_AND_UTILITIES)
         || !CreativeContents.isIn(ItemDefinitions.RE_BATTERY, tools))
       failures.add(
           "creative: equivalent native tab identifiers broke static or dynamic membership");
     var emitted = new ArrayList<ItemStack>();
     CreativeContents.accept(
-        ProjectRuntime.tabIc2ToolsAndUtilities, (stack, visibility) -> emitted.add(stack));
+        CreativeTabs.TOOLS_AND_UTILITIES, (stack, visibility) -> emitted.add(stack));
     checks++;
     if (emitted.stream().filter(stack -> stack.is(bucket)).count() != 1)
       failures.add("creative: dynamic bucket assignment duplicated or omitted the physical item");

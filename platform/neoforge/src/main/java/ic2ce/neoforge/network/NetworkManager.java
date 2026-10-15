@@ -2,6 +2,8 @@ package ic2ce.neoforge.network;
 
 import ic2ce.api.network.INetworkDataProvider;
 import ic2ce.api.network.INetworkManager;
+import ic2ce.neoforge.ProjectIds;
+import ic2ce.neoforge.diagnostics.ProjectLog;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.world.WorldData;
 import ic2ce.neoforge.network.NeoForgeNetworkHandler.Ic2Payload;
@@ -10,7 +12,6 @@ import ic2ce.neoforge.diagnostics.DiagnosticArea;
 import ic2ce.neoforge.explosion.NativeBlast;
 import ic2ce.neoforge.handheld.HandheldStorage;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import io.netty.buffer.ByteBuf;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
  * transport.
  */
 public class NetworkManager implements INetworkManager {
-  public static final Identifier channelId = ProjectRuntime.getIdentifier("m");
+  public static final Identifier channelId = ProjectIds.id("m");
   private static final int FRAME_BYTES = 32766, FRAME_BODY = FRAME_BYTES - 2;
 
   @FunctionalInterface
@@ -330,7 +331,7 @@ public class NetworkManager implements INetworkManager {
     try {
       IncomingActions.receive(GrowingBuffer.wrap(packet), actor);
     } catch (IOException | RuntimeException error) {
-      ProjectRuntime.log.debug(DiagnosticArea.Network, error, "Rejected invalid client command");
+      ProjectLog.LOG.debug(DiagnosticArea.Network, error, "Rejected invalid client command");
     }
   }
 

@@ -9,7 +9,9 @@ import net.minecraft.world.entity.player.Player;
  * exists.
  */
 public final class ProgressionService {
-  public void issueAchievement(Player player, String name) {
+  private ProgressionService() {}
+
+  public static void issueAchievement(Player player, String name) {
     if (!(player instanceof ServerPlayer actor) || name == null || name.isBlank()) return;
     String path =
         name.indexOf(':') >= 0

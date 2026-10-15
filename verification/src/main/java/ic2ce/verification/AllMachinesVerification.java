@@ -12,7 +12,8 @@ import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.InventorySlot;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
+import ic2ce.neoforge.runtime.SideServices;
 import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -168,7 +169,7 @@ public final class AllMachinesVerification {
             server.createCommandSourceStack(), "gamemode creative " + player.getScoreboardName());
     server.getCommands().performPrefixedCommand(server.createCommandSourceStack(), "time set noon");
     server.getCommands().performPrefixedCommand(server.createCommandSourceStack(), "weather clear");
-    ProjectRuntime.random.setSeed(20261012L);
+    SharedRandom.INSTANCE.setSeed(20261012L);
     createFixtures();
     guard("suite", "setup behaviors", behavior::setup);
     at(
@@ -426,7 +427,7 @@ public final class AllMachinesVerification {
       var target = tile(id).getBlockPos();
       try {
         player.setPos(target.getX() + 0.5, target.getY() + 1, target.getZ() + 2.5);
-        ProjectRuntime.network.get(true).onPacket(packet, player);
+        SideServices.network(true).onPacket(packet, player);
       } finally {
         player.setPos(previous.x, previous.y, previous.z);
         packet.release();

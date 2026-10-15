@@ -3,7 +3,7 @@ package ic2ce.neoforge.menu;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.personal.OwnedDevice;
 import ic2ce.neoforge.registry.MenuDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.io.*;
 import java.util.Objects;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -64,7 +64,7 @@ public interface IHasGui extends Container {
       world.debugSynchronizers().startTrackingChunk(player, position);
       net.neoforged.neoforge.event.EventHooks.fireChunkSent(player, chunk, world);
     }
-    return ProjectRuntime.envProxy.openHandledScreen(player, provider(getBeName(target)), payload);
+    return EnvProxy.get().openHandledScreen(player, provider(getBeName(target)), payload);
   }
 
   default boolean openManagedItem(Player actor, InteractionHand hand, Integer subGuiId) {
@@ -83,7 +83,7 @@ public interface IHasGui extends Container {
       throw new UncheckedIOException("Cannot encode native handheld menu", error);
     }
     payload.flip();
-    return ProjectRuntime.envProxy.openHandledScreen(
+    return EnvProxy.get().openHandledScreen(
         player, provider(getItemName(held, subGuiId)), payload);
   }
 

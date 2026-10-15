@@ -1,7 +1,7 @@
 package ic2ce.neoforge.registry;
 
 
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import net.minecraft.sounds.SoundEvent;
 
 public class SoundDefinitions {
@@ -69,6 +69,6 @@ public class SoundDefinitions {
    }
 
    private static SoundEvent register(String id) {
-      return ProjectRuntime.envProxy.registerSoundEvent(id);
+      return EnvProxy.get().registerSoundEvent(id);
    }
 }

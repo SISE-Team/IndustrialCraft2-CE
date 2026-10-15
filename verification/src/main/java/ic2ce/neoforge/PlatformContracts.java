@@ -3,7 +3,7 @@ package ic2ce.neoforge;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.GameSignals;
 import ic2ce.neoforge.registry.RegistryPlan;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -35,12 +35,12 @@ public final class PlatformContracts {
 
   private Result exercise(ServerLevel world) {
     check(
-        ProjectRuntime.envProxy.getRegistryLookup() == world.getServer().registryAccess(),
+        EnvProxy.get().getRegistryLookup() == world.getServer().registryAccess(),
         "dedicated current registry generation is the actual server registry");
     check(
         BuiltInRegistries.GAME_EVENT
             .getKey(GameSignals.TOOL_USE)
-            .equals(ProjectRuntime.getIdentifier("tool_use")),
+            .equals(ProjectIds.id("tool_use")),
         "game events replay through their native registry phase");
     check(
         EnvProxyNeoForge.BLOCK_ENTITIES.values().size() >= 147
@@ -67,18 +67,18 @@ public final class PlatformContracts {
               + BuiltInRegistries.BLOCK.getKey(block));
     }
     check(
-        ProjectRuntime.envProxy.getBurnTime(new ItemStack(Items.SUGAR_CANE)) == 50
-            && ProjectRuntime.envProxy.getBurnTime(ItemStack.EMPTY) == 0,
+        EnvProxy.get().getBurnTime(new ItemStack(Items.SUGAR_CANE)) == 50
+            && EnvProxy.get().getBurnTime(ItemStack.EMPTY) == 0,
         "registered non-vanilla fuel and empty fuel dispatch");
     check(
-        !ProjectRuntime.envProxy.openHandledScreen(
+        !EnvProxy.get().openHandledScreen(
             ic2ce.neoforge.runtime.AutomationActors.get(world), null, null),
         "rejected native menu providers cannot report an opened menu");
     var plan = new RegistryPlan<Block>(Registries.BLOCK);
-    var id = ProjectRuntime.getIdentifier("verification_value");
+    var id = ProjectIds.id("verification_value");
     plan.stage(id, Blocks.STONE);
     var snapshot = plan.values();
-    plan.stage(ProjectRuntime.getIdentifier("verification_later"), Blocks.DIRT);
+    plan.stage(ProjectIds.id("verification_later"), Blocks.DIRT);
     check(
         snapshot.size() == 1 && plan.values().size() == 2,
         "exported registry snapshots own a stable generation");

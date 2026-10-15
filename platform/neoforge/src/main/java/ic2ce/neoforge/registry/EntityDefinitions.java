@@ -1,7 +1,8 @@
 package ic2ce.neoforge.registry;
 
 
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.ProjectIds;
+import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.neoforge.projectile.MiningBeam;
 import ic2ce.neoforge.explosion.PrimedDemolitionCharge;
 import ic2ce.neoforge.explosion.PrimedNuclearCharge;
@@ -38,10 +39,10 @@ public final class EntityDefinitions {
 
    private static <T extends Entity> EntityType<T> register(String name, Builder<T> builder) {
       net.minecraft.resources.ResourceKey<EntityType<?>> key = net.minecraft.resources.ResourceKey.create(
-         net.minecraft.core.registries.Registries.ENTITY_TYPE, ProjectRuntime.getIdentifier(name)
+         net.minecraft.core.registries.Registries.ENTITY_TYPE, ProjectIds.id(name)
       );
       EntityType<T> ret = builder.build(key);
-      ProjectRuntime.envProxy.registerEntity(ProjectRuntime.getIdentifier(name), ret);
+      EnvProxy.get().registerEntity(ProjectIds.id(name), ret);
       return ret;
    }
 }

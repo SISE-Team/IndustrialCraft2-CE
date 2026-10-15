@@ -1,7 +1,7 @@
 package ic2ce.neoforge.agriculture.species;
 
 import ic2ce.api.crops.*;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.*;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.*;
@@ -58,8 +58,8 @@ public class TreeSpecies extends StoredYieldSpecies {
     var produced = new ItemStack[3];
     int count = 0;
     produced[count++] = cropDrop.copy();
-    if (ProjectRuntime.random.nextInt(100) >= 75) produced[count++] = cropSapling.copy();
-    if (appleBearing && ProjectRuntime.random.nextInt(100) >= 75)
+    if (SharedRandom.INSTANCE.nextInt(100) >= 75) produced[count++] = cropSapling.copy();
+    if (appleBearing && SharedRandom.INSTANCE.nextInt(100) >= 75)
       produced[count++] = new ItemStack(Items.APPLE);
     return Arrays.copyOf(produced, count);
   }

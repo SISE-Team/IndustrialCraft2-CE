@@ -5,6 +5,7 @@ import static ic2ce.verification.AllMachinesVerification.*;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.recipe.*;
+import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.neoforge.storage.box.TileEntityStorageBox;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.component.FluidPorts;
@@ -293,17 +294,17 @@ final class AllMachineBehaviors {
       machine.inputSlot.put(stack);
       suite.observe(id, "recipeInput", stack.toString());
       ItemStack remainder =
-          ic2ce.neoforge.runtime.ProjectRuntime.envProxy.hasRecipeRemainder(stack)
-              ? ic2ce.neoforge.runtime.ProjectRuntime.envProxy.getRecipeRemainder(stack)
+          EnvProxy.get().hasRecipeRemainder(stack)
+              ? EnvProxy.get().getRecipeRemainder(stack)
               : ItemStack.EMPTY;
       if (!remainder.isEmpty() && recipe.getOutput() instanceof Collection<?> outputs) {
         for (Object candidate : outputs)
           if (candidate instanceof ItemStack out
               && (ItemStack.isSameItemSameComponents(remainder, out)
-                  || ic2ce.neoforge.runtime.ProjectRuntime.envProxy.hasRecipeRemainder(out)
+                  || EnvProxy.get().hasRecipeRemainder(out)
                       && ItemStack.isSameItemSameComponents(
                           stack,
-                          ic2ce.neoforge.runtime.ProjectRuntime.envProxy.getRecipeRemainder(
+                          EnvProxy.get().getRecipeRemainder(
                               out)))) {
             remainder = ItemStack.EMPTY;
             break;

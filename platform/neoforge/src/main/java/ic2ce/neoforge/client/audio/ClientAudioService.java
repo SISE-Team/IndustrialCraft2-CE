@@ -3,6 +3,7 @@ package ic2ce.neoforge.client.audio;
 import ic2ce.neoforge.item.IHitSoundOverride;
 import ic2ce.neoforge.audio.AudioService;
 import ic2ce.neoforge.audio.PlaybackHandle;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.lang.ref.*;
 import java.util.*;
 import net.minecraft.client.Minecraft;
@@ -159,7 +160,7 @@ public class ClientAudioService extends AudioService {
         original.getSource(),
         original.getVolume(),
         original.getPitch(),
-        ic2ce.neoforge.runtime.ProjectRuntime.random,
+        SharedRandom.INSTANCE,
         position);
   }
 

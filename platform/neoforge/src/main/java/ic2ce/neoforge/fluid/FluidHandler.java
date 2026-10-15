@@ -1,7 +1,7 @@
 package ic2ce.neoforge.fluid;
 
 import ic2ce.api.fluid.*;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -21,7 +21,7 @@ import org.apache.commons.lang3.mutable.Mutable;
 public final class FluidHandler {
   private FluidHandler() {}
 
-  static final EnvFluidHandler ENV_HANDLER = ProjectRuntime.envProxy.createFluidStackHandler();
+  static final EnvFluidHandler ENV_HANDLER = EnvProxy.get().createFluidStackHandler();
 
   static {
     FluidStackAccess.install(ENV_HANDLER);

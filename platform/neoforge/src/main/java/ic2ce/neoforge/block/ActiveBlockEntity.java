@@ -1,7 +1,7 @@
 package ic2ce.neoforge.block;
 
 import ic2ce.neoforge.audio.PlaybackHandle;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
@@ -37,7 +37,7 @@ public class ActiveBlockEntity extends InventoryBlockEntity {
   protected void onUnloaded() {
     audioGeneration++;
     audioActive = false;
-    if (client()) ProjectRuntime.soundManager.removeAllSound(this);
+    if (client()) SideServices.audio().removeAllSound(this);
     clearSound();
     super.onUnloaded();
   }
@@ -77,7 +77,7 @@ public class ActiveBlockEntity extends InventoryBlockEntity {
     if (subSoundRequested == value) return;
     subSoundRequested = value;
     if (getLevel() != null && !client())
-      ProjectRuntime.network.get(true).updateTileEntityField(this, "subSoundRequested");
+      SideServices.network(true).updateTileEntityField(this, "subSoundRequested");
   }
 
   public void shutdown(boolean interrupted) {
@@ -190,7 +190,7 @@ public class ActiveBlockEntity extends InventoryBlockEntity {
   private PlaybackHandle create(SoundEvent event) {
     return !client() || event == null
         ? null
-        : ProjectRuntime.soundManager.createSound(
+        : SideServices.audio().createSound(
             this, event, SoundSource.BLOCKS, worldPosition, 1, 1);
   }
 

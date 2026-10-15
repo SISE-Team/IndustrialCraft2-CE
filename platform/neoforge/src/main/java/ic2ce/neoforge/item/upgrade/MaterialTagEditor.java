@@ -8,7 +8,7 @@ import ic2ce.neoforge.handheld.menu.HandheldMenu;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.slot.TemplateSlot;
 import ic2ce.neoforge.registry.MenuDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -121,7 +121,7 @@ public class MaterialTagEditor extends FilterSubmenu {
     }
 
     private void sync() {
-      ProjectRuntime.network.get(false).sendContainerField(getContainer(), "selectedTag");
+      SideServices.network(false).sendContainerField(getContainer(), "selectedTag");
     }
   }
 }

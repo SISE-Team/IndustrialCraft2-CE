@@ -5,8 +5,8 @@ import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
 import ic2ce.neoforge.diagnostics.Positions;
+import ic2ce.neoforge.diagnostics.ProjectLog;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.core.*;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Player;
@@ -50,7 +50,7 @@ public abstract class NuclearBlockEntity extends ExplosiveBlockEntity {
   public void onPlaced(ItemStack stack, LivingEntity placer, Direction facing) {
     super.onPlaced(stack, placer, facing);
     if (placer instanceof Player actor)
-      ProjectRuntime.log.info(
+      ProjectLog.LOG.info(
           DiagnosticArea.PlayerActivity,
           "Nuclear device placed by %s/%s at %s",
           actor.getGameProfile().name(),
@@ -60,7 +60,7 @@ public abstract class NuclearBlockEntity extends ExplosiveBlockEntity {
 
   @Override
   protected void onIgnite(LivingEntity igniter) {
-    ProjectRuntime.log.info(
+    ProjectLog.LOG.info(
         DiagnosticArea.PlayerActivity,
         "Nuclear device at %s primed by %s",
         Positions.format(this),

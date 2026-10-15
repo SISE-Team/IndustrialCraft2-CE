@@ -4,6 +4,8 @@ import com.mojang.authlib.GameProfile;
 import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.network.INetworkTileEntityEventListener;
 import ic2ce.neoforge.menu.IHasGui;
+import ic2ce.neoforge.runtime.SharedRandom;
+import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.world.WorldData;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.item.StackTag;
@@ -18,7 +20,6 @@ import ic2ce.neoforge.personal.menu.PublicItemTradeMenu;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.io.IOException;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -42,7 +43,7 @@ public class ItemTradeTerminal extends InventoryBlockEntity
         INetworkTileEntityEventListener,
         INetworkClientTileEntityEventListener {
   private GameProfile owner;
-  private int ticker = ProjectRuntime.random.nextInt(64);
+  private int ticker = SharedRandom.INSTANCE.nextInt(64);
   private boolean marketAttached;
   public int totalTradeCount, stock;
   public boolean infinite;
@@ -178,7 +179,7 @@ public class ItemTradeTerminal extends InventoryBlockEntity
   private void completed() {
     if (totalTradeCount < Integer.MAX_VALUE) totalTradeCount++;
     setChanged();
-    ProjectRuntime.network.get(true).initiateTileEntityEvent(this, 0, true);
+    SideServices.network(true).initiateTileEntityEvent(this, 0, true);
   }
 
   public void updateStock() {

@@ -3,7 +3,7 @@ package ic2ce.neoforge.thermal;
 import ic2ce.api.energy.tile.IHeatSource;
 import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.block.InventoryBlockEntity;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -94,14 +94,14 @@ public abstract class BufferedHeatSource extends InventoryBlockEntity implements
   @Override
   public void setChanged() {
     super.setChanged();
-    if (ProjectRuntime.sideProxy.isSimulating())
+    if (SideServices.proxy().isSimulating())
       maxHeatEmitpeerTick = Math.max(0, getMaxHeatEmittedPerTick());
   }
 
   @Override
   protected void onLoaded() {
     super.onLoaded();
-    if (ProjectRuntime.sideProxy.isSimulating())
+    if (SideServices.proxy().isSimulating())
       maxHeatEmitpeerTick = Math.max(0, getMaxHeatEmittedPerTick());
   }
 

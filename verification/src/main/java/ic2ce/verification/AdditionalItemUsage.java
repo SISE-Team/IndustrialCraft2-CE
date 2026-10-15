@@ -1,6 +1,7 @@
 package ic2ce.verification;
 
 import com.google.gson.GsonBuilder;
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.inventory.InventorySlot;
@@ -10,7 +11,6 @@ import ic2ce.neoforge.processing.fluid.LegacyCellCanner;
 import ic2ce.neoforge.processing.solid.MaterialRecycler;
 import ic2ce.neoforge.processing.solid.PlateCutter;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import ic2ce.neoforge.terrain.TerrainBlueprint;
 import ic2ce.neoforge.terrain.TerrainController;
 import ic2ce.neoforge.world.BiomeUtil;
@@ -59,7 +59,7 @@ public final class AdditionalItemUsage {
         Map.of("id", "ic2:" + id, "operation", operation, "passed", ok, "evidence", evidence));
     if (ok && AllItemsVerification.ACTIVE != null)
       AllItemsVerification.ACTIVE.mark(
-          BuiltInRegistries.ITEM.getValue(ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(id)),
+          BuiltInRegistries.ITEM.getValue(ProjectIds.id(id)),
           operation,
           evidence);
   }
@@ -223,7 +223,7 @@ public final class AdditionalItemUsage {
           2);
       s.level.setBlock(q.above(), Blocks.AIR.defaultBlockState(), 2);
       var item =
-          (TerrainBlueprint) BuiltInRegistries.ITEM.getValue(ProjectRuntime.getIdentifier(id));
+          (TerrainBlueprint) BuiltInRegistries.ITEM.getValue(ProjectIds.id(id));
       boolean applied = item.terraform(new ItemStack(item), s.level, q);
       var state = s.level.getBlockState(q);
       boolean ok =

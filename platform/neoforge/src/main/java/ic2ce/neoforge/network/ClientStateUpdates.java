@@ -2,7 +2,7 @@ package ic2ce.neoforge.network;
 
 import ic2ce.neoforge.handheld.HandheldStorage;
 import ic2ce.neoforge.menu.OwnedMenu;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.io.IOException;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -64,6 +64,6 @@ final class ClientStateUpdates {
           default -> throw new IOException("Unsupported shared client state message: " + type);
         };
     if (input.hasAvailable()) throw new IOException("Trailing client state bytes");
-    ProjectRuntime.sideProxy.requestTick(false, apply);
+    SideServices.proxy().requestTick(false, apply);
   }
 }

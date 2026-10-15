@@ -9,7 +9,7 @@ import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.menu.document.HandheldDocumentMenu;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import java.text.DecimalFormat;
 import java.util.*;
 import net.minecraft.ChatFormatting;
@@ -121,7 +121,7 @@ public class MachineUpgrade extends Item
           else data.putByte("dir", (byte) direction);
           return data;
         });
-    ProjectRuntime.sideProxy.messagePlayer(
+    SideServices.proxy().messagePlayer(
         owner,
         LocalizedText.translate(
             type == UpgradeType.ejector

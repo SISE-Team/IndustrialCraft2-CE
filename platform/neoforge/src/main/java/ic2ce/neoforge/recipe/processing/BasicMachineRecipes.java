@@ -1,10 +1,11 @@
 package ic2ce.neoforge.recipe.processing;
 
 import ic2ce.api.recipe.*;
+import ic2ce.neoforge.diagnostics.ProjectLog;
 import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.util.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
@@ -24,9 +25,9 @@ public class BasicMachineRecipes extends OrderedMachineRecipes<IRecipeInput, Col
       MachineRecipe<IRecipeInput, Collection<ItemStack>> recipe) {
     for (ItemStack output : recipe.getOutput()) {
       if (StackUtil.checkItemEqualityStrict(remainder, output)) return true;
-      if (ProjectRuntime.envProxy.hasRecipeRemainder(output)
+      if (EnvProxy.get().hasRecipeRemainder(output)
           && StackUtil.checkItemEqualityStrict(
-              input, ProjectRuntime.envProxy.getRecipeRemainder(output))) return true;
+              input, EnvProxy.get().getRecipeRemainder(output))) return true;
     }
     return false;
   }
@@ -82,10 +83,10 @@ public class BasicMachineRecipes extends OrderedMachineRecipes<IRecipeInput, Col
     if (recipe == null) return null;
     int amount = recipe.getInput().getAmount();
     if (input.getCount() < amount
-        || ProjectRuntime.envProxy.hasRecipeRemainder(input) && input.getCount() != amount)
+        || EnvProxy.get().hasRecipeRemainder(input) && input.getCount() != amount)
       return null;
     if (adjustInput) {
-      if (ProjectRuntime.envProxy.hasRecipeRemainder(input))
+      if (EnvProxy.get().hasRecipeRemainder(input))
         throw new UnsupportedOperationException("Use apply for container remainders");
       input.shrink(amount);
     }
@@ -111,7 +112,7 @@ public class BasicMachineRecipes extends OrderedMachineRecipes<IRecipeInput, Col
 
   private boolean invalid(String message) {
     if (!ProjectConfiguration.ignoreInvalidRecipes) throw new IllegalArgumentException(message);
-    ProjectRuntime.log.warn(DiagnosticArea.Recipe, message);
+    ProjectLog.LOG.warn(DiagnosticArea.Recipe, message);
     return false;
   }
 }

@@ -1,7 +1,8 @@
 package ic2ce.neoforge.config;
 
 import ic2ce.engine.config.Config;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.ProjectIds;
+import ic2ce.neoforge.runtime.SideServices;
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
@@ -24,7 +25,7 @@ public final class ProjectConfiguration {
     var defaults = new Config("IndustrialCraft2-CE default configuration");
     try (var source =
         Objects.requireNonNull(
-            ProjectRuntime.class.getResourceAsStream("/assets/ic2/config/general.ini"),
+            ProjectIds.class.getResourceAsStream("/assets/ic2/config/general.ini"),
             "Missing project configuration material")) {
       byte[] material = source.readAllBytes();
       current.load(new ByteArrayInputStream(material));
@@ -89,7 +90,7 @@ public final class ProjectConfiguration {
   }
 
   private static File getFile() {
-    return new File(new File(ProjectRuntime.sideProxy.getMinecraftDir(), "config"), "IC2.ini");
+    return new File(new File(SideServices.proxy().getMinecraftDir(), "config"), "IC2.ini");
   }
 
   private static void upgrade(Config values) {

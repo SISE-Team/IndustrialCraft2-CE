@@ -1,6 +1,7 @@
 package ic2ce.neoforge.damage;
 
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.ProjectIds;
+import ic2ce.neoforge.runtime.EnvProxy;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -13,11 +14,11 @@ import net.minecraft.world.entity.LivingEntity;
  */
 public final class DamageProfiles {
   public static final ResourceKey<DamageType> ELECTRICITY_KEY =
-      ResourceKey.create(Registries.DAMAGE_TYPE, ProjectRuntime.getIdentifier("electricity"));
+      ResourceKey.create(Registries.DAMAGE_TYPE, ProjectIds.id("electricity"));
   public static final ResourceKey<DamageType> NUKE_KEY =
-      ResourceKey.create(Registries.DAMAGE_TYPE, ProjectRuntime.getIdentifier("nuke"));
+      ResourceKey.create(Registries.DAMAGE_TYPE, ProjectIds.id("nuke"));
   public static final ResourceKey<DamageType> RADIATION_KEY =
-      ResourceKey.create(Registries.DAMAGE_TYPE, ProjectRuntime.getIdentifier("radiation"));
+      ResourceKey.create(Registries.DAMAGE_TYPE, ProjectIds.id("radiation"));
 
   private record Snapshot(
       HolderLookup.Provider registry,
@@ -30,7 +31,7 @@ public final class DamageProfiles {
   private DamageProfiles() {}
 
   private static Snapshot current() {
-    var registry = ProjectRuntime.envProxy.getRegistryLookup();
+    var registry = EnvProxy.get().getRegistryLookup();
     if (registry == null)
       throw new IllegalStateException("Native damage registry is not available");
     var known = snapshot;

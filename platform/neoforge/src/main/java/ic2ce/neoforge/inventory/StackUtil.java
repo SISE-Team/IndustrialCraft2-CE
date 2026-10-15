@@ -7,7 +7,7 @@ import ic2ce.neoforge.inventory.transfer.EnvItemHandler;
 import ic2ce.engine.value.ValueTuples;
 import ic2ce.neoforge.registry.ItemGroups;
 import ic2ce.neoforge.runtime.AutomationActors;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import it.unimi.dsi.fastutil.ints.*;
 import java.util.*;
 import java.util.function.Predicate;
@@ -50,7 +50,7 @@ public final class StackUtil {
   static final Set<String> ignoredNbtKeys = Set.of("damage", "charge", "energy", "advDmg");
   public static final Predicate<ItemStack> anyStack = stack -> true;
   public static final ItemStack emptyStack = ItemStack.EMPTY;
-  public static final EnvItemHandler ENV = ProjectRuntime.envProxy.createItemHandler();
+  public static final EnvItemHandler ENV = EnvProxy.get().createItemHandler();
 
   public static boolean isEmpty(ItemStack stack) {
     return stack == null || stack.isEmpty();

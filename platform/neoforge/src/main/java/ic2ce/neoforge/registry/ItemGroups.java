@@ -1,7 +1,7 @@
 package ic2ce.neoforge.registry;
 
 
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.ProjectIds;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
@@ -61,7 +61,7 @@ public final class ItemGroups {
    }
 
    private static TagKey<Item> create(String name) {
-      return TagKey.create(Registries.ITEM, ProjectRuntime.getIdentifier(name));
+      return TagKey.create(Registries.ITEM, ProjectIds.id(name));
    }
 
    private static TagKey<Item> create(String fabricName, String forgeName) {

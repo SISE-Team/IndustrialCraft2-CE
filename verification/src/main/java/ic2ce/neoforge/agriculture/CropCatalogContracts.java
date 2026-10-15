@@ -5,7 +5,7 @@ import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.agriculture.item.EncodedSeed;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
@@ -182,7 +182,7 @@ public final class CropCatalogContracts {
     parent.setStatGrowth(17);
     parent.setStatGain(12);
     parent.setStatResistance(4);
-    ProjectRuntime.random.setSeed(4129);
+    SharedRandom.INSTANCE.setSeed(4129);
     for (int attempt = 0; attempt < 128 && !plot.isRemoved(); attempt++) plot.performTick();
     var spread = (CropPlot) world.getBlockEntity(position);
     check(
@@ -202,7 +202,7 @@ public final class CropCatalogContracts {
     second.setStatGrowth(10);
     second.setStatGain(12);
     second.setStatResistance(4);
-    ProjectRuntime.random.setSeed(7729);
+    SharedRandom.INSTANCE.setSeed(7729);
     for (int attempt = 0; attempt < 256 && !plot.isRemoved(); attempt++) plot.performTick();
     var crossed = (CropPlot) world.getBlockEntity(position);
     check(
@@ -249,7 +249,7 @@ public final class CropCatalogContracts {
         };
     overrideSpecies(parent, incompatible);
     overrideSpecies(second, incompatible);
-    ProjectRuntime.random.setSeed(1337);
+    SharedRandom.INSTANCE.setSeed(1337);
     for (int attempt = 0; attempt < 256 && !plot.isRemoved(); attempt++) plot.performTick();
     check(
         !plot.isRemoved() && plot.getCrop() == null && plot.isCrossingBase(),

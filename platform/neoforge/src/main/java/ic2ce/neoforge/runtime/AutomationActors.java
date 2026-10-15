@@ -29,6 +29,6 @@ public final class AutomationActors {
               return new GameProfile(
                   UUID.nameUUIDFromBytes(name.getBytes(StandardCharsets.UTF_8)), name);
             });
-    return ProjectRuntime.envProxy.createFakePlayer(world, identity);
+    return EnvProxy.get().createFakePlayer(world, identity);
   }
 }

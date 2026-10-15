@@ -9,6 +9,7 @@ import ic2ce.neoforge.recipe.input.NativeIngredientInput;
 import ic2ce.neoforge.recipe.processing.BasicMachineRecipes;
 import ic2ce.neoforge.recipe.processing.ListedMachineInputs;
 import ic2ce.neoforge.recipe.processing.OrderedMachineRecipes;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.nio.file.*;
 import java.util.*;
 import java.util.concurrent.*;
@@ -853,7 +854,7 @@ public final class HotpathRegression {
             "native processing recipe after first reload");
         cachedBiome = server.overworld().getBiome(new net.minecraft.core.BlockPos(9120, 100, 9120));
         check(
-            ic2ce.neoforge.runtime.ProjectRuntime.envProxy.biomeHasType(
+            EnvProxy.get().biomeHasType(
                     cachedBiome, ic2ce.api.crops.BiomeType.SWAMP)
                 && ic2ce.api.crops.Crops.instance.getNutrientBiomeBonus(cachedBiome) == 10,
             "first native biome tag reload establishes a warm positive crop bonus");
@@ -900,7 +901,7 @@ public final class HotpathRegression {
         check(
             cachedBiome
                     == server.overworld().getBiome(new net.minecraft.core.BlockPos(9120, 100, 9120))
-                && !ic2ce.neoforge.runtime.ProjectRuntime.envProxy.biomeHasType(
+                && !EnvProxy.get().biomeHasType(
                     cachedBiome, ic2ce.api.crops.BiomeType.SWAMP)
                 && ic2ce.api.crops.Crops.instance.getNutrientBiomeBonus(cachedBiome) == 0,
             "actual tag publication invalidates the warm crop cache despite retaining the same"

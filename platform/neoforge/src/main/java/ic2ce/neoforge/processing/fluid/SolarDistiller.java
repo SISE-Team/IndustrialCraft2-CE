@@ -6,6 +6,7 @@ import ic2ce.api.upgrade.*;
 import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
+import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.world.BiomeUtil;
 import ic2ce.neoforge.block.InventoryBlockEntity;
@@ -16,7 +17,6 @@ import ic2ce.neoforge.power.SolarCollector;
 import ic2ce.neoforge.processing.menu.DistillationMenu;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.Set;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
@@ -108,9 +108,9 @@ public class SolarDistiller extends InventoryBlockEntity implements IHasGui, IUp
   public int getTickRate() {
     if (getLevel() == null) return 72;
     var biome = BiomeUtil.getBiome(getLevel(), worldPosition);
-    return ProjectRuntime.envProxy.biomeHasType(biome, BiomeType.HOT)
+    return EnvProxy.get().biomeHasType(biome, BiomeType.HOT)
         ? 36
-        : ProjectRuntime.envProxy.biomeHasType(biome, BiomeType.COLD) ? 144 : 72;
+        : EnvProxy.get().biomeHasType(biome, BiomeType.COLD) ? 144 : 72;
   }
 
   public boolean canWork() {

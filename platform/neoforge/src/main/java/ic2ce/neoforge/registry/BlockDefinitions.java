@@ -1,5 +1,7 @@
 package ic2ce.neoforge.registry;
 
+import ic2ce.neoforge.ProjectIds;
+import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.neoforge.storage.box.TileEntityBronzeStorageBox;
 import ic2ce.neoforge.storage.box.TileEntityIridiumStorageBox;
 import ic2ce.neoforge.storage.box.TileEntityIronStorageBox;
@@ -99,7 +101,6 @@ import ic2ce.neoforge.reactor.ReactorChamber;
 import ic2ce.neoforge.reactor.RedstoneCondensatorService;
 import ic2ce.neoforge.reactor.SignalPort;
 import ic2ce.neoforge.reactor.VesselHatch;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import ic2ce.neoforge.storage.StationaryFluidStore;
 import ic2ce.neoforge.terrain.TerrainController;
 import ic2ce.neoforge.thermal.CombustionHeater;
@@ -166,7 +167,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("basalt")))
+                          ProjectIds.id("basalt")))
                   .strength(20.0F, 45.0F)
                   .requiresCorrectToolForDrops()));
   public static final Block LEAD_ORE =
@@ -177,7 +178,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("lead_ore")))
+                          ProjectIds.id("lead_ore")))
                   .strength(2.0F, 4.0F)
                   .requiresCorrectToolForDrops()));
   public static final Block TIN_ORE =
@@ -188,7 +189,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("tin_ore")))
+                          ProjectIds.id("tin_ore")))
                   .strength(3.0F, 5.0F)
                   .requiresCorrectToolForDrops()));
   public static final Block URANIUM_ORE =
@@ -199,7 +200,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("uranium_ore")))
+                          ProjectIds.id("uranium_ore")))
                   .strength(4.0F, 6.0F)
                   .requiresCorrectToolForDrops()));
   public static final Block DEEPSLATE_LEAD_ORE =
@@ -210,7 +211,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "deepslate_lead_ore")))
                   .strength(3.0F, 6.0F)
                   .requiresCorrectToolForDrops()
@@ -223,7 +224,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("deepslate_tin_ore")))
+                          ProjectIds.id("deepslate_tin_ore")))
                   .strength(4.0F, 7.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.DEEPSLATE)));
@@ -235,7 +236,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "deepslate_uranium_ore")))
                   .strength(5.0F, 8.0F)
                   .requiresCorrectToolForDrops()
@@ -248,7 +249,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("raw_lead_block")))
+                          ProjectIds.id("raw_lead_block")))
                   .strength(3.0F, 11.0F)
                   .requiresCorrectToolForDrops()));
   public static final Block RAW_TIN_BLOCK =
@@ -259,7 +260,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("raw_tin_block")))
+                          ProjectIds.id("raw_tin_block")))
                   .strength(4.0F, 12.0F)
                   .requiresCorrectToolForDrops()));
   public static final Block RAW_URANIUM_BLOCK =
@@ -270,7 +271,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("raw_uranium_block")))
+                          ProjectIds.id("raw_uranium_block")))
                   .strength(5.0F, 13.0F)
                   .requiresCorrectToolForDrops()));
   public static final Block BRONZE_BLOCK =
@@ -281,7 +282,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("bronze_block")))
+                          ProjectIds.id("bronze_block")))
                   .strength(5.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL)));
@@ -293,7 +294,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("lead_block")))
+                          ProjectIds.id("lead_block")))
                   .strength(4.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL)));
@@ -305,7 +306,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("steel_block")))
+                          ProjectIds.id("steel_block")))
                   .strength(8.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL)));
@@ -317,7 +318,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("tin_block")))
+                          ProjectIds.id("tin_block")))
                   .strength(4.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL)));
@@ -329,7 +330,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("uranium_block")))
+                          ProjectIds.id("uranium_block")))
                   .strength(6.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL)));
@@ -341,7 +342,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("reinforced_stone")))
+                          ProjectIds.id("reinforced_stone")))
                   .strength(80.0F, 180.0F)
                   .requiresCorrectToolForDrops()));
   public static final Block MACHINE =
@@ -352,7 +353,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("machine")))
+                          ProjectIds.id("machine")))
                   .strength(5.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL)));
@@ -364,7 +365,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("advanced_machine")))
+                          ProjectIds.id("advanced_machine")))
                   .strength(8.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL)));
@@ -376,7 +377,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("reactor_vessel")))
+                          ProjectIds.id("reactor_vessel")))
                   .strength(40.0F, 90.0F)
                   .requiresCorrectToolForDrops()));
   public static final Block SILVER_BLOCK =
@@ -387,7 +388,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("silver_block")))
+                          ProjectIds.id("silver_block")))
                   .strength(4.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL)));
@@ -400,7 +401,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rubber_leaves")))
+                          ProjectIds.id("rubber_leaves")))
                   .strength(0.2F)
                   .randomTicks()
                   .sound(SoundType.GRASS)
@@ -416,7 +417,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rubber_log")))
+                          ProjectIds.id("rubber_log")))
                   .mapColor(
                       state ->
                           state.getValue(RotatedPillarBlock.AXIS) == Axis.Y
@@ -433,7 +434,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "stripped_rubber_log")))
                   .mapColor(
                       state ->
@@ -450,7 +451,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rubber_wood")))
+                          ProjectIds.id("rubber_wood")))
                   .strength(1.0F)
                   .sound(SoundType.WOOD)));
   public static final Block STRIPPED_RUBBER_WOOD =
@@ -461,7 +462,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "stripped_rubber_wood")))
                   .strength(1.0F)
                   .sound(SoundType.WOOD)));
@@ -475,13 +476,13 @@ public final class BlockDefinitions {
                   Optional.of(
                       ResourceKey.create(
                           Registries.CONFIGURED_FEATURE,
-                          ProjectRuntime.getIdentifier("rubber_tree"))),
+                          ProjectIds.id("rubber_tree"))),
                   Optional.empty()),
               BlockProfiles.plant()
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rubber_sapling")))
+                          ProjectIds.id("rubber_sapling")))
                   .noCollision()
                   .randomTicks()
                   .instabreak()
@@ -494,7 +495,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rubber_planks")))
+                          ProjectIds.id("rubber_planks")))
                   .strength(2.0F, 3.0F)
                   .sound(SoundType.WOOD)));
   public static final Block RUBBER_BUTTON =
@@ -507,7 +508,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rubber_button")))
+                          ProjectIds.id("rubber_button")))
                   .noCollision()
                   .strength(0.5F)
                   .sound(SoundType.WOOD)) {});
@@ -520,7 +521,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rubber_door")))
+                          ProjectIds.id("rubber_door")))
                   .strength(3.0F)
                   .sound(SoundType.WOOD)
                   .noOcclusion()) {});
@@ -532,7 +533,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rubber_fence")))
+                          ProjectIds.id("rubber_fence")))
                   .strength(2.0F, 3.0F)
                   .sound(SoundType.WOOD)));
   public static final Block RUBBER_FENCE_GATE =
@@ -544,7 +545,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rubber_fence_gate")))
+                          ProjectIds.id("rubber_fence_gate")))
                   .strength(2.0F, 3.0F)
                   .sound(SoundType.WOOD)));
   public static final Block RUBBER_PRESSURE_PLATE =
@@ -556,7 +557,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "rubber_pressure_plate")))
                   .noCollision()
                   .strength(0.5F)
@@ -569,7 +570,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rubber_sign")))
+                          ProjectIds.id("rubber_sign")))
                   .noCollision()
                   .strength(1.0F)
                   .sound(SoundType.WOOD),
@@ -582,7 +583,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rubber_slab")))
+                          ProjectIds.id("rubber_slab")))
                   .strength(2.0F, 3.0F)
                   .sound(SoundType.WOOD)));
   public static final Block RUBBER_STAIRS =
@@ -594,7 +595,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rubber_stairs")))
+                          ProjectIds.id("rubber_stairs")))
                   .strength(2.0F, 3.0F)
                   .sound(SoundType.WOOD)) {});
   public static final Block RUBBER_TRAPDOOR =
@@ -606,7 +607,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rubber_trapdoor")))
+                          ProjectIds.id("rubber_trapdoor")))
                   .strength(3.0F)
                   .sound(SoundType.WOOD)
                   .noOcclusion()
@@ -619,7 +620,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rubber_wall_sign")))
+                          ProjectIds.id("rubber_wall_sign")))
                   .noCollision()
                   .strength(1.0F)
                   .sound(SoundType.WOOD)
@@ -633,7 +634,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("wooden_scaffold")))
+                          ProjectIds.id("wooden_scaffold")))
                   .noOcclusion()
                   .strength(0.5F, 0.12F)
                   .randomTicks()
@@ -647,7 +648,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "reinforced_wooden_scaffold")))
                   .noOcclusion()
                   .strength(0.6F, 0.24F)
@@ -662,7 +663,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("iron_scaffold")))
+                          ProjectIds.id("iron_scaffold")))
                   .noOcclusion()
                   .strength(0.8F, 6.0F)
                   .randomTicks()
@@ -676,7 +677,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "reinforced_iron_scaffold")))
                   .noOcclusion()
                   .strength(1.0F, 8.0F)
@@ -691,7 +692,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("iron_fence")))
+                          ProjectIds.id("iron_fence")))
                   .strength(5.0F, 10.0F),
               true));
   public static final Block RESIN_SHEET =
@@ -702,7 +703,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("resin_sheet")))
+                          ProjectIds.id("resin_sheet")))
                   .strength(1.6F, 0.5F),
               ReactiveSheet.Surface.RESIN));
   public static final Block RUBBER_SHEET =
@@ -713,7 +714,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rubber_sheet")))
+                          ProjectIds.id("rubber_sheet")))
                   .strength(0.8F, 2.0F),
               ReactiveSheet.Surface.RUBBER));
   public static final Block WOOL_SHEET =
@@ -724,7 +725,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("wool_sheet")))
+                          ProjectIds.id("wool_sheet")))
                   .strength(0.8F, 0.8F),
               ReactiveSheet.Surface.WOOL));
   public static final Block REINFORCED_GLASS =
@@ -735,7 +736,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("reinforced_glass")))
+                          ProjectIds.id("reinforced_glass")))
                   .noOcclusion()
                   .strength(5.0F, 180.0F)
                   .sound(SoundType.GLASS)
@@ -748,7 +749,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("foam")))
+                          ProjectIds.id("foam")))
                   .noOcclusion()
                   .strength(0.01F, 10.0F)
                   .randomTicks()
@@ -825,7 +826,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("mining_pipe")))
+                          ProjectIds.id("mining_pipe")))
                   .strength(6.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL)));
@@ -837,7 +838,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("mining_pipe_tip")))
+                          ProjectIds.id("mining_pipe_tip")))
                   .strength(6.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL)));
@@ -850,7 +851,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("reinforced_door")))
+                          ProjectIds.id("reinforced_door")))
                   .strength(50.0F, 150.0F)
                   .sound(SoundType.METAL)) {});
   public static final Block ITNT =
@@ -861,7 +862,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("itnt")))
+                          ProjectIds.id("itnt")))
                   .strength(0.0F, 0.0F)
                   .sound(SoundType.GRASS),
               DemolitionBlockEntity.class,
@@ -877,7 +878,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("nuke")))
+                          ProjectIds.id("nuke")))
                   .strength(0.0F, 0.0F)
                   .sound(SoundType.GRASS),
               ConfiguredNuclearCharge.class,
@@ -893,7 +894,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("classic_nuke")))
+                          ProjectIds.id("classic_nuke")))
                   .strength(0.0F, 0.0F)
                   .sound(SoundType.GRASS),
               NuclearBlockEntity.ClassicNuclearCharge.class,
@@ -909,7 +910,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("generator")))
+                          ProjectIds.id("generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -926,7 +927,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("geo_generator")))
+                          ProjectIds.id("geo_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -943,7 +944,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("kinetic_generator")))
+                          ProjectIds.id("kinetic_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -960,7 +961,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rt_generator")))
+                          ProjectIds.id("rt_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -977,7 +978,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "semifluid_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -995,7 +996,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("solar_generator")))
+                          ProjectIds.id("solar_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1012,7 +1013,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "stirling_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -1030,7 +1031,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("water_generator")))
+                          ProjectIds.id("water_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1047,7 +1048,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("wind_generator")))
+                          ProjectIds.id("wind_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1064,7 +1065,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "electric_heat_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -1082,7 +1083,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "fluid_heat_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -1100,7 +1101,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rt_heat_generator")))
+                          ProjectIds.id("rt_heat_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1117,7 +1118,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "solid_heat_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -1135,7 +1136,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "electric_kinetic_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -1153,7 +1154,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "manual_kinetic_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -1171,7 +1172,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "steam_kinetic_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -1189,7 +1190,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "stirling_kinetic_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -1207,7 +1208,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "water_kinetic_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -1225,7 +1226,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "wind_kinetic_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -1243,7 +1244,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("nuclear_reactor")))
+                          ProjectIds.id("nuclear_reactor")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1260,7 +1261,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "reactor_access_hatch")))
                   .strength(40.0F, 90.0F)
                   .requiresCorrectToolForDrops()
@@ -1278,7 +1279,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("reactor_chamber")))
+                          ProjectIds.id("reactor_chamber")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1295,7 +1296,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "reactor_fluid_port")))
                   .strength(40.0F, 90.0F)
                   .requiresCorrectToolForDrops()
@@ -1313,7 +1314,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "reactor_redstone_port")))
                   .strength(40.0F, 90.0F)
                   .requiresCorrectToolForDrops()
@@ -1331,7 +1332,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("condenser")))
+                          ProjectIds.id("condenser")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1348,7 +1349,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("fluid_bottler")))
+                          ProjectIds.id("fluid_bottler")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1365,7 +1366,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("fluid_distributor")))
+                          ProjectIds.id("fluid_distributor")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1382,7 +1383,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("fluid_regulator")))
+                          ProjectIds.id("fluid_regulator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1399,7 +1400,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "liquid_heat_exchanger")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -1417,7 +1418,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("pump")))
+                          ProjectIds.id("pump")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1434,7 +1435,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("solar_distiller")))
+                          ProjectIds.id("solar_distiller")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1451,7 +1452,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("steam_generator")))
+                          ProjectIds.id("steam_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1468,7 +1469,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("item_buffer")))
+                          ProjectIds.id("item_buffer")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1485,7 +1486,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("magnetizer")))
+                          ProjectIds.id("magnetizer")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1502,7 +1503,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("sorting_machine")))
+                          ProjectIds.id("sorting_machine")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1519,7 +1520,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("teleporter")))
+                          ProjectIds.id("teleporter")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1536,7 +1537,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("terraformer")))
+                          ProjectIds.id("terraformer")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1553,7 +1554,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("tesla_coil")))
+                          ProjectIds.id("tesla_coil")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1570,7 +1571,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("canner")))
+                          ProjectIds.id("canner")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1587,7 +1588,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("classic_canner")))
+                          ProjectIds.id("classic_canner")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1604,7 +1605,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("compressor")))
+                          ProjectIds.id("compressor")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1621,7 +1622,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("electric_furnace")))
+                          ProjectIds.id("electric_furnace")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1638,7 +1639,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("extractor")))
+                          ProjectIds.id("extractor")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1655,7 +1656,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("iron_furnace")))
+                          ProjectIds.id("iron_furnace")))
                   .strength(5.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1672,7 +1673,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("macerator")))
+                          ProjectIds.id("macerator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1689,7 +1690,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("recycler")))
+                          ProjectIds.id("recycler")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1706,7 +1707,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("solid_canner")))
+                          ProjectIds.id("solid_canner")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1723,7 +1724,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("blast_furnace")))
+                          ProjectIds.id("blast_furnace")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1740,7 +1741,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("block_cutter")))
+                          ProjectIds.id("block_cutter")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1757,7 +1758,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("centrifuge")))
+                          ProjectIds.id("centrifuge")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1774,7 +1775,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("fermenter")))
+                          ProjectIds.id("fermenter")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1791,7 +1792,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("induction_furnace")))
+                          ProjectIds.id("induction_furnace")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1808,7 +1809,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("metal_former")))
+                          ProjectIds.id("metal_former")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1825,7 +1826,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("ore_washing_plant")))
+                          ProjectIds.id("ore_washing_plant")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1842,7 +1843,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("advanced_miner")))
+                          ProjectIds.id("advanced_miner")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1859,7 +1860,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("crop_harvester")))
+                          ProjectIds.id("crop_harvester")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1876,7 +1877,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("cropmatron")))
+                          ProjectIds.id("cropmatron")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1893,7 +1894,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "classic_cropmatron")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -1911,7 +1912,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("miner")))
+                          ProjectIds.id("miner")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1928,7 +1929,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("mass_fabricator")))
+                          ProjectIds.id("mass_fabricator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1945,7 +1946,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "classic_mass_fabricator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -1963,7 +1964,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("uu_assembly_bench")))
+                          ProjectIds.id("uu_assembly_bench")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1980,7 +1981,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("matter_generator")))
+                          ProjectIds.id("matter_generator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -1997,7 +1998,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("pattern_storage")))
+                          ProjectIds.id("pattern_storage")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2014,7 +2015,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("replicator")))
+                          ProjectIds.id("replicator")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2031,7 +2032,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("uu_scanner")))
+                          ProjectIds.id("uu_scanner")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2048,7 +2049,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("energy_o_mat")))
+                          ProjectIds.id("energy_o_mat")))
                   .strength(-1.0F, 3600000.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2065,7 +2066,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("personal_chest")))
+                          ProjectIds.id("personal_chest")))
                   .strength(-1.0F, 3600000.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2082,7 +2083,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("trade_o_mat")))
+                          ProjectIds.id("trade_o_mat")))
                   .strength(-1.0F, 3600000.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2131,7 +2132,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "glass_fibre_foam_cable")))
                   .strength(0.5F, 5.0F)
                   .sound(SoundType.GLASS),
@@ -2145,7 +2146,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("glass_fibre_cable")))
+                          ProjectIds.id("glass_fibre_cable")))
                   .strength(0.5F, 5.0F)
                   .sound(SoundType.GLASS),
               ConductorMaterial.glass,
@@ -2297,7 +2298,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("batbox_chargepad")))
+                          ProjectIds.id("batbox_chargepad")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL)
@@ -2315,7 +2316,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("cesu_chargepad")))
+                          ProjectIds.id("cesu_chargepad")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL)
@@ -2333,7 +2334,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("mfe_chargepad")))
+                          ProjectIds.id("mfe_chargepad")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL)
@@ -2351,7 +2352,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("mfsu_chargepad")))
+                          ProjectIds.id("mfsu_chargepad")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL)
@@ -2369,7 +2370,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("batbox")))
+                          ProjectIds.id("batbox")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2386,7 +2387,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("cesu")))
+                          ProjectIds.id("cesu")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2403,7 +2404,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("mfe")))
+                          ProjectIds.id("mfe")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2420,7 +2421,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("classic_mfe")))
+                          ProjectIds.id("classic_mfe")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2437,7 +2438,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("mfsu")))
+                          ProjectIds.id("mfsu")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2454,7 +2455,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("classic_mfsu")))
+                          ProjectIds.id("classic_mfsu")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2471,7 +2472,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("electrolyzer")))
+                          ProjectIds.id("electrolyzer")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2488,7 +2489,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "classic_electrolyzer")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -2506,7 +2507,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("lv_transformer")))
+                          ProjectIds.id("lv_transformer")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2523,7 +2524,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("mv_transformer")))
+                          ProjectIds.id("mv_transformer")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2540,7 +2541,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("hv_transformer")))
+                          ProjectIds.id("hv_transformer")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2557,7 +2558,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("ev_transformer")))
+                          ProjectIds.id("ev_transformer")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2574,7 +2575,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("tank")))
+                          ProjectIds.id("tank")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2591,7 +2592,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("chunk_loader")))
+                          ProjectIds.id("chunk_loader")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2608,7 +2609,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "creative_generator")))
                   .strength(-1.0F, Float.POSITIVE_INFINITY)
                   .sound(SoundType.METAL),
@@ -2625,7 +2626,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "steam_repressurizer")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -2643,7 +2644,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "weighted_fluid_distributor")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -2661,7 +2662,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "weighted_item_distributor")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -2679,7 +2680,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rci_rsh")))
+                          ProjectIds.id("rci_rsh")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -2696,7 +2697,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("rci_lzh")))
+                          ProjectIds.id("rci_lzh")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -3133,7 +3134,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "industrial_workbench")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
@@ -3151,7 +3152,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("batch_crafter")))
+                          ProjectIds.id("batch_crafter")))
                   .strength(2.0F, 10.0F)
                   .requiresCorrectToolForDrops()
                   .sound(SoundType.METAL),
@@ -3168,7 +3169,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "wooden_storage_box")))
                   .strength(1.0F, 10.0F)
                   .sound(SoundType.WOOD),
@@ -3185,7 +3186,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("iron_storage_box")))
+                          ProjectIds.id("iron_storage_box")))
                   .strength(1.0F, 15.0F)
                   .sound(SoundType.METAL),
               TileEntityIronStorageBox.class,
@@ -3201,7 +3202,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "bronze_storage_box")))
                   .strength(1.0F, 15.0F)
                   .sound(SoundType.METAL),
@@ -3218,7 +3219,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("steel_storage_box")))
+                          ProjectIds.id("steel_storage_box")))
                   .strength(2.0F, 20.0F)
                   .sound(SoundType.METAL),
               TileEntitySteelStorageBox.class,
@@ -3234,7 +3235,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier(
+                          ProjectIds.id(
                               "iridium_storage_box")))
                   .strength(3.0F, 100.0F)
                   .sound(SoundType.METAL),
@@ -3251,7 +3252,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("bronze_tank")))
+                          ProjectIds.id("bronze_tank")))
                   .strength(3.0F, 15.0F)
                   .sound(SoundType.METAL),
               TileEntityBronzeTank.class,
@@ -3267,7 +3268,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("iron_tank")))
+                          ProjectIds.id("iron_tank")))
                   .strength(3.0F, 15.0F)
                   .sound(SoundType.METAL),
               TileEntityIronTank.class,
@@ -3283,7 +3284,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("steel_tank")))
+                          ProjectIds.id("steel_tank")))
                   .strength(4.0F, 20.0F)
                   .sound(SoundType.METAL),
               TileEntitySteelTank.class,
@@ -3299,7 +3300,7 @@ public final class BlockDefinitions {
                   .setId(
                       net.minecraft.resources.ResourceKey.create(
                           net.minecraft.core.registries.Registries.BLOCK,
-                          ic2ce.neoforge.runtime.ProjectRuntime.getIdentifier("iridium_tank")))
+                          ProjectIds.id("iridium_tank")))
                   .strength(5.0F, 100.0F)
                   .sound(SoundType.METAL),
               TileEntityIridiumTank.class,
@@ -3317,11 +3318,11 @@ public final class BlockDefinitions {
         .setId(
             net.minecraft.resources.ResourceKey.create(
                 net.minecraft.core.registries.Registries.BLOCK,
-                ProjectRuntime.getIdentifier(name)));
+                ProjectIds.id(name)));
   }
 
   private static <T extends Block> T register(String name, T block) {
-    ProjectRuntime.envProxy.registerBlock(ProjectRuntime.getIdentifier(name), block);
+    EnvProxy.get().registerBlock(ProjectIds.id(name), block);
     return block;
   }
 
@@ -3340,9 +3341,9 @@ public final class BlockDefinitions {
   }
 
   static {
-    ProjectRuntime.envProxy.registerFlammableBlock(RUBBER_LEAVES, 20, 30);
-    ProjectRuntime.envProxy.registerFlammableBlock(RUBBER_LOG, 20, 4);
-    ProjectRuntime.envProxy.registerFlammableBlock(WOODEN_SCAFFOLD, 8, 20);
-    ProjectRuntime.envProxy.registerFlammableBlock(REINFORCED_WOODEN_SCAFFOLD, 8, 20);
+    EnvProxy.get().registerFlammableBlock(RUBBER_LEAVES, 20, 30);
+    EnvProxy.get().registerFlammableBlock(RUBBER_LOG, 20, 4);
+    EnvProxy.get().registerFlammableBlock(WOODEN_SCAFFOLD, 8, 20);
+    EnvProxy.get().registerFlammableBlock(REINFORCED_WOODEN_SCAFFOLD, 8, 20);
   }
 }

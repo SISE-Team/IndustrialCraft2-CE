@@ -3,6 +3,7 @@ package ic2ce.neoforge.network;
 import com.mojang.authlib.GameProfile;
 import ic2ce.api.network.INetworkItemEventListener;
 import ic2ce.api.network.INetworkTileEntityEventListener;
+import ic2ce.neoforge.diagnostics.ProjectLog;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.handheld.IHandHeldInventory;
 import ic2ce.engine.network.FramedCompression;
@@ -12,7 +13,7 @@ import ic2ce.neoforge.component.ComponentTypes;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
 import ic2ce.neoforge.explosion.NativeBlast;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import io.netty.buffer.ByteBuf;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
@@ -129,7 +130,7 @@ public final class NetworkManagerClient extends NetworkManager {
       receive(GrowingBuffer.wrap(packet), player);
     } catch (IOException | RuntimeException error) {
       largePackets.reset();
-      ProjectRuntime.log.debug(DiagnosticArea.Network, error, "Rejected invalid server message");
+      ProjectLog.LOG.debug(DiagnosticArea.Network, error, "Rejected invalid server message");
     }
   }
 
@@ -149,11 +150,11 @@ public final class NetworkManagerClient extends NetworkManager {
             case 1 -> {
               String text = body.readString();
               if (body.hasAvailable()) throw new IOException("Trailing chat bytes");
-              ProjectRuntime.sideProxy.requestTick(
+              SideServices.proxy().requestTick(
                   false,
                   () -> {
                     for (String line : text.split("[\\r\\n]+"))
-                      ProjectRuntime.sideProxy.messagePlayer(null, line);
+                      SideServices.proxy().messagePlayer(null, line);
                   });
             }
             case 2 -> {
@@ -168,7 +169,7 @@ public final class NetworkManagerClient extends NetworkManager {
       case TileEntityEvent -> {
         var encoded = DataEncoder.decodeDeferred(input, BlockEntity.class);
         int event = input.readInt();
-        ProjectRuntime.sideProxy.requestTick(
+        SideServices.proxy().requestTick(
             false,
             () -> {
               BlockEntity tile = DataEncoder.getValue(encoded, null);
@@ -180,7 +181,7 @@ public final class NetworkManagerClient extends NetworkManager {
         var profile = DataEncoder.decode(input, GameProfile.class);
         var stack = DataEncoder.decode(input, ItemStack.class);
         int event = input.readInt();
-        ProjectRuntime.sideProxy.requestTick(
+        SideServices.proxy().requestTick(
             false,
             () -> {
               var world = Minecraft.getInstance().level;
@@ -198,7 +199,7 @@ public final class NetworkManagerClient extends NetworkManager {
         if (!Double.isFinite(position.x)
             || !Double.isFinite(position.y)
             || !Double.isFinite(position.z)) throw new IOException("Invalid effect coordinates");
-        ProjectRuntime.sideProxy.requestTick(
+        SideServices.proxy().requestTick(
             false,
             () -> {
               Level world = DataEncoder.getValue(encoded, null);
@@ -217,7 +218,7 @@ public final class NetworkManagerClient extends NetworkManager {
         if (count > 65536 || count > input.available())
           throw new IOException("Invalid component frame size");
         var bytes = input.copyBytes(count);
-        ProjectRuntime.sideProxy.requestTick(
+        SideServices.proxy().requestTick(
             false,
             () -> {
               var world = Minecraft.getInstance().level;

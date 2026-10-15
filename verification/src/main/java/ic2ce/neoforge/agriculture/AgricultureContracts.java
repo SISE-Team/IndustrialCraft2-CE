@@ -8,7 +8,7 @@ import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -91,7 +91,7 @@ public final class AgricultureContracts {
     harvester.scanX = 0;
     harvester.scanY = 0;
     harvester.scanZ = 0;
-    ProjectRuntime.random.setSeed(1);
+    SharedRandom.INSTANCE.setSeed(1);
     harvester.scan();
     check(
         crop.getCurrentAge() == species.getMaxAge()
@@ -103,7 +103,7 @@ public final class AgricultureContracts {
     harvester.scanX = 0;
     harvester.scanY = 0;
     harvester.scanZ = 0;
-    ProjectRuntime.random.setSeed(1);
+    SharedRandom.INSTANCE.setSeed(1);
     harvester.scan();
     int quantity = 0;
     for (var item : harvester.contentSlot) quantity += item.getCount();

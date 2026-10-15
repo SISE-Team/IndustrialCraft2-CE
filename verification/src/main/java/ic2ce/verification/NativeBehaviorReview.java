@@ -1,9 +1,9 @@
 package ic2ce.verification;
 
 import ic2ce.api.item.ElectricItem;
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.cable.RedstoneGateBlock;
 import ic2ce.neoforge.registry.BlockDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -48,7 +48,7 @@ public final class NativeBehaviorReview {
         !level.getBlockState(pos).getValue(CrossCollisionBlock.EAST),
         "iron fence disconnects after neighbor removal");
     level.removeBlock(pos, false);
-    var splitter = BuiltInRegistries.BLOCK.getValue(ProjectRuntime.getIdentifier("splitter_cable"));
+    var splitter = BuiltInRegistries.BLOCK.getValue(ProjectIds.id("splitter_cable"));
     level.setBlock(pos, splitter.defaultBlockState(), 3);
     level.setBlock(pos.east(), Blocks.REDSTONE_BLOCK.defaultBlockState(), 3);
     check(
@@ -109,7 +109,7 @@ public final class NativeBehaviorReview {
             && player.fallDistance == 0,
         "scaffold native callback controls climbing and falling");
     for (String id : List.of("drill", "diamond_drill", "iridium_drill", "chainsaw")) {
-      var item = BuiltInRegistries.ITEM.getValue(ProjectRuntime.getIdentifier(id));
+      var item = BuiltInRegistries.ITEM.getValue(ProjectIds.id(id));
       var stack = new ItemStack(item);
       ElectricItem.manager.charge(stack, 10000, Integer.MAX_VALUE, true, false);
       check(stack.getMaxDamage() == 0, id + " uses charge without physical tool durability");

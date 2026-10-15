@@ -1,6 +1,7 @@
 package ic2ce.neoforge.power;
 
 import ic2ce.neoforge.runtime.AutomationActors;
+import ic2ce.neoforge.runtime.SharedRandom;
 import ic2ce.neoforge.world.WorldData;
 import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.inventory.StackUtil;
@@ -9,7 +10,6 @@ import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.menu.document.ScreenValues;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -27,7 +27,7 @@ public class WindMill extends RotorGenerator implements ScreenValues.IActiveGuiV
       0.1
           * NativeConfigValues.getDouble(
               ProjectConfiguration.get(), "balance/energy/generator/wind");
-  private int sampleTicks = ProjectRuntime.random.nextInt(128), obstructedBlockCount;
+  private int sampleTicks = SharedRandom.INSTANCE.nextInt(128), obstructedBlockCount;
   @GuiSynced private double overheatRatio;
 
   public WindMill(BlockPos position, BlockState block) {

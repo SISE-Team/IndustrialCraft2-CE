@@ -57,6 +57,11 @@ import net.minecraft.world.level.levelgen.placement.PlacementModifierType;
 import net.minecraft.world.phys.Vec3;
 
 public interface EnvProxy {
+   /** The sole NeoForge environment binding. */
+   static EnvProxy get() {
+     return ic2ce.neoforge.EnvProxyNeoForge.INSTANCE;
+   }
+
    boolean isClientEnv();
 
    net.minecraft.core.HolderLookup.Provider getRegistryLookup();

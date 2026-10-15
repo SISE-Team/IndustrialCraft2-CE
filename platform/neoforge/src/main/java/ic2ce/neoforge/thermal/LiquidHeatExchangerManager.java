@@ -3,10 +3,10 @@ package ic2ce.neoforge.thermal;
 import ic2ce.api.recipe.ILiquidAcceptManager;
 import ic2ce.api.recipe.ILiquidHeatExchangerManager;
 import ic2ce.api.recipe.Recipes;
+import ic2ce.neoforge.diagnostics.ProjectLog;
 import ic2ce.neoforge.fluid.FluidHandler;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -39,7 +39,7 @@ public final class LiquidHeatExchangerManager implements ILiquidHeatExchangerMan
 
   private void invalid(String message) {
     if (ProjectConfiguration.ignoreInvalidRecipes)
-      ProjectRuntime.log.warn(DiagnosticArea.Recipe, message);
+      ProjectLog.LOG.warn(DiagnosticArea.Recipe, message);
     else throw new IllegalArgumentException(message);
   }
 

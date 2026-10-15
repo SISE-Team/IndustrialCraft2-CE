@@ -1,7 +1,7 @@
 package ic2ce.neoforge.client.widget;
 
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.client.screen.MachineScreen;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.*;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.resources.Identifier;
@@ -344,54 +344,54 @@ public abstract class FillGauge<T extends FillGauge<T>> extends ScreenWidget<T> 
         new FillGauge.GaugePropertyBuilder(
                 0, 243, 100, 13, FillGauge.GaugePropertyBuilder.GaugeOrientation.Right)
             .withHoverBorder(1)
-            .withTexture(ProjectRuntime.getIdentifier("textures/gui/guinuclearreactor.png"))
+            .withTexture(ProjectIds.id("textures/gui/guinuclearreactor.png"))
             .build()),
     HeatSteamGenerator(
         new FillGauge.GaugePropertyBuilder(
                 177, 1, 7, 76, FillGauge.GaugePropertyBuilder.GaugeOrientation.Up)
             .withHoverBorder(1)
-            .withTexture(ProjectRuntime.getIdentifier("textures/gui/guisteamgenerator.png"))
+            .withTexture(ProjectIds.id("textures/gui/guisteamgenerator.png"))
             .build()),
     CalcificationSteamGenerator(
         new FillGauge.GaugePropertyBuilder(
                 187, 1, 7, 58, FillGauge.GaugePropertyBuilder.GaugeOrientation.Up)
             .withHoverBorder(1)
-            .withTexture(ProjectRuntime.getIdentifier("textures/gui/guisteamgenerator.png"))
+            .withTexture(ProjectIds.id("textures/gui/guisteamgenerator.png"))
             .build()),
     ProgressCondenser(
         new FillGauge.GaugePropertyBuilder(
                 1, 185, 82, 7, FillGauge.GaugePropertyBuilder.GaugeOrientation.Right)
             .withHoverBorder(1)
-            .withTexture(ProjectRuntime.getIdentifier("textures/gui/guicondenser.png"))
+            .withTexture(ProjectIds.id("textures/gui/guicondenser.png"))
             .build()),
     HeatFermenter(
         new FillGauge.GaugePropertyBuilder(
                 177, 10, 40, 3, FillGauge.GaugePropertyBuilder.GaugeOrientation.Right)
             .withHoverBorder(1)
-            .withTexture(ProjectRuntime.getIdentifier("textures/gui/guifermenter.png"))
+            .withTexture(ProjectIds.id("textures/gui/guifermenter.png"))
             .build()),
     ProgressFermenter(
         new FillGauge.GaugePropertyBuilder(
                 177, 1, 40, 7, FillGauge.GaugePropertyBuilder.GaugeOrientation.Right)
             .withHoverBorder(1)
-            .withTexture(ProjectRuntime.getIdentifier("textures/gui/guifermenter.png"))
+            .withTexture(ProjectIds.id("textures/gui/guifermenter.png"))
             .build()),
     ProgressOreWasher(
         new FillGauge.GaugePropertyBuilder(
                 177, 118, 18, 18, FillGauge.GaugePropertyBuilder.GaugeOrientation.Right)
-            .withTexture(ProjectRuntime.getIdentifier("textures/gui/guiorewashingplant.png"))
+            .withTexture(ProjectIds.id("textures/gui/guiorewashingplant.png"))
             .withBackground(-1, -1, 20, 19, 102, 38)
             .build()),
     ProgressBlockCutter(
         new FillGauge.GaugePropertyBuilder(
                 176, 15, 46, 17, FillGauge.GaugePropertyBuilder.GaugeOrientation.Right)
-            .withTexture(ProjectRuntime.getIdentifier("textures/gui/guiblockcutter.png"))
+            .withTexture(ProjectIds.id("textures/gui/guiblockcutter.png"))
             .withBackground(55, 33)
             .build()),
     ProgressLongArrow(
         new FillGauge.GaugePropertyBuilder(
                 176, 15, 34, 13, FillGauge.GaugePropertyBuilder.GaugeOrientation.Right)
-            .withTexture(ProjectRuntime.getIdentifier("textures/gui/gui_canner_classic.png"))
+            .withTexture(ProjectIds.id("textures/gui/gui_canner_classic.png"))
             .withBackground(74, 36)
             .build());
     private static volatile Map<String, IGaugeStyle> styles = initial();

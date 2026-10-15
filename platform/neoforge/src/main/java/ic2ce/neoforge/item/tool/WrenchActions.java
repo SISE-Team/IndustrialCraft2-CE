@@ -1,8 +1,10 @@
 package ic2ce.neoforge.item.tool;
 
 import ic2ce.api.tile.IWrenchable;
+import ic2ce.neoforge.diagnostics.ProjectLog;
 import ic2ce.neoforge.inventory.StackUtil;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
+import ic2ce.neoforge.runtime.SideServices;
 import java.util.ArrayList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -42,7 +44,7 @@ public final class WrenchActions {
   private WrenchActions() {}
 
   private static Direction requested(Direction current, Direction hit, Player player) {
-    if (!ProjectRuntime.keyboard.isAltKeyDown(player))
+    if (!SideServices.keyboard().isAltKeyDown(player))
       return player.isShiftKeyDown() ? hit.getOpposite() : hit;
     boolean clockwise =
         (hit.getAxisDirection() == Direction.AxisDirection.POSITIVE) != player.isShiftKeyDown();
@@ -55,7 +57,7 @@ public final class WrenchActions {
   private static BlockState rotate(
       BlockState state, Level world, BlockPos position, Direction hit, Player player) {
     Rotation rotation = null;
-    if (ProjectRuntime.keyboard.isAltKeyDown(player))
+    if (SideServices.keyboard().isAltKeyDown(player))
       rotation =
           (hit.getAxisDirection() == Direction.AxisDirection.POSITIVE) != player.isShiftKeyDown()
               ? Rotation.CLOCKWISE_90
@@ -79,7 +81,7 @@ public final class WrenchActions {
     }
     return rotation == null
         ? state
-        : ProjectRuntime.envProxy.rotate(state, world, position, rotation);
+        : EnvProxy.get().rotate(state, world, position, rotation);
   }
 
   public static Action execute(
@@ -133,7 +135,7 @@ public final class WrenchActions {
         for (var drop : drops) StackUtil.dropAsEntity(world, position, drop);
         if (ic2ce.neoforge.config.NativeConfigValues.getBool(
             ic2ce.neoforge.config.ProjectConfiguration.get(), "protection/wrenchLogging"))
-          ProjectRuntime.log.info(
+          ProjectLog.LOG.info(
               ic2ce.neoforge.diagnostics.DiagnosticArea.PlayerActivity,
               "Player %s/%s removed %s with a wrench at %s in %s.",
               player.getGameProfile().name(),
@@ -144,7 +146,7 @@ public final class WrenchActions {
         if (drops.isEmpty()
             && ic2ce.neoforge.config.NativeConfigValues.getBool(
                 ic2ce.neoforge.config.ProjectConfiguration.get(), "debug/logEmptyWrenchDrops"))
-          ProjectRuntime.log.warn(
+          ProjectLog.LOG.warn(
               ic2ce.neoforge.diagnostics.DiagnosticArea.General,
               "Wrench removal of %s at %s produced no block drops.",
               state,

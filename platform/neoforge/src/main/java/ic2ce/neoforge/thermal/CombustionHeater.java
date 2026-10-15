@@ -3,6 +3,7 @@ package ic2ce.neoforge.thermal;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
+import ic2ce.neoforge.runtime.SharedRandom;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
@@ -13,7 +14,6 @@ import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenValues;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Inventory;
@@ -25,7 +25,7 @@ import net.minecraft.world.level.block.state.BlockState;
 @NotClassic
 public class CombustionHeater extends BufferedHeatSource implements IHasGui, ScreenValues {
   private int storedHeat, pendingAsh;
-  public int activityMeter, ticksSinceLastActiveUpdate = ProjectRuntime.random.nextInt(256);
+  public int activityMeter, ticksSinceLastActiveUpdate = SharedRandom.INSTANCE.nextInt(256);
   @GuiSynced public int fuel, itemFuelTime;
   public final FuelInput fuelSlot = new FuelInput(this, "fuel", 1, false);
   public final OutputInventory outputslot = new OutputInventory(this, "output", 1);

@@ -1,9 +1,9 @@
 package ic2ce.verification;
 
+import ic2ce.neoforge.ProjectIds;
 import ic2ce.neoforge.processing.uu.ItemCrystalMemory;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -61,7 +61,7 @@ public final class CompleteItemUse {
           3);
       var item =
           BuiltInRegistries.ITEM.getValue(
-              ProjectRuntime.getIdentifier(color.getName() + "_painter"));
+              ProjectIds.id(color.getName() + "_painter"));
       var stack = new ItemStack(item);
       player.setItemInHand(InteractionHand.MAIN_HAND, stack);
       item.useOn(
@@ -172,7 +172,7 @@ public final class CompleteItemUse {
                 "advanced_ejector_upgrade",
                 "advanced_pulling_upgrade"))
           ledger.mark(
-              BuiltInRegistries.ITEM.getValue(ProjectRuntime.getIdentifier(id)),
+              BuiltInRegistries.ITEM.getValue(ProjectIds.id(id)),
               "placed_upgrade_transfer_function",
               "actual rates, storage, tier, signals and filtered item conservation");
       }

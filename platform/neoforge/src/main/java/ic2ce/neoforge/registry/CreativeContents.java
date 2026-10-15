@@ -2,7 +2,6 @@ package ic2ce.neoforge.registry;
 
 import ic2ce.api.item.CreativeVariants;
 import ic2ce.neoforge.diagnostics.DevelopmentMode;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.*;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.*;
@@ -34,7 +33,7 @@ public final class CreativeContents {
     static final Map<Identifier, List<Item>> TABS =
         Map.ofEntries(
             Map.entry(
-                ProjectRuntime.tabIc2Combat,
+                CreativeTabs.COMBAT,
                 List.of(
                     ItemDefinitions.ITNT,
                     ItemDefinitions.NUKE,
@@ -61,7 +60,7 @@ public final class CreativeContents {
                     ItemDefinitions.RUBBER_BOOTS,
                     ItemDefinitions.NIGHT_VISION_GOGGLES)),
             Map.entry(
-                ProjectRuntime.tabIc2Farming,
+                CreativeTabs.FARMING,
                 List.of(
                     ItemDefinitions.RUBBER_SAPLING,
                     ItemDefinitions.EMPTY_MUG,
@@ -78,7 +77,7 @@ public final class CreativeContents {
                     ItemDefinitions.WEED,
                     ItemDefinitions.TERRA_WART)),
             Map.entry(
-                ProjectRuntime.tabIc2General,
+                CreativeTabs.GENERAL,
                 List.of(
                     ItemDefinitions.BASALT,
                     ItemDefinitions.LEAD_ORE,
@@ -152,7 +151,7 @@ public final class CreativeContents {
                     ItemDefinitions.STEEL_TANK,
                     ItemDefinitions.IRIDIUM_TANK)),
             Map.entry(
-                ProjectRuntime.tabIc2GeneratorsAndWiring,
+                CreativeTabs.GENERATORS_AND_WIRING,
                 List.of(
                     ItemDefinitions.COPPER_CABLE,
                     ItemDefinitions.INSULATED_COPPER_CABLE,
@@ -203,7 +202,7 @@ public final class CreativeContents {
                     ItemDefinitions.WATER_KINETIC_GENERATOR,
                     ItemDefinitions.WIND_KINETIC_GENERATOR)),
             Map.entry(
-                ProjectRuntime.tabIc2Machines,
+                CreativeTabs.MACHINES,
                 List.of(
                     ItemDefinitions.STEAM_REPRESSURIZER,
                     ItemDefinitions.WEIGHTED_FLUID_DISTRIBUTOR,
@@ -259,7 +258,7 @@ public final class CreativeContents {
                     ItemDefinitions.PERSONAL_CHEST,
                     ItemDefinitions.TRADE_O_MAT)),
             Map.entry(
-                ProjectRuntime.tabIc2Materials,
+                CreativeTabs.MATERIALS,
                 List.of(
                     ItemDefinitions.RAW_LEAD,
                     ItemDefinitions.RAW_TIN,
@@ -418,7 +417,7 @@ public final class CreativeContents {
                     ItemDefinitions.BRONZE_ROTOR_BLADE,
                     ItemDefinitions.BRONZE_SHAFT)),
             Map.entry(
-                ProjectRuntime.tabIc2Reactor,
+                CreativeTabs.REACTOR,
                 List.of(
                     ItemDefinitions.RCI_RSH,
                     ItemDefinitions.RCI_LZH,
@@ -458,7 +457,7 @@ public final class CreativeContents {
                     ItemDefinitions.LITHIUM_FUEL_ROD,
                     ItemDefinitions.DEPLETED_ISOTOPE_FUEL_ROD)),
             Map.entry(
-                ProjectRuntime.tabIc2ToolsAndUtilities,
+                CreativeTabs.TOOLS_AND_UTILITIES,
                 List.of(
                     ItemDefinitions.MINING_PIPE,
                     ItemDefinitions.CUTTER,
@@ -562,7 +561,7 @@ public final class CreativeContents {
 
   public static void accept(Identifier tab, CreativeModeTab.Output output) {
     for (var item : Membership.TABS.getOrDefault(tab, List.of())) offer(output, item);
-    if (DevelopmentMode.active() && tab.equals(ProjectRuntime.tabIc2ToolsAndUtilities))
+    if (DevelopmentMode.active() && tab.equals(CreativeTabs.TOOLS_AND_UTILITIES))
       offer(output, ItemDefinitions.DEBUG_ITEM);
     var view = dynamicView;
     for (var assignment : view) if (tab.equals(assignment.tab())) offer(output, assignment.item());

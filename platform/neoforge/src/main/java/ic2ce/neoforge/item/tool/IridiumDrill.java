@@ -1,6 +1,8 @@
 package ic2ce.neoforge.item.tool;
 
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.ProjectIds;
+import ic2ce.neoforge.runtime.EnvProxy;
+import ic2ce.neoforge.runtime.SideServices;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -25,7 +27,7 @@ public class IridiumDrill extends MiningDrill {
           9,
           33,
           net.minecraft.tags.TagKey.create(
-              Registries.ITEM, ProjectRuntime.getIdentifier("iridium_plate")));
+              Registries.ITEM, ProjectIds.id("iridium_plate")));
 
   public IridiumDrill(Properties properties) {
     super(properties, 800, MATERIAL, 300000, 1000, 3, 24);
@@ -47,8 +49,8 @@ public class IridiumDrill extends MiningDrill {
   @Override
   protected ItemStack getItemStack(double charge) {
     var stack = super.getItemStack(charge);
-    var server = ProjectRuntime.envProxy.getServer();
-    var world = server == null ? ProjectRuntime.sideProxy.getPlayerWorld() : server.overworld();
+    var server = EnvProxy.get().getServer();
+    var world = server == null ? SideServices.proxy().getPlayerWorld() : server.overworld();
     if (world != null) enchant(stack, world.registryAccess(), false);
     return stack;
   }
@@ -58,7 +60,7 @@ public class IridiumDrill extends MiningDrill {
     var stack = player.getItemInHand(hand);
     if (!world.isClientSide()
         && stack.is(this)
-        && ProjectRuntime.keyboard.isModeSwitchKeyDown(player)) {
+        && SideServices.keyboard().isModeSwitchKeyDown(player)) {
       var silk =
           world
               .registryAccess()
@@ -67,7 +69,7 @@ public class IridiumDrill extends MiningDrill {
               .orElse(null);
       boolean enabled = silk != null && EnchantmentHelper.getItemEnchantmentLevel(silk, stack) == 0;
       enchant(stack, world.registryAccess(), enabled);
-      ProjectRuntime.sideProxy.messagePlayer(
+      SideServices.proxy().messagePlayer(
           player,
           "ic2.tooltip.mode",
           enabled ? "ic2.tooltip.mode.silkTouch" : "ic2.tooltip.mode.normal");
@@ -79,7 +81,7 @@ public class IridiumDrill extends MiningDrill {
   @Override
   public InteractionResult useOn(UseOnContext context) {
     return context.getPlayer() != null
-            && ProjectRuntime.keyboard.isModeSwitchKeyDown(context.getPlayer())
+            && SideServices.keyboard().isModeSwitchKeyDown(context.getPlayer())
         ? InteractionResult.PASS
         : super.useOn(context);
   }

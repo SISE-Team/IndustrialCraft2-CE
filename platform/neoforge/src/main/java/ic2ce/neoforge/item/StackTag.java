@@ -1,5 +1,6 @@
 package ic2ce.neoforge.item;
 
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.util.Objects;
 import java.util.function.UnaryOperator;
 import net.minecraft.core.HolderLookup;
@@ -54,7 +55,7 @@ public final class StackTag {
   }
 
   public static ItemStack parseHolder(CompoundTag data) {
-    var lookup = ic2ce.neoforge.runtime.ProjectRuntime.envProxy.getRegistryLookup();
+    var lookup = EnvProxy.get().getRegistryLookup();
     return parse(lookup, data);
   }
 

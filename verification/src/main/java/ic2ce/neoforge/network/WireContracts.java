@@ -1,5 +1,6 @@
 package ic2ce.neoforge.network;
 
+import ic2ce.neoforge.runtime.EnvProxy;
 import io.netty.buffer.Unpooled;
 import java.util.ArrayList;
 import java.util.List;
@@ -135,7 +136,7 @@ public final class WireContracts {
         "Components",
         net.minecraft.core.component.DataComponentPatch.CODEC
             .encodeStart(
-                ic2ce.neoforge.runtime.ProjectRuntime.envProxy
+                EnvProxy.get()
                     .getRegistryLookup()
                     .createSerializationContext(net.minecraft.nbt.NbtOps.INSTANCE),
                 nativeFluid.getComponentsPatch())

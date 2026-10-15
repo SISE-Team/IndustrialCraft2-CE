@@ -3,7 +3,7 @@ package ic2ce.verification;
 import com.google.gson.GsonBuilder;
 import com.sun.management.ThreadMXBean;
 import ic2ce.api.crops.*;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SharedRandom;
 import java.lang.management.ManagementFactory;
 import java.nio.file.*;
 import java.util.*;
@@ -118,7 +118,7 @@ public final class CropPressureVerification {
     }
     ticks = sampled = 0;
     calls = new long[scales[scale]];
-    ProjectRuntime.random.setSeed(382711);
+    SharedRandom.INSTANCE.setSeed(382711);
     var block =
         BuiltInRegistries.BLOCK.getValue(Identifier.fromNamespaceAndPath("ic2", "wheat_crop"));
     var type =

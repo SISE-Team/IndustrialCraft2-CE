@@ -3,7 +3,7 @@ package ic2ce.neoforge.world.block;
 import ic2ce.neoforge.runtime.Keyboard;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.world.surface.StateVariants;
 import java.util.*;
 import net.minecraft.core.*;
@@ -91,17 +91,17 @@ public final class SurfaceContracts {
         Math.abs(actor.getDeltaMovement().y - .1) < 1e-9,
         "native sneak control selects the distinct weak rubber rebound");
     actor.setShiftKeyDown(false);
-    ((Keyboard) ProjectRuntime.keyboard).processKeyUpdate(actor, 16);
+    ((Keyboard) SideServices.keyboard()).processKeyUpdate(actor, 16);
     check(
-        ProjectRuntime.keyboard.isJumpKeyDown(actor)
-            && !ProjectRuntime.keyboard.isModeSwitchKeyDown(actor),
+        SideServices.keyboard().isJumpKeyDown(actor)
+            && !SideServices.keyboard().isModeSwitchKeyDown(actor),
         "synchronized jump bit is distinct from mode-switch input");
     actor.setDeltaMovement(0, -1, 0);
     rubber.entityInside(rubber.defaultBlockState(), world, pos, actor, null, true);
     check(
         Math.abs(actor.getDeltaMovement().y - 1.3) < 1e-9,
         "actual synchronized jump input selects the distinct stronger rebound");
-    ((Keyboard) ProjectRuntime.keyboard).processKeyUpdate(actor, 0);
+    ((Keyboard) SideServices.keyboard()).processKeyUpdate(actor, 0);
     world.removeBlock(pos.west(2), false);
     world.removeBlock(pos.west(), false);
     actor.setDeltaMovement(0, -1, 0);

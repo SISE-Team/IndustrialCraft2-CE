@@ -1,12 +1,12 @@
 package ic2ce.neoforge.registry;
 
 
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import net.minecraft.world.level.block.state.properties.WoodType;
 
 /** 26.1.2: WoodType is a record; custom types use the public constructor (oak sound set). */
 public final class SignDefinitions {
-   public static final WoodType RUBBER = ProjectRuntime.envProxy.registerSignType("rubber");
+   public static final WoodType RUBBER = EnvProxy.get().registerSignType("rubber");
 
    private SignDefinitions() {}
 }

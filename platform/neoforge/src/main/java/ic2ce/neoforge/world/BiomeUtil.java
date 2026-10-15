@@ -1,7 +1,7 @@
 package ic2ce.neoforge.world;
 
 import ic2ce.api.crops.BiomeType;
-import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.EnvProxy;
 import java.util.*;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
@@ -74,8 +74,8 @@ public final class BiomeUtil {
 
   public static int getBiomeTemperature(Level world, BlockPos pos) {
     var biome = world.getBiome(pos);
-    return ProjectRuntime.envProxy.biomeHasType(biome, BiomeType.HOT)
+    return EnvProxy.get().biomeHasType(biome, BiomeType.HOT)
         ? 45
-        : ProjectRuntime.envProxy.biomeHasType(biome, BiomeType.COLD) ? 0 : 25;
+        : EnvProxy.get().biomeHasType(biome, BiomeType.COLD) ? 0 : 25;
   }
 }
