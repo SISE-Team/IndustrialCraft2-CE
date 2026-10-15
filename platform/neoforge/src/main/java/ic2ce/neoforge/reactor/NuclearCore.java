@@ -9,6 +9,7 @@ import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.engine.reactor.ReactorCooling;
+import ic2ce.engine.reactor.ReactorCore;
 import ic2ce.neoforge.audio.PlaybackHandle;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;
@@ -134,9 +135,9 @@ public class NuclearCore extends InventoryBlockEntity
   public void load(CompoundTag data) {
     super.load(data);
     heat = Math.max(0, data.getIntOr("heat", 0));
-    output = bounded(data.getFloatOr("output", 0));
+    output = ReactorCore.bounded(data.getFloatOr("output", 0));
     maxHeat = Math.max(1, data.getIntOr("maxHeat", 10000));
-    hem = bounded(data.getFloatOr("hem", 1));
+    hem = ReactorCore.bounded(data.getFloatOr("hem", 1));
     pendingHeat = Math.max(0, data.getIntOr("pendingHeat", 0));
     fluidCooled = data.getBooleanOr("fluidCooled", false);
     cooling.restore(data.getDoubleOr("coolingHu", 0), data.getDoubleOr("hullHeatFraction", 0));
@@ -155,10 +156,6 @@ public class NuclearCore extends InventoryBlockEntity
     data.putBoolean("fluidCooled", fluidCooled);
     data.putDouble("coolingHu", cooling.pendingHu());
     data.putDouble("hullHeatFraction", cooling.hullFraction());
-  }
-
-  private static float bounded(float value) {
-    return Float.isFinite(value) ? Math.max(0, value) : 0;
   }
 
   private void beginEnergyTick() {
@@ -186,7 +183,7 @@ public class NuclearCore extends InventoryBlockEntity
   public double getReactorEUEnergyOutput() {
     double factor =
         NativeConfigValues.getFloat(ProjectConfiguration.get(), "balance/energy/generator/nuclear");
-    return Double.isFinite(factor) && factor > 0 ? bounded(output) * 5.0 * factor : 0;
+    return ReactorCore.electricalOutput(output, factor);
   }
 
   @Override
@@ -421,7 +418,7 @@ public class NuclearCore extends InventoryBlockEntity
 
   @Override
   public int addHeat(int amount) {
-    return heat = (int) Math.clamp((long) getHeat() + amount, 0, Integer.MAX_VALUE);
+    return heat = ReactorCore.addHeat(heat, amount);
   }
 
   @Override
@@ -441,25 +438,22 @@ public class NuclearCore extends InventoryBlockEntity
 
   @Override
   public void setHeatEffectModifier(float value) {
-    hem = bounded(value);
+    hem = ReactorCore.bounded(value);
   }
 
   @Override
   public float getReactorEnergyOutput() {
-    return bounded(output);
+    return ReactorCore.bounded(output);
   }
 
   @Override
   public float addOutput(float amount) {
-    if (Float.isFinite(amount))
-      output = (float) Math.clamp((double) bounded(output) + amount, 0, Float.MAX_VALUE);
-    return output;
+    return output = ReactorCore.addOutput(output, amount);
   }
 
   @Override
   public void addEmitHeat(int amount) {
-    if (fluidCooled && amount > 0)
-      pendingHeat = (int) Math.min(Integer.MAX_VALUE, (long) pendingHeat + amount);
+    if (fluidCooled) pendingHeat = ReactorCore.addEmittedHeat(pendingHeat, amount);
   }
 
   @Override
@@ -480,13 +474,7 @@ public class NuclearCore extends InventoryBlockEntity
   }
 
   public int gaugeHeatScaled(int width) {
-    return maxHeat <= 0
-        ? 0
-        : (int)
-            Math.clamp(
-                (long) Math.max(0, width) * getHeat() * 100 / ((long) maxHeat * 85),
-                0,
-                Integer.MAX_VALUE);
+    return ReactorCore.heatGauge(width, heat, maxHeat);
   }
 
   public int gaugeLiquidScaled(int width, int index) {

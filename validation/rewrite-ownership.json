@@ -3045,6 +3045,10 @@
     {
       "file": "engine/src/main/java/ic2ce/engine/agriculture/CropBreeding.java",
       "scope": "Crossing weights, unbiased large crossing tickets and weed growth inheritance extracted from the crop plot with contract coverage; draws are supplied by the adapter in native order"
+    },
+    {
+      "file": "engine/src/main/java/ic2ce/engine/reactor/ReactorCore.java",
+      "scope": "Saturating reactor hull heat, output, pending coolant heat, electrical output and heat gauge arithmetic extracted from the nuclear core with contract coverage"
     }
   ],
   "remainingFunctionalAreas": [],

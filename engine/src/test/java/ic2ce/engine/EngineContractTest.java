@@ -152,6 +152,7 @@ public final class EngineContractTest {
     tickBudgets();
     reactorHeat();
     reactorCooling();
+    reactorCore();
     unitConversions();
     insertion();
     durability();
@@ -1098,6 +1099,41 @@ public final class EngineContractTest {
               + " quenching "
               + n);
     }
+  }
+
+  private static void reactorCore() {
+    var random = new Random(2026101502);
+    for (int sample = 0; sample < 20000; sample++) {
+      int heat = random.nextInt(), amount = random.nextInt();
+      check(
+          ic2ce.engine.reactor.ReactorCore.addHeat(heat, amount)
+              == (int) Math.clamp((long) Math.max(0, heat) + amount, 0, Integer.MAX_VALUE),
+          "reactor hull heat saturates within zero and the int range " + sample);
+      int width = random.nextInt(400) - 10, maxHeat = random.nextInt(20001) - 1;
+      int gauge = ic2ce.engine.reactor.ReactorCore.heatGauge(width, Math.abs(heat), maxHeat);
+      check(
+          gauge >= 0 && (maxHeat > 0 || gauge == 0),
+          "reactor heat gauge is nonnegative and empty without capacity " + sample);
+    }
+    check(
+        ic2ce.engine.reactor.ReactorCore.heatGauge(100, 8500, 10000) == 100
+            && ic2ce.engine.reactor.ReactorCore.heatGauge(100, 4250, 10000) == 50,
+        "the heat gauge reaches full scale at eighty-five percent of maximum heat");
+    check(
+        ic2ce.engine.reactor.ReactorCore.addOutput(-3, Float.NaN) == -3
+            && ic2ce.engine.reactor.ReactorCore.addOutput(-3, 2) == 2
+            && ic2ce.engine.reactor.ReactorCore.addOutput(Float.MAX_VALUE, Float.MAX_VALUE)
+                == Float.MAX_VALUE,
+        "reactor output ignores nonfinite pulses and saturates finite ones from zero");
+    check(
+        ic2ce.engine.reactor.ReactorCore.electricalOutput(3, 1) == 15
+            && ic2ce.engine.reactor.ReactorCore.electricalOutput(3, Double.NaN) == 0
+            && ic2ce.engine.reactor.ReactorCore.electricalOutput(Float.NaN, 2) == 0,
+        "electrical reactor output is five EU per output point times the configured factor");
+    check(
+        ic2ce.engine.reactor.ReactorCore.addEmittedHeat(Integer.MAX_VALUE - 1, 5) == Integer.MAX_VALUE
+            && ic2ce.engine.reactor.ReactorCore.addEmittedHeat(7, -3) == 7,
+        "pending coolant heat only grows and saturates");
   }
 
   private static void reactorCooling() {
