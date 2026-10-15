@@ -9,7 +9,6 @@ import ic2ce.neoforge.storage.tank.TileEntityBronzeTank;
 import ic2ce.neoforge.storage.tank.TileEntityIridiumTank;
 import ic2ce.neoforge.storage.tank.TileEntityIronTank;
 import ic2ce.neoforge.storage.tank.TileEntitySteelTank;
-import ic2ce.core.util.Util;
 import ic2ce.neoforge.agriculture.AutoHarvester;
 import ic2ce.neoforge.agriculture.CellCropCaretaker;
 import ic2ce.neoforge.agriculture.CropPlot;
@@ -119,6 +118,7 @@ import ic2ce.neoforge.utility.ChunkAnchor;
 import ic2ce.neoforge.utility.IndustrialFence;
 import ic2ce.neoforge.utility.LinkedTeleporter;
 import ic2ce.neoforge.utility.PoleDrive;
+import ic2ce.neoforge.world.DirectionSets;
 import ic2ce.neoforge.world.block.BarkWood;
 import ic2ce.neoforge.world.block.ConstructionWall;
 import ic2ce.neoforge.world.block.CuringFoam;
@@ -815,7 +815,7 @@ public final class BlockDefinitions {
               ImprintedWall.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block MINING_PIPE =
       register(
@@ -867,7 +867,7 @@ public final class BlockDefinitions {
               DemolitionBlockEntity.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block NUKE =
       register(
@@ -883,7 +883,7 @@ public final class BlockDefinitions {
               ConfiguredNuclearCharge.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block CLASSIC_NUKE =
       register(
@@ -899,7 +899,7 @@ public final class BlockDefinitions {
               NuclearBlockEntity.ClassicNuclearCharge.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block GENERATOR =
       register(
@@ -916,7 +916,7 @@ public final class BlockDefinitions {
               CombustionGenerator.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block GEO_GENERATOR =
       register(
@@ -933,7 +933,7 @@ public final class BlockDefinitions {
               GeothermalGenerator.class,
               true,
               MachineBlockType.DefaultDrop.Generator,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block KINETIC_GENERATOR =
       register(
@@ -950,7 +950,7 @@ public final class BlockDefinitions {
               KineticConverter.class,
               true,
               MachineBlockType.DefaultDrop.Generator,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block RT_GENERATOR =
       register(
@@ -967,7 +967,7 @@ public final class BlockDefinitions {
               RadioisotopeGenerator.class,
               true,
               MachineBlockType.DefaultDrop.Generator,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block SEMIFLUID_GENERATOR =
       register(
@@ -985,7 +985,7 @@ public final class BlockDefinitions {
               BiogasGenerator.class,
               true,
               MachineBlockType.DefaultDrop.Generator,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block SOLAR_GENERATOR =
       register(
@@ -1002,7 +1002,7 @@ public final class BlockDefinitions {
               SolarCollector.class,
               true,
               MachineBlockType.DefaultDrop.Generator,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block STIRLING_GENERATOR =
       register(
@@ -1020,7 +1020,7 @@ public final class BlockDefinitions {
               ThermalConverter.class,
               true,
               MachineBlockType.DefaultDrop.Generator,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block WATER_GENERATOR =
       register(
@@ -1037,7 +1037,7 @@ public final class BlockDefinitions {
               WaterMill.class,
               true,
               MachineBlockType.DefaultDrop.Generator,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block WIND_GENERATOR =
       register(
@@ -1054,7 +1054,7 @@ public final class BlockDefinitions {
               WindMill.class,
               true,
               MachineBlockType.DefaultDrop.Generator,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block ELECTRIC_HEAT_GENERATOR =
       register(
@@ -1072,7 +1072,7 @@ public final class BlockDefinitions {
               ElectricHeater.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block FLUID_HEAT_GENERATOR =
       register(
@@ -1090,7 +1090,7 @@ public final class BlockDefinitions {
               FluidBurner.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block RT_HEAT_GENERATOR =
       register(
@@ -1107,7 +1107,7 @@ public final class BlockDefinitions {
               RadioisotopeHeater.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block SOLID_HEAT_GENERATOR =
       register(
@@ -1125,7 +1125,7 @@ public final class BlockDefinitions {
               CombustionHeater.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block ELECTRIC_KINETIC_GENERATOR =
       register(
@@ -1143,7 +1143,7 @@ public final class BlockDefinitions {
               ElectricMotor.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block MANUAL_KINETIC_GENERATOR =
       register(
@@ -1161,7 +1161,7 @@ public final class BlockDefinitions {
               ManualCrank.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block STEAM_KINETIC_GENERATOR =
       register(
@@ -1179,7 +1179,7 @@ public final class BlockDefinitions {
               SteamTurbine.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block STIRLING_KINETIC_GENERATOR =
       register(
@@ -1197,7 +1197,7 @@ public final class BlockDefinitions {
               HeatDrivenCogenerator.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block WATER_KINETIC_GENERATOR =
       register(
@@ -1215,7 +1215,7 @@ public final class BlockDefinitions {
               WaterTurbine.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block WIND_KINETIC_GENERATOR =
       register(
@@ -1233,7 +1233,7 @@ public final class BlockDefinitions {
               WindTurbine.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block NUCLEAR_REACTOR =
       register(
@@ -1250,7 +1250,7 @@ public final class BlockDefinitions {
               NuclearCore.class,
               true,
               MachineBlockType.DefaultDrop.Generator,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block REACTOR_ACCESS_HATCH =
       register(
@@ -1268,7 +1268,7 @@ public final class BlockDefinitions {
               VesselHatch.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.onlyNorth,
+              DirectionSets.onlyNorth,
               false));
   public static final Block REACTOR_CHAMBER =
       register(
@@ -1285,7 +1285,7 @@ public final class BlockDefinitions {
               ReactorChamber.class,
               false,
               MachineBlockType.DefaultDrop.Machine,
-              Util.onlyNorth,
+              DirectionSets.onlyNorth,
               true));
   public static final Block REACTOR_FLUID_PORT =
       register(
@@ -1303,7 +1303,7 @@ public final class BlockDefinitions {
               CoolantPort.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.onlyNorth,
+              DirectionSets.onlyNorth,
               false));
   public static final Block REACTOR_REDSTONE_PORT =
       register(
@@ -1321,7 +1321,7 @@ public final class BlockDefinitions {
               SignalPort.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.onlyNorth,
+              DirectionSets.onlyNorth,
               false));
   public static final Block CONDENSER =
       register(
@@ -1338,7 +1338,7 @@ public final class BlockDefinitions {
               SteamCondenser.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block FLUID_BOTTLER =
       register(
@@ -1355,7 +1355,7 @@ public final class BlockDefinitions {
               LiquidPackager.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block FLUID_DISTRIBUTOR =
       register(
@@ -1372,7 +1372,7 @@ public final class BlockDefinitions {
               FairFluidRouter.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block FLUID_REGULATOR =
       register(
@@ -1389,7 +1389,7 @@ public final class BlockDefinitions {
               MeteredFluidOutlet.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block LIQUID_HEAT_EXCHANGER =
       register(
@@ -1407,7 +1407,7 @@ public final class BlockDefinitions {
               FluidHeatExchanger.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block PUMP =
       register(
@@ -1424,7 +1424,7 @@ public final class BlockDefinitions {
               FluidCollector.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block SOLAR_DISTILLER =
       register(
@@ -1441,7 +1441,7 @@ public final class BlockDefinitions {
               SolarDistiller.class,
               false,
               MachineBlockType.DefaultDrop.Machine,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block STEAM_GENERATOR =
       register(
@@ -1458,7 +1458,7 @@ public final class BlockDefinitions {
               PressureBoiler.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block ITEM_BUFFER =
       register(
@@ -1475,7 +1475,7 @@ public final class BlockDefinitions {
               DualItemBuffer.class,
               false,
               MachineBlockType.DefaultDrop.Machine,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block MAGNETIZER =
       register(
@@ -1492,7 +1492,7 @@ public final class BlockDefinitions {
               PoleDrive.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block SORTING_MACHINE =
       register(
@@ -1509,7 +1509,7 @@ public final class BlockDefinitions {
               BatchItemSorter.class,
               false,
               MachineBlockType.DefaultDrop.Machine,
-              Util.onlyNorth,
+              DirectionSets.onlyNorth,
               false));
   public static final Block TELEPORTER =
       register(
@@ -1526,7 +1526,7 @@ public final class BlockDefinitions {
               LinkedTeleporter.class,
               true,
               MachineBlockType.DefaultDrop.AdvMachine,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block TERRAFORMER =
       register(
@@ -1543,7 +1543,7 @@ public final class BlockDefinitions {
               TerrainController.class,
               true,
               MachineBlockType.DefaultDrop.AdvMachine,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block TESLA_COIL =
       register(
@@ -1560,7 +1560,7 @@ public final class BlockDefinitions {
               ArcCoil.class,
               false,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block CANNER =
       register(
@@ -1577,7 +1577,7 @@ public final class BlockDefinitions {
               MultiPolicyCanner.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block CLASSIC_CANNER =
       register(
@@ -1594,7 +1594,7 @@ public final class BlockDefinitions {
               LegacyCellCanner.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final MachineBlockType COMPRESSOR =
       register(
@@ -1611,7 +1611,7 @@ public final class BlockDefinitions {
               PressureCompressor.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block ELECTRIC_FURNACE =
       register(
@@ -1628,7 +1628,7 @@ public final class BlockDefinitions {
               ElectricSmelter.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final MachineBlockType EXTRACTOR =
       register(
@@ -1645,7 +1645,7 @@ public final class BlockDefinitions {
               MaterialExtractor.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block IRON_FURNACE =
       register(
@@ -1662,7 +1662,7 @@ public final class BlockDefinitions {
               FuelSmelter.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               false));
   public static final MachineBlockType MACERATOR =
       register(
@@ -1679,7 +1679,7 @@ public final class BlockDefinitions {
               OreGrinder.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block RECYCLER =
       register(
@@ -1696,7 +1696,7 @@ public final class BlockDefinitions {
               MaterialRecycler.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block SOLID_CANNER =
       register(
@@ -1713,7 +1713,7 @@ public final class BlockDefinitions {
               SolidPackager.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final MachineBlockType BLAST_FURNACE =
       register(
@@ -1730,7 +1730,7 @@ public final class BlockDefinitions {
               AlloyFurnace.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final MachineBlockType BLOCK_CUTTER =
       register(
@@ -1747,7 +1747,7 @@ public final class BlockDefinitions {
               PlateCutter.class,
               true,
               MachineBlockType.DefaultDrop.AdvMachine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final MachineBlockType CENTRIFUGE =
       register(
@@ -1764,7 +1764,7 @@ public final class BlockDefinitions {
               ThermalCentrifuge.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block FERMENTER =
       register(
@@ -1781,7 +1781,7 @@ public final class BlockDefinitions {
               BiomassFermenter.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block INDUCTION_FURNACE =
       register(
@@ -1798,7 +1798,7 @@ public final class BlockDefinitions {
               InductionSmelter.class,
               true,
               MachineBlockType.DefaultDrop.AdvMachine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final MachineBlockType METAL_FORMER =
       register(
@@ -1815,7 +1815,7 @@ public final class BlockDefinitions {
               MetalFormer.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final MachineBlockType ORE_WASHING_PLANT =
       register(
@@ -1832,7 +1832,7 @@ public final class BlockDefinitions {
               OreWasher.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block ADVANCED_MINER =
       register(
@@ -1849,7 +1849,7 @@ public final class BlockDefinitions {
               AreaMiner.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block CROP_HARVESTER =
       register(
@@ -1866,7 +1866,7 @@ public final class BlockDefinitions {
               AutoHarvester.class,
               false,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block CROPMATRON =
       register(
@@ -1883,7 +1883,7 @@ public final class BlockDefinitions {
               FluidCropCaretaker.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block CLASSIC_CROPMATRON =
       register(
@@ -1901,7 +1901,7 @@ public final class BlockDefinitions {
               CellCropCaretaker.class,
               false,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block MINER =
       register(
@@ -1918,7 +1918,7 @@ public final class BlockDefinitions {
               PipeMiner.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block MASS_FABRICATOR =
       register(
@@ -1935,7 +1935,7 @@ public final class BlockDefinitions {
               AmplifiedMatterFabricator.class,
               true,
               MachineBlockType.DefaultDrop.AdvMachine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block CLASSIC_MASS_FABRICATOR =
       register(
@@ -1953,7 +1953,7 @@ public final class BlockDefinitions {
               ClassicMatterFabricator.class,
               true,
               MachineBlockType.DefaultDrop.AdvMachine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block UU_ASSEMBLY_BENCH =
       register(
@@ -1970,7 +1970,7 @@ public final class BlockDefinitions {
               UuAssembler.class,
               true,
               MachineBlockType.DefaultDrop.AdvMachine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block MATTER_GENERATOR =
       register(
@@ -1987,7 +1987,7 @@ public final class BlockDefinitions {
               LiquidMatterFabricator.class,
               true,
               MachineBlockType.DefaultDrop.AdvMachine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block PATTERN_STORAGE =
       register(
@@ -2004,7 +2004,7 @@ public final class BlockDefinitions {
               PatternLibrary.class,
               false,
               MachineBlockType.DefaultDrop.AdvMachine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block REPLICATOR =
       register(
@@ -2021,7 +2021,7 @@ public final class BlockDefinitions {
               PatternReplicator.class,
               true,
               MachineBlockType.DefaultDrop.AdvMachine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block UU_SCANNER =
       register(
@@ -2038,7 +2038,7 @@ public final class BlockDefinitions {
               PatternScanner.class,
               true,
               MachineBlockType.DefaultDrop.AdvMachine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block ENERGY_O_MAT =
       register(
@@ -2055,7 +2055,7 @@ public final class BlockDefinitions {
               EnergyTradeTerminal.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.allFacings,
+              DirectionSets.allFacings,
               false));
   public static final Block PERSONAL_CHEST =
       register(
@@ -2072,7 +2072,7 @@ public final class BlockDefinitions {
               PrivateChest.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               false));
   public static final Block TRADE_O_MAT =
       register(
@@ -2089,7 +2089,7 @@ public final class BlockDefinitions {
               ItemTradeTerminal.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               false));
   private static final java.util.function.Supplier<Properties> cableSettings =
       () -> Properties.of().mapColor(MapColor.METAL).strength(0.5F, 5.0F).sound(SoundType.METAL);
@@ -2305,7 +2305,7 @@ public final class BlockDefinitions {
               LowVoltagePad.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.downSideFacings,
+              DirectionSets.downSideFacings,
               true));
   public static final Block CESU_CHARGEPAD =
       register(
@@ -2323,7 +2323,7 @@ public final class BlockDefinitions {
               MediumVoltagePad.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.downSideFacings,
+              DirectionSets.downSideFacings,
               true));
   public static final Block MFE_CHARGEPAD =
       register(
@@ -2341,7 +2341,7 @@ public final class BlockDefinitions {
               HighVoltagePad.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.downSideFacings,
+              DirectionSets.downSideFacings,
               true));
   public static final Block MFSU_CHARGEPAD =
       register(
@@ -2359,7 +2359,7 @@ public final class BlockDefinitions {
               ExtremeVoltagePad.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.downSideFacings,
+              DirectionSets.downSideFacings,
               true));
   public static final Block BATBOX =
       register(
@@ -2376,7 +2376,7 @@ public final class BlockDefinitions {
               LowVoltageBank.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block CESU =
       register(
@@ -2393,7 +2393,7 @@ public final class BlockDefinitions {
               MediumVoltageBank.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block MFE =
       register(
@@ -2410,7 +2410,7 @@ public final class BlockDefinitions {
               HighVoltageBank.class,
               false,
               MachineBlockType.DefaultDrop.Machine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block CLASSIC_MFE =
       register(
@@ -2427,7 +2427,7 @@ public final class BlockDefinitions {
               HighVoltageBank.TileEntityElectricClassicMFE.class,
               false,
               MachineBlockType.DefaultDrop.Machine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block MFSU =
       register(
@@ -2444,7 +2444,7 @@ public final class BlockDefinitions {
               ExtremeVoltageBank.class,
               false,
               MachineBlockType.DefaultDrop.AdvMachine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block CLASSIC_MFSU =
       register(
@@ -2461,7 +2461,7 @@ public final class BlockDefinitions {
               ExtremeVoltageBank.TileEntityElectricClassicMFSU.class,
               false,
               MachineBlockType.DefaultDrop.AdvMachine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block ELECTROLYZER =
       register(
@@ -2478,7 +2478,7 @@ public final class BlockDefinitions {
               FluidElectrolyzer.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block CLASSIC_ELECTROLYZER =
       register(
@@ -2496,7 +2496,7 @@ public final class BlockDefinitions {
               CellElectrolyzer.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block LV_TRANSFORMER =
       register(
@@ -2513,7 +2513,7 @@ public final class BlockDefinitions {
               LowVoltageTransformer.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block MV_TRANSFORMER =
       register(
@@ -2530,7 +2530,7 @@ public final class BlockDefinitions {
               MediumVoltageTransformer.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block HV_TRANSFORMER =
       register(
@@ -2547,7 +2547,7 @@ public final class BlockDefinitions {
               HighVoltageTransformer.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block EV_TRANSFORMER =
       register(
@@ -2564,7 +2564,7 @@ public final class BlockDefinitions {
               ExtremeVoltageTransformer.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block TANK =
       register(
@@ -2581,7 +2581,7 @@ public final class BlockDefinitions {
               StationaryFluidStore.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block CHUNK_LOADER =
       register(
@@ -2598,7 +2598,7 @@ public final class BlockDefinitions {
               ChunkAnchor.class,
               true,
               MachineBlockType.DefaultDrop.Self,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block CREATIVE_GENERATOR =
       register(
@@ -2615,7 +2615,7 @@ public final class BlockDefinitions {
               CreativePowerSource.class,
               true,
               MachineBlockType.DefaultDrop.None,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block STEAM_REPRESSURIZER =
       register(
@@ -2633,7 +2633,7 @@ public final class BlockDefinitions {
               IntegrationSteamConverter.class,
               true,
               MachineBlockType.DefaultDrop.Machine,
-              Util.noFacings,
+              DirectionSets.noFacings,
               true));
   public static final Block WEIGHTED_FLUID_DISTRIBUTOR =
       register(
@@ -2651,7 +2651,7 @@ public final class BlockDefinitions {
               PriorityFluidRouter.class,
               false,
               MachineBlockType.DefaultDrop.Machine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block WEIGHTED_ITEM_DISTRIBUTOR =
       register(
@@ -2669,7 +2669,7 @@ public final class BlockDefinitions {
               PriorityItemRouter.class,
               false,
               MachineBlockType.DefaultDrop.Machine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block RCI_RSH =
       register(
@@ -2686,7 +2686,7 @@ public final class BlockDefinitions {
               RedstoneCondensatorService.class,
               true,
               MachineBlockType.DefaultDrop.AdvMachine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   public static final Block RCI_LZH =
       register(
@@ -2703,7 +2703,7 @@ public final class BlockDefinitions {
               LapisCondensatorService.class,
               true,
               MachineBlockType.DefaultDrop.AdvMachine,
-              Util.allFacings,
+              DirectionSets.allFacings,
               true));
   private static final java.util.function.Supplier<Properties> cropSettings =
       () -> BlockProfiles.plant().strength(0.8F, 0.2F).sound(SoundType.CROP).noCollision();
@@ -2715,7 +2715,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.NONE));
   public static final Block WEED_CROP =
@@ -2726,7 +2726,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.WEED));
   public static final Block WHEAT_CROP =
@@ -2737,7 +2737,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.WHEAT));
   public static final Block CARROTS_CROP =
@@ -2748,7 +2748,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.CARROTS));
   public static final Block POTATO_CROP =
@@ -2759,7 +2759,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.POTATO));
   public static final Block BEETROOTS_CROP =
@@ -2770,7 +2770,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.BEETROOTS));
   public static final Block PUMPKIN_CROP =
@@ -2781,7 +2781,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.PUMPKIN));
   public static final Block MELON_CROP =
@@ -2792,7 +2792,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.MELON));
   public static final Block DANDELION_CROP =
@@ -2803,7 +2803,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.DANDELION));
   public static final Block POPPY_CROP =
@@ -2814,7 +2814,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.POPPY));
   public static final Block BLACKTHORN_CROP =
@@ -2825,7 +2825,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.BLACKTHORN));
   public static final Block TULIP_CROP =
@@ -2836,7 +2836,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.TULIP));
   public static final Block CYAZINT_CROP =
@@ -2847,7 +2847,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.CYAZINT));
   public static final Block VENOMILIA_CROP =
@@ -2858,7 +2858,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.VENOMILIA));
   public static final Block REED_CROP =
@@ -2869,7 +2869,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.REED));
   public static final Block STICKY_REED_CROP =
@@ -2880,7 +2880,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.STICKY_REED));
   public static final Block COCOA_CROP =
@@ -2891,7 +2891,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.COCOA));
   public static final Block FLAX_CROP =
@@ -2902,7 +2902,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.FLAX));
   public static final Block RED_MUSHROOM_CROP =
@@ -2913,7 +2913,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.RED_MUSHROOM));
   public static final Block BROWN_MUSHROOM_CROP =
@@ -2924,7 +2924,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.BROWN_MUSHROOM));
   public static final Block NETHER_WART_CROP =
@@ -2935,7 +2935,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.NETHER_WART));
   public static final Block TERRA_WART_CROP =
@@ -2946,7 +2946,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.TERRA_WART));
   public static final Block OAK_SAPLING_CROP =
@@ -2957,7 +2957,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.OAK_SAPLING));
   public static final Block SPRUCE_SAPLING_CROP =
@@ -2968,7 +2968,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.SPRUCE_SAPLING));
   public static final Block BIRCH_SAPLING_CROP =
@@ -2979,7 +2979,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.BIRCH_SAPLING));
   public static final Block JUNGLE_SAPLING_CROP =
@@ -2990,7 +2990,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.JUNGLE_SAPLING));
   public static final Block ACACIA_SAPLING_CROP =
@@ -3001,7 +3001,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.ACACIA_SAPLING));
   public static final Block DARK_OAK_SAPLING_CROP =
@@ -3012,7 +3012,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.DARK_OAK_SAPLING));
   public static final Block FERRU_CROP =
@@ -3023,7 +3023,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.FERRU));
   public static final Block CYPRIUM_CROP =
@@ -3034,7 +3034,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.CYPRIUM));
   public static final Block STAGNIUM_CROP =
@@ -3045,7 +3045,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.STAGNIUM));
   public static final Block PLUMBISCUS_CROP =
@@ -3056,7 +3056,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.PLUMBISCUS));
   public static final Block AURELIA_CROP =
@@ -3067,7 +3067,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.AURELIA));
   public static final Block SHINING_CROP =
@@ -3078,7 +3078,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.SHINING));
   public static final Block RED_WHEAT_CROP =
@@ -3089,7 +3089,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.RED_WHEAT));
   public static final Block COFFEE_CROP =
@@ -3100,7 +3100,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.COFFEE));
   public static final Block HOPS_CROP =
@@ -3111,7 +3111,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.HOPS));
   public static final Block EATING_PLANT_CROP =
@@ -3122,7 +3122,7 @@ public final class BlockDefinitions {
               CropPlot.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false,
               Cultivar.EATING_PLANT));
   public static final Block INDUSTRIAL_WORKBENCH =
@@ -3141,7 +3141,7 @@ public final class BlockDefinitions {
               IndustrialWorkbench.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block BATCH_CRAFTER =
       register(
@@ -3158,7 +3158,7 @@ public final class BlockDefinitions {
               AutomaticCrafter.class,
               true,
               MachineBlockType.DefaultDrop.AdvMachine,
-              Util.horizontalFacings,
+              DirectionSets.horizontalFacings,
               true));
   public static final Block WOODEN_STORAGE_BOX =
       register(
@@ -3175,7 +3175,7 @@ public final class BlockDefinitions {
               TileEntityWoodenStorageBox.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block IRON_STORAGE_BOX =
       register(
@@ -3191,7 +3191,7 @@ public final class BlockDefinitions {
               TileEntityIronStorageBox.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block BRONZE_STORAGE_BOX =
       register(
@@ -3208,7 +3208,7 @@ public final class BlockDefinitions {
               TileEntityBronzeStorageBox.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block STEEL_STORAGE_BOX =
       register(
@@ -3224,7 +3224,7 @@ public final class BlockDefinitions {
               TileEntitySteelStorageBox.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block IRIDIUM_STORAGE_BOX =
       register(
@@ -3241,7 +3241,7 @@ public final class BlockDefinitions {
               TileEntityIridiumStorageBox.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block BRONZE_TANK =
       register(
@@ -3257,7 +3257,7 @@ public final class BlockDefinitions {
               TileEntityBronzeTank.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block IRON_TANK =
       register(
@@ -3273,7 +3273,7 @@ public final class BlockDefinitions {
               TileEntityIronTank.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block STEEL_TANK =
       register(
@@ -3289,7 +3289,7 @@ public final class BlockDefinitions {
               TileEntitySteelTank.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
   public static final Block IRIDIUM_TANK =
       register(
@@ -3305,7 +3305,7 @@ public final class BlockDefinitions {
               TileEntityIridiumTank.class,
               false,
               MachineBlockType.DefaultDrop.Self,
-              Util.noFacings,
+              DirectionSets.noFacings,
               false));
 
   public static void init() {}

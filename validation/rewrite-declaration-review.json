@@ -652,12 +652,6 @@
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidBeBridge.java",
-      "sha256": "6a184068327d867a09e43268b48724f122646bfcfeea2d9f046a05be22db34e6",
-      "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
-      "countsAsImplementationRewrite": false
-    },
-    {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/Ic2FluidBlock.java",
       "sha256": "604a649ff62b8e8aad22457301e3a0ab5d6f4be389e0d6fd2875374acc79f10b",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",

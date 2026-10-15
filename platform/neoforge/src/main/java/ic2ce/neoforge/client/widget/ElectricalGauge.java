@@ -1,6 +1,6 @@
 package ic2ce.neoforge.client.widget;
 
-import ic2ce.core.util.Util;
+import ic2ce.engine.text.SiFormat;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.client.screen.MachineScreen;
 import ic2ce.neoforge.client.text.LocalizedText;
@@ -39,9 +39,9 @@ public class ElectricalGauge extends FillGauge<ElectricalGauge> {
   protected List<Component> getToolTip() {
     return List.of(
         Component.literal(
-            Util.toSiString(ledger.getEnergy(), 4)
+            SiFormat.format(ledger.getEnergy(), 4)
                 + "/"
-                + Util.toSiString(ledger.getCapacity(), 4)
+                + SiFormat.format(ledger.getCapacity(), 4)
                 + " "
                 + LocalizedText.translate("ic2.generic.text.EU")));
   }

@@ -1,6 +1,5 @@
 package ic2ce.neoforge.diagnostics;
 
-import ic2ce.core.util.*;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.*;

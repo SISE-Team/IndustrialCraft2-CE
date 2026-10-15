@@ -7,7 +7,6 @@ import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.neoforge.fluid.FluidHandler;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
-import ic2ce.core.util.*;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;

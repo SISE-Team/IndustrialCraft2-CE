@@ -1,6 +1,5 @@
 package ic2ce.neoforge.item.paint;
 
-import ic2ce.core.util.*;
 import net.minecraft.world.item.DyeColor;
 
 /** Stable pigment IDs and RGB data use native ordinal indexing and a primitive RGB dispatch. */

@@ -4,6 +4,7 @@ import static ic2ce.verification.AllMachinesVerification.*;
 
 import ic2ce.neoforge.reactor.NuclearCore;
 import ic2ce.neoforge.reactor.part.WearableReactorPart;
+import ic2ce.neoforge.world.LoadedAreas;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -128,7 +129,7 @@ final class ReactorFunctionality {
       boolean all = true;
       for (var entry : cores.entrySet()) {
         var core = entry.getValue();
-        boolean loaded = ic2ce.core.util.Util.isAreaLoaded(s.level, core.getBlockPos(), 8);
+        boolean loaded = LoadedAreas.isLoaded(s.level, core.getBlockPos(), 8);
         boolean signal = core.redstone.hasRedstoneInput();
         int initial = initialTickers.get(entry.getKey());
         boolean ticking = core.updateTicker - initial >= core.getTickRate();

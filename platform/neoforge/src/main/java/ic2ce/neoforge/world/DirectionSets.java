@@ -8,6 +8,19 @@ import net.minecraft.core.Direction;
 
 /** The six native directions have only sixty-four immutable combinations, shared by every tile. */
 public final class DirectionSets {
+  public static final Direction[] ALL_DIRS = Direction.values();
+  public static final Direction[] HORIZONTAL_DIRS = {
+    Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST
+  };
+  /** Supported block facings; these exact instances are compared by registered block types. */
+  public static final Set<Direction> noFacings = Set.of(),
+      onlyNorth = Set.of(Direction.NORTH),
+      horizontalFacings = Set.of(Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST),
+      verticalFacings = Set.of(Direction.DOWN, Direction.UP),
+      downSideFacings =
+          Set.of(Direction.DOWN, Direction.NORTH, Direction.SOUTH, Direction.WEST, Direction.EAST),
+      allFacings = Set.of(Direction.values());
+
   private static final Direction[] DIRECTIONS = Direction.values();
   private static final Set<Direction>[] SETS = create();
 

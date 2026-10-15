@@ -5,7 +5,6 @@ import ic2ce.api.tile.IEnergyStorage;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
-import ic2ce.core.util.*;
 import ic2ce.engine.energy.StorageSignalPolicy;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.block.MachineBlockType;

@@ -2,7 +2,6 @@ package ic2ce.neoforge.utility;
 
 import ic2ce.api.network.INetworkTileEntityEventListener;
 import ic2ce.api.tile.IEnergyStorage;
-import ic2ce.core.util.Util;
 import ic2ce.engine.fluid.FairAllocation;
 import ic2ce.neoforge.block.ActiveBlockEntity;
 import ic2ce.neoforge.config.NativeConfigValues;
@@ -10,6 +9,7 @@ import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.world.DirectionSets;
 import java.util.ArrayDeque;
 import java.util.IdentityHashMap;
 import java.util.List;
@@ -175,7 +175,7 @@ public class LinkedTeleporter extends ActiveBlockEntity implements INetworkTileE
     var world = getLevel();
     if (world == null) return result;
     int count = 0;
-    for (var direction : Util.ALL_DIRS) {
+    for (var direction : DirectionSets.ALL_DIRS) {
       var position = worldPosition.relative(direction);
       if (!world.isLoaded(position)) continue;
       if (!(world.getBlockEntity(position) instanceof IEnergyStorage bank)
@@ -260,7 +260,7 @@ public class LinkedTeleporter extends ActiveBlockEntity implements INetworkTileE
             case Player player -> {
               long result = 1000;
               if (inventories)
-                for (var stack : Util.playerMainItems(player)) result += stackCost(stack);
+                for (var stack : player.getInventory().getNonEquipmentItems()) result += stackCost(stack);
               yield result;
             }
             case WitherBoss _ -> 5000;

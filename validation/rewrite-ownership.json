@@ -2159,10 +2159,6 @@
       "scope": "Independent owned native components and codec snapshot replacement, saved owner profiles, full stack-specific container delegation and transaction forwarding"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/DelegatingInventory.java",
-      "scope": "Independent owned native components and codec snapshot replacement, saved owner profiles, full stack-specific container delegation and transaction forwarding"
-    },
-    {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/projectile/Vector3.java",
       "scope": "Independent native three-axis geometry adapter, zero normalization, overflow-resistant finite lengths, owned mutable operations and allocation-free cross products"
     },
@@ -2779,10 +2775,6 @@
       "scope": "Independent native component-sensitive item ownership/equality, positive hand/inventory bills, staged complete multi-slot debits, native off-hand/durability handling, pure placement caller data and planned bounded-slot balancing"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/Util.java",
-      "scope": "Independent native registry/world/actor helpers, bounded numeric/SI formatting, allocation-free caller StackWalker, ClassValue contract validation and authoritative native automation harvesting without obsolete JVM internals"
-    },
-    {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/menu/IHasGui.java",
       "scope": "Independent native block/handheld menu payloads, current attached-world ownership and proprietor/physical handheld identity checks; native chunk delivery precedes menu construction"
     },
@@ -3025,6 +3017,22 @@
     {
       "file": "platform/neoforge/src/main/java/ic2ce/neoforge/agriculture/CropTickSchedule.java",
       "scope": "World-owned phased due crop dispatch with native loaded/block-ticking/border admission, lifecycle removal, reentrant-safe iteration and period rebucketing"
+    },
+    {
+      "file": "engine/src/main/java/ic2ce/engine/text/SiFormat.java",
+      "scope": "Exact-decimal SI presentation with bounded significant digits and prefix carry, extracted from the platform helper with contract coverage"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/LoadedAreas.java",
+      "scope": "Overflow-safe square chunk readiness checks"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/diagnostics/Positions.java",
+      "scope": "Dimension-qualified block position log presentation with optional world identity"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/diagnostics/DevelopmentMode.java",
+      "scope": "INDEV development-content switch"
     }
   ],
   "remainingFunctionalAreas": [],
@@ -3706,7 +3714,6 @@
     "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/NotClassic.java": "platform/neoforge/src/main/java/ic2/core/profile/NotClassic.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/NotExperimental.java": "platform/neoforge/src/main/java/ic2/core/profile/NotExperimental.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/EnvFluidHandler.java": "platform/neoforge/src/main/java/ic2/core/fluid/EnvFluidHandler.java",
-    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidBeBridge.java": "platform/neoforge/src/main/java/ic2/core/fluid/FluidBeBridge.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidHandler.java": "platform/neoforge/src/main/java/ic2/core/fluid/FluidHandler.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidTankInfo.java": "platform/neoforge/src/main/java/ic2/core/fluid/FluidTankInfo.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/Ic2FluidBlock.java": "platform/neoforge/src/main/java/ic2/core/fluid/Ic2FluidBlock.java",
@@ -3931,6 +3938,21 @@
     {
       "file": "api/src/main/java/ic2ce/api/crops/ExampleCropCard.java",
       "reason": "Unused old addon sample always returned a null native block and had no runtime, registry, API or fixture consumer; real independently implemented crop species supply working native implementations"
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/util/Util.java",
+      "scope": "Split by responsibility: SI formatting to engine SiFormat, facing sets to world DirectionSets, area readiness to world LoadedAreas, log positions to diagnostics Positions, the INDEV flag to diagnostics DevelopmentMode; single-caller helpers inlined at their caller; unused helpers removed.",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/core/util/DelegatingInventory.java",
+      "scope": "Unused container wrapper; no production or verification references.",
+      "countsAsImplementationRewrite": false
+    },
+    {
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidBeBridge.java",
+      "scope": "Unused bridge marker; no production or verification references.",
+      "countsAsImplementationRewrite": false
     }
   ],
   "acceptanceScope": {

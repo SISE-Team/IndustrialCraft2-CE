@@ -4,13 +4,13 @@ import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.energy.tile.IExplosionPowerOverride;
 import ic2ce.api.recipe.*;
 import ic2ce.api.upgrade.*;
-import ic2ce.core.util.Util;
 import ic2ce.engine.machine.AmplificationBudget;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.component.SignalInput;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
+import ic2ce.neoforge.diagnostics.DevelopmentMode;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.menu.OwnedMenu;
@@ -178,7 +178,7 @@ public class AmplifiedMatterFabricator extends PoweredBlockEntity
   public boolean getGuiState(String key) {
     return key.equals("scrap")
         ? scrap > 0
-        : key.equals("dev") ? Util.inDev() : super.getGuiState(key);
+        : key.equals("dev") ? DevelopmentMode.active() : super.getGuiState(key);
   }
 
   @Override

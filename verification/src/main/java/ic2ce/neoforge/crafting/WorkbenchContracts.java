@@ -1,7 +1,6 @@
 package ic2ce.neoforge.crafting;
 
 import com.mojang.authlib.GameProfile;
-import ic2ce.core.util.Util;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public final class WorkbenchContracts {
                 UUID.fromString("48f9df25-2ae8-480b-97da-b0188e09e3a1"), "IC2BenchProbe"));
     player.setPos(position.getX() + .5, position.getY(), position.getZ() + .5);
     player.getAbilities().instabuild = true;
-    var main = Util.playerMainItems(player);
+    var main = player.getInventory().getNonEquipmentItems();
     for (int index = 0; index < main.size(); index++)
       main.set(index, new ItemStack(Items.BEDROCK, 64));
     for (int index = 0; index < bench.craftingStorage.size(); index++)

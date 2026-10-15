@@ -1,7 +1,7 @@
 package ic2ce.neoforge.terrain.program;
 
-import ic2ce.core.util.Util;
 import ic2ce.neoforge.terrain.TerrainController;
+import ic2ce.neoforge.world.DirectionSets;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
@@ -41,7 +41,7 @@ public final class IrrigationProgram extends TerrainProgram {
     }
     if (state.is(Blocks.FIRE)) return world.removeBlock(surface, false);
     if (state.is(Blocks.SHORT_GRASS)) {
-      for (var side : Util.HORIZONTAL_DIRS)
+      for (var side : DirectionSets.HORIZONTAL_DIRS)
         if (spreadGrass(world, surface.relative(side))) return true;
       return false;
     }
@@ -49,7 +49,7 @@ public final class IrrigationProgram extends TerrainProgram {
     if (!state.is(BlockTags.LOGS) || !world.isEmptyBlock(above) || !replace(world, above, state))
       return false;
     BlockState leaves = null;
-    for (var side : Util.HORIZONTAL_DIRS) {
+    for (var side : DirectionSets.HORIZONTAL_DIRS) {
       var neighbor = surface.relative(side);
       if (editable(world, neighbor) && world.getBlockState(neighbor).is(BlockTags.LEAVES)) {
         leaves = world.getBlockState(neighbor);
@@ -58,7 +58,7 @@ public final class IrrigationProgram extends TerrainProgram {
     }
     if (leaves != null) {
       if (world.isEmptyBlock(above.above())) replace(world, above.above(), leaves);
-      for (var side : Util.HORIZONTAL_DIRS)
+      for (var side : DirectionSets.HORIZONTAL_DIRS)
         if (world.isEmptyBlock(above.relative(side))) replace(world, above.relative(side), leaves);
     }
     return true;

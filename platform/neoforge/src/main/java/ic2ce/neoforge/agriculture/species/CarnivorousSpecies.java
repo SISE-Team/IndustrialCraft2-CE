@@ -127,10 +127,19 @@ public class CarnivorousSpecies extends MaterialSpecies {
     data.putBoolean("eaten", true);
   }
 
+  private static final net.minecraft.world.entity.EquipmentSlot[] ARMOR = {
+    net.minecraft.world.entity.EquipmentSlot.HEAD,
+    net.minecraft.world.entity.EquipmentSlot.CHEST,
+    net.minecraft.world.entity.EquipmentSlot.LEGS,
+    net.minecraft.world.entity.EquipmentSlot.FEET
+  };
+
   private static boolean metalArmor(net.minecraft.world.entity.LivingEntity entity) {
     if (!(entity instanceof net.minecraft.world.entity.player.Player player)) return false;
-    for (var armor : ic2ce.core.util.Util.armorItems(player))
+    for (var slot : ARMOR) {
+      var armor = player.getItemBySlot(slot);
       if (!armor.isEmpty() && ic2ce.api.item.ItemWrapper.isMetalArmor(armor, player)) return true;
+    }
     return false;
   }
 }

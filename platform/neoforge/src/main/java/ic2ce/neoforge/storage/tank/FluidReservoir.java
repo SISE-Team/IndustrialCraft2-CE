@@ -3,7 +3,6 @@ package ic2ce.neoforge.storage.tank;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.util.FluidContainerOutputMode;
 import ic2ce.neoforge.fluid.FluidHandler;
-import ic2ce.core.util.*;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.component.FluidPorts;

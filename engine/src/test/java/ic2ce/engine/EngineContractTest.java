@@ -169,6 +169,7 @@ public final class EngineContractTest {
     menuFillLevels();
     priorityWorkers();
     templateTexts();
+    siFormatting();
     nuclearProfiles();
     insertionOrderedRecipes();
     explosionMasks();
@@ -287,6 +288,37 @@ public final class EngineContractTest {
                     64, small, 64, Float.POSITIVE_INFINITY)
                 .armed(),
         "invalid native nuclear limits fail admission without making a malformed entity");
+  }
+
+  private static void siFormatting() {
+    Object[][] examples = {
+      {0.0, 4, "0 "},
+      {Double.NaN, 4, "NaN "},
+      {Double.NEGATIVE_INFINITY, 4, "-∞ "},
+      {1.0, 4, "1 "},
+      {999.0, 6, "999 "},
+      {1000.0, 6, "1 k"},
+      {12345.0, 4, "12.35 k"},
+      {999_950.0, 4, "1 M"},
+      {40_000_000.0, 6, "40 M"},
+      {-2_048.0, 3, "-2.05 k"},
+      {0.0015, 4, "1.5 m"},
+      {1e30, 4, "1 E30"}
+    };
+    for (var example : examples)
+      check(
+          ic2ce.engine.text.SiFormat.format((double) example[0], (int) example[1])
+              .equals(example[2]),
+          "SI presentation rounds exact decimals and carries into the next prefix");
+    for (int digits : new int[] {0, 19}) {
+      boolean rejected = false;
+      try {
+        ic2ce.engine.text.SiFormat.format(1, digits);
+      } catch (IllegalArgumentException expected) {
+        rejected = true;
+      }
+      check(rejected, "SI presentation rejects significant digits outside [1,18]");
+    }
   }
 
   private static void templateTexts() {

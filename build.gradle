@@ -28,6 +28,9 @@ def layering = [
     'engine/src/main/java': ['net.minecraft', 'net.neoforged', 'com.mojang', 'ic2ce.api', 'ic2ce.core', 'ic2ce.neoforge'],
     'engine/src/test/java': ['net.minecraft', 'net.neoforged', 'com.mojang', 'ic2ce.api', 'ic2ce.core', 'ic2ce.neoforge'],
     'api/src/main/java': ['ic2ce.core', 'ic2ce.neoforge'],
+    // The legacy core namespace is dissolved into domain packages and must not return.
+    'platform/neoforge/src/main/java': ['ic2ce.core'],
+    'verification/src/main/java': ['ic2ce.core'],
 ]
 tasks.register('checkLayering') {
     def roots = layering.collectEntries { root, banned -> [(file(root)): banned] }

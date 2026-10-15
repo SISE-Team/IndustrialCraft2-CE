@@ -1,8 +1,8 @@
 package ic2ce.neoforge.item.energy;
 
 import ic2ce.api.item.*;
-import ic2ce.core.util.Util;
 import ic2ce.engine.energy.ChargeMath;
+import ic2ce.engine.text.SiFormat;
 import ic2ce.neoforge.item.PhysicalWear;
 import ic2ce.neoforge.menu.slot.EquipmentOrder;
 import java.util.List;
@@ -162,9 +162,9 @@ public class ComponentChargeLedger implements IElectricItemManager {
 
   @Override
   public String getToolTip(ItemStack stack) {
-    return Util.toSiString(getCharge(stack), 3)
+    return SiFormat.format(getCharge(stack), 3)
         + "/"
-        + Util.toSiString(getMaxCharge(stack), 3)
+        + SiFormat.format(getMaxCharge(stack), 3)
         + " EU";
   }
 

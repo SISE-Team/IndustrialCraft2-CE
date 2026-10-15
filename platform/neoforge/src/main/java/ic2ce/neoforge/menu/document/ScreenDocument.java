@@ -1,6 +1,5 @@
 package ic2ce.neoforge.menu.document;
 
-import ic2ce.core.util.*;
 import ic2ce.neoforge.client.widget.*;
 import ic2ce.neoforge.config.NativeConfigValues;
 import java.io.*;

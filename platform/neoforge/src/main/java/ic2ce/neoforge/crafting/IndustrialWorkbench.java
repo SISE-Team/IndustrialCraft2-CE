@@ -4,7 +4,6 @@ import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.item.StackTag;
-import ic2ce.core.util.Util;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.crafting.menu.WorkbenchMenu;
 import ic2ce.neoforge.inventory.ConsumableInventory;
@@ -121,7 +120,7 @@ public class IndustrialWorkbench extends InventoryBlockEntity implements IHasGui
 
   private static ItemStack storePlayer(Player player, ItemStack offered) {
     var remainder = offered.copy();
-    var main = Util.playerMainItems(player);
+    var main = player.getInventory().getNonEquipmentItems();
     for (int pass = 0; pass < 2 && !remainder.isEmpty(); pass++)
       for (int index = 0; index < main.size() && !remainder.isEmpty(); index++) {
         var current = main.get(index);

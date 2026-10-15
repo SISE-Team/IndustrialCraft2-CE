@@ -1,10 +1,10 @@
 package ic2ce.neoforge.explosion;
 
 import ic2ce.api.entity.block.ExplosiveEntity;
-import ic2ce.core.util.*;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
+import ic2ce.neoforge.diagnostics.Positions;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.core.*;
@@ -55,7 +55,7 @@ public abstract class NuclearBlockEntity extends ExplosiveBlockEntity {
           "Nuclear device placed by %s/%s at %s",
           actor.getGameProfile().name(),
           actor.getGameProfile().id(),
-          Util.formatPosition(this));
+          Positions.format(this));
   }
 
   @Override
@@ -63,7 +63,7 @@ public abstract class NuclearBlockEntity extends ExplosiveBlockEntity {
     ProjectRuntime.log.info(
         DiagnosticArea.PlayerActivity,
         "Nuclear device at %s primed by %s",
-        Util.formatPosition(this),
+        Positions.format(this),
         igniter == null ? "indirect signal" : igniter.getName().getString());
   }
 

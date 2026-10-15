@@ -1,6 +1,7 @@
 package ic2ce.neoforge.registry;
 
 import ic2ce.api.item.CreativeVariants;
+import ic2ce.neoforge.diagnostics.DevelopmentMode;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.*;
 import net.minecraft.resources.Identifier;
@@ -561,7 +562,7 @@ public final class CreativeContents {
 
   public static void accept(Identifier tab, CreativeModeTab.Output output) {
     for (var item : Membership.TABS.getOrDefault(tab, List.of())) offer(output, item);
-    if (ic2ce.core.util.Util.inDev() && tab.equals(ProjectRuntime.tabIc2ToolsAndUtilities))
+    if (DevelopmentMode.active() && tab.equals(ProjectRuntime.tabIc2ToolsAndUtilities))
       offer(output, ItemDefinitions.DEBUG_ITEM);
     var view = dynamicView;
     for (var assignment : view) if (tab.equals(assignment.tab())) offer(output, assignment.item());

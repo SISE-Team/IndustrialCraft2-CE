@@ -7,7 +7,6 @@ import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.fluid.LiquidUtil;
 import ic2ce.neoforge.runtime.profile.NotClassic;
-import ic2ce.core.util.*;
 import ic2ce.engine.machine.BoilerThermodynamics;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;

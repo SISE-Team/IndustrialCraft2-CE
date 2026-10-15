@@ -4,11 +4,11 @@ import ic2ce.api.item.*;
 import ic2ce.neoforge.item.IHitSoundOverride;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.inventory.StackUtil;
-import ic2ce.core.util.Util;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import ic2ce.neoforge.registry.ToolProfiles;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.List;
+import java.util.Set;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -44,6 +44,22 @@ public class PoweredSaw extends PoweredTool
     tier = 1;
   }
 
+  private static final Set<Block> SHEARABLE =
+      Set.of(
+          Blocks.COBWEB,
+          Blocks.SHORT_GRASS,
+          Blocks.FERN,
+          Blocks.DEAD_BUSH,
+          Blocks.HANGING_ROOTS,
+          Blocks.VINE,
+          Blocks.TRIPWIRE);
+
+  private static boolean canShear(BlockState state) {
+    return state.is(BlockTags.LEAVES)
+        || state.is(BlockTags.WOOL)
+        || SHEARABLE.contains(state.getBlock());
+  }
+
   private static boolean shearing(ItemStack stack) {
     var data = StackTag.get(stack);
     return data == null || !data.getBooleanOr("disableShear", false);
@@ -75,7 +91,7 @@ public class PoweredSaw extends PoweredTool
   public boolean isCorrectToolForDrops(ItemStack stack, BlockState state) {
     return super.isCorrectToolForDrops(stack, state)
         || state.is(Blocks.COBWEB)
-        || Util.canShear(state);
+        || canShear(state);
   }
 
   @Override
@@ -83,7 +99,7 @@ public class PoweredSaw extends PoweredTool
     return canUse(stack)
             && (state.is(BlockTags.MINEABLE_WITH_AXE)
                 || state.is(Blocks.COBWEB)
-                || Util.canShear(state))
+                || canShear(state))
         ? speed
         : 1;
   }
@@ -103,7 +119,7 @@ public class PoweredSaw extends PoweredTool
     var state = world.getBlockState(position);
     if (!held.is(this)
         || !shearing(held)
-        || !Util.canShear(state)
+        || !canShear(state)
         || !canUse(held)
         || !player.mayUseItemAt(position, direction, held)) return InteractionResult.PASS;
     if (world.isClientSide()) return InteractionResult.SUCCESS;

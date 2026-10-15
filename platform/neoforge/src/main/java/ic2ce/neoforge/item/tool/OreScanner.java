@@ -3,7 +3,6 @@ package ic2ce.neoforge.item.tool;
 import ic2ce.api.item.*;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.handheld.IHandHeldInventory;
-import ic2ce.core.util.*;
 import ic2ce.engine.value.ValueTuples;
 import ic2ce.neoforge.handheld.ScannerSession;
 import ic2ce.neoforge.handheld.menu.ScannerMenu;

@@ -1,11 +1,11 @@
 package ic2ce.neoforge.reactor;
 
 import ic2ce.api.reactor.IReactorComponent;
-import ic2ce.core.util.*;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.damage.DamageProfiles;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
+import ic2ce.neoforge.diagnostics.Positions;
 import ic2ce.neoforge.explosion.NativeBlast;
 import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.runtime.ProjectRuntime;
@@ -110,7 +110,7 @@ public final class ReactorHazards {
         DiagnosticArea.PlayerActivity,
         org.apache.logging.log4j.Level.INFO,
         "Nuclear reactor at %s melted (raw explosion power %f)",
-        Util.formatPosition(core),
+        Positions.format(core),
         power);
     float limit =
         NativeConfigValues.getFloat(

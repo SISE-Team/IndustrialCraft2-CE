@@ -3,7 +3,6 @@ package ic2ce.neoforge.item.upgrade;
 import ic2ce.api.item.IItemHudInfo;
 import ic2ce.api.upgrade.*;
 import ic2ce.neoforge.handheld.IHandHeldSubInventory;
-import ic2ce.core.util.*;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.fluid.LiquidUtil;
 import ic2ce.neoforge.inventory.StackUtil;

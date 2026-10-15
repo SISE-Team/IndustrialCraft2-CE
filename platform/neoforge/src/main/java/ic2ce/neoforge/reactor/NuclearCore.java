@@ -8,7 +8,6 @@ import ic2ce.api.recipe.Recipes;
 import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
-import ic2ce.core.util.*;
 import ic2ce.engine.reactor.ReactorCooling;
 import ic2ce.neoforge.audio.PlaybackHandle;
 import ic2ce.neoforge.block.InventoryBlockEntity;
@@ -25,6 +24,7 @@ import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.world.LoadedAreas;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.core.BlockPos;
@@ -272,7 +272,7 @@ public class NuclearCore extends InventoryBlockEntity
   protected void updateEntityServer() {
     super.updateEntityServer();
     if (updateTicker++ % getTickRate() != 0) return;
-    if (!Util.isAreaLoaded(getLevel(), worldPosition, 8)) {
+    if (!LoadedAreas.isLoaded(getLevel(), worldPosition, 8)) {
       output = 0;
       EmitHeat = 0;
       setActive(false);

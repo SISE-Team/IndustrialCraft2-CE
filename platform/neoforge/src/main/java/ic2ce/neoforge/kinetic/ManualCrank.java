@@ -1,8 +1,8 @@
 package ic2ce.neoforge.kinetic;
 
 import ic2ce.api.energy.tile.IKineticSource;
+import ic2ce.neoforge.runtime.ProjectRuntime;
 import ic2ce.neoforge.runtime.profile.NotClassic;
-import ic2ce.core.util.Util;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
@@ -46,7 +46,7 @@ public class ManualCrank extends NativeBlockEntity implements IKineticSource {
         && clicks < maxClicksPerTick
         && Double.isFinite(MULTIPLIER)
         && MULTIPLIER > 0) {
-      int base = Util.isFakePlayer(actor, false) ? 20 : 400;
+      int base = ProjectRuntime.envProxy.isFakePlayer(actor) ? 20 : 400;
       long created = Math.min(maxKU, Math.round(base * MULTIPLIER));
       currentKU = (int) Math.clamp((long) currentKU + created, 0, maxKU);
       actor.causeFoodExhaustion(0.25F);

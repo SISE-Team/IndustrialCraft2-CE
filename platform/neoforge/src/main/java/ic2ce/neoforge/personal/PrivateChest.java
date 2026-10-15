@@ -3,7 +3,6 @@ package ic2ce.neoforge.personal;
 import com.mojang.authlib.GameProfile;
 import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
-import ic2ce.core.util.Util;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.menu.OwnedMenu;
@@ -19,6 +18,7 @@ import java.util.Set;
 import java.util.UUID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -340,7 +340,7 @@ public class PrivateChest extends InventoryBlockEntity implements OwnedDevice, I
         id,
         player.getInventory(),
         this,
-        ScreenDocument.parse(Util.getName(getBlockType()), getClass())) {
+        ScreenDocument.parse(BuiltInRegistries.BLOCK.getKey(getBlockType()), getClass())) {
       @Override
       public void removed(Player user) {
         base.stopOpen(user);

@@ -1,8 +1,8 @@
 package ic2ce.neoforge.processing.uu;
 
+import ic2ce.engine.text.SiFormat;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.item.StackTag;
-import ic2ce.core.util.Util;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.function.Consumer;
 import net.minecraft.ChatFormatting;
@@ -66,7 +66,7 @@ public class ItemCrystalMemory extends Item {
               .withStyle(ChatFormatting.GRAY));
       tooltip.accept(
           Component.translatable(TOOLTIP_UU_MATTER)
-              .append(" " + Util.toSiString(UuIndex.instance.getInBuckets(recorded), 4) + "B")
+              .append(" " + SiFormat.format(UuIndex.instance.getInBuckets(recorded), 4) + "B")
               .withStyle(ChatFormatting.GRAY));
     }
   }

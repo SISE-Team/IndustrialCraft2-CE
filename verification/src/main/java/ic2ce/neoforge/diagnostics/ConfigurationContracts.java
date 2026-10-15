@@ -1,6 +1,5 @@
 package ic2ce.neoforge.diagnostics;
 
-import ic2ce.core.util.*;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.item.paint.VanillaColorBlockId;
 import java.nio.charset.StandardCharsets;

@@ -1,7 +1,6 @@
 package ic2ce.verification;
 
 import com.google.gson.GsonBuilder;
-import ic2ce.core.util.*;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.inventory.InventorySlot;

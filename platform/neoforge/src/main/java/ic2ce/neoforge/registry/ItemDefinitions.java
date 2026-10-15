@@ -72,7 +72,6 @@ import ic2ce.neoforge.item.tool.WindProbe;
 import ic2ce.neoforge.item.machining.BladeMaterial;
 import ic2ce.neoforge.item.upgrade.MachineUpgrade;
 import ic2ce.neoforge.item.paint.PigmentPalette;
-import ic2ce.core.util.Util;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
