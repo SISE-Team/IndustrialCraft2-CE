@@ -6,7 +6,7 @@ import ic2ce.core.proxy.EnvProxy;
 import ic2ce.core.proxy.SideProxy;
 import ic2ce.core.proxy.SideProxyServer;
 import ic2ce.core.util.Keyboard;
-import ic2ce.core.util.PriorityExecutor;
+import ic2ce.engine.async.PriorityExecutor;
 import ic2ce.core.util.SideGateway;
 import ic2ce.neoforge.EnvProxyNeoForge;
 import ic2ce.neoforge.audio.AudioService;

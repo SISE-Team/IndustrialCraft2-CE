@@ -1,4 +1,4 @@
-package ic2ce.core.util;
+package ic2ce.engine.config;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

@@ -1,6 +1,6 @@
 package ic2ce.engine;
 
-import ic2ce.core.util.Config;
+import ic2ce.engine.config.Config;
 import ic2ce.engine.async.PendingResult;
 import ic2ce.engine.energy.*;
 import ic2ce.engine.fluid.FluidAmounts;
@@ -349,7 +349,7 @@ public final class EngineContractTest {
   }
 
   private static void priorityWorkers() throws Exception {
-    var worker = new ic2ce.core.util.PriorityExecutor(1);
+    var worker = new ic2ce.engine.async.PriorityExecutor(1);
     var entered = new CountDownLatch(1);
     var release = new CountDownLatch(1);
     var order = Collections.synchronizedList(new ArrayList<String>());
@@ -364,11 +364,11 @@ public final class EngineContractTest {
           }
         });
     check(entered.await(5, TimeUnit.SECONDS), "priority worker native platform task started");
-    class Job implements Callable<String>, ic2ce.core.util.PriorityExecutor.CustomPriority {
+    class Job implements Callable<String>, ic2ce.engine.async.PriorityExecutor.CustomPriority {
       final String name;
-      final ic2ce.core.util.PriorityExecutor.Priority priority;
+      final ic2ce.engine.async.PriorityExecutor.Priority priority;
 
-      Job(String name, ic2ce.core.util.PriorityExecutor.Priority priority) {
+      Job(String name, ic2ce.engine.async.PriorityExecutor.Priority priority) {
         this.name = name;
         this.priority = priority;
       }
@@ -378,17 +378,17 @@ public final class EngineContractTest {
         return name;
       }
 
-      public ic2ce.core.util.PriorityExecutor.Priority getPriority() {
+      public ic2ce.engine.async.PriorityExecutor.Priority getPriority() {
         return priority;
       }
     }
     var jobs =
         List.<Callable<String>>of(
-            new Job("low1", ic2ce.core.util.PriorityExecutor.Priority.Low),
-            new Job("default", ic2ce.core.util.PriorityExecutor.Priority.Default),
-            new Job("high1", ic2ce.core.util.PriorityExecutor.Priority.High),
-            new Job("high2", ic2ce.core.util.PriorityExecutor.Priority.High),
-            new Job("low2", ic2ce.core.util.PriorityExecutor.Priority.Low));
+            new Job("low1", ic2ce.engine.async.PriorityExecutor.Priority.Low),
+            new Job("default", ic2ce.engine.async.PriorityExecutor.Priority.Default),
+            new Job("high1", ic2ce.engine.async.PriorityExecutor.Priority.High),
+            new Job("high2", ic2ce.engine.async.PriorityExecutor.Priority.High),
+            new Job("low2", ic2ce.engine.async.PriorityExecutor.Priority.Low));
     var futures = worker.submitAll(jobs);
     release.countDown();
     for (var task : futures)
@@ -407,7 +407,7 @@ public final class EngineContractTest {
       rejected = true;
     }
     check(rejected, "shutdown executor rejects every later batch through native admission");
-    var removal = new ic2ce.core.util.PriorityExecutor(1);
+    var removal = new ic2ce.engine.async.PriorityExecutor(1);
     entered = new CountDownLatch(1);
     var gate = new CountDownLatch(1);
     var start = entered;

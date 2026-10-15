@@ -2,6 +2,7 @@ package ic2ce.neoforge.config;
 
 import ic2ce.api.recipe.*;
 import ic2ce.core.util.*;
+import ic2ce.engine.config.Config;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.text.ParseException;
 import java.util.*;

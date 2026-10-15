@@ -2,7 +2,7 @@ package ic2ce.verification;
 
 import com.google.gson.GsonBuilder;
 import ic2ce.api.recipe.*;
-import ic2ce.core.util.Config;
+import ic2ce.engine.config.Config;
 import ic2ce.neoforge.recipe.codec.DeferredInput;
 import ic2ce.neoforge.recipe.input.ExactStackInput;
 import ic2ce.neoforge.recipe.input.NativeIngredientInput;

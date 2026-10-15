@@ -3,7 +3,7 @@
   "wholeRewriteComplete": true,
   "completedImplementations": [
     {
-      "file": "engine/src/main/java/ic2ce/core/util/Config.java",
+      "file": "engine/src/main/java/ic2ce/engine/config/Config.java",
       "scope": "Configuration tree, path tokenizer, INI parsing/writing, value conversion"
     },
     {
@@ -2135,7 +2135,7 @@
       "scope": "Independent native fill/drain dynamic recipes with owned capability probes, exact fluid components and conserved adjusted input bills"
     },
     {
-      "file": "engine/src/main/java/ic2ce/core/util/PriorityExecutor.java",
+      "file": "engine/src/main/java/ic2ce/engine/async/PriorityExecutor.java",
       "scope": "Standalone CPU worker lanes, modern platform thread factory, stable priority preserving FutureTasks, detached snapshot removal and race-safe executor admission"
     },
     {
@@ -3484,7 +3484,6 @@
     "platform/neoforge/src/main/java/ic2ce/neoforge/processing/menu/ProcessingMenu.java": "platform/neoforge/src/main/java/ic2/core/block/machine/container/ContainerStandardMachine.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/processing/menu/BoilerMenu.java": "platform/neoforge/src/main/java/ic2/core/block/machine/container/ContainerSteamGenerator.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/menu/PhysicalInventoryMenu.java": "platform/neoforge/src/main/java/ic2/core/ContainerFullInv.java",
-    "engine/src/main/java/ic2ce/core/util/PriorityExecutor.java": "platform/neoforge/src/main/java/ic2/core/util/PriorityExecutor.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/component/SignalOutput.java": "platform/neoforge/src/main/java/ic2/core/block/comp/BasicRedstoneComponent.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/component/AnalogSignalOutput.java": "platform/neoforge/src/main/java/ic2/core/block/comp/ComparatorEmitter.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/component/ComponentTypes.java": "platform/neoforge/src/main/java/ic2/core/block/comp/Components.java",
@@ -3696,7 +3695,9 @@
     "platform/neoforge/src/main/java/ic2ce/neoforge/world/block/WorldMaterials.java": "platform/neoforge/src/main/java/ic2/core/util/BlockMaterialChecks.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/item/paint/PigmentPalette.java": "platform/neoforge/src/main/java/ic2/core/util/Ic2Color.java",
     "verification/src/main/java/ic2ce/neoforge/registry/CreativeContracts.java": "verification/src/main/java/ic2ce/core/ref/CreativeContracts.java",
-    "engine/src/main/java/ic2ce/engine/value/ValueTuples.java": "platform/neoforge/src/main/java/ic2/core/util/Tuple.java"
+    "engine/src/main/java/ic2ce/engine/value/ValueTuples.java": "platform/neoforge/src/main/java/ic2/core/util/Tuple.java",
+    "engine/src/main/java/ic2ce/engine/config/Config.java": "engine/src/main/java/ic2/core/util/Config.java",
+    "engine/src/main/java/ic2ce/engine/async/PriorityExecutor.java": "platform/neoforge/src/main/java/ic2/core/util/PriorityExecutor.java"
   },
   "retiredSources": [
     {

@@ -64,7 +64,7 @@ with zipfile.ZipFile(args.baseline) as old, zipfile.ZipFile(args.baseline_source
         assert declarations.keys() == {row['file'] for row in inventory if row['status'] in ('retained', 'integrated')}, 'Declaration review must cover every remaining signature/definition and no other source'
     engine = [p for p in (PROJECT / 'engine/src/main/java').rglob('*.java')]
     for path in engine:
-        assert not re.search(r'^import\s+(?:net\.minecraft|net\.neoforged|com\.mojang|ic2ce\.api|ic2ce\.core\.(?!util\.Config))', path.read_text('utf-8'), re.M), path
+        assert not re.search(r'^import\s+(?:net\.minecraft|net\.neoforged|com\.mojang|ic2ce\.api|ic2ce\.core\.|ic2ce\.neoforge\.)', path.read_text('utf-8'), re.M), path
     engine_classes = [p.relative_to(PROJECT / 'engine/build/classes/java/main').as_posix() for p in (PROJECT / 'engine/build/classes/java/main').rglob('*.class')]
     for name in engine_classes: assert release.read(name) == (PROJECT / 'engine/build/classes/java/main' / name).read_bytes(), name
     platform_output = PROJECT / 'platform/neoforge/build/classes/java/main'

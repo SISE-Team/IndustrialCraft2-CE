@@ -1,7 +1,7 @@
 package ic2ce.core.uu;
 
 import ic2ce.api.recipe.Recipes;
-import ic2ce.core.util.Config;
+import ic2ce.engine.config.Config;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
