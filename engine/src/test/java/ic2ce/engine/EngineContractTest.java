@@ -162,6 +162,7 @@ public final class EngineContractTest {
     fairFluidShares();
     miningLayers();
     cropArithmetic();
+    cropBreeding();
     itemChargeConservation();
     craftingAssignments();
     deferredValues();
@@ -706,6 +707,84 @@ public final class EngineContractTest {
             && ChargeMath.displayDamage(0, 100, 32) == 31
             && ChargeMath.displayDamage(1, 0, 0) == 0,
         "native durability display has finite full/empty/zero-capacity boundaries");
+  }
+
+  private static void cropBreeding() {
+    var random = new Random(2026101501);
+    String[] names = {"Red", "red", "Food", "Wheat", "Flower", null};
+    for (int sample = 0; sample < 10000; sample++) {
+      var candidate = breedingSpecies(random, names);
+      var parent = breedingSpecies(random, names);
+      long expected = 0;
+      for (int i = 0; i < Math.min(candidate.properties().length, parent.properties().length); i++)
+        expected += 2 - Math.abs((long) candidate.properties()[i] - parent.properties()[i]);
+      if (candidate.attributes() != null && parent.attributes() != null)
+        for (var left : candidate.attributes())
+          for (var right : parent.attributes())
+            if (left != null && right != null && left.equalsIgnoreCase(right)) expected += 5;
+      long difference = (long) candidate.tier() - parent.tier();
+      if (difference > 1) expected -= difference * 2;
+      else if (difference < -3) expected += difference;
+      check(
+          ic2ce.engine.agriculture.CropBreeding.ratio(candidate, parent, false)
+              == Math.max(0, expected),
+          "crossing weight sums property closeness, shared attributes and tier distance " + sample);
+    }
+    var any = breedingSpecies(random, names);
+    check(
+        ic2ce.engine.agriculture.CropBreeding.ratio(any, any, true) == 500,
+        "a parent's own species keeps the fixed crossing weight");
+    check(
+        ic2ce.engine.agriculture.CropBreeding.ratio(
+                new ic2ce.engine.agriculture.CropBreeding.Species(new int[] {0}, null, 20),
+                new ic2ce.engine.agriculture.CropBreeding.Species(new int[] {5}, null, 0),
+                false)
+            == 0,
+        "strongly unfavourable crossings clamp to zero weight");
+    long bound = (1L << 40) + 3;
+    long[] accepted = {42L};
+    var index = new java.util.concurrent.atomic.AtomicInteger();
+    check(
+        ic2ce.engine.agriculture.CropBreeding.ticket(bound, () -> accepted[index.getAndIncrement()])
+                == 21
+            && index.get() == 1,
+        "large crossing tickets reduce one unbiased 63-bit draw");
+    // Long.MAX_VALUE lies in the biased tail above the last whole multiple of the bound.
+    long[] tail = {-1L, Long.MIN_VALUE};
+    index.set(0);
+    check(
+        ic2ce.engine.agriculture.CropBreeding.ticket(bound, () -> tail[index.getAndIncrement()])
+                == (1L << 62) % bound
+            && index.get() == 2,
+        "large crossing tickets reject draws from the biased tail");
+    for (int sample = 0; sample < 1000; sample++) {
+      long limit = 1 + (random.nextLong() >>> 2);
+      long value = ic2ce.engine.agriculture.CropBreeding.ticket(limit, random::nextLong);
+      check(value >= 0 && value < limit, "crossing tickets stay within their bound " + sample);
+    }
+    var coins = new java.util.concurrent.atomic.AtomicInteger();
+    check(
+        ic2ce.engine.agriculture.CropBreeding.weedGrowth(31, 3, () -> coins.incrementAndGet() > 0)
+                == 31
+            && coins.get() == 0,
+        "a maximal weed growth trait draws no coin");
+    check(
+        ic2ce.engine.agriculture.CropBreeding.weedGrowth(4, 9, () -> true) == 10
+            && ic2ce.engine.agriculture.CropBreeding.weedGrowth(4, 9, () -> false) == 9,
+        "overtaking weeds keep the stronger growth and may raise it once");
+  }
+
+  private static ic2ce.engine.agriculture.CropBreeding.Species breedingSpecies(
+      Random random, String[] names) {
+    var properties = new int[random.nextInt(6)];
+    for (int i = 0; i < properties.length; i++) properties[i] = random.nextInt(11) - 2;
+    String[] attributes = null;
+    if (random.nextInt(5) != 0) {
+      attributes = new String[random.nextInt(4)];
+      for (int i = 0; i < attributes.length; i++) attributes[i] = names[random.nextInt(names.length)];
+    }
+    return new ic2ce.engine.agriculture.CropBreeding.Species(
+        properties, attributes, random.nextInt(20) - 4);
   }
 
   private static void cropArithmetic() {

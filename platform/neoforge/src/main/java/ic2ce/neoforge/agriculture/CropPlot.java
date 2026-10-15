@@ -8,6 +8,7 @@ import ic2ce.neoforge.runtime.SharedRandom;
 import ic2ce.neoforge.runtime.SideServices;
 import ic2ce.neoforge.world.BiomeUtil;
 import ic2ce.neoforge.inventory.StackUtil;
+import ic2ce.engine.agriculture.CropBreeding;
 import ic2ce.engine.agriculture.CropMath;
 import ic2ce.engine.recipe.WeightedChoice;
 import ic2ce.neoforge.agriculture.item.EncodedSeed;
@@ -334,8 +335,8 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
           && (plant.crop.isWeed(plant)
               || SharedRandom.INSTANCE.nextInt(32) < plant.statResistance
               || plant.hasWeedEX())) return;
-      int growth = Math.max(statGrowth, plant.statGrowth);
-      if (growth < 31 && SharedRandom.INSTANCE.nextBoolean()) growth++;
+      int growth =
+          CropBreeding.weedGrowth(statGrowth, plant.statGrowth, SharedRandom.INSTANCE::nextBoolean);
       var replacement = plant.transformCropBlock(Crops.weed, 0);
       if (replacement != null) replacement.setStatGrowth(growth);
     } else if (getLevel().isEmptyBlock(target)) {
@@ -385,7 +386,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     long ticket =
         weights.totalWeight() <= Integer.MAX_VALUE
             ? SharedRandom.INSTANCE.nextInt((int) weights.totalWeight())
-            : randomTicket(weights.totalWeight());
+            : CropBreeding.ticket(weights.totalWeight(), SharedRandom.INSTANCE::nextLong);
     var selected = candidates.get(weights.select(ticket));
     int count = parents.size();
     var genomes = new CropMath.Genome[count];
@@ -404,32 +405,15 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     return true;
   }
 
-  private static long randomTicket(long bound) {
-    long bits, selected;
-    do {
-      bits = SharedRandom.INSTANCE.nextLong() >>> 1;
-      selected = bits % bound;
-    } while (bits - selected + bound - 1 < 0);
-    return selected;
+  private static long ratio(CropCard candidate, CropCard parent) {
+    if (candidate == parent) return CropBreeding.SAME_SPECIES_WEIGHT;
+    return CropBreeding.ratio(species(candidate), species(parent), false);
   }
 
-  private static long ratio(CropCard candidate, CropCard parent) {
-    if (candidate == parent) return 500;
-    var a = candidate.getProperties().getAllProperties();
-    var b = parent.getProperties().getAllProperties();
-    long score = 0;
-    for (int index = 0; index < Math.min(a.length, b.length); index++)
-      score += 2 - Math.abs((long) a[index] - b[index]);
-    var ca = candidate.getAttributes();
-    var pa = parent.getAttributes();
-    if (ca != null && pa != null)
-      for (var left : ca)
-        for (var right : pa)
-          if (left != null && right != null && left.equalsIgnoreCase(right)) score += 5;
-    long difference = (long) candidate.getProperties().getTier() - parent.getProperties().getTier();
-    if (difference > 1) score -= difference * 2;
-    else if (difference < -3) score += difference;
-    return Math.max(0, score);
+  private static CropBreeding.Species species(CropCard card) {
+    var properties = card.getProperties();
+    return new CropBreeding.Species(
+        properties.getAllProperties(), card.getAttributes(), properties.getTier());
   }
 
   private boolean attemptSpreading() {
