@@ -1,7 +1,7 @@
 package ic2ce.neoforge.reactor;
 
 import ic2ce.api.upgrade.*;
-import ic2ce.core.*;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.inventory.*;

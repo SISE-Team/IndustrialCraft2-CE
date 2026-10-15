@@ -1,4 +1,4 @@
-package ic2ce.core.item;
+package ic2ce.neoforge.item;
 
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;

@@ -1,4 +1,4 @@
-package ic2ce.core.util;
+package ic2ce.neoforge.item.paint;
 
 import net.minecraft.world.level.block.Block;
 

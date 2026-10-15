@@ -1,25 +1,31 @@
-package ic2ce.core;
+package ic2ce.neoforge.power;
 
-import ic2ce.api.recipe.IFluidHeatManager;
+import ic2ce.api.recipe.ISemiFluidFuelManager;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Set;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 
-/** Heat-fuel registrations carry positive batch volume and heat rather than electrical power. */
-public final class FluidHeatManager implements IFluidHeatManager {
+/**
+ * Immutable published semi-fluid fuel properties; invalid registrations cannot change a live recipe
+ * table.
+ */
+public final class SemiFluidFuelManager implements ISemiFluidFuelManager {
   private volatile Map<Fluid, BurnProperty> properties = Map.of();
 
   @Override
-  public synchronized void addFluid(Fluid fluid, int amount, int heat) {
-    if (fluid == null || fluid == Fluids.EMPTY || amount <= 0 || heat <= 0)
-      throw new IllegalArgumentException("Invalid fluid heat fuel");
+  public synchronized void addFluid(Fluid fluid, int amount, double power) {
+    if (fluid == null
+        || fluid == Fluids.EMPTY
+        || amount <= 0
+        || !Double.isFinite(power)
+        || power <= 0) throw new IllegalArgumentException("Invalid semi-fluid fuel");
     var before = properties;
     if (before.containsKey(fluid))
-      throw new IllegalStateException("Duplicate fluid heat fuel: " + fluid);
+      throw new IllegalStateException("Duplicate semi-fluid fuel: " + fluid);
     var next = new IdentityHashMap<Fluid, BurnProperty>(before);
-    next.put(fluid, new BurnProperty(amount, heat));
+    next.put(fluid, new BurnProperty(amount, power));
     properties = java.util.Collections.unmodifiableMap(next);
   }
 

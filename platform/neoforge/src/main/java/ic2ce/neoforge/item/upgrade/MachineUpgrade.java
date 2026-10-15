@@ -2,12 +2,13 @@ package ic2ce.neoforge.item.upgrade;
 
 import ic2ce.api.item.IItemHudInfo;
 import ic2ce.api.upgrade.*;
-import ic2ce.core.*;
-import ic2ce.core.item.IHandHeldSubInventory;
+import ic2ce.neoforge.handheld.IHandHeldSubInventory;
 import ic2ce.core.util.*;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.fluid.LiquidUtil;
 import ic2ce.neoforge.inventory.StackUtil;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.menu.document.HandheldDocumentMenu;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.text.DecimalFormat;

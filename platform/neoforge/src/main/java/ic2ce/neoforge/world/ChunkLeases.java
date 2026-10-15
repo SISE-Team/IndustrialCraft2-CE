@@ -1,7 +1,6 @@
 package ic2ce.neoforge.world;
 
 import com.mojang.serialization.Codec;
-import ic2ce.core.*;
 import ic2ce.core.event.IWorldTickCallback;
 import ic2ce.core.event.TickHandler;
 import ic2ce.core.event.WorldData;

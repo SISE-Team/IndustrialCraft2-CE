@@ -2,9 +2,9 @@ package ic2ce.neoforge.processing.fluid;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.recipe.*;
-import ic2ce.core.IHasGui;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.inventory.*;
 import ic2ce.neoforge.item.armor.WearableFluidReservoir;

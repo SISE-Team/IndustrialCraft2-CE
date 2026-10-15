@@ -1,6 +1,6 @@
 package ic2ce.neoforge.thermal;
 
-import ic2ce.core.IHasGui;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.runtime.profile.NotClassic;

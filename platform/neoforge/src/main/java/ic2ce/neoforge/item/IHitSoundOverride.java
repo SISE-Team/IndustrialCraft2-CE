@@ -1,4 +1,4 @@
-package ic2ce.core;
+package ic2ce.neoforge.item;
 
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;

@@ -2,7 +2,7 @@ package ic2ce.neoforge.network;
 
 import ic2ce.api.network.INetworkDataProvider;
 import ic2ce.api.network.INetworkManager;
-import ic2ce.core.IHasGui;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.core.event.WorldData;
 import ic2ce.neoforge.network.NeoForgeNetworkHandler.Ic2Payload;
 import ic2ce.neoforge.block.NativeBlockEntity;

@@ -1,6 +1,5 @@
 package ic2ce.neoforge.damage;
 
-import ic2ce.core.*;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;

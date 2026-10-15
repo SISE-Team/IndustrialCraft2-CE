@@ -1,7 +1,7 @@
 package ic2ce.neoforge.agriculture;
 
 import ic2ce.api.crops.*;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.agriculture.item.EncodedSeed;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;

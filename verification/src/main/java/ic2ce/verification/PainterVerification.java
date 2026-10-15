@@ -1,7 +1,7 @@
 package ic2ce.verification;
 
 import com.google.gson.GsonBuilder;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import java.nio.file.Files;

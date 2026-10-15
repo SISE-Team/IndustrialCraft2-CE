@@ -1,8 +1,8 @@
 package ic2ce.neoforge.processing.fluid;
 
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.*;
 import ic2ce.neoforge.fluid.Ic2FluidTank;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.runtime.profile.NotClassic;

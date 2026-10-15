@@ -2,12 +2,12 @@ package ic2ce.neoforge.processing.fabrication;
 
 import ic2ce.api.energy.tile.IExplosionPowerOverride;
 import ic2ce.api.recipe.*;
-import ic2ce.core.*;
 import ic2ce.core.util.Util;
 import ic2ce.engine.machine.AmplificationBudget;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.component.SignalInput;
 import ic2ce.neoforge.inventory.*;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.network.GrowingBuffer;

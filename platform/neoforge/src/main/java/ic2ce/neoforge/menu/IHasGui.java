@@ -1,7 +1,6 @@
-package ic2ce.core;
+package ic2ce.neoforge.menu;
 
 import ic2ce.neoforge.network.GrowingBuffer;
-import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.personal.OwnedDevice;
 import ic2ce.neoforge.registry.MenuDefinitions;
 import ic2ce.neoforge.runtime.ProjectRuntime;

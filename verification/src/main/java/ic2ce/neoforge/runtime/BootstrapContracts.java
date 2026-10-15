@@ -1,6 +1,5 @@
 package ic2ce.neoforge.runtime;
 
-import ic2ce.core.*;
 import ic2ce.core.util.*;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;

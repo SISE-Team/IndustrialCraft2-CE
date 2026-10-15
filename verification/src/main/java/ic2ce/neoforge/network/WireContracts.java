@@ -114,7 +114,7 @@ public final class WireContracts {
         net.minecraft.network.chat.Component.literal("中文组件 / components"));
     var custom = new CompoundTag();
     custom.putInt("quantity", 123);
-    ic2ce.core.util.StackTag.set(named, custom);
+    ic2ce.neoforge.item.StackTag.set(named, custom);
     encoded.clear();
     DataEncoder.encode(encoded, named, true);
     encoded.flip();

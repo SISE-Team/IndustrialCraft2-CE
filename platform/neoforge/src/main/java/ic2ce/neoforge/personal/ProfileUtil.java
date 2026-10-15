@@ -1,4 +1,4 @@
-package ic2ce.core.util;
+package ic2ce.neoforge.personal;
 
 import com.mojang.authlib.GameProfile;
 import java.util.Objects;

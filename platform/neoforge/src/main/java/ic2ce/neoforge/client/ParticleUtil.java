@@ -1,4 +1,4 @@
-package ic2ce.core.util;
+package ic2ce.neoforge.client;
 
 import net.minecraft.core.*;
 import net.minecraft.core.particles.ParticleTypes;

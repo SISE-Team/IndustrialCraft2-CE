@@ -1,10 +1,12 @@
 package ic2ce.neoforge.item.tool;
 
 import ic2ce.api.network.INetworkItemEventListener;
-import ic2ce.core.item.PriorityUsableItem;
+import ic2ce.neoforge.item.PriorityUsableItem;
 import ic2ce.core.util.*;
 import ic2ce.neoforge.client.text.LocalizedText;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.projectile.MiningBeam;
+import ic2ce.neoforge.projectile.Vector3;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.*;

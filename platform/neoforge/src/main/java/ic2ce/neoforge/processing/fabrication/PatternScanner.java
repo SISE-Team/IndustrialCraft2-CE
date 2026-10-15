@@ -2,11 +2,11 @@ package ic2ce.neoforge.processing.fabrication;
 
 import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.recipe.IPatternStorage;
-import ic2ce.core.IHasGui;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.processing.uu.ItemCrystalMemory;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.profile.NotClassic;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.processing.uu.UuGraph;
 import ic2ce.neoforge.processing.uu.UuIndex;

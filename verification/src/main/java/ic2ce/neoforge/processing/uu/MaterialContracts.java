@@ -1,6 +1,6 @@
 package ic2ce.neoforge.processing.uu;
 
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.nbt.CompoundTag;

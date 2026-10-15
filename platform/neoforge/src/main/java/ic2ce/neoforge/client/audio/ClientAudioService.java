@@ -1,6 +1,6 @@
 package ic2ce.neoforge.client.audio;
 
-import ic2ce.core.IHitSoundOverride;
+import ic2ce.neoforge.item.IHitSoundOverride;
 import ic2ce.neoforge.audio.AudioService;
 import ic2ce.neoforge.audio.PlaybackHandle;
 import java.lang.ref.*;

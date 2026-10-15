@@ -1,7 +1,7 @@
 package ic2ce.neoforge.transport.cover;
 
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;

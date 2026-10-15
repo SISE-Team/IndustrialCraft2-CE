@@ -1,6 +1,5 @@
 package ic2ce.neoforge.runtime;
 
-import ic2ce.core.*;
 
 public enum CreativeCategory {
    GENERAL,

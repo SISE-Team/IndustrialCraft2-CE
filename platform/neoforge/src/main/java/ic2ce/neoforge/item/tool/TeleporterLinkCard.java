@@ -1,6 +1,6 @@
 package ic2ce.neoforge.item.tool;
 
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import ic2ce.neoforge.utility.LinkedTeleporter;
 import net.minecraft.core.BlockPos;

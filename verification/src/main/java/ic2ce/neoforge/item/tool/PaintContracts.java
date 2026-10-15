@@ -1,6 +1,6 @@
 package ic2ce.neoforge.item.tool;
 
-import ic2ce.core.util.VanillaColorBlockId;
+import ic2ce.neoforge.item.paint.VanillaColorBlockId;
 import java.util.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

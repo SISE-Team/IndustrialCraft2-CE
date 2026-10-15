@@ -6,7 +6,7 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.serialization.JsonOps;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.item.ElectricItem;
-import ic2ce.core.IHasGui;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.power.CombustionGenerator;

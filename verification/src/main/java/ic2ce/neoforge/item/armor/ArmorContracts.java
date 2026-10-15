@@ -2,7 +2,7 @@ package ic2ce.neoforge.item.armor;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.item.*;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.runtime.ProjectRuntime;
@@ -312,11 +312,11 @@ public final class ArmorContracts {
       var data = new net.minecraft.nbt.CompoundTag();
       data.putString("sentinel", "keep");
       data.put("display", new net.minecraft.nbt.CompoundTag());
-      ic2ce.core.util.StackTag.set(nativeStack, data);
+      ic2ce.neoforge.item.StackTag.set(nativeStack, data);
       var colorPolicy = (QuantumArmor) armorItem;
       colorPolicy.setColor(nativeStack, 0x2468ac);
       colorPolicy.clearColor(nativeStack);
-      var remaining = ic2ce.core.util.StackTag.get(nativeStack);
+      var remaining = ic2ce.neoforge.item.StackTag.get(nativeStack);
       check(
           !remaining.contains("display") && remaining.getStringOr("sentinel", "").equals("keep"),
           "native dye washing also prunes a preexisting empty legacy display without disturbing"

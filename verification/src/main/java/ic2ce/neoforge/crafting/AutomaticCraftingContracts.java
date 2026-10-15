@@ -1,6 +1,6 @@
 package ic2ce.neoforge.crafting;
 
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;

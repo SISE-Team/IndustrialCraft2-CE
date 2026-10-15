@@ -1,7 +1,5 @@
 package ic2ce.neoforge.projectile;
 
-import ic2ce.core.*;
-import ic2ce.core.util.Vector3;
 import ic2ce.neoforge.explosion.NativeBlast;
 import ic2ce.neoforge.registry.EntityDefinitions;
 import ic2ce.neoforge.runtime.AutomationActors;

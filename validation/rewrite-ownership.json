@@ -603,15 +603,15 @@
       "scope": "Atomic bidirectional component registry with duplicate validation before publication"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/SemiFluidFuelManager.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/power/SemiFluidFuelManager.java",
       "scope": "Finite positive electrical fluid fuel registration and immutable identity-map generations"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/FluidHeatManager.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/FluidHeatManager.java",
       "scope": "Positive thermal fluid fuel registration and immutable identity-map generations"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/LiquidHeatExchangerManager.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/LiquidHeatExchangerManager.java",
       "scope": "Independent directional temperature validation, immutable heat-exchange generations and dynamically queried one-way-fluid policy"
     },
     {
@@ -2143,11 +2143,11 @@
       "scope": "Bounded weak-player primitive key state, immutable observer publication, live native controls and world replacement reset"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/KeyboardClient.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/client/KeyboardClient.java",
       "scope": "Bounded weak-player primitive key state, immutable observer publication, live native controls and world replacement reset"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/StackTag.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/StackTag.java",
       "scope": "Independent owned native components and codec snapshot replacement, saved owner profiles, full stack-specific container delegation and transaction forwarding"
     },
     {
@@ -2155,7 +2155,7 @@
       "scope": "Independent owned native components and codec snapshot replacement, saved owner profiles, full stack-specific container delegation and transaction forwarding"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/ProfileUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/personal/ProfileUtil.java",
       "scope": "Independent owned native components and codec snapshot replacement, saved owner profiles, full stack-specific container delegation and transaction forwarding"
     },
     {
@@ -2163,7 +2163,7 @@
       "scope": "Independent owned native components and codec snapshot replacement, saved owner profiles, full stack-specific container delegation and transaction forwarding"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/Vector3.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/projectile/Vector3.java",
       "scope": "Independent native three-axis geometry adapter, zero normalization, overflow-resistant finite lengths, owned mutable operations and allocation-free cross products"
     },
     {
@@ -2187,11 +2187,11 @@
       "scope": "Independent native biome palette edit/notification, energy/fuel values, client particles and strict bounded XML attribute parsing"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/ParticleUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/client/ParticleUtil.java",
       "scope": "Independent native biome palette edit/notification, energy/fuel values, client particles and strict bounded XML attribute parsing"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/XmlUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/XmlUtil.java",
       "scope": "Independent native biome palette edit/notification, energy/fuel values, client particles and strict bounded XML attribute parsing"
     },
     {
@@ -2731,7 +2731,7 @@
       "scope": "Bounded incremental UTF8 logger decoding, split-codepoint/CRLF/empty-line semantics and deterministic close without obsolete finalization"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/VanillaColorBlockId.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/paint/VanillaColorBlockId.java",
       "scope": "Independent native color-family classification replaces substring guesses while retaining palette names as material data"
     },
     {
@@ -2783,7 +2783,7 @@
       "scope": "Independent native registry/world/actor helpers, bounded numeric/SI formatting, allocation-free caller StackWalker, ClassValue contract validation and authoritative native automation harvesting without obsolete JVM internals"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/IHasGui.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/menu/IHasGui.java",
       "scope": "Independent native block/handheld menu payloads, current attached-world ownership and proprietor/physical handheld identity checks; native chunk delivery precedes menu construction"
     },
     {
@@ -3793,7 +3793,23 @@
     "platform/neoforge/src/main/java/ic2ce/neoforge/inventory/StackUtil.java": "platform/neoforge/src/main/java/ic2/core/util/StackUtil.java",
     "verification/src/main/java/ic2ce/neoforge/component/RegistryContracts.java": "verification/src/main/java/ic2ce/core/block/comp/RegistryContracts.java",
     "verification/src/main/java/ic2ce/neoforge/storage/PortableStorageContracts.java": "verification/src/main/java/ic2ce/core/block/storage/PortableStorageContracts.java",
-    "verification/src/main/java/ic2ce/neoforge/transport/cover/CoverContracts.java": "verification/src/main/java/ic2ce/core/block/transport/cover/CoverContracts.java"
+    "verification/src/main/java/ic2ce/neoforge/transport/cover/CoverContracts.java": "verification/src/main/java/ic2ce/core/block/transport/cover/CoverContracts.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/FluidHeatManager.java": "platform/neoforge/src/main/java/ic2/core/FluidHeatManager.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/menu/IHasGui.java": "platform/neoforge/src/main/java/ic2/core/IHasGui.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/item/IHitSoundOverride.java": "platform/neoforge/src/main/java/ic2/core/IHitSoundOverride.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/thermal/LiquidHeatExchangerManager.java": "platform/neoforge/src/main/java/ic2/core/LiquidHeatExchangerManager.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/power/SemiFluidFuelManager.java": "platform/neoforge/src/main/java/ic2/core/SemiFluidFuelManager.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/handheld/IHandHeldInventory.java": "platform/neoforge/src/main/java/ic2/core/item/IHandHeldInventory.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/handheld/IHandHeldSubInventory.java": "platform/neoforge/src/main/java/ic2/core/item/IHandHeldSubInventory.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/item/IPseudoDamageItem.java": "platform/neoforge/src/main/java/ic2/core/item/IPseudoDamageItem.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/item/PriorityUsableItem.java": "platform/neoforge/src/main/java/ic2/core/item/PriorityUsableItem.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/client/KeyboardClient.java": "platform/neoforge/src/main/java/ic2/core/util/KeyboardClient.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/client/ParticleUtil.java": "platform/neoforge/src/main/java/ic2/core/util/ParticleUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/personal/ProfileUtil.java": "platform/neoforge/src/main/java/ic2/core/util/ProfileUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/item/StackTag.java": "platform/neoforge/src/main/java/ic2/core/util/StackTag.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/item/paint/VanillaColorBlockId.java": "platform/neoforge/src/main/java/ic2/core/util/VanillaColorBlockId.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/projectile/Vector3.java": "platform/neoforge/src/main/java/ic2/core/util/Vector3.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/XmlUtil.java": "platform/neoforge/src/main/java/ic2/core/util/XmlUtil.java"
   },
   "retiredSources": [
     {

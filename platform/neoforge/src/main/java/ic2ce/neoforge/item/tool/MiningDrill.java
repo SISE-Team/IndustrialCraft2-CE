@@ -1,7 +1,7 @@
 package ic2ce.neoforge.item.tool;
 
 import ic2ce.api.item.IMiningDrill;
-import ic2ce.core.IHitSoundOverride;
+import ic2ce.neoforge.item.IHitSoundOverride;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import java.util.List;
 import net.minecraft.client.player.LocalPlayer;

@@ -664,7 +664,7 @@
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/IHitSoundOverride.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/IHitSoundOverride.java",
       "sha256": "918fdc0bc1a2a570f8ffedb68ffc12ebca8a5ad7ea724f190ea9deef18f24501",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
@@ -676,25 +676,25 @@
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/item/IHandHeldInventory.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/handheld/IHandHeldInventory.java",
       "sha256": "315280c0547dac2cce247f415474c7d6407816201f80c393a56465348851051a",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/item/IHandHeldSubInventory.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/handheld/IHandHeldSubInventory.java",
       "sha256": "9953b6c358bafd743e22c8e9cbf5f667728c58c52da468d95a85947a92c3ba83",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/item/IPseudoDamageItem.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/IPseudoDamageItem.java",
       "sha256": "f0351ceb2ffd0bfd1de5e089e3d10faaca7897f4f93fd536116513d7d297c7b6",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/item/PriorityUsableItem.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/item/PriorityUsableItem.java",
       "sha256": "ec9c35807748d1fb42b869e8dcd9411c617034df3632ad33d9507f341e9b7570",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false

@@ -1,6 +1,5 @@
 package ic2ce.neoforge.runtime;
 
-import ic2ce.core.*;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.Objects;
 import java.util.function.Supplier;

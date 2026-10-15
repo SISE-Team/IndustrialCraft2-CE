@@ -1,6 +1,6 @@
 package ic2ce.neoforge.explosion;
 
-import ic2ce.core.IHasGui;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.engine.explosion.NuclearCharge;
 import ic2ce.neoforge.config.NativeConfigValues;

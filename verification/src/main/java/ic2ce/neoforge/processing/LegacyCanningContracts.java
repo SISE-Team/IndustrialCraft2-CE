@@ -1,7 +1,7 @@
 package ic2ce.neoforge.processing;
 
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.item.armor.WearableFluidReservoir;
 import ic2ce.neoforge.processing.fluid.LegacyCellCanner;

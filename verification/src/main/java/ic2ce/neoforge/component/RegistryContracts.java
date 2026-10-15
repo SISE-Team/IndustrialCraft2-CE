@@ -1,7 +1,7 @@
 package ic2ce.neoforge.component;
 
-import ic2ce.core.FluidHeatManager;
-import ic2ce.core.SemiFluidFuelManager;
+import ic2ce.neoforge.thermal.FluidHeatManager;
+import ic2ce.neoforge.power.SemiFluidFuelManager;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.world.level.material.Fluids;

@@ -1,10 +1,10 @@
 package ic2ce.neoforge.item.upgrade;
 
 import ic2ce.api.network.ClientModifiable;
-import ic2ce.core.*;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.handheld.HandheldStorage;
 import ic2ce.neoforge.handheld.menu.HandheldMenu;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.HandheldDocumentMenu;
 import ic2ce.neoforge.menu.document.ScreenConditions;

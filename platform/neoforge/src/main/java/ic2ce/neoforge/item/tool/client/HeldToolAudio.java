@@ -45,7 +45,7 @@ public final class HeldToolAudio {
         var held = owner.getMainHandItem();
         if (!(held.getItem() instanceof PoweredTool tool) || !tool.canUse(held)) continue;
         if (tool instanceof ic2ce.neoforge.item.tool.NanoBladeBase) {
-          var data = ic2ce.core.util.StackTag.get(held);
+          var data = ic2ce.neoforge.item.StackTag.get(held);
           if (data == null || !data.getBooleanOr("active", false)) continue;
         }
         var idle = tool.heldIdleSound(owner, held);

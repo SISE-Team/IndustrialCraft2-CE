@@ -1,0 +1,22 @@
+{
+  "domain": "Item contracts, menus, handheld storage and domain managers",
+  "report": "item-menu-layout-migration.json",
+  "moves": {
+    "ic2ce.core.item.IPseudoDamageItem": "ic2ce.neoforge.item.IPseudoDamageItem",
+    "ic2ce.core.item.PriorityUsableItem": "ic2ce.neoforge.item.PriorityUsableItem",
+    "ic2ce.core.IHitSoundOverride": "ic2ce.neoforge.item.IHitSoundOverride",
+    "ic2ce.core.util.StackTag": "ic2ce.neoforge.item.StackTag",
+    "ic2ce.core.util.VanillaColorBlockId": "ic2ce.neoforge.item.paint.VanillaColorBlockId",
+    "ic2ce.core.item.IHandHeldInventory": "ic2ce.neoforge.handheld.IHandHeldInventory",
+    "ic2ce.core.item.IHandHeldSubInventory": "ic2ce.neoforge.handheld.IHandHeldSubInventory",
+    "ic2ce.core.IHasGui": "ic2ce.neoforge.menu.IHasGui",
+    "ic2ce.core.util.XmlUtil": "ic2ce.neoforge.menu.document.XmlUtil",
+    "ic2ce.core.util.ProfileUtil": "ic2ce.neoforge.personal.ProfileUtil",
+    "ic2ce.core.util.Vector3": "ic2ce.neoforge.projectile.Vector3",
+    "ic2ce.core.util.ParticleUtil": "ic2ce.neoforge.client.ParticleUtil",
+    "ic2ce.core.util.KeyboardClient": "ic2ce.neoforge.client.KeyboardClient",
+    "ic2ce.core.FluidHeatManager": "ic2ce.neoforge.thermal.FluidHeatManager",
+    "ic2ce.core.LiquidHeatExchangerManager": "ic2ce.neoforge.thermal.LiquidHeatExchangerManager",
+    "ic2ce.core.SemiFluidFuelManager": "ic2ce.neoforge.power.SemiFluidFuelManager"
+  }
+}

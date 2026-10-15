@@ -3,7 +3,7 @@ package ic2ce.neoforge.power;
 import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.energy.tile.IEnergyAcceptor;
 import ic2ce.api.energy.tile.IEnergySource;
-import ic2ce.core.IHasGui;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.engine.energy.UnitConversionLedger;

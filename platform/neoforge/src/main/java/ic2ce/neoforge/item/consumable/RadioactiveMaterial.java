@@ -3,7 +3,6 @@ package ic2ce.neoforge.item.consumable;
 
 import ic2ce.api.item.IHazmatLike;
 import ic2ce.api.reactor.*;
-import ic2ce.core.item.*;
 import ic2ce.neoforge.damage.RadiationEffect;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.*;

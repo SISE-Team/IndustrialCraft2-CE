@@ -34,7 +34,7 @@ public final class CropDispatchProbe {
         3);
     var crop = (CropPlot) level.getBlockEntity(pos);
     var row = new LinkedHashMap<String, Object>();
-    row.put("seedTag", ic2ce.core.util.StackTag.get(stack).toString());
+    row.put("seedTag", ic2ce.neoforge.item.StackTag.get(stack).toString());
     row.put("resolvedCard", String.valueOf(Crops.instance.getCropCard(stack)));
     row.put("light", crop.getLightLevel());
     row.put("crossing", crop.isCrossingBase());

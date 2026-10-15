@@ -94,8 +94,8 @@ public final class WorkbenchContracts {
     var offeredDrop = new ItemStack(BlockDefinitions.INDUSTRIAL_WORKBENCH.asItem());
     var marked = bench.adjustDrop(offeredDrop, true);
     check(
-        !ic2ce.core.util.StackTag.has(offeredDrop)
-            && ic2ce.core.util.StackTag.get(marked).getBooleanOr("PLACED", false),
+        !ic2ce.neoforge.item.StackTag.has(offeredDrop)
+            && ic2ce.neoforge.item.StackTag.get(marked).getBooleanOr("PLACED", false),
         "drop tool policy writes an owned placed marker without mutating its incoming item");
     for (int index = 0; index < main.size(); index++) main.set(index, ItemStack.EMPTY);
     bench.craftingStorage.clear();

@@ -1,6 +1,5 @@
 package ic2ce.neoforge.menu;
 
-import ic2ce.core.*;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.menu.slot.DisplaySlot;
 import ic2ce.neoforge.menu.slot.MachineSlot;

@@ -1,7 +1,6 @@
 package ic2ce.neoforge.item.energy;
 
 import ic2ce.api.item.*;
-import ic2ce.core.item.*;
 import ic2ce.core.util.Util;
 import ic2ce.engine.energy.ChargeMath;
 import ic2ce.neoforge.item.PhysicalWear;

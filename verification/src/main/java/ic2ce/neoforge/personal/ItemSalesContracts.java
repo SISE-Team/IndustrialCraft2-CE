@@ -1,6 +1,6 @@
 package ic2ce.neoforge.personal;
 
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import java.util.ArrayList;
 import java.util.List;

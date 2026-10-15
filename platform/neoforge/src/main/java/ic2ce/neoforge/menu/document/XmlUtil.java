@@ -1,4 +1,4 @@
-package ic2ce.core.util;
+package ic2ce.neoforge.menu.document;
 
 import java.util.Objects;
 import org.xml.sax.*;

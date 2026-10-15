@@ -3,7 +3,7 @@ package ic2ce.neoforge.item.tool;
 
 import ic2ce.api.item.ElectricItem;
 import ic2ce.api.sound.item.ISwingSoundItem;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.item.armor.NanoArmor;
 import ic2ce.neoforge.item.armor.QuantumArmor;
 import ic2ce.neoforge.menu.slot.EquipmentOrder;

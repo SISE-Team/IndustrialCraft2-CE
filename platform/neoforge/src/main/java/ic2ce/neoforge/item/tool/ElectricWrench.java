@@ -2,7 +2,7 @@ package ic2ce.neoforge.item.tool;
 
 import ic2ce.api.item.ElectricItem;
 import ic2ce.api.item.IBoxable;
-import ic2ce.core.item.PriorityUsableItem;
+import ic2ce.neoforge.item.PriorityUsableItem;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;

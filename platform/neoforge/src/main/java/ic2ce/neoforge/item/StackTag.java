@@ -1,4 +1,4 @@
-package ic2ce.core.util;
+package ic2ce.neoforge.item;
 
 import java.util.Objects;
 import java.util.function.UnaryOperator;

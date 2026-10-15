@@ -1,6 +1,5 @@
 package ic2ce.neoforge.weather;
 
-import ic2ce.core.*;
 import ic2ce.engine.weather.WindProfile;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.Objects;

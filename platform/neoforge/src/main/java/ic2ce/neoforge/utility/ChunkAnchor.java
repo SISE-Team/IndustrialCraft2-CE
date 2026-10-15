@@ -3,7 +3,7 @@ package ic2ce.neoforge.utility;
 import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.UpgradableProperty;
-import ic2ce.core.IHasGui;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.InventoryBlockEntity;

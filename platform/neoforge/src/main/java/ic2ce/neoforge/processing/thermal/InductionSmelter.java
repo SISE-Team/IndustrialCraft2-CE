@@ -3,7 +3,7 @@ package ic2ce.neoforge.processing.thermal;
 import ic2ce.api.recipe.MachineRecipeResult;
 import ic2ce.api.upgrade.IUpgradableBlock;
 import ic2ce.api.upgrade.UpgradableProperty;
-import ic2ce.core.IHasGui;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.engine.machine.InductionCycle;

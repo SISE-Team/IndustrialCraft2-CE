@@ -1,6 +1,5 @@
 package ic2ce.neoforge.item.consumable;
 
-import ic2ce.core.item.*;
 import ic2ce.neoforge.damage.RadiationEffect;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.LivingEntity;

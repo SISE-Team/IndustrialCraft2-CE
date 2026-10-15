@@ -1,7 +1,7 @@
 package ic2ce.neoforge.item.armor;
 
 import ic2ce.api.item.*;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.world.effect.*;
 import net.minecraft.world.entity.player.Player;

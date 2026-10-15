@@ -4,7 +4,7 @@ import ic2ce.api.crops.CropCard;
 import ic2ce.api.crops.CropProperties;
 import ic2ce.api.crops.ICropTile;
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;

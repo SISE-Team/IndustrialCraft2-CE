@@ -1,8 +1,7 @@
 package ic2ce.neoforge.menu;
 
-import ic2ce.core.IHasGui;
-import ic2ce.core.item.IHandHeldInventory;
-import ic2ce.core.item.IHandHeldSubInventory;
+import ic2ce.neoforge.handheld.IHandHeldInventory;
+import ic2ce.neoforge.handheld.IHandHeldSubInventory;
 import ic2ce.neoforge.network.DataEncoder;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.ProjectRuntime;

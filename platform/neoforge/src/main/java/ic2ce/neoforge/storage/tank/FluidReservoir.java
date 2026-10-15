@@ -2,13 +2,14 @@ package ic2ce.neoforge.storage.tank;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.util.FluidContainerOutputMode;
-import ic2ce.core.*;
 import ic2ce.neoforge.fluid.FluidHandler;
 import ic2ce.core.util.*;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.fluid.LiquidUtil;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.network.GrowingBuffer;

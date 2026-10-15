@@ -1,6 +1,5 @@
 package ic2ce.neoforge.item.consumable;
 
-import ic2ce.core.item.*;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;

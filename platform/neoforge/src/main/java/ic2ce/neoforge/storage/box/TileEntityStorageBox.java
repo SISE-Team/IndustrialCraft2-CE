@@ -1,8 +1,8 @@
 package ic2ce.neoforge.storage.box;
 
-import ic2ce.core.*;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.inventory.InventorySlot;

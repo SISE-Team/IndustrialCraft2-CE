@@ -3,7 +3,7 @@ package ic2ce.neoforge.kinetic;
 import ic2ce.api.energy.tile.IKineticSource;
 import ic2ce.api.item.IKineticRotor;
 import ic2ce.api.tile.IRotorProvider;
-import ic2ce.core.IHasGui;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.engine.energy.TickBudget;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.client.text.LocalizedText;

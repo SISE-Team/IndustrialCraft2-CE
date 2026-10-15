@@ -1,7 +1,7 @@
 package ic2ce.neoforge.world.loot;
 
 import com.mojang.serialization.MapCodec;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import net.minecraft.nbt.Tag;
 import net.minecraft.world.level.storage.loot.LootContext;

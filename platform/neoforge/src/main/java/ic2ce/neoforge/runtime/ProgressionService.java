@@ -1,6 +1,5 @@
 package ic2ce.neoforge.runtime;
 
-import ic2ce.core.*;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;

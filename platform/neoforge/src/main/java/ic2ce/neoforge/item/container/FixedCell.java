@@ -2,8 +2,7 @@ package ic2ce.neoforge.item.container;
 
 import ic2ce.api.fluid.Ic2FluidItem;
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.item.*;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.agriculture.CropPlot;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.IdentityHashMap;

@@ -1,7 +1,6 @@
 package ic2ce.neoforge.runtime;
 
 import com.mojang.authlib.GameProfile;
-import ic2ce.core.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.UUID;

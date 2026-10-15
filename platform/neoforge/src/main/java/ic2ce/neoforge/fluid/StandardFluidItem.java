@@ -1,7 +1,7 @@
 package ic2ce.neoforge.fluid;
 
 import ic2ce.api.fluid.*;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import java.util.Objects;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;

@@ -1,7 +1,6 @@
 package ic2ce.neoforge.explosion;
 
 import ic2ce.api.tile.ExplosionWhitelist;
-import ic2ce.core.*;
 import ic2ce.engine.explosion.DamageMask;
 import ic2ce.neoforge.damage.DamageProfiles;
 import ic2ce.neoforge.damage.RadiationEffect;

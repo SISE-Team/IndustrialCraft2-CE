@@ -1,6 +1,6 @@
 package ic2ce.neoforge.inventory;
 
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import java.util.Objects;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.Item;

@@ -1,6 +1,6 @@
 package ic2ce.neoforge.item.consumable;
 
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import java.util.ArrayList;
 import java.util.List;

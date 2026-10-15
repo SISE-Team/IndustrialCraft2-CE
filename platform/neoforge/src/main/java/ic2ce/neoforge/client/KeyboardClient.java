@@ -1,6 +1,7 @@
-package ic2ce.core.util;
+package ic2ce.neoforge.client;
 
 import ic2ce.core.proxy.SideProxyClient;
+import ic2ce.core.util.Keyboard;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.*;
 import net.minecraft.client.*;

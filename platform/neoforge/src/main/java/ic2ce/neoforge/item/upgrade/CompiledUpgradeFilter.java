@@ -2,7 +2,7 @@ package ic2ce.neoforge.item.upgrade;
 
 import com.google.common.base.Predicate;
 import ic2ce.api.item.*;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import java.util.*;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;

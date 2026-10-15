@@ -141,7 +141,7 @@ final class ReactorMatrix {
               if (item != null
                   && !item.isEmpty()
                   && item.getItem() instanceof WearableReactorPart component) {
-                var tag = ic2ce.core.util.StackTag.get(item);
+                var tag = ic2ce.neoforge.item.StackTag.get(item);
                 int wear = tag == null ? 0 : tag.getIntOr("use", 0);
                 int limit = ((Number) get(component, "maxUse")).intValue();
                 e.check(

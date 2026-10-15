@@ -1,7 +1,7 @@
 package ic2ce.neoforge.item.tool;
 
 import ic2ce.api.item.ElectricItem;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.handheld.MeterSession;
 import ic2ce.neoforge.handheld.menu.EnergyMeterMenu;
 import ic2ce.neoforge.registry.BlockDefinitions;

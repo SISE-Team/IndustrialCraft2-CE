@@ -1,10 +1,10 @@
 package ic2ce.neoforge.processing.fluid;
 
-import ic2ce.core.*;
 import ic2ce.neoforge.block.ActiveBlockEntity;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.energy.storage.EnergyBank;
 import ic2ce.neoforge.inventory.*;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.menu.OwnedMenu;
 import ic2ce.neoforge.menu.document.DocumentMenu;
 import ic2ce.neoforge.network.GrowingBuffer;

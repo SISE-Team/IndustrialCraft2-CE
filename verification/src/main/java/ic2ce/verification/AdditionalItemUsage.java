@@ -5,6 +5,7 @@ import ic2ce.core.util.*;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.inventory.InventorySlot;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.kinetic.WindTurbine;
 import ic2ce.neoforge.processing.fluid.LegacyCellCanner;
 import ic2ce.neoforge.processing.solid.MaterialRecycler;

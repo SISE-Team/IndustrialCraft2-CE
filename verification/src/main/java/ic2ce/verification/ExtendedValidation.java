@@ -4,7 +4,7 @@ import static ic2ce.verification.AllMachinesVerification.*;
 
 import com.google.gson.GsonBuilder;
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.IHasGui;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.fluid.LiquidUtil;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.component.ElectricalBuffer;

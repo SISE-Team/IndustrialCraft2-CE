@@ -2,7 +2,7 @@ package ic2ce.neoforge.item.armor;
 
 
 import ic2ce.api.item.PropulsionEquipment;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;

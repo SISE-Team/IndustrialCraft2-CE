@@ -3,7 +3,6 @@ package ic2ce.neoforge.item.energy;
 import ic2ce.api.item.ElectricItem;
 import ic2ce.api.item.IElectricItem;
 import ic2ce.api.network.INetworkItemEventListener;
-import ic2ce.core.item.*;
 import ic2ce.neoforge.registry.SoundDefinitions;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.world.InteractionHand;

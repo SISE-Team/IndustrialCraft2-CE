@@ -1,7 +1,6 @@
 package ic2ce.neoforge.item.upgrade;
 
-import ic2ce.core.*;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.client.screen.MachineScreen;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.client.widget.*;

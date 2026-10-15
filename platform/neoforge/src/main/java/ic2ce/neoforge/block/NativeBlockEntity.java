@@ -1,13 +1,13 @@
 package ic2ce.neoforge.block;
 
 import ic2ce.api.network.*;
-import ic2ce.core.*;
 import ic2ce.core.event.*;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.component.ComponentTypes;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.component.NativeComponent;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.menu.document.ScreenConditions;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.runtime.ProjectRuntime;

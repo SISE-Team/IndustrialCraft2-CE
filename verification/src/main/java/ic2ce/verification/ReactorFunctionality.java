@@ -217,9 +217,9 @@ final class ReactorFunctionality {
       var component = (WearableReactorPart) item.getItem();
       record(
           "hot reactor pulses advance lithium breeding",
-          ic2ce.core.util.StackTag.getOrCreate(item).getIntOr("use", 0),
-          ic2ce.core.util.StackTag.getOrCreate(item).getIntOr("use", 0) > 0
-              && ic2ce.core.util.StackTag.getOrCreate(item).getIntOr("use", 0)
+          ic2ce.neoforge.item.StackTag.getOrCreate(item).getIntOr("use", 0),
+          ic2ce.neoforge.item.StackTag.getOrCreate(item).getIntOr("use", 0) > 0
+              && ic2ce.neoforge.item.StackTag.getOrCreate(item).getIntOr("use", 0)
                   < ((Number) get(component, "maxUse")).intValue());
       var fluid = cores.get("fluid_mode");
       record(

@@ -1,6 +1,6 @@
 package ic2ce.neoforge.agriculture;
 
-import ic2ce.core.IHasGui;
+import ic2ce.neoforge.menu.IHasGui;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.agriculture.menu.CellCareMenu;
 import ic2ce.neoforge.block.PoweredBlockEntity;

@@ -1,4 +1,4 @@
-package ic2ce.core;
+package ic2ce.neoforge.thermal;
 
 import ic2ce.api.recipe.ILiquidAcceptManager;
 import ic2ce.api.recipe.ILiquidHeatExchangerManager;

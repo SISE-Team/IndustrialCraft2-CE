@@ -2,7 +2,7 @@ package ic2ce.neoforge.inventory;
 
 import com.mojang.authlib.GameProfile;
 import ic2ce.api.recipe.IRecipeInput;
-import ic2ce.core.util.StackTag;
+import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.inventory.transfer.EnvItemHandler;
 import ic2ce.engine.value.ValueTuples;
 import ic2ce.neoforge.registry.ItemGroups;

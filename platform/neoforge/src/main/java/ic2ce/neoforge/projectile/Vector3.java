@@ -1,4 +1,4 @@
-package ic2ce.core.util;
+package ic2ce.neoforge.projectile;
 
 import java.util.Objects;
 import net.minecraft.world.phys.Vec3;

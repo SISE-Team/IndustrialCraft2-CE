@@ -1,6 +1,5 @@
 package ic2ce.neoforge.menu;
 
-import ic2ce.core.*;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.menu.slot.MachineSlot;
 import net.minecraft.world.Container;

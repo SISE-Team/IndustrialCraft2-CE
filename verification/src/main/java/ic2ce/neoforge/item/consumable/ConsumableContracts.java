@@ -1,7 +1,6 @@
 package ic2ce.neoforge.item.consumable;
 
 import ic2ce.api.item.ElectricItem;
-import ic2ce.core.item.*;
 import ic2ce.neoforge.damage.RadiationEffect;
 import ic2ce.neoforge.registry.EntityDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;

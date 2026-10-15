@@ -1,6 +1,5 @@
 package ic2ce.neoforge.runtime;
 
-import ic2ce.core.*;
 import ic2ce.neoforge.network.NetworkManager;
 import ic2ce.core.proxy.EnvProxy;
 import ic2ce.core.proxy.SideProxy;

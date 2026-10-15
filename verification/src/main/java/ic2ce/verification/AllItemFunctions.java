@@ -3,7 +3,6 @@ package ic2ce.verification;
 import com.google.gson.GsonBuilder;
 import ic2ce.api.crops.*;
 import ic2ce.api.item.*;
-import ic2ce.core.item.*;
 import ic2ce.neoforge.agriculture.CropPlot;
 import ic2ce.neoforge.agriculture.item.EncodedSeed;
 import ic2ce.neoforge.damage.RadiationEffect;
@@ -348,7 +347,7 @@ public final class AllItemFunctions {
     if (operation.equals("meter") || operation.equals("debug") || operation.equals("crowbar")) {
       player.level().setBlock(POS, BlockDefinitions.GENERATOR.defaultBlockState(), 3);
       if (operation.equals("debug"))
-        ic2ce.core.util.StackTag.update(
+        ic2ce.neoforge.item.StackTag.update(
             original,
             n -> {
               n.putInt("mode", 2);
@@ -360,7 +359,7 @@ public final class AllItemFunctions {
       player.level().setBlock(POS, BlockDefinitions.TELEPORTER.defaultBlockState(), 3);
       player.level().setBlock(POS.west(3), BlockDefinitions.TELEPORTER.defaultBlockState(), 3);
       if (!operation.equals("frequency_record"))
-        ic2ce.core.util.StackTag.update(
+        ic2ce.neoforge.item.StackTag.update(
             original,
             n -> {
               n.putBoolean("targetSet", true);
@@ -600,7 +599,7 @@ public final class AllItemFunctions {
         evidence = "received debug chat=" + clientResult;
       }
       case "frequency_record" -> {
-        var data = ic2ce.core.util.StackTag.get(held);
+        var data = ic2ce.neoforge.item.StackTag.get(held);
         passed &=
             data != null
                 && data.getBooleanOr("targetSet", false)
@@ -619,7 +618,7 @@ public final class AllItemFunctions {
         evidence = "bidirectional link=" + a.getTarget() + " / " + b.getTarget();
       }
       case "frequency_clear" -> {
-        var data = ic2ce.core.util.StackTag.get(held);
+        var data = ic2ce.neoforge.item.StackTag.get(held);
         passed &= data != null && !data.getBooleanOr("targetSet", true);
         evidence = "unlinked=" + data;
       }

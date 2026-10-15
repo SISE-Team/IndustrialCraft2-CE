@@ -1,7 +1,7 @@
 package ic2ce.neoforge.item.tool;
 
-import ic2ce.core.util.StackTag;
-import ic2ce.core.util.VanillaColorBlockId;
+import ic2ce.neoforge.item.StackTag;
+import ic2ce.neoforge.item.paint.VanillaColorBlockId;
 import ic2ce.neoforge.item.paint.PigmentPalette;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.SoundDefinitions;
