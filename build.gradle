@@ -22,6 +22,33 @@ tasks.named('jar') {
 }
 tasks.named('sourcesJar') { runtimeModules.each { module -> from module.sourceSets.main.allSource } }
 tasks.named('check') { runtimeModules.each { module -> dependsOn module.tasks.named('check') } }
+
+// Dependencies point one way: engine -> api -> neoforge. Qualified names count, not only imports.
+def layering = [
+    'engine/src/main/java': ['net.minecraft', 'net.neoforged', 'com.mojang', 'ic2ce.api', 'ic2ce.core', 'ic2ce.neoforge'],
+    'engine/src/test/java': ['net.minecraft', 'net.neoforged', 'com.mojang', 'ic2ce.api', 'ic2ce.core', 'ic2ce.neoforge'],
+    'api/src/main/java': ['ic2ce.core', 'ic2ce.neoforge'],
+]
+tasks.register('checkLayering') {
+    def roots = layering.collectEntries { root, banned -> [(file(root)): banned] }
+    roots.keySet().each { inputs.dir(it) }
+    doLast {
+        def violations = []
+        roots.each { root, banned ->
+            def pattern = ~('(?<![\\w.])(' + banned.collect { java.util.regex.Pattern.quote(it) }.join('|') + ')\\.')
+            root.eachFileRecurse(groovy.io.FileType.FILES) { source ->
+                if (!source.name.endsWith('.java')) return
+                source.readLines('UTF-8').eachWithIndex { line, index ->
+                    if (line.trim().startsWith('//') || line.trim().startsWith('*')) return
+                    def match = pattern.matcher(line)
+                    if (match.find()) violations << "${rootDir.toPath().relativize(source.toPath())}:${index + 1} uses ${match.group(1)}"
+                }
+            }
+        }
+        if (violations) throw new GradleException('Layering violations:\n' + violations.join('\n'))
+    }
+}
+tasks.named('check') { dependsOn 'checkLayering' }
 tasks.withType(Jar).configureEach {
     archiveVersion = minecraft_version + '-' + mod_version
     manifest.attributes('Implementation-Title': mod_name, 'Implementation-Version': mod_version)

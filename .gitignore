@@ -109,3 +109,7 @@ __pycache__/
 !/tools/create_release_reload_probe.py
 
 !/tools/audit_saved_fixtures.py
+
+!/tools/relocate.py
+!/tools/dump_registry_ids.py
+!/tools/relocations/
