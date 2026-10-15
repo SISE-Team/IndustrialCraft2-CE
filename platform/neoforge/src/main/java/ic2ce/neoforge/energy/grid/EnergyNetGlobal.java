@@ -1,11 +1,10 @@
-package ic2ce.core.energy.grid;
+package ic2ce.neoforge.energy.grid;
 
 import ic2ce.api.energy.IEnergyNet;
 import ic2ce.api.energy.IEnergyNetEventReceiver;
 import ic2ce.api.energy.NodeStats;
 import ic2ce.api.energy.tile.IEnergyTile;
 import ic2ce.api.info.ILocatable;
-import ic2ce.core.energy.leg.EnergyCalculatorLeg;
 import ic2ce.core.event.WorldData;
 import java.io.PrintStream;
 import java.util.Objects;

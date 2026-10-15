@@ -1,4 +1,4 @@
-package ic2ce.core.energy.grid;
+package ic2ce.neoforge.energy.grid;
 
 import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.energy.tile.IEnergySink;

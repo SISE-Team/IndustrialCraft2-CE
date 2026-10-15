@@ -47,11 +47,11 @@
       "scope": "Upgrade aggregation and native addon callbacks"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/leg/EnergyCalculatorLeg.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyCalculatorLeg.java",
       "scope": "Native source/sink dispatch, topology compilation, statistics, overload/shock effects"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/leg/EnergyPath.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyPath.java",
       "scope": "Path direction, conductor thresholds and spatial bounds"
     },
     {
@@ -59,27 +59,27 @@
       "scope": "Conductor-only union/find partition with independent terminal endpoints"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/EnergyNetLocal.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyNetLocal.java",
       "scope": "World-thread registration transactions, direction-filtered adjacency and reuse of unchanged components"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/EnergyNetGlobal.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyNetGlobal.java",
       "scope": "Public energy API facade, typed location dispatch and service lifecycle"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/Grid.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/Grid.java",
       "scope": "Immutable component membership, lifecycle, statistics and diagnostics"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/Node.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/Node.java",
       "scope": "Typed role endpoint ownership and conductor loss adapter"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/NodeLink.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/NodeLink.java",
       "scope": "Immutable edge and physical endpoint direction mapping"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/Tile.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/Tile.java",
       "scope": "API identity, role construction and shared packet accounting"
     },
     {
@@ -3742,7 +3742,20 @@
     "platform/neoforge/src/main/java/ic2ce/neoforge/network/ReflectionUtil.java": "platform/neoforge/src/main/java/ic2/core/util/ReflectionUtil.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/network/NeoForgeNetworkHandler.java": "platform/neoforge/src/main/java/ic2/forge/ForgeNetworkHandler.java",
     "verification/src/main/java/ic2ce/neoforge/network/ActionContracts.java": "verification/src/main/java/ic2ce/core/network/ActionContracts.java",
-    "verification/src/main/java/ic2ce/neoforge/network/WireContracts.java": "verification/src/main/java/ic2ce/core/network/WireContracts.java"
+    "verification/src/main/java/ic2ce/neoforge/network/WireContracts.java": "verification/src/main/java/ic2ce/core/network/WireContracts.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyNetGlobal.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/EnergyNetGlobal.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyNetLocal.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/EnergyNetLocal.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyNetSettings.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/EnergyNetSettings.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/Grid.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/Grid.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/GridInfo.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/GridInfo.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/IEnergyCalculator.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/IEnergyCalculator.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/Node.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/Node.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/NodeLink.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/NodeLink.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/NodeType.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/NodeType.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/Tile.java": "platform/neoforge/src/main/java/ic2/core/energy/grid/Tile.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyCalculatorLeg.java": "platform/neoforge/src/main/java/ic2/core/energy/leg/EnergyCalculatorLeg.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyPath.java": "platform/neoforge/src/main/java/ic2/core/energy/leg/EnergyPath.java",
+    "verification/src/main/java/ic2ce/neoforge/energy/grid/NetworkLifecycleProbe.java": "verification/src/main/java/ic2ce/core/energy/grid/NetworkLifecycleProbe.java"
   },
   "retiredSources": [
     {

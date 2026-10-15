@@ -1,9 +1,8 @@
-package ic2ce.core.energy.leg;
+package ic2ce.neoforge.energy.grid;
 
 import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.energy.NodeStats;
 import ic2ce.api.energy.tile.*;
-import ic2ce.core.energy.grid.*;
 import ic2ce.engine.energy.PacketTransfer;
 import ic2ce.engine.energy.WeightedTopology;
 import ic2ce.neoforge.config.ProjectConfiguration;

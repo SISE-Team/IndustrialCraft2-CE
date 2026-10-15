@@ -5,7 +5,7 @@ import ic2ce.api.item.*;
 import ic2ce.api.reactor.IReactor;
 import ic2ce.api.tile.IEnergyStorage;
 import ic2ce.core.*;
-import ic2ce.core.energy.grid.EnergyNetGlobal;
+import ic2ce.neoforge.energy.grid.EnergyNetGlobal;
 import ic2ce.core.item.PriorityUsableItem;
 import ic2ce.core.util.StackTag;
 import ic2ce.neoforge.agriculture.CropPlot;

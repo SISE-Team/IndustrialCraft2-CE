@@ -1,8 +1,7 @@
-package ic2ce.core.energy.leg;
+package ic2ce.neoforge.energy.grid;
 
 import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.energy.tile.*;
-import ic2ce.core.energy.grid.Node;
 import java.util.List;
 import net.minecraft.core.Direction;
 

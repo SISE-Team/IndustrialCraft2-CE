@@ -1,4 +1,4 @@
-package ic2ce.core.energy.grid;
+package ic2ce.neoforge.energy.grid;
 
 import ic2ce.api.energy.tile.*;
 import ic2ce.api.info.ILocatable;

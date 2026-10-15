@@ -819,7 +819,7 @@ public final class HotpathRegression {
         group(
             "energyLifecycle",
             () -> {
-              var result = ic2ce.core.energy.grid.NetworkLifecycleProbe.run(server.overworld());
+              var result = ic2ce.neoforge.energy.grid.NetworkLifecycleProbe.run(server.overworld());
               checks += result.checks();
               failures.addAll(result.failures());
             });

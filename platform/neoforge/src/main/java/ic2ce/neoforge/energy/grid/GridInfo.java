@@ -1,4 +1,4 @@
-package ic2ce.core.energy.grid;
+package ic2ce.neoforge.energy.grid;
 
 public class GridInfo {
    public final int id;

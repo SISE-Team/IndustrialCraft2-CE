@@ -616,25 +616,25 @@
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/EnergyNetSettings.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/EnergyNetSettings.java",
       "sha256": "21e5a1a49e3cdda887596830ecc6ace5dd9512c9d9e856a9dbdc5c1e94bed849",
       "kind": "configuration/algorithm tuning constants; live graph calculation is independently implemented",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/GridInfo.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/GridInfo.java",
       "sha256": "c738739f7db3ca2f0ebe32e7d6b24734790e8516a717c5624d3f47244ad416ae",
       "kind": "immutable diagnostic data holder",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/IEnergyCalculator.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/IEnergyCalculator.java",
       "sha256": "2c1e5e0135ff20406160c0dd7239570885bfb79851380ecfec4b7eb5591dec2a",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/energy/grid/NodeType.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/energy/grid/NodeType.java",
       "sha256": "c5700cd5e4b6e7aaf0ab77a99b01bb17f845f48dbe472a85a70a93bd0d65832e",
       "kind": "constant-only material/protocol identifiers",
       "countsAsImplementationRewrite": false

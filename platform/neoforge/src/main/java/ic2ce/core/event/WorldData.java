@@ -1,6 +1,6 @@
 package ic2ce.core.event;
 
-import ic2ce.core.energy.grid.EnergyNetLocal;
+import ic2ce.neoforge.energy.grid.EnergyNetLocal;
 import ic2ce.neoforge.network.TeUpdateDataServer;
 import ic2ce.neoforge.personal.WirelessTradeMarket;
 import ic2ce.neoforge.weather.WorldWind;
