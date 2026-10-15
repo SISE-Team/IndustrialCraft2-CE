@@ -64,6 +64,11 @@ public final class EventHandlerNeoForge {
   }
 
   @SubscribeEvent
+  public void releaseUuGraph(ServerStoppedEvent event) {
+    ic2ce.neoforge.processing.uu.UuIndex.instance.clear();
+  }
+
+  @SubscribeEvent
   public void beforeServer(ServerAboutToStartEvent event) {
     EventHandler.onInitCommonSetup();
   }

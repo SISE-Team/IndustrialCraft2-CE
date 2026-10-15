@@ -124,6 +124,15 @@ public final class UuGraph {
     }
   }
 
+  /** Drops seeds and the published generation so no costs from a stopped server remain. */
+  public static void clear() {
+    finishCalculation();
+    synchronized (LOCK) {
+      initial.clear();
+      published = new Snapshot(Map.of());
+    }
+  }
+
   public static double get(ItemStack stack) {
     finishCalculation();
     return stack == null || stack.isEmpty()

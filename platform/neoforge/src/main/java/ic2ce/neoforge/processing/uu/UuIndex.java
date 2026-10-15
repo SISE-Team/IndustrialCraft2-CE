@@ -46,6 +46,13 @@ public final class UuIndex {
 
   public void init() {}
 
+  /** Releases resolvers bound to a stopped server's recipe managers and its material costs. */
+  public void clear() {
+    resolvers.clear();
+    lateResolvers.clear();
+    UuGraph.clear();
+  }
+
   public void init(ServerLevel world) {
     Objects.requireNonNull(world);
     resolvers.clear();
