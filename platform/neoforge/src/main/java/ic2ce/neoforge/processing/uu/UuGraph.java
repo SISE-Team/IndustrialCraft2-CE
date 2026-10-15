@@ -1,4 +1,4 @@
-package ic2ce.core.uu;
+package ic2ce.neoforge.processing.uu;
 
 import ic2ce.engine.recipe.MaterialCostGraph;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;

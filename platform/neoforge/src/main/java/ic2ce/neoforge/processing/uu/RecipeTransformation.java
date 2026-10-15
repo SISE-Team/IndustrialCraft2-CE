@@ -1,4 +1,4 @@
-package ic2ce.core.uu;
+package ic2ce.neoforge.processing.uu;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -232,10 +232,10 @@ public final class RemoteClientProbe {
         }
       }
     var memory = new ItemStack(ic2ce.neoforge.registry.ItemDefinitions.CRYSTAL_MEMORY);
-    ((ic2ce.core.item.ItemCrystalMemory) memory.getItem())
+    ((ic2ce.neoforge.processing.uu.ItemCrystalMemory) memory.getItem())
         .writecontentsTag(
             mc.level, memory, new ItemStack(net.minecraft.world.item.Items.IRON_INGOT, 3));
-    var recorded = ((ic2ce.core.item.ItemCrystalMemory) memory.getItem()).readItemStack(memory);
+    var recorded = ((ic2ce.neoforge.processing.uu.ItemCrystalMemory) memory.getItem()).readItemStack(memory);
     if (!recorded.is(net.minecraft.world.item.Items.IRON_INGOT) || recorded.getCount() != 3)
       failures.add("remote client crystal-memory NBT cannot restore stored item");
     var chatChecks = new ArrayList<Map<String, Object>>();

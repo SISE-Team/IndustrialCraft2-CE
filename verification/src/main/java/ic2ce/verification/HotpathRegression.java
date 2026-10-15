@@ -734,7 +734,7 @@ public final class HotpathRegression {
         group(
             "materialContracts",
             () -> {
-              var result = ic2ce.core.uu.MaterialContracts.run();
+              var result = ic2ce.neoforge.processing.uu.MaterialContracts.run();
               checks += result.checks();
               failures.addAll(result.failures());
             });

@@ -59,7 +59,7 @@ public final class EventHandlerNeoForge {
 
   @SubscribeEvent(priority = EventPriority.HIGH)
   public void initializeUuGraph(ServerStartedEvent event) {
-    ic2ce.core.uu.UuIndex.instance.init(event.getServer().overworld());
+    ic2ce.neoforge.processing.uu.UuIndex.instance.init(event.getServer().overworld());
   }
 
   @SubscribeEvent

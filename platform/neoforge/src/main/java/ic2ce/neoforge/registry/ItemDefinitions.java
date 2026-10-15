@@ -13,7 +13,7 @@ import ic2ce.neoforge.item.energy.RechargeableSupply;
 import ic2ce.neoforge.item.energy.DisposableSupply;
 import ic2ce.neoforge.item.container.FixedCell;
 import ic2ce.neoforge.agriculture.item.EncodedSeed;
-import ic2ce.core.item.ItemCrystalMemory;
+import ic2ce.neoforge.processing.uu.ItemCrystalMemory;
 import ic2ce.neoforge.item.consumable.CoffeeCup;
 import ic2ce.neoforge.item.consumable.RadioactiveMaterial;
 import ic2ce.neoforge.item.consumable.MedicinalWart;

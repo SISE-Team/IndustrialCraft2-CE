@@ -11,7 +11,7 @@ import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.core.util.StackTag;
 import ic2ce.core.util.StackUtil;
-import ic2ce.core.uu.UuIndex;
+import ic2ce.neoforge.processing.uu.UuIndex;
 import ic2ce.engine.fluid.FractionalFluidLedger;
 import ic2ce.neoforge.block.PoweredBlockEntity;
 import ic2ce.neoforge.component.FluidPorts;

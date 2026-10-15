@@ -1,0 +1,8 @@
+{
+  "domain": "UU-matter valuation graph and resolvers",
+  "report": "uu-layout-migration.json",
+  "moves": {
+    "ic2ce.core.uu.*": "ic2ce.neoforge.processing.uu",
+    "ic2ce.core.item.ItemCrystalMemory": "ic2ce.neoforge.processing.uu.ItemCrystalMemory"
+  }
+}

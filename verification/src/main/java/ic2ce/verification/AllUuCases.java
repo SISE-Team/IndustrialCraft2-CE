@@ -2,8 +2,8 @@ package ic2ce.verification;
 
 import static ic2ce.verification.AllMachinesVerification.*;
 
-import ic2ce.core.item.ItemCrystalMemory;
-import ic2ce.core.uu.UuIndex;
+import ic2ce.neoforge.processing.uu.ItemCrystalMemory;
+import ic2ce.neoforge.processing.uu.UuIndex;
 import ic2ce.neoforge.crafting.UuAssembler;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.processing.fabrication.PatternLibrary;

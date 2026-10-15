@@ -754,13 +754,13 @@
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/ILateRecipeResolver.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/ILateRecipeResolver.java",
       "sha256": "7e8e7fcd5f4a59708dc685b59cf5e1e61bb7119ff47f84b7ce75d3b9708499d2",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/uu/IRecipeResolver.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/processing/uu/IRecipeResolver.java",
       "sha256": "2ceb9ba068d6798b57cf8b6f32cf8b43886dcaa1ee5f4be07e8ce02e23c7a3f7",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false

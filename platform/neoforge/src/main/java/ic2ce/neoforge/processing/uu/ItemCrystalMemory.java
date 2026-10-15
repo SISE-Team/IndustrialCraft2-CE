@@ -1,9 +1,8 @@
-package ic2ce.core.item;
+package ic2ce.neoforge.processing.uu;
 
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.core.util.StackTag;
 import ic2ce.core.util.Util;
-import ic2ce.core.uu.UuIndex;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.function.Consumer;
 import net.minecraft.ChatFormatting;

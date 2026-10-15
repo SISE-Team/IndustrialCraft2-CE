@@ -2,7 +2,7 @@ package ic2ce.neoforge.processing;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.recipe.IPatternStorage;
-import ic2ce.core.item.ItemCrystalMemory;
+import ic2ce.neoforge.processing.uu.ItemCrystalMemory;
 import ic2ce.neoforge.processing.fabrication.PatternReplicator;
 import ic2ce.neoforge.processing.fabrication.PatternScanner;
 import ic2ce.neoforge.registry.BlockDefinitions;

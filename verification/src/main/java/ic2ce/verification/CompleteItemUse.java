@@ -1,6 +1,6 @@
 package ic2ce.verification;
 
-import ic2ce.core.item.ItemCrystalMemory;
+import ic2ce.neoforge.processing.uu.ItemCrystalMemory;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.runtime.ProjectRuntime;
