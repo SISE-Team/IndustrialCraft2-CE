@@ -132,6 +132,7 @@ public final class EngineContractTest {
     audioCallbacks();
     recipes();
     materialCosts();
+    materialCompilation();
     weighted();
     concurrency();
     pendingResults();
@@ -1261,6 +1262,71 @@ public final class EngineContractTest {
 
   private record CostRule(
       double overhead, int[][] inputs, int[][] counts, int[] outputs, int[] outputCounts) {}
+
+  /** A quantity-carrying material whose equality, like the platform's, ignores the quantity. */
+  private record Material(String name, int size) {
+    @Override
+    public boolean equals(Object other) {
+      return other instanceof Material material && material.name.equals(name);
+    }
+
+    @Override
+    public int hashCode() {
+      return name.hashCode();
+    }
+  }
+
+  private static void materialCompilation() {
+    var compiler =
+        new ic2ce.engine.recipe.MaterialCostCompiler<Material>(
+            Material::size, material -> new Material(material.name(), 1));
+    var random = new Random(2026101504);
+    for (int trial = 0; trial < 300; trial++) {
+      var seeds = new LinkedHashMap<Material, Double>();
+      for (int s = 0; s < 1 + random.nextInt(4); s++)
+        seeds.put(new Material("m" + random.nextInt(10), 1), (double) random.nextInt(50));
+      var rules = new ArrayList<ic2ce.engine.recipe.MaterialCostCompiler.Transformation<Material>>();
+      for (int r = 0; r < random.nextInt(12); r++) {
+        var inputs = new ArrayList<List<Material>>();
+        for (int g = 0; g < random.nextInt(3); g++) {
+          var alternatives = new ArrayList<Material>();
+          for (int a = 0; a < 1 + random.nextInt(3); a++)
+            alternatives.add(new Material("m" + random.nextInt(14), 1 + random.nextInt(4)));
+          inputs.add(alternatives);
+        }
+        rules.add(
+            new ic2ce.engine.recipe.MaterialCostCompiler.Transformation<>(
+                random.nextInt(8),
+                inputs,
+                List.of(new Material("m" + random.nextInt(14), 1 + random.nextInt(3)))));
+      }
+      var compiled = compiler.compile(rules, seeds);
+      var order = new LinkedHashMap<String, Integer>();
+      for (var seed : seeds.keySet()) order.putIfAbsent(seed.name(), order.size());
+      for (var rule : rules) {
+        for (var group : rule.inputs()) for (var input : group) order.putIfAbsent(input.name(), order.size());
+        for (var output : rule.outputs()) order.putIfAbsent(output.name(), order.size());
+      }
+      boolean ordered = compiled.materials().size() == order.size();
+      int index = 0;
+      for (var name : order.keySet())
+        ordered &=
+            compiled.materials().get(index).name().equals(name)
+                && compiled.materials().get(index++).size() == 1;
+      boolean seeded = true;
+      for (int i = 0; i < compiled.seeds().length; i++) {
+        var seed = seeds.get(compiled.materials().get(i));
+        seeded &= compiled.seeds()[i] == (seed == null ? Double.POSITIVE_INFINITY : seed);
+      }
+      var solved = compiled.graph().solve(compiled.seeds());
+      boolean bounded = true;
+      for (int i = 0; i < solved.length; i++) bounded &= solved[i] <= compiled.seeds()[i];
+      check(
+          ordered && seeded && bounded,
+          "material compilation keys unit materials in first-appearance order with seeded costs "
+              + trial);
+    }
+  }
 
   private static void materialCosts() {
     var random = new Random(2026101313);

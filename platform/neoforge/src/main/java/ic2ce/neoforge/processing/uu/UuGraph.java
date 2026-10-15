@@ -1,11 +1,10 @@
 package ic2ce.neoforge.processing.uu;
 
 import ic2ce.engine.async.PriorityExecutor;
-import ic2ce.engine.recipe.MaterialCostGraph;
+import ic2ce.engine.recipe.MaterialCostCompiler;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
 import ic2ce.neoforge.diagnostics.ProjectLog;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -20,8 +19,6 @@ import net.minecraft.world.item.ItemStack;
  */
 public final class UuGraph {
   private record Snapshot(Map<LeanItemStack, Double> costs) {}
-
-  private record Compiled(MaterialCostGraph graph, List<LeanItemStack> materials, double[] seeds) {}
 
   private static final Object LOCK = new Object();
   private static final PriorityExecutor WORKERS =
@@ -51,10 +48,10 @@ public final class UuGraph {
       calculation =
           WORKERS.submit(
               () -> {
-                var values = compiled.graph.solve(compiled.seeds);
+                var values = compiled.graph().solve(compiled.seeds());
                 var result = new LinkedHashMap<LeanItemStack, Double>();
                 for (int id = 0; id < values.length; id++)
-                  result.put(compiled.materials.get(id), values[id]);
+                  result.put(compiled.materials().get(id), values[id]);
                 ProjectLog.LOG.debug(
                     DiagnosticArea.Uu,
                     "Material costs: %d nodes, %d transformations, %d ms",
@@ -66,45 +63,18 @@ public final class UuGraph {
     }
   }
 
-  private static Compiled compile(
+  private static final MaterialCostCompiler<LeanItemStack> COMPILER =
+      new MaterialCostCompiler<>(LeanItemStack::getSize, stack -> stack.copyWithSize(1));
+
+  private static MaterialCostCompiler.Compiled<LeanItemStack> compile(
       List<RecipeTransformation> transformations, Map<LeanItemStack, Double> seeds) {
-    var ids = new LinkedHashMap<LeanItemStack, Integer>();
-    for (var seed : seeds.keySet()) ids.computeIfAbsent(seed.copyWithSize(1), key -> ids.size());
+    var rules = new ArrayList<MaterialCostCompiler.Transformation<LeanItemStack>>(transformations.size());
     for (var rule : transformations) {
       rule.merge();
-      for (var alternatives : rule.inputs)
-        for (var input : alternatives)
-          ids.computeIfAbsent(input.copyWithSize(1), key -> ids.size());
-      for (var output : rule.outputs)
-        ids.computeIfAbsent(output.copyWithSize(1), key -> ids.size());
+      rules.add(
+          new MaterialCostCompiler.Transformation<>(rule.transformCost, rule.inputs, rule.outputs));
     }
-    var graph = new MaterialCostGraph(ids.size());
-    for (var rule : transformations) {
-      var nodes = new int[rule.inputs.size()][];
-      var quantities = new int[nodes.length][];
-      for (int group = 0; group < nodes.length; group++) {
-        var alternatives = rule.inputs.get(group);
-        nodes[group] = new int[alternatives.size()];
-        quantities[group] = new int[alternatives.size()];
-        for (int a = 0; a < alternatives.size(); a++) {
-          var input = alternatives.get(a);
-          nodes[group][a] = ids.get(input);
-          quantities[group][a] = input.getSize();
-        }
-      }
-      var outputs = new int[rule.outputs.size()];
-      var counts = new int[outputs.length];
-      for (int o = 0; o < outputs.length; o++) {
-        var output = rule.outputs.get(o);
-        outputs[o] = ids.get(output);
-        counts[o] = output.getSize();
-      }
-      graph.add(rule.transformCost, nodes, quantities, outputs, counts);
-    }
-    var values = new double[ids.size()];
-    Arrays.fill(values, Double.POSITIVE_INFINITY);
-    for (var seed : seeds.entrySet()) values[ids.get(seed.getKey())] = seed.getValue();
-    return new Compiled(graph, List.copyOf(ids.keySet()), values);
+    return COMPILER.compile(rules, seeds);
   }
 
   public static void set(ItemStack stack, double value) {
