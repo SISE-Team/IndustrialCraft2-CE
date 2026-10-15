@@ -146,6 +146,7 @@ public final class EngineContractTest {
     upgrades();
     configuration();
     routing();
+    sinkRoutes();
     components();
     energyBuffer();
     storageSignals();
@@ -1927,6 +1928,64 @@ public final class EngineContractTest {
         rejected = true;
       }
       check(rejected, "invalid INI rejected: " + bad);
+    }
+  }
+
+  private static void sinkRoutes() {
+    var random = new Random(2026101503);
+    for (int graph = 0; graph < 300; graph++) {
+      int count = 4 + random.nextInt(12);
+      var roles = new WeightedTopology.Role[count];
+      for (int i = 0; i < count; i++)
+        roles[i] = WeightedTopology.Role.values()[random.nextInt(WeightedTopology.Role.values().length)];
+      roles[0] = WeightedTopology.Role.SOURCE;
+      var adjacency = new ArrayList<List<int[]>>();
+      for (int i = 0; i < count; i++) adjacency.add(new ArrayList<>());
+      int size = 0;
+      for (int a = 0; a < count; a++)
+        for (int b = a + 1; b < count; b++)
+          if (random.nextInt(3) == 0) {
+            int loss = random.nextInt(6);
+            adjacency.get(a).add(new int[] {b, loss});
+            adjacency.get(b).add(new int[] {a, loss});
+            size += 2;
+          }
+      int[] offsets = new int[count + 1], targets = new int[size];
+      double[] losses = new double[size];
+      int cursor = 0;
+      for (int a = 0; a < count; a++) {
+        offsets[a] = cursor;
+        for (var edge : adjacency.get(a)) {
+          targets[cursor] = edge[0];
+          losses[cursor++] = edge[1] * .5;
+        }
+      }
+      offsets[count] = cursor;
+      var workspace = new WeightedTopology(roles, offsets, targets, losses).workspace();
+      var owners = new Object[count];
+      for (int i = 0; i < count; i++) owners[i] = "owner" + random.nextInt(4);
+      workspace.solve(0);
+      var sinks = new ArrayList<Integer>();
+      for (int i = 0; i < count; i++)
+        if (roles[i] == WeightedTopology.Role.SINK && Double.isFinite(workspace.lossTo(i)))
+          sinks.add(i);
+      sinks.sort(Comparator.comparingDouble(workspace::lossTo).thenComparingInt(Integer::intValue));
+      var unique = new LinkedHashMap<Object, Integer>();
+      for (int sink : sinks) {
+        var existing = unique.get(owners[sink]);
+        if (existing != null && workspace.lossTo(existing) <= workspace.lossTo(sink)) continue;
+        unique.put(owners[sink], sink);
+      }
+      var expected = new ArrayList<>(unique.values());
+      var selected = ic2ce.engine.energy.SinkRoutes.select(roles, workspace, owners);
+      boolean same = selected.size() == expected.size();
+      for (int i = 0; same && i < selected.size(); i++)
+        same =
+            selected.get(i).sink() == expected.get(i)
+                && selected.get(i).loss() == workspace.lossTo(expected.get(i));
+      check(
+          same,
+          "sink routes keep the cheapest reachable route per owner in loss/index order " + graph);
     }
   }
 

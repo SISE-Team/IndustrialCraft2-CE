@@ -4,6 +4,7 @@ import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.energy.NodeStats;
 import ic2ce.api.energy.tile.*;
 import ic2ce.engine.energy.PacketTransfer;
+import ic2ce.engine.energy.SinkRoutes;
 import ic2ce.engine.energy.WeightedTopology;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.damage.DamageProfiles;
@@ -117,20 +118,17 @@ public class EnergyCalculatorLeg implements IEnergyCalculator {
       }
     }
     var workspace = new WeightedTopology(roles, offsets, targets, losses).workspace();
+    var owners = new Object[count];
+    for (int i = 0; i < count; i++)
+      if (roles[i] == WeightedTopology.Role.SINK) owners[i] = state.nodes[i].getTile().getMainTile();
     for (int source = 0; source < count; source++) {
       if (roles[source] != WeightedTopology.Role.SOURCE) continue;
       workspace.solve(source);
-      var sinks = new ArrayList<Integer>();
-      for (int i = 0; i < count; i++)
-        if (roles[i] == WeightedTopology.Role.SINK && Double.isFinite(workspace.lossTo(i)))
-          sinks.add(i);
-      sinks.sort(Comparator.comparingDouble(workspace::lossTo).thenComparingInt(Integer::intValue));
-      var unique = new LinkedHashMap<IEnergyTile, EnergyPath>();
-      for (int sink : sinks) {
-        double loss = workspace.lossTo(sink);
-        IEnergyTile tile = state.nodes[sink].getTile().getMainTile();
-        EnergyPath existing = unique.get(tile);
-        if (existing != null && existing.loss <= loss) continue;
+      var routes = SinkRoutes.select(roles, workspace, owners);
+      var selected = new EnergyPath[routes.size()];
+      for (int r = 0; r < selected.length; r++) {
+        int sink = routes.get(r).sink();
+        double loss = routes.get(r).loss();
         int[] route = workspace.routeTo(sink);
         var conductors = new ArrayList<Node>(Math.max(0, route.length - 2));
         for (int i = 1; i < route.length - 1; i++) conductors.add(state.nodes[route[i]]);
@@ -141,9 +139,9 @@ public class EnergyCalculatorLeg implements IEnergyCalculator {
                 conductors,
                 EnergyNetSettings.roundLossDown ? Math.floor(loss) : loss);
         path.targetIndex = sink;
-        unique.put(tile, path);
+        selected[r] = path;
       }
-      state.paths[source] = unique.values().toArray(EnergyPath[]::new);
+      state.paths[source] = selected;
       state.hasRoutes |= state.paths[source].length != 0;
       for (EnergyPath path : state.paths[source]) {
         state.nodePaths.computeIfAbsent(path.source, n -> new ArrayList<>()).add(path);

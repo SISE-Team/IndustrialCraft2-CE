@@ -3049,6 +3049,10 @@
     {
       "file": "engine/src/main/java/ic2ce/engine/reactor/ReactorCore.java",
       "scope": "Saturating reactor hull heat, output, pending coolant heat, electrical output and heat gauge arithmetic extracted from the nuclear core with contract coverage"
+    },
+    {
+      "file": "engine/src/main/java/ic2ce/engine/energy/SinkRoutes.java",
+      "scope": "Per-source sink route selection by loss and node order with one cheapest route per sink owner, extracted from the energy calculator with an oracle contract"
     }
   ],
   "remainingFunctionalAreas": [],
