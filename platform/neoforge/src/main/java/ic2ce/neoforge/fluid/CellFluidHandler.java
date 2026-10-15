@@ -1,4 +1,4 @@
-package ic2ce.neoforge;
+package ic2ce.neoforge.fluid;
 
 import ic2ce.api.fluid.Ic2FluidItem;
 import ic2ce.api.fluid.Ic2FluidStack;
@@ -19,7 +19,7 @@ import org.jspecify.annotations.Nullable;
  * One native owned cell admits only bounded component-sensitive transfers inside nested
  * transactions.
  */
-final class CellFluidHandler implements ResourceHandler<FluidResource> {
+public final class CellFluidHandler implements ResourceHandler<FluidResource> {
   private ItemStack stack;
   private final @Nullable ItemAccess access;
   private final SnapshotJournal<ItemStack> journal =
@@ -36,7 +36,7 @@ final class CellFluidHandler implements ResourceHandler<FluidResource> {
         }
       };
 
-  CellFluidHandler(ItemStack stack, @Nullable ItemAccess access) {
+  public CellFluidHandler(ItemStack stack, @Nullable ItemAccess access) {
     this.stack = Objects.requireNonNull(stack);
     this.access = access;
   }

@@ -1,7 +1,6 @@
-package ic2ce.neoforge;
+package ic2ce.neoforge.fluid;
 
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.util.FluidTag;
 import java.util.Objects;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.component.DataComponentPatch;
@@ -14,10 +13,10 @@ import net.minecraft.world.level.material.Fluid;
 import net.neoforged.neoforge.fluids.FluidStack;
 
 /** Native component-preserving value adapter with legacy quantity/save contracts. */
-final class Ic2FluidStackImpl implements Ic2FluidStack {
+public final class Ic2FluidStackImpl implements Ic2FluidStack {
   final FluidStack parent;
 
-  Ic2FluidStackImpl(FluidStack value) {
+  public Ic2FluidStackImpl(FluidStack value) {
     parent = Objects.requireNonNull(value);
   }
 

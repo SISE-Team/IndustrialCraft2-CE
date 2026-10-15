@@ -2,7 +2,7 @@ package ic2ce.neoforge.power;
 
 import ic2ce.api.util.FluidContainerOutputMode;
 import ic2ce.core.network.GuiSynced;
-import ic2ce.core.util.LiquidUtil;
+import ic2ce.neoforge.fluid.LiquidUtil;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.inventory.*;

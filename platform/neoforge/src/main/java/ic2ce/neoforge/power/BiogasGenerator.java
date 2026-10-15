@@ -2,7 +2,7 @@ package ic2ce.neoforge.power;
 
 import ic2ce.api.recipe.Recipes;
 import ic2ce.core.SemiFluidFuelManager;
-import ic2ce.core.fluid.Ic2FluidTank;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.core.network.GuiSynced;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.component.FluidPorts;

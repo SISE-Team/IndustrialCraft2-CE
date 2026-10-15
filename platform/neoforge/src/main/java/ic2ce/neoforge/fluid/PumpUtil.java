@@ -1,4 +1,4 @@
-package ic2ce.core.util;
+package ic2ce.neoforge.fluid;
 
 import ic2ce.engine.graph.BoundedSearch;
 import net.minecraft.core.BlockPos;

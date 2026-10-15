@@ -2,7 +2,7 @@ package ic2ce.neoforge.processing.fluid;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.core.*;
-import ic2ce.core.fluid.Ic2FluidTank;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.core.network.*;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.neoforge.block.InventoryBlockEntity;

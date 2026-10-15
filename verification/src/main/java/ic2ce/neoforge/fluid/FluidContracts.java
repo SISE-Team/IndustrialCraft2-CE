@@ -1,4 +1,4 @@
-package ic2ce.core.fluid;
+package ic2ce.neoforge.fluid;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.component.FluidPorts;
@@ -117,7 +117,7 @@ public final class FluidContracts {
     var buckets = new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.BUCKET, 2);
     var volume = Ic2FluidStack.create(water, 1500);
     var converted =
-        ic2ce.core.util.LiquidUtil.fillContainer(
+        ic2ce.neoforge.fluid.LiquidUtil.fillContainer(
             buckets, volume, ic2ce.api.util.FluidContainerOutputMode.EmptyFullToOutput);
     check(
         converted != null
@@ -129,7 +129,7 @@ public final class FluidContracts {
         buckets.getCount() == 2 && volume.getAmountMb() == 1500,
         "container planning retains caller item and fluid quantities");
     check(
-        !ic2ce.core.util.LiquidUtil.isFillableFluidContainer(buckets, List.of()),
+        !ic2ce.neoforge.fluid.LiquidUtil.isFillableFluidContainer(buckets, List.of()),
         "empty fluid whitelist cannot accept arbitrary registry fluids");
     var sourceSlot =
         new ic2ce.neoforge.inventory.FluidContainerInventory(parent, "contract_liquid_in", 1);

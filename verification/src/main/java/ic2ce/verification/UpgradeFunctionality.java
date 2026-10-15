@@ -3,7 +3,7 @@ package ic2ce.verification;
 import static ic2ce.verification.AllMachinesVerification.*;
 
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.fluid.Ic2FluidTank;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.core.util.StackTag;
 import ic2ce.neoforge.block.InventoryBlockEntity;
 import ic2ce.neoforge.block.NativeBlockEntity;

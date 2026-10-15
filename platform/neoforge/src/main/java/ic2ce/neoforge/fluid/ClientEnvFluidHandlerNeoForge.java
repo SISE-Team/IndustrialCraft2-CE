@@ -1,4 +1,4 @@
-package ic2ce.neoforge;
+package ic2ce.neoforge.fluid;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.FluidModel;

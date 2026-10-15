@@ -6,6 +6,7 @@ import ic2ce.core.*;
 import ic2ce.core.item.IHandHeldSubInventory;
 import ic2ce.core.util.*;
 import ic2ce.neoforge.client.text.LocalizedText;
+import ic2ce.neoforge.fluid.LiquidUtil;
 import ic2ce.neoforge.menu.document.HandheldDocumentMenu;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.text.DecimalFormat;

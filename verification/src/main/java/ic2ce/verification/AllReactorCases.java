@@ -3,7 +3,7 @@ package ic2ce.verification;
 import static ic2ce.verification.AllMachinesVerification.*;
 
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.util.LiquidUtil;
+import ic2ce.neoforge.fluid.LiquidUtil;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.reactor.*;
 import ic2ce.neoforge.reactor.part.ChemicalCondensator;

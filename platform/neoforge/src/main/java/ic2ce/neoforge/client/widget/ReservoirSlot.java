@@ -1,7 +1,7 @@
 package ic2ce.neoforge.client.widget;
 
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.fluid.Ic2FluidTank;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.client.screen.MachineScreen;
 import java.util.Objects;
 

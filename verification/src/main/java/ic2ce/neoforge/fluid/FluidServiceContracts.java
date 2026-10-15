@@ -1,4 +1,4 @@
-package ic2ce.core.fluid;
+package ic2ce.neoforge.fluid;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.registry.BlockDefinitions;

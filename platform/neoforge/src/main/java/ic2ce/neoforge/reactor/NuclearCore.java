@@ -6,7 +6,7 @@ import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.reactor.*;
 import ic2ce.api.recipe.Recipes;
 import ic2ce.core.*;
-import ic2ce.core.fluid.Ic2FluidTank;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.core.network.GrowingBuffer;
 import ic2ce.core.util.*;
 import ic2ce.engine.reactor.ReactorCooling;

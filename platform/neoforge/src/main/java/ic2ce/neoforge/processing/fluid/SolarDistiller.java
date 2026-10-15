@@ -4,7 +4,7 @@ import ic2ce.api.crops.BiomeType;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.upgrade.*;
 import ic2ce.core.*;
-import ic2ce.core.fluid.Ic2FluidTank;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.core.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.core.util.BiomeUtil;

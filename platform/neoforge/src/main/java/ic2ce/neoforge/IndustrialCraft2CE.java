@@ -1,6 +1,7 @@
 package ic2ce.neoforge;
 
 import ic2ce.core.event.EventHandler;
+import ic2ce.neoforge.fluid.EnvFluidHandlerNeoForge;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.ArrayDeque;
 import java.util.List;

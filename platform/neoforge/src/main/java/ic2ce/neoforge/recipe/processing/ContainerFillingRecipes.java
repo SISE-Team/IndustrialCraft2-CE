@@ -2,7 +2,7 @@ package ic2ce.neoforge.recipe.processing;
 
 import ic2ce.api.recipe.*;
 import ic2ce.api.util.FluidContainerOutputMode;
-import ic2ce.core.util.LiquidUtil;
+import ic2ce.neoforge.fluid.LiquidUtil;
 import java.util.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;

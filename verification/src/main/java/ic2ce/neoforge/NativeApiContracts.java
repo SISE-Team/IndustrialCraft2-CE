@@ -3,6 +3,7 @@ package ic2ce.neoforge;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.recipe.RecipeOutputWeighted;
 import ic2ce.neoforge.explosion.PrimedNuclearCharge;
+import ic2ce.neoforge.fluid.Ic2FluidStackImpl;
 import ic2ce.neoforge.registry.EntityDefinitions;
 import java.util.ArrayList;
 import java.util.List;
@@ -219,7 +220,7 @@ public final class NativeApiContracts {
     check(
         drained.getAmountMb() == 750 && reservoir.getFluidStack(tank).getAmountMb() == 1250,
         "reservoir actual drain conserves exactly seven hundred fifty millibuckets");
-    ic2ce.core.fluid.StandardFluidItem.setFs(tank, foam.copyWithAmountMb(90000));
+    ic2ce.neoforge.fluid.StandardFluidItem.setFs(tank, foam.copyWithAmountMb(90000));
     before = tank.copy();
     check(
         reservoir.fillMb(tank, foam, false, null) == 0 && ItemStack.matches(before, tank),
@@ -273,14 +274,14 @@ public final class NativeApiContracts {
         "native item custom-data writes never retain caller tag mutations");
     var fluidTag = new CompoundTag();
     fluidTag.putInt("owned", 4);
-    ic2ce.core.util.FluidTag.set(nativeValue, fluidTag);
+    ic2ce.neoforge.fluid.FluidTag.set(nativeValue, fluidTag);
     fluidTag.putInt("owned", 8);
     check(
-        ic2ce.core.util.FluidTag.get(nativeValue).getIntOr("owned", 0) == 4,
+        ic2ce.neoforge.fluid.FluidTag.get(nativeValue).getIntOr("owned", 0) == 4,
         "native fluid custom-data writes never retain caller tag mutations");
-    ic2ce.core.util.FluidTag.set(nativeValue, new CompoundTag());
+    ic2ce.neoforge.fluid.FluidTag.set(nativeValue, new CompoundTag());
     check(
-        !ic2ce.core.util.FluidTag.has(nativeValue),
+        !ic2ce.neoforge.fluid.FluidTag.has(nativeValue),
         "empty native fluid metadata update prunes the custom-data component");
     var keyState = new ic2ce.core.util.Keyboard();
     var inputOwner =

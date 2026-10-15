@@ -4,7 +4,7 @@ import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.recipe.*;
 import ic2ce.api.upgrade.UpgradableProperty;
 import ic2ce.api.util.FluidContainerOutputMode;
-import ic2ce.core.fluid.Ic2FluidTank;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.core.network.*;
 import ic2ce.neoforge.runtime.profile.NotClassic;
 import ic2ce.core.util.StackTag;

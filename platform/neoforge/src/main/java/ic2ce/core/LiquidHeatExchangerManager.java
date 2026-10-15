@@ -3,7 +3,7 @@ package ic2ce.core;
 import ic2ce.api.recipe.ILiquidAcceptManager;
 import ic2ce.api.recipe.ILiquidHeatExchangerManager;
 import ic2ce.api.recipe.Recipes;
-import ic2ce.core.fluid.FluidHandler;
+import ic2ce.neoforge.fluid.FluidHandler;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.diagnostics.DiagnosticArea;
 import ic2ce.neoforge.runtime.ProjectRuntime;

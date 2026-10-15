@@ -1,7 +1,7 @@
 package ic2ce.neoforge.registry;
 
-import ic2ce.core.fluid.EnvFluidHandler;
-import ic2ce.core.fluid.FluidHandler;
+import ic2ce.neoforge.fluid.EnvFluidHandler;
+import ic2ce.neoforge.fluid.FluidHandler;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 
 public final class FluidDefinitions {

@@ -2,7 +2,7 @@ package ic2ce.core.proxy;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.serialization.Codec;
-import ic2ce.core.fluid.EnvFluidHandler;
+import ic2ce.neoforge.fluid.EnvFluidHandler;
 import ic2ce.core.item.EnvItemHandler;
 import ic2ce.core.network.GrowingBuffer;
 import io.netty.buffer.ByteBuf;

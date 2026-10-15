@@ -7,7 +7,7 @@ import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.network.IGrowingBuffer;
 import ic2ce.api.network.INetworkCustomEncoder;
 import ic2ce.api.recipe.IElectrolyzerRecipeManager;
-import ic2ce.core.fluid.Ic2FluidTank;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.engine.value.ValueTuples;
 import ic2ce.neoforge.component.NativeComponent;
 import ic2ce.neoforge.inventory.InventorySlot;

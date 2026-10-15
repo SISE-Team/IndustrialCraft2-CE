@@ -2,8 +2,8 @@ package ic2ce.neoforge.component;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.recipe.ILiquidAcceptManager;
-import ic2ce.core.fluid.FluidTankInfo;
-import ic2ce.core.fluid.Ic2FluidTank;
+import ic2ce.neoforge.fluid.FluidTankInfo;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.neoforge.block.NativeBlockEntity;
 import ic2ce.neoforge.inventory.InventorySlot;
 import java.util.*;

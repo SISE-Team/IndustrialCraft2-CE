@@ -107,7 +107,7 @@
       "scope": "Safely published platform fluid capability/serialization services"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/Ic2FluidStackImpl.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/Ic2FluidStackImpl.java",
       "scope": "Native component-preserving copies and value identity"
     },
     {
@@ -219,7 +219,7 @@
       "scope": "Bounded fluid quantity arithmetic"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/fluid/Ic2FluidTank.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/Ic2FluidTank.java",
       "scope": "Component-sensitive storage, caller-preserving bounded fill/drain and reusable NBT correctness"
     },
     {
@@ -283,15 +283,15 @@
       "scope": "Distinct canning mode protocols, bounded container enrichment planning, conservation, output capacity and mode/save/network lifecycle"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/LiquidUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/LiquidUtil.java",
       "scope": "Independent fluid container output planning, explicit fluid whitelist, nonmutating distribution, bounded transfer negotiation and world source/container transactions"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/EnvFluidHandlerNeoForge.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/EnvFluidHandlerNeoForge.java",
       "scope": "Independent NeoForge registration/material ledger and native transactional item/block fluid capabilities with immutable predictions, empty-container identity and multi-tank extraction"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/ClientEnvFluidHandlerNeoForge.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/ClientEnvFluidHandlerNeoForge.java",
       "scope": "Direct fluid registration-material bindings for models, sprites and tint; no reflection or lazy initialization cycle"
     },
     {
@@ -907,7 +907,7 @@
       "scope": "Reusable bounded primitive breadth-first workspace, stamped visited table, cyclic graph traversal and independent randomized collection oracles"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/PumpUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/PumpUtil.java",
       "scope": "Loaded same-fluid region traversal; excludes disconnected neighboring sources and unrelated fluid types"
     },
     {
@@ -2115,7 +2115,7 @@
       "scope": "Independent public service lifecycle, owned event proposals, immutable identity/electrical records and bounded kinetic request bridging"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/fluid/StandardFluidItem.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/StandardFluidItem.java",
       "scope": "Single-item real fluid conservation, exact components, no-write simulation, nonnegative corrupt overfull fill and native damage display"
     },
     {
@@ -2151,7 +2151,7 @@
       "scope": "Independent owned native components and codec snapshot replacement, saved owner profiles, full stack-specific container delegation and transaction forwarding"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/FluidTag.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidTag.java",
       "scope": "Independent owned native components and codec snapshot replacement, saved owner profiles, full stack-specific container delegation and transaction forwarding"
     },
     {
@@ -2667,15 +2667,15 @@
       "scope": "Six-owned-cover lifecycle, checked addon admission, side-only custom-data removal, reload reset, type guards and dirty tick commits"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/fluid/FluidTankInfo.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidTankInfo.java",
       "scope": "Bounded side masks and independent immutable native fluid-view ownership"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/BlockSideFluidHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/BlockSideFluidHandler.java",
       "scope": "Dynamic actual sided tank lookup without list copies, per-mutated-tank nested transaction journals and stale owner rejection"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/CellFluidHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/CellFluidHandler.java",
       "scope": "One-owned-cell nested transaction protocol, quantity/type/component result validation, native type exchange and complete ownerless component rollback"
     },
     {
@@ -2787,7 +2787,7 @@
       "scope": "Independent native block/handheld menu payloads, current attached-world ownership and proprietor/physical handheld identity checks; native chunk delivery precedes menu construction"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/fluid/FluidHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidHandler.java",
       "scope": "Typed independent native item/world/tile fluid dispatcher, actual world/state/position forwarding, published declared gas phases, invalid-operation guards and cached source catalog"
     },
     {
@@ -3037,7 +3037,7 @@
   ],
   "integrationChanges": [
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/fluid/EnvFluidHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/EnvFluidHandler.java",
       "scope": "Implement the public fluid service contract"
     },
     {
@@ -3705,7 +3705,25 @@
     "platform/neoforge/src/main/java/ic2ce/neoforge/model/ModelUtil.java": "platform/neoforge/src/main/java/ic2/core/model/ModelUtil.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/Both.java": "platform/neoforge/src/main/java/ic2/core/profile/Both.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/NotClassic.java": "platform/neoforge/src/main/java/ic2/core/profile/NotClassic.java",
-    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/NotExperimental.java": "platform/neoforge/src/main/java/ic2/core/profile/NotExperimental.java"
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/profile/NotExperimental.java": "platform/neoforge/src/main/java/ic2/core/profile/NotExperimental.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/EnvFluidHandler.java": "platform/neoforge/src/main/java/ic2/core/fluid/EnvFluidHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidBeBridge.java": "platform/neoforge/src/main/java/ic2/core/fluid/FluidBeBridge.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidHandler.java": "platform/neoforge/src/main/java/ic2/core/fluid/FluidHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidTankInfo.java": "platform/neoforge/src/main/java/ic2/core/fluid/FluidTankInfo.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/Ic2FluidBlock.java": "platform/neoforge/src/main/java/ic2/core/fluid/Ic2FluidBlock.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/Ic2FluidTank.java": "platform/neoforge/src/main/java/ic2/core/fluid/Ic2FluidTank.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/StandardFluidItem.java": "platform/neoforge/src/main/java/ic2/core/fluid/StandardFluidItem.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/FluidTag.java": "platform/neoforge/src/main/java/ic2/core/util/FluidTag.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/LiquidUtil.java": "platform/neoforge/src/main/java/ic2/core/util/LiquidUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/PumpUtil.java": "platform/neoforge/src/main/java/ic2/core/util/PumpUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/BlockSideFluidHandler.java": "platform/neoforge/src/main/java/ic2/forge/BlockSideFluidHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/CellFluidHandler.java": "platform/neoforge/src/main/java/ic2/forge/CellFluidHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/ClientEnvFluidHandlerNeoForge.java": "platform/neoforge/src/main/java/ic2/forge/ClientEnvFluidHandlerForge.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/EnvFluidHandlerNeoForge.java": "platform/neoforge/src/main/java/ic2/forge/EnvFluidHandlerForge.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/fluid/Ic2FluidStackImpl.java": "platform/neoforge/src/main/java/ic2/forge/Ic2FluidStackImpl.java",
+    "verification/src/main/java/ic2ce/neoforge/fluid/FluidContracts.java": "verification/src/main/java/ic2ce/core/fluid/FluidContracts.java",
+    "verification/src/main/java/ic2ce/neoforge/fluid/FluidServiceContracts.java": "verification/src/main/java/ic2ce/core/fluid/FluidServiceContracts.java",
+    "verification/src/main/java/ic2ce/neoforge/fluid/FluidCapabilityContracts.java": "verification/src/main/java/ic2ce/neoforge/FluidCapabilityContracts.java"
   },
   "retiredSources": [
     {

@@ -1,8 +1,7 @@
-package ic2ce.neoforge;
+package ic2ce.neoforge.fluid;
 
 import ic2ce.api.fluid.Ic2FluidItem;
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.fluid.EnvFluidHandler;
 import ic2ce.neoforge.registry.CreativeContents;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.Collection;
@@ -35,9 +34,9 @@ import org.apache.commons.lang3.mutable.Mutable;
 /**
  * NeoForge transactional capabilities; container identity is separate from stored fluid content.
  */
-class EnvFluidHandlerNeoForge implements EnvFluidHandler {
-  static final Map<Identifier, Fluid> pendingFluids = new LinkedHashMap<>();
-  static final Map<Identifier, FluidType> pendingFluidTypes = new LinkedHashMap<>();
+public class EnvFluidHandlerNeoForge implements EnvFluidHandler {
+  public static final Map<Identifier, Fluid> pendingFluids = new LinkedHashMap<>();
+  public static final Map<Identifier, FluidType> pendingFluidTypes = new LinkedHashMap<>();
   static final Map<Fluid, FluidRefs> fluidMaterials = new IdentityHashMap<>();
 
   private static final class Definition {
@@ -141,7 +140,7 @@ class EnvFluidHandlerNeoForge implements EnvFluidHandler {
   public Ic2FluidStack createFluidStackMb(Fluid fluid, int amount, CompoundTag data) {
     if (amount < 0) throw new IllegalArgumentException("Negative fluid quantity");
     var stack = new FluidStack(Objects.requireNonNull(fluid), amount);
-    if (data != null && !data.isEmpty()) ic2ce.core.util.FluidTag.set(stack, data.copy());
+    if (data != null && !data.isEmpty()) ic2ce.neoforge.fluid.FluidTag.set(stack, data.copy());
     return new Ic2FluidStackImpl(stack);
   }
 
@@ -186,7 +185,7 @@ class EnvFluidHandlerNeoForge implements EnvFluidHandler {
   @Override
   public CompoundTag getFluidStackNbt(Ic2FluidStack fluid) {
     return fluid instanceof Ic2FluidStackImpl nativeFluid
-        ? ic2ce.core.util.FluidTag.get(nativeFluid.parent)
+        ? ic2ce.neoforge.fluid.FluidTag.get(nativeFluid.parent)
         : null;
   }
 

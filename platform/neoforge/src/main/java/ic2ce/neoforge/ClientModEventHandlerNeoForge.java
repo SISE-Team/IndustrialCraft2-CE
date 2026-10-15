@@ -1,6 +1,7 @@
 package ic2ce.neoforge;
 
 import com.mojang.serialization.MapCodec;
+import ic2ce.neoforge.fluid.ClientEnvFluidHandlerNeoForge;
 import ic2ce.neoforge.model.*;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import java.util.Map;

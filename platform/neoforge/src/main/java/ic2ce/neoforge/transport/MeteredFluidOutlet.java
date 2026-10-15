@@ -2,7 +2,7 @@ package ic2ce.neoforge.transport;
 
 import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.core.IHasGui;
-import ic2ce.core.fluid.Ic2FluidTank;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.core.network.GrowingBuffer;
 import ic2ce.core.network.GuiSynced;
 import ic2ce.neoforge.runtime.profile.NotClassic;

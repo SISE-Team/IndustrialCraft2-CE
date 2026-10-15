@@ -5,7 +5,7 @@ import ic2ce.api.recipe.MachineRecipe;
 import ic2ce.api.recipe.MachineRecipeResult;
 import ic2ce.api.recipe.Recipes;
 import ic2ce.api.upgrade.UpgradableProperty;
-import ic2ce.core.util.LiquidUtil;
+import ic2ce.neoforge.fluid.LiquidUtil;
 import ic2ce.neoforge.inventory.ItemRecipeInput;
 import ic2ce.neoforge.processing.PoweredProcessor;
 import ic2ce.neoforge.processing.fluid.FluidCollector;

@@ -4,7 +4,7 @@ import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.recipe.Recipes;
 import ic2ce.core.FluidHeatManager;
 import ic2ce.core.IHasGui;
-import ic2ce.core.fluid.Ic2FluidTank;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.core.network.GrowingBuffer;
 import ic2ce.core.network.GuiSynced;
 import ic2ce.neoforge.runtime.profile.NotClassic;

@@ -1,6 +1,6 @@
 package ic2ce.core.event;
 
-import ic2ce.core.fluid.FluidHandler;
+import ic2ce.neoforge.fluid.FluidHandler;
 import ic2ce.core.network.*;
 import ic2ce.neoforge.client.audio.ClientAudioService;
 import ic2ce.neoforge.runtime.ProjectRuntime;

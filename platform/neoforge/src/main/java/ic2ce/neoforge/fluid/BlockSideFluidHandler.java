@@ -1,4 +1,4 @@
-package ic2ce.neoforge;
+package ic2ce.neoforge.fluid;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.block.NativeBlockEntity;
@@ -17,14 +17,14 @@ import org.jspecify.annotations.Nullable;
  * Native sided access scans actual tank identities without per-query list copies; each mutated tank
  * journals separately.
  */
-final class BlockSideFluidHandler implements ResourceHandler<FluidResource> {
+public final class BlockSideFluidHandler implements ResourceHandler<FluidResource> {
   private static final Direction[] SIDES = Direction.values();
   private final FluidPorts component;
   private final NativeBlockEntity owner;
   private final @Nullable Direction side;
   private final Map<FluidPorts.InternalFluidTank, TankJournal> journals = new IdentityHashMap<>();
 
-  BlockSideFluidHandler(FluidPorts component, NativeBlockEntity owner, @Nullable Direction side) {
+  public BlockSideFluidHandler(FluidPorts component, NativeBlockEntity owner, @Nullable Direction side) {
     this.component = Objects.requireNonNull(component);
     this.owner = Objects.requireNonNull(owner);
     this.side = side;

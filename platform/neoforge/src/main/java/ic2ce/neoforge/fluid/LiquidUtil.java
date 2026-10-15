@@ -1,8 +1,8 @@
-package ic2ce.core.util;
+package ic2ce.neoforge.fluid;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.util.FluidContainerOutputMode;
-import ic2ce.core.fluid.FluidHandler;
+import ic2ce.core.util.StackUtil;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;

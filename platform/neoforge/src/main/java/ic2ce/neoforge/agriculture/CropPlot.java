@@ -2,7 +2,7 @@ package ic2ce.neoforge.agriculture;
 
 import ic2ce.api.crops.*;
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.fluid.FluidHandler;
+import ic2ce.neoforge.fluid.FluidHandler;
 import ic2ce.core.util.BiomeUtil;
 import ic2ce.core.util.StackUtil;
 import ic2ce.engine.agriculture.CropMath;

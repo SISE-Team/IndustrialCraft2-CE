@@ -1,6 +1,7 @@
 package ic2ce.neoforge;
 
 import ic2ce.api.fluid.Ic2FluidItem;
+import ic2ce.neoforge.fluid.CellFluidHandler;
 import ic2ce.neoforge.inventory.transfer.NativeItemTransfers;
 import ic2ce.neoforge.inventory.transfer.TransactionalItemAdapter;
 import ic2ce.neoforge.registry.ItemDefinitions;

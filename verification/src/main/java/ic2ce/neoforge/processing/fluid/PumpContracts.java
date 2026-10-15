@@ -1,7 +1,7 @@
 package ic2ce.neoforge.processing.fluid;
 
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.util.PumpUtil;
+import ic2ce.neoforge.fluid.PumpUtil;
 import ic2ce.neoforge.mining.PipeMiner;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import java.util.ArrayList;

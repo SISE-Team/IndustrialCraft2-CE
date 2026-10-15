@@ -75,7 +75,7 @@ public final class EventHandler {
     long start = System.nanoTime();
     ProjectConfiguration.load();
     CoreAccessImpl.init();
-    ic2ce.core.fluid.FluidHandler.initialize();
+    ic2ce.neoforge.fluid.FluidHandler.initialize();
     Recipes.inputFactory = new ic2ce.neoforge.recipe.input.InputFactory();
     EnergyNet.instance = EnergyNetGlobal.create();
     ElectricItem.manager = new ElectricManagerRouter();

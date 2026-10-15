@@ -1,7 +1,7 @@
-package ic2ce.neoforge;
+package ic2ce.neoforge.fluid;
 
 import ic2ce.api.fluid.Ic2FluidStack;
-import ic2ce.core.fluid.FluidTankInfo;
+import ic2ce.neoforge.TransferReviewProbe;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.InventorySlot;
 import ic2ce.neoforge.processing.solid.OreGrinder;

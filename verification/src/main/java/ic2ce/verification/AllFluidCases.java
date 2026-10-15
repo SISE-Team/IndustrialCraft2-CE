@@ -5,7 +5,6 @@ import static ic2ce.verification.AllMachinesVerification.*;
 import ic2ce.api.energy.tile.IHeatSource;
 import ic2ce.api.fluid.*;
 import ic2ce.api.recipe.*;
-import ic2ce.core.fluid.*;
 import ic2ce.neoforge.component.ElectricalBuffer;
 import ic2ce.neoforge.component.FluidPorts;
 import ic2ce.neoforge.inventory.*;

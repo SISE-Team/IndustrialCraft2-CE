@@ -1,0 +1,16 @@
+{
+  "domain": "Fluid storage, handlers and environment adapters",
+  "report": "fluid-package-layout-migration.json",
+  "moves": {
+    "ic2ce.core.fluid.*": "ic2ce.neoforge.fluid",
+    "ic2ce.core.util.LiquidUtil": "ic2ce.neoforge.fluid.LiquidUtil",
+    "ic2ce.core.util.FluidTag": "ic2ce.neoforge.fluid.FluidTag",
+    "ic2ce.core.util.PumpUtil": "ic2ce.neoforge.fluid.PumpUtil",
+    "ic2ce.neoforge.EnvFluidHandlerNeoForge": "ic2ce.neoforge.fluid.EnvFluidHandlerNeoForge",
+    "ic2ce.neoforge.ClientEnvFluidHandlerNeoForge": "ic2ce.neoforge.fluid.ClientEnvFluidHandlerNeoForge",
+    "ic2ce.neoforge.CellFluidHandler": "ic2ce.neoforge.fluid.CellFluidHandler",
+    "ic2ce.neoforge.BlockSideFluidHandler": "ic2ce.neoforge.fluid.BlockSideFluidHandler",
+    "ic2ce.neoforge.Ic2FluidStackImpl": "ic2ce.neoforge.fluid.Ic2FluidStackImpl",
+    "ic2ce.neoforge.FluidCapabilityContracts": "ic2ce.neoforge.fluid.FluidCapabilityContracts"
+  }
+}

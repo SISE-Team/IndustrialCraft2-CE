@@ -3,7 +3,7 @@ package ic2ce.verification;
 import com.google.gson.GsonBuilder;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.core.IHasGui;
-import ic2ce.core.fluid.Ic2FluidTank;
+import ic2ce.neoforge.fluid.Ic2FluidTank;
 import ic2ce.core.network.DataEncoder;
 import ic2ce.core.network.GrowingBuffer;
 import ic2ce.core.network.SubPacketType;

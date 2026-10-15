@@ -755,7 +755,7 @@ public final class HotpathRegression {
         group(
             "fluidCapabilityContracts",
             () -> {
-              var result = ic2ce.neoforge.FluidCapabilityContracts.run(server.overworld());
+              var result = ic2ce.neoforge.fluid.FluidCapabilityContracts.run(server.overworld());
               checks += result.checks();
               failures.addAll(result.failures());
             });
@@ -769,14 +769,14 @@ public final class HotpathRegression {
         group(
             "fluidServiceContracts",
             () -> {
-              var result = ic2ce.core.fluid.FluidServiceContracts.run(server.overworld());
+              var result = ic2ce.neoforge.fluid.FluidServiceContracts.run(server.overworld());
               checks += result.checks();
               failures.addAll(result.failures());
             });
         group(
             "fluidContracts",
             () -> {
-              var result = ic2ce.core.fluid.FluidContracts.run(server.overworld());
+              var result = ic2ce.neoforge.fluid.FluidContracts.run(server.overworld());
               checks += result.checks();
               failures.addAll(result.failures());
             });
