@@ -1,11 +1,10 @@
-package ic2ce.core.util;
+package ic2ce.neoforge.runtime;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.api.info.IInfoProvider;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.registry.ItemDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.material.Fluids;
 

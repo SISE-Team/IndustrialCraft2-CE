@@ -3,7 +3,7 @@ package ic2ce.neoforge.kinetic;
 import ic2ce.api.item.IKineticRotor;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.runtime.profile.NotClassic;
-import ic2ce.core.util.BiomeUtil;
+import ic2ce.neoforge.world.BiomeUtil;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.kinetic.menu.WaterTurbineMenu;

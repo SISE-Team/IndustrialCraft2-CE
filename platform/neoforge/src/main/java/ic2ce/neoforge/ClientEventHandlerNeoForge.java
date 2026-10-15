@@ -1,8 +1,10 @@
 package ic2ce.neoforge;
 
-import ic2ce.core.event.*;
+import ic2ce.neoforge.client.EventHandlerClient;
 import ic2ce.neoforge.recipe.RecipeBootstrap;
 import ic2ce.neoforge.recipe.codec.RecipeGeneration;
+import ic2ce.neoforge.runtime.EventHandler;
+import ic2ce.neoforge.world.TickHandler;
 import net.minecraft.world.item.crafting.RecipeMap;
 import net.neoforged.bus.api.*;
 import net.neoforged.neoforge.client.event.*;

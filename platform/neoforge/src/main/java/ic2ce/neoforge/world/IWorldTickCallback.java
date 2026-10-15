@@ -1,4 +1,4 @@
-package ic2ce.core.event;
+package ic2ce.neoforge.world;
 
 import net.minecraft.world.level.Level;
 

@@ -65,7 +65,7 @@ public class CarnivorousSpecies extends MaterialSpecies {
 
   @Override
   public int getGrowthDuration(ICropTile plot) {
-    var biome = ic2ce.core.util.BiomeUtil.getBiome(plot.getWorldObj(), plot.getPosition());
+    var biome = ic2ce.neoforge.world.BiomeUtil.getBiome(plot.getWorldObj(), plot.getPosition());
     double biomeFactor =
         ProjectRuntime.envProxy.biomeHasType(biome, BiomeType.SWAMP)
                 || ProjectRuntime.envProxy.biomeHasType(biome, BiomeType.MOUNTAIN)

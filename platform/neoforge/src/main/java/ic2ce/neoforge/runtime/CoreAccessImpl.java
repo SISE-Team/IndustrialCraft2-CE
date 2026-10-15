@@ -1,14 +1,12 @@
-package ic2ce.core.apihelper;
+package ic2ce.neoforge.runtime;
 
 import ic2ce.api.info.IInfoProvider;
 import ic2ce.api.network.INetworkManager;
 import ic2ce.api.tile.IRotorProvider;
 import ic2ce.api.util.CoreAccess;
 import ic2ce.api.util.CoreAccessRef;
-import ic2ce.core.util.ItemInfo;
 import ic2ce.neoforge.damage.DamageProfiles;
 import ic2ce.neoforge.damage.RadiationEffect;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.level.block.entity.BlockEntity;

@@ -640,7 +640,7 @@
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/event/IWorldTickCallback.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/IWorldTickCallback.java",
       "sha256": "b04b7ed09bfa1541d332a4f46a26d8355bc3021cf4e6c8d715f6c0e6a474ca09",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
@@ -742,13 +742,13 @@
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/proxy/EnvProxy.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/EnvProxy.java",
       "sha256": "c4bbbae843495c8e2f617ba9cca350bc0de6dee08a91ab809715f1bdcebf5af3",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxy.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SideProxy.java",
       "sha256": "5eb79df2059c22bee96295dd41a12d20f4554bec86ff24564994debad833927e",
       "kind": "native callback/marker/service signature; concrete behavior lives in independent implementations",
       "countsAsImplementationRewrite": false

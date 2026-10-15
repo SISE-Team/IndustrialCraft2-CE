@@ -1,4 +1,4 @@
-package ic2ce.core.proxy;
+package ic2ce.neoforge.runtime;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.serialization.Codec;

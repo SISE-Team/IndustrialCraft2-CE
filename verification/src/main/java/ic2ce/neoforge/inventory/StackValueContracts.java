@@ -1,6 +1,5 @@
-package ic2ce.core.util;
+package ic2ce.neoforge.inventory;
 
-import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.neoforge.item.StackTag;
 import java.util.*;
 import net.minecraft.core.*;

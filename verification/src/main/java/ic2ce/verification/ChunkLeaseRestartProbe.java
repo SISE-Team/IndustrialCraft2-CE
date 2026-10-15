@@ -1,7 +1,7 @@
 package ic2ce.verification;
 
 import com.google.gson.GsonBuilder;
-import ic2ce.core.event.WorldData;
+import ic2ce.neoforge.world.WorldData;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.utility.ChunkAnchor;
 import ic2ce.neoforge.world.ChunkLeases;

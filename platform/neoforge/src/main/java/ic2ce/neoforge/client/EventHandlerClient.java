@@ -1,4 +1,4 @@
-package ic2ce.core.event;
+package ic2ce.neoforge.client;
 
 import ic2ce.neoforge.fluid.FluidHandler;
 import ic2ce.neoforge.client.audio.ClientAudioService;

@@ -1,6 +1,6 @@
 package ic2ce.neoforge.item.upgrade;
 
-import ic2ce.core.proxy.ClientEnvProxy;
+import ic2ce.neoforge.client.ClientEnvProxy;
 import ic2ce.neoforge.client.text.LocalizedText;
 import ic2ce.neoforge.client.widget.NativeButton;
 import ic2ce.neoforge.menu.document.DocumentMenu;

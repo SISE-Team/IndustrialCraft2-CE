@@ -283,7 +283,7 @@ public final class NativeApiContracts {
     check(
         !ic2ce.neoforge.fluid.FluidTag.has(nativeValue),
         "empty native fluid metadata update prunes the custom-data component");
-    var keyState = new ic2ce.core.util.Keyboard();
+    var keyState = new ic2ce.neoforge.runtime.Keyboard();
     var inputOwner =
         net.neoforged.neoforge.common.util.FakePlayerFactory.get(
             world,
@@ -321,11 +321,11 @@ public final class NativeApiContracts {
             largePos,
             false);
     check(
-        ic2ce.core.util.RotationUtil.rotateByRay(hit) == net.minecraft.core.Direction.WEST,
+        ic2ce.neoforge.world.RotationUtil.rotateByRay(hit) == net.minecraft.core.Direction.WEST,
         "actual large-world face hit subtracts the coordinate before float projection");
     for (var face : net.minecraft.core.Direction.values())
       check(
-          ic2ce.core.util.RotationUtil.rotateByHit(face, .5F, .5F, .5F) == face,
+          ic2ce.neoforge.world.RotationUtil.rotateByHit(face, .5F, .5F, .5F) == face,
           "native center hit retains each facing " + face);
     check(
         ic2ce.neoforge.runtime.ProjectRuntime.getWorldMaxHeight(world) == world.getMaxY() + 1

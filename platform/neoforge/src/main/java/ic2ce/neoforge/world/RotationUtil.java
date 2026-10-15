@@ -1,4 +1,4 @@
-package ic2ce.core.util;
+package ic2ce.neoforge.world;
 
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.Objects;

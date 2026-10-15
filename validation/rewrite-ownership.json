@@ -87,7 +87,7 @@
       "scope": "Explicit safely published services with direct caller lookup"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/apihelper/CoreAccessImpl.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/CoreAccessImpl.java",
       "scope": "Typed platform service installation and public API bindings"
     },
     {
@@ -199,7 +199,7 @@
       "scope": "NeoForge-only typed runtime bootstrap, side bindings and real build version"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/SideGateway.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SideGateway.java",
       "scope": "Typed side factories and dedicated-server client isolation"
     },
     {
@@ -811,11 +811,11 @@
       "scope": "Independent native block lifecycle with deferred-load retry epochs, compact validated components, ClassValue tick metadata, safe NBT bridge and world hooks"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/event/WorldData.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/WorldData.java",
       "scope": "Native level-identity service ownership with immutable lock-free lookup generations and deterministic unload cleanup"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/event/TickHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/TickHandler.java",
       "scope": "Bounded one-shot callback phases and deterministic continuous subscription transactions on native world threads"
     },
     {
@@ -2139,7 +2139,7 @@
       "scope": "Standalone CPU worker lanes, modern platform thread factory, stable priority preserving FutureTasks, detached snapshot removal and race-safe executor admission"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/Keyboard.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/Keyboard.java",
       "scope": "Bounded weak-player primitive key state, immutable observer publication, live native controls and world replacement reset"
     },
     {
@@ -2167,7 +2167,7 @@
       "scope": "Independent native three-axis geometry adapter, zero normalization, overflow-resistant finite lengths, owned mutable operations and allocation-free cross products"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/RotationUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/RotationUtil.java",
       "scope": "Native wrench face hit projection, local-coordinate large-world precision, edge/corner decisions and unbiased primitive direction shuffling"
     },
     {
@@ -2179,11 +2179,11 @@
       "scope": "Independent native electrical machine construction, early capacity/tier validation, one real sink ledger and explicitly managed physical discharge slot"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/BiomeUtil.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/world/BiomeUtil.java",
       "scope": "Independent native biome palette edit/notification, energy/fuel values, client particles and strict bounded XML attribute parsing"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/util/ItemInfo.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/ItemInfo.java",
       "scope": "Independent native biome palette edit/notification, energy/fuel values, client particles and strict bounded XML attribute parsing"
     },
     {
@@ -2679,7 +2679,7 @@
       "scope": "One-owned-cell nested transaction protocol, quantity/type/component result validation, native type exchange and complete ownerless component rollback"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandler.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/EventHandler.java",
       "scope": "Independent ordered registry/data bootstrap with failure state, checked native world/chunk and typed item/block/fall dispatch; attack admission no longer pays armor"
     },
     {
@@ -2743,7 +2743,7 @@
       "scope": "Per-world random drift, 128-tick cadence, Horner altitude evaluation and corrected modulo-360 direction wrap"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxyServer.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SideProxyServer.java",
       "scope": "Dedicated native world/recipe/input/audio/task services, safe translated component ownership and preserved exception causes"
     },
     {
@@ -2835,7 +2835,7 @@
       "scope": "Independent declarative actual native JEI registration, distinct forming modes/catalysts, synchronized recipe generation and owned immutable presentation records"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/proxy/ClientEnvProxy.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/client/ClientEnvProxy.java",
       "scope": "Independent current native client boundary replaces obsolete predicate no-ops with owned quad snapshots and real typed renderer/screen contracts"
     },
     {
@@ -2847,7 +2847,7 @@
       "scope": "Typed native client registration replay, current model generations and actual independent fluid/model property bindings"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/event/EventHandlerClient.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/client/EventHandlerClient.java",
       "scope": "Independent finite native fluid fog/audio/connection lifetime service; retired no-op legacy GUI/model/render callback scaffolding"
     },
     {
@@ -2855,7 +2855,7 @@
       "scope": "Independent native recipe connection lifetime, mutable native fog data with explicit project-fluid identity and opaque signed/white RGB handling, owned audio/input event ticks"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/proxy/SideProxyClient.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/client/SideProxyClient.java",
       "scope": "Independent native client side-service lifetimes, typed actual screen/entity renderer binding data, deferred server task ownership, current dimension/player/recipe lookup and safe physical audio/messages"
     },
     {
@@ -3045,7 +3045,7 @@
       "scope": "Item definition table delegates actual fuel-can behavior to independent FuelCan and retired redundant axe/hoe wrappers to native component types; material membership and identifiers are declarative reference data"
     },
     {
-      "file": "platform/neoforge/src/main/java/ic2ce/core/proxy/EnvProxy.java",
+      "file": "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/EnvProxy.java",
       "scope": "Remove unused dynamic-feature declarations; datapack world features and concrete native current registry lookup own these responsibilities; retained interface signatures remain contracts"
     },
     {
@@ -3809,7 +3809,25 @@
     "platform/neoforge/src/main/java/ic2ce/neoforge/item/StackTag.java": "platform/neoforge/src/main/java/ic2/core/util/StackTag.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/item/paint/VanillaColorBlockId.java": "platform/neoforge/src/main/java/ic2/core/util/VanillaColorBlockId.java",
     "platform/neoforge/src/main/java/ic2ce/neoforge/projectile/Vector3.java": "platform/neoforge/src/main/java/ic2/core/util/Vector3.java",
-    "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/XmlUtil.java": "platform/neoforge/src/main/java/ic2/core/util/XmlUtil.java"
+    "platform/neoforge/src/main/java/ic2ce/neoforge/menu/document/XmlUtil.java": "platform/neoforge/src/main/java/ic2/core/util/XmlUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/CoreAccessImpl.java": "platform/neoforge/src/main/java/ic2/core/apihelper/CoreAccessImpl.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/EventHandler.java": "platform/neoforge/src/main/java/ic2/core/event/EventHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/client/EventHandlerClient.java": "platform/neoforge/src/main/java/ic2/core/event/EventHandlerClient.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/IWorldTickCallback.java": "platform/neoforge/src/main/java/ic2/core/event/IWorldTickCallback.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/TickHandler.java": "platform/neoforge/src/main/java/ic2/core/event/TickHandler.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/WorldData.java": "platform/neoforge/src/main/java/ic2/core/event/WorldData.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/client/ClientEnvProxy.java": "platform/neoforge/src/main/java/ic2/core/proxy/ClientEnvProxy.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/EnvProxy.java": "platform/neoforge/src/main/java/ic2/core/proxy/EnvProxy.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SideProxy.java": "platform/neoforge/src/main/java/ic2/core/proxy/SideProxy.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/client/SideProxyClient.java": "platform/neoforge/src/main/java/ic2/core/proxy/SideProxyClient.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SideProxyServer.java": "platform/neoforge/src/main/java/ic2/core/proxy/SideProxyServer.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/BiomeUtil.java": "platform/neoforge/src/main/java/ic2/core/util/BiomeUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/ItemInfo.java": "platform/neoforge/src/main/java/ic2/core/util/ItemInfo.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/Keyboard.java": "platform/neoforge/src/main/java/ic2/core/util/Keyboard.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/world/RotationUtil.java": "platform/neoforge/src/main/java/ic2/core/util/RotationUtil.java",
+    "platform/neoforge/src/main/java/ic2ce/neoforge/runtime/SideGateway.java": "platform/neoforge/src/main/java/ic2/core/util/SideGateway.java",
+    "verification/src/main/java/ic2ce/neoforge/world/WorldLifecycleContracts.java": "verification/src/main/java/ic2ce/core/event/WorldLifecycleContracts.java",
+    "verification/src/main/java/ic2ce/neoforge/inventory/StackValueContracts.java": "verification/src/main/java/ic2ce/core/util/StackValueContracts.java"
   },
   "retiredSources": [
     {

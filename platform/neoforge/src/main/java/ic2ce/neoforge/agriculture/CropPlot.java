@@ -3,7 +3,7 @@ package ic2ce.neoforge.agriculture;
 import ic2ce.api.crops.*;
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.fluid.FluidHandler;
-import ic2ce.core.util.BiomeUtil;
+import ic2ce.neoforge.world.BiomeUtil;
 import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.engine.agriculture.CropMath;
 import ic2ce.engine.recipe.WeightedChoice;
@@ -116,7 +116,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
     }
     var world = getLevel();
     if (world != null && !world.isClientSide()) {
-      var data = ic2ce.core.event.WorldData.get(world, false);
+      var data = ic2ce.neoforge.world.WorldData.get(world, false);
       if (data != null) data.cropTicks.queueDirty(this);
     }
   }
@@ -185,7 +185,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
       updateTerrainNutrients();
       updateTerrainAirQuality();
       if (getClass() == CropPlot.class)
-        ic2ce.core.event.WorldData.get(getLevel()).cropTicks.add(this);
+        ic2ce.neoforge.world.WorldData.get(getLevel()).cropTicks.add(this);
     }
   }
 
@@ -193,7 +193,7 @@ public class CropPlot extends NativeBlockEntity implements ICropTile {
   protected void onUnloaded() {
     var world = getLevel();
     if (world != null && !world.isClientSide()) {
-      var data = ic2ce.core.event.WorldData.get(world, false);
+      var data = ic2ce.neoforge.world.WorldData.get(world, false);
       if (data != null) data.cropTicks.remove(this);
     }
     super.onUnloaded();

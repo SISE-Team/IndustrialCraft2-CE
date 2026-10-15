@@ -4,7 +4,7 @@ import com.mojang.authlib.GameProfile;
 import ic2ce.api.network.INetworkClientTileEntityEventListener;
 import ic2ce.api.network.INetworkTileEntityEventListener;
 import ic2ce.neoforge.menu.IHasGui;
-import ic2ce.core.event.WorldData;
+import ic2ce.neoforge.world.WorldData;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.inventory.StackUtil;

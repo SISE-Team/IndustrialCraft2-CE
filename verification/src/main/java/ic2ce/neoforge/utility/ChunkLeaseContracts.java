@@ -1,6 +1,6 @@
 package ic2ce.neoforge.utility;
 
-import ic2ce.core.event.WorldData;
+import ic2ce.neoforge.world.WorldData;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.world.ChunkLeases;
 import it.unimi.dsi.fastutil.longs.LongOpenHashSet;

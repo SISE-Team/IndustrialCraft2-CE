@@ -132,7 +132,7 @@ public final class HotpathRegression {
     group(
         "stackValueContracts",
         () -> {
-          var result = ic2ce.core.util.StackValueContracts.run(server.overworld());
+          var result = ic2ce.neoforge.inventory.StackValueContracts.run(server.overworld());
           checks += result.checks();
           failures.addAll(result.failures());
         });
@@ -283,7 +283,7 @@ public final class HotpathRegression {
         group(
             "worldLifecycleContracts",
             () -> {
-              var result = ic2ce.core.event.WorldLifecycleContracts.run(server.overworld());
+              var result = ic2ce.neoforge.world.WorldLifecycleContracts.run(server.overworld());
               checks += result.checks();
               failures.addAll(result.failures());
             });

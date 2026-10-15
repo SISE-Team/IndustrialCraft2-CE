@@ -19,6 +19,7 @@ import ic2ce.neoforge.processing.menu.BoilerMenu;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.registry.FluidDefinitions;
 import ic2ce.neoforge.thermal.HeatSupply;
+import ic2ce.neoforge.world.BiomeUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Inventory;

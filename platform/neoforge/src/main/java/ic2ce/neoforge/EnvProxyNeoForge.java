@@ -9,7 +9,7 @@ import ic2ce.neoforge.fluid.ClientEnvFluidHandlerNeoForge;
 import ic2ce.neoforge.fluid.EnvFluidHandler;
 import ic2ce.neoforge.inventory.transfer.EnvItemHandler;
 import ic2ce.neoforge.network.GrowingBuffer;
-import ic2ce.core.proxy.EnvProxy;
+import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.neoforge.fluid.EnvFluidHandlerNeoForge;
 import ic2ce.neoforge.inventory.transfer.NativeItemTransfers;
 import ic2ce.neoforge.registry.RegistryPlan;
@@ -180,7 +180,7 @@ public final class EnvProxyNeoForge implements EnvProxy {
 
   private static final class ClientServices {
     static HolderLookup.Provider registryLookup() {
-      return ic2ce.core.proxy.SideProxyClient.envProxy.getRegistryLookup();
+      return ic2ce.neoforge.client.SideProxyClient.envProxy.getRegistryLookup();
     }
 
     static EnvFluidHandler fluids() {

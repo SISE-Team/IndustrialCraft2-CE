@@ -1,6 +1,6 @@
 package ic2ce.neoforge.world.block;
 
-import ic2ce.core.util.Keyboard;
+import ic2ce.neoforge.runtime.Keyboard;
 import ic2ce.neoforge.registry.BlockDefinitions;
 import ic2ce.neoforge.registry.BlockEntityDefinitions;
 import ic2ce.neoforge.runtime.ProjectRuntime;

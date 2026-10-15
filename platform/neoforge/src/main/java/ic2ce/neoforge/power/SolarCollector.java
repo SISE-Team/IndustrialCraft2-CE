@@ -3,7 +3,7 @@ package ic2ce.neoforge.power;
 import ic2ce.api.crops.BiomeType;
 import ic2ce.neoforge.network.GrowingBuffer;
 import ic2ce.neoforge.network.GuiSynced;
-import ic2ce.core.util.BiomeUtil;
+import ic2ce.neoforge.world.BiomeUtil;
 import ic2ce.neoforge.config.NativeConfigValues;
 import ic2ce.neoforge.config.ProjectConfiguration;
 import ic2ce.neoforge.menu.OwnedMenu;

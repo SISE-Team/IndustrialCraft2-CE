@@ -1,9 +1,7 @@
-package ic2ce.core.proxy;
+package ic2ce.neoforge.runtime;
 
 import ic2ce.api.tile.IRotorProvider;
-import ic2ce.core.util.Keyboard;
 import ic2ce.neoforge.audio.AudioService;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.io.*;
 import java.util.*;
 import net.minecraft.core.registries.Registries;
@@ -76,7 +74,7 @@ public final class SideProxyServer implements SideProxy {
     displayError0(format, arguments);
   }
 
-  static void displayError0(String format, Object... arguments) {
+  public static void displayError0(String format, Object... arguments) {
     throw new IllegalStateException("IndustrialCraft2-CE: " + message(format, arguments));
   }
 
@@ -144,7 +142,7 @@ public final class SideProxyServer implements SideProxy {
           Component.translatable(key, (Object[]) getMessageComponents(arguments)));
   }
 
-  static Component[] getMessageComponents(Object... arguments) {
+  public static Component[] getMessageComponents(Object... arguments) {
     if (arguments == null) return new Component[0];
     var result = new Component[arguments.length];
     for (int index = 0; index < result.length; index++)

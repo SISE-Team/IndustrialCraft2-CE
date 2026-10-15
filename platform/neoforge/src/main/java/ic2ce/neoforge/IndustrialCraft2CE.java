@@ -1,6 +1,6 @@
 package ic2ce.neoforge;
 
-import ic2ce.core.event.EventHandler;
+import ic2ce.neoforge.runtime.EventHandler;
 import ic2ce.neoforge.fluid.EnvFluidHandlerNeoForge;
 import ic2ce.neoforge.network.NeoForgeNetworkHandler;
 import ic2ce.neoforge.runtime.ProjectRuntime;
@@ -55,7 +55,7 @@ public final class IndustrialCraft2CE {
     }
 
     static void complete() {
-      ic2ce.core.proxy.SideProxyClient.refreshMc();
+      ic2ce.neoforge.client.SideProxyClient.refreshMc();
     }
   }
 

@@ -1,6 +1,5 @@
-package ic2ce.core.util;
+package ic2ce.neoforge.runtime;
 
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import java.util.Objects;
 import java.util.function.Supplier;
 

@@ -1,6 +1,6 @@
 package ic2ce.neoforge.item.tool;
 
-import ic2ce.core.event.WorldData;
+import ic2ce.neoforge.world.WorldData;
 import ic2ce.neoforge.item.PriorityUsableItem;
 import ic2ce.neoforge.kinetic.WindTurbine;
 import ic2ce.neoforge.power.WindMill;

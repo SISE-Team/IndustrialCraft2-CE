@@ -1,0 +1,24 @@
+{
+  "domain": "World state, tick dispatch, side services and runtime bindings",
+  "report": "world-runtime-layout-migration.json",
+  "moves": {
+    "ic2ce.core.event.WorldData": "ic2ce.neoforge.world.WorldData",
+    "ic2ce.core.event.TickHandler": "ic2ce.neoforge.world.TickHandler",
+    "ic2ce.core.event.IWorldTickCallback": "ic2ce.neoforge.world.IWorldTickCallback",
+    "ic2ce.core.event.WorldLifecycleContracts": "ic2ce.neoforge.world.WorldLifecycleContracts",
+    "ic2ce.core.event.EventHandler": "ic2ce.neoforge.runtime.EventHandler",
+    "ic2ce.core.event.EventHandlerClient": "ic2ce.neoforge.client.EventHandlerClient",
+    "ic2ce.core.util.BiomeUtil": "ic2ce.neoforge.world.BiomeUtil",
+    "ic2ce.core.util.RotationUtil": "ic2ce.neoforge.world.RotationUtil",
+    "ic2ce.core.proxy.EnvProxy": "ic2ce.neoforge.runtime.EnvProxy",
+    "ic2ce.core.proxy.ClientEnvProxy": "ic2ce.neoforge.client.ClientEnvProxy",
+    "ic2ce.core.proxy.SideProxy": "ic2ce.neoforge.runtime.SideProxy",
+    "ic2ce.core.proxy.SideProxyServer": "ic2ce.neoforge.runtime.SideProxyServer",
+    "ic2ce.core.proxy.SideProxyClient": "ic2ce.neoforge.client.SideProxyClient",
+    "ic2ce.core.util.SideGateway": "ic2ce.neoforge.runtime.SideGateway",
+    "ic2ce.core.util.Keyboard": "ic2ce.neoforge.runtime.Keyboard",
+    "ic2ce.core.util.ItemInfo": "ic2ce.neoforge.runtime.ItemInfo",
+    "ic2ce.core.apihelper.CoreAccessImpl": "ic2ce.neoforge.runtime.CoreAccessImpl",
+    "ic2ce.core.util.StackValueContracts": "ic2ce.neoforge.inventory.StackValueContracts"
+  }
+}

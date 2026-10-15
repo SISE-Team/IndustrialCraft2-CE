@@ -1,4 +1,4 @@
-package ic2ce.core.event;
+package ic2ce.neoforge.world;
 
 import ic2ce.neoforge.energy.grid.EnergyNetLocal;
 import ic2ce.neoforge.network.TeUpdateDataServer;

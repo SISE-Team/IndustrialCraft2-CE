@@ -63,7 +63,7 @@ import ic2ce.neoforge.item.upgrade.MaterialTagEditor;
 import ic2ce.neoforge.item.upgrade.NumericFilterEditor;
 import ic2ce.neoforge.network.DataEncoder;
 import ic2ce.neoforge.network.GrowingBuffer;
-import ic2ce.core.proxy.EnvProxy;
+import ic2ce.neoforge.runtime.EnvProxy;
 import ic2ce.core.util.Util;
 import io.netty.buffer.ByteBuf;
 import java.io.IOException;

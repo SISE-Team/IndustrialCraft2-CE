@@ -3,7 +3,7 @@ package ic2ce.neoforge.item.tool;
 import ic2ce.api.item.IEnhancedOverlayProvider;
 import ic2ce.neoforge.transport.cover.ICoverHolder;
 import ic2ce.neoforge.item.PriorityUsableItem;
-import ic2ce.core.util.RotationUtil;
+import ic2ce.neoforge.world.RotationUtil;
 import ic2ce.neoforge.material.CommonMaterialTags;
 import ic2ce.neoforge.registry.ItemGroups;
 import ic2ce.neoforge.registry.SoundDefinitions;

@@ -1,6 +1,6 @@
 package ic2ce.neoforge.power;
 
-import ic2ce.core.event.WorldData;
+import ic2ce.neoforge.world.WorldData;
 import ic2ce.neoforge.network.GuiSynced;
 import ic2ce.neoforge.inventory.StackUtil;
 import ic2ce.core.util.Util;

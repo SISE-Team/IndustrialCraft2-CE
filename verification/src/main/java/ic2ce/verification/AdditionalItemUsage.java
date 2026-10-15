@@ -14,6 +14,7 @@ import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.runtime.ProjectRuntime;
 import ic2ce.neoforge.terrain.TerrainBlueprint;
 import ic2ce.neoforge.terrain.TerrainController;
+import ic2ce.neoforge.world.BiomeUtil;
 import java.nio.file.*;
 import java.util.*;
 import net.minecraft.core.*;
@@ -123,7 +124,7 @@ public final class AdditionalItemUsage {
     try {
       var field = ic2ce.neoforge.weather.WorldWind.class.getDeclaredField("windStrength");
       field.setAccessible(true);
-      field.setInt(ic2ce.core.event.WorldData.get(s.level).windSim, 20);
+      field.setInt(ic2ce.neoforge.world.WorldData.get(s.level).windSim, 20);
     } catch (ReflectiveOperationException error) {
       throw new RuntimeException(error);
     }

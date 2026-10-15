@@ -1,7 +1,7 @@
 package ic2ce.neoforge.item.client;
 
 import ic2ce.neoforge.model.ModelUtil;
-import ic2ce.core.proxy.SideProxyClient;
+import ic2ce.neoforge.client.SideProxyClient;
 import ic2ce.neoforge.item.StackTag;
 import ic2ce.neoforge.item.tool.SurfaceImprinter;
 import ic2ce.neoforge.runtime.ProjectRuntime;

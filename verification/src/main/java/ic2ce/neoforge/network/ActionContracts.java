@@ -191,7 +191,7 @@ public final class ActionContracts {
     delta.addPlayerField("mode", player);
     check(
         delta.getPlayerFields(player).size() == 1, "private tile fields serialize once per update");
-    var worldData = ic2ce.core.event.WorldData.get(world);
+    var worldData = ic2ce.neoforge.world.WorldData.get(world);
     worldData.tesToUpdate.remove(storage);
     var network = ic2ce.neoforge.runtime.ProjectRuntime.network.get(true);
     network.updateTileEntityFields(storage, new String[] {"active", "mode", "inventory"}, 5);

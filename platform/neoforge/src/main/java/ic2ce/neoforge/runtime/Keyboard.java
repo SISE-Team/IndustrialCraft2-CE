@@ -1,4 +1,4 @@
-package ic2ce.core.util;
+package ic2ce.neoforge.runtime;
 
 import ic2ce.api.util.IKeyboard;
 import java.util.*;

@@ -1,11 +1,10 @@
-package ic2ce.core.event;
+package ic2ce.neoforge.runtime;
 
 import ic2ce.api.block.BreakableBlock;
 import ic2ce.api.energy.EnergyNet;
 import ic2ce.api.item.*;
 import ic2ce.api.recipe.Recipes;
 import ic2ce.api.sound.item.ISwingSoundItem;
-import ic2ce.core.apihelper.CoreAccessImpl;
 import ic2ce.neoforge.world.ChunkLoadAwareBlockHandler;
 import ic2ce.neoforge.energy.grid.EnergyNetGlobal;
 import ic2ce.neoforge.agriculture.CropCatalog;
@@ -30,9 +29,9 @@ import ic2ce.neoforge.registry.ItemGroups;
 import ic2ce.neoforge.registry.RecipeCodecs;
 import ic2ce.neoforge.registry.RecipeKinds;
 import ic2ce.neoforge.registry.SoundDefinitions;
-import ic2ce.neoforge.runtime.ProjectRuntime;
 import ic2ce.neoforge.thermal.*;
 import ic2ce.neoforge.world.ChunkLeases;
+import ic2ce.neoforge.world.WorldData;
 import ic2ce.neoforge.world.generation.WorldFeatures;
 import net.minecraft.core.*;
 import net.minecraft.server.MinecraftServer;

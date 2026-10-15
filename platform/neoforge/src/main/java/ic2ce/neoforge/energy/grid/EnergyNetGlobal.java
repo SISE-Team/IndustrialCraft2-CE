@@ -5,7 +5,7 @@ import ic2ce.api.energy.IEnergyNetEventReceiver;
 import ic2ce.api.energy.NodeStats;
 import ic2ce.api.energy.tile.IEnergyTile;
 import ic2ce.api.info.ILocatable;
-import ic2ce.core.event.WorldData;
+import ic2ce.neoforge.world.WorldData;
 import java.io.PrintStream;
 import java.util.Objects;
 import java.util.concurrent.CopyOnWriteArrayList;

@@ -2,7 +2,7 @@ package ic2ce.neoforge;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import ic2ce.neoforge.fluid.FluidHandler;
-import ic2ce.core.proxy.ClientEnvProxy;
+import ic2ce.neoforge.client.ClientEnvProxy;
 import ic2ce.neoforge.client.text.LocalizedText;
 import java.io.File;
 import java.util.*;

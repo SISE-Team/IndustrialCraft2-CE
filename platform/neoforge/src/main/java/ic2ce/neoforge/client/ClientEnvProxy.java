@@ -1,4 +1,4 @@
-package ic2ce.core.proxy;
+package ic2ce.neoforge.client;
 
 import ic2ce.api.fluid.Ic2FluidStack;
 import java.io.File;

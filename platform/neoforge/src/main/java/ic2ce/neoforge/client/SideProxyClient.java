@@ -1,10 +1,9 @@
-package ic2ce.core.proxy;
+package ic2ce.neoforge.client;
 
 import ic2ce.api.tile.IRotorProvider;
 import ic2ce.neoforge.kinetic.client.KineticGeneratorRenderer;
 import ic2ce.neoforge.explosion.client.ExplosiveBlockRenderer;
-import ic2ce.core.util.Keyboard;
-import ic2ce.neoforge.client.KeyboardClient;
+import ic2ce.neoforge.runtime.Keyboard;
 import ic2ce.neoforge.agriculture.client.CellCareScreen;
 import ic2ce.neoforge.agriculture.client.FluidCareScreen;
 import ic2ce.neoforge.agriculture.client.HarvesterScreen;
@@ -56,6 +55,8 @@ import ic2ce.neoforge.registry.EntityDefinitions;
 import ic2ce.neoforge.registry.ItemDefinitions;
 import ic2ce.neoforge.registry.MenuDefinitions;
 import ic2ce.neoforge.runtime.ProjectRuntime;
+import ic2ce.neoforge.runtime.SideProxy;
+import ic2ce.neoforge.runtime.SideProxyServer;
 import ic2ce.neoforge.thermal.client.ElectricHeaterScreen;
 import ic2ce.neoforge.thermal.client.FluidHeaterScreen;
 import ic2ce.neoforge.thermal.client.IsotopeHeaterScreen;

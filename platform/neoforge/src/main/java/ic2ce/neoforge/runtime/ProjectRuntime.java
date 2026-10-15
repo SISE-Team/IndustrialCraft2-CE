@@ -1,12 +1,7 @@
 package ic2ce.neoforge.runtime;
 
 import ic2ce.neoforge.network.NetworkManager;
-import ic2ce.core.proxy.EnvProxy;
-import ic2ce.core.proxy.SideProxy;
-import ic2ce.core.proxy.SideProxyServer;
-import ic2ce.core.util.Keyboard;
 import ic2ce.engine.async.PriorityExecutor;
-import ic2ce.core.util.SideGateway;
 import ic2ce.neoforge.EnvProxyNeoForge;
 import ic2ce.neoforge.audio.AudioService;
 import ic2ce.neoforge.diagnostics.ProjectLog;
@@ -25,7 +20,7 @@ public final class ProjectRuntime {
   public static final EnvProxy envProxy = new EnvProxyNeoForge();
   public static final SideProxy sideProxy =
       envProxy.isClientEnv()
-          ? instantiate("ic2ce.core.proxy.SideProxyClient", SideProxy.class)
+          ? instantiate("ic2ce.neoforge.client.SideProxyClient", SideProxy.class)
           : new SideProxyServer();
   public static final ProjectLog log = new ProjectLog(LogManager.getLogger("IndustrialCraft2-CE"));
   public static final SideGateway<NetworkManager> network =
