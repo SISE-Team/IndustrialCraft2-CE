@@ -119,6 +119,33 @@ public final class SignalContracts {
     check(
         true,
         "direct and analog output callbacks tolerate construction before native world attachment");
+    var refreshes = new AtomicInteger();
+    var unloadOrigin = new SignalInput(owner(world, pos));
+    var liveReceiver = new SignalInput(owner(world, pos.east(3))) {
+      @Override public void update() { refreshes.incrementAndGet(); super.update(); }
+    };
+    unloadOrigin.addRedstoneModifier(value -> 15);
+    unloadOrigin.update();
+    unloadOrigin.linkTo(liveReceiver);
+    int beforeUnload = refreshes.get();
+    unloadOrigin.onUnloaded();
+    check(!unloadOrigin.isLinked() && liveReceiver.getLinkedOrigins().isEmpty()
+            && refreshes.get() == beforeUnload,
+        "unload detaches stale links without sampling the receiver's world");
+    ic2ce.neoforge.world.TickHandler.onWorldTickStart(world);
+    check(refreshes.get() == beforeUnload + 1 && liveReceiver.getRedstoneInput() == 0,
+        "a surviving receiver refreshes on the next native world tick");
+    unloadOrigin.onLoaded();
+    unloadOrigin.linkTo(liveReceiver);
+    unloadOrigin.onUnloaded();
+    liveReceiver.onUnloaded();
+    int detached = refreshes.get();
+    ic2ce.neoforge.world.TickHandler.onWorldTickStart(world);
+    check(refreshes.get() == detached && liveReceiver.getLinkedOrigins().isEmpty(),
+        "an unloading receiver never samples chunks from a deferred callback");
+    liveReceiver.onLoaded();
+    check(refreshes.get() == detached + 1 && liveReceiver.getRedstoneInput() == 0,
+        "loading the signal component enables ordinary world sampling again");
     return new Result(checks, List.copyOf(failures));
   }
 }

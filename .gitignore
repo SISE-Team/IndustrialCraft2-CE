@@ -97,6 +97,8 @@ __pycache__/
 !/tools/reorganize_registry_definitions.py
 
 !/tools/audit_migration_release.py
+!/tools/validate_server_headless.py
+!/tools/audit_server_machine_world.py
 
 !/tools/launch_validation.py
 

@@ -51,6 +51,7 @@ import net.neoforged.neoforge.event.tick.ServerTickEvent;
 
 /** Disposable fixtures, available only in migrationVerificationJar. */
 public final class MigrationVerification {
+  private static final int COAL_FIXTURE_COUNT = 32;
   public static final java.util.concurrent.ConcurrentMap<String, Integer> CLIENT_GUI_TICKS =
       new java.util.concurrent.ConcurrentHashMap<>();
   private final Map<String, Object> report = new LinkedHashMap<>();
@@ -60,6 +61,14 @@ public final class MigrationVerification {
   private int ticks;
   private int checks;
   private double disconnectedEnergy;
+  private boolean generatorWasActive;
+  private double generatorPeakEnergy;
+  private int generatorFirstActiveTick = -1;
+  private int generatorFirstEnergyTick = -1;
+  private int cableCutTick = -1;
+  private int cableReconnectedTick = -1;
+  private double reconnectionEnergy;
+  private boolean cableEnergyResumed;
   private boolean finished;
   private final java.util.Set<String> powered = new java.util.HashSet<>();
   private final java.util.Set<String> active = new java.util.HashSet<>();
@@ -90,6 +99,15 @@ public final class MigrationVerification {
     report.put("ticks", ticks);
     report.put("failures", failures);
     report.put("finished", finished);
+    report.put("generatorEverActive", generatorWasActive);
+    report.put("generatorPeakEnergy", generatorPeakEnergy);
+    report.put("generatorFirstActiveTick", generatorFirstActiveTick);
+    report.put("generatorFirstEnergyTick", generatorFirstEnergyTick);
+    report.put("cableCutTick", cableCutTick);
+    report.put("cableReconnectedTick", cableReconnectedTick);
+    report.put("cableEnergyBeforeCut", disconnectedEnergy);
+    report.put("cableEnergyBeforeReconnect", reconnectionEnergy);
+    report.put("cableEnergyResumed", cableEnergyResumed);
     if (Boolean.getBoolean("ic2.verifyGuiCycle")) {
       report.put("clientGuiTicks", new java.util.TreeMap<>(CLIENT_GUI_TICKS));
       report.put("clientGuiCycleComplete", guiCycleComplete);
@@ -347,9 +365,9 @@ public final class MigrationVerification {
           level.setBlockAndUpdate(new BlockPos(x, y, z), Blocks.AIR.defaultBlockState());
       }
     CombustionGenerator generator = (CombustionGenerator) place("generator", 32, 32);
-    generator.fuelSlot.put(new ItemStack(Items.COAL, 32));
+    generator.fuelSlot.put(new ItemStack(Items.COAL, COAL_FIXTURE_COUNT));
     for (int x = 33; x <= 38; x++) place("tin_cable", x, 32);
-    machine("macerator", 34, 31, new ItemStack(Items.IRON_ORE, 2));
+    machine("macerator", 34, 31, new ItemStack(Items.IRON_ORE, 64));
     machine("electric_furnace", 35, 31, new ItemStack(Items.IRON_ORE, 2));
     machine("compressor", 36, 31, new ItemStack(Items.CLAY_BALL, 8));
     machine("extractor", 37, 31, new ItemStack(item("rubber_log"), 2));
@@ -583,26 +601,41 @@ public final class MigrationVerification {
       return;
     }
     ticks++;
+    var generator = tile("generator");
+    if (generator != null) {
+      if (generator.getActive()) {
+        generatorWasActive = true;
+        if (generatorFirstActiveTick < 0) generatorFirstActiveTick = ticks;
+      }
+      double stored = generator.getComponent(ElectricalBuffer.class).getEnergy();
+      generatorPeakEnergy = Math.max(generatorPeakEnergy, stored);
+      if (stored > 0 && generatorFirstEnergyTick < 0) generatorFirstEnergyTick = ticks;
+    }
     for (String name : List.of("macerator", "electric_furnace", "compressor", "extractor")) {
       var tile = tile(name);
       if (tile != null && tile.getComponent(ElectricalBuffer.class).getEnergy() > 0)
         powered.add(name);
       if (tile != null && tile.getActive()) active.add(name);
     }
-    if (ticks == 100)
-      guard(
-          "energy delivery",
-          () -> {
-            check(tile("generator").getActive(), "coal generator produces energy");
-          });
-    if (ticks == 120)
+    if (ticks == 100 && generator != null)
+      report.put("generatorActiveAt100", generator.getActive());
+    var macerator = (PoweredProcessor<?, ?, ?>) tile("macerator");
+    if (cableReconnectedTick >= 0 && ticks > cableReconnectedTick && macerator != null
+        && macerator.getComponent(ElectricalBuffer.class).getEnergy() > reconnectionEnergy)
+      cableEnergyResumed = true;
+    // Cold-world chunk initialization is asynchronous. Cut only after an actual,
+    // working consumer holds enough EU for a processing tick, then observe its drain.
+    if (cableCutTick < 0 && ticks >= 120 && ticks <= 780 && macerator != null
+        && macerator.getActive() && macerator.getComponent(ElectricalBuffer.class).getEnergy()
+            >= Math.max(1, macerator.energyConsume))
       guard(
           "disconnect cable",
           () -> {
             disconnectedEnergy = tile("macerator").getComponent(ElectricalBuffer.class).getEnergy();
             level.setBlockAndUpdate(new BlockPos(33, 101, 32), Blocks.AIR.defaultBlockState());
+            cableCutTick = ticks;
           });
-    if (ticks == 180)
+    if (cableCutTick >= 0 && ticks == cableCutTick + 60)
       guard(
           "reconnect cable",
           () -> {
@@ -610,12 +643,24 @@ public final class MigrationVerification {
                 tile("macerator").getComponent(ElectricalBuffer.class).getEnergy()
                     < disconnectedEnergy,
                 "energy delivery stops with a cut cable");
+            reconnectionEnergy = tile("macerator").getComponent(ElectricalBuffer.class).getEnergy();
             place("tin_cable", 33, 32);
+            cableReconnectedTick = ticks;
           });
     if (ticks == 900) {
       guard(
           "machine results and persistence",
           () -> {
+            // Activity at a single chosen tick is not proof of production or failure.
+            // Observe the entire real-world run, then require fuel use, stored EU and outputs.
+            check(generatorWasActive, "coal generator entered its active state");
+            check(generatorPeakEnergy > 0, "coal generator stored generated energy");
+            int remainingFuel = ((CombustionGenerator) tile("generator")).fuelSlot.get().getCount();
+            check(remainingFuel < COAL_FIXTURE_COUNT, "coal generator consumed fuel");
+            report.put("generatorRemainingCoal", remainingFuel);
+            check(cableCutTick >= 0, "powered cable was physically cut");
+            check(cableReconnectedTick > cableCutTick, "cut cable was physically reconnected");
+            check(cableEnergyResumed, "consumer receives energy again after reconnecting cable");
             for (String name :
                 List.of("macerator", "electric_furnace", "compressor", "extractor")) {
               var machine = (PoweredProcessor<?, ?, ?>) tile(name);

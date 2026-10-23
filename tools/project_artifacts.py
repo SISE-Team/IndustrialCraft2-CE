@@ -24,6 +24,6 @@ def installed_ic2_jars(mods):
     result = []
     for path in Path(mods).glob('*.jar'):
         with zipfile.ZipFile(path) as jar:
-            if any(entry in jar.namelist() for entry in ('ic2ce/neoforge/runtime/ProjectRuntime.class', 'ic2ce/core/IC2.class', 'ic2/core/IC2.class')):
+            if any(entry in jar.namelist() for entry in ('ic2ce/neoforge/IndustrialCraft2CE.class', 'ic2ce/neoforge/runtime/ProjectRuntime.class', 'ic2ce/core/IC2.class', 'ic2/core/IC2.class')):
                 result.append(path)
     return result

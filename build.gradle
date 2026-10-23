@@ -16,6 +16,34 @@ evaluationDependsOn(':api')
 evaluationDependsOn(':neoforge')
 def runtimeModules = [project(':engine'), project(':api'), project(':neoforge')]
 
+// Original media is the main-branch release policy. Draft artwork lives in a
+// separate local worktree and must never leak into resource or source JARs.
+tasks.register('verifyOriginalArt') {
+    def manifestFile = file('validation/original-art.json')
+    def resourceRoot = file('assets/src/main/resources')
+    def media = fileTree(resourceRoot) { include '**/*.png', '**/*.mcmeta', '**/*.ogg' }
+    def drafts = fileTree(resourceRoot) {
+        include '**/*-art-manifest.json', '**/nuclear-marking-manifest.json'
+        include '**/textures/block/ce/**', '**/textures/item/ce/**'
+    }
+    inputs.file(manifestFile)
+    inputs.files(media, drafts)
+    doLast {
+        def expected = new groovy.json.JsonSlurper().parse(manifestFile).files
+        def actual = media.files.collectEntries { path ->
+            [(resourceRoot.toPath().relativize(path.toPath()).toString().replace('\\', '/')): path]
+        }
+        if (actual.keySet() != expected.keySet() || !drafts.isEmpty())
+            throw new GradleException('Release resources contain missing media or temporary artwork.')
+        def changed = actual.findAll { path, source ->
+            def digest = java.security.MessageDigest.getInstance('SHA-256').digest(source.bytes)
+            java.util.HexFormat.of().formatHex(digest) != expected[path]
+        }.keySet()
+        if (changed) throw new GradleException('Original IC2 media changed: ' + changed.join(', '))
+        logger.lifecycle('IC2_ORIGINAL_ART_VERIFY files={} temporary_artwork=0', actual.size())
+    }
+}
+
 // The root assembles one mod. Each implementation module owns its compiler and dependencies.
 tasks.named('jar') {
     runtimeModules.each { module -> dependsOn module.tasks.named('classes'); from module.sourceSets.main.output }
@@ -53,6 +81,7 @@ tasks.register('checkLayering') {
 }
 tasks.named('check') { dependsOn 'checkLayering' }
 tasks.withType(Jar).configureEach {
+    dependsOn tasks.named('verifyOriginalArt')
     archiveVersion = minecraft_version + '-' + mod_version
     manifest.attributes('Implementation-Title': mod_name, 'Implementation-Version': mod_version)
     from(['LICENSE', 'NOTICE']) { into 'META-INF/licenses' }

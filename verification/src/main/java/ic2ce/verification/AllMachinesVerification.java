@@ -42,6 +42,12 @@ public final class AllMachinesVerification {
 
   public AllMachinesVerification() {
     ACTIVE = this;
+    if (Boolean.getBoolean("ic2.verifyServerOnly")) {
+      net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(new DedicatedServerVerification());
+      if (!Boolean.getBoolean("ic2.serverReload"))
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(new MigrationVerification());
+      return;
+    }
     if (Boolean.getBoolean("ic2.verifyRecipeBookOnly")) {
       net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(new RecipeBookVerification());
       if (net.neoforged.fml.loading.FMLEnvironment.getDist().isClient())
@@ -138,7 +144,8 @@ public final class AllMachinesVerification {
 
   @SubscribeEvent
   public void login(PlayerEvent.PlayerLoggedInEvent event) {
-    if (Boolean.getBoolean("ic2.verifyRecipeBookOnly")
+    if (Boolean.getBoolean("ic2.verifyServerOnly")
+        || Boolean.getBoolean("ic2.verifyRecipeBookOnly")
         || Boolean.getBoolean("ic2.verifyWorkflow")
         || Boolean.getBoolean("ic2.verifyItemFunctions")
         || Boolean.getBoolean("ic2.inventoryProbeOnly")

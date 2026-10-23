@@ -1,6 +1,8 @@
 package ic2ce.neoforge.component;
 
 import ic2ce.neoforge.block.NativeBlockEntity;
+import ic2ce.neoforge.world.TickHandler;
+import ic2ce.neoforge.world.WorldData;
 import java.util.*;
 import net.minecraft.world.level.block.Block;
 
@@ -13,7 +15,7 @@ public class SignalInput extends NativeComponent {
   private List<IRedstoneChangeHandler> observers = List.of();
   private List<IRedstoneModifier> modifiers = List.of();
   private Link outbound;
-  private boolean updating, pending;
+  private boolean updating, pending, unloading, refreshQueued;
 
   public SignalInput(NativeBlockEntity parent) {
     super(parent);
@@ -21,13 +23,15 @@ public class SignalInput extends NativeComponent {
 
   @Override
   public void onLoaded() {
+    unloading = false;
     update();
   }
 
   @Override
   public void onUnloaded() {
-    unlinkOutbound();
-    unlinkInbound();
+    unloading = true;
+    unlinkOutbound(false);
+    unlinkInbound(false);
   }
 
   @Override
@@ -37,7 +41,7 @@ public class SignalInput extends NativeComponent {
 
   public void update() {
     var world = parent.getLevel();
-    if (world == null || world.isClientSide()) return;
+    if (unloading || parent.isRemoved() || world == null || world.isClientSide()) return;
     if (updating) {
       pending = true;
       return;
@@ -145,16 +149,38 @@ public class SignalInput extends NativeComponent {
   }
 
   public void unlinkOutbound() {
+    unlinkOutbound(!unloading);
+  }
+
+  private void unlinkOutbound(boolean refresh) {
     var link = outbound;
     if (link == null) return;
     outbound = null;
     unsubscribe(link);
     link.receiver.removeRedstoneModifier(link);
-    link.receiver.update();
+    if (refresh) link.receiver.update();
+    else link.receiver.deferUpdate();
   }
 
   public void unlinkInbound() {
-    for (var origin : getLinkedOrigins()) origin.unlinkOutbound();
+    unlinkInbound(!unloading);
+  }
+
+  private void unlinkInbound(boolean refresh) {
+    for (var origin : getLinkedOrigins()) origin.unlinkOutbound(refresh);
+  }
+
+  private void deferUpdate() {
+    var world = parent.getLevel();
+    if (unloading || refreshQueued || parent.isRemoved() || world == null || world.isClientSide()
+        || WorldData.get(world, false) == null) return;
+    refreshQueued = true;
+    // A receiver's neighbors may already be unloading. Never request them from an unload hook.
+    TickHandler.requestSingleWorldTick(world, observed -> {
+      refreshQueued = false;
+      if (!unloading && !parent.isRemoved() && observed == parent.getLevel()
+          && observed.isLoaded(parent.getBlockPos())) update();
+    });
   }
 
   public interface IRedstoneChangeHandler {

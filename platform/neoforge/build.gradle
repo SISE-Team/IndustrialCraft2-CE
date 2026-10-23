@@ -27,6 +27,7 @@ dependencies {
 }
 sourceSets.main.resources.setSrcDirs([rootProject.file('assets/src/main/resources')])
 tasks.withType(ProcessResources).configureEach {
+    dependsOn ':verifyOriginalArt'
     def props = [:]
     ['minecraft_version', 'minecraft_version_range', 'neo_version', 'neo_version_range', 'loader_version_range',
         'mod_id', 'mod_name', 'mod_license', 'mod_authors', 'mod_description'].each { key -> props[key] = rootProject.property(key) }
@@ -47,4 +48,21 @@ sourceSets {
         compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
         runtimeClasspath += sourceSets.main.output + sourceSets.main.runtimeClasspath
     }
+}
+
+tasks.register('verifyPersonalChestRendering', JavaExec) {
+    dependsOn tasks.named('migrationVerificationClasses')
+    classpath = sourceSets.migrationVerification.runtimeClasspath
+    mainClass = 'ic2ce.neoforge.personal.client.PrivateChestRenderVerification'
+}
+
+tasks.register('exportGuiAtlasContract', JavaExec) {
+    dependsOn tasks.named('migrationVerificationClasses')
+    classpath = sourceSets.migrationVerification.runtimeClasspath
+    mainClass = 'ic2ce.verification.GuiAtlasContract'
+    args project.findProperty('guiAtlasOutput') ?: rootProject.layout.buildDirectory.file('verification/gui-atlas-contract.json').get().asFile.absolutePath
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('verifyPersonalChestRendering')
 }

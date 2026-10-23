@@ -14,6 +14,8 @@ import ic2ce.neoforge.explosion.client.ExplosiveBlockRenderer;
 import ic2ce.neoforge.menu.document.DocumentMenus;
 import ic2ce.neoforge.mining.MiningMenus;
 import ic2ce.neoforge.personal.PersonalMenus;
+import ic2ce.neoforge.personal.PersonalBlockEntities;
+import ic2ce.neoforge.personal.client.PrivateChestRenderer;
 import ic2ce.neoforge.power.PowerBlockEntities;
 import ic2ce.neoforge.power.PowerMenus;
 import ic2ce.neoforge.processing.ProcessingMenus;
@@ -224,6 +226,8 @@ public final class SideProxyClient implements SideProxy {
                 context,
                 ProjectIds.id("textures/entity/boat/boat_carbon.png"),
                 false));
+    envProxy.registerBlockEntityRenderer(
+        PersonalBlockEntities.PERSONAL_CHEST, PrivateChestRenderer::new);
     envProxy.registerBlockEntityRenderer(
         WorldBlockEntities.SIGN,
         net.minecraft.client.renderer.blockentity.StandingSignRenderer::new);
